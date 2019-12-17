@@ -488,7 +488,12 @@ private _templateVariables = [
 	"MortStaticCSATB",
 	"supportStaticCSATB",
 	"supportStaticCSATB2",
-	"supportStaticCSATB3"
+	"supportStaticCSATB3",
+	
+	//JNL Logistics
+	"jnl_vehicleHardpoints_append",
+	"jnl_allowedWeapons_append",
+	"jnl_attachmentOffset_append"
 ];
 
 {
@@ -523,6 +528,7 @@ else {
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 };
+/*Debug*/	call compile preProcessFileLineNumbers "Templates\TEST_Log_DEV_PurpleChecker.sqf";
 
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///

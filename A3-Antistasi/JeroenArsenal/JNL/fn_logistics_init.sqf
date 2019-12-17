@@ -358,4 +358,13 @@ _defaultCrew = gettext (configfile >> "cfgvehicles" >> "all" >> "crew");
 	};
 } foreach ("isclass _x && {getnumber (_x >> 'scope') == 2} && {gettext (_x >> 'crew') != _defaultCrew}" configclasses (configfile >> "cfgvehicles"));
 
+//Add additional objects from templates.
+if (!(isNil jnl_vehicleHardpoints_append || isNil jnl_allowedWeapons_append  || isNil jnl_attachmentOffset_append)) then
+{
+	jnl_vehicleHardpoints append jnl_vehicleHardpoints_append;
+	jnl_allowedWeapons append jnl_allowedWeapons_append;
+	jnl_attachmentOffset append jnl_attachmentOffset_append;
+}
+else diag_log format ["%1: [Antistasi] | ERROR | fn_logistics_init.sqf | *_append varaibles undefined.",servertime];
+
 jnl_initCompleted = true;
