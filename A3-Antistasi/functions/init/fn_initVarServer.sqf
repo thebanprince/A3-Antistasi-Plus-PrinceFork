@@ -528,7 +528,6 @@ else {
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 };
-/*Debug*/	call compile preProcessFileLineNumbers "Templates\TEST_Log_DEV_PurpleChecker.sqf";
 
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
