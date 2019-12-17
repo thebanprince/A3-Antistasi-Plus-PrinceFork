@@ -1,13 +1,11 @@
+//*Debug Example*/call compile preProcessFileLineNumbers "Templates\EXAMP_Reb_DEV_PurpleChecker.sqf";
 ////////////////////////////////////
 //         JNL Logistics         ///
 ////////////////////////////////////
-if (isNil "jnl_vehicleHardpoints_append") then {jnl_vehicleHardpoints_append = []};
-if (isNil "jnl_allowedWeapons_append") then {jnl_allowedWeapons_append = []};
-if (isNil "jnl_attachmentOffset_append") then {jnl_attachmentOffset_append = []};
 //To find the model names use: `gettext (configfile >> "CfgVehicles" >> (typeOf cursorObject)  >> "model");`
 
 //Adds new cargo vehicles.
-jnl_vehicleHardpoints_append append [
+["jnl_vehicleHardpoints",[
 	//Quad Bike
     ["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d", [
     	//type, location				locked seats
@@ -20,9 +18,9 @@ jnl_vehicleHardpoints_append append [
     	[0,		[-0.04,-1.7,-0.72],		[]],		//weapon node
     	[1,		[-0.04,-1.7,-0.72],		[]]			//cargo node
     ]]
-];
+]] call A3A_fnc_logistics_append;
 //Describes what the cargo vehicles can carry.
-jnl_allowedWeapons_append append [
+["jnl_allowedWeapons",[
 	//Quad Bike
 	["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d", [
 		"\A3\Static_F_Gamma\AT_01\AT_01.p3d",							//AT titan, facing to the right
@@ -49,11 +47,12 @@ jnl_allowedWeapons_append append [
 		"\rhsafrf\addons\rhs_heavyweapons\spg9\spg9.p3d",				//RHS SPG-9, facing 75 degrees to the left
 		"rhsafrf\addons\rhs_heavyweapons\igla\igla_AA_pod"				//RHS double Igla launcher
 	]]
-];
-//Adds new cargo (NOTE: The objects will have to be set-up as cargo, ie: custom crates at outposts.).
-jnl_attachmentOffset_append append [
+]] call A3A_fnc_logistics_append;
+//Adds new cargo; NOTE: The objects will have to be set-up:
+//cursorObject call jn_fnc_logistics_addAction;
+["jnl_allowedWeapons",[
 	//weapons														//location				//rotation				//type 	//discription
 	["\A3\Static_F_Gamma\AT_01\WorldEat",							[-0.5, 0.0, 1.05],		[1, 0, 0],				0],		//AT titan, facing to the right [Example]
 	//medium size crate												//location				//rotation				//type 	//discription
 	["A3\Weapons_F\Ammoboxes\customOutpostCrate",					[0,0,0.85],				[1,0,0],				1]		//Vehicle ammo create [Example]
-];
+]] call A3A_fnc_logistics_append;
