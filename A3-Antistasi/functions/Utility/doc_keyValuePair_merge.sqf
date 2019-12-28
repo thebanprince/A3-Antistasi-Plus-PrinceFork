@@ -4,9 +4,11 @@
  * Date Modified: 28-12-2019
  * 
  * This returns a keyValuePair of the merge of two keyValuePairs while favouring duplicates from the second keyValuePair.
- * If both arrays nil returns empty array.
+ * If both arrays nil returns empty array. 
+ *
+ * Returns false if _conflictAction is invalid. This will crash if given rubbish data (non arrays). Verifying input would add at least +n worth overhead to the execution.
  * 
- * keyValuePair: An array with basic structure of: [["label",...]...]
+ * keyValuePair an element in a dictionary, map or hash table: ["key1",value] or ["key2",[values,...]]
  * _conflictAction: one of the following:
  * 		"overwrite"		-Replaces key pair in thr first array with the conflicting key pair in second array.
  * 		"exclude"		-Excludes both key pairs completely.
@@ -16,7 +18,7 @@
  * 		recursion may be added in the future depending on demand.
  * 		default: "overwrite"	
  * 
- * Call with two arrays. All must be in keyValuePair format.
+ * Call with two arrays. All elements should be in keyValuePair format. 
  * [_array1, _array2] call A3A_fnc_keyValuePair_merge; or
  * [_array1, _array2, _conflictAction] call A3A_fnc_keyValuePair_merge; 
  */
