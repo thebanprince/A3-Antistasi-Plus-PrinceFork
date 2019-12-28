@@ -75,14 +75,6 @@ _arraySets=
 	] 
 ]; 
  
-[_arraySets] apply { 
-	_array1 = _x # 0; 
-	_array2 = _x # 1; 
-	_conflictActions apply { 
-		[_array1, _array2, _x] call A3A_fnc_keyValuePair_merge; 
-	}; 
-};
-
 _testOut = [];
 {
 	_array1 = _x # 0; 
@@ -94,29 +86,3 @@ _testOut = [];
 	_testOut append [_arrayCurrentSet];
 } forEach _arraySets;
 _testOut;
-
-/*
-[
-	[
-		[["maybe",["van"]],["no",["truck"]],["yes",["plane"]],["hmm",["boat"]]],
-		[["maybe",["van"]],["hmm",["boat"]]],
-		[["no",["truck"]],["yes",["car"]],["no",["truck"]],["yes",["plane"]]],
-		[["maybe",["van"]],["hmm",["boat"]],["no",["truck","truck"]],["yes",["car","plane"]]],
-		[["maybe",["van"]],["hmm",["boat"]],["no",["truck"]],["yes",["car","plane"]]]
-	],
-	[
-		[["oofs",2],["msg","World"],["oh no",[[1],[1],[[2],["Gh"]]]]],
-		[],
-		[["oofs",1],["oofs",1],["msg","Hello"],["oh no",[[1],[[2],["Ah"]],[3]]],["oofs",2],["msg","World"],["oh no",[[1],[1],[[2],["Gh"]]]]],
-		[["oofs",3],["msg","HelloWorld"],["oh no",[[1],[[2],["Ah"]],[3],[1],[1],[[2],["Gh"]]]]],
-		[["oofs",2],["msg","World"],["oh no",[[1],[[2],["Ah"]],[3],[[2],["Gh"]]]]]
-	],
-	[
-		[["maybe",["van","10 kph"],["train","60 kph"]],["no","truck","50 kph"],["yes",["plane","90 kph"]],["hmm",["boat",50,"knots"]]],
-		[["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]]],
-		[["no","truck","45 kph"],["yes",[["car","90 kph"]]],["no","truck","50 kph"],["yes",["plane","90 kph"]]],
-		[["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]],["no","trucktruck"],["yes",[["car","90 kph"],"plane","90 kph"]]],
-		[["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]],["no","truck","50 kph"],["yes",[["car","90 kph"],"plane","90 kph"]]]
-	]
-]
-//*/
