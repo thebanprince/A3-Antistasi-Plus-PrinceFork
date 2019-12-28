@@ -22,12 +22,10 @@
  */
 private _fileName = "fn_keyValuePair_merge.sqf";
 
-keyValuePair = [["label"]];
-_conflictActionOptions = ["overwrite", "exclude", "intersect", "valueAdd", "valuePushBackUnique"];
 params [
-	["_array1", keyValuePair, [keyValuePair,nil]],
-	["_array2", keyValuePair, [keyValuePair,nil]],
-	["_conflictAction", "overwrite", _conflictActionOptions]
+	["_array1", [], [[],nil]],
+	["_array2", [], [[],nil]],
+	["_conflictAction", "overwrite", ""]
 ];
 
 if (isNil "_array1") then {_array1 = []};

@@ -40,3 +40,14 @@ _array2 = [["oofs", 2],["msg","World"],["oh no", [[1],[1],[[2],["Gh"]]]  ]];
 [_array1, _array2, "intersect"] call A3A_fnc_keyValuePair_merge;			// [["oofs",1],["oofs",1],["msg","Hello"],["oh no",[[1],[[2],["Ah"]],[3]]],["oofs",2],["msg","World"],["oh no",[[1],[1],[[2],["Gh"]]]]]
 [_array1, _array2, "valueAdd"] call A3A_fnc_keyValuePair_merge;				// [["oofs",3],["msg","WorldHello"],["oh no",[[1],[1],[[2],["Gh"]],[1],[[2],["Ah"]],[3]]]]
 [_array1, _array2, "valuePushBackUnique"] call A3A_fnc_keyValuePair_merge;	// [["oofs",1],["msg","Hello"],["oh no",[[1],[1],[[2],["Gh"]],[[2],["Ah"]],[3]]]]
+
+
+// Incorrect formats have wild effects
+_array1 = [["no", "truck", "45 kph"],["maybe",["van","10 kph"],["train","60 kph"]],["yes", [["car","90 kph"]]]];
+_array2 = [["no", "truck", "50 kph"],["yes",["plane","90 kph"]],["hmm",["boat",50,"knots"]]];
+
+[_array1, _array2, "overwrite"] call A3A_fnc_keyValuePair_merge;			// [["maybe",["van","10 kph"],["train","60 kph"]],["no","truck","50 kph"],["yes",["plane","90 kph"]],["hmm",["boat",50,"knots"]]]
+[_array1, _array2, "exclude"] call A3A_fnc_keyValuePair_merge;				// [["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]]]
+[_array1, _array2, "intersect"] call A3A_fnc_keyValuePair_merge;			// [["no","truck","45 kph"],["yes",[["car","90 kph"]]],["no","truck","50 kph"],["yes",["plane","90 kph"]]]
+[_array1, _array2, "valueAdd"] call A3A_fnc_keyValuePair_merge;				// [["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]],["no","trucktruck"],["yes",["plane","90 kph",["car","90 kph"]]]]
+[_array1, _array2, "valuePushBackUnique"] call A3A_fnc_keyValuePair_merge;	// [["maybe",["van","10 kph"],["train","60 kph"]],["hmm",["boat",50,"knots"]],["no","truck","45 kph"],["yes",["plane","90 kph",["car","90 kph"]]]]
