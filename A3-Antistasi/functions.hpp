@@ -486,6 +486,6 @@ class A3A
 		class dateToTimeString {};
 		class log {};
 		class vehicleWillCollideAtPosition {};
-		class keyValuePair_merge {};
+		class dictionary_merge {};
 	};
 };
