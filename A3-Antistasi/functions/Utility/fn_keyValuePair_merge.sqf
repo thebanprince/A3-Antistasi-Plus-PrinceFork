@@ -49,8 +49,8 @@ switch (_conflictAction) do {
 		_arrayFinal append (_array2 select {(_collisions find (_x select 0)) < 0});
 		{
 			_collision = _x;
-			val1 = ((_array2 select {(_x select 0) isEqualTo _collision}) select 0) select 1;
-			keyVal2 = (_array1 select {(_x select 0) isEqualTo _collision}) select 0;
+			val1 = ((_array1 select {(_x select 0) isEqualTo _collision}) select 0) select 1;
+			keyVal2 = (_array2 select {(_x select 0) isEqualTo _collision}) select 0;
 			key2 = keyVal2 select 0;
 			val2 = keyVal2 select 1;
 
@@ -65,8 +65,8 @@ switch (_conflictAction) do {
 		_arrayFinal append (_array2 select {(_collisions find (_x select 0)) < 0});
 			{
 				_collision = _x;
-				valFinal = +((_array2 select {(_x select 0) isEqualTo _collision}) select 0) select 1; //+ avoids pointing to array
-				keyVal2 = (_array1 select {(_x select 0) isEqualTo _collision}) select 0;
+				valFinal = +((_array1 select {(_x select 0) isEqualTo _collision}) select 0) select 1; //+ avoids pointing to array
+				keyVal2 = (_array2 select {(_x select 0) isEqualTo _collision}) select 0;
 				key2 = keyVal2 select 0;
 				val2 = keyVal2 select 1;
 				if ( valFinal isEqualType [] && val2 isEqualType []) then {
