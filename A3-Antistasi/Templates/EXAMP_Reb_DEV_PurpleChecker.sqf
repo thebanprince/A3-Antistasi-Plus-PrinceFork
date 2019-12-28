@@ -50,7 +50,7 @@
 ]] call A3A_fnc_logistics_append;
 //Adds new cargo; NOTE: The objects will have to be set-up:
 //cursorObject call jn_fnc_logistics_addAction;
-["jnl_allowedWeapons",[
+["jnl_attachmentOffset",[
 	//weapons														//location				//rotation				//type 	//discription
 	["\A3\Static_F_Gamma\AT_01\WorldEat",							[-0.5, 0.0, 1.05],		[1, 0, 0],				0],		//AT titan, facing to the right [Example]
 	//medium size crate												//location				//rotation				//type 	//discription

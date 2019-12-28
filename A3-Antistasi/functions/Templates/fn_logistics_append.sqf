@@ -1,4 +1,4 @@
-/* Function Logistics Append
+/* Function Logistics Append A3A_fnc_logistics_append
  * Author: Caleb S. Serafin
  * Date Created: 17-12-2019
  * Date Modified: 17-12-2019
@@ -9,9 +9,9 @@
  * Call with an original fn_logistics_init array name, and an array of items you would like to add to it.
  * ["jnl_vehicleHardpoints",[...]] call A3A_fnc_logistics_append;
  */
+private _fileName = "fn_logistics_append.sqf";
 
 params[["_JNLArrayName","nil",["string"]],"_additionalArray"];
-diag_log format ["%1: [Antistasi] | INFO | fn_logistics_append.sqf | %2; %3",servertime, _JNLArrayName,_additionalArray];
 switch (_JNLArrayName) do {
 	case "jnl_vehicleHardpoints": { 
 		if (isNil "jnl_vehicleHardpoints_append") then {jnl_vehicleHardpoints_append = []};
@@ -26,7 +26,7 @@ switch (_JNLArrayName) do {
 		jnl_attachmentOffset_append append _additionalArray;
 	};
 	default {
-		diag_log format ["%1: [Antistasi] | ERROR | fn_logistics_append.sqf | %2 is an invalid _JNLArrayName name passed to fn_logistics_append.",servertime, _JNLArrayName];
+		[1,format["%1 is an invalid _JNLArrayName name passed to fn_logistics_append.", _JNLArrayName],_fileName] call A3A_fnc_log;
 		throw "Invalid _JNLArrayName name passed to fn_logistics_append.";
 	};
 };
