@@ -16,7 +16,7 @@
  * 		recursion may be added in the future depending on demand.
  * 		default: "overwrite"	
  * 
- * Call with two arrays. All must be in keyValuePair format.
+ * Call with two arrays. All must be in keyValuePair format. Returns false if _conflictAction is invalid.
  * [_array1, _array2] call A3A_fnc_keyValuePair_merge; or
  * [_array1, _array2, _conflictAction] call A3A_fnc_keyValuePair_merge; 
  */
@@ -77,6 +77,6 @@ switch (_conflictAction) do {
 				};
 			} forEach _collisions;
 	};
-	default {[1,format["Unexpected _conflictAction = %1",_conflictAction],_fileName] call A3A_fnc_log};
+	default {_arrayFinal = false; [1,format["Unexpected _conflictAction = %1",_conflictAction],_fileName] call A3A_fnc_log};
 };
 _arrayFinal;
