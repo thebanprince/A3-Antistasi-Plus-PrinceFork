@@ -1,7 +1,7 @@
 /* Function Dictionary Merge A3A_fnc_dictionary_merge
  * Author: Caleb S. Serafin
  * Date Created: 27-12-2019
- * Date Modified: 28-12-2019
+ * Date Modified: 29-12-2019
  * 
  * Returns a merge of two dictionaries and handles conflicts.
  * If either dictionaries is nil, it is substituted with an empty array. 
