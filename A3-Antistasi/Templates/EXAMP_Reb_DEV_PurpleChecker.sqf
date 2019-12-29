@@ -32,7 +32,7 @@ jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
     ]]
 ]] call A3A_fnc_dictionary_merge;
 //Describes what the cargo vehicles can carry.
-jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
+jnl_allowedWeapons = [jnl_allowedWeapons,[
 	//Quad Bike
 	["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d", [
 		"\A3\Static_F_Gamma\AT_01\AT_01.p3d",							//AT titan, facing to the right
@@ -62,7 +62,7 @@ jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
 ]] call A3A_fnc_dictionary_merge;
 //Adds new cargo; NOTE: The objects will have to be set-up:
 //cursorObject call jn_fnc_logistics_addAction;
-jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
+jnl_attachmentOffset = [jnl_attachmentOffset,[
 	//weapons														//location				//rotation				//type 	//discription
 	["\A3\Static_F_Gamma\AT_01\WorldEat",							[-0.5, 0.0, 1.05],		[1, 0, 0],				0],		//AT titan, facing to the right [Example]
 	//medium size crate												//location				//rotation				//type 	//discription
