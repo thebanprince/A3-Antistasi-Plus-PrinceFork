@@ -1,26 +1,9 @@
-/* Documentation Key Value Pair Merge A3A_fnc_keyValuePair_merge
+/* Documentation Dictionary Merge A3A_fnc_keyValuePair_merge
  * Author: Caleb S. Serafin
  * Date Created: 27-12-2019
  * Date Modified: 29-12-2019
  * 
- * This returns a keyValuePair of the merge of two keyValuePairs while favouring duplicates from the second keyValuePair.
- * If both arrays nil returns empty array. 
- *
- * Returns false if _conflictAction is invalid. This will crash if given rubbish data (non arrays). Verifying input would add at least +n worth overhead to the execution.
- * 
- * keyValuePair an element in a dictionary, map or hash table: ["key1",value] or ["key2",[values,...]]
- * _conflictAction: one of the following:
- * 		"overwrite"		-Replaces key pair in thr first array with the conflicting key pair in second array.
- * 		"exclude"		-Excludes both key pairs completely.
- * 		"intersect"		-Only returns conflicts.
- * 		"valueAdd"		-Performs addition on the conflicting keys' values. Requires type to match otherwise defaults "overwrite" per case.
- * 		"valuePushBackUnique"	-Adds the conflicting keys' values if it is an array and only adds unique sub elements. 
- * 		recursion may be added in the future depending on demand.
- * 		default: "overwrite"	
- * 
- * Call with two arrays. All elements should be in keyValuePair format. 
- * [_array1, _array2] call A3A_fnc_keyValuePair_merge; or
- * [_array1, _array2, _conflictAction] call A3A_fnc_keyValuePair_merge; 
+ * Provides examples and performance tests for dictionary_merge
  */
 
 // Typical use cases with JNL arrays
@@ -97,8 +80,6 @@ _testOut;
 // 50% Unique Keys.
 // 25% Unique Value Conflicts
 // 25% Duplicate Value Conflicts
-
-
 _conflictActions = ["overwrite","exclude","intersect","valueAdd","valuePushBackUnique"]; 
 
 _dict1Unique = [];
