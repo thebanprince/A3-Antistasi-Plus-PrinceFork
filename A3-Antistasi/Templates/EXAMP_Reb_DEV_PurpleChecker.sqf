@@ -1,11 +1,23 @@
-//*Debug Example*/call compile preProcessFileLineNumbers "Templates\EXAMP_Reb_DEV_PurpleChecker.sqf";
+/* Function Example implementation of A3A_fnc_JNX_logistics_append.
+ * Author: Caleb S. Serafin
+ * Date Created: 17-12-2019
+ * Date Modified: 29-12-2019
+ * 
+ * Allows templates to add their own Cargo Carriers, Cargo Crates, and Mountable Statics.
+ * This completely removes code modification to JNL and helps make templates plug-n-play.
+ *
+ * Debug Example: call compile preProcessFileLineNumbers "Templates\EXAMP_Reb_DEV_PurpleChecker.sqf";
+ * 
+ */
+
+
 ////////////////////////////////////
 //         JNL Logistics         ///
 ////////////////////////////////////
-//To find the model names use: `gettext (configfile >> "CfgVehicles" >> (typeOf cursorObject)  >> "model");`
+//To find the model names use: `getText (configfile >> "CfgVehicles" >> (typeOf cursorObject)  >> "model");`
 
 //Adds new cargo vehicles.
-["jnl_vehicleHardpoints",[
+jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
 	//Quad Bike
     ["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d", [
     	//type, location				locked seats
@@ -18,9 +30,9 @@
     	[0,		[-0.04,-1.7,-0.72],		[]],		//weapon node
     	[1,		[-0.04,-1.7,-0.72],		[]]			//cargo node
     ]]
-]] call A3A_fnc_logistics_append;
+]] call A3A_fnc_dictionary_merge;
 //Describes what the cargo vehicles can carry.
-["jnl_allowedWeapons",[
+jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
 	//Quad Bike
 	["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d", [
 		"\A3\Static_F_Gamma\AT_01\AT_01.p3d",							//AT titan, facing to the right
@@ -47,12 +59,12 @@
 		"\rhsafrf\addons\rhs_heavyweapons\spg9\spg9.p3d",				//RHS SPG-9, facing 75 degrees to the left
 		"rhsafrf\addons\rhs_heavyweapons\igla\igla_AA_pod"				//RHS double Igla launcher
 	]]
-]] call A3A_fnc_logistics_append;
+]] call A3A_fnc_dictionary_merge;
 //Adds new cargo; NOTE: The objects will have to be set-up:
 //cursorObject call jn_fnc_logistics_addAction;
-["jnl_attachmentOffset",[
+jnl_vehicleHardpoints = [jnl_vehicleHardpoints,[
 	//weapons														//location				//rotation				//type 	//discription
 	["\A3\Static_F_Gamma\AT_01\WorldEat",							[-0.5, 0.0, 1.05],		[1, 0, 0],				0],		//AT titan, facing to the right [Example]
 	//medium size crate												//location				//rotation				//type 	//discription
 	["A3\Weapons_F\Ammoboxes\customOutpostCrate",					[0,0,0.85],				[1,0,0],				1]		//Vehicle ammo create [Example]
-]] call A3A_fnc_logistics_append;
+]] call A3A_fnc_dictionary_merge;

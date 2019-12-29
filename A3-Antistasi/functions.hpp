@@ -470,7 +470,6 @@ class A3A
 		class getLoadout {};
 		class ifaModCompat {};
 		class rhsModCompat {};
-		class logistics_append {};
 	};
 
 	class Undercover
