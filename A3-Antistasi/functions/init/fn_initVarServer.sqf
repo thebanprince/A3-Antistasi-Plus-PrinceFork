@@ -488,7 +488,7 @@ private _templateVariables = [
 	"MortStaticCSATB",
 	"supportStaticCSATB",
 	"supportStaticCSATB2",
-	"supportStaticCSATB3",
+	"supportStaticCSATB3"
 ];
 
 {
@@ -523,7 +523,7 @@ else {
 	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
 	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
 };
-
+//call compile preProcessFileLineNumbers "Templates\EXAMP_Reb_DEV_PurpleChecker.sqf";
 //////////////////////////////////////
 //      GROUPS CLASSIFICATION      ///
 //////////////////////////////////////
