@@ -2,7 +2,8 @@
 /*
 the last element is the list of seats to disable for specific node
 */
-jnl_vehicleHardpoints = [
+if (isNil "jnl_vehicleHardpoints") then {jnl_vehicleHardpoints = [];};
+jnl_vehicleHardpoints append [
 	//Offroad
     ["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
     	//type, location				locked seats
@@ -231,14 +232,16 @@ jnl_vehicleHardpoints = [
 ];
 
 //lock seats when cargo is added
-jnl_vehicleLockedSeats = [
+if (isNil "jnl_vehicleLockedSeats") then {jnl_vehicleLockedSeats = [];};
+jnl_vehicleLockedSeats append [
 	["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F",[1,2,3,4]],
 	["\A3\soft_f_gamma\van_01\Van_01_transport_F.p3d",[]],
 	["\A3\soft_f_beta\Truck_02\Truck_02_transport_F",[2,3,4,5,6,7,8,9,10,11,12,13]]
 ];
 
 //The list of static weapons that can be attached to a certain vehicle
-jnl_allowedWeapons = [
+if (isNil "jnl_allowedWeapons") then {jnl_allowedWeapons = [];};
+jnl_allowedWeapons append [
 	//Offroad
 	["\A3\soft_f\Offroad_01\Offroad_01_unarmed_F", [
 		"\A3\Static_F_Gamma\AT_01\AT_01.p3d",							//AT titan, facing to the right
@@ -313,7 +316,8 @@ jnl_allowedWeapons = [
 
 //The list of offsets for static weapons. To attach a weapon to a vehicle you get the hardpoint position and add the attachment offset to it, then pass this to attachTo command.
 //Each element is: [model name, offset, vectorDir]
-jnl_attachmentOffset = [
+if (isNil "jnl_attachmentOffset") then {jnl_attachmentOffset = [];};
+jnl_attachmentOffset append [
 
 	//weapons														//location				//rotation				//type 	//discription
 	["\A3\Static_F_Gamma\AT_01\AT_01.p3d",							[-0.5, 0.0, 1.05],		[1, 0, 0],				0],		//AT titan, facing to the right
@@ -357,25 +361,5 @@ _defaultCrew = gettext (configfile >> "cfgvehicles" >> "all" >> "crew");
 		};
 	};
 } foreach ("isclass _x && {getnumber (_x >> 'scope') == 2} && {gettext (_x >> 'crew') != _defaultCrew}" configclasses (configfile >> "cfgvehicles"));
-
-//Add additional objects from templates.
-if (!isNil "jnl_vehicleHardpoints_append") then
-{
-	jnl_vehicleHardpoints append jnl_vehicleHardpoints_append;
-	jnl_vehicleHardpoints_append = nil;
-}
-else {diag_log format ["%1: [Antistasi] | ERROR | fn_logistics_init.sqf | jnl_vehicleHardpoints_append undefined.",servertime]};
-if(!isNil "jnl_allowedWeapons_append") then 
-{
-	jnl_allowedWeapons append jnl_allowedWeapons_append;
-	jnl_allowedWeapons_append = nil;
-}
-else {diag_log format ["%1: [Antistasi] | ERROR | fn_logistics_init.sqf | jnl_allowedWeapons_append undefined.",servertime]};
-if(!isNil "jnl_attachmentOffset_append") then 
-{
-	jnl_attachmentOffset append jnl_attachmentOffset_append;
-	jnl_attachmentOffset_append = nil;
-}
-else {diag_log format ["%1: [Antistasi] | ERROR | fn_logistics_init.sqf | jnl_attachmentOffset_append undefined.",servertime]};
 
 jnl_initCompleted = true;
