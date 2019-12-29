@@ -23,7 +23,7 @@
  * [_dict1, _dict2] call A3A_fnc_dictionary_merge; or
  * [_dict1, _dict2, _conflictAction] call A3A_fnc_dictionary_merge; 
  */
-private _fileName = "fn_keyValuePair_merge.sqf";
+private _fileName = "fn_dictionary_merge.sqf";
 
 params [
 	["_dict1", [], [[],nil]],
