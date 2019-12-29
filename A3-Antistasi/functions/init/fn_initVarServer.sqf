@@ -489,11 +489,6 @@ private _templateVariables = [
 	"supportStaticCSATB",
 	"supportStaticCSATB2",
 	"supportStaticCSATB3",
-	
-	//JNL Logistics
-	"jnl_vehicleHardpoints_append",
-	"jnl_allowedWeapons_append",
-	"jnl_attachmentOffset_append"
 ];
 
 {
