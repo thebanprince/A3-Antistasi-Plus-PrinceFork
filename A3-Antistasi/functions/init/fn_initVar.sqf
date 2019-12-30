@@ -17,5 +17,5 @@ call A3A_fnc_initVarClient;
 
 //Marks initVar as finished.
 initVar = true;
-if (isMultiplayer) then {[petros,"hint","Variables Init Completed"] remoteExecCall ["A3A_fnc_commsMP", [0,-2] select isDedicated];};
+hint "Variables Init Completed";
 [2,"initVar completed",_fileName] call A3A_fnc_log;
