@@ -67,11 +67,11 @@ if ({alive _x} count units _groupX == 0) then
 	deleteMarker _markerX;
 	if (_isRoad) then
 		{
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExecCall ["BIS_fnc_showNotification", [0,-2] select isDedicated];
+		["TaskFailed", ["", "Roadblock Lost"]] remoteExecCall ["BIS_fnc_showNotification", [0,-2] select isMultiplayer];
 		}
 	else
 		{
-		["TaskFailed", ["", "Watchpost Lost"]] remoteExecCall ["BIS_fnc_showNotification", [0,-2] select isDedicated];
+		["TaskFailed", ["", "Watchpost Lost"]] remoteExecCall ["BIS_fnc_showNotification", [0,-2] select isMultiplayer];
 		};
 	};
 
