@@ -365,6 +365,18 @@
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
         <Original />
       </Key>
+      <Key ID="STR_antistasi_dialogs_generic_costs_generix_text">
+        <Original>Cost: %1 €</Original>
+        <English>Cost: %1 €</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_costs_training_text">
+        <Original>Current level: %2. Next Level Training Cost: %1 €</Original>
+        <English>Current level: %2. Next Level Training Cost: %1 €</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_costs_squad_text">
+        <Original>Cost: %1 €. HR: %2</Original>
+        <English>Cost: %1 €. HR: %2</English>
+      </Key>
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
@@ -1503,6 +1515,168 @@
       <Key ID="STR_antistasi_missions_info_underAttack_mission_text_1">
         <Original>%2 is attacking us in %1. Help the defense if you can.</Original>
         <English>%2 is attacking us in %1. Help the defense if you can.</English>
+      </Key>
+    </Container>
+    <Container name="dialogs">
+      <Key ID="STR_antistasi_dialogs_clearForest_text_1">
+        <Original>Only Commanders can order to clean the forest</Original>
+        <English>Only Commanders can order to clean the forest</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_clearForest_text_2">
+        <Original>You've cleared the surroundings of trees and bushes</Original>
+        <English>You've cleared the surroundings of trees and bushes</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_createDialog_setParams_text_1">
+        <Original>W A R N I N G\n\nREAD THIS!!!\n\n\nAntistasi does NOT support vanilla save. Do not expect 100% of functionalities if you Save&amp;Exit and after you come back with Resume option. Both on SP and MP.\n\n\nAntistasi has an in built save system, GTA alike, which is the system you have to use in order to have full functionalities.\n\nTo Save: Go to the Map Board, select ""Game Options"" and hit on ""Persistent Save"" button.\n\nTo load: RESTART the game and click YES on this window</Original>
+        <English>W A R N I N G\n\nREAD THIS!!!\n\n\nAntistasi does NOT support vanilla save. Do not expect 100% of functionalities if you Save&amp;Exit and after you come back with Resume option. Both on SP and MP.\n\n\nAntistasi has an in built save system, GTA alike, which is the system you have to use in order to have full functionalities.\n\nTo Save: Go to the Map Board, select ""Game Options"" and hit on ""Persistent Save"" button.\n\nTo load: RESTART the game and click YES on this window</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_createDialog_setParams_text_2">
+        <Original>Choose a difficulty level</Original>
+        <English>Choose a difficulty level</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_createDialog_setParams_text_3">
+        <Original>Choose a Game Mode</Original>
+        <English>Choose a Game Mode</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_1">
+        <Original>You cannot Fast Travel with your Tow Rope out or a Vehicle attached</Original>
+        <English>You cannot Fast Travel with your Tow Rope out or a Vehicle attached</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_2">
+        <Original>You can select one group only to Fast Travel</Original>
+        <English>You can select one group only to Fast Travel</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_3">
+        <Original>You cannot Fast Travel groups commanded by players</Original>
+        <English>You cannot Fast Travel groups commanded by players</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_4">
+        <Original>You cannot Fast Travel while you are controlling AI</Original>
+        <English>You cannot Fast Travel while you are controlling AI</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_5">
+        <Original>You cannot Fast Travel with enemies near the group</Original>
+        <English>You cannot Fast Travel with enemies near the group</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_6">
+        <Original>You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or your group is in a boat</Original>
+        <English>You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or your group is in a boat</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_7">
+        <Original>Click on the zone you want to travel</Original>
+        <English>Click on the zone you want to travel</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_8">
+        <Original>Player groups are only allowed to Fast Travel to HQ or Airbases</Original>
+        <English>Player groups are only allowed to Fast Travel to HQ or Airbases</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_9">
+        <Original>You cannot Fast Travel to an enemy controlled zone</Original>
+        <English>You cannot Fast Travel to an enemy controlled zone</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_10">
+        <Original>You cannot Fast Travel to an area under attack or with enemies in the surrounding</Original>
+        <English>You cannot Fast Travel to an area under attack or with enemies in the surrounding</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_11">
+        <Original>Fast traveling, travel time: %1s , please wait</Original>
+        <English>Fast traveling, travel time: %1s , please wait</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_12">
+        <Original>Moving group %1 to destination</Original>
+        <English>Moving group %1 to destination</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_13">
+        <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase</Original>
+        <English>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_14">
+        <Original>You arrived to destination</Original>
+        <English>You arrived to destination</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_15">
+        <Original>Group %1 arrived to destination</Original>
+        <English>Group %1 arrived to destination</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_fastTravelRadio_hint_16">
+        <Original>You must click near marker under your control</Original>
+        <English>You must click near marker under your control</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mineDialog_hint_1">
+        <Original>We can only deploy one minefield at a time.</Original>
+        <English>We can only deploy one minefield at a time.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mineDialog_hint_2">
+        <Original>Not enought resources to recruit a mine deploying team (%1 € and %2 HR needed)</Original>
+        <English>Not enought resources to recruit a mine deploying team (%1 € and %2 HR needed)</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mineDialog_hint_3">
+        <Original>Explosive Specialists is available on your High Command bar.\n\nSend him anywhere on the map and he will deactivate and load in his truck any mine he may find.\n\nReturning back to HQ will unload the mines he stored in his vehicle</Original>
+        <English>Explosive Specialists is available on your High Command bar.\n\nSend him anywhere on the map and he will deactivate and load in his truck any mine he may find.\n\nReturning back to HQ will unload the mines he stored in his vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mineDialog_hint_4">
+        <Original>You need at least 5 mines of this type to build a Minefield</Original>
+        <English>You need at least 5 mines of this type to build a Minefield</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_mineDialog_hint_5">
+        <Original>Click on the position you wish to build the minefield.</Original>
+        <English>Click on the position you wish to build the minefield.</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_1">
+        <Original>Only Player Commander is allowed to move HQ assets</Original>
+        <English>Only Player Commander is allowed to move HQ assets</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_2">
+        <Original>The asset you want to move is being moved by another player</Original>
+        <English>The asset you want to move is being moved by another player</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_3">
+        <Original>You cannot move HQ assets while in a vehicle</Original>
+        <English>You cannot move HQ assets while in a vehicle</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_4">
+        <Original>You have other things attached, you cannot move this</Original>
+        <English>You have other things attached, you cannot move this</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_5">
+        <Original>This asset needs to be closer to it relative zone center to be able to be moved</Original>
+        <English>This asset needs to be closer to it relative zone center to be able to be moved</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_moveHQObject_hint_6">
+        <Original>This asset cannot be moved more far away for its zone center</Original>
+        <English>This asset cannot be moved more far away for its zone center</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_1">
+        <Original>Only the Commander can order to rest</Original>
+        <English>Only the Commander can order to rest</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_2">
+        <Original>You cannot rest while enemies are near our units</Original>
+        <English>You cannot rest while enemies are near our units</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_3">
+        <Original>You cannot rest while the enemy is counterattacking</Original>
+        <English>You cannot rest while the enemy is counterattacking</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_4">
+        <Original>You cannot rest while citizens are under attack</Original>
+        <English>You cannot rest while citizens are under attack</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_5">
+        <Original>You cannot rest while your HQ is under attack</Original>
+        <English>You cannot rest while your HQ is under attack</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_skiptime_hint_6">
+        <Original>All players must be in a 100m radius from HQ to be able to rest</Original>
+        <English>All players must be in a 100m radius from HQ to be able to rest</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squadOptions_hint_1">
+        <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
+        <English>You need a radio in your inventory to be able to give orders to other squads</English>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squadOptions_hint_2">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+        <English>You need a Radio Man in your group to be able to give orders to other squads</English>
       </Key>
     </Container>
   </Package>

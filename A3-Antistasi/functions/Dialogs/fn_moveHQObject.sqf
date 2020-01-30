@@ -1,19 +1,19 @@
-if (player != theBoss) exitWith {hint "Only Player Commander is allowed to move HQ assets"};
+if (player != theBoss) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_1"};
 private ["_thingX","_playerX","_id","_sites","_markerX","_size","_positionX"];
 
 _thingX = _this select 0;
 _playerX = _this select 1;
 _id = _this select 2;
 
-if (!(isNull attachedTo _thingX)) exitWith {hint "The asset you want to move is being moved by another player"};
-if (vehicle _playerX != _playerX) exitWith {hint "You cannot move HQ assets while in a vehicle"};
+if (!(isNull attachedTo _thingX)) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_2"};
+if (vehicle _playerX != _playerX) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_3"};
 
-if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {hint "You have other things attached, you cannot move this"};
+if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_4"};
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _positionX = getMarkerPos _markerX;
-if (_playerX distance2D _positionX > _size) exitWith {hint "This asset needs to be closer to it relative zone center to be able to be moved"};
+if (_playerX distance2D _positionX > _size) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_5"};
 
 _thingX setVariable ["objectBeingMoved", true];
 
@@ -55,4 +55,4 @@ waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _pl
 
 if (vehicle _playerX != _playerX) exitWith {hint "You cannot move HQ assets while in a vehicle"};
 
-if  (_playerX distance2D _positionX > _size) exitWith {hint "This asset cannot be moved more far away for its zone center"};
+if  (_playerX distance2D _positionX > _size) exitWith {hint localize "STR_antistasi_dialogs_moveHQObject_hint_6"};
