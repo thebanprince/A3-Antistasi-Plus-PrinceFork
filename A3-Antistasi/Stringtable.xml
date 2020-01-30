@@ -1199,5 +1199,311 @@
         <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums</Original>
       </Key>
     </Container>
+    <Container name="missions_info">
+      <Key ID="STR_antistasi_missions_info_AS_Official_task_name_1">
+        <Original>Kill the Officer</Original>
+        <English>Kill the Officer</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Official_mission_text_1">
+        <Original>A %4 officer is inspecting %1. Go there and kill him before %2:%3.</Original>
+        <English>A %4 officer is inspecting %1. Go there and kill him before %2:%3.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Official_mission_text_2">
+        <Original>Officer killed at %1.</Original>
+        <English>Officer killed at %1.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_specOP_task_name_1">
+        <Original>SpecOps</Original>
+        <English>SpecOps</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_specOP_mission_text_1">
+        <Original>We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
+        <English>We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Traitor_task_name_1">
+        <Original>Kill the Traitor</Original>
+        <English>Kill the Traitor</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Traitor_task_name_2">
+        <Original>Protect Contact</Original>
+        <English>Protect Contact</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Traitor_mission_text_1">
+        <Original>A traitor has scheduled a meeting with %3 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.</Original>
+        <English>A traitor has scheduled a meeting with %3 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_AS_Traitor_mission_text_2">
+        <Original>We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.</Original>
+        <English>We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_attackHQ_task_name_1">
+        <Original>Defend %1</Original>
+        <English>Defend %1</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_attackHQ_task_name_2">
+        <Original>Kill %1</Original>
+        <English>Kill %1</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_attackHQ_mission_text_1">
+        <Original>Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track.</Original>
+        <English>Enemy knows our HQ coordinates. They have sent a SpecOp Squad in order to kill %1. Intercept them and kill them. Or you may move our HQ 1Km away so they will loose track.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_attackHQ_mission_text_2">
+        <Original>We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team.</Original>
+        <English>We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_CON_Outpost_task_name_1">
+        <Original>Resource Acquisition</Original>
+        <English>Resource Acquisition</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_CON_Outpost_task_name_2">
+        <Original>Take the Outpost</Original>
+        <English>Take the Outpost</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_CON_Outpost_mission_text_1">
+        <Original>A %1 would be a fine addition to our cause. Go there and capture it before %2.</Original>
+        <English>A %1 would be a fine addition to our cause. Go there and capture it before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_CON_Outpost_mission_text_2">
+        <Original>A %1 is disturbing our operations in the area. Go there and capture it before %2.</Original>
+        <English>A %1 is disturbing our operations in the area. Go there and capture it before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_1">
+        <Original>Ammo Convoy</Original>
+        <English>Ammo Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_2">
+        <Original>Armored Convoy</Original>
+        <English>Armored Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_3">
+        <Original>Prisoner Convoy</Original>
+        <English>Prisoner Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_4">
+        <Original>Reinforcements Convoy</Original>
+        <English>Reinforcements Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_5">
+        <Original>Money Convoy</Original>
+        <English>Money Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_6">
+        <Original>Supply Convoy</Original>
+        <English>Supply Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_task_name_7">
+        <Original>Protect Convoy</Original>
+        <English>Protect Convoy</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_1">
+        <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.</Original>
+        <English>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_2">
+        <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.</Original>
+        <English>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_3">
+        <Original>A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+        <English>A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_4">
+        <Original>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.</Original>
+        <English>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_5">
+        <Original>A truck plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</Original>
+        <English>A truck plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_6">
+        <Original>A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.</Original>
+        <English>A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_convoy_mission_text_7">
+        <Original>A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.</Original>
+        <English>A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Antenna_task_name_1">
+        <Original>Destroy Radio Tower</Original>
+        <English>Destroy Radio Tower</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Antenna_mission_text_1">
+        <Original>We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.</Original>
+        <English>We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Heli_task_name_1">
+        <Original>Destroy Air</Original>
+        <English>Destroy Air</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Heli_task_name_2">
+        <Original>Helicopter Down</Original>
+        <English>Helicopter Down</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Heli_mission_text_1">
+        <Original>We have downed a air vehicle. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the place. MOVE QUICKLY!</Original>
+        <English>We have downed a air vehicle. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the place. MOVE QUICKLY!</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Heli_mission_text_2">
+        <Original>The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation.</Original>
+        <English>The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Vehicle_task_name_1">
+        <Original>Steal or Destroy Armor</Original>
+        <English>Steal or Destroy Armor</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_DES_Vehicle_mission_text_1">
+        <Original>We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.</Original>
+        <English>We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Ammo_task_name_1">
+        <Original>Steal or Destroy Ammotruck</Original>
+        <English>Steal or Destroy Ammotruck</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Ammo_mission_text_1">
+        <Original>We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.</Original>
+        <English>We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Bank_task_name_1">
+        <Original>Bank Robbery</Original>
+        <English>Bank Robbery</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Bank_mission_text_1">
+        <Original>Bring this truck to %1 Bank and park it in the main entrance.</Original>
+        <English>Bring this truck to %1 Bank and park it in the main entrance.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Bank_mission_text_2">
+        <Original>We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.</Original>
+        <English>We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Bank_mission_text_3">
+        <Original>Don't get the truck far from the bank or count will restart.</Original>
+        <English>Don't get the truck far from the bank or count will restart.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Bank_mission_text_4">
+        <Original>Drive the Truck back to base to finish this mission.</Original>
+        <English>Drive the Truck back to base to finish this mission.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Supplies_task_name_1">
+        <Original>City Supplies</Original>
+        <English>City Supplies</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Supplies_mission_text_1">
+        <Original>%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I have placed a crate with supplies near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.</Original>
+        <English>%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I have placed a crate with supplies near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Supplies_mission_text_2">
+        <Original>Deliver this box to %1, unload it to start distributing to people.</Original>
+        <English>Deliver this box to %1, unload it to start distributing to people.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Supplies_mission_text_3">
+        <Original>Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart.</Original>
+        <English>Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_LOG_Supplies_mission_text_4">
+        <Original>Supplies Delivered</Original>
+        <English>Supplies Delivered</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_1">
+        <Original>I already gave you a mission of this type.</Original>
+        <English>I already gave you a mission of this type.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_2">
+        <Original>I have no assassination missions for you. Move our HQ closer to the enemy or finish some other assasination missions in order to have better intel.</Original>
+        <English>I have no assassination missions for you. Move our HQ closer to the enemy or finish some other assasination missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_3">
+        <Original>Assassination Missions require cities, Patrolled Jungles or Airports closer than 4Km from your HQ.</Original>
+        <English>Assassination Missions require cities, Patrolled Jungles or Airports closer than 4Km from your HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_4">
+        <Original>I have no Conquest missions for you. Move our HQ closer to the enemy or finish some other conquest missions in order to have better intel.</Original>
+        <English>I have no Conquest missions for you. Move our HQ closer to the enemy or finish some other conquest missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_5">
+        <Original>Conquest Missions require roadblocks or outposts closer than 4Km from your HQ.</Original>
+        <English>Conquest Missions require roadblocks or outposts closer than 4Km from your HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_6">
+        <Original>I have no destroy missions for you. Move our HQ closer to the enemy or finish some other destroy missions in order to have better intel.</Original>
+        <English>I have no destroy missions for you. Move our HQ closer to the enemy or finish some other destroy missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_7">
+        <Original>Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ.</Original>
+        <English>Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_8">
+        <Original>I have no logistics missions for you. Move our HQ closer to the enemy or finish some other logistics missions in order to have better intel.</Original>
+        <English>I have no logistics missions for you. Move our HQ closer to the enemy or finish some other logistics missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_9">
+        <Original>Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ.</Original>
+        <English>Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_10">
+        <Original>I have no rescue missions for you. Move our HQ closer to the enemy or finish some other rescue missions in order to have better intel.</Original>
+        <English>I have no rescue missions for you. Move our HQ closer to the enemy or finish some other rescue missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_11">
+        <Original>Rescue Missions require Cities or Airports closer than 4Km from your HQ.</Original>
+        <English>Rescue Missions require Cities or Airports closer than 4Km from your HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_12">
+        <Original>I have no Convoy missions for you. Move our HQ closer to the enemy or finish some other missions in order to have better intel.</Original>
+        <English>I have no Convoy missions for you. Move our HQ closer to the enemy or finish some other missions in order to have better intel.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_13">
+        <Original>Convoy Missions require Airports or Cities closer than 5Km from your HQ, and they must have an idle friendly base in their surroundings.</Original>
+        <English>Convoy Missions require Airports or Cities closer than 5Km from your HQ, and they must have an idle friendly base in their surroundings.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_14">
+        <Original>There is a big battle around, I don't think the enemy will send any convoy.</Original>
+        <English>There is a big battle around, I don't think the enemy will send any convoy.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_15">
+        <Original>Convoy Missions require a calmed status around the island, and now it is not the proper time.</Original>
+        <English>Convoy Missions require a calmed status around the island, and now it is not the proper time.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_missionRequest_mission_text_16">
+        <Original>I have a mission for you.</Original>
+        <English>I have a mission for you.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_REP_Antenna_task_name_1">
+        <Original>Tower Rebuild Disrupt</Original>
+        <English>Tower Rebuild Disrupt</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_REP_Antenna_mission_text_1">
+        <Original>%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.</Original>
+        <English>%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_RES_Prisoners_task_name_1">
+        <Original>POW Rescue</Original>
+        <English>POW Rescue</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_RES_Prisoners_mission_text_1">
+        <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ.</Original>
+        <English>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_RES_Refugees_task_name_1">
+        <Original>Refugees Evac</Original>
+        <English>Refugees Evac</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_RES_Refugees_mission_text_1">
+        <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2.</Original>
+        <English>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_RES_Refugees_mission_text_2">
+        <Original>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</Original>
+        <English>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_underAttack_task_name_1">
+        <Original>%1 Contact Rep</Original>
+        <English>%1 Contact Rep</English>
+      </Key>
+      <Key ID="STR_antistasi_missions_info_underAttack_mission_text_1">
+        <Original>%2 is attacking us in %1. Help the defense if you can.</Original>
+        <English>%2 is attacking us in %1. Help the defense if you can.</English>
+      </Key>
+    </Container>
   </Package>
 </Project>

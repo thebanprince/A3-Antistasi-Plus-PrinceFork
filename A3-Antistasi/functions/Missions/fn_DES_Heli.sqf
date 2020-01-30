@@ -59,8 +59,8 @@ _mrkFinal = createMarker [format ["DES%1", random 100],_posCrashMrk];
 _mrkFinal setMarkerShape "ICON";
 
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Creating Tasks",servertime];
-[[teamPlayer,civilian],"DES",[format ["We have downed air vehicle. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
-[[Occupants],"DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"DES",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_1",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_1",_mrkFinal],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[Occupants],"DES1",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_2",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_2",_mrkFinal],_posCrash,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["DES","CREATED"]; publicVariable "missionsX";
 
 _radiusX = 100;
@@ -190,19 +190,19 @@ _bonus = if (_difficultX) then {2} else {1};
 if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicle getVariable ["SA_Tow_Ropes",[]]) > 0)}}) then
 	{
 	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was destroyed or truck captured, mission completing",servertime];
-	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_1",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_1",_mrkFinal],_posCrashMrk,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	if (typeOf _heli in vehCSATAir) then {[0,3] remoteExec ["A3A_fnc_prestige",2]} else {[3,0] remoteExec ["A3A_fnc_prestige",2]};
 	[1800*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	["DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,"FAILED","Defend"] call A3A_fnc_taskUpdate;
+	["DES1",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_2",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_2",_mrkFinal],_posCrash,"FAILED","Defend"] call A3A_fnc_taskUpdate;
 	}
 else
 	{
 	diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Air Vehicle was successfully recovered, mission completing",servertime];
-	["DES",[format ["We have downed air vehicle. It is a good chance to destroy it before it is recovered. Do it before a recovery team from the %1 reaches the place. MOVE QUICKLY",_nameXbase],"Destroy Air",_mrkFinal],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
-	["DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,"SUCCEEDED","Defend"] call A3A_fnc_taskUpdate;
+	["DES",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_1",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_1",_mrkFinal],_posCrashMrk,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES1",[format [localize "STR_antistasi_missions_info_DES_Heli_mission_text_2",_nameXbase],localize "STR_antistasi_missions_info_DES_Heli_task_name_2",_mrkFinal],_posCrash,"SUCCEEDED","Defend"] call A3A_fnc_taskUpdate;
 	[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};

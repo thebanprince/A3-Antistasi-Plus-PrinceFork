@@ -12,7 +12,7 @@ else
 };
 if (_sideX == teamPlayer) then {_sideX = [teamPlayer,civilian]};
 
-[_sideX,_markerX,[format ["%2 is attacking us in %1. Help the defense if you can",_nameDest,_nameENY],format ["%1 Contact Rep",_nameENY],_markerX],getMarkerPos _markerX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[_sideX,_markerX,[format [localize "STR_antistasi_missions_info_underAttack_mission_text_1",_nameDest,_nameENY],format [localize "STR_antistasi_missions_info_underAttack_task_name_1",_nameENY],_markerX],getMarkerPos _markerX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 
 if (_sideX isEqualType []) then {_sideX = teamPlayer};
 

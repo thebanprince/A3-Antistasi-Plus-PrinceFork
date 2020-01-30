@@ -83,50 +83,50 @@ switch (_typeConvoyX) do
 	{
 	case "ammunition":
 		{
-		_textX = format ["A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
-		_taskTitle = "Ammo Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_1",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_1";
 		_taskIcon = "rearm";
 		_typeVehObj = if (_sideX == Occupants) then {vehNATOAmmoTruck} else {vehCSATAmmoTruck};
 		};
 	case "Armor":
 		{
-		_textX = format ["A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
-		_taskTitle = "Armored Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_2",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_2";
 		_taskIcon = "Destroy";
 		_typeVehObj = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 		};
 	case "Prisoners":
 		{
-		_textX = format ["A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.",_nameOrigin,_displayTime,_nameDest];
-		_taskTitle = "Prisoner Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_3",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_3";
 		_taskIcon = "run";
 		_typeVehObj = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
 		};
 	case "reinforcementsX":
 		{
-		_textX = format ["Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.",_nameOrigin,_displayTime,_nameDest];
-		_taskTitle = "Reinforcements Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_4",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_4";
 		_taskIcon = "run";
 		_typeVehObj = if (_sideX == Occupants) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
 		};
 	case "Money":
 		{
-		_textX = format ["A truck plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nameOrigin,_displayTime,_nameDest];
-		_taskTitle = "Money Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_5",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_5";
 		_taskIcon = "move";
 		_typeVehObj = "C_Van_01_box_F";
 		};
 	case "Supplies":
 		{
-		_textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,nameTeamPlayer];
-		_taskTitle = "Supply Convoy";
+		_textX = format [localize "STR_antistasi_missions_info_convoy_mission_text_6",_nameOrigin,_displayTime,_nameDest,nameTeamPlayer];
+		_taskTitle = localize "STR_antistasi_missions_info_convoy_task_name_6";
 		_taskIcon = "heal";
 		_typeVehObj = "C_Van_01_box_F";
 		};
 	};
 
 [[teamPlayer,civilian],"CONVOY",[_textX,_taskTitle,_destinationX],_posDestination,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_sideX],"CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_destinationX],_posDestination,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[_sideX],"CONVOY1",[format [localize "STR_antistasi_missions_info_convoy_mission_text_7",_nameOrigin,_displayTime,_nameDest],localize "STR_antistasi_missions_info_convoy_task_name_7",_destinationX],_posDestination,false,0,true,"run",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["CONVOY","CREATED"]; publicVariable "missionsX";
 sleep (_timeLimit * 60);
 
@@ -649,7 +649,7 @@ if (_typeConvoyX == "Supplies") then
 };
 
 ["CONVOY",[_textX,_taskTitle,_destinationX],_posDestination,_taskState] call A3A_fnc_taskUpdate;
-["CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_destinationX],_posDestination,_taskState1] call A3A_fnc_taskUpdate;
+["CONVOY1",[format [localize "STR_antistasi_missions_info_convoy_mission_text_7",_nameOrigin,_displayTime,_nameDest],localize "STR_antistasi_missions_info_convoy_task_name_7",_destinationX],_posDestination,_taskState1] call A3A_fnc_taskUpdate;
 _wp0 = _groupX addWaypoint [_posbase, 0];
 _wp0 setWaypointType "MOVE";
 _wp0 setWaypointBehaviour "SAFE";
