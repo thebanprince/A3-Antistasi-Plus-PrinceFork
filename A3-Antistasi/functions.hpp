@@ -84,6 +84,7 @@ class A3A
 		class prestige {};
 		class radioCheck {};
 		class rebuildAssets {};
+		class rebuildRadioTower {};
 		class relocateHQObjects {};
 		class repairRuinedBuilding {};
 		class resourceCheckSkipTime {};
@@ -483,6 +484,7 @@ class A3A
 		class basicBackpack {};
 		class createDataObject {};
 		class dateToTimeString {};
+		class generateRoadsDB {};
 		class log {};
 		class vehicleWillCollideAtPosition {};
 	};
