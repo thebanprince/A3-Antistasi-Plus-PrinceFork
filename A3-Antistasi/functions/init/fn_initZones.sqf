@@ -282,7 +282,7 @@ if (count _posAntennas > 0) then {
 			_antenna = _antennaProv select 0;
 
 			if (_i in _blacklistPos) then {
-				_antenna setdamage 1;	
+				_antenna setdamage 1;
 			} else {
 				_antenna = ([_antenna] call _replaceBadAntenna);
 				antennas pushBack _antenna;
@@ -363,5 +363,7 @@ publicVariable "roadsMrk";
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed", "Server Information"] remoteExec ["A3A_fnc_commsMP", -2]
 };
+
+[] call A3A_fnc_createMarkerHash;
 
 [2,"initZones completed",_fileName] call A3A_fnc_log;

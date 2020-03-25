@@ -8,6 +8,7 @@ class A3A
 
 		//Other initialisation functions (generally called by the above)
 		class cityinfo {};
+        class createMarkerHash {};
 		class credits {};
 		class initACEUnconsciousHandler {};
 		class initFuncs {};
@@ -58,6 +59,7 @@ class A3A
 		class fogCheck {};
 		class garbageCleaner {};
 		class garrisonInfo {};
+        class getNearestMarkers {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};
@@ -494,7 +496,7 @@ class A3A
 		class rhsModCompat {};
 	};
 
-	class UI 
+	class UI
 	{
 		class customHint {};
 	};
