@@ -35,13 +35,9 @@ for "_i" from 1 to _countX do
 		_bomb = _ammo createvehicle ([getPos _plane select 0,getPos _plane select 1,(getPos _plane select 2)- 5]);
 		waituntil {!isnull _bomb};
 		_bomb setDir (getDir _plane);
-		if (_typeX != "NAPALM") then
+		_bomb setVelocity [0,0,-50];
+		if (_typeX == "NAPALM") then
 			{
-			_bomb setVelocity [0,0,-50]
-			}
-		else
-			{
-				_bomb setVelocity [0,0,-50];
 				_nul = [_bomb] spawn
 				{
 					_bomba = _this select 0;
@@ -56,3 +52,4 @@ for "_i" from 1 to _countX do
 			};
 		};
 	};
+//_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position
