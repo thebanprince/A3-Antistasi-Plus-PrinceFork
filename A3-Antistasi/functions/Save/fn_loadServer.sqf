@@ -12,8 +12,6 @@ if (isServer) then {
 	["minesX"] call A3A_fnc_getStatVariable;
 	["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
-	["prestigeNATO"] call A3A_fnc_getStatVariable;
-	["prestigeCSAT"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
 	["weather"] call A3A_fnc_getStatVariable;
@@ -88,6 +86,11 @@ if (isServer) then {
 		};
 	} forEach citiesX;
 
+    //Load aggro stacks and level and calculate current level
+    ["aggressionOccupants"] call A3A_fnc_getStatVariable;
+	["aggressionInvaders"] call A3A_fnc_getStatVariable;
+    [true] call A3A_fnc_calculateAggression;
+
 	["chopForest"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
 	/*
@@ -104,14 +107,17 @@ if (isServer) then {
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
 	//Isn't that just tierCheck.sqf?
-	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
-	if (tierWar > 10) then {tierWar = 10};
-	publicVariable "tierWar";
+//	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
+//	if (tierWar > 10) then {tierWar = 10};
+//	publicVariable "tierWar";
 
 	tierPreference = 1;
 	publicVariable "tierPreference";
 	//Updating the preferences based on war level
-	[] call A3A_fnc_updatePreference;
+//	[] call A3A_fnc_updatePreference;
+
+	// update war tier silently, calls updatePreference if changed
+	[true] call A3A_fnc_tierCheck;
 
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new
