@@ -316,14 +316,7 @@ if ((count _objectivesFinal > 0) and (count _easyX < 3)) then
 	
 	private _isInvaderAttack = sidesX getVariable [_originX,sideUnknown] == Invaders;
 
-	_waves = 
-		1 
-		+ ([0, 1] select (_destinationX in airportsX)) 
-		+ (count allPlayers / 40)
-		+ (tierWar / 10)
-		+ ([0, 0.5] select _isInvaderAttack);
-	
-	_waves = floor _waves;
+	_waves = 1 + ([0, 1] select _isInvaderAttack);
 		
 	if (not(_destinationX in citiesX)) then
 		{

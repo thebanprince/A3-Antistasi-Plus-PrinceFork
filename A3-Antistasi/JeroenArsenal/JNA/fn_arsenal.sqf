@@ -1146,8 +1146,7 @@ switch _mode do {
 		params ["_index","_item","_amount",["_updateDataList",false]];
 
 		//update datalist
-		if(_updateDataList)then
-		{
+		if(_updateDataList) then {
 			jna_dataList set [_index, [jna_dataList select _index, [_item, _amount]] call jn_fnc_arsenal_addToArray];
 		};
 

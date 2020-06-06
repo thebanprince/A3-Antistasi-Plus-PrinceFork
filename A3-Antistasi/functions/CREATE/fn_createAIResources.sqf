@@ -65,25 +65,6 @@ if (_frontierX) then
 		[_veh] call A3A_fnc_AIVEHinit;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
-
-		// }
-		// else
-		// {
-		// 	//Same here this case cannot happen, see createAIOutposts
-		// 	_typeGroup = selectRandom groupsFIAMid;
-		// 	_groupX = [_positionX, _sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
-		// 	if !(isNull _groupX) then
-		// 	{
-		// 		_veh = vehFIAArmedCar createVehicle getPos _road;
-		// 		_veh setDir _dirveh + 90;
-		// 		_nul = [_veh] call A3A_fnc_AIVEHinit;
-		// 		_vehiclesX pushBack _veh;
-		// 		sleep 1;
-		// 		_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		// 		_unit moveInGunner _veh;
-		// 		{_soldiers pushBack _x; [_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupX;
-		// 	};
-		// };
 	};
 };
 
@@ -117,7 +98,7 @@ if (_patrol) then
 	{
 		_arraygroups = if (_sideX == Occupants) then
 		{
-			if (!_isFIA) then {groupsNATOsmall} else {groupsFIASmall};
+			if (!_isFIA) then {call SCRT_fnc_unit_getCurrentGroupNATOSmall} else {call SCRT_fnc_unit_getCurrentFIAPatrol};
 		}
 		else
 		{

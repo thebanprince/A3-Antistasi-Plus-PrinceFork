@@ -79,7 +79,7 @@ fnc_sortPlacementMarker =
     case ("seaattackspawn"): {seaAttackSpawn pushBack _x;};
     case ("detectplayer"): {detectionAreas pushBack _x;};
     case ("island"): {islands pushBack _x;};
-    case ("road"):
+    case ("roadmarker"):
     {
       _x setMarkerAlpha 0;
       roadsMrk pushBack _x;

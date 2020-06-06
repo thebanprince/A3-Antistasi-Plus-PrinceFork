@@ -77,6 +77,7 @@ switch (toLower worldName) do {
 	case "chernarus_winter": {
 		{server setVariable [_x select 0,_x select 1]} forEach [["vill_NovySobor",129],["city_StarySobor",149],["vill_Guglovo",26],["vill_Vyshnoye",41],["vill_Kabanino",86],["vill_Rogovo",66],["vill_Mogilevka",104],["city_Gorka",115],["vill_Grishino",168],["vill_Shakhovka",55],["vill_Pogorevka",57],["vill_Pulkovo",26],["vill_Nadezhdino",109],["city_Vybor",180],["vill_Polana",118],["vill_Staroye",115],["vill_Dubrovka",86],["vill_Pustoshka",163],["vill_Kozlovka",100],["vill_Pusta",52],["vill_Dolina",83],["vill_Gvozdno",78],["vill_Prigorodki",145],["vill_Drozhino",58],["vill_Sosnovka",54],["vill_Msta",96],["vill_Lopatino",159],["city_Zelenogorsk",280],["vill_Orlovets",65],["city_Berezino",340],["vill_Myshkino",49],["vill_Petrovka",45],["city_Chernogorsk",761],["vill_Bor",46],["vill_Nizhnoye",146],["vill_Balota",147],["vill_Khelm",110],["city_Krasnostav",194],["vill_Komarovo",127],["city_Elektrozavodsk",745],["city_Solnychniy",224],["vill_Kamyshovo",196],["vill_Tulga",35],["vill_Pavlovo",99],["vill_Kamenka",127],["hill_Olsha",20]];
 	};
+	//TODO: taviana config
 	default { _hardcodedPop = false };
 };
 
@@ -216,6 +217,11 @@ switch (worldName) do {
 		_blackListPos = [1, 7];
 		antennas = [];
 	};
+	case "taviana": {
+	    _posAntennas = [[3757.47,17097.3,0],[1096.43,18248.5,-0.000171661],[4896.66,14046.1,0.196999],[9146.62,14856,0],[8710.43,11319.2,0],[22507.8,19886.3,0],[8503.8,8780.85,0],[6498.07,9327.2,0],[2164.57,7107,0]];
+	    _posBank = [[5023.18,17540.2,0],[7838.32,4289.21,0],[14823.1,9329.75,0],[11795.1,15797.1,0],[9208.6,8103.17,0]];
+	    antennas = [];
+	};
 	default {
 		antennas = nearestObjects [[worldSize /2, worldSize/2], ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base", "Land_Telek1"], worldSize];
 
@@ -257,10 +263,12 @@ switch (worldName) do {
 		};
 	};
 };
+
 if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Radio Tower built.", servertime];
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Finding broken Radio Towers.", servertime];
 };
+
 if (count _posAntennas > 0) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
 		_antennaProv = nearestObjects [_posAntennas select _i, ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1"], 35];
@@ -306,9 +314,11 @@ if (count _posAntennas > 0) then {
 		};
 	};
 };
+
 if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers identified.",servertime];
 };
+
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {
 		_bankProv = nearestObjects [_posBank select _i, ["Land_Offices_01_V1_F"], 30];

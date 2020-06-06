@@ -127,7 +127,7 @@ _vehiclesX = _vehiclesX + [_veh];
 if (_typeCar in vehNATOLightUnarmed) then
 	{
 	sleep 1;
-	_groupX = [_posbase, _sideX, groupsNATOSentry] call A3A_fnc_spawnGroup;
+	_groupX = [_posbase, _sideX, call SCRT_fnc_unit_getCurrentGroupNATOSentry] call A3A_fnc_spawnGroup;
 	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};

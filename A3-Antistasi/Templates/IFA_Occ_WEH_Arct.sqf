@@ -46,13 +46,13 @@ vehNATOPVP = ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt","LIB_Kfz1_MG42_sernyt"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = "LIB_GER_rifleman";
+NATOGrunt = ["LIB_GER_rifleman"];
 NATOOfficer = "LIB_GER_oberst";
 NATOOfficer2 = "LIB_GER_hauptmann";
 NATOBodyG = "SG_sturmtrooper_stggunner";
 NATOCrew = "LIB_GER_tank_crew";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = "LIB_GER_scout_sniper";
+NATOMarksman = ["LIB_GER_scout_sniper"];
 staticCrewOccupants = "LIB_GER_gun_crew";
 NATOPilot = "LIB_GER_pilot";
 
@@ -72,21 +72,41 @@ policeGrunt = "SG_sturmpanzer_crew";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentry = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
+groupsNATOSentryT1 = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
+groupsNATOSentryT2 = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
+groupsNATOSentryT3 = ["LIB_GER_Soldier3_base","LIB_GER_ober_rifleman"];
+groupsNATOSpecOpSmall = [
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+		["LIB_DAK_Soldier_2","LIB_DAK_Soldier"]
+];
+
 groupsNATOSniper = ["LIB_GER_scout_sniper","LIB_GER_soldier_camo5_base"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
 //Fireteams
-groupsNATOAA = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
-groupsNATOAT = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
-groupsNATOmid = [["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"],groupsNATOAA,groupsNATOAT];
+groupsNATOAAT1 = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
+groupsNATOAAT2 = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
+groupsNATOAAT3 = ["LIB_GER_unterofficer","LIB_GER_stggunner","LIB_GER_stggunner","LIB_GER_mgunner"];
+
+groupsNATOATT1 = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
+groupsNATOATT2 = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
+groupsNATOATT3 = ["LIB_GER_unterofficer","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_mgunner"];
+
+groupsNATOFTT1 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"];
+groupsNATOFTT2 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"];
+groupsNATOFTT3 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_scout_ober_rifleman","LIB_GER_AT_grenadier"];
+
+groupsNATOSpecOpMid = [
+	["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier_2","LIB_DAK_Soldier"],
+	["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_AT_soldier","LIB_DAK_AT_grenadier"],
+	["LIB_DAK_Soldier_2","LIB_DAK_Soldier_3","LIB_DAK_Soldier","LIB_DAK_Sniper"]
+];
+
 //Squads
-NATOSquad = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];
+NATOSquadT1 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];
+NATOSquadT2 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];
+NATOSquadT3 = ["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_Soldier2_base","LIB_GER_scout_ober_rifleman","LIB_GER_stggunner","LIB_GER_AT_soldier","LIB_GER_AT_grenadier","LIB_GER_medic"];
+
 NATOSpecOp = ["LIB_FSJ_NCO","LIB_FSJ_Mgunner","LIB_FSJ_Soldier_2","LIB_FSJ_AT_soldier","LIB_FSJ_Soldier_2","LIB_FSJ_sapper","LIB_FSJ_Sniper","LIB_FSJ_medic"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_smgunner","LIB_GER_AT_grenadier","LIB_GER_ober_rifleman","LIB_GER_sapper","LIB_GER_sapper_gefr","LIB_GER_medic"]
-	];
 
 //Militia Groups
 if (gameMode != 4) then

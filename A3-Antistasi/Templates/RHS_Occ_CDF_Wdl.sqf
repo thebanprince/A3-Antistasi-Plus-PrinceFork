@@ -46,13 +46,13 @@ vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = "rhsgref_cdf_reg_rifleman";
+NATOGrunt = ["rhsgref_cdf_reg_rifleman"];
 NATOOfficer = "rhsgref_cdf_reg_general";
 NATOOfficer2 = "rhsgref_cdf_ngd_commander";
 NATOBodyG = "rhsgref_cdf_ngd_rifleman_lite";
 NATOCrew = "rhsgref_cdf_ngd_crew";
 NATOUnarmed = "I_G_Survivor_F";
-NATOMarksman = "rhsgref_cdf_reg_marksman";
+NATOMarksman = ["rhsgref_cdf_reg_marksman"];
 staticCrewOccupants = "rhsgref_cdf_ngd_rifleman_lite";
 NATOPilot = "rhsgref_cdf_air_pilot";
 
@@ -72,37 +72,53 @@ policeGrunt = "rhsgref_cdf_un_rifleman_lite";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentry = ["rhsgref_cdf_reg_grenadier",NATOGrunt];
+groupsNATOSentryT1 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
+groupsNATOSentryT2 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
+groupsNATOSentryT3 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
+groupsNATOSpecOpSmall = [
+		["rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_rifleman_m92"],
+		["rhsgref_nat_pmil_scout","rhsgref_nat_pmil_rifleman_aksu"],
+		["rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_scout"]
+];
+
 groupsNATOSniper = ["rhsgref_cdf_reg_marksman","rhsgref_cdf_para_marksman"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
 //Fireteams
-groupsNATOAA = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_specialist_aa"];
-groupsNATOAT = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_grenadier_rpg","rhsgref_cdf_reg_grenadier_rpg"];
-groupsNATOmid = [["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75"],groupsNATOAA,groupsNATOAT];
+groupsNATOAAT1 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_specialist_aa"];
+groupsNATOAAT2 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_specialist_aa"];
+groupsNATOAAT3 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_specialist_aa"];
+
+groupsNATOATT1 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_grenadier_rpg","rhsgref_cdf_reg_grenadier_rpg"];
+groupsNATOATT2 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_grenadier_rpg","rhsgref_cdf_reg_grenadier_rpg"];
+groupsNATOATT3 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_grenadier_rpg","rhsgref_cdf_reg_grenadier_rpg"];
+
+groupsNATOFTT1 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75"];
+groupsNATOFTT2 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75"];
+groupsNATOFTT3 = ["rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75"];
+groupsNATOSpecOpMid = [
+	["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier"],
+	["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_hunter"],
+	["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"],
+	["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_specialist_aa","rhsgref_nat_pmil_specialist_aa"]
+];
+
 //Squads
-NATOSquad = ["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_rifleman_akm","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_medic"];
+NATOSquadT1 = ["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_rifleman_akm","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_medic"];
+NATOSquadT2 = ["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_rifleman_akm","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_medic"];
+NATOSquadT3 = ["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_rifleman_akm","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_medic"];
+
+
 NATOSpecOp = ["rhsgref_cdf_para_squadleader","rhsgref_cdf_para_grenadier_rpg","rhsgref_cdf_para_grenadier","rhsgref_cdf_para_autorifleman","rhsgref_cdf_para_marksman","rhsgref_cdf_para_engineer","rhsgref_cdf_para_specialist_aa","rhsgref_cdf_para_medic"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_specialist_aa","rhsgref_cdf_reg_medic"],
-	["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman_akm","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_ins_g_grenadier_rpg","rhsgref_ins_g_grenadier_rpg","rhsgref_cdf_reg_medic"],
-	["rhsgref_cdf_reg_squadleader","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_machinegunner","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_rpg75","rhsgref_ins_g_engineer","rhsgref_ins_g_saboteur","rhsgref_cdf_reg_medic"]
-	];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then
-	{
+if ((gameMode != 4) and (!hasFFAA)) then {
 	//Teams
-	groupsFIASmall =
-		[
+	groupsFIASmall = [
 		["rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_rifleman_m92"],
 		["rhsgref_nat_pmil_scout","rhsgref_nat_pmil_rifleman_aksu"],
 		["rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_scout"]
 		];
 	//Fireteams
-	groupsFIAMid =
-		[
+	groupsFIAMid = [
 		["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier"],
 		["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_hunter"],
 		["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg"],
@@ -110,11 +126,7 @@ if ((gameMode != 4) and (!hasFFAA)) then
 		];
 	//Squads
 	FIASquad = ["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_hunter","rhsgref_nat_pmil_medic"];
-	groupsFIASquad =
-		[
-		FIASquad,
-		["rhsgref_nat_pmil_rifleman","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_saboteur","rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_medic"]
-		];
+	groupsFIASquad =[FIASquad];
 	};
 
 //Police Groups

@@ -83,7 +83,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
 				_callbackParams params ["_vehicleType", "_pos", "_dir"];
-				[_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				_createdVehicle = 0;
+                _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+                [_createdVehicle] call SCRT_fnc_loot_addLooterCapability;
+                _createdVehicle;
 			};
 		};
 	};
@@ -160,7 +163,10 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
 				_callbackParams params ["_vehicleType", "_pos", "_dir"];
-				[_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				_createdVehicle = 0;
+                _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				[_createdVehicle] call SCRT_fnc_loot_addLooterCapability;
+				_createdVehicle;
 			};
 		};
 	};
@@ -243,7 +249,10 @@ switch (_callbackTarget) do {
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
 				_callbackParams params ["_vehicleType", "_pos", "_dir"];
 				diag_log format ["%1 %2 %3", _vehicleType, _pos, _dir];
-				[_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				_createdVehicle = 0;
+                _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+                [_createdVehicle] call SCRT_fnc_loot_addLooterCapability;
+                _createdVehicle;
 			};
 		};
 	};

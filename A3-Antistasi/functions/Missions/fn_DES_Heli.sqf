@@ -86,7 +86,7 @@ _groups pushBack _groupVeh;
 _vehiclesX pushBack _veh;
 diag_log format ["%1: [Antistasi] | INFO | DES_Heli | Crash Location: %2, Lite Vehicle: %3",servertime,_posCrash,_typeVehX];
 sleep 1;
-_typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
+_typeGroup = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry};
 _groupX = [_positionX, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 
 {_x assignAsCargo _veh; _x moveInCargo _veh; _soldiers pushBack _x; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;

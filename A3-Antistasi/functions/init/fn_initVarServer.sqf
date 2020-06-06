@@ -261,6 +261,7 @@ private _templateVariables = [
 	"civTruck",
 	"civHeli",
 	"civBoat",
+	"civLooter",
 	"SDKMGStatic",
 	"staticATTeamPlayer",
 	"staticAATeamPlayer",
@@ -305,17 +306,27 @@ private _templateVariables = [
 	"FIAMarksman",
 	"policeOfficer",
 	"policeGrunt",
-	"groupsNATOSentry",
+	"groupsNATOSentryT1",
+	"groupsNATOSentryT2",
+	"groupsNATOSentryT3",
 	"groupsNATOSniper",
-	"groupsNATOsmall",
-	"groupsNATOAA",
-	"groupsNATOAT",
-	"groupsNATOmid",
-	"NATOSquad",
+	"groupsNATOAAT1",
+	"groupsNATOAAT2",
+	"groupsNATOAAT3",
+	"groupsNATOATT1",
+	"groupsNATOATT2",
+	"groupsNATOATT3",
+	"groupsNATOFTT1",
+	"groupsNATOFTT2",
+	"groupsNATOFTT3",
+	"NATOSquadT1",
+	"NATOSquadT2",
+	"NATOSquadT3",
 	"NATOSpecOp",
-	"groupsNATOSquad",
 	"groupsFIASmall",
 	"groupsFIAMid",
+	"groupsNATOSpecOpSmall",
+	"groupsNATOSpecOpMid",
 	"FIASquad",
 	"groupsFIASquad",
 	"groupsNATOGen",
@@ -431,7 +442,15 @@ private _templateVariables = [
 	"MortStaticCSATB",
 	"supportStaticCSATB",
 	"supportStaticCSATB2",
-	"supportStaticCSATB3"
+	"supportStaticCSATB3",
+	"shop_UAV",
+	"shop_AA",
+	"shop_MRAP",
+	"shop_arty",
+	"shop_wheel_apc",
+	"shop_track_apc",
+	"shop_heli",
+	"shop_tank"
 ];
 
 {
@@ -442,6 +461,7 @@ private _templateVariables = [
 if !(hasIFA) then {
 	//Rebel Templates
 	switch (true) do {
+		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Reb_TAPA_Wdl.sqf"};
 		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
@@ -449,6 +469,7 @@ if !(hasIFA) then {
 	};
 	//Occupant Templates
 	switch (true) do {
+		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf"};
 		case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
 		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
@@ -456,6 +477,7 @@ if !(hasIFA) then {
 	};
 	//Invader Templates
 	switch (true) do {
+		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf"};
 		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";};
 		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
 		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
@@ -556,10 +578,10 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 //////////////////////////////////////
 [2,"Identifying unit types",_fileName] call A3A_fnc_log;
 //Identify Squad Leader Units
-private _squadLeaders = (SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)]);
+private _squadLeaders = (SDKSL + [(NATOSquadT1 select 0),(NATOSquadT2 select 0),(NATOSquadT3 select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)]);
 DECLARE_SERVER_VAR(squadLeaders, _squadLeaders);
 //Identify Medic Units
-private _medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+private _medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquadT1 select ((count NATOSquadT1)-1)),(NATOSquadT2 select ((count NATOSquadT2)-1)),(NATOSquadT3 select ((count NATOSquadT3)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 DECLARE_SERVER_VAR(medics, _medics);
 //Define Sniper Groups and Units
 private _sniperGroups = [groupsNATOSniper,groupsCSATSniper];
@@ -707,12 +729,23 @@ server setVariable [civCar,200,true];													//200
 server setVariable [civTruck,600,true];													//600
 server setVariable [civHeli,5000,true];													//5000
 server setVariable [civBoat,200,true];													//200
-server setVariable [vehSDKBike ,50,true];												//50
+server setVariable [vehSDKBike,50,true];
+server setVariable [civLooter,800,true];												//50
 server setVariable [vehSDKLightUnarmed,200,true];										//200
 server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
+
+//black market costs
+{server setVariable [_x,1000,true]} forEach shop_UAV;
+{server setVariable [_x,3500,true]} forEach shop_AA;
+{server setVariable [_x,1750,true]} forEach shop_MRAP;
+{server setVariable [_x,10000,true]} forEach shop_arty;
+{server setVariable [_x,5000,true]} forEach shop_wheel_apc;
+{server setVariable [_x,6500,true]} forEach shop_track_apc;
+{server setVariable [_x,10000,true]} forEach shop_heli;
+{server setVariable [_x,20000,true]} forEach shop_tank;
 
 ///////////////////////
 //     GARRISONS    ///

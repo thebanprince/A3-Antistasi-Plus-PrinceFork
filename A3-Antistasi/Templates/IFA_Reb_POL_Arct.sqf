@@ -58,6 +58,7 @@ civCar = "LIB_GazM1_dirty";
 civTruck = "LIB_DAK_OpelBlitz_Open";
 civHeli = "not_supported";
 civBoat = "C_Boat_Transport_02_F";
+civLooter = "C_Truck_02_covered_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///

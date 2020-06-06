@@ -72,7 +72,8 @@ else
     _typeGroup = selectRandom groupsFIASquad;
     if (_selectedVehicle == vehFIACar) then
     {
-      _typeGroup = selectRandom groupsFIAMid;
+      _squad = call SCRT_fnc_unit_getCurrentFIAMid;
+      _typeGroup = selectRandom _squad;
     };
   };
 };

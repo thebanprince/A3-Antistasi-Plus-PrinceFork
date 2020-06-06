@@ -53,7 +53,7 @@ class Params
      {
           title = "Max distance from HQ for tasks";
           values[] = {2000,4000,6000,8000,10000,12000};
-          default = 4000;
+          default = 2000;
      };
      class allowPvP
      {
@@ -80,13 +80,13 @@ class Params
      {
           title = "Number of the same item required to unlock";
           values[] = {15,25,40};
-          default = 25;
+          default = 15;
      };
      class memberOnlyMagLimit
      {
           title = "Number of magazines needed for guests to be able to use them";
           values[] = {10,20,30,40,50,60};
-          default = 40;
+          default = 30;
      };
      class civTraffic
      {
@@ -121,14 +121,14 @@ class Params
           title = "Fast Travel Targets Allowed";
           values[] = {0,1};
           texts[] = {"Any friendly position","Only Airports & HQ"};
-          default = 1;
+          default = 0;
      };
      class napalmEnabled
      {
           title = "Enable Napalm Bombing for AI";
           values[] = {0,1};
           texts[] = {"No","Yes"};
-          default = 0;
+          default = 1;
      };
      class teamSwitchDelay
      {
@@ -149,7 +149,7 @@ class Params
           title = "Should Guided Launchers become unlocked?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class allowUnlockedExplosives
      {
@@ -163,7 +163,7 @@ class Params
           title = "[TFAR] Start with Long Range Radio?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 1;
+          default = 0;
      };
      class helmetLossChance
      {
@@ -172,6 +172,14 @@ class Params
           texts[] = {"Never","Sometimes","Often","Always"};
           default = 33;
      };
+     class fatalWounds
+     {
+          title = "Enable Fatal Wounds";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
+
      class Spacer10
      {
           title = "";
@@ -191,28 +199,28 @@ class Params
           title = "Allow Items and Vehicles from Marksman DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Heli
      {
           title = "Allow Items and Vehicles from Heli DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Expansion
      {
           title = "Allow Items and Vehicles from Apex DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Jets
      {
           title = "Allow Items and Vehicles from Jets DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Orange
      {
@@ -226,7 +234,7 @@ class Params
           title = "Allow Items and Vehicles from Tanks DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class GlobMob
      {
@@ -240,14 +248,7 @@ class Params
           title = "Allow Items and Vehicles from Contact DLC?";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class OfficialMod
-     {
-          title = "Allow ADR-97 DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class Spacer0
      {
@@ -277,6 +278,13 @@ class Params
           texts[] = {""};
           default = "";
      };
+     class CUP_Weapons
+     {
+          title = "Allow CUP Weapons in LootBoxes?";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
 	 class truelyRandomCrates
 	 {
 		  title = "[Experimental] Truely Random Crates: Remove all balance checks from Crates";
@@ -303,7 +311,7 @@ class Params
           title = "Maximum Weapon Quantity in Crates";
           values[] = {0,1,3,5,8,10,15};
           texts[] = {"None","1","3","5","8","10","15"};
-          default = 8;
+          default = 10;
      };
      class Spacer1
      {

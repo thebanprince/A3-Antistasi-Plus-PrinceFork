@@ -26,4 +26,3 @@ private _libStaticParts = [];
 {
 lootWeapon deleteAt (lootWeapon find _x);
 } forEach _libStaticParts;
-

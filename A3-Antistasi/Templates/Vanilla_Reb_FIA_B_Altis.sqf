@@ -58,6 +58,7 @@ civCar = "C_Offroad_01_F";
 civTruck = "C_Van_01_transport_F";
 civHeli = "C_Heli_Light_01_civil_F";
 civBoat = "C_Boat_Transport_02_F";
+civLooter = "C_Truck_02_covered_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
@@ -105,3 +106,13 @@ initialRebelEquipment append ["Binocular","acc_flashlight"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};
+
+//black market stuff
+shop_UAV = ["I_UAV_01_F"];
+shop_AA = ["I_LT_01_AA_F"];
+shop_MRAP = ["I_MRAP_03_gmg_F"];
+shop_arty = ["I_Truck_02_MRL_F"];
+shop_wheel_apc = ["I_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_APC_tracked_03_cannon_F"];
+shop_heli = ["I_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["I_MBT_03_cannon_F"];

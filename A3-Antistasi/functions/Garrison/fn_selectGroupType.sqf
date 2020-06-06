@@ -14,11 +14,11 @@ params ["_vehicle", "_preference", "_side"];
 if(_preference == "Empty") exitWith {[]};
 
 //If tank, select AT team
-if(_vehicle == vehNATOTank) exitWith {groupsNATOAT};
+if(_vehicle == vehNATOTank) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAT};
 if(_vehicle == vehCSATTank) exitWith {groupsCSATAT};
 
 //If AA-tank, select AA team
-if(_vehicle == vehNATOAA) exitWith {groupsNATOAA};
+if(_vehicle == vehNATOAA) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAA};
 if(_vehicle == vehCSATAA) exitWith {groupsCSATAA};
 
 _result = "";
@@ -58,7 +58,12 @@ if(_result != "EMPTY") then
 {
   if(_side == Occupants) then
   {
-    _group = if(_result == "SQUAD") then {selectRandom groupsNATOSquad} else {selectRandom groupsNATOmid};
+    _group = if(_result == "SQUAD") then {
+      call SCRT_fnc_unit_getCurrentNATOSquad
+      } else {
+        _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+        selectRandom _squad;
+    };
   }
   else
   {

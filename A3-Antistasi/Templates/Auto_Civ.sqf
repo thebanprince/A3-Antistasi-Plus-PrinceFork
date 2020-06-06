@@ -39,4 +39,3 @@ _civBoatConfigs = "(
 )" configClasses (configFile >> "CfgVehicles");
 
 { civBoatData pushBack [configName _x, 1.0] } forEach _civBoatConfigs;
-

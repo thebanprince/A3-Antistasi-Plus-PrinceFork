@@ -20,4 +20,7 @@ if (str (_display) != "no display") then
 	_ChildControl = _display displayCtrl 107;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[civBoat] call A3A_fnc_vehiclePrice];
 	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> vehSDKBoat >> "displayName")];
+	_ChildControl = _display displayCtrl 108;
+    _ChildControl  ctrlSetTooltip format ["Cost: %1 €",[civLooter] call A3A_fnc_vehiclePrice];
+    //_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> civLooter >> "displayName")];
 };

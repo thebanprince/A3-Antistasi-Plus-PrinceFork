@@ -46,13 +46,13 @@ vehNATOPVP = ["B_T_MRAP_01_F","B_T_LSV_01_unarmed_F","B_T_LSV_01_armed_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = "B_T_Soldier_F";
+NATOGrunt = ["B_T_Soldier_F"];
 NATOOfficer = "B_T_Officer_F";
 NATOOfficer2 = "B_G_officer_F";
 NATOBodyG = "B_CTRG_Soldier_tna_F";
 NATOCrew = "B_T_Crew_F";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = "B_T_Soldier_M_F";
+NATOMarksman = ["B_T_Soldier_M_F"];
 staticCrewOccupants = "B_T_support_MG_F";
 NATOPilot = "B_T_Pilot_F";
 
@@ -72,24 +72,39 @@ policeGrunt = "B_GEN_Soldier_F";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentry = ["B_T_soldier_GL_F",NATOGrunt];
+groupsNATOSentryT1 = ["B_T_soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT2 = ["B_T_soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT3 = ["B_T_soldier_GL_F",NATOGrunt select 0];
+groupsNATOSpecOpSmall = [
+		["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F"],
+		["I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"]
+];
+
 groupsNATOSniper = ["B_T_sniper_F","B_T_spotter_F"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper,["B_T_recon_M_F","B_T_recon_F"]];
 //Fireteams
-groupsNATOAA = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
-groupsNATOAT = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
-groupsNATOmid = [["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"],groupsNATOAA,groupsNATOAT];
+groupsNATOAAT1 = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
+groupsNATOAAT2 = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
+groupsNATOAAT3 = ["B_T_soldier_TL_F","B_T_soldier_AA_F","B_T_soldier_AA_F","B_T_soldier_AAA_F"];
+
+groupsNATOATT1 = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
+groupsNATOATT2 = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
+groupsNATOATT3 = ["B_T_soldier_TL_F","B_T_soldier_AT_F","B_T_soldier_AT_F","B_T_soldier_AAT_F"];
+
+groupsNATOFTT1 = ["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"];
+groupsNATOFTT2 = ["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"];
+groupsNATOFTT3 = ["B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_LAT_F"];
+
+groupsNATOSpecOpMid = [
+	["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"],
+	["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_5_F"]
+];
 //Squads
-NATOSquad = ["B_T_soldier_SL_F",NATOGrunt,"B_T_soldier_LAT_F",NATOMarksman,"B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];
+NATOSquadT1 = ["B_T_soldier_SL_F",NATOGrunt select 0,"B_T_soldier_LAT_F","B_T_Soldier_M_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];
+NATOSquadT2 = ["B_T_soldier_SL_F",NATOGrunt select 0,"B_T_soldier_LAT_F","B_T_Soldier_M_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];
+NATOSquadT3 = ["B_T_soldier_SL_F",NATOGrunt select 0,"B_T_soldier_LAT_F","B_T_Soldier_M_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"];
+
+
 NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AT_F","B_T_soldier_AAT_F","B_T_soldier_A_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_LAT_F","B_T_soldier_TL_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_Support_Mort_F","B_support_AMort_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_soldier_AA_F","B_T_soldier_AAA_F","B_T_soldier_A_F","B_T_medic_F"],
-	["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F",NATOMarksman,"B_T_engineer_F","B_T_engineer_F","B_T_soldier_A_F","B_T_medic_F"]
-	];
 
 //Militia Groups
 if ((gameMode != 4) and (!hasFFAA)) then

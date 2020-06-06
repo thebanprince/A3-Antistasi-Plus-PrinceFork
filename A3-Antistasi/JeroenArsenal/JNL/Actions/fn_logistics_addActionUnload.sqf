@@ -22,3 +22,5 @@ _vehicle setUserActionText [
 	"<t size='2'><img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_down_gs.paa'/></t>"
 ];
 _vehicle setVariable ["jnl_unloadActionID", _unloadActionID, false];
+
+_unloadActionID;

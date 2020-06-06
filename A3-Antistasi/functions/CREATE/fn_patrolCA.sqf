@@ -315,11 +315,11 @@ if (_base != "") then
 				{
 				if (_typeOfAttack == "Air") then
 					{
-					if (_sideX == Occupants) then {groupsNATOAA} else {groupsCSATAA}
+					if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOAA} else {groupsCSATAA}
 					}
 				else
 					{
-					if (_sideX == Occupants) then {groupsNATOAT} else {groupsCSATAT}
+					if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOAT} else {groupsCSATAT}
 					};
 				};
 			_groupX = [_posOrigin,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
@@ -518,11 +518,11 @@ else
 				{
 				if (_typeOfAttack == "Air") then
 					{
-					if (_sideX == Occupants) then {groupsNATOAA} else {groupsCSATAA}
+					if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOAA} else {groupsCSATAA}
 					}
 				else
 					{
-					if (_sideX == Occupants) then {groupsNATOAT} else {groupsCSATAT}
+					if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOAT} else {groupsCSATAT}
 					};
 				};
 			_groupX = [_posOrigin,_sideX,_typeGroup] call A3A_fnc_spawnGroup;

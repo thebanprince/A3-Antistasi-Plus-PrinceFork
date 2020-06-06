@@ -36,7 +36,7 @@ else
 		if (_frontierX) then
 			{
 			_num = _num * 2;
-			_params = [_positionX, Occupants, groupsNATOSentry];
+			_params = [_positionX, Occupants, call SCRT_fnc_unit_getCurrentGroupNATOSentry];
 			}
 		else
 			{

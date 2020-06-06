@@ -72,7 +72,8 @@ if (alive _veh) then
 	{
 	_veh setCollisionLight true;
 	{
-	_x addEventHandler ["Killed", {diag_log format ["Paratrooper killed by %1, %2, %3", _this, typeOf (_this select 1), isDamageAllowed (_this select 0)]}];
+   //TODO: not working properly
+	//_x addEventHandler ["Killed", {diag_log format ["Paratrooper killed by %1, %2, %3", _this, typeOf (_this select 1), isDamageAllowed (_this select 0)]}];
     waitUntil {sleep 0.5; !surfaceIsWater (position _x)};
     _x allowDamage false;
    	unAssignVehicle _x;

@@ -242,7 +242,6 @@ class A3A
 
 	class Dialogs
 	{
-
 		class buyVehicle {};
 		class buyVehicleCiv {};
 		class clearForest {};
@@ -454,7 +453,6 @@ class A3A
 
 	class Revive
 	{
-
 		class actionRevive {};
 		class carry {};
 		class fatalWound {};

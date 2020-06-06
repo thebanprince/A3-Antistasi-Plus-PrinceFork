@@ -243,7 +243,8 @@ for "_i" from 1 to _countX do
 			_typeGroup = selectRandom groupsFIASquad;
 			if (_typeVehEsc == vehFIACar) then
 			{
-				_typeGroup = selectRandom groupsFIAMid;
+				_squad = call SCRT_fnc_unit_getCurrentFIAMid;
+				_typeGroup = selectRandom _squad;
 			};
 			_groupEsc = [_posbase,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;
@@ -357,9 +358,9 @@ else
 	if (not(_typeVehEsc == vehFIAArmedCar)) then
 	{
 		_typeGroup = selectRandom groupsFIASquad;
-		if (_typeVehEsc == vehFIACar) then
-		{
-			_typeGroup = selectRandom groupsFIAMid;
+		if (_typeVehEsc == vehFIACar) then {
+			_squad = call SCRT_fnc_unit_getCurrentFIAMid;
+			_typeGroup = selectRandom _squad;
 		};
 		_groupEsc = [_posbase,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 		{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x;[_x] joinSilent _groupX} forEach units _groupEsc;

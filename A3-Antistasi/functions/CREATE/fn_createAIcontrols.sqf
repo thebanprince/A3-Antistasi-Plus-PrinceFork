@@ -98,7 +98,12 @@ if (_isControl) then
 			sleep 1;
 			{_nul = [_x] call A3A_fnc_AIVEHinit} forEach _vehiclesX;
 			};
-		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
+		_typeGroup = if (_sideX == Occupants) then {
+				_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+				selectRandom _squad;
+			} else {
+				selectRandom groupsCSATmid
+			};
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
@@ -124,7 +129,8 @@ if (_isControl) then
 		_nul = [_veh] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = selectRandom groupsFIAMid;
+		_squad = call SCRT_fnc_unit_getCurrentFIAMid;
+		_typeGroup = selectRandom _squad;
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{

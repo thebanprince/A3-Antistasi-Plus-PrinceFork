@@ -58,6 +58,7 @@ civCar = "UK3CB_C_Hilux_Open";
 civTruck = "UK3CB_CHC_C_V3S_Recovery";
 civHeli = "UK3CB_CHC_C_Mi8AMT";
 civBoat = "C_Rubberboat";
+civLooter = "C_Truck_02_covered_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///

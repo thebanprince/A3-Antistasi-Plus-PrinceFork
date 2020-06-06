@@ -418,11 +418,11 @@
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official Antistasi Community and Barbolani</Original>
-        <English>The Official Antistasi Community and Barbolani</English>
-        <French>La Communauté Officielle d'Antistasi et Barbolani</French>
-        <German>Die offizielle Antistasi Community und Barbolani</German>
-        <Russian>Сообщество Antistasi</Russian>
+        <Original>The Official Antistasi Community, Barbolani, Socrates</Original>
+        <English>The Official Antistasi Community, Barbolani, Socrates</English>
+        <French>La Communauté Officielle d'Antistasi et Barbolani et Socrates</French>
+        <German>Die offizielle Antistasi Community und Barbolani und Socrates</German>
+        <Russian>Сообщество Antistasi, Barbolani, Socrates</Russian>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</Original>
@@ -536,12 +536,24 @@
         <German>Flugabwehr</German>
         <Russian>Установка ПВО</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_looter_truck_text">
+        <Original>Truck (Looter)</Original>
+        <English>Truck (Looter)</English>
+        <French>Camion (Looter)</French>
+        <Russian>Грузовик (Сборщик)</Russian>
+      </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_tooltip">
         <Original>Buy Static Anti-Air emplacement</Original>
         <English>Buy Static Anti-Air emplacement</English>
         <French>Acheter un emplacement de DCA fixe</French>
         <German>Kaufe ein statisches Flugabwehrgeschütz.</German>
         <Russian>Купить Станковую Установку ПВО</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_looter_truck_tooltip">
+        <Original>Buy a truck with looter capabilites (loot bodies and supplies).</Original>
+        <English>Buy a truck with looter capabilites (loot bodies and supplies).</English>
+        <French>Achetez un camion avec des capacités de pillage (corps de butin et fournitures).</French>
+        <Russian>Купить грузовик с способностью автолута (тела и ящики).</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_at_text">
         <Original>Static AT</Original>
@@ -786,6 +798,29 @@
         <German>Gefangen zwischen zwei Fronten.</German>
         <Russian>Между двух фронтов.</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_taviana_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
+        <Original>Antistasi - The Red Dawn</Original>
+        <English>Antistasi - The Red Dawn </English>
+        <French>Antistasi - L'aube rouge</French>
+        <Russian>Antistasi - Красный Рассвет</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_taviana_mapname_short_text">
+        <Original>Antistasi - The Red Dawn</Original>
+        <English>Antistasi - The Red Dawn</English>
+        <German>Antistasi - The Red Dawn</German>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_taviana_blurb_text">
+        <Original>Red in blue.</Original>
+        <English>Red in blue.</English>
+        <French>Rouge en bleu.</French>
+        <Russian>Красный в синем.</Russian>
+      </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
         <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
@@ -858,6 +893,14 @@
         <Original>Fought on the camel's back</Original>
         <English>Fought on the camel's back</English>
         <German>Kampf auf dem Kamelrücken</German>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_mapname_text">
+        <Original>Antistasi - Liberation of Kujari</Original>
+        <English>Antistasi - Liberation of Kujari</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vt7_mapname_text">
+        <Original>Antistasi - Highway 7</Original>
+        <English>Antistasi - Highway 7</English>
       </Key>
     </Container>
     <Container name="journal_entries">
@@ -1463,6 +1506,32 @@
         <Original>LanCommi for his artwork.&lt;br/&gt;Goon and jw custom: Part of the code for the NAPALM script.&lt;br/&gt;rebel12340: Radio Jam script&lt;br/&gt;Manko: Earplug snippet&lt;br/&gt;bobchaos: Managing the community despite all difficulties.&lt;br/&gt;And all those players who spend their time on making comments, suggestions and reports on Steam, Github and BIS forums.</Original>
       </Key>
       <German>LanCommi für sein Artwork&lt;br/&gt;Goon und jw cutom: Teile des Codes für das NAPALM Script.&lt;br/&gt;rebel12340: Radio Jam Script&lt;br/&gt;Manko: Earplug Codeteile&lt;br/&gt;bobchaos: Verwaltung der Community trotz aller Widrigkeiten.&lt;br/&gt;Und an alle Spieler, welche sich die Zeit genommen haben, um Kommentare, Vorschläge und Fehlerberichte auf Steam, GitHub und dem BIS Forum zu verfassen.</German>
+    </Container>
+    <Container name="loot_actions">
+      <Key ID="STR_antistasi_actions_loot_around_text">
+        <Original>Loot Bodies Around</Original>
+        <English>Loot Bodies Around</English>
+        <French>Butin de corps autour</French>
+        <Russian>Обыскать тела вокруг</Russian>
+      </Key>
+      <Key ID="STR_antistasi_actions_successful_loot_text">
+        <Original>Bodies has been successfully looted.</Original>
+        <English>Bodies has been successfully looted.</English>
+        <French>Les corps ont été pillés avec succès.</French>
+        <Russian>Тела были успешно разграблены.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_actions_no_bodies_text">
+        <Original>No bodies around.</Original>
+        <English>No bodies around.</English>
+        <French>Aucun corps autour.</French>
+        <Russian>Нет тел поблизости.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_actions_looter_cooldown_text">
+        <Original>The looting ability has been used in the last 15 seconds! Please wait for a bit.</Original>
+        <English>The looting ability has been used in the last 15 seconds! Please wait for a bit.</English>
+        <French>La capacité de pillage a été utilisée au cours des 15 dernières secondes! Veuillez patienter un peu.</French>
+        <Russian>Лут-способность уже была использована недавно. Пожалуйста, подождите 15 секунд.</Russian>
+      </Key>
     </Container>
   </Package>
 </Project>

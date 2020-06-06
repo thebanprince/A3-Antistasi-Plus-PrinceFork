@@ -58,6 +58,7 @@ civCar = "C_Offroad_01_F";
 civTruck = "RHS_Ural_Open_Civ_03";
 civHeli = "RHS_Mi8amt_civilian";
 civBoat = "C_Boat_Transport_02_F";
+civLooter = "C_Truck_02_covered_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
@@ -106,3 +107,13 @@ initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};
+
+//black market stuff
+shop_UAV = ["rhs_pchela1t_vvs"];
+shop_AA = ["I_LT_01_AA_F"];
+shop_MRAP = ["rhsgref_BRDM2_HQ_ins_g"];
+shop_arty = ["rhsgref_ins_g_BM21"];
+shop_wheel_apc = ["rhsgref_nat_btr70"];
+shop_track_apc = ["rhsgref_ins_g_bmp2"];
+shop_heli = ["RHS_Mi24P_vdv"];
+shop_tank = ["rhsgref_ins_g_t72ba"];

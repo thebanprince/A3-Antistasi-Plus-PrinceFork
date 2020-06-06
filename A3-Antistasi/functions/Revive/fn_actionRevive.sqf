@@ -66,21 +66,17 @@ if  (
 	_medicX addItem "FirstAidKit";
 	_cured removeItem "FirstAidKit";
 };
-_timer = if ([_cured] call A3A_fnc_fatalWound) then
-			{
-			time + 35 + (random 20)
-			}
-		else
-			{
-			if ((!isMultiplayer and (isPlayer _cured)) or ([_medicX] call A3A_fnc_isMedic)) then
-				{
-				time + 10 + (random 5)
-				}
-			else
-				{
-				time + 15 + (random 10)
-				};
-			};
+_timer = if ([_cured] call A3A_fnc_fatalWound) then {
+		time + 20
+}
+else {
+	if ((!isMultiplayer and (isPlayer _cured)) or ([_medicX] call A3A_fnc_isMedic)) then {
+		time + 10
+	}
+	else {
+		time + 15
+	};
+};
 
 
 _medicX setVariable ["timeToHeal",_timer];

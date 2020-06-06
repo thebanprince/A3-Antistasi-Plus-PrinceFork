@@ -12,17 +12,20 @@ if ((_cargoSeats >= 2) and (_cargoSeats < 4)) then
 	{
 	switch (_sideX) do
 		{
-		case Occupants: {_return = groupsNATOSentry};
+		case Occupants: {
+			_return = call SCRT_fnc_unit_getCurrentGroupNATOSentry;
+			};
 		case Invaders: {_return = groupsCSATSentry};
 		};
-	}
-else
-	{
+	} else {
 	if ((_cargoSeats >= 4) and (_cargoSeats < 8)) then
 		{
 		switch (_sideX) do
 			{
-			case Occupants: {_return = selectRandom groupsNATOmid};
+			case Occupants: {
+				_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+				_return = selectRandom _squad;
+				};
 			case Invaders: {_return = selectRandom groupsCSATmid};
 			};
 		}
@@ -32,13 +35,35 @@ else
 			{
 			case Occupants:
 				{
-				_return = selectRandom groupsNATOSquad;
-				if (_cargoSeats > 8) then
-					{
-					_countX = _cargoSeats - (count _return);
-					for "_i" from 1 to _countX do
-						{
-						if (random 10 < (tierWar + difficultyCoef)) then {_return pushBack NATOGrunt};
+				_return = call SCRT_fnc_unit_getCurrentNATOSquad;
+				if (_cargoSeats > 8) then {
+						_countX = _cargoSeats - (count _return);
+						for "_i" from 1 to _countX do
+							{
+								if (random 10 < (tierWar + difficultyCoef)) then {
+									if(hasTieredUnitConfigs) then {
+										switch (true) do {
+											case (tierWar < 5):
+											{
+												_grunt = NATOGrunt select 0;
+												_return pushBack _grunt;
+											};
+											case (tierWar < 8 && {tierWar > 4}):
+											{
+												_grunt = NATOGrunt select 1;
+												_return pushBack _grunt;
+											};
+											case (tierWar > 7):
+											{
+												_grunt = NATOGrunt select 2;
+												_return pushBack _grunt;
+											};
+										};
+									} else {
+										_grunt =  NATOGrunt select 0;
+										_return pushBack _grunt;
+									};
+								};
 						};
 					};
 				};

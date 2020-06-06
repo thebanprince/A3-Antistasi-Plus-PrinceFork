@@ -85,6 +85,8 @@ activeGREF = false;
 hasFFAA = false;
 hasIFA = false;
 has3CB = false;
+hasAU = false;
+hasTieredUnitConfigs = false;
 //Systems Mods
 hasACE = false;
 hasACEHearing = false;
@@ -114,6 +116,13 @@ if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "r
 if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
+//AntistasiUnits Detected
+if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
+	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
+    hasAU = true;
+	diag_log format ["%1: [Antistasi] | INFO | initVar | Tiered Units Configs Detected.",servertime];
+	hasTieredUnitConfigs = true;
+};
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///
@@ -258,6 +267,11 @@ switch (toLower worldName) do {
 	{
 		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBstratis.sqf";
+	};
+	case "taviana":
+	{
+        //Roads DB
+        call compile preprocessFileLineNumbers "Navigation\roadsDBtaviana.sqf";
 	};
 };
 

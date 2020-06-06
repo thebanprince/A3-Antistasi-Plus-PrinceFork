@@ -77,7 +77,7 @@ _fnc_initGarrison =
 				}
 				else
 				{
-	 				_groupsRandom = groupsNATOSquad;
+	 				_groupsRandom = [call SCRT_fnc_unit_getCurrentNATOSquad];
 				};
 			};
 			//Old system, keeping it intact for the moment
@@ -86,8 +86,6 @@ _fnc_initGarrison =
 			{
 				_garrisonOld append (selectRandom _groupsRandom);
 			};
-			//
-
 			//Old system, keeping it runing for now
 			garrison setVariable [_marker, _garrisonOld, true];
 
@@ -150,6 +148,10 @@ if (gameMode == 1) then
 		case "stratis": {
 			_mrkCSAT = ["outpost_3"];
 		};
+		case "taviana": {
+		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2","control_3","control_5", "control_6", "control_7", "control_8", "control_9", "control_14", "control_179","control_180"];
+            _controlsCSAT = ["control", "control_1", "control_2","control_3","control_5", "control_6", "control_7", "control_8", "control_9", "control_14", "control_179","control_180"];
+		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
@@ -189,14 +191,14 @@ if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];
 };
 
-[airportsX, "Airport"] call _fnc_initGarrison;								//Old system
+[airportsX, "Airport"] call _fnc_initGarrison;					//Old system
 [airportsX, "Airport", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.", servertime];
 };
 
-[resourcesX, "Resource"] call _fnc_initGarrison;							//Old system
+[resourcesX, "Resource"] call _fnc_initGarrison;			//Old system
 [resourcesX, "Other", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {

@@ -1,3 +1,7 @@
+if(!(isFatalWoundsEnabled)) then {
+    false;
+};
+
 private _unit = _this select 0;
 
 if (_unit getHit "head" >= 0.9) exitWith {true};
