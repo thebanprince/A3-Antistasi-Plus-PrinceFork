@@ -33,7 +33,7 @@ if (count _typesVeh > 0) then
 	_groups pushBack _groupHeli;
 	_vehiclesX pushBack _heli;
 	{[_x] call A3A_fnc_NATOinit} forEach _heliCrew;
-	[_heli] call A3A_fnc_AIVEHinit;
+	[_heli, _sideX] call A3A_fnc_AIVEHinit;
 	_wp1 = _groupHeli addWaypoint [_positionX, 0];
 	_wp1 setWaypointType "SAD";
 	//[_heli,"Air Attack"] spawn A3A_fnc_inmuneConvoy;
@@ -90,11 +90,11 @@ else
 		["DEF_HQ1",[format ["We know %2 HQ coordinates. We have sent a SpecOp Squad in order to kill his leader %1. Help the SpecOp team",name petros,nameTeamPlayer],format ["Kill %1",name petros],respawnTeamPlayer],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
         if(_sideX == Occupants) then
         {
-            [[10, 30], [5, 30]] remoteExec ["A3A_fnc_prestige",2];
+            [[10, 60], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
         }
         else
         {
-            [[5, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
+            [[5, 60], [10, 60]] remoteExec ["A3A_fnc_prestige",2];
         };
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		//[-5,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -106,34 +106,13 @@ _nul = [1200,"DEF_HQ"] spawn A3A_fnc_deleteTask;
 sleep 60;
 _nul = [0,"DEF_HQ1"] spawn A3A_fnc_deleteTask;
 
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x};
-} forEach _vehiclesX;
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _soldiers = _soldiers - [_x]};
-} forEach _soldiers;
-{
-_veh = _x;
-if (!([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)) then {deleteVehicle _x; _pilots = _pilots - [_x]};
-} forEach _pilots;
 
-if (count _soldiers > 0) then
-	{
-	{
-	_veh = _x;
-	waitUntil {sleep 1; !([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-	deleteVehicle _veh;
-	} forEach _soldiers;
-	};
+{
+	// return to base
+	private _wp = _x addWaypoint [_posOrigin, 50];
+	_wp setWaypointType "MOVE";
+	_x setCurrentWaypoint _wp;
+	[_x] spawn A3A_fnc_groupDespawner;
+} forEach _groups;
 
-if (count _pilots > 0) then
-	{
-	{
-	_veh = _x;
-	waitUntil {sleep 1; !([distanceSPWN,1,_x,teamPlayer] call A3A_fnc_distanceUnits) and (({_x distance _veh <= distanceSPWN} count (allPlayers - (entities "HeadlessClient_F"))) == 0)};
-	deleteVehicle _veh;
-	} forEach _pilots;
-	};
-{deleteGroup _x} forEach _groups;
+{ [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;

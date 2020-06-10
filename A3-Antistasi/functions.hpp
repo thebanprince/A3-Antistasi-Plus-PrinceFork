@@ -61,6 +61,8 @@ class A3A
 		class garbageCleaner {};
 		class garrisonInfo {};
         class getAggroLevelString {};
+        class getVehiclePoolForAttacks {};
+        class getVehiclePoolForQRFs {};
 		class healAndRepair {};
 		class initPetros {};
 		class isFrontline {};
@@ -90,13 +92,16 @@ class A3A
 		class rebuildRadioTower {};
 		class relocateHQObjects {};
 		class repairRuinedBuilding {};
+		class requestDataFromServer {};
 		class resourceCheckSkipTime {};
 		class resourcesFIA {};
 		class returnMuzzle {};
 		class revealToPlayer {};
 		class scheduler {};
 		class sellVehicle {};
+		class setDataOnClient {};
 		class setMarkerAlphaForSide {};
+        class singlePlayerBlackScreenWarning {};
 		class sizeMarker {};
 		class splitVehicleCrewIntoOwnGroups {};
 		class startBreachVehicle {};
@@ -229,6 +234,7 @@ class A3A
 		class spawnGroup {};
 		class vehAvailable {};
 		class VEHdespawner {};
+		class vehKilledOrCaptured {};
 		class wavedCA {};
 		class WPCreate {};
 	};
@@ -412,11 +418,20 @@ class A3A
 	{
 		class punishment {};
 		class punishment_addActionForgive {};
+		class punishment_checkStatus {};
+		class punishment_dataGet {};
+		class punishment_dataRem {};
+		class punishment_dataSet {};
+		class punishment_dataNamespace {};
+		class punishment_FF {};
+		class punishment_FF_checkNearHQ {};
+		class punishment_FF_addEH {};
 		class punishment_notifyAdmin {};
-		class punishment_notifyAllAdmins {};
+		class punishment_oceanGulag {};
 		class punishment_release {};
-		class punishment_sentence {};
-		class punishment_warden {};
+		class punishment_removeActionForgive {};
+		class punishment_sentence_client {};
+		class punishment_sentence_server {};
 	};
 
 	class pvp
@@ -478,6 +493,7 @@ class A3A
 
 	class Save
 	{
+		class deleteSave {};
 		class loadPlayer {};
 		class loadPreviousSession {};
 		class loadServer {};

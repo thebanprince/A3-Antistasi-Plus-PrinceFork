@@ -3,6 +3,7 @@ if (isServer) then {
 	diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 	petros allowdamage false;
 
+	["savedPlayers"] call A3A_fnc_getStatVariable;
 	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
@@ -10,7 +11,9 @@ if (isServer) then {
 	["gameMode"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
-	["countCA"] call A3A_fnc_getStatVariable;
+	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
+    ["attackCountdownInvaders"] call A3A_fnc_getStatVariable;
+    ["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
@@ -92,13 +95,14 @@ if (isServer) then {
     [true] call A3A_fnc_calculateAggression;
 
 	["chopForest"] call A3A_fnc_getStatVariable;
-	["destroyedBuildings"] call A3A_fnc_getStatVariable;
+
 	/*
 	{
 	_buildings = nearestObjects [_x, listMilBld, 25, true];
 	(_buildings select 1) setDamage 1;
 	} forEach destroyedBuildings;
 	*/
+
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;

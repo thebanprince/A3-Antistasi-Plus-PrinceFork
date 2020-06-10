@@ -9,6 +9,8 @@ if (isNil "logLevel") then { logLevel = 2 };scriptName "initClient.sqf";
 
 call A3A_fnc_installSchrodingersBuildingFix;
 
+if (!isServer) then { ["destroyedBuildings"] remoteExec ["A3A_fnc_requestDataFromServer", 2] };
+
 if (hasInterface) then {
 	waitUntil {!isNull player};
 	waitUntil {player == player};
@@ -49,27 +51,7 @@ if (isMultiplayer) then {
 		[] execVM "orgPlayers\radioJam.sqf";
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	if (side player == teamPlayer) then {
-		private _firedHandlerTk = {
-			_typeX = _this select 1;
-			if ((_typeX == "Put") or (_typeX == "Throw")) then {
-				private _shieldDistance = 100;
-				if (player distance petros < _shieldDistance) then {
-					["Warning", format ["You cannot throw grenades or place explosives within %1m of base.", _shieldDistance]] call A3A_fnc_customHint;
-					deleteVehicle (_this select 6);
-					if (_typeX == "Put") then {
-						if (player distance petros < 10) then {
-							[player, 20, 0.34, petros] call A3A_fnc_punishment;
-						};
-					};
-				};
-			};
-		};
-		player addEventHandler ["Fired", _firedHandlerTk];
-		if (hasACE) then {
-			["ace_firedPlayer", _firedHandlerTk ] call CBA_fnc_addEventHandler;
-		};
-	};
+	call A3A_fnc_punishment_FF_addEH;
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 }
 else {
@@ -168,7 +150,7 @@ if (player getVariable ["pvp",false]) exitWith {
 player setVariable ["score",0,true];
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["moneyX",100,true];
+player setVariable ["moneyX",95,true];
 player setUnitRank "PRIVATE";
 player setVariable ["rankX",rank player,true];
 
@@ -274,30 +256,33 @@ player addEventHandler ["HandleHeal", {
 		};
 	};
 }];
+
+// notes:
+// Static weapon objects are persistent through assembly/disassembly
+// The bags are not persistent, object IDs change each time
+// Static weapon position seems to follow bag1, but it's not an attached object
+// Can use objectParent to identify backpack of static weapon
+
 player addEventHandler ["WeaponAssembled", {
-	private ["_veh"];
-	_veh = _this select 1;
+	private _veh = _this select 1;
+	[_veh, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
 	if (_veh isKindOf "StaticWeapon") then {
 		if (not(_veh in staticsToSave)) then {
 			staticsToSave pushBack _veh;
 			publicVariable "staticsToSave";
-			[_veh] call A3A_fnc_AIVEHinit;
 		};
-	_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-	_pos = position _veh;
-	if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
-	}
-	else {
-		_veh addEventHandler ["Killed",{[_this select 0] remoteExec ["A3A_fnc_postmortem",2]}];
+		_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+		_pos = position _veh;
+		if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns"] call A3A_fnc_customHint;};
 	};
 }];
 player addEventHandler ["WeaponDisassembled", {
-	_bag1 = _this select 1;
-	_bag2 = _this select 2;
+	private _bag1 = _this select 1;
+	private _bag2 = _this select 2;
 	//_bag1 = objectParent (_this select 1);
 	//_bag2 = objectParent (_this select 2);
-	[_bag1] call A3A_fnc_AIVEHinit;
-	[_bag2] call A3A_fnc_AIVEHinit;
+	[_bag1] remoteExec ["A3A_fnc_postmortem", 2];
+	[_bag2] remoteExec ["A3A_fnc_postmortem", 2];
 }];
 
 player addEventHandler ["GetInMan", {
@@ -342,7 +327,7 @@ if (isMultiplayer) then {
 				_isMember = true;
 				["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
 			};
-			
+
 			if (_isMember) then {
 				membersX pushBack (getPlayerUID player);
 				publicVariable "membersX";
@@ -350,7 +335,7 @@ if (isMultiplayer) then {
 				_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
 				if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
 				if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
-				
+
 				["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 			};
 		};
@@ -387,7 +372,7 @@ if (_isJip) then {
 		} forEach missionsX;
 	};
 }
-else 
+else
 {
 	[2,"Not Joining in Progress (JIP)",_filename] call A3A_fnc_log;
 };
@@ -454,6 +439,7 @@ _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 vehicleBox allowDamage false;
 vehicleBox addAction ["Heal, Repair and Rearm", A3A_fnc_healAndRepair,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
+if (hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 if (isMultiplayer) then {
 	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
@@ -499,7 +485,7 @@ if (isNil "placementDone") then {
 if (isMultiplayer) then {
 	[] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 }
-else 
+else
 {
 	if (loadLastSave) then {
 		[] spawn A3A_fnc_loadPlayer;
@@ -514,3 +500,8 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 [2,"initClient completed",_fileName] call A3A_fnc_log;
+
+if(!isMultiplayer) then
+{
+    [] spawn A3A_fnc_singlePlayerBlackScreenWarning;
+};
