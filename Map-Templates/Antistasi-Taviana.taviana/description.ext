@@ -14,13 +14,10 @@ overviewPicture = "Pictures\pic.jpg";
 
 #include "MagRepack\MagRepack_config.hpp"
 
-#include "taw_vd\GUI.h"
-
 class CfgFunctions {
     #include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
     #include "SCRT\functions.hpp"
-    #include "taw_vd\CfgFunctions.hpp"
 };
 
 class CfgSounds
@@ -47,7 +44,7 @@ class CfgSounds
 class CfgDebriefing
 {
     #include "MissionDescription\endMission.hpp"
-    
+
 	class End1
 	{
 		title = "V I C T O R Y";

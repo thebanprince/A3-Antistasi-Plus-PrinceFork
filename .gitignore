@@ -1,5 +1,6 @@
 .vscode/
 .github/
+.idea/
 *.log
 *.pbo
 *.pbo.bak
