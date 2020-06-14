@@ -18,8 +18,6 @@
 		case "rhsgref_faction_cdf_ng_b": {if ((!has3CB) and teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 		//3CB
 		//case "IND_F": {if ((has3CB) and nameTeamPlayer isEqualTo "TTF") then {allRebelUniforms pushBack _x};};
-		//IFA
-		case "LIB_GUER": {if (hasIFA) then {allRebelUniforms pushBack _x};};
 		//Vanilla
 		case "IND_C_F";
 		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1

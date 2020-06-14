@@ -83,7 +83,6 @@ activeAFRF = false;
 activeUSAF = false;
 activeGREF = false;
 hasFFAA = false;
-hasIFA = false;
 has3CB = false;
 hasAU = false;
 hasTieredUnitConfigs = false;
@@ -103,11 +102,9 @@ hasACE = (!isNil "ace_common_fnc_isModLoaded");
 hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
 hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
 //IFA Detection
-//Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
+//Deactivated, as IFA is having some IP problems (08.05.2020 european format)
 if isClass (configFile >> "CfgPatches" >> "LIB_Core") then
 {
-    //hasIFA = true;
-    //[2, "IFA Detected", _fileName] call A3A_fnc_log;
     [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
@@ -155,10 +152,8 @@ medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic
 //     ID LIST FOR UNIT NAMES    ///
 ////////////////////////////////////
 [2,"Creating unit identities",_fileName] call A3A_fnc_log;
-if !(hasIFA) then {
-	arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
-	if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
-};
+arrayids = ["Anthis","Costa","Dimitirou","Elias","Gekas","Kouris","Leventis","Markos","Nikas","Nicolo","Panas","Rosi","Samaras","Thanos","Vega"];
+if (isMultiplayer) then {arrayids = arrayids + ["protagonista"]};
 
 ////////////////////////////////////
 //     MISSION PATH WARNING      ///

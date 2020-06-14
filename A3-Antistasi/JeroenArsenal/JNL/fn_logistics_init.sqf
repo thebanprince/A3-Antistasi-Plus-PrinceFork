@@ -267,45 +267,6 @@ jnl_vehicleHardpoints = [
     [1,		[0,-1.4,-1], [1,2,3,4,5,6]]		//cargo node
   ]],
 
-// ---------- IFA ----------
-//Allies
-//GMC
-  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Gmc353Truck.p3d",[
-    [1,		[0,-2,-0.6],	[1,2,3,4,5,6,7,8,9,10]]
-  ]],
-
-//Austin
-  ["\WW2\Assets_m\Vehicles\Trucks_m\DD_AustinK5.p3d",[
-    [1,		[0,-1,-0.9],	[1,2,3,4,5,6,7,8,9,10]]
-  ]],
-
-//Axis
-//Opel Blitz
-  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz.p3d",[
-    [1,		[0,-1.5,-0.10],	[1,2,3,4,5,6,7,8,9,10]]
-  ]],
-
-//Opel Blitz Covered
-  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Opelblitz_Tent.p3d",[
-    [1,		[0,-1.5,-0.10],					[1,2,3,4,5,6,7,8,9,10]]
-  ]],
-
-//Sd. Kfz. 7/1
-  ["\WW2\Assets_m\Vehicles\WheeledAPC_m\IF_SdKfz_7.p3d",[
-    [1,		[0,-1.7,-0.8],		[5,6,7,8,9,10,11]]
-  ]],
-
-//Commintern
-//Studebaker
-  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Us6.p3d",[
-    [1,		[0,-0.82,0.17],					[2,3,4,5,6,7,8]]
-  ]],
-
-//Zis - Disabled due to benches -
-/*  ["\WW2\Assets_m\Vehicles\Trucks_m\IF_Zis5v.p3d",[
-    [1,		[0,-0.65,-0.81],					[2,3,4,5,6,7,8]]
-  ]],*/
-
 // ---------- 3CB ----------
 //Datsun Civ Variant
   ["\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_datsun\uk3cb_datsun_civ_open.p3d", [
@@ -543,9 +504,7 @@ jnl_attachmentOffset = [
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicAmmoBox.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate2
 	["\A3\Weapons_F\Ammoboxes\Proxy_UsBasicExplosives.p3d",			[0,0,0.85],				[1,0,0],				1], 	//Stef test Devin crate3
 	["\A3\Weapons_F\Ammoboxes\Supplydrop.p3d",						[0, 0, 0.95],			[1,0,0],				1],		//Ammodrop crate
-	["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d",					[0, 0, 1.4],			[0,1,0],				1],		//Quadbike
-	["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_GER_Ammo.p3d",			[0,0,0.85],				[1,0,0],				1],		//ifa ammo
-	["\WW2\Assets_m\Weapons\Ammoboxes_m\IF_SU_Ammo.p3d",			[0,0,0.85],				[1,0,0],				1]		//ifa ammo
+	["\A3\Soft_F\Quadbike_01\Quadbike_01_F.p3d",					[0, 0, 1.4],			[0,1,0],				1]		//Quadbike
 ];
 
 

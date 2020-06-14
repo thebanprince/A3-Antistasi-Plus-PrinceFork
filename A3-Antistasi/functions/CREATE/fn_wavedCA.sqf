@@ -244,20 +244,14 @@ while {(_waves > 0)} do
 	};
 
 	_isSea = false;
-	if !(hasIFA) then
-		{
-		for "_i" from 0 to 3 do
-			{
-			_pos = _posDestination getPos [1000,(_i*90)];
-			if (surfaceIsWater _pos) exitWith
-				{
-				if ({sidesX getVariable [_x,sideUnknown] == _sideX} count seaports > 1) then
-					{
-					_isSea = true;
-					};
-				};
+		for "_i" from 0 to 3 do {
+		_pos = _posDestination getPos [1000,(_i*90)];
+		if (surfaceIsWater _pos) exitWith {
+			if ({sidesX getVariable [_x,sideUnknown] == _sideX} count seaports > 1) then {
+				_isSea = true;
 			};
 		};
+	};
 
 	if ((_isSea) and (_firstWave)) then
 		{
@@ -381,36 +375,26 @@ while {(_waves > 0)} do
 	_posGround = [_posOrigin select 0,_posOrigin select 1,0];
 	_posOrigin set [2,300];
 	_groupUAV = grpNull;
-	if !(hasIFA) then
-	{
-		//75% chance to spawn a UAV, to give some variety.
-		if (random 1 < 0.25) exitWith {};
-		_typeVehX = if (_sideX == Occupants) then {vehNATOUAV} else {vehCSATUAV};
+	//75% chance to spawn a UAV, to give some variety.
+	if (random 1 < 0.25) exitWith {};
+	_typeVehX = if (_sideX == Occupants) then {vehNATOUAV} else {vehCSATUAV};
 
-		_uav = createVehicle [_typeVehX, _posOrigin, [], 0, "FLY"];
-		_vehiclesX pushBack _uav;
-		//[_uav,"UAV"] spawn A3A_fnc_inmuneConvoy;
-		[_uav,_mrkDestination,_sideX] spawn A3A_fnc_VANTinfo;
-		createVehicleCrew _uav;
-		_pilots append (crew _uav);
-		_groupUAV = group (crew _uav select 0);
-		_groups pushBack _groupUAV;
-		{[_x] call A3A_fnc_NATOinit} forEach units _groupUAV;
-		[_uav, _sideX] call A3A_fnc_AIVEHinit;
-		_uwp0 = _groupUAV addWayPoint [_posDestination,0];
-		_uwp0 setWaypointBehaviour "AWARE";
-		_uwp0 setWaypointType "SAD";
-		if (not(_mrkDestination in airportsX)) then {_uav removeMagazines "6Rnd_LG_scalpel"};
-		sleep 5;
-	}
-	else
-	{
-		_groupUAV = createGroup _sideX;
-		//_posOrigin set [2,2000];
-		_uwp0 = _groupUAV addWayPoint [_posDestination,0];
-		_uwp0 setWaypointBehaviour "AWARE";
-		_uwp0 setWaypointType "SAD";
-	};
+	_uav = createVehicle [_typeVehX, _posOrigin, [], 0, "FLY"];
+	_vehiclesX pushBack _uav;
+	//[_uav,"UAV"] spawn A3A_fnc_inmuneConvoy;
+	[_uav,_mrkDestination,_sideX] spawn A3A_fnc_VANTinfo;
+	createVehicleCrew _uav;
+	_pilots append (crew _uav);
+	_groupUAV = group (crew _uav select 0);
+	_groups pushBack _groupUAV;
+	{[_x] call A3A_fnc_NATOinit} forEach units _groupUAV;
+	[_uav, _sideX] call A3A_fnc_AIVEHinit;
+	_uwp0 = _groupUAV addWayPoint [_posDestination,0];
+	_uwp0 setWaypointBehaviour "AWARE";
+	_uwp0 setWaypointType "SAD";
+	if (not(_mrkDestination in airportsX)) then {_uav removeMagazines "6Rnd_LG_scalpel"};
+	sleep 5;
+
     _vehPool = [_sideX, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForAttacks;
     if(count _vehPool == 0) then
     {
@@ -547,7 +531,7 @@ while {(_waves > 0)} do
 	_plane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
 	if (_sideX == Occupants) then
 		{
-		if (((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) or hasIFA) then
+		if ((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) then
 			{
 			[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery;
 			diag_log "Antistasi: Arty Spawned";
@@ -577,7 +561,7 @@ while {(_waves > 0)} do
 		}
 	else
 		{
-		if (((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) or hasIFA) then
+		if ((not(_mrkDestination in resourcesX)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "CSAT_carrier")) then
 			{
 			if !(_posOriginLand isEqualTo []) then {[_posOriginLand,_mrkDestination,_sideX] spawn A3A_fnc_artillery} else {[_mrkOrigin,_mrkDestination,_sideX] spawn A3A_fnc_artillery};
 			diag_log "Antistasi: Arty Spawned";

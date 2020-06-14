@@ -513,7 +513,6 @@ class A3A
 	{
 		class aceModCompat {};
 		class getLoadout {};
-		class ifaModCompat {};
 		class rhsModCompat {};
 	};
 

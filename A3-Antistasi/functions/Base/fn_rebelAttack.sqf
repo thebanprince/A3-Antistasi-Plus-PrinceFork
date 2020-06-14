@@ -21,16 +21,6 @@ private _fileName = "rebelAttack";
     true
 ] call A3A_fnc_log;
 
-if (hasIFA and (sunOrMoon < 1)) exitWith
-{
-    [
-        2,
-        "Aborting attack as IFA has no nightvision (at least thats what I assume)",
-        _fileName,
-        true
-    ] call A3A_fnc_log;
-};
-
 private _possibleTargets = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;;
 private _possibleStartBases = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) && (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
 

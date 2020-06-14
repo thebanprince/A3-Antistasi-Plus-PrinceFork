@@ -144,7 +144,7 @@ _vehiclesX pushBack _ammoBox;
 
 _roads = _positionX nearRoads _size;
 
-if ((_markerX in seaports) and !hasIFA) then
+if (_markerX in seaports) then
 {
 	_typeVehX = if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat};
 	if ([_typeVehX] call A3A_fnc_vehAvailable) then

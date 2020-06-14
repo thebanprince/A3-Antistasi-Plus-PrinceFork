@@ -101,10 +101,6 @@ switch (true) do {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if !(unlockedAT isEqualTo []) then {
 			[_unit, selectRandom unlockedAT, 4] call _addWeaponAndMags;
-		} else {
-			if (hasIFA) then {
-				[_unit, "LIB_PTRD", 10] call _addWeaponAndMags;
-			};
 		};
 	};
 	// squad leaders and
@@ -122,7 +118,7 @@ switch (true) do {
 	};
 };
 
-if (!hasIFA && sunOrMoon < 1) then {
+if (sunOrMoon < 1) then {
 	if !(haveNV) then {
 		// horrible, although at least it stops once you unlock NV
 		private _flashlights = allLightAttachments arrayIntersect unlockedItems;

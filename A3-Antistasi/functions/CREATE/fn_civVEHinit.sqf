@@ -11,21 +11,16 @@ if (_veh isKindOf "Car") then
 
 _veh addEventHandler ["Killed",{[_this select 0] spawn A3A_fnc_postmortem}];
 
-if ((count crew _veh == 0) and (!activeGREF) and !(hasIFA)) then
-	{
+if ((count crew _veh == 0) and (!activeGREF)) then {
 	sleep 10;
 	if (isMultiplayer) then {[_veh,false] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation false};
-	_veh addEventHandler ["GetIn",
-		{
+	_veh addEventHandler ["GetIn", {
 		_veh = _this select 0;
 		if (!simulationEnabled _veh) then {if (isMultiplayer) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation true}};
 		[_veh] spawn A3A_fnc_VEHdespawner;
-		}
-		];
-	_veh addEventHandler ["HandleDamage",
-		{
+	}];
+	_veh addEventHandler ["HandleDamage",{
 		_veh = _this select 0;
 		if (!simulationEnabled _veh) then {if (isMultiplayer) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation true}};
-		}
-		];
-	};
+	}];
+};

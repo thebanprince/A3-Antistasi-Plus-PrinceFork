@@ -44,7 +44,7 @@ DECLARE_SERVER_VAR(civPerc, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
-DECLARE_SERVER_VAR(distanceForLandAttack, if (hasIFA) then {5000} else {3000});
+DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
 //Max units we aim to spawn in. It's not very strictly adhered to.
 DECLARE_SERVER_VAR(maxUnits, 140);
 
@@ -197,11 +197,6 @@ if (hasTFAR) then
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
 			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
-			if (hasIFA) then
-				{
-				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-				};
 			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
 			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
 			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
@@ -464,43 +459,34 @@ private _templateVariables = [
 } forEach _templateVariables;
 
 
-if !(hasIFA) then {
-	//Rebel Templates
-	switch (true) do {
-		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Reb_TAPA_Wdl.sqf"};
-		case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
-		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
-		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
-		case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
-	};
-	//Occupant Templates
-	switch (true) do {
-		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf"};
-		case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
-		case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
-		case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
-		case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
-	};
-	//Invader Templates
-	switch (true) do {
-		case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf"};
-		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";};
-		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
-		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
-	};
-	//Civilian Templates
-	switch (true) do {
-		case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
-		case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
-		case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
-	};
-}
-else {
-	//IFA Templates
-	call compile preProcessFileLineNumbers "Templates\IFA_Reb_POL_Temp.sqf";
-	call compile preProcessFileLineNumbers "Templates\IFA_Inv_SOV_Temp.sqf";
-	call compile preProcessFileLineNumbers "Templates\IFA_Occ_WEH_Temp.sqf";
-	call compile preProcessFileLineNumbers "Templates\IFA_Civ.sqf";
+//Rebel Templates
+switch (true) do {
+	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Reb_TAPA_Wdl.sqf"};
+	case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
+	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
+	case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
+	case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
+};
+//Occupant Templates
+switch (true) do {
+	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf"};
+	case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
+	case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
+	case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
+	case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
+};
+//Invader Templates
+switch (true) do {
+	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf"};
+	case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";};
+	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
+	case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
+};
+//Civilian Templates
+switch (true) do {
+	case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
+	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
+	case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
 };
 
 ////////////////////////////////////
@@ -689,9 +675,6 @@ if (hasACE) then {
 };
 if (hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
-};
-if (hasIFA) then {
-	[] call A3A_fnc_ifaModCompat;
 };
 
 ////////////////////////////////////

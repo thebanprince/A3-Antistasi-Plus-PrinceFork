@@ -254,18 +254,10 @@ while {true} do
 							} forEach _baseOfFire select {(_x getVariable ["typeOfSoldier",""] == "MGMan") or (_x getVariable ["typeOfSoldier",""] == "StaticGunner")};
 							if (sunOrMoon < 1) then
 								{
-								if !(haveNV) then
-									{
-									if (hasIFA) then
+								if !(haveNV) then {
 										{
-										if (([_LeaderX] call A3A_fnc_canFight) and ((typeOf _LeaderX) in squadLeaders)) then {[_LeaderX,_nearX] call A3A_fnc_useFlares}
-										}
-									else
-										{
-										{
-										[_x,_nearX] call A3A_fnc_suppressingFire;
+											[_x,_nearX] call A3A_fnc_suppressingFire;
 										} forEach _baseOfFire select {(_x getVariable ["typeOfSoldier",""] == "Normal") and (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)};
-										};
 									};
 								};
 							_mortarX = _groupX getVariable ["mortarsX",objNull];
