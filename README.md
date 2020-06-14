@@ -1,72 +1,28 @@
-<div>
-<p align="center">
-    <img src="https://avatars0.githubusercontent.com/u/53788409?s=200&v=4" width="240">
-</p>
-
-<p align="center">
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-2.2.1-blue.svg?style=flat-square" alt="Antistasi Version">
-    </a>
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
-        <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
-    </a>
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases">
-        <img src="https://img.shields.io/github/downloads/official-antistasi-community/A3-Antistasi/total.svg?style=flat-square&label=Downloads" alt="Antistasi Downloads">
-    </a>
-    <a href="https://github.com/official-antistasi-community/A3-Antistasi/blob/unstable/LICENSE">
-        <img src="https://img.shields.io/badge/License-MiT-blue.svg?style=flat-square" alt="Antistasi License">
-    </a>
-</p>
-
-
-<p align="center">
-    <a href="https://discord.gg/t7JD7eT">Discord</a> | <a href="https://a3antistasi.enjin.com/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial</a>
-</p>
+<div align="center">
+  <h1>Antistasi Plus</h1>
+  <p>
+        Antistasi Plus is a fork version of Antistasi mission by Official Antistasi Community.
+  </p>
 </div>
 
-## About
+## About Antistasi
 A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infantry and Guerrilla Tactics.
 
-## Project Status
-Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
-Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=unstable)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
+## Mission Files
+- Taviana
+    - [Steam Workshop: 2084393140](https://steamcommunity.com/sharedfiles/filedetails/?id=2084393140)
 
-## Grab our latest release on Steam!
-### [Mission Files](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/)
-- Altis
-    - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)
-- Altis Blufor
-    - [Steam Workshop: 1832665647](https://steamcommunity.com/sharedfiles/filedetails/?id=1832665647)
-- Tanoa
-    - [Steam Workshop: 1832685459](https://steamcommunity.com/sharedfiles/filedetails/?id=1832685459)
-- Malden
-    - [Steam Workshop: 1850103246](https://steamcommunity.com/sharedfiles/filedetails/?id=1850103246)
-- Livonia
-    - [Steam Workshop: 1850107049](https://steamcommunity.com/sharedfiles/filedetails/?id=1850107049)
-- Chernarus Summer
-    - [Steam Workshop: 1833035777](https://steamcommunity.com/sharedfiles/filedetails/?id=1833035777)
-- Chernarus Winter
-    - [Steam Workshop: 1959942769](https://steamcommunity.com/sharedfiles/filedetails/?id=1959942769)
-- Anizay
-    - [Steam Workshop: 1959965492](https://steamcommunity.com/sharedfiles/filedetails/?id=1959965492)
-- Kunduz
-    - [Steam Workshop: 1959971214](https://steamcommunity.com/sharedfiles/filedetails/?id=1959971214)
-- Tembelan Island
-    - [Steam Workshop: 1959976706](https://steamcommunity.com/sharedfiles/filedetails/?id=1959976706)
-- Altis 1.9 Community Version
-    - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
-
-### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/?section=collections)
+## Suggested Modlists
 - Vanilla
     - [Steam Workshop: 1833674441](https://steamcommunity.com/sharedfiles/filedetails/?id=1833674441)
 - RHS Collection
-    - [Steam Workshop: 1833668872](https://steamcommunity.com/sharedfiles/filedetails/?id=1833668872)
-- WW2 / Armia Krajowa
-    - [Steam Workshop: 1833672629](https://steamcommunity.com/sharedfiles/filedetails/?id=1833672629)
+  - [Steam Workshop: 1833668872](https://steamcommunity.com/sharedfiles/filedetails/?id=1833668872)
 - 3CB Collection
     - [Steam Workshop: 1834976313](https://steamcommunity.com/sharedfiles/filedetails/?id=1834976313)
+- Antistasi Units
+  - [Steam Workshop: 2084328719](https://steamcommunity.com/sharedfiles/filedetails/?id=2084328719)
 
-## Features:
+## Antistasi Features:
 
 - Playable in SP, MP, and persistent open server MP.
 - Blufor vs Greenfor vs Redfor with dynamic battles, let Blufor and Redfor fight and strike them while they're busy, don't draw too much attention or the aggressivity against SDK will increase, causing heavy reactions. Be nice with their wounded instead; If healed they might think to join you!
@@ -82,13 +38,18 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Up to 3 Headless Client supported.
 - Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
 
-### How to build from GIT
+## Antistasi Plus Features
+- Special truck with ability to autoloot bodies around the truck to reduce tediousness of looting enemy (can be bought on Civilian section)
+- Integrated Mag Repack script (menu can be accessed via Ctrl+R hotkey)
+- Black Market - possibility to spend money on weapons, vehicles, aircrafts et cetera (can be accessed via Petros when seaport is captured, based on according Antistasi Singleplayer feature, credits to GospelG)
+- Infantry unit tiers based on current war level, the bigger war level - the better enemy's infantry units equipment (requires Antistasi Units mod)
+- Some QoL fixes
+
+
+## How to build from GIT
 - Download ZIP file
 - Extract ZIP
 - Right click on `PrepareMissionsForPacking.ps1` and select 'Open with PowerShell'
 - The script will create a new folder called `PreparedMissions/`
 - Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
 - Use a PBO Packager to pack the any of these mission folders
-
-### Known Issues:
-For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

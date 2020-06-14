@@ -1,5 +1,7 @@
-class SCRT {
-	class Loot {
+class SCRT 
+{
+	class Loot 
+    {
 		file = "SCRT\Loot";
         class loot_addLooterCapability {};
         class loot_gatherLoot {};
@@ -7,7 +9,8 @@ class SCRT {
         class loot_removeActionLoot {};
 	};
 
-    class Unit {
+    class Unit 
+    {
         file = "SCRT\Unit";
         class unit_getCurrentGroupNATOSentry {};
         class unit_getCurrentGroupNATOMid {};
@@ -19,7 +22,8 @@ class SCRT {
         class unit_getCurrentFIAMid {};
     };
 
-    class Shop {
+    class Shop 
+    {
         file = "SCRT\Shop";
         class shop_checkAvailability {};
         class shop_buyArmor {};
@@ -27,4 +31,10 @@ class SCRT {
 		class shop_buySupplies{};
 		class shop_buyWeapons {};
     };
+
+    class Misc 
+    {
+        file = "SCRT\Misc";
+        class misc_getMissionTitle {};
+    }
 };

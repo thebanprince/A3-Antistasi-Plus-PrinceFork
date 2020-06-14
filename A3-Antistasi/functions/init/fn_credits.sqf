@@ -1,61 +1,6 @@
-_title = 0;
+private _title = call SCRT_fnc_misc_getMissionTitle;
 
-switch (toLower worldName) do {
-	case "tanoa":
-	{
-	    _title = localize "STR_antistasi_mission_info_tanoa_mapname_text";
-	};
-	case "altis":
-	{
-	    _title = localize "STR_antistasi_mission_info_altis_mapname_text";
-	};
-	case "chernarus_summer":
-	{
-	    _title = localize "STR_antistasi_mission_info_cherna_mapname_text";
-	};
-	case "chernarus_winter":
-	{
-	    _title = localize "STR_antistasi_mission_info_chernawinter_mapname_text";
-	};
-	case "malden":
-	{
-	    _title = localize "STR_antistasi_mission_info_malden_mapname_text";
-	};
-	case "enoch":
-	{
-	    _title = localize "STR_antistasi_mission_info_livonia_mapname_text";
-	};
-	case "kunduz":
-	{
-	    _title = localize "STR_antistasi_mission_info_kunduz_mapname_text";
-	};
-	case "tembelan":
-	{
-	    _title = localize "STR_antistasi_mission_info_tembelan_mapname_text";
-	};
-	case "tem_anizay":
-	{
-	    _title = localize "STR_antistasi_mission_info_anizay_mapname_text";
-	};
-	case "tem_kujari":
-	{
-	    _title = localize "STR_antistasi_mission_info_kujari_mapname_text";
-	};
-	case "vt7":
-	{
-	    _title = localize "STR_antistasi_mission_info_vt7_mapname_text";
-	};
-	case "taviana":
-	{
-	    _title = localize "STR_antistasi_mission_info_taviana_mapname_text";
-	};
-	default
-	{
-	    _title = "Antistasi";
-	};
-};
-
-_credits = [ [_title, [antistasiVersion]], [ "Authors:", ["Barbolani","Official AntiStasi Community", "Socrates (Taviana version)"] ] ];
+_credits = [ [_title, [antistasiVersion]], [ "Authors:", ["Barbolani","Official AntiStasi Community", "Socrates (Antistasi Plus)"]], [ "Antistasi Plus Authors:", ["Socrates"]] ];
 _layer = "credits1" call bis_fnc_rscLayer;
 _delay = 5;
 _duration = 5;
@@ -83,15 +28,11 @@ _duration = 5;
 		_ctrlText ctrlsetstructuredtext parsetext _text;
 		_offsetX = 0.1;
 		_offsetY = 0.3;
-		//_width = (abs safeZoneX) max (0.5);
-		//_height = ctrltextheight _ctrlText;
-		//_pos = [safezoneX + _offsetX, safezoneY + _offsetY,_width,_height];
-		
+
 		_width = safeZoneW;
 		_height = ctrltextheight _ctrlText;
 		_pos = [safezoneX, safeZoneY + _offsetY,_width,_height];
 		
-		//_pos = [safezoneX + safezoneW - _width - _offsetX,safezoneY + safezoneH - _height,_width,_height]
 		_ctrlText ctrlsetposition _pos;
 		_ctrlText ctrlsetfade 1;
 		_ctrlText ctrlcommit 0;
