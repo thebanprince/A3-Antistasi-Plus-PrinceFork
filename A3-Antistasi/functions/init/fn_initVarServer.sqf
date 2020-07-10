@@ -458,36 +458,7 @@ private _templateVariables = [
 	ONLY_DECLARE_SERVER_VAR_FROM_VARIABLE(_x);
 } forEach _templateVariables;
 
-
-//Rebel Templates
-switch (true) do {
-	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Reb_TAPA_Wdl.sqf"};
-	case (!activeGREF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Reb_FIA_Altis.sqf"};
-	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf"};
-	case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf"};
-	case (activeGREF): {call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Arid.sqf"};
-};
-//Occupant Templates
-switch (true) do {
-	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf"};
-	case (!activeUSAF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Occ_NATO_Altis.sqf"};
-	case (has3CB): {call compile preProcessFileLineNumbers "Templates\BAF_Occ_BAF_Arid.sqf"};
-	case (teamPlayer != independent): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf"};
-	case (activeUSAF): {call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Arid.sqf"};
-};
-//Invader Templates
-switch (true) do {
-	case (hasAU): {call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf"};
-	case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Inv_CSAT_Altis.sqf";};
-	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf"};
-	case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Arid.sqf"};
-};
-//Civilian Templates
-switch (true) do {
-	case (!activeAFRF): {call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";};
-	case (has3CB): {call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf"};
-	case (activeAFRF): {call compile preProcessFileLineNumbers "Templates\RHS_Civ.sqf"};
-};
+call compile preProcessFileLineNumbers "Templates\selector.sqf";
 
 ////////////////////////////////////
 //      CIVILIAN VEHICLES       ///
@@ -717,9 +688,9 @@ timer setVariable [vehCSATMRLS,5,true];
 server setVariable [civCar,200,true];													//200
 server setVariable [civTruck,600,true];													//600
 server setVariable [civHeli,5000,true];													//5000
-server setVariable [civBoat,200,true];													//200
-server setVariable [vehSDKBike,50,true];
-server setVariable [civLooter,800,true];												//50
+server setVariable [civBoat,200,true];
+server setVariable [civLooter,800,true];	
+server setVariable [vehSDKBike ,50,true];												//50
 server setVariable [vehSDKLightUnarmed,200,true];										//200
 server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];

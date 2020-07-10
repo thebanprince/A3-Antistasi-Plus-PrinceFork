@@ -72,8 +72,8 @@ policeGrunt = "UK3CB_TKP_I_RIF_2";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["UK3CB_TKA_I_GL", NATOGrunt select 0];
-groupsNATOSentryT2 = ["UK3CB_TKA_I_GL", NATOGrunt select 0];
+groupsNATOSentryT1 = ["UK3CB_TKA_I_MK", NATOGrunt select 0];
+groupsNATOSentryT2 = ["UK3CB_TKA_I_MK", NATOGrunt select 0];
 groupsNATOSentryT3 = ["UK3CB_TKA_I_GL",NATOGrunt select 0];
 groupsNATOSpecOpSmall = [
 		["UK3CB_TKP_I_STATIC_GUN_NSV","UK3CB_TKP_I_STATIC_TRI_NSV"],

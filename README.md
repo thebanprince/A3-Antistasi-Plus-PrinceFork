@@ -26,7 +26,7 @@ A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infan
 
 - Playable in SP, MP, and persistent open server MP.
 - Blufor vs Greenfor vs Redfor with dynamic battles, let Blufor and Redfor fight and strike them while they're busy, don't draw too much attention or the aggressivity against SDK will increase, causing heavy reactions. Be nice with their wounded instead; If healed they might think to join you!
-- Available in both Altis and Tanoa versions.
+- Supports most popular islands available for Arma 3.
 - AI Enemy Commander which reacts to your movements and manages his resources.
 - Around 18 possible Sidemissions: Assasination, Logistics, Destroy Assets, Rescue POWS, Conquer Missions with a wide variety for each type.
 - Possibility of Undercovered Operations, same as a Resistance soldier can do.
@@ -53,3 +53,10 @@ A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infan
 - The script will create a new folder called `PreparedMissions/`
 - Inside this folder you will find multiple subfolders, labeled `Antistasi-VersionNumber.MapName`
 - Use a PBO Packager to pack the any of these mission folders
+
+### Alternative: Build with Antistasi Dev Deploy
+- Download&Extract ZIP file or Clone Repository.
+- Follow [Getting Started](https://github.com/official-antistasi-community/A3-Antistasi/wiki/Build-With-ADD)
+
+### Known Issues:
+For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).
