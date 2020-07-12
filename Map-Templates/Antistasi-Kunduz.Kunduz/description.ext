@@ -10,12 +10,14 @@ overviewText = $STR_antistasi_mission_info_kunduz_description_text;
 overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MissionDescription\debug.hpp"
-
 #include "MissionDescription\gameSettings.hpp"
+
+#include "MagRepack\MagRepack_config.hpp"
 
 class CfgFunctions {
     #include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
+    #include "SCRT\functions.hpp"
 };
 
 class CfgSounds
