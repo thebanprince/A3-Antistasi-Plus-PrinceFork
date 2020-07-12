@@ -97,15 +97,15 @@ breachingExplosivesAPC = [["DemoCharge_Remote_Mag", 1]];
 breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]];
 
 //Starting Unlocks
-initialRebelEquipment append ["CUP_hgun_Mac10","CUP_hgun_SA61","CUP_hgun_TaurusTracker455", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
+initialRebelEquipment append ["CUP_hgun_SA61","CUP_hgun_TaurusTracker455", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
 
-initialRebelEquipment append ["CUP_srifle_CZ550_rail", "rhs_weap_savz61_folded", "hgun_Pistol_01_F", "CUP_sgun_CZ584", "CUP_sgun_CZ584_RIS"];
-initialRebelEquipment append ["CUP_smg_Mac10_rail", "CUP_srifle_Remington700", "CUP_smg_saiga9", "CUP_sgun_Saiga12K"];
+initialRebelEquipment append ["CUP_srifle_CZ550_rail", "hgun_Pistol_01_F", "CUP_sgun_CZ584", "CUP_sgun_CZ584_RIS", "sgun_Mp153_classic_F"];
+initialRebelEquipment append ["CUP_srifle_Remington700", "CUP_smg_saiga9", "CUP_sgun_Saiga12K", "hgun_Pistol_Signal_F"];
 
-initialRebelEquipment append ["CUP_6Rnd_45ACP_M", "10Rnd_9x21_Mag", "CUP_20Rnd_B_765x17_Ball_M", "CUP_30Rnd_45ACP_MAC10_M", "CUP_6Rnd_45ACP_M"];
+initialRebelEquipment append ["4Rnd_12Gauge_Pellets","4Rnd_12Gauge_Slug", "CUP_6Rnd_45ACP_M", "10Rnd_9x21_Mag", "CUP_20Rnd_B_765x17_Ball_M", "CUP_6Rnd_45ACP_M"];
 initialRebelEquipment append ["CUP_5x_22_LR_17_HMR_M","2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "CUP_1Rnd_B_CZ584_74Slug", "CUP_1Rnd_B_CZ584_74Pellets", "CUP_1Rnd_762x51_CZ584"];
-initialRebelEquipment append ["CUP_30Rnd_45ACP_Green_Tracer_MAC10_M","CUP_6Rnd_762x51_R700","CUP_10Rnd_9x19_Saiga9","CUP_8Rnd_B_Saiga12_74Slug_M","CUP_8Rnd_B_Saiga12_74Pellets_M"];
-initialRebelEquipment append ["SmokeShell", "MiniGrenade"];
+initialRebelEquipment append ["CUP_6Rnd_762x51_R700","CUP_10Rnd_9x19_Saiga9","CUP_8Rnd_B_Saiga12_74Slug_M","CUP_8Rnd_B_Saiga12_74Pellets_M", "6Rnd_GreenSignal_F", "6Rnd_RedSignal_F"];
+initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
 
 initialRebelEquipment append ["B_Messenger_Gray_F"];
 initialRebelEquipment append ["V_BandollierB_oli","V_Pocketed_wdl_F"];
@@ -128,4 +128,3 @@ shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F", "O_R_APC_Wheeled_02_rcws_v2_F",
 shop_track_apc = ["O_R_APC_Tracked_02_cannon_F","B_W_APC_Tracked_01_rcws_F","B_A_APC_tracked_03_cannon_wdl_F"];
 shop_heli = ["O_R_Heli_Light_02_dynamicLoadout_F", "B_W_Heli_Light_01_dynamicLoadout_F", "B_A_Heli_light_03_dynamicLoadout_F"];
 shop_tank = ["B_W_AFV_Wheeled_01_up_cannon_F", "B_W_AFV_Wheeled_01_cannon_F", "B_E_LT_01_AT_F", "B_E_LT_01_cannon_F"];
-

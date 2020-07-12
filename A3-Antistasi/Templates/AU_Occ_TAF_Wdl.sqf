@@ -81,13 +81,12 @@ groupsNATOSentryT2 = ["TAF_Soldier_R_F", "TAF_Soldier_GL_F"];
 groupsNATOSentryT3 = ["TEAF_Soldier_GL_F", "TEAF_Soldier_R_F"];
 groupsNATOSpecOpSmall = [
 		["TAV_B_A_Recon_wdl_F","TAV_B_A_Recon_Exp_wdl_F"],
-		["TAV_B_E_Recon_F","TAV_B_E_Recon_Exp_F"],
 		["TNG_Patrolman_SL_F","TNG_Patrolman2_SL_F"]
 ];
 groupsNATOSniper = ["TAF_Sniper_F","TAF_Spotter_F"];
 
 //Fireteams
-groupsNATOAAT1 = ["TNG_Soldier_SL_F","TNG_Soldier_R_F","TNG_Soldier_F","TAF_Soldier_AA_F"];
+groupsNATOAAT1 = ["TNG_Soldier_SL_F","TNG_Soldier_R_F","TNG_Soldier_F","TNG_Soldier_AA_F"];
 groupsNATOAAT2 = ["TAF_Soldier_SL_F","TAF_Soldier_R_F","TAF_Soldier_F","TAF_Soldier_AA_F"];
 groupsNATOAAT3 = ["TEAF_Soldier_SL_F","TEAF_Soldier_R_F","TEAF_Soldier_F","TEAF_Soldier_AA_F"];
 
@@ -101,8 +100,7 @@ groupsNATOFTT3 = ["TEAF_Soldier_SL_F","TEAF_Soldier_AR_F","TEAF_Soldier_F","TEAF
 
 groupsNATOSpecOpMid = [
 	["B_A_Soldier_TL_wdl_F","B_A_Soldier_AR_wdl_F","B_A_Soldier_AAR_wdl_F","B_A_Soldier_GL_wdl_F"],
-	["B_A_Soldier_TL_wdl_F","B_A_soldier_M_wdl_F","B_A_RadioOperator_wdl_F","B_A_Soldier_wdl_F"],
-	["B_E_Soldier_TL_F","B_E_HeavyGunner_F","B_E_Soldier_A_F","B_E_RadioOperator_F"]
+	["B_A_Soldier_TL_wdl_F","B_A_soldier_M_wdl_F","B_A_RadioOperator_wdl_F","B_A_Soldier_wdl_F"]
 ];
 
 //Squads
