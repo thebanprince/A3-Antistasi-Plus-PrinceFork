@@ -2,8 +2,11 @@
 class set_params {
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
+
 		class HQ_box: BOX
 		{
 			idc = -1;
@@ -50,6 +53,8 @@ class set_params {
 class should_load_personal_save {
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -99,6 +104,8 @@ class should_load_personal_save {
 class HQ_menu 			{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		//Structure
@@ -479,6 +486,9 @@ class minebuild_menu 			{
 class unit_recruit 		{
 	idd= 100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
+
 	class controls {
 		class HQ_box: BOX
 		{
@@ -859,8 +869,11 @@ class civ_vehicle 			{
 
 //Map
 class game_options 		{
-		idd=-1;
+	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
+
 	class controls {
 		//Menu Structure
 		class 8slots_box: BOX
@@ -1167,6 +1180,8 @@ class civ_config 			{
 class mission_menu 		{
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -1275,6 +1290,9 @@ class mission_menu 		{
 class radio_comm 		{
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
+
 	class controls {
 		//Menu Structure
 		class 8slots_box: BOX
@@ -1942,6 +1960,8 @@ class carpet_bombing 			{
 class dismiss_menu 				{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -2554,6 +2574,8 @@ class tu_madre 				{
 class mortar_type {
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -3063,6 +3085,8 @@ class diff_menu 			{
 class gameMode_menu 			{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -3130,6 +3154,8 @@ class gameMode_menu 			{
 class blackMarket_menu 	{
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 
