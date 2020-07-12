@@ -936,15 +936,17 @@
         <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
-        <Original>Antistasi - The Red Dawn</Original>
-        <English>Antistasi - The Red Dawn </English>
-        <French>Antistasi - L'aube rouge</French>
-        <Russian>Antistasi - Красный Рассвет</Russian>
+        <Original>Antistasi Plus - The Red Dawn</Original>
+        <English>Antistasi Plus - The Red Dawn </English>
+        <French>Antistasi Plus - L'aube rouge</French>
+        <Russian>Antistasi Plus - Красный Рассвет</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_short_text">
-        <Original>Antistasi - The Red Dawn</Original>
-        <English>Antistasi - The Red Dawn</English>
-        <German>Antistasi - The Red Dawn</German>
+        <Original>Antistasi Plus - The Red Dawn</Original>
+        <English>Antistasi Plus - The Red Dawn</English>
+        <German>Antistasi Plus - The Red Dawn</German>
+        <French>Antistasi Plus - L'aube rouge</French>
+        <Russian>Antistasi Plus - Красный Рассвет</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_blurb_text">
         <Original>Red in blue.</Original>
