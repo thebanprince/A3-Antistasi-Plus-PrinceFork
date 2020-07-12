@@ -28,14 +28,14 @@ outlw_MR_modifierCheck =
 		};
 	};
 };
-
 outlw_MR_keyDown =
-{		
+{
+	_isWounded = player getVariable ["incapacitated", false];
 	_key = _this select 1;
 	
 	if (_key == outlw_MR_keybinding && {_this call outlw_MR_modifierCheck}) then
 	{
-		if (outlw_MR_canCreateDialog) then
+		if (outlw_MR_canCreateDialog && !(_isWounded)) then
 		{
 			call outlw_MR_createDialog;
 			true;

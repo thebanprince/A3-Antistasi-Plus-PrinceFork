@@ -1,4 +1,7 @@
 private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_helpX","_helped","_textX","_isPlayer","_camTarget","_saveVolumeVoice"];
+
+#define KEY_E 18
+
 _unit = _this select 0;
 //if (_unit getVariable "inconsciente") exitWith {};
 //if (damage _unit < 0.9) exitWith {};
@@ -25,7 +28,7 @@ if (isPlayer _unit) then
 	respawnMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",
 		{
 		_handled = false;
-		if (_this select 1 == 19) then
+		if (_this select 1 == KEY_E) then
 			{
 			if (player getVariable ["incapacitated",false]) then
 				{
@@ -96,22 +99,22 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 			_helpX = [_unit] call A3A_fnc_askHelp;
 			if (isNull _helpX) then
 				{
-				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit R to Respawn"];
+				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit E to Respawn"];
 				}
 			else
 				{
-				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
+				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit E to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn"};
 				};
 			}
 		else
 			{
 			if (!isNil "_helpX") then
 				{
-				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
+				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit E to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn"};
 				}
 			else
 				{
-				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn";
+				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn";
 				};
 			};
 		[_textX,0,0,3,0,0,4] spawn bis_fnc_dynamicText;

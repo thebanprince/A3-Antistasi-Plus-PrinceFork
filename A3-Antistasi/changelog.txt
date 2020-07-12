@@ -78,7 +78,7 @@
 0.1.2.4 27/08/2016
 
 - IMPORTANT: Loosing condition: 1/3 of the total population is massacred by CSAT. Number will be shown on "Map Info".
-- IMPORTANT: R key to respawn.
+- IMPORTANT: E key to respawn.
 - IMPORTANT: Win conditions: more then half of the population supports SDK and SDK owns all the airports.
 - Improved AI vehicle unstuck functions.
 - "FIA" replaced by "SDK" in a few texts.
