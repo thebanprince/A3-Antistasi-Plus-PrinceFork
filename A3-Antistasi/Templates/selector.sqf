@@ -37,7 +37,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
       call compile preprocessFileLineNumbers "Templates\AU_Reb_TAPA_Wdl.sqf";
       call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf";
       call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf";
-      call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
+      call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";
     };
     case (has3CB): {
       switch(true) do {
