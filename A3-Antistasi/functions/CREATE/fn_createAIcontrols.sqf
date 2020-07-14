@@ -52,8 +52,9 @@ if (_isControl) then
 		};
 
 	_roadscon = roadsConnectedto (_roads select 0);
+	
 
-	_dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
+	_dirveh = if(count _roadscon > 0) then {[_roads select 0, _roadscon select 0] call BIS_fnc_DirTo} else {random 360};
 	if ((isNull (_roads select 0)) or (isNull (_roadscon select 0))) then {
 		diag_log format ["%1: [Antistasi] | ERROR | createAIcontrols.sqf | Roadblock error: %2 bad position.",servertime, _markerX];
 		};
@@ -95,7 +96,7 @@ if (_isControl) then
 		sleep 1;
 		{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 		_typeGroup = if (_sideX == Occupants) then {
-				_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+				private _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
 				selectRandom _squad;
 			} else {
 				selectRandom groupsCSATmid
@@ -119,7 +120,7 @@ if (_isControl) then
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_squad = call SCRT_fnc_unit_getCurrentFIAMid;
+		private _squad = call SCRT_fnc_unit_getCurrentFIAMid;
 		_typeGroup = selectRandom _squad;
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then

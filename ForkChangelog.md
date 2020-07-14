@@ -10,6 +10,9 @@
 - More radio towers to cover all landmass on islands
 - Antistasi Units template adjustment
 - Removed IFA support due to nonfunctional template at the moment
+- Reduced static objects quantity on map
+- Reduced number of control zones
+- Default Rebels HQ position moved on abandoned airfield
 
 ##### 0.1
 - Taviana support

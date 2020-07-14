@@ -604,6 +604,8 @@ class unit_recruit 		{
 class vehicle_option 	{
 	idd=-1;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 
