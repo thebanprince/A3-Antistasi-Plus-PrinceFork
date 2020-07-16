@@ -2,7 +2,7 @@
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
 nameTeamPlayer = "Borsheviks";
-SDKFlag = "Faction_INS";
+SDKFlag = "flag_ChDKZ";
 SDKFlagTexture = "\ca\data\flag_chdkz_co.paa";
 typePetros = "I_G_Soldier_TL_F";
 
@@ -110,7 +110,8 @@ initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
 initialRebelEquipment append ["B_Messenger_Gray_F"];
 initialRebelEquipment append ["V_BandollierB_oli","V_Pocketed_wdl_F"];
 initialRebelEquipment append ["Binocular", "acc_flashlight"];
-//TAFR Unlocks
+
+//TFAR Unlocks
 if (hasTFAR) then {
     initialRebelEquipment append ["tf_microdagr","tf_anprc154"];
 
@@ -121,7 +122,7 @@ if (hasTFAR) then {
 
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["B_E_LT_01_AA_F"];
+shop_AA = ["NAA_Nyx_AA_F"];
 shop_MRAP = ["B_A_MRAP_03_gmg_F","B_A_MRAP_03_hmg_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F"];
 shop_arty = ["I_E_Truck_02_MRL_F"];
 shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
