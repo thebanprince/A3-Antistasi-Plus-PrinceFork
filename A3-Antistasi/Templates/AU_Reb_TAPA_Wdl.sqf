@@ -122,9 +122,9 @@ if (hasTFAR) then {
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];
 shop_AA = ["B_E_LT_01_AA_F"];
-shop_MRAP = ["O_R_MRAP_02_gmg_F", "O_R_MRAP_02_hmg_F", "B_W_MRAP_01_gmg_F", "B_W_MRAP_01_hmg_F", "B_A_MRAP_03_gmg_wdl_F", "B_A_MRAP_03_hmg_wdl_F"];
-shop_arty = ["O_R_Truck_02_MRL_F"];
-shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F", "O_R_APC_Wheeled_02_rcws_v2_F", "B_W_APC_Wheeled_01_cannon_F"];
-shop_track_apc = ["O_R_APC_Tracked_02_cannon_F","B_W_APC_Tracked_01_rcws_F","B_A_APC_tracked_03_cannon_wdl_F"];
-shop_heli = ["O_R_Heli_Light_02_dynamicLoadout_F", "B_W_Heli_Light_01_dynamicLoadout_F", "B_A_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["B_W_AFV_Wheeled_01_up_cannon_F", "B_W_AFV_Wheeled_01_cannon_F", "B_E_LT_01_AT_F", "B_E_LT_01_cannon_F"];
+shop_MRAP = ["B_A_MRAP_03_gmg_F","B_A_MRAP_03_hmg_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F"];
+shop_arty = ["I_E_Truck_02_MRL_F"];
+shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_APC_tracked_03_cannon_F"];
+shop_heli = ["MYR_I_Pawnee_F","O_R_Heli_Light_02_dynamicLoadout_F","I_E_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["NAA_Nyx_AT_F","NAA_Nyx_scout_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"];
