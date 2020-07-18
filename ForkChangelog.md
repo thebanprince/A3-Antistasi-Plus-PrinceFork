@@ -1,18 +1,21 @@
 ## Changelog
 
 ##### 0.2
-- Upgrade to 2.3 Antistasi Community Version
+- Upgrade to 2.3 (still unstable) Antistasi Community Version
 - Fixed bug with commander squads spawn
 - Fixed bug with not working Fatal Wounds mission parameter
 - Mag Repack no longer can be accessed while wounded
 - Fixed CHDKZ flag issue
-- Background Blur Effect appliance on almost every menu
+- Background Blur Effect appliance on Antistasi menus
 - More radio towers to cover all landmass on islands
 - Antistasi Units template adjustment
 - Removed IFA support due to nonfunctional template at the moment
 - Reduced static objects quantity on map
 - Reduced number of control zones
 - Default Rebels HQ position moved on abandoned airfield
+- Both Kozlice variants added as starting weapons on a vanilla template
+- Infantry unit tiers enabled for RHS
+- Starting equipment adjustment for RHS template
 
 ##### 0.1
 - Taviana support
