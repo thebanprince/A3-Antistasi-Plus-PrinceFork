@@ -508,6 +508,9 @@
       <Key ID="STR_antistasi_credits_generic_version_text">
         <Original>2.3</Original>
       </Key>
+      <Key ID="STR_antistasi_plus_credits_generic_version_text">
+        <Original>0.2</Original>
+      </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_buy_text">

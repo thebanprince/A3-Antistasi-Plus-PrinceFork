@@ -8,6 +8,7 @@ private _fileName = "initVarCommon.sqf";
 [2,"initVarCommon started",_fileName] call A3A_fnc_log;
 
 antistasiVersion = localize "STR_antistasi_credits_generic_version_text";
+antistasiPlusVersion = localize "STR_antistasi_plus_credits_generic_version_text";
 
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
@@ -110,7 +111,7 @@ if isClass (configFile >> "CfgPatches" >> "LIB_Core") then
 };
 //RHS AFRF Detection
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
-if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {activeUSAF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};
+if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {activeUSAF = true; hasRHS = true; hasTieredUnitConfigs = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];};
 if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {activeGREF = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];};
 //3CB Detection
 if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
