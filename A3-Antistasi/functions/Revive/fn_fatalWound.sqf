@@ -1,4 +1,4 @@
-if(!(isFatalWoundsEnabled)) then {
+if(!(isFatalWoundsEnabled)) exitWith {
     false;
 };
 
