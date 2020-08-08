@@ -17,7 +17,7 @@ specialVarLoads = [
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders"
+    "countCA", "attackCountdownInvaders","traderPosition"
 ];
 
 _varName = _this select 0;
@@ -298,6 +298,17 @@ if (_varName in specialVarLoads) then {
 				};
 			};
 		} forEach _varvalue;
+	};
+
+	if(_varname == 'traderPosition') then {
+		diag_log format ["Trader Position: %1", str isTraderQuestCompleted];
+
+		if(count _varvalue > 0) then {
+			_traderX = [_varvalue] call SCRT_fnc_trader_createTrader;
+			[_traderX] call SCRT_fnc_trader_setTraderStock;
+			[_traderX] remoteExecCall ["SCRT_fnc_trader_addVehicleMarketAction", 0, true];
+			traderPosition = _varvalue; publicVariable "traderPosition"; //TODO: not sure if it should be broadcasted, check on Dedicated Server
+		};
 	};
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];

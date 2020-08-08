@@ -99,7 +99,7 @@ specialVarLoads = [
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison"
+	"bombRuns","difficultyX","gameMode","wurzelGarrison","isTraderQuestCompleted","traderPosition"
 ];
 
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
@@ -353,6 +353,15 @@ fn_SetStat = {
 					};
 				};
 			} forEach _varvalue;
+		};
+		if (_varName == 'isTraderQuestCompleted') then { 
+			isTraderQuestCompleted = _varValue; 
+			publicVariable "isTraderQuestCompleted";
+		};
+		if (_varName == 'traderPosition') then { 
+			//not sure if it should be broadcasted too, needs testing
+			traderPosition = _varValue; 
+			publicVariable "traderPosition"; 
 		};
 	} else {
 		call compile format ["%1 = %2",_varName,_varValue];

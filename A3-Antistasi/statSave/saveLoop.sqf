@@ -34,6 +34,8 @@ private _antennasDeadPositions = [];
 ["nextTick", nextTick - time] call fn_SaveStat;
 ["weather",[fogParams,rain]] call fn_SaveStat;
 ["destroyedBuildings",destroyedBuildings] call fn_SaveStat;
+["isTraderQuestCompleted", isTraderQuestCompleted] call fn_SaveStat;
+["traderPosition", traderPosition] call fn_SaveStat;
 
 private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_arrayOutpostsFIA","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
 

@@ -96,6 +96,12 @@ DECLARE_SERVER_VAR(staticsToSave, []);
 DECLARE_SERVER_VAR(haveRadio, hasTFAR || hasACRE);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
+//Whether the players have access to trader.
+DECLARE_SERVER_VAR(isTraderQuestCompleted, false);
+//Trader position.
+DECLARE_SERVER_VAR(traderPosition, []);
+
+
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
@@ -216,6 +222,12 @@ if (hasTFAR) then
 private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
 DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 
+private _arrayMoney = ["Money_bunch","Money_roll","Money_stack","Money"];
+DECLARE_SERVER_VAR(arrayMoney, _arrayMoney);
+
+//SHOULD BE SYNCHRONIZED WITH arrayMoney VARIABLE (since we have no dictionaries in sqf)
+private _arrayMoneyAmount = [600,150,300,50];
+DECLARE_SERVER_VAR(arrayMoneyAmount, _arrayMoneyAmount);
 
 //////////////////////////////////////
 //         TEMPLATE SELECTION      ///
