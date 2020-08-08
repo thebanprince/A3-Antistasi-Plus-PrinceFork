@@ -186,6 +186,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
+     class infantryUnitTiers
+     {
+          title = "Infantry Unit Tiers for RHS or Antistasi Units";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 1;
+     };
 
      class Spacer10
      {

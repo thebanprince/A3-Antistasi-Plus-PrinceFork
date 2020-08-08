@@ -4,7 +4,7 @@
 	returns: nothing
 */
 
-if(!(hasTieredUnitConfigs)) then {
+if(!(hasTieredUnitConfigs)) exitWith {
     [groupsNATOSentryT1, groupsNATOSniper];
 };
 

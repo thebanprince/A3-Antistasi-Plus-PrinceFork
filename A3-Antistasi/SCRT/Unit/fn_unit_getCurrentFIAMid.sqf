@@ -1,4 +1,4 @@
-if(!(hasTieredUnitConfigs)) then {
+if(!(hasTieredUnitConfigs)) exitWith {
     groupsFIAMid;
 };
 

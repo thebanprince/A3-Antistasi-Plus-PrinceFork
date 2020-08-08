@@ -1,4 +1,4 @@
-if(!(hasTieredUnitConfigs)) then {
+if(!(hasTieredUnitConfigs)) exitWith {
     [groupsNATOFTT1, groupsNATOAAT1, groupsNATOATT1];
 };
 

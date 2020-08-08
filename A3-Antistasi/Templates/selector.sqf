@@ -72,8 +72,12 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
           call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Temp.sqf";
         };
         case (worldName in temperatemaps): {
+          if ("infantryUnitTiers" call BIS_fnc_getParamValue == 1) then {
+            call compile preProcessFileLineNumbers "Templates\RHS_Occ_NATOCDF_Temp.sqf";
+          } else {
+            call compile preProcessFileLineNumbers "Templates\RHS_Occ_USAF_Temp.sqf";
+          };
           call compile preProcessFileLineNumbers "Templates\RHS_Reb_NAPA_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\RHS_Occ_NATOCDF_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\RHS_Inv_AFRF_Temp.sqf";
         };
         case (worldName in tropicalmaps): {

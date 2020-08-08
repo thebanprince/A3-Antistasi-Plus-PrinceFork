@@ -145,8 +145,8 @@ if (gameMode == 1) then
 			_mrkCSAT = ["outpost_3"];
 		};
 		case "taviana": {
-		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2","control_3","control_5", "control_6", "control_7", "control_8", "control_9", "control_14", "control_179","control_180"];
-            _controlsCSAT = ["control", "control_1", "control_2","control_3","control_5", "control_6", "control_7", "control_8", "control_9", "control_14", "control_179","control_180"];
+		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
+            _controlsCSAT = ["control", "control_1", "control_2"];
 		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;

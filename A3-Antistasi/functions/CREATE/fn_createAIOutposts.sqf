@@ -277,7 +277,9 @@ if (!isNull _antenna) then
 							NATOMarksman select 2
 						};
 					};
-				} else {NATOMarksman select 0};
+				} else {
+					NATOMarksman select 0
+				};
 			} else {FIAMarksman}
 		} else {CSATMarksman};
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;

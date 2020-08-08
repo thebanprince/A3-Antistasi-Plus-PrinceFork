@@ -1,4 +1,4 @@
-if(!(hasTieredUnitConfigs) || gameMode == 4) then {
+if(!(hasTieredUnitConfigs) || gameMode == 4) exitWith {
     groupsFIASmall;
 };
 

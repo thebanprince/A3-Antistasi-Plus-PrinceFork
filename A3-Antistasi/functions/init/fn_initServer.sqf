@@ -45,7 +45,8 @@ if (isMultiplayer) then {
 	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
 	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
 	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-	isFatalWoundsEnabled = if ("fatalWounds" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "isFatalWoundsEnabled";
+	isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
+	isInfantryUnitTiersEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1); publicVariable "isInfantryUnitTiersEnabled";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -75,6 +76,7 @@ if (isMultiplayer) then {
 	helmetLossChance = 33;
     startWithLongRangeRadio = false;
 	isFatalWoundsEnabled = false;
+	isInfantryUnitTiersEnabled = false;
 };
 
 [] call A3A_fnc_crateLootParams;

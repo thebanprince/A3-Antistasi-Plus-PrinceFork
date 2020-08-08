@@ -1,5 +1,22 @@
 ## Changelog
 
+##### 0.4
+- Updgrade to stable release of 2.3 Antistasi Community Version
+- New Find the Arms Dealer task type (can be obtained via intel search/interrogation)
+- Arms Dealer with the ability to directly sell weapons, magazines, items etc
+- New pickupable item - money. Banknotes can be on outpost tables, on traitor, civilian vehicles. More places and items will come in future.
+- Black Market functionality moved from Petros to Arms Dealer
+- Removed ability to buy artillery and loot boxes on black market
+- Radio tower placements remade, most of them 
+- Loot Bodies and Cargo sound bug fixed
+- Additional control zones, 2 new outposts
+
+
+##### 0.2.1
+- Fixed bug with CHDKZ flagpole
+- Added Infantry Units Tiers setting 
+
+
 ##### 0.2
 - Upgrade to 2.3 (still unstable) Antistasi Community Version
 - Fixed bug with commander squads spawn
