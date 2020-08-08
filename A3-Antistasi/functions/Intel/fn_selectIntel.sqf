@@ -16,6 +16,9 @@
 #define TRAITOR         301
 #define MONEY           302
 
+//Define results for any intel
+#define TASK          500
+
 params ["_intelType", "_side"];
 
 /*  Selects, creates and executes the intel of the given type and side
@@ -51,7 +54,7 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, ACCESS_CAR, 0.35, CONVOY, 0.35];
+    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, ACCESS_CAR, 0.325, CONVOY, 0.325, TASK, 0.05];
     switch (_intelContent) do
     {
         case (TROOPS):
@@ -106,11 +109,15 @@ if(_intelType == "Small") then
                 _text = format ["There are currently no %1 convoys driving around!", _sideName];
             };
         };
+        case (TASK):
+        {
+            [] call SCRT_fnc_quest_rollTask;
+        };
     };
 };
 if(_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.3, ACCESS_ARMOR, 0.3, CONVOYS, 0.2, COUNTER_ATTACK, 0];
+    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.2, ACCESS_ARMOR, 0.2, CONVOYS, 0.2, COUNTER_ATTACK, 0, TASK, 0.2];
     switch (_intelContent) do
     {
         case (ACCESS_AIR):
@@ -145,6 +152,10 @@ if(_intelType == "Medium") then
         case (COUNTER_ATTACK):
         {
             //Not yet implemented, needs a rework of the attack script
+        };
+        case (TASK):
+        {
+            [] call SCRT_fnc_quest_rollTask;
         };
     };
 };
