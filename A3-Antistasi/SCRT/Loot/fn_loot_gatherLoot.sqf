@@ -34,7 +34,7 @@ if(count _supplies < 1) exitWith {
     localize "STR_antistasi_actions_no_bodies_text" remoteExec ["systemChat", teamPlayer];
 };
 
-
+private _moneyEarned = 0;
 
 {
     _lootContainer = _x;
@@ -42,7 +42,14 @@ if(count _supplies < 1) exitWith {
     _magazines = magazineCargo _lootContainer;
     if (count _magazines > 0) then {
         {
-            _vehicle addMagazineCargoGlobal [_x, 1];
+            if(_x in arrayMoney) then {
+               _moneyIndex = arrayMoney find _x;
+               if(_moneyIndex != -1) then {
+                    _moneyEarned = _moneyEarned + (arrayMoneyAmount select _moneyIndex);
+                };
+            } else {
+                _vehicle addMagazineCargoGlobal [_x, 1];
+            };
         } forEach _magazines;
     };
 
@@ -114,10 +121,25 @@ if(count _supplies < 1) exitWith {
 
 } forEach _supplies;
 
+
+if(_moneyEarned > 0) then {
+    _playersAround = [50,0,_vehicle,teamPlayer] call A3A_fnc_distanceUnits;
+    _playersCount = count _playersAround;
+    
+    if(_playersCount > 0) then {
+        _incomePerPlayer = round((_moneyEarned / _playersCount) / 10);
+        {
+            [_incomePerPlayer,_x] call A3A_fnc_playerScoreAdd;
+        } forEach _playersAround;
+    };
+
+    [localize "STR_antistasi_actions_looter_found_money_title", localize "STR_antistasi_actions_looter_found_money_text"] remoteExecCall ["A3A_fnc_customHint", teamPlayer];
+};
+
 //notification on success
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
 _soundToPlay = _soundPath + "audio\lootSuccess.ogg";
-//TODO: possible bug with multiple sounds
-[[_soundToPlay, player]] remoteExec ["playSound3D", 0, false];
-//playSound3D [_soundToPlay, _vehicle];
+//TODO: possible bug with multiple sounds/no sound
+//[[_soundToPlay, _vehicle]] remoteExecCall ["playSound3D", -2, false];
+playSound3D [_soundToPlay, _vehicle];
 localize "STR_antistasi_actions_successful_loot_text" remoteExec ["systemChat", teamPlayer];

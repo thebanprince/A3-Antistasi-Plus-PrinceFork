@@ -24,6 +24,35 @@ _ammunition = magazineCargo _truckX;
 _items = itemCargo _truckX;
 _backpcks = backpackCargo _truckX;
 
+private _moneyEarned = 0;
+
+//money parse
+{
+	if(_x in arrayMoney) then {
+		_moneyIndex = arrayMoney find _x;
+		if(_moneyIndex != -1) then {
+			_moneyEarned = _moneyEarned + (arrayMoneyAmount select _moneyIndex);
+		};
+	};
+} forEach _ammunition;
+
+if(_moneyEarned > 0) then {
+	_allPlayers = call BIS_fnc_listPlayers;
+    _playersCount = count _allPlayers;
+    
+    if(_playersCount > 0) then {
+        _incomePerPlayer = round((_moneyEarned / _playersCount) / 10);
+        { 
+        	if(side _x == teamPlayer) then {
+				[_incomePerPlayer,_x] call A3A_fnc_playerScoreAdd;
+			};
+    	} forEach _allPlayers;
+    };
+
+    [localize "STR_antistasi_actions_common_notifications_money_found_title", localize "STR_antistasi_actions_common_notifications_money_found_text"] remoteExecCall ["A3A_fnc_customHint", teamPlayer];
+};
+
+
 _todo = _weaponsX + _ammunition + _items + _backpcks;
 
 private _vehName = getText (configFile >> "CfgVehicles" >> (typeof _truckX) >> "displayName");
