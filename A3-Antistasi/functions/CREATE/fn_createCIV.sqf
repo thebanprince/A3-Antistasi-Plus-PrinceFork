@@ -71,6 +71,7 @@ while {(spawner getVariable _markerX != 2) and (_countParked < _numParked)} do
 		    //_mrk setMarkerText _nameX;
 		    */
 			_veh = _typeVehX createVehicle _pos;
+			[_veh, 20, random 2] call SCRT_fnc_common_addRandomMoneyCargo;
 			_veh setDir _dirveh;
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
@@ -91,6 +92,7 @@ if (count _mrkMar > 0) then
 			_typeVehX = selectRandomWeighted civBoatsWeighted;
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 			_veh = _typeVehX createVehicle _pos;
+			[_veh, 20, random 2] call SCRT_fnc_common_addRandomMoneyCargo;
 			_veh setDir (random 360);
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
@@ -140,6 +142,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then
 					_dirveh = [_p1,_p2] call BIS_fnc_DirTo;
 					_typeVehX = selectRandomWeighted civVehiclesWeighted;
 					_veh = _typeVehX createVehicle _p1;
+					[_veh, 20, random 2] call SCRT_fnc_common_addRandomMoneyCargo;
 					_veh setDir _dirveh;
 
 					//_veh forceFollowRoad true;
