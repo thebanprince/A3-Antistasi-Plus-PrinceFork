@@ -46,6 +46,10 @@ _posBase = getMarkerPos _base;
 _traitor = [_groupTraitor, NATOOfficer2, _posTraitor, [], 0, "NONE"] call A3A_fnc_createUnit;
 _traitor allowDamage false;
 _traitor setPos _posTraitor;
+
+//corrupt traitor always carries some dirty money
+[_traitor, 100, (random 3)] call SCRT_fnc_common_addRandomMoneyMagazine;
+
 _sol1 = [_groupTraitor, NATOBodyG, _posSol1, [], 0, "NONE"] call A3A_fnc_createUnit;
 _sol2 = [_groupTraitor, NATOBodyG, _posSol2, [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupTraitor selectLeader _traitor;
