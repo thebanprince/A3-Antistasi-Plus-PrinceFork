@@ -37,5 +37,28 @@ class SCRT
         file = "SCRT\Misc";
         class misc_getMissionTitle {};
         class misc_toggleMenuBlur {};
-    }
+    };
+
+    class Trader
+    {
+        file = "SCRT\Trader";
+        class trader_prepareTraderQuest {};
+        class trader_createTrader {};
+        class trader_setTraderStock {};
+        class trader_addVehicleMarketAction {};
+    };
+
+    class Common 
+    {
+        file = "SCRT\Common";
+        class common_attachLightSource {};
+        class common_addRandomMoneyCargo {};
+        class common_addRandomMoneyMagazine {};
+    };
+
+    class Quest
+    {
+        file = "SCRT\Quest";
+        class quest_rollTask {};
+    };
 };
