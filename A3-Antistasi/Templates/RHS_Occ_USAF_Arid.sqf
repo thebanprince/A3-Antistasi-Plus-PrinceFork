@@ -82,13 +82,13 @@ groupsNATOSpecOpSmall = [
 
 groupsNATOSniper = ["rhsusf_socom_marsoc_sniper","rhsusf_socom_marsoc_spotter"];
 //Fireteams
-groupsNATOAAT1 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
-groupsNATOAAT2 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
-groupsNATOAAT3 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman_m249","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
+groupsNATOAAT1 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
+groupsNATOAAT2 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
+groupsNATOAAT3 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman_m249","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
 
-groupsNATOATT1 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
-groupsNATOATT2 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
-groupsNATOATT3 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_stinger"];
+groupsNATOATT1 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
+groupsNATOATT2 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
+groupsNATOATT3 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_javelin"];
 
 groupsNATOFTT1 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman_m249","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_riflemanat"];
 groupsNATOFTT2 = ["rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman_m249","rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_riflemanat"];

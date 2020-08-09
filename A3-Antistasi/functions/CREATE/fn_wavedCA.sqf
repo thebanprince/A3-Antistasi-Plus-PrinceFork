@@ -322,14 +322,20 @@ while {(_waves > 0)} do
 	};
 
 	_isSea = false;
-    for "_i" from 0 to 3 do {
-		_pos = _posDestination getPos [1000,(_i*90)];
-		if (surfaceIsWater _pos) exitWith {
-			if ({sidesX getVariable [_x,sideUnknown] == _sideX} count seaports > 1) then {
-				_isSea = true;
+	if (count seaAttackSpawn != 0) then
+		{
+		for "_i" from 0 to 3 do
+			{
+			_pos = _posDestination getPos [1000,(_i*90)];
+			if (surfaceIsWater _pos) exitWith
+				{
+				if ({sidesX getVariable [_x,sideUnknown] == _sideX} count seaports > 1) then
+					{
+					_isSea = true;
+					};
+				};
 			};
 		};
-	};
 
 	if ((_isSea) and (_firstWave)) then
 		{

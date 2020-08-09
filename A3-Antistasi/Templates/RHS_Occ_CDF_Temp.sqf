@@ -46,13 +46,13 @@ vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["rhsgref_cdf_reg_rifleman"];
+NATOGrunt = ["rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman"];
 NATOOfficer = "rhsgref_cdf_reg_general";
 NATOOfficer2 = "rhsgref_cdf_ngd_commander";
 NATOBodyG = "rhsgref_cdf_ngd_rifleman_lite";
 NATOCrew = "rhsgref_cdf_ngd_crew";
 NATOUnarmed = "I_G_Survivor_F";
-NATOMarksman = ["rhsgref_cdf_reg_marksman"];
+NATOMarksman = ["rhsgref_cdf_reg_marksman","rhsgref_cdf_reg_marksman","rhsgref_cdf_reg_marksman"];
 staticCrewOccupants = "rhsgref_cdf_ngd_rifleman_lite";
 NATOPilot = "rhsgref_cdf_air_pilot";
 
@@ -191,7 +191,7 @@ vehPoliceCar = "rhsgref_un_uaz";
 NATOMG = "rhsgref_cdf_DSHKM";
 staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = "rhsgref_cdf_Igla_AA_pod";
-NATOMortar = "rhsgref_cdf_reg_m252";
+NATOMortar = "rhsgref_cdf_reg_M252";
 
 //Static Weapon Bags
 MGStaticNATOB = "RHS_DShkM_Gun_Bag";

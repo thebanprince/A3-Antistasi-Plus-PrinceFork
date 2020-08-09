@@ -48,13 +48,13 @@ vehNATOPVP = ["B_T_MRAP_01_F","B_MRAP_01_hmg_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["B_Soldier_F"];
+NATOGrunt = ["B_Soldier_F","B_Soldier_F","B_Soldier_F"];
 NATOOfficer = "B_Officer_F";
 NATOOfficer2 = "B_G_officer_F";
 NATOBodyG = "B_Patrol_Soldier_TL_F";
 NATOCrew = "B_Crew_F";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = ["B_Sharpshooter_F"];
+NATOMarksman = ["B_Sharpshooter_F","B_Sharpshooter_F","B_Sharpshooter_F"];
 staticCrewOccupants = "B_support_MG_F";
 NATOPilot = "B_Helipilot_F";
 

@@ -45,7 +45,7 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //Military Vehicles
 vehSDKBike = "I_G_Quadbike_01_F";
 vehSDKLightArmed = "UK3CB_CCM_I_Datsun_Pkm";
-vehSDKAT = "UK3CB_CCM_I_Hilux_Spg";
+vehSDKAT = "UK3CB_I_G_Hilux_Spg9";
 vehSDKLightUnarmed = "UK3CB_CCM_I_Datsun_Open";
 vehSDKTruck = "UK3CB_CCM_I_V3S_Closed";
 //vehSDKHeli = "rhsgref_ins_g_Mi8amt";
@@ -107,3 +107,13 @@ initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular","UK3CB_BAF_Flashlig
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};
+
+//black market stuff
+shop_UAV = ["I_UAV_01_F"];
+shop_AA = ["NAA_Nyx_AA_F"];
+shop_MRAP = ["B_A_MRAP_03_gmg_F","B_A_MRAP_03_hmg_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F"];
+shop_arty = ["I_E_Truck_02_MRL_F"];
+shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_APC_tracked_03_cannon_F"];
+shop_heli = ["MYR_I_Pawnee_F","O_R_Heli_Light_02_dynamicLoadout_F","I_E_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["NAA_Nyx_AT_F","NAA_Nyx_scout_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"];

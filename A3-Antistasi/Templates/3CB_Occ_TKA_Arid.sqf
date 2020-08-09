@@ -46,13 +46,13 @@ vehNATOPVP = ["UK3CB_TKA_I_Hilux_Open","UK3CB_TKA_I_LR_Closed","UK3CB_TKA_I_UAZ_
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["UK3CB_TKA_I_RIF_1"];
+NATOGrunt = ["UK3CB_TKA_I_RIF_1","UK3CB_TKA_I_RIF_1","UK3CB_TKA_I_RIF_1"];
 NATOOfficer = "UK3CB_TKA_I_OFF";
 NATOOfficer2 = "UK3CB_TKA_I_CREW_COMM";
 NATOBodyG = "UK3CB_TKA_I_CREW";
 NATOCrew = "UK3CB_TKA_I_CREW";
 NATOUnarmed = "I_G_Survivor_F";
-NATOMarksman = ["UK3CB_TKA_I_MK"];
+NATOMarksman = ["UK3CB_TKA_I_MK","UK3CB_TKA_I_MK","UK3CB_TKA_I_MK"];
 staticCrewOccupants = "UK3CB_TKA_I_NAVY_CREW";
 NATOPilot = "UK3CB_TKA_I_JET_PILOT";
 
@@ -117,7 +117,7 @@ if (gameMode != 4) then
 		[
 		["UK3CB_TKP_I_STATIC_GUN_NSV","UK3CB_TKP_I_STATIC_TRI_NSV"],
 		["UK3CB_TKP_I_AT","UK3CB_TKP_I_RIF_2"],
-		["UK3CB_TKP_I_IFF","UK3CB_TKP_I_MK"]
+		["UK3CB_TKP_I_TL","UK3CB_TKP_I_MK"]
 		];
 	//Fireteams
 	groupsFIAMid =
@@ -179,7 +179,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 if (gameMode != 4) then
 	{
     	vehFIAArmedCar = "UK3CB_TKP_I_Datsun_Pickup_PKM";
-    	vehFIATruck = "UK3CB_TKP_I_Hilux_Ipen";
+    	vehFIATruck = "UK3CB_TKP_I_Hilux_Open";
     	vehFIACar = "UK3CB_TKP_I_Lada_Police";
 	};
 
@@ -205,4 +205,4 @@ supportStaticNATOB = "RHS_Kornet_Tripod_Bag";
 //Tall Support
 supportStaticNATOB2 = "RHS_Kord_Tripod_Bag";
 //Mortar Support
-supportStaticNATOB3 = "RHS_Podnos_Tripod_Bag";
+supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";

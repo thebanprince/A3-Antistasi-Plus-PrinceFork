@@ -46,13 +46,13 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Green_A_MTP","UK3CB_BAF_LandRover_Sn
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["UK3CB_BAF_Rifleman_762_Tropical"];
+NATOGrunt = ["UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_Rifleman_762_Tropical"];
 NATOOfficer = "UK3CB_BAF_Officer_Tropical";
 NATOOfficer2 = "UK3CB_BAF_FAC_Tropical";
 NATOBodyG = "UK3CB_BAF_HeliCrew_Tropical_RM";
 NATOCrew = "UK3CB_BAF_Crewman_Tropical";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = ["UK3CB_BAF_Sharpshooter_Tropical"];
+NATOMarksman = ["UK3CB_BAF_Sharpshooter_Tropical","UK3CB_BAF_Sharpshooter_Tropical","UK3CB_BAF_Sharpshooter_Tropical"];
 staticCrewOccupants = "UK3CB_BAF_GunnerStatic_Tropical";;
 NATOPilot = "UK3CB_BAF_HeliPilot_RAF_Tropical";
 

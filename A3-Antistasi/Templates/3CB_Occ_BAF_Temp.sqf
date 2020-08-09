@@ -45,13 +45,13 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Green_A_MTP","UK3CB_BAF_LandRover_Sn
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = "UK3CB_BAF_Rifleman_762_DPMT";
+NATOGrunt = ["UK3CB_BAF_Rifleman_762_DPMT","UK3CB_BAF_Rifleman_762_DPMT","UK3CB_BAF_Rifleman_762_DPMT"];
 NATOOfficer = "UK3CB_BAF_Officer_DPMT";
 NATOOfficer2 = "UK3CB_BAF_FAC_DPMT";
 NATOBodyG = "UK3CB_BAF_HeliCrew_DPMT";
 NATOCrew = "UK3CB_BAF_Crewman_DPMT";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = "UK3CB_BAF_Sharpshooter_DPMT";
+NATOMarksman = ["UK3CB_BAF_Sharpshooter_DPMT","UK3CB_BAF_Sharpshooter_DPMT","UK3CB_BAF_Sharpshooter_DPMT"];
 staticCrewOccupants = "UK3CB_BAF_GunnerStatic_DPMT";;
 NATOPilot = "UK3CB_BAF_HeliPilot_RAF_DPMT";
 
@@ -71,24 +71,42 @@ policeGrunt = "UK3CB_CPD_B_PAT_RIF_LITE";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentry = ["UK3CB_BAF_Officer_DPMT","UK3CB_BAF_RO_DPMT"];
+groupsNATOSentryT1 = ["UK3CB_BAF_Officer_DPMT","UK3CB_BAF_RO_DPMT"];
+groupsNATOSentryT2 = ["UK3CB_BAF_Officer_DPMT","UK3CB_BAF_RO_DPMT"];
+groupsNATOSentryT3 = ["UK3CB_BAF_Officer_DPMT","UK3CB_BAF_RO_DPMT"];
+groupsNATOSpecOpSmall = [
+		["UK3CB_BAF_SC_DPMT_BPT_RM","UK3CB_BAF_Grenadier_762_DPMT"],
+		["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGGPMG_DPMT"],
+		["UK3CB_BAF_SC_DPMT","UK3CB_BAF_Explosive_DPMT"]
+];
+
 groupsNATOSniper = ["UK3CB_BAF_Sniper_DPMT_Ghillie_L115","UK3CB_BAF_Spotter_DPMT_Ghillie_L85"];
-groupsNATOsmall = [groupsNATOSentry,groupsNATOSniper];
+
 //Fireteams
-groupsNATOAA = ["rhsusf_usmc_marpat_wd_fso","rhsusf_usmc_marpat_wd_stinger","rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_stinger"];
-groupsNATOAT = ["UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MATC_DPMT"];
-groupsNATOmid = [["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGLMG_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_LAT_DPMT"],groupsNATOAA,groupsNATOAT];
+groupsNATOAAT1 = ["rhsusf_usmc_marpat_wd_fso","rhsusf_usmc_marpat_wd_stinger","rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_stinger"];
+groupsNATOAAT2 = ["rhsusf_usmc_marpat_wd_fso","rhsusf_usmc_marpat_wd_stinger","rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_stinger"];
+groupsNATOAAT3 = ["rhsusf_usmc_marpat_wd_fso","rhsusf_usmc_marpat_wd_stinger","rhsusf_usmc_marpat_wd_jfo","rhsusf_usmc_marpat_wd_stinger"];
+
+groupsNATOATT1 = ["UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MATC_DPMT"];
+groupsNATOATT2 = ["UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MATC_DPMT"];
+groupsNATOATT3 = ["UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MAT_DPMT","UK3CB_BAF_MATC_DPMT"];
+
+groupsNATOFTT1 = ["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGLMG_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_LAT_DPMT"];
+groupsNATOFTT2 = ["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGLMG_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_LAT_DPMT"];
+groupsNATOFTT3 = ["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGLMG_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_LAT_DPMT"];
+
+groupsNATOSpecOpMid = [
+	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Grenadier_762_DPMT",NATOMarksman select 0],
+	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_MGGPMG_DPMT","UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_Sharpshooter_DPMT"],
+	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_Marksman_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Engineer_DPMT"]
+];
+
 //Squads
-NATOSquad = ["UK3CB_BAF_SC_DPMT",NATOGrunt,"UK3CB_BAF_GunnerM6_DPMT",NATOMarksman,"UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Medic_DPMT"];
+NATOSquadT1 = ["UK3CB_BAF_SC_DPMT",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DPMT",NATOMarksman select 0,"UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Medic_DPMT"];
+NATOSquadT2 = ["UK3CB_BAF_SC_DPMT",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DPMT",NATOMarksman select 0,"UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Medic_DPMT"];
+NATOSquadT3 = ["UK3CB_BAF_SC_DPMT",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DPMT",NATOMarksman select 0,"UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Medic_DPMT"];
+
 NATOSpecOp = ["UK3CB_BAF_SC_DPMT_BPT_RM","UK3CB_BAF_Pointman_DPMT_BPT_RM","UK3CB_BAF_Pointman_DPMT_BPT_RM","UK3CB_BAF_Marksman_DPMT_BPT_RM","UK3CB_BAF_FAC_DPMT_BPT_RM","UK3CB_BAF_Explosive_DPMT_BPT_RM","UK3CB_BAF_MGLMG_DPMT_BPT_RM","UK3CB_BAF_Medic_DPMT_BPT_RM"];
-groupsNATOSquad =
-	[
-	NATOSquad,
-	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_Grenadier_762_DPMT",NATOMarksman,"UK3CB_BAF_LAT_ILAW_762_DPMT","UK3CB_BAF_Pointman_DPMT","UK3CB_BAF_Engineer_DPMT","UK3CB_BAF_Medic_DPMT"],
-	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_GunnerM6_DPMT","UK3CB_BAF_Repair_DPMT","UK3CB_BAF_MGGPMG_DPMT","UK3CB_BAF_FT_762_DPMT","UK3CB_BAF_Sharpshooter_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_Medic_DPMT"],
-	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_Marksman_DPMT","UK3CB_BAF_Explosive_DPMT","UK3CB_BAF_Engineer_DPMT","UK3CB_BAF_Repair_DPMT","UK3CB_BAF_Pointman_DPMT","UK3CB_BAF_LAT_762_DPMT","UK3CB_BAF_Medic_DPMT"],
-	["UK3CB_BAF_SC_DPMT","UK3CB_BAF_LSW_DPMT","UK3CB_BAF_MGGPMG_DPMT","UK3CB_BAF_MGLMG_DPMT","UK3CB_BAF_Grenadier_762_DPMT","UK3CB_BAF_LAT_ILAW_762_DPMT","UK3CB_BAF_LAT_762_DPMT","UK3CB_BAF_Medic_DPMT"]
-	];
 
 //Militia Groups
 if ((gameMode != 4) and (!hasFFAA)) then

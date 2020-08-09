@@ -46,13 +46,13 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Sn
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["UK3CB_BAF_Rifleman_DDPM"];
-NATOOfficer = "UK3CB_BAF_SL_DDPM";
-NATOOfficer2 = "UK3CB_BAF_Officer_DDPM";
+NATOGrunt = ["UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_Rifleman_DDPM"];
+NATOOfficer = "UK3CB_BAF_Officer_DDPM";
+NATOOfficer2 = "UK3CB_BAF_FAC_DDPM";
 NATOBodyG = "UK3CB_BAF_Crewman_RTR_DDPM";
 NATOCrew = "UK3CB_BAF_Crewman_DDPM";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = ["UK3CB_BAF_Marksman_DDPM"];
+NATOMarksman = ["UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_Rifleman_DDPM"];
 staticCrewOccupants = "UK3CB_BAF_GunnerStatic_DDPM";
 NATOPilot = "UK3CB_BAF_HeliPilot_RAF_DDPM";
 
@@ -82,6 +82,7 @@ groupsNATOSpecOpSmall = [
 ];
 
 groupsNATOSniper = ["UK3CB_BAF_Sniper_DDPM_Ghillie_L115_RM","UK3CB_BAF_Spotter_DDPM_Ghillie_L85_RM"];
+
 //Fireteams
 groupsNATOAAT1 = ["UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST","UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST"];
 groupsNATOAAT2 = ["UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST","UK3CB_TKA_B_AA","UK3CB_TKA_B_AA_ASST"];

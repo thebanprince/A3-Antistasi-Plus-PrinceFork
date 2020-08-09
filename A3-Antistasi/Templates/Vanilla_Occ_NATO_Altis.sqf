@@ -46,13 +46,13 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["B_Soldier_F"];
-NATOOfficer = "B_Officer_F";
+NATOGrunt = ["B_Soldier_F","B_Soldier_F","B_Soldier_F"];
+NATOOfficer = "B_officer_F";
 NATOOfficer2 = "B_G_officer_F";
 NATOBodyG = "B_Patrol_Soldier_TL_F";
-NATOCrew = "B_Crew_F";
+NATOCrew = "B_crew_F";
 NATOUnarmed = "B_G_Survivor_F";
-NATOMarksman = ["B_Sharpshooter_F"];
+NATOMarksman = ["B_Sharpshooter_F","B_Sharpshooter_F","B_Sharpshooter_F"];
 staticCrewOccupants = "B_support_MG_F";
 NATOPilot = "B_Helipilot_F";
 
@@ -72,9 +72,9 @@ policeGrunt = "B_GEN_Soldier_F";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["B_soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT2 = ["B_soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT3 = ["B_soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT1 = ["B_Soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT2 = ["B_Soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT3 = ["B_Soldier_GL_F",NATOGrunt select 0];
 groupsNATOSpecOpSmall = [
 		["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F"],
 		["I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"]
@@ -86,13 +86,13 @@ groupsNATOAAT1 = ["B_Soldier_TL_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_
 groupsNATOAAT2 = ["B_Soldier_TL_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AAA_F"];
 groupsNATOAAT3 = ["B_Soldier_TL_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AAA_F"];
 
-groupsNATOATT1 = ["B_soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F"];
-groupsNATOATT2 = ["B_soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F"];
-groupsNATOATT3 = ["B_soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F"];
+groupsNATOATT1 = ["B_Soldier_TL_F","B_soldier_LAT_F","B_soldier_AT_F","B_soldier_AAT_F"];
+groupsNATOATT2 = ["B_Soldier_TL_F","B_soldier_LAT_F","B_soldier_AT_F","B_soldier_AAT_F"];
+groupsNATOATT3 = ["B_Soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F"];
 
-groupsNATOFTT1 = ["B_soldier_TL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_LAT_F"];
-groupsNATOFTT2 = ["B_soldier_TL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_LAT_F"];
-groupsNATOFTT3 = ["B_soldier_TL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT1 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT2 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT3 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
 
 groupsNATOSpecOpMid = [
 	["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"],
@@ -100,9 +100,9 @@ groupsNATOSpecOpMid = [
 ];
 
 //Squads
-NATOSquadT1 = ["B_soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F","B_Sharpshooter_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"];
-NATOSquadT2 = ["B_soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F","B_Sharpshooter_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"];
-NATOSquadT3 = ["B_soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F","B_Sharpshooter_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"];
+NATOSquadT1 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
+NATOSquadT2 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
+NATOSquadT3 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
 
 NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
 
@@ -147,7 +147,7 @@ vehNATOLightUnarmed = ["B_MRAP_01_F"];
 vehNATOTrucks = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
 vehNATOCargoTrucks = ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"];
 vehNATOAmmoTruck = "B_Truck_01_ammo_F";
-vehNATORepairTruck = "B_Truck_01_repair_F";
+vehNATORepairTruck = "B_Truck_01_Repair_F";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
@@ -185,7 +185,7 @@ if ((gameMode != 4) and (!hasFFAA)) then
 	};
 
 //Police Vehicles
-vehPoliceCar = "B_GEN_OFFROAD_01_gen_F";
+vehPoliceCar = "B_GEN_Offroad_01_gen_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///

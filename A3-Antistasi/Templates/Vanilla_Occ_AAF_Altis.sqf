@@ -46,15 +46,15 @@ vehNATOPVP = ["I_MRAP_03_F","I_MRAP_03_hmg_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["I_Soldier_F"];
-NATOOfficer = "I_Officer_F";
+NATOGrunt = ["I_soldier_F","I_soldier_F","I_soldier_F"];
+NATOOfficer = "I_officer_F";
 NATOOfficer2 = "I_G_officer_F";
 NATOBodyG = "I_Soldier_SL_F";
-NATOCrew = "I_Crew_F";
+NATOCrew = "I_crew_F";
 NATOUnarmed = "I_G_Survivor_F";
-NATOMarksman = ["I_Soldier_M_F"];
+NATOMarksman = ["I_Soldier_M_F","I_Soldier_M_F","I_Soldier_M_F"];
 staticCrewOccupants = "I_support_MG_F";
-NATOPilot = "I_Helipilot_F";
+NATOPilot = "I_helipilot_F";
 
 //Militia Units
 if (gameMode != 4) then
@@ -80,15 +80,15 @@ groupsNATOSpecOpSmall = [
 		["I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"]
 ];
 
-groupsNATOSniper = ["I_sniper_F","I_spotter_F"];
+groupsNATOSniper = ["I_Sniper_F","I_Spotter_F"];
 //Fireteams
 groupsNATOAAT1 = ["I_Soldier_TL_F","I_Soldier_AA_F","I_Soldier_AA_F","I_Soldier_AAA_F"];
 groupsNATOAAT2 = ["I_Soldier_TL_F","I_Soldier_AA_F","I_Soldier_AA_F","I_Soldier_AAA_F"];
 groupsNATOAAT3 = ["I_Soldier_TL_F","I_Soldier_AA_F","I_Soldier_AA_F","I_Soldier_AAA_F"];
 
-groupsNATOATT1 = ["I_soldier_TL_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AAT_F"];
-groupsNATOATT2 = ["I_soldier_TL_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AAT_F"];
-groupsNATOATT3 = ["I_soldier_TL_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AAT_F"];
+groupsNATOATT1 = ["I_Soldier_TL_F","I_Soldier_AT_F","I_Soldier_AT_F","I_Soldier_AAT_F"];
+groupsNATOATT2 = ["I_Soldier_TL_F","I_Soldier_AT_F","I_Soldier_AT_F","I_Soldier_AAT_F"];
+groupsNATOATT3 = ["I_Soldier_TL_F","I_Soldier_AT_F","I_Soldier_AT_F","I_Soldier_AAT_F"];
 
 groupsNATOFTT1 = ["I_Soldier_TL_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_LAT_F"];
 groupsNATOFTT2 = ["I_Soldier_TL_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_LAT_F"];
@@ -100,11 +100,11 @@ groupsNATOSpecOpMid = [
 
 
 //Squads
-NATOSquadT1 = ["I_soldier_SL_F", NATOGrunt select 0,"I_soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_soldier_A_F","I_medic_F"];
-NATOSquadT2 = ["I_soldier_SL_F", NATOGrunt select 0,"I_soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_soldier_A_F","I_medic_F"];
-NATOSquadT3 = ["I_soldier_SL_F", NATOGrunt select 0,"I_soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_soldier_A_F","I_medic_F"];
+NATOSquadT1 = ["I_Soldier_SL_F", NATOGrunt select 0,"I_Soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_Soldier_A_F","I_medic_F"];
+NATOSquadT2 = ["I_Soldier_SL_F", NATOGrunt select 0,"I_Soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_Soldier_A_F","I_medic_F"];
+NATOSquadT3 = ["I_Soldier_SL_F", NATOGrunt select 0,"I_Soldier_LAT_F","I_Soldier_GL_F","I_Soldier_M_F","I_Soldier_AR_F","I_Soldier_A_F","I_medic_F"];
 
-NATOSpecOp = ["I_soldier_SL_F", NATOGrunt select 0,"I_soldier_LAT_F","I_Soldier_GL_F","I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F"];
+NATOSpecOp = ["I_Soldier_SL_F",NATOGrunt select 0,"I_Soldier_LAT_F","I_Soldier_GL_F","I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_A_F","I_medic_F"];
 
 //Militia Groups
 if (gameMode != 4) then
@@ -176,7 +176,7 @@ if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
 	vehFIATruck = "I_C_Van_01_transport_F";
-	vehFIACar = "I_C_Offroad_01_F";
+	vehFIACar = "I_C_Offroad_02_unarmed_F";
 	};
 
 //Police Vehicles

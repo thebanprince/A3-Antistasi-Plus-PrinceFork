@@ -117,7 +117,8 @@ _veh = _vehicle select 0;
 [_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;
 _vehCrew = _vehicle select 1;
-{[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
+// Forced non-spawner for performance reasons. They can travel a lot through rebel territory.
+{[_x,"",false] call A3A_fnc_NATOinit} forEach _vehCrew;
 _groupVeh = _vehicle select 2;
 _soldiers = _soldiers + _vehCrew;
 _groups = _groups + [_groupVeh];
@@ -127,7 +128,8 @@ _vehiclesX = _vehiclesX + [_veh];
 if (_typeCar in vehNATOLightUnarmed) then
 	{
 	sleep 1;
-	_groupX = [_posbase, _sideX, call SCRT_fnc_unit_getCurrentGroupNATOSentry] call A3A_fnc_spawnGroup;
+	_sentry = call SCRT_fnc_unit_getCurrentGroupNATOSentry;
+	_groupX = [_posbase, _sideX, _sentry] call A3A_fnc_spawnGroup;
 	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
@@ -135,7 +137,7 @@ if (_typeCar in vehCSATLightUnarmed) then
 	{
 	sleep 1;
 	_groupX = [_posbase, _sideX, groupsCSATSentry] call A3A_fnc_spawnGroup;
-	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
 
