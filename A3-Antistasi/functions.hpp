@@ -347,6 +347,7 @@ class A3A
 		class RES_Refugees {};
 		class taskUpdate {};
 		class underAttack {};
+		class ENC_Trader {};
 	};
 
 	class ModsAndDLC {
