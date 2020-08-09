@@ -14,7 +14,14 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 
 #include "MagRepack\MagRepack_config.hpp"
 
+#define HALs_DEF_INIT
+	#include "HALs\Addons\main\config.hpp"
+#undef HALs_DEF_INIT
+
 class CfgFunctions {
+    #define HALs_DEF_FUNCTIONS
+		#include "HALs\Addons\main\config.hpp"
+	#undef HALs_DEF_FUNCTIONS
     #include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
     #include "SCRT\functions.hpp"
