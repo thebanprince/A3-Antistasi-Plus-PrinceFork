@@ -2060,7 +2060,7 @@
 		    <Spanish>Dinero insuficiente.</Spanish>
 		    <Italian></Italian>
 		</Key>
-		<KEY ID="STR_HALS_STORE_ITEM_NOEQUIP">
+		<Key ID="STR_HALS_STORE_ITEM_NOEQUIP">
 		    <Original>Unable to equip.</Original>
 		    <English>Unable to equip.</English>
 		    <French>Impossible de s'équiper.</French>
