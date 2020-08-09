@@ -71,6 +71,11 @@ if(_wasCancelled) exitWith
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
 
+if(random 100 < (40 + tierWar * 3) then {
+    "Enemy's group leader has been dropped some money on ground." remoteExec ["systemChat", teamPlayer];
+    [position _squadLeader, 1] remoteExec ["SCRT_fnc_common_spawnMoneyOnGround",2];
+};
+
 if(_caller getVariable ["intelFound", false]) then
 {
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];

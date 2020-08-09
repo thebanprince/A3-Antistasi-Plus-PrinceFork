@@ -15,7 +15,7 @@ if (count _sites > 0) then {
     };
 };
 
-if (count _potentials <= 0) then {
+if (count _potentials < 1) then {
     //hope there are no maps without controls
     _defaultSite = controlsX select 0;
     _potentials pushBack _defaultSite;

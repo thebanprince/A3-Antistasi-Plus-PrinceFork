@@ -54,6 +54,7 @@ class SCRT
         class common_attachLightSource {};
         class common_addRandomMoneyCargo {};
         class common_addRandomMoneyMagazine {};
+        class common_spawnMoneyOnGround {};
     };
 
     class Quest
