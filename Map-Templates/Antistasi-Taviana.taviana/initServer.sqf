@@ -7,11 +7,9 @@
 if (isNil "logLevel") then {LogLevel = 2};
 
 // removing post-apocalyptic stuff
-_forbiddenTerrainObjects = [];
-_forbiddenTerrainObjects append [
+_forbiddenTerrainObjects = [
     "tavi",
     "heracleum",
-    "kamaz",
     "zil",
     "heli",
     "bus",
@@ -32,6 +30,7 @@ _forbiddenTerrainObjects append [
     "tavi_fort_barricade",
     "vetrak1"
 ];
+
 _allTerainObjects = nearestTerrainObjects [[worldSize/2, worldSize/2], ["HIDE"], worldSize];
 
 {
