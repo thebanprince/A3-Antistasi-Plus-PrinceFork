@@ -1950,22 +1950,22 @@
     </Container>
     <Container name="loot_actions">
       <Key ID="STR_antistasi_actions_loot_around_text">
-        <Original>Loot Bodies Around</Original>
-        <English>Loot Bodies Around</English>
+        <Original>Loot Bodies and Cargo</Original>
+        <English>Loot Bodies and Cargo</English>
         <French>Butin de corps autour</French>
-        <Russian>Обыскать тела вокруг</Russian>
+        <Russian>Обыскать тела и грузы</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_successful_loot_text">
-        <Original>Bodies has been successfully looted.</Original>
-        <English>Bodies has been successfully looted.</English>
+        <Original>Bodies and cargo has been successfully looted.</Original>
+        <English>Bodies and cargo has been successfully looted.</English>
         <French>Les corps ont été pillés avec succès.</French>
         <Russian>Тела были успешно разграблены.</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_no_bodies_text">
-        <Original>No bodies around.</Original>
-        <English>No bodies around.</English>
+        <Original>No bodies and cargo around.</Original>
+        <English>No bodies and cargo around.</English>
         <French>Aucun corps autour.</French>
-        <Russian>Нет тел поблизости.</Russian>
+        <Russian>Нет тел и ящиков поблизости.</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_looter_cooldown_text">
         <Original>The looting ability has been used in the last 15 seconds! Please wait for a bit.</Original>
@@ -1973,6 +1973,239 @@
         <French>La capacité de pillage a été utilisée au cours des 15 dernières secondes! Veuillez patienter un peu.</French>
         <Russian>Лут-способность уже была использована недавно. Пожалуйста, подождите 15 секунд.</Russian>
       </Key>
+        <Key ID="STR_antistasi_actions_looter_found_money_title">
+          <Original>Money</Original>
+          <English>Money</English>
+          <French>Argent</French>
+          <Russian>Деньги</Russian>
+        </Key>
+       <Key ID="STR_antistasi_actions_looter_found_money_text">
+        <Original>As a result of the loot search, money has been found. Found banknotes have been divided equally among all players in proximity.</Original>
+        <English>As a result of the loot search, money has been found. Found banknotes have been divided equally among all players in proximity.</English>
+        <French>Malheureusement, les informations ennemies sont pour la plupart dépassées. Rien d'utile n'a été trouvé.</French>
+        <Russian>В результате обыска были найдены деньги. Найденная валюта разделена поровну между всеми игроками поблизости.</Russian>
+      </Key>
+    </Container>
+    <Container name="intel_tasks">
+      <Key ID="STR_trader_task_hint_outdated">
+          <Original>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</Original>
+          <English>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</English>
+          <French>Malheureusement, les informations ennemies sont pour la plupart dépassées. Rien d'utile n'a été trouvé.</French>
+          <Russian>Донесения, которые мы добыли, к сожалению, устарели.</Russian>
+      </Key>
+      <Key ID="STR_trader_task_hint_description">
+          <Original>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</Original>
+          <English>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</English>
+          <French>Le dernier rapport d'Enemy contient des informations sur l'infâme marchand d'armes qui est arrivé dans notre état agité. Nous devons le trouver et établir des contacts entre le marché noir et la résistance.</French>
+          <Russian>В свежих донесениях противника содержится информация о том, что в зону конфликта прибыл торговец оружием. Необходимо наладить контакт между ним и сопротивлением.</Russian>
+      </Key>
+    </Container>
+    <Container name="common_actions">
+      <Key ID="STR_antistasi_actions_common_access_vehicle_marker_text">
+          <Original>Access Vehicle Market</Original>
+          <English>Access Vehicle Market</English>
+          <French>Accéder au marché des véhicules</French>
+          <Russian>Посмотреть чёрный рынок техники</Russian>
+      </Key>
+    </Container>
+    <Container name="common_notifications">
+      <Key ID="STR_antistasi_actions_common_notifications_money_found_title">
+          <Original>Money</Original>
+          <English>Money</English>
+          <French>Argent</French>
+          <Russian>Деньги</Russian>
+        </Key>
+      <Key ID="STR_antistasi_actions_common_notifications_money_found_text">
+        <Original>Money has been found in cargo. Found banknotes have been divided equally among all players.</Original>
+        <English>Money has been found in cargo. Found banknotes have been divided equally among all players.</English>
+        <French>Rien d'utile n'a été.</French>
+        <Russian>В грузе были найдены деньги. Найденная валюта разделена поровну между всеми игроками.</Russian>
+      </Key>
     </Container>
   </Package>
+  <Package name="General">
+	    <Key ID="STR_HALS_STORE_ACTION">
+		    <Original>Store</Original>
+		    <English>Store</English>
+		    <French>Magasin</French>
+		    <German>Geschäft</German>
+		    <Russian>Магазин</Russian>
+		    <Spanish>Comprar</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
+		    <Original>Item unavaliable.</Original>
+		    <English>Item unavaliable.</English>
+		    <French>Item indisponible.</French>
+		    <German>Gegenstand nicht verfügbar.</German>
+		    <Russian>Предмет недоступен</Russian>
+		    <Spanish>Objeto no disponible.</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_ITEM_OUTOFSTOCK">
+		    <Original>Insufficient stock.</Original>
+		    <English>Insufficient stock.</English>
+		    <French>Stocks insufissant.</French>
+		    <German>Ausverkauft.</German>
+		    <Russian>Товар закончился</Russian>
+		    <Spanish>Sin stock.</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_ITEM_TOOEXPENSIVE">
+		    <Original>Insufficient funds.</Original>
+		    <English>Insufficient funds.</English>
+		    <French>Fonds insufissant.</French>
+		    <German>Zu wenig Geld.</German>
+		    <Russian>Недостаточно средств</Russian>
+		    <Spanish>Dinero insuficiente.</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<KEY ID="STR_HALS_STORE_ITEM_NOEQUIP">
+		    <Original>Unable to equip.</Original>
+		    <English>Unable to equip.</English>
+		    <French>Impossible de s'équiper.</French>
+		    <German>Ausrüsten fehlgeschlagen.</German>
+		    <Russian>Невозможно экипировать</Russian>
+		    <Spanish>Imposible equipar.</Spanish>
+		    <Italian></Italian>
+		  </Key>
+		<Key ID="STR_HALS_STORE_ITEM_NOCARGOSPACE">
+		    <Original>Insufficient cargo space.</Original>
+		    <English>Insufficient cargo space.</English>
+		    <French>Pas assez d'espace disponible.</French>
+		    <German>Nicht genug Platz.</German>
+		    <Russian>Не хватает места в инвентаре</Russian>
+		    <Spanish>Espacio insuficiente.</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_ITEM_PURCHASED">
+		    <Original>purchased</Original>
+		    <English>purchased</English>
+		    <French>acheté</French>
+		    <German>gekauft</German>
+		    <Russian>куплен</Russian>
+		    <Spanish>comprad</Spanish>
+		    <Italian></Italian>
+		</Key>
+        <!-- Thanks to JakeHekesFists -->
+        <Key ID="STR_HALS_STORE_ITEM_SELL_NOTEMPTY">
+			<Original>You cannot sell your %1 (%2) because it is not empty.</Original>
+			<English>You cannot sell your %1 (%2) because it is not empty.</English>
+      <Russian>Вы не можете продать %1 (%2), поскольку он не пустой.</Russian>
+		</Key>
+		<Key ID="STR_HALS_STORE_ITEM_SELL_SOLD">
+			<Original>Sold x%1 %2(s) for $%3.</Original>
+			<English>Sold x%1 %2(s) for $%3.</English>
+      <Russian>Продано x%1 %2(s) за $%3.</Russian>
+		</Key>
+
+	</Package>
+	<Package name="Dialog">
+	    <Key ID="STR_HALS_STORE_CHECKBOX_AFFORD">
+		    <Original>Only show items which the player can afford.</Original>
+		    <English>Only show items which the player can afford.</English>
+		    <French>Ne montrer que les items achetables.</French>
+		    <German>Zeige nur Gegenstände, die sich der Spieler leisten kann.</German>
+		    <Russian>Показывать только предметы, на которые хватает денег</Russian>
+		    <Spanish>Mostrar solo objetos que pueda comprar.</Spanish>
+		    <Italian></Italian>
+		</Key>
+        <Key ID="STR_HALS_STORE_CHECKBOX_AVALIABLE">
+            <Original>Only show items that are avaliable for purchase.</Original>
+            <English>Only show items that are avaliable for purchase.</English>
+            <French></French>
+            <German></German>
+            <Russian>Показывать только предметы, доступные к покупке.</Russian>
+            <Spanish></Spanish>
+            <Italian></Italian>
+        </Key>
+	    <Key ID="STR_HALS_STORE_CHECKBOX_STOCK">
+		    <Original>Only show items which are in stock.</Original>
+		    <English>Only show items which are in stock.</English>
+		    <French>Ne montrer que les items en stock.</French>
+		    <German>Zeige nur Gegenstände, die auf Lager sind.</German>
+		    <Russian>Показывать только предметы, доступные для продажи.</Russian>
+		    <Spanish>Mostrar solo objetos en stock.</Spanish>
+		    <Italian></Italian>
+		</Key>
+	    <Key ID="STR_HALS_STORE_CHECKBOX_COMPATIBLE">
+		    <Original>Only show items compatible with the player's equipped weapons.</Original>
+		    <English>Only show items compatible with the player's equipped weapons.</English>
+		    <French>Ne montrer que les items compatibles.</French>
+		    <German>Zeige nur Gegenstände, die mit der ausgerüsteten Waffe des Spielers kompatibel sind.</German>
+		    <Russian>Показывать только предметы, совместимые с оружием игрока.</Russian>
+		    <Spanish>Mostrar solo objetos compatibles con armas equipadas.</Spanish>
+		    <Italian></Italian>
+		</Key>
+        <!-- SELL BOX -->
+        <Key ID="STR_HALS_STORE_CHECKBOX_SELLFILTER">
+            <Original>Only show items that the player can sell.</Original>
+            <English>Only show items that the player can sell.</English>
+            <Russian>Показывать только предметы, которые можно продать.</Russian>
+        </Key>
+        <!-- SELL BUTTON -->
+        <Key ID="STR_HALS_STORE_BUTTON_SELL">
+            <Original>Sell</Original>
+            <English>Sell</English>
+            <French>Vendre</French>
+            <German>Verkaufen</German>
+            <Russian>Продать</Russian>
+            <Spanish>Vender</Spanish>
+            <Italian>Vendere</Italian>
+        </Key>
+	    <Key ID="STR_HALS_STORE_CHECKBOX_EQUIP">
+		    <Original>Equip item upon purchase (if possible).</Original>
+		    <English>Equip item upon purchase (if possible).</English>
+		    <French>Equiper une fois acheter (si possible).</French>
+		    <German>Gegenstand beim Kauf ausrüsten (wenn möglich).</German>
+		    <Russian>Экипировать после покупки (по возможности).</Russian>
+		    <Spanish>Equipar el articulo al comprar (si es posible).</Spanish>
+		    <Italian></Italian>
+		</Key>
+	    <Key ID="STR_HALS_STORE_BUTTON_PURCHASE">
+		    <Original>Purchase</Original>
+		    <English>Purchase</English>
+		    <French>Acheter</French>
+		    <German>Kaufen</German>
+		    <Russian>Купить</Russian>
+		    <Spanish>Compra</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_TEXT_PRICE">
+		    <Original>Price</Original>
+		    <English>Price</English>
+		    <French>Prix</French>
+		    <German>Preis</German>
+		    <Russian>Цена</Russian>
+		    <Spanish>Precio</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_TEXT_INSTOCK">
+		    <Original>IN STOCK</Original>
+		    <English>IN STOCK</English>
+		    <French>EN STOCK</French>
+		    <German>AUF LAGER</German>
+		    <Russian>В ПРОДАЖЕ</Russian>
+		    <Spanish>EN STOCK</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_TEXT_NOSTOCK">
+		    <Original>OUT OF STOCK.</Original>
+		    <English>OUT OF STOCK.</English>
+		    <French>INDISPONIVLE.</French>
+		    <German>AUSVERKAUFT.</German>
+		    <Russian>ЗАКОНЧИЛСЯ</Russian>
+		    <Spanish>FUERA DE STOCK.</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_LISTBOX_NOMONEY">
+		    <Original>%1¢ more required.</Original>
+		    <English>%1¢ more required.</English>
+		    <French>%1¢ requis.</French>
+		    <German>%1¢ mehr benötigt.</German>
+		    <Russian>Не хватает %1¢.</Russian>
+		    <Spanish>Se necesitan %1¢.</Spanish>
+		    <Italian></Italian>
+		</Key>
+	</Package>
 </Project>
