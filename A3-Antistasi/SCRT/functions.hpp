@@ -22,16 +22,6 @@ class SCRT
         class unit_getCurrentFIAMid {};
     };
 
-    class Shop 
-    {
-        file = "SCRT\Shop";
-        class shop_checkAvailability {};
-        class shop_buyArmor {};
-		class shop_buyHeavyWeapons {};
-		class shop_buySupplies{};
-		class shop_buyWeapons {};
-    };
-
     class Misc 
     {
         file = "SCRT\Misc";
@@ -46,6 +36,7 @@ class SCRT
         class trader_createTrader {};
         class trader_setTraderStock {};
         class trader_addVehicleMarketAction {};
+        class trader_tryOpenVehicleMarketMenu {};
     };
 
     class Common 

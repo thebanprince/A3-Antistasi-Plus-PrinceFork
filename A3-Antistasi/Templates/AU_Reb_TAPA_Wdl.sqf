@@ -124,7 +124,6 @@ if (hasTFAR) then {
 shop_UAV = ["I_UAV_01_F"];
 shop_AA = ["NAA_Nyx_AA_F"];
 shop_MRAP = ["B_A_MRAP_03_gmg_F","B_A_MRAP_03_hmg_F","B_MRAP_01_gmg_F","B_MRAP_01_hmg_F"];
-shop_arty = ["I_E_Truck_02_MRL_F"];
 shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
 shop_track_apc = ["I_APC_tracked_03_cannon_F"];
 shop_heli = ["MYR_I_Pawnee_F","O_R_Heli_Light_02_dynamicLoadout_F","I_E_Heli_light_03_dynamicLoadout_F"];

@@ -79,7 +79,7 @@ class Params
      class unlockItem
      {
           title = "Number of the same item required to unlock";
-          values[] = {20,30,45};
+          values[] = {15,20,25,30,45};
           default = 20;
      };
      class memberOnlyMagLimit

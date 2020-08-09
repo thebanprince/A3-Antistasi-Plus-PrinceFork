@@ -111,7 +111,6 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 shop_UAV = ["rhs_pchela1t_vvs"];
 shop_AA = ["I_LT_01_AA_F"];
 shop_MRAP = ["rhsgref_BRDM2_HQ_ins_g"];
-shop_arty = ["rhsgref_ins_g_BM21"];
 shop_wheel_apc = ["rhsgref_nat_btr70"];
 shop_track_apc = ["rhsgref_ins_g_bmp2"];
 shop_heli = ["RHS_Mi24P_vdv"];

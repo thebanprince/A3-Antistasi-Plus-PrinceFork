@@ -3203,18 +3203,7 @@ class blackMarket_menu 	{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Import Weapons, Ammo, and other military gear";
-			action = "closeDialog 0; createDialog ""supplies"";";
-		};
-		class HQ_button_Gstatic: RscButton
-		{
-			idc = -1;
-			text = "Military Vehicle"; //--- ToDo: Localize;
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			tooltip = "Import some heavy metal";
+			tooltip = "Vehicles";
 			action = "closeDialog 0; createDialog ""vehicles"";";
 		};
 	};
@@ -3252,7 +3241,7 @@ class vehicles 		{
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0; createDialog ""blackMarket_menu"";";
 		};
-		class HQ_button_rifleman: RscButton
+		class HQ_button_uav: RscButton
 		{
 			idc = 104;
 			text = "Buy UAV"; //--- ToDo: Localize;
@@ -3260,10 +3249,10 @@ class vehicles 		{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Standard UAV, small, unarmed, and inconspicuous. Good for peeping toms like you. Costs about $500";
+			tooltip = "Standard UAV, small, unarmed, and inconspicuous. Good for peeping toms like you0";
 			action = "closeDialog 0; [selectRandom shop_UAV] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_autorifleman: RscButton
+		class HQ_button_aa: RscButton
 		{
 			idc = 105;
 			text = "Buy AA"; //--- ToDo: Localize;
@@ -3274,7 +3263,7 @@ class vehicles 		{
 			tooltip = "Clear the skies. Costs about $3500";
 			action = "closeDialog 0; [selectRandom shop_AA] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_medic: RscButton
+		class HQ_button_mrap: RscButton
 		{
 			idc = 126;
 			text = "Buy MRAP"; //--- ToDo: Localize;
@@ -3282,32 +3271,32 @@ class vehicles 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Good against bullets, but rockets...not so much. Comes with a GMG for shooting back, and costs about $2,000";
+			tooltip = "Good against bullets, but rockets...not so much. Comes with a GMG for shooting back.";
 			action = "closeDialog 0; [selectRandom shop_MRAP] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_engineer: RscButton
+		class HQ_button_wheeledApc: RscButton
 		{
 			idc = 107;
-			text = "Buy Artillery"; //--- ToDo: Localize;
+			text = "Buy Wheeled APC"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Nothing says screw you quite like a rocket barrege. Costs roughly $5,000";
-			action = "closeDialog 0; [selectRandom shop_arty] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Wheeled APC";
+			action = "closeDialog 0; [selectRandom shop_wheel_apc] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_explosive: RscButton
+		class HQ_button_trackedApc: RscButton
 		{
 			idc = 108;
-			text = "Buy Wheeled APC"; //--- ToDo: Localize;
+			text = "Buy Tracked APC"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Roll up to the battle in style. This thing eats enemy infantry and vehicles for breakfast. Costs around $5,000";
-			action = "closeDialog 0; [selectRandom shop_wheel_apc] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Tracked APC";
+			action = "closeDialog 0; [selectRandom shop_track_apc] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_grenadier: RscButton
+		class HQ_button_Heli: RscButton
 		{
 			idc = 109;
 			text = "Buy Tracked APC"; //--- ToDo: Localize;
@@ -3315,10 +3304,10 @@ class vehicles 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Tired of getting the wheels popped on your apc's? Tracks are the answer, though they come at a price. Expect to pay about $6,500";
-			action = "closeDialog 0; [selectRandom shop_track_apc] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Armed Helicopter";
+			action = "closeDialog 0; [selectRandom shop_heli] spawn A3A_fnc_addFIAveh;";
 		};
-		class HQ_button_marksman: RscButton
+		class HQ_button_tank: RscButton
 		{
 			idc = 110;
 			text = "Buy Attack Helicopter"; //--- ToDo: Localize;
@@ -3326,105 +3315,11 @@ class vehicles 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Relive your favorite scenes from apocalypse now! If you have the cash...about $10,000";
-			action = "closeDialog 0; [selectRandom shop_heli] spawn A3A_fnc_addFIAveh;";
-		};
-
-		class HQ_button_AT: RscButton
-		{
-			idc = 111;
-			text = "Buy Tank"; //--- ToDo: Localize;
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.612025 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			tooltip = "God mode...Engaged! $15,000";
-			action = "closeDialog 0; [selectRandom shop_tank] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Armed Helicopter";
+			action = "closeDialog 0; [selectRandom shop_tank] spawn A3A_fnc_addFIAveh";
 		};
 	};
 };
-
-class supplies			{
-	idd=-1;
-	movingenable=false;
-
-	class controls {
-		//Structure
-		class HQ_box: BOX
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
-			x = 0.244979 * safezoneW + safezoneX;
-			y = 0.223941 * safezoneH + safezoneY;
-			w = 0.445038 * safezoneW;
-			h = 0.30 * safezoneH;
-		};
-		class HQ_frame: RscFrame
-		{
-			idc = -1;
-			text = "Supplies";
-			x = 0.254979 * safezoneW + safezoneX;
-			y = 0.233941 * safezoneH + safezoneY;
-			w = 0.425038 * safezoneW;
-			h = 0.28 * safezoneH;
-		};
-		class HQ_button_back: RscButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_button_back_text;
-			x = 0.61 * safezoneW + safezoneX;
-			y = 0.251941 * safezoneH + safezoneY;
-			w = 0.06 * safezoneW;//0.175015
-			h = 0.05 * safezoneH;
-			action = "closeDialog 0; createDialog ""blackMarket_menu"";";
-		};
-		//Action Buttons
-		class 4slots_L1: RscButton
-		{
-			idc = -1;
-			text = "Buy Gear";
-			tooltip = "An assortment of non-lethal, but useful gear. Scopes, NVGs, that sort of thing. $750";
-			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; call SCRT_fnc_shop_buySupplies;";
-		};
-		class 4slots_R1: RscButton
-		{
-			idc = -1;
-			text = "Buy Body Armor";
-			tooltip = "Protect your investments! Enought body armor for you and your friends! $2,500";
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; call SCRT_fnc_shop_buyArmor;";
-		};
-		class 4slots_L2: RscButton
-		{
-			idc = -1;
-			text = "Buy Weapons";
-			tooltip = "Weapons, ammo, and other gear. Whatever our smuggler can get us. $1500";
-			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; call SCRT_fnc_shop_buyWeapons;";
-		};
-		class 4slots_R2: RscButton
-		{
-			idc = -1;
-			text = "Buy Heavy Weapons";
-			tooltip = "I hear there's guided missiles in this shipment. Better be for how expensive it is. $3,500";
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; call SCRT_fnc_shop_buyHeavyWeapons;";
-		};
-	};
-}; 
 
 class RscTitles {
 	class Default {

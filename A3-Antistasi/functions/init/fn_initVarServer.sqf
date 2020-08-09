@@ -447,7 +447,6 @@ private _templateVariables = [
 	"shop_UAV",
     "shop_AA",
     "shop_MRAP",
-    "shop_arty",
     "shop_wheel_apc",
     "shop_track_apc",
     "shop_heli",
@@ -738,13 +737,12 @@ server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
 
 //black market costs
-{server setVariable [_x,1000,true]} forEach shop_UAV;
-{server setVariable [_x,3500,true]} forEach shop_AA;
-{server setVariable [_x,1750,true]} forEach shop_MRAP;
-{server setVariable [_x,10000,true]} forEach shop_arty;
-{server setVariable [_x,5000,true]} forEach shop_wheel_apc;
-{server setVariable [_x,6500,true]} forEach shop_track_apc;
-{server setVariable [_x,10000,true]} forEach shop_heli;
+{server setVariable [_x,2000,true]} forEach shop_UAV;
+{server setVariable [_x,7000,true]} forEach shop_AA;
+{server setVariable [_x,2500,true]} forEach shop_MRAP;
+{server setVariable [_x,9000,true]} forEach shop_wheel_apc;
+{server setVariable [_x,1000,true]} forEach shop_track_apc;
+{server setVariable [_x,15000,true]} forEach shop_heli;
 {server setVariable [_x,20000,true]} forEach shop_tank;
 
 ///////////////////////
