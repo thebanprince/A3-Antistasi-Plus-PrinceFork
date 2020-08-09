@@ -664,6 +664,8 @@ class vehicle_option 	{
 class buy_vehicle 			{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -784,6 +786,8 @@ class buy_vehicle 			{
 class civ_vehicle 			{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
@@ -1499,6 +1503,8 @@ class vehicle_manager 		{
 class veh_query 				{
 	idd=100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 
 	class controls {
 		class HQ_box: BOX
