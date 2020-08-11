@@ -14,13 +14,18 @@
 _position = _this select 0;
 
 
-traderMarker = createMarker ["TraderMarker", _position];
-traderMarker setMarkerType "hd_objective";
-traderMarker setMarkerSize [1, 1];
-traderMarker setMarkerText "Arms Dealer";
-traderMarker setMarkerColor "ColorUNKNOWN";
-traderMarker setMarkerAlpha 1;
+_traderMarker = createMarker ["TraderMarker", _position];
+_traderMarker setMarkerType "hd_objective";
+_traderMarker setMarkerSize [1, 1];
+_traderMarker setMarkerText "Arms Dealer";
+_traderMarker setMarkerColor "ColorUNKNOWN";
+_traderMarker setMarkerAlpha 1;
 
+traderVehicleMarker = createMarker ["TraderVehicleMarker", _position];
+traderVehicleMarker setMarkerSize [20, 20];
+traderVehicleMarker setMarkerColor "ColorUNKNOWN";
+traderVehicleMarker setMarkerShape "RECTANGLE";
+traderVehicleMarker setMarkerAlpha 0;
 
 //clear point
 {  
@@ -43,9 +48,11 @@ _table setPos [getPos _table select 0, getPos _table select 1, (getPos _table se
 _laptopArray = [[_table, "TOP"],"Land_Laptop_02_unfolded_F",1,[0,0,0],180] call BIS_fnc_spawnObjects;
 _laptop = _laptopArray select 0;
 
+_laptop addAction ["Clear Nearby Forest", {[_this select 0] call SCRT_fnc_common_clearLocationFromTrees}, nil, 0, false, true, "", "(_this == theBoss)", 4];
+
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
-_satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 0.6];
+_satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 1];
 _satellite setDir 45; 
 
 [[_table, "TOP"],"Land_Ammobox_rounds_F",1,[-0.4,(random 0.2),(random 20)-10],(random 180)] call BIS_fnc_spawnObjects;

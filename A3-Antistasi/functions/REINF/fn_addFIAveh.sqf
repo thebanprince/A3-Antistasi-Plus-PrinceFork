@@ -5,6 +5,8 @@ if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {["Add Vehicle", "You can
 
 
 private _typeVehX = _this select 0;
+private _isBlackMarket = _this select 1;
+
 if (_typeVehX == "not_supported") exitWith {["Add Vehicle", "The vehicle you requested is not supported in your current modset"] call A3A_fnc_customHint;};
 
 vehiclePurchase_cost = [_typeVehX] call A3A_fnc_vehiclePrice;
@@ -23,8 +25,8 @@ if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} els
 	};
 
 if (_resourcesFIA < vehiclePurchase_cost) exitWith {["Add Vehicle", format ["You do not have enough money for this vehicle: %1 € required",vehiclePurchase_cost]] call A3A_fnc_customHint;};
-vehiclePurchase_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;
-if !(player inArea vehiclePurchase_nearestMarker) exitWith {["Add Vehicle", "You need to be close to the flag to be able to purchase a vehicle"] call A3A_fnc_customHint;};
+vehiclePurchase_nearestMarker = if(_isBlackMarket) then { traderVehicleMarker } else { [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition; };
+if (!(_isBlackMarket) && !(player inArea vehiclePurchase_nearestMarker)) exitWith {["Add Vehicle", "You need to be close to the flag to be able to purchase a vehicle"] call A3A_fnc_customHint;};
 
 private _extraMessage =	format ["Buying vehicle for $%1", vehiclePurchase_cost];
 
