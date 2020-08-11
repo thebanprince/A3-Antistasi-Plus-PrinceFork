@@ -1,5 +1,11 @@
 ## Changelog
 
+##### 0.4.1
+- Fixed wrong text on vehicle market entries
+- "Clear Forest" action on arms dealer's laptop
+- Fixed inability to buy vehicles on vehicle market
+
+
 ##### 0.4
 - Updgrade to stable release of 2.3 Antistasi Community Version
 - New Find the Arms Dealer task type (can be obtained via intel search/interrogation)
