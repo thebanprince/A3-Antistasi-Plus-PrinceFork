@@ -704,7 +704,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closedialog 0; nul = [vehSDKBike] spawn A3A_fnc_addFIAveh";
+			action = "closedialog 0; nul = [vehSDKBike, false] spawn A3A_fnc_addFIAveh";
 		};
 		class HQ_button_offroad: RscButton
 		{
@@ -714,7 +714,7 @@ class buy_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [vehSDKLightUnarmed] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKLightUnarmed, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_truck: RscButton
 		{
@@ -724,7 +724,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [vehSDKTruck] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKTruck, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Aoffroad: RscButton
 		{
@@ -734,7 +734,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [vehSDKLightArmed] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKLightArmed, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_MG: RscButton
 		{
@@ -745,7 +745,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [SDKMGStatic] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [SDKMGStatic, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_mortar: RscButton
 		{
@@ -756,7 +756,7 @@ class buy_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [SDKMortar] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [SDKMortar, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_AT: RscButton
 		{
@@ -767,7 +767,7 @@ class buy_vehicle 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [staticATteamPlayer] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [staticATteamPlayer, false] spawn A3A_fnc_addFIAveh;";
 		};
 
 		class HQ_button_AA: RscButton
@@ -779,7 +779,7 @@ class buy_vehicle 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [staticAAteamPlayer] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [staticAAteamPlayer, false] spawn A3A_fnc_addFIAveh;";
 		};
 	};
 };
@@ -826,7 +826,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [civCar] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [civCar, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -836,7 +836,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [civTruck] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [civTruck, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gremove: RscButton
 		{
@@ -847,7 +847,7 @@ class civ_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [civHeli] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [civHeli, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_offroad: RscButton
 		{
@@ -857,7 +857,7 @@ class civ_vehicle 			{
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;
 		 	h = 0.0560125 * safezoneH;
-		 	action = "closeDialog 0;[civBoat] spawn A3A_fnc_addFIAveh;";
+		 	action = "closeDialog 0;[civBoat, false] spawn A3A_fnc_addFIAveh;";
 		 };
 		 class HQ_button_Looter: RscButton
         {
@@ -868,7 +868,7 @@ class civ_vehicle 			{
             y = 0.514003 * safezoneH + safezoneY;
             w = 0.175015 * safezoneW;
             h = 0.0560125 * safezoneH;
-            action = "closeDialog 0;nul = [civLooter] spawn A3A_fnc_addFIAveh;";
+            action = "closeDialog 0;nul = [civLooter, false] spawn A3A_fnc_addFIAveh;";
         };
 	};
 };
@@ -3249,8 +3249,8 @@ class vehicles 		{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Standard UAV, small, unarmed, and inconspicuous. Good for peeping toms like you0";
-			action = "closeDialog 0; [selectRandom shop_UAV] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Standard UAV, small, unarmed, and inconspicuous.";
+			action = "closeDialog 0; [selectRandom shop_UAV, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_aa: RscButton
 		{
@@ -3260,8 +3260,8 @@ class vehicles 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Clear the skies. Costs about $3500";
-			action = "closeDialog 0; [selectRandom shop_AA] spawn A3A_fnc_addFIAveh;";
+			tooltip = "Anti-Air Vehicle";
+			action = "closeDialog 0; [selectRandom shop_AA, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_mrap: RscButton
 		{
@@ -3271,8 +3271,8 @@ class vehicles 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Good against bullets, but rockets...not so much. Comes with a GMG for shooting back.";
-			action = "closeDialog 0; [selectRandom shop_MRAP] spawn A3A_fnc_addFIAveh;";
+			tooltip = "MRAP with turret";
+			action = "closeDialog 0; [selectRandom shop_MRAP, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_wheeledApc: RscButton
 		{
@@ -3283,7 +3283,7 @@ class vehicles 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Wheeled APC";
-			action = "closeDialog 0; [selectRandom shop_wheel_apc] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0; [selectRandom shop_wheel_apc, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_trackedApc: RscButton
 		{
@@ -3294,29 +3294,29 @@ class vehicles 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Tracked APC";
-			action = "closeDialog 0; [selectRandom shop_track_apc] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0; [selectRandom shop_track_apc, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Heli: RscButton
 		{
 			idc = 109;
-			text = "Buy Tracked APC"; //--- ToDo: Localize;
+			text = "Buy Armed Helicopter"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Armed Helicopter";
-			action = "closeDialog 0; [selectRandom shop_heli] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0; [selectRandom shop_heli, true] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_tank: RscButton
 		{
 			idc = 110;
-			text = "Buy Attack Helicopter"; //--- ToDo: Localize;
+			text = "Tank"; //--- ToDo: Localize;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Armed Helicopter";
-			action = "closeDialog 0; [selectRandom shop_tank] spawn A3A_fnc_addFIAveh";
+			tooltip = "Tank";
+			action = "closeDialog 0; [selectRandom shop_tank, true] spawn A3A_fnc_addFIAveh";
 		};
 	};
 };
