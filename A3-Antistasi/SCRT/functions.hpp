@@ -43,6 +43,7 @@ class SCRT
     {
         file = "SCRT\Common";
         class common_attachLightSource {};
+        class common_clearLocationFromTrees {};
         class common_addRandomMoneyCargo {};
         class common_addRandomMoneyMagazine {};
         class common_spawnMoneyOnGround {};

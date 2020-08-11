@@ -18,6 +18,16 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 
+_moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
+
+{
+	private _moneyItem = _x;
+	{ 
+		deleteVehicle _x; 
+	} forEach (allMissionObjects _moneyItem);	
+} forEach _moneyItems;
+
+
 if (hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
 	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
