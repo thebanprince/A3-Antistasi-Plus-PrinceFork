@@ -1,5 +1,9 @@
 ## Changelog
 
+##### 0.4.2
+- Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool
+- "Clear Forest" action on arms dealer's laptop now properly works on dedicated server
+
 ##### 0.4.1
 - Fixed wrong text on vehicle market entries
 - "Clear Forest" action on arms dealer's laptop

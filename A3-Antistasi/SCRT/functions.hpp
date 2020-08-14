@@ -47,6 +47,7 @@ class SCRT
         class common_addRandomMoneyCargo {};
         class common_addRandomMoneyMagazine {};
         class common_spawnMoneyOnGround {};
+        class common_addClearLocationAction {};
     };
 
     class Quest

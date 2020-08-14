@@ -112,13 +112,13 @@ initialRebelEquipment append ["V_BandollierB_oli","V_Pocketed_wdl_F"];
 initialRebelEquipment append ["Binocular", "acc_flashlight"];
 
 //TFAR Unlocks
-if (hasTFAR) then {
-    initialRebelEquipment append ["tf_microdagr","tf_anprc154"];
+// if (hasTFAR) then {
+//     initialRebelEquipment append ["tf_microdagr","tf_anprc154"];
 
-    if (startWithLongRangeRadio) then {
-        initialRebelEquipment pushBack "tf_anprc155_coyote";
-    };
-};
+//     if (startWithLongRangeRadio) then {
+//         initialRebelEquipment pushBack "tf_anprc155_coyote";
+//     };
+// };
 
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];

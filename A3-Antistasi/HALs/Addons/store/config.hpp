@@ -3439,7 +3439,7 @@ class cfgHALsStore {
 				price = 400;
 				stock = MAGAZINE_STOCK;
 			};
-			class CUP_CUP_20Rnd_TE1_Yellow_Tracer_762x51_FNFAL_Woodland_MFlareYellow_M203 {
+			class CUP_20Rnd_TE1_Yellow_Tracer_762x51_FNFAL_Woodland_M {
 				price = 450;
 				stock = MAGAZINE_STOCK;
 			};

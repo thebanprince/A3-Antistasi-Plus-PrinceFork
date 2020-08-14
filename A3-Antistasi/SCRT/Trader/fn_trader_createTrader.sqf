@@ -48,7 +48,7 @@ _table setPos [getPos _table select 0, getPos _table select 1, (getPos _table se
 _laptopArray = [[_table, "TOP"],"Land_Laptop_02_unfolded_F",1,[0,0,0],180] call BIS_fnc_spawnObjects;
 _laptop = _laptopArray select 0;
 
-_laptop addAction ["Clear Nearby Forest", {[_this select 0] call SCRT_fnc_common_clearLocationFromTrees}, nil, 0, false, true, "", "(_this == theBoss)", 4];
+[_laptop] remoteExecCall ["SCRT_fnc_common_addClearLocationAction", 0, true];
 
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
@@ -81,5 +81,15 @@ _traderX disableAI "COVER";
 _traderX disableAI "SUPPRESSION";
 _traderX setDir -30;
 
+// _allPlayers = call BIS_fnc_listPlayers;
+// _playersCount = count _allPlayers;
+
+// if(_playersCount > 0) then {
+//     { 
+//         _player = _x;
+// 		[_traderX, _player] remoteExecCall ["disableCollisionWith", 0, true];
+
+//     } forEach _allPlayers;
+// };
 
 _traderX
