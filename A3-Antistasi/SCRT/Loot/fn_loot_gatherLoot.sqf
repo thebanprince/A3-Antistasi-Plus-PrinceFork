@@ -89,7 +89,14 @@ private _moneyEarned = 0;
         _bodyMagazines = magazines _body;
         if (count _bodyMagazines > 0) then {
             {
-                _vehicle addMagazineCargoGlobal [_x, 1];
+                if(_x in arrayMoney) then {
+                    _moneyIndex = arrayMoney find _x;
+                    if(_moneyIndex != -1) then {
+                        _moneyEarned = _moneyEarned + (arrayMoneyAmount select _moneyIndex);
+                    };
+                } else {
+                    _vehicle addMagazineCargoGlobal [_x, 1];
+                };
                 _body removeMagazines _x;
             } forEach _bodyMagazines;
         };
@@ -109,7 +116,7 @@ private _moneyEarned = 0;
         _backpack = backpack _body;
         if (_backpack != "") then {
             _vehicle addBackpackCargoGlobal [_backpack,1];
-            removeBackpack _body;
+            removeBackpackGlobal _body;
         };
 
         removeAllWeapons _body;
@@ -139,7 +146,7 @@ if(_moneyEarned > 0) then {
 //notification on success
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
 _soundToPlay = _soundPath + "audio\lootSuccess.ogg";
-//TODO: possible bug with multiple sounds/no sound
-//[[_soundToPlay, _vehicle]] remoteExecCall ["playSound3D", -2, false];
-playSound3D [_soundToPlay, _vehicle];
+
+playSound3D [_soundToPlay, _vehicle, false, getPosASL _vehicle, 3, 1, 0];
+
 localize "STR_antistasi_actions_successful_loot_text" remoteExec ["systemChat", teamPlayer];
