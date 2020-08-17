@@ -72,7 +72,7 @@ if(_wasCancelled) exitWith
 };
 
 if(random 100 < (40 + tierWar * 3)) then {
-    "Enemy's group leader has been dropped some money on ground." remoteExec ["systemChat", teamPlayer];
+    "Enemy's group leader has dropped some money on ground." remoteExec ["systemChat", teamPlayer];
     [position _squadLeader, 1] remoteExec ["SCRT_fnc_common_spawnMoneyOnGround", 2];
 };
 
