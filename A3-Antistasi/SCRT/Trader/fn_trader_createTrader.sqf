@@ -26,6 +26,7 @@ traderVehicleMarker setMarkerSize [20, 20];
 traderVehicleMarker setMarkerColor "ColorUNKNOWN";
 traderVehicleMarker setMarkerShape "RECTANGLE";
 traderVehicleMarker setMarkerAlpha 0;
+publicVariable "traderVehicleMarker";
 
 //clear point
 {  
