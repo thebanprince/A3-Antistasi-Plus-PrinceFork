@@ -3198,7 +3198,7 @@ class blackMarket_menu 	{
 		class HQ_button_Gsquad: RscButton
 		{
 			idc = -1;
-			text = "Supplies"; //--- ToDo: Localize;
+			text = "Vehicles"; //--- ToDo: Localize;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
@@ -3212,6 +3212,8 @@ class blackMarket_menu 	{
 class vehicles 		{
 	idd= 100;
 	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
 	class controls {
 		class HQ_box: BOX
 		{
