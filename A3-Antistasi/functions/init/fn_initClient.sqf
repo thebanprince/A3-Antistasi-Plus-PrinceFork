@@ -270,6 +270,41 @@ player addEventHandler ["HandleHeal", {
 	};
 }];
 
+player addEventHandler ["HandleHeal", {
+	params ["_unit", "_healer"];
+
+	[2,"100% Heal EH execution","HandleHeal EH"] call A3A_fnc_log;
+
+	//event handler _isMedic parameter returns false even for medics, ffs
+	_isMedic = _unit getUnitTrait "Medic";
+
+	private _text = format ["Unit: %1, Healer: %2, Medic: %3", str _unit, str _healer, str _isMedic];
+	[2,_text,"HandleHeal EH"] call A3A_fnc_log;
+
+	if(_isMedic) then {
+		_items = items _unit;
+		_hasMedikit = if ("Medikit" in _items) then {true} else {false};
+
+		if(_hasMedikit) then {
+			_this spawn {
+				params ["_injured"];
+
+				private _damage = damage _injured;
+
+				private _text = format ["Before Heal - Injured: %1, Damage: %2", str _injured, str damage _injured];
+				[2,_text,"HandleHeal EH"] call A3A_fnc_log;
+
+				waitUntil {damage _injured != _damage};
+				if (damage _injured < _damage) then {
+					_injured setDamage 0;
+				};
+
+				_text = format ["After Heal - Injured: %1, Damage: %2", str _injured, str damage _injured];
+				[2,_text,"HandleHeal EH"] call A3A_fnc_log;
+			};
+		};
+	};
+}];
 // notes:
 // Static weapon objects are persistent through assembly/disassembly
 // The bags are not persistent, object IDs change each time
