@@ -69,16 +69,7 @@ else
 
 _unit setFatigue 1;
 sleep 2;
-if (_isPlayer) then
-	{
-	if (hasTFAR) then
-		{
-		_saveVolume = player getVariable ["tf_globalVolume", 1.0];
-		player setVariable ["tf_unable_to_use_radio", true, true];
-		player setVariable ["tf_globalVolume", 0];
-		_saveVolumeVoice = player getVariable ["tf_voiceVolume", 1.0];
-		if (random 100 < 20) then {player setVariable ["tf_voiceVolume", 0.0, true]};
-		};
+if (_isPlayer) then {
 	group _unit setCombatMode "YELLOW";
 	if (isMultiplayer) then
 		{
@@ -143,12 +134,6 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 if (_isPlayer) then
 	{
 	(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
-	if (hasTFAR) then
-		{
-		player setVariable ["tf_unable_to_use_radio", false, true];
-		player setVariable ["tf_globalVolume", _saveVolume];
-		player setVariable ["tf_voiceVolume", _saveVolumeVoice, true];
-		};
 	if (isMultiplayer) then {[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",0,_unit]};
 	}
 else
