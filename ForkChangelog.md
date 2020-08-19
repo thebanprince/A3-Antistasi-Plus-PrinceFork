@@ -1,16 +1,30 @@
 ## Changelog
 
-##### 0.4.2
+### 0.4.3
 - Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool
 - "Clear Forest" action on arms dealer's laptop now properly works on dedicated server
+- Fixed inability to place black market vehicle in some cases on dedicated server
+- Fixed no weapon market action for JIPs and some unidentified cases
+- Fixed no backpack removal on bodies after using loot truck on multiplayer environment
+- Money items from bodies will be shared between players in proximity after using loot truck action (as it already happens with money laying on ground)
+- Louder loot truck action
+- Clear Forest action on trader's laptop could be used by everyone from now (not only side's commander, as it was before)
+- Fixed "Undefined variable in expression: isinfantryunittiersenabled" error
+- Added 25% chance to obtain information about arms dealer after hacking a laptop
+- (TFAR only) Ability to use a radio while laying wounded
+- Randomised money items position on tables
+- Fixed inability to get Destroy Antenna task from Petros
+- Fixed officer interrogation bug
+- The Great Roadwreck Purge
+- HallyG store framework 1.5.0 update
 
-##### 0.4.1
+### 0.4.1
 - Fixed wrong text on vehicle market entries
 - "Clear Forest" action on arms dealer's laptop
 - Fixed inability to buy vehicles on vehicle market
 
 
-##### 0.4
+### 0.4
 - Updgrade to stable release of 2.3 Antistasi Community Version
 - New Find the Arms Dealer task type (can be obtained via intel search/interrogation)
 - Arms Dealer with the ability to directly sell weapons, magazines, items etc
@@ -22,12 +36,12 @@
 - Additional control zones, 2 new outposts
 
 
-##### 0.2.1
+### 0.2.1
 - Fixed bug with CHDKZ flagpole
 - Added Infantry Units Tiers setting 
 
 
-##### 0.2
+### 0.2
 - Upgrade to 2.3 (still unstable) Antistasi Community Version
 - Fixed bug with commander squads spawn
 - Fixed bug with not working Fatal Wounds mission parameter
@@ -44,7 +58,7 @@
 - Infantry unit tiers enabled for RHS
 - Starting equipment adjustment for RHS template
 
-##### 0.1
+### 0.1
 - Taviana support
 - Special truck with ability to autoloot bodies around the truck to reduce tediousness of looting enemy (can be bought on Civilian section)
 - Integrated Mag Repack script (menu can be accessed via Ctrl+R hotkey)
