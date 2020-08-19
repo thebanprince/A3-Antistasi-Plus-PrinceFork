@@ -1,7 +1,7 @@
 _fileName = "fn_unit_getCurrentGroupNATOSentry";
 
 if(!(hasTieredUnitConfigs)) exitWith {
-    2, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;
+    [2, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;
     groupsNATOSentryT1;
 };
 
