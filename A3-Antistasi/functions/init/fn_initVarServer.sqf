@@ -219,7 +219,7 @@ if (hasTFAR) then
 [2,"Creating civilians",_fileName] call A3A_fnc_log;
 
 //No real reason we initialise this on the server right now...
-private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_afro","C_man_polo_1_F_asia","C_man_polo_1_F_euro","C_man_sport_1_F_tanoan"];
+private _arrayCivs = ["C_man_polo_1_F_asia","C_man_polo_1_F_euro"];
 DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 
 private _arrayMoney = ["Money_bunch","Money_roll","Money_stack","Money"];

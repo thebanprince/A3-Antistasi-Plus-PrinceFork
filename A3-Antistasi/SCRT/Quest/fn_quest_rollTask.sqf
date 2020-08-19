@@ -4,7 +4,7 @@
 //	Rolls tasks for new quest system.
 //
 //	Returns:
-//	Nothing
+//	Is task created. (BOOLEAN);
 //
 // 	How to use: 
 // 	[] call SCRT_fnc_quest_rollTask;
@@ -14,6 +14,8 @@
 
 
 diag_log format ["%1: [Antistasi] | INFO | fn_quest_rollTask | Rolling tasks.",servertime];
+
+_return = false;
 
 _tasksWithProbabilities = selectRandomWeighted [TRADER, 1];
 
@@ -36,6 +38,9 @@ switch (_tasksWithProbabilities) do
             publicVariable "isTraderQuestAssigned";
 
             [] remoteExec ["SCRT_fnc_trader_prepareTraderQuest", 2];
+            _return = true;
         };
     };
 };
+
+_return
