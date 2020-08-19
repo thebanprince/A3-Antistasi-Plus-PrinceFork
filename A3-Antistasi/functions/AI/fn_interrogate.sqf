@@ -42,7 +42,8 @@ if ((round (random 100)) < _chance) then
         {
             _unit globalChat "Okay, I tell you what I know";
             _unit setVariable ["hasIntel", false, true];
-            ["Small", _side] spawn A3A_fnc_selectIntel;
+            private _intelText = ["Small", _side] call A3A_fnc_selectIntel;
+            [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
         }
         else
         {
