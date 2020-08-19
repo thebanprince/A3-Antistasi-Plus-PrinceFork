@@ -53,7 +53,7 @@ _laptop = _laptopArray select 0;
 
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
-_satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 1];
+_satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 1.75];
 _satellite setDir 45; 
 
 [[_table, "TOP"],"Land_Ammobox_rounds_F",1,[-0.4,(random 0.2),(random 20)-10],(random 180)] call BIS_fnc_spawnObjects;

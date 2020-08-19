@@ -2024,13 +2024,22 @@
     </Container>
   </Package>
   <Package name="General">
-	    <Key ID="STR_HALS_STORE_ACTION">
+	  <Key ID="STR_HALS_STORE_ACTION">
 		    <Original>Store</Original>
 		    <English>Store</English>
 		    <French>Magasin</French>
 		    <German>Geschäft</German>
 		    <Russian>Магазин</Russian>
 		    <Spanish>Comprar</Spanish>
+		    <Italian></Italian>
+		</Key>
+		<Key ID="STR_HALS_STORE_OPEN_ACTION"> 
+		    <Original>Open the %1</Original> <!--e.g. open the Weapons Store-->
+		    <English>Open the %1</English>
+		    <French></French>
+		    <German></German>
+		    <Russian></Russian>
+		    <Spanish></Spanish>
 		    <Italian></Italian>
 		</Key>
 		<Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
@@ -2098,7 +2107,6 @@
 			<English>Sold x%1 %2(s) for $%3.</English>
       <Russian>Продано x%1 %2(s) за $%3.</Russian>
 		</Key>
-
 	</Package>
 	<Package name="Dialog">
 	    <Key ID="STR_HALS_STORE_CHECKBOX_AFFORD">
