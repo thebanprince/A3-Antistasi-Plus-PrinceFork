@@ -359,7 +359,6 @@ fn_SetStat = {
 			publicVariable "isTraderQuestCompleted";
 		};
 		if (_varName == 'traderPosition') then { 
-			//not sure if it should be broadcasted too, needs testing
 			traderPosition = _varValue; 
 			publicVariable "traderPosition"; 
 		};

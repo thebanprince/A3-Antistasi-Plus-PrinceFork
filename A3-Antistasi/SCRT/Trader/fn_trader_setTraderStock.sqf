@@ -8,7 +8,10 @@
 //
 // 	How to use: 
 // 	[_traderX] call SCRT_fnc_trader_setTraderStock;
+params ["_traderX"];
 
+diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Choosing trader stock... ", servertime];
+diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Trader: %2", servertime, str _traderX];
 
 if (hasRHS) exitWith {
     diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Using RHS trader stock. ", servertime];

@@ -21,7 +21,13 @@ params [
 	["_target", 0, [0, objNull, "", sideUnknown, grpNull, []]]
 ];
 
-if (!isServer) exitWith {false};
+diag_log format ["%1: [Antistasi] | INFO | fn_addTrader.sqf | Trader Init begin.", servertime];
+
+
+if (!isServer) exitWith {
+	diag_log format ["%1: [Antistasi] | INFO | fn_addTrader.sqf | Not server, exiting...", servertime];
+	false
+};
 
 try {
 	if (!isNil {_trader getVariable "HALs_store_trader_type"}) then {throw ["Trader already initialised", __LINE__]};
@@ -74,6 +80,7 @@ try {
 	[_trader, _target] call HALs_store_fnc_addActionTrader;
 	true
 } catch {
+	diag_log format ["%1: [Antistasi] | ERROR | fn_addTrader.sqf | %2", servertime, str _exception];
 	[_exception] call HALs_fnc_log;
 	[_exception select 0] call BIS_fnc_error;
 	false
