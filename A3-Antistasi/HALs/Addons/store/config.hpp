@@ -26,7 +26,7 @@ class cfgHALsStore {
 	containerRadius = 10;
 	currencySymbol = "$";
 	sellFactor = 0.5;
-	debug = 1;
+	debug = 0;
 
 	class categories {
 		///////////////////////////////////////////////////////
