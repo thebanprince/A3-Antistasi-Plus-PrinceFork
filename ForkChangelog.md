@@ -1,5 +1,10 @@
 ## Changelog
 
+### 0.4.4
+- Fixed serialization of trader quest completion parameter on dedicated servers and HCs
+- Fixed incorrect trader creation function call on dedicated servers and HCs
+- Fixed some .rpt errors tied to HALs store, disabled debug mode for it
+
 ### 0.4.3
 - Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool
 - "Clear Forest" action on arms dealer's laptop now properly works on dedicated server
