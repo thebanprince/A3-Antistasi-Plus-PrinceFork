@@ -94,7 +94,7 @@ class RscDisplayStore {
 			shadow = 2;
 			sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 			url = "https://github.com/HallyG/HALs_Store/wiki/Usage";
-			tooltip = "Open the Usage page on the wiki."
+			tooltip = "Open the Usage page on the wiki.";
 			tooltipColorShade[] = {0, 0, 0, 0.65};
 			tooltipColorText[] = {1, 1, 1, 1};
 			tooltipColorBox[] = {1, 1, 1, 0};
