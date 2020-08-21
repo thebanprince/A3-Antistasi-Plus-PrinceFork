@@ -1,5 +1,7 @@
 _fileName = "fn_unit_getCurrentGroupNATOAA";
 
+diag_log format ["%1: [Antistasi] | INFO | %2 | War Tier: %3", servertime, _fileName, tierWar];
+
 if(!(hasTieredUnitConfigs)) exitWith {
     [2, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;
     groupsNATOAAT1;
