@@ -19,8 +19,16 @@ params [
 	["_classname", "", [""]]
 ];
 
-if (isNull _unit) exitWith {false};
-if (_classname isEqualTo '') exitWith {false};
+diag_log format ["%1: [Antistasi] | ERROR | store_fnc_equipItem.sqf | Equip function call.", servertime];
+
+if (isNull _unit) exitWith {
+	diag_log format ["%1: [Antistasi] | ERROR | store_fnc_equipItem.sqf | Unit is null.", servertime];
+	false
+	};
+if (_classname isEqualTo '') exitWith {
+	diag_log format ["%1: [Antistasi] | ERROR | store_fnc_equipItem.sqf | Classname is empty.", servertime];
+	false
+};
 
 private _added = false;
 _classname = toLower _classname;

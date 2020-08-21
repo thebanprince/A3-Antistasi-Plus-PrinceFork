@@ -6,6 +6,9 @@
 - Fixed Bug with gearless and weaponless helicopter troops
 - Fixed some .rpt errors tied to HALs store, disabled debug mode for it
 - Attempt to fix no SpecOps units at Assassinate SpecOps mission location bug
+- Few new control markers
+- Moved initial HQ placement to Taviana Zoo (safest place on island)
+- little roadwreck purge on Taviana's south part
 
 ### 0.4.3
 - Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool

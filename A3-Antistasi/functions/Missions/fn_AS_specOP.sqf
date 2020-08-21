@@ -19,9 +19,21 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
 
+
+_specOps = if(_sideX == Occupants) then { NATOSpecOp } else { CSATSpecOp };
+_groupX = [_positionX, _sideX, _specOps] call A3A_fnc_spawnGroup;
+_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM "scripts\UPSMON.sqf";
+[2, format ["SpecOps Group Array: %1, Group: %2", str _specOps, str _groupX], "fn_AS_specOP"] call A3A_fnc_log;
+
+
 [[teamPlayer,civilian],"AS",[format ["We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
-waitUntil  {sleep 5; (dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
+waitUntil  {
+	sleep 5; 
+	_aliveCount = {alive _x} count units _groupX;
+	[2, format ["SpecOps Group Alive: %1", str _aliveCount], "fn_AS_specOP"] call A3A_fnc_log;
+	(dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) or (_aliveCount == 0)
+};
 
 if (dateToNumber date > _dateLimitNum) then
 	{

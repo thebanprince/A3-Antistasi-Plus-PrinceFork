@@ -112,6 +112,7 @@ try {
 
 	throw [_message, "FD_CP_CLEAR_F"];
 } catch {
+	diag_log format ["%1: [Antistasi] | ERROR | fn_purchase.sqf | %2", servertime, str _exception];
 	_exception params [
 		["_message", ""],
 		["_sound", "FD_CP_NOT_CLEAR_F", [""]]
