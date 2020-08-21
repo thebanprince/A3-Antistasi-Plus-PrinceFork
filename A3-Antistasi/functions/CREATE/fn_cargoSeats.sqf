@@ -21,7 +21,10 @@ if (_cargoSeats < 7) exitWith			// fudge for Warrior
 {
 	if (_isMilitia) exitWith { selectRandom groupsFIAMid };
 	if (_veh == vehPoliceCar) exitWith { [policeOfficer, policeGrunt, policeGrunt, policeGrunt] };
-	if (_sideX == Occupants) then { call SCRT_fnc_unit_getCurrentGroupNATOMid } else { selectRandom groupsCSATmid };
+	if (_sideX == Occupants) then { 
+		private _squads = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+		selectRandom _squads;
+	} else { selectRandom groupsCSATmid };
 };
 
 private _squad = call {
