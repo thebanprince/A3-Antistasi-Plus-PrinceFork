@@ -90,9 +90,9 @@ groupsNATOATT1 = ["B_Soldier_TL_F","B_soldier_LAT_F","B_soldier_AT_F","B_soldier
 groupsNATOATT2 = ["B_Soldier_TL_F","B_soldier_LAT_F","B_soldier_AT_F","B_soldier_AAT_F"];
 groupsNATOATT3 = ["B_Soldier_TL_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F"];
 
-groupsNATOFTT1 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
-groupsNATOFTT2 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
-groupsNATOFTT3 = ["B_soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT1 = ["B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT2 = ["B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
+groupsNATOFTT3 = ["B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_GL_F","B_soldier_LAT_F"];
 
 groupsNATOSpecOpMid = [
 	["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"],
