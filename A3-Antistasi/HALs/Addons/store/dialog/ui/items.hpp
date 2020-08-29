@@ -27,7 +27,7 @@ class ItemCheckboxSort: RscItemCheckboxGreen {
 	colorText[] = {1, 1, 1, 1};
 	colorDisabled[] = {1, 1, 1, 0.25};
 	shadow = 2;
-	tooltip = "Sorted ascending."; //TODO tooltip
+	tooltip = "Sorted ascending.";
 	textureUnchecked = "\a3\ui_f\data\gui\rsc\rscdisplaymultiplayer\arrow_up_ca.paa";
 	textureChecked = "\a3\ui_f\data\gui\rsc\rscdisplaymultiplayer\arrow_down_ca.paa";
 	textureFocusedUnchecked = "\a3\ui_f\data\gui\rsc\rscdisplaymultiplayer\arrow_up_ca.paa";
