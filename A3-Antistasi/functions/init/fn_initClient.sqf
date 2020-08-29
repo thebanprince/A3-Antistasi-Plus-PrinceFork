@@ -21,22 +21,25 @@ if (!isServer) then {
 	};
 };
 
-if (hasInterface) then {
-	waitUntil {!isNull player};
-	waitUntil {player == player};
-	//Disable player saving until they're fully ready, and have chosen whether to load their save.
-	player setVariable ["canSave", false, true];
+// Headless clients install some support functions, register with the server and bail out
+if (!hasInterface) exitWith {
+	call A3A_fnc_initFuncs;
+	call A3A_fnc_initVar;
+	call A3A_fnc_loadNavGrid;
+	[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+	[2,format ["Headless client Antistasi Plus version: %1",localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
+	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
+
+
+waitUntil {!isNull player};
+waitUntil {player == player};
+//Disable player saving until they're fully ready, and have chosen whether to load their save.
+player setVariable ["canSave", false, true];
 
 if (!isServer) then {
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
-	if (!hasInterface) exitWith {
-		[2,format ["Headless client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-		[2,format ["Headless client Antistasi Plus version: %1",localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-		call A3A_fnc_loadNavGrid;
-		[clientOwner] remoteExec ["A3A_fnc_addHC",2];
-	};
 	[2,format ["MP client version: %1",localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 	[2,format ["MP client version: %1",localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 }
@@ -270,42 +273,6 @@ player addEventHandler ["HandleHeal", {
 	};
 }];
 
-//TODO: remove this after initial playing
-// player addEventHandler ["HandleHeal", {
-// 	params ["_unit", "_healer"];
-
-// 	[2,"100% Heal EH execution","HandleHeal EH"] call A3A_fnc_log;
-
-// 	//event handler _isMedic parameter returns false even for medics, ffs
-// 	_isMedic = _unit getUnitTrait "Medic";
-
-// 	private _text = format ["Unit: %1, Healer: %2, Medic: %3", str _unit, str _healer, str _isMedic];
-// 	[2,_text,"HandleHeal EH"] call A3A_fnc_log;
-
-// 	if(_isMedic) then {
-// 		_items = items _unit;
-// 		_hasMedikit = if ("Medikit" in _items) then {true} else {false};
-
-// 		if(_hasMedikit) then {
-// 			_this spawn {
-// 				params ["_injured"];
-
-// 				private _damage = damage _injured;
-
-// 				private _text = format ["Before Heal - Injured: %1, Damage: %2", str _injured, str damage _injured];
-// 				[2,_text,"HandleHeal EH"] call A3A_fnc_log;
-
-// 				waitUntil {damage _injured != _damage};
-// 				if (damage _injured < _damage) then {
-// 					_injured setDamage 0;
-// 				};
-
-// 				_text = format ["After Heal - Injured: %1, Damage: %2", str _injured, str damage _injured];
-// 				[2,_text,"HandleHeal EH"] call A3A_fnc_log;
-// 			};
-// 		};
-// 	};
-// }];
 // notes:
 // Static weapon objects are persistent through assembly/disassembly
 // The bags are not persistent, object IDs change each time
