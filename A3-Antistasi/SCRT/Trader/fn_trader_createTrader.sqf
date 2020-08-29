@@ -22,7 +22,7 @@ _traderMarker setMarkerColor "ColorUNKNOWN";
 _traderMarker setMarkerAlpha 1;
 
 traderVehicleMarker = createMarker ["TraderVehicleMarker", _position];
-traderVehicleMarker setMarkerSize [20, 20];
+traderVehicleMarker setMarkerSize [25, 25];
 traderVehicleMarker setMarkerColor "ColorUNKNOWN";
 traderVehicleMarker setMarkerShape "RECTANGLE";
 traderVehicleMarker setMarkerAlpha 0;
