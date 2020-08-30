@@ -43,12 +43,10 @@ if(isNil "vehPlace_keyDownHandler")	then {
 		//Place vehicle
 		if (_this select 1 == KEY_SPACE) then
 			{
-			if (vehPlace_previewVeh distance [0,0,1000] <= 1500) then
-				{
-				["<t size='0.6'>The current position is not suitable for the vehicle. Try another",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
-				}
-			else 
-				{
+			if (vehPlace_previewVeh distance [0,0,1000] <= 1500) then {
+				["<t size='0.6'>The current position is not suitable for the vehicle. Try another</t>",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+			}
+			else {
 				_handled = true;
 				vehPlace_actionToAttempt = VEHPLACE_ACTION_PLACE;
 				};
@@ -149,7 +147,7 @@ addMissionEventHandler ["EachFrame",
 	private _placementPos = [];
 	//Just use the current position, if we're in 'Precision' mode
 	if (inputAction "turbo" > 0) then {
-		private _validPos = _pos findEmptyPosition [0, 0, typeOf vehPlace_previewVeh];	
+		private _validPos = _pos findEmptyPosition [0, 0, "Land_BottlePlastic_V1_F"];	
 		if (count _validPos > 0) then {
 			_placementPos = _pos;
 		};
@@ -189,4 +187,4 @@ addMissionEventHandler ["EachFrame",
 		vehPlace_previewVeh setPosATL _placementPos;
 		vehPlace_previewVeh setVectorUp (_chosenIntersection select 1);
 	};
-	}];
+}];

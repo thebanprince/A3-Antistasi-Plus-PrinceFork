@@ -28,12 +28,12 @@ if (isNil "_canPlaceArray") then {
 //EachFrame handler should have exited if we're in here.
 //If that ever changes, change below.
 if (!(_canPlaceArray select 0))	exitWith {
-		hint (_canPlaceArray select 1);
-		[] call A3A_fnc_handleVehPlacementCancelled;
+	hint (_canPlaceArray select 1);
+	[] call A3A_fnc_handleVehPlacementCancelled;
 };
 
 //Only show text after we've checked all of the failure conditions above.
-["<t size='0.6'>Vehicle Placed",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+["<t size='0.6'>Vehicle Placed</t>",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
 
 waitUntil {isNull vehPlace_previewVeh};
 
