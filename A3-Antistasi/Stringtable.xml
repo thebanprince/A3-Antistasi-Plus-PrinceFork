@@ -29,12 +29,12 @@
         <Czech>Zavřít</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
-        <Original>Grab 100€ from Pool</Original>
-        <English>Grab $100 from Pool</English>
-        <French>Prendre 100€ de la cagnotte</French>
-        <Russian>Взять 100$ из общака</Russian>
-        <German>Entnehme 100€ aus der Kasse</German>
-        <Czech>Vzít 100€ ze společného fondu</Czech>
+        <Original>Grab 1000€ from Pool</Original>
+        <English>Grab $1000 from Pool</English>
+        <French>Prendre 1000€ de la cagnotte</French>
+        <Russian>Взять 1000€ из казны</Russian>
+        <German>Entnehme 1000€ aus der Kasse</German>
+        <Czech>Vzít 1000€ ze společného fondu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
         <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
@@ -509,7 +509,7 @@
         <Original>2.3</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>0.4.4</Original>
+        <Original>0.5</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -2020,6 +2020,96 @@
         <English>Money has been found in cargo. Found banknotes have been divided equally among all players.</English>
         <French>Rien d'utile n'a été.</French>
         <Russian>В грузе были найдены деньги. Найденная валюта разделена поровну между всеми игроками.</Russian>
+      </Key>
+    </Container>
+    <Container name="surrender_actions">
+    <Key ID="STR_interrogate_action">
+        <Original>Interrogate</Original>
+        <English>Interrogate</English>
+        <French>Interroger</French>
+        <Russian>Допросить</Russian>
+        <German>Abfragen</German>
+        <Czech>Vyslýchat</Czech>
+      </Key>
+      <Key ID="STR_release_action">
+        <Original>Release</Original>
+        <English>Release</English>
+        <French>Libération</French>
+        <Russian>Освободить</Russian>
+        <German>Freisetzung</German>
+        <Czech>Uvolnění</Czech>
+      </Key>
+      <Key ID="STR_recruit_action">
+        <Original>Recruit</Original>
+        <English>Recruit</English>
+        <French>Recruter</French>
+        <Russian>Рекрутировать</Russian>
+        <German>Rekrutieren</German>
+        <Czech>Rekrut</Czech>
+      </Key>
+      <Key ID="STR_release_response_three_text">
+        <Original>Thank you, I will definitely remember this when I shoot you next time!</Original>
+        <English>Thank you, I will definitely remember this when I shoot you next time!</English>
+        <French>Merci, je m'en souviendrai certainement la prochaine fois que je vous tirerai dessus!</French>
+        <Russian>Спасибо, я обязательно об этом вспомню, когда буду стрелять в вас в следующий раз!</Russian>
+        <German>Danke, ich werde mich definitiv daran erinnern, wenn ich dich das nächste Mal erschieße!</German>
+        <Czech>Děkuji, určitě si to zapamatuji, až vás příště zastřelím!</Czech>
+      </Key>
+      <Key ID="STR_recruit_text">
+        <Original>How about joining the good guys?</Original>
+        <English>How about joining the good guys?</English>
+        <French>Que diriez-vous de rejoindre les gentils?</French>
+        <Russian>Не хочешь присоединиться к сопротивлению?</Russian>
+        <German>Wie wäre es mit den Guten?</German>
+        <Czech>Co takhle se přidat k dobrým klukům?</Czech>
+      </Key>
+      <Key ID="STR_recruit_fail_text">
+        <Original>Screw you!</Original>
+        <English>Screw you!</English>
+        <French>Allez vous faire foutre!</French>
+        <Russian>Пошёл ты!</Russian>
+        <German>Fick dich ins Knie!</German>
+        <Czech>Do prdele!</Czech>
+      </Key>
+      <Key ID="STR_recruit_success_text">
+        <Original>Why not? It can't be any worse.</Original>
+        <English>Why not? It can't be any worse.</English>
+        <French>Pourquoi pas? Ça ne peut pas être pire.</French>
+        <Russian>Почему бы и нет? Я согласен.</Russian>
+        <German>Warum nicht? Schlimmer kann es nicht sein.</German>
+        <Czech>Proč ne? Nemůže to být o nic horší.</Czech>
+      </Key>
+      <Key ID="STR_release_request_text">
+        <Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace.</Original>
+        <English>Go back to your base and tell your comrades we are not enemies. We just want to live in peace.</English>
+        <French>Retournez à votre base et dites à vos camarades que nous ne sommes pas des ennemis. Nous voulons juste vivre en paix.</French>
+        <Russian>Возвращайся на свою базу и скажи товарищам, что мы не враги. Мы просто хотим жить в мире.</Russian>
+        <German>Geh zurück zu deiner Basis und sag deinen Kameraden, dass wir keine Feinde sind. Wir wollen nur in Frieden leben.</German>
+        <Czech>Vraťte se na svou základnu a řekněte svým kamarádům, že nejsme nepřátelé. Chceme jen žít v míru.</Czech>
+      </Key>
+      <Key ID="STR_release_response_one_text">
+        <Original>Thank you. I owe you my life.</Original>
+        <English>Thank you. I owe you my life.</English>
+        <French>Thank you. I owe you my life.</French>
+        <Russian>Спасибо. Я обязан тебе жизнью.</Russian>
+        <German>Danke dir. Ich schulde dir mein Leben.</German>
+        <Czech>Děkuju. Dlužím ti svůj život.</Czech>
+      </Key>
+      <Key ID="STR_release_response_two_text">
+        <Original>Thank you. I swear you won't regret it!</Original>
+        <English>Thank you. I swear you won't regret it!</English>
+        <French>Je vous remercie. Je jure que vous ne le regretterez pas!.</French>
+        <Russian>Спасибо. Клянусь, ты не пожалеешь об этом!</Russian>
+        <German>Danke dir. Ich schwöre, du wirst es nicht bereuen!.</German>
+        <Czech>Děkuju. Přísahám, že toho nebudeš litovat!</Czech>
+      </Key>
+      <Key ID="STR_release_response_three_text">
+        <Original>Thank you, I will definitely remember this when I shoot you next time!</Original>
+        <English>Thank you, I will definitely remember this when I shoot you next time!</English>
+        <French>Merci, je m'en souviendrai certainement la prochaine fois que je vous tirerai dessus!</French>
+        <Russian>Спасибо, я обязательно об этом вспомню, когда буду стрелять в вас в следующий раз!</Russian>
+        <German>Danke, ich werde mich definitiv daran erinnern, wenn ich dich das nächste Mal erschieße!</German>
+        <Czech>Děkuji, určitě si to zapamatuji, až vás příště zastřelím!</Czech>
       </Key>
     </Container>
   </Package>
