@@ -71,7 +71,7 @@ class CfgDebriefing
     class destroyedSites
     {
         title = "Taviana is Destroyed";
-        subtitle = "Taviana got Destroyed by USSR";
+        subtitle = "Taviana got Destroyed by CSAT";
         description = "One third of the population in Taviana has been murdered by CSAT.<br/>Taviana no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
