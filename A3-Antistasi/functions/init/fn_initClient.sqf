@@ -68,6 +68,8 @@ if (isMultiplayer) then {
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
+	
+	[] call SCRT_fnc_common_set3dIcons;
 }
 else {
 	player setVariable ["eligible",true];

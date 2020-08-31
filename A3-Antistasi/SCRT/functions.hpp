@@ -48,6 +48,8 @@ class SCRT
         class common_addRandomMoneyMagazine {};
         class common_spawnMoneyOnGround {};
         class common_addClearLocationAction {};
+        class common_set3dIcons {};
+        class common_givePrisonerReleasePaycheck {};
     };
 
     class Quest

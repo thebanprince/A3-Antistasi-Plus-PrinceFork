@@ -179,6 +179,13 @@ class Params
           texts[] = {"Never","Sometimes","Often","Always"};
           default = 33;
      };
+     class Spacer50
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
      class fatalWounds
      {
           title = "Enable Fatal Wounds";
@@ -192,6 +199,13 @@ class Params
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 1;
+     };
+     class 3dIcons
+     {
+          title = "Show 3D icons above players";
+          values[] = { 0, 1, 2 };
+          texts[] =  {"Don't show", "Only on unconscious players", "Everything"};
+          default = 2;
      };
 
      class Spacer10

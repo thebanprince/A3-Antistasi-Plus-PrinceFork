@@ -656,13 +656,13 @@
         <German>Pickup</German>
         <Czech>Pickup</Czech>
       </Key>
-      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text">
-        <Original>Offroad Truck</Original>
-        <English>Offroad Truck</English>
-        <French>Camion Tout-Terrain</French>
-        <Russian>Грузовик</Russian>
-        <German>Geländewagen</German>
-        <Czech>Terénní vozidlo</Czech>
+      <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_at_offroad_text">
+        <Original>AT Car</Original>
+        <English>AT Car</English>
+        <French>AT voiture</French>
+        <Russian>Автомобиль с ПТ-орудием</Russian>
+        <German>AT Auto</German>
+        <Czech>AT Car</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_a_offroad_text">
         <Original>Armed Pickup Truck</Original>
@@ -2020,6 +2020,72 @@
         <English>Money has been found in cargo. Found banknotes have been divided equally among all players.</English>
         <French>Rien d'utile n'a été.</French>
         <Russian>В грузе были найдены деньги. Найденная валюта разделена поровну между всеми игроками.</Russian>
+      </Key>
+    </Container>
+    <Container name="draw3d_text">
+      <Key ID="STR_antistasi_actions_draw3d_unconscious_text">
+        <Original>Unconscious</Original>
+        <English>Unconscious</English>
+        <French>Inconscient</French>
+        <Russian>Раненый</Russian>
+        <German>Bewusstlos</German>
+        <Czech>Nevědomý</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_commander_text">
+        <Original>Commander</Original>
+        <English>Commander</English>
+        <French>Le commandant</French>
+        <Russian>Командир</Russian>
+        <German>Kommandant</German>
+        <Czech>Velitel</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_engineer_text">
+        <Original>Engineer</Original>
+        <English>Engineer</English>
+        <French>Ingénieur</French>
+        <Russian>Инженер</Russian>
+        <German>Ingenieur</German>
+        <Czech>Inženýr</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_medic_text">
+        <Original>Medic</Original>
+        <English>Medic</English>
+        <French>Médical</French>
+        <Russian>Санинструктор</Russian>
+        <German>Medizin</German>
+        <Czech>Medic</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_grenadier_text">
+        <Original>Grenadier</Original>
+        <English>Grenadier</English>
+        <French>Grenadier</French>
+        <Russian>Гренадер</Russian>
+        <German>Grenadier</German>
+        <Czech>Grenadier</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_autorifleman_text">
+        <Original>Autorifleman</Original>
+        <English>Autorifleman</English>
+        <French>Mitrailleur</French>
+        <Russian>Пулеметчик</Russian>
+        <German>Maschinengewehrschütze</German>
+        <Czech>Kulometčík</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_teamleader_text">
+        <Original>Team Leader</Original>
+        <English>Team Leader</English>
+        <French>Chef d'équipe</French>
+        <Russian>Командир звена</Russian>
+        <German>Gruppenführer</German>
+        <Czech>Vedoucí týmu</Czech>
+      </Key>
+      <Key ID="STR_antistasi_actions_draw3d_rifleman_text">
+        <Original>Rifleman</Original>
+        <English>Rifleman</English>
+        <French>Fusilier</French>
+        <Russian>Стрелок</Russian>
+        <German>Schütze</German>
+        <Czech>Střelec</Czech>
       </Key>
     </Container>
     <Container name="surrender_actions">
