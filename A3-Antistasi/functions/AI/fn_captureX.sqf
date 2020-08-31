@@ -15,18 +15,17 @@ private _modHR = false;
 private _response = "";
 private _targetMarker = respawnOccupants;
 
+
 if (_recruiting) then {
-	_playerX globalChat "How about joining the good guys?";
+	_playerX globalChat localize "STR_recruit_text";
 
 	private _chance = 0;
-	if (_sideX == Occupants) then
-    {
+	if (_sideX == Occupants) then {
         _modAggroOcc = [0.25, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 20;};
 	}
-	else
-    {
+	else {
         _modAggroInv = [0.25, 30];
 		if (faction _unit == factionFIA) then { _chance = 60;}
 		else { _chance = 40;};
@@ -35,37 +34,41 @@ if (_recruiting) then {
 
 	if (random 100 < _chance) then
     {
-		_response = "Why not? It can't be any worse.";
+		_response = localize "STR_recruit_success_text";
 		_modHR = true;
 		_targetMarker = respawnTeamPlayer;
 	}
 	else
     {
-		_response =  "Screw you!";
+		_response =  localize "STR_screw_fail_text";
 		_modAggroOcc = [0, 0];
 		_modAggroInv = [0, 0];
 	};
 }
 else {
-	_playerX globalChat "Go back to your base and tell your comrades we are not enemies. We just want to live in peace";
+	_playerX globalChat localize "STR_release_request_text";
 	_response = selectRandom [
-		"Okay, thank you. I owe you my life",
-		"Thank you. I swear you won't regret it!",
-		"Thank you, I won't forget this!"
+		localize "STR_release_response_one_text",
+		localize "STR_release_response_two_text",
+		localize "STR_release_response_three_text"
 	];
+		
 
-	if (_sideX == Occupants) then
-    {
-        _modAggroOcc = [-0.25, 30];
+	if (_sideX == Occupants) then {
+    	_modAggroOcc = [-0.25, 30];
+
+		[player, Occupants, _unit] call SCRT_fnc_common_givePrisonerReleasePaycheck;
 	}
-	else
-    {
+	else {
         _modAggroInv = [-0.25, 30];
 	};
 };
 
-
-if (isMultiplayer) then {[_unit,true] remoteExec ["enableSimulationGlobal",2]} else {_unit enableSimulation true};
+if (isMultiplayer) then {
+	[_unit,true] remoteExec ["enableSimulationGlobal",2]
+} else {
+	_unit enableSimulation true
+};
 sleep 3;
 _unit globalChat _response;
 _unit enableAI "ANIM";
