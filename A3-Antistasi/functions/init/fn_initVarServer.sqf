@@ -731,10 +731,11 @@ server setVariable [civBoat,200,true];
 server setVariable [civLooter,1000,true];	
 server setVariable [vehSDKBike ,50,true];												//50
 server setVariable [vehSDKLightUnarmed,200,true];										//200
-server setVariable [vehSDKTruck,300,true];											//300
-{server setVariable [_x,700,true]} forEach [vehSDKLightArmed,vehSDKAT];
+server setVariable [vehSDKTruck,300,true];		
+server setVariable [vehSDKLightArmed, 700, true];
+server setVariable [vehSDKAT, 1200, true];	//1200								
 {server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
-{server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//800
+{server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//1100
 
 //black market costs
 {server setVariable [_x,1500,true]} forEach shop_UAV;
@@ -743,7 +744,7 @@ server setVariable [vehSDKTruck,300,true];											//300
 {server setVariable [_x,9000,true]} forEach shop_wheel_apc;
 {server setVariable [_x,12000,true]} forEach shop_track_apc;
 {server setVariable [_x,15000,true]} forEach shop_heli;
-{server setVariable [_x,20000,true]} forEach shop_tank;
+{server setVariable [_x,17500,true]} forEach shop_tank;
 
 ///////////////////////
 //     GARRISONS    ///
