@@ -86,7 +86,7 @@ if(_caller getVariable ["intelFound", false]) then
         [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
         {
             [5,_x] call A3A_fnc_playerScoreAdd;
-        } forEach ([50,0,_caller,teamPlayer] call A3A_fnc_distanceUnits);
+        } forEach ([50, _caller, teamPlayer] call SCRT_fnc_common_getNearPlayers);
     }
     else
     {
