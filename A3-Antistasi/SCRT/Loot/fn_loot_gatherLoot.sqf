@@ -5,16 +5,20 @@
 */
 params ["_vehicle"];
 
+#define RADIUS 50
+
 private _time = if (isMultiplayer) then {serverTime} else {time};
 
 if ((_time - (_vehicle getVariable ["lastLooted", -15])) < 15) exitWith {
 	if (hasInterface) then {
-        localize "STR_antistasi_actions_looter_cooldown_text" remoteExec ["hint", teamPlayer];
+        {
+            localize "STR_antistasi_actions_looter_cooldown_text" remoteExec ["hint", _x];
+        } forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 	};
 };
 _vehicle setVariable ["lastLooted", _time, true];
 
-_allSupplies = position _vehicle nearSupplies 50;
+_allSupplies = position _vehicle nearSupplies RADIUS;
 _supplies = [];
 
 //getting everything except all kinds of vehicles, alive soldiers and non-surrender boxes
@@ -31,7 +35,9 @@ _supplies = [];
 } forEach _allSupplies;
 
 if(count _supplies < 1) exitWith {
-    localize "STR_antistasi_actions_no_bodies_text" remoteExec ["systemChat", teamPlayer];
+    {
+        localize "STR_antistasi_actions_no_bodies_text" remoteExec ["systemChat", _x];
+    } forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 };
 
 private _moneyEarned = 0;
@@ -130,23 +136,25 @@ private _moneyEarned = 0;
 
 
 if(_moneyEarned > 0) then {
-    _playersAround = [50,0,_vehicle,teamPlayer] call A3A_fnc_distanceUnits;
-    _playersCount = count _playersAround;
+    _allPlayers = call BIS_fnc_listPlayers;
+    _playersCount = count _allPlayers;
     
     if(_playersCount > 0) then {
         _incomePerPlayer = round((_moneyEarned / _playersCount) / 10);
         {
             [_incomePerPlayer,_x] call A3A_fnc_playerScoreAdd;
-        } forEach _playersAround;
-    };
+        } forEach _allPlayers;
 
-    [localize "STR_antistasi_actions_looter_found_money_title", localize "STR_antistasi_actions_looter_found_money_text"] remoteExecCall ["A3A_fnc_customHint", teamPlayer];
+        [localize "STR_antistasi_actions_common_notifications_money_found_text", localize "STR_antistasi_actions_looter_found_money_text"] remoteExecCall ["A3A_fnc_customHint", [teamPlayer, civilian]];
+    };
 };
 
 //notification on success
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
 _soundToPlay = _soundPath + "audio\lootSuccess.ogg";
 
-playSound3D [_soundToPlay, _vehicle, false, getPosASL _vehicle, 3, 1, 0];
+playSound3D [_soundToPlay, _vehicle, false, getPosASL _vehicle, 3, 1, 50];
 
-localize "STR_antistasi_actions_successful_loot_text" remoteExec ["systemChat", teamPlayer];
+{
+    localize "STR_antistasi_actions_successful_loot_text" remoteExec ["systemChat", _x];
+} forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);

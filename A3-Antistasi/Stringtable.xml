@@ -1971,7 +1971,7 @@
         <Original>The looting ability has been used in the last 15 seconds! Please wait for a bit.</Original>
         <English>The looting ability has been used in the last 15 seconds! Please wait for a bit.</English>
         <French>La capacité de pillage a été utilisée au cours des 15 dernières secondes! Veuillez patienter un peu.</French>
-        <Russian>Лут-способность уже была использована недавно. Пожалуйста, подождите 15 секунд.</Russian>
+        <Russian>Сборщик лута уже был использован недавно. Пожалуйста, подождите 15 секунд.</Russian>
       </Key>
         <Key ID="STR_antistasi_actions_looter_found_money_title">
           <Original>Money</Original>
@@ -1979,12 +1979,6 @@
           <French>Argent</French>
           <Russian>Деньги</Russian>
         </Key>
-       <Key ID="STR_antistasi_actions_looter_found_money_text">
-        <Original>As a result of the loot search, money has been found. Found banknotes have been divided equally among all players in proximity.</Original>
-        <English>As a result of the loot search, money has been found. Found banknotes have been divided equally among all players in proximity.</English>
-        <French>Malheureusement, les informations ennemies sont pour la plupart dépassées. Rien d'utile n'a été trouvé.</French>
-        <Russian>В результате обыска были найдены деньги. Найденная валюта разделена поровну между всеми игроками поблизости.</Russian>
-      </Key>
     </Container>
     <Container name="intel_tasks">
       <Key ID="STR_trader_task_hint_outdated">

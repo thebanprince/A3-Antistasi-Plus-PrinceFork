@@ -706,15 +706,15 @@ class buy_vehicle 			{
 			h = 0.0560125 * safezoneH;
 			action = "closedialog 0; nul = [vehSDKBike, false] spawn A3A_fnc_addFIAveh";
 		};
-		class HQ_button_offroad: RscButton
+		class HQ_button_AToffroad: RscButton
 		{
 			idc = 105;
-			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_military_at_offroad_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [vehSDKLightUnarmed, false] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [vehSDKAT, false] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_truck: RscButton
 		{

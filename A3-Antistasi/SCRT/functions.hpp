@@ -50,6 +50,7 @@ class SCRT
         class common_addClearLocationAction {};
         class common_set3dIcons {};
         class common_givePrisonerReleasePaycheck {};
+        class common_getNearPlayers {};
     };
 
     class Quest
