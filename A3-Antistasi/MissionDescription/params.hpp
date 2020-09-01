@@ -207,6 +207,13 @@ class Params
           texts[] =  {"Don't show", "Only on unconscious players", "Everything"};
           default = 2;
      };
+     class similarWeaponsUnlock
+     {
+          title = "Sum Similar Weapons To Unlock";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 1;
+     };
 
      class Spacer10
      {

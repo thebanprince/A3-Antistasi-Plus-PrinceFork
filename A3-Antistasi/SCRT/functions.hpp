@@ -1,5 +1,11 @@
 class SCRT 
 {
+    class Arsenal 
+    {
+		file = "SCRT\Arsenal";
+        class arsenal_getSimilarWeapons {};
+	};
+
 	class Loot 
     {
 		file = "SCRT\Loot";

@@ -37,6 +37,11 @@ private _count = objNull;
 	};
 } forEach _magazines;
 
+_originalWeaponsWithSimilarWeapons = [_weapons] call SCRT_fnc_arsenal_getSimilarWeapons;
+if(!isNil "_originalWeaponsWithSimilarWeapons" && {count _originalWeaponsWithSimilarWeapons > 0}) then {
+	_weapons = _originalWeaponsWithSimilarWeapons;
+};
+
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
 {
