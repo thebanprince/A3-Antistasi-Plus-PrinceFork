@@ -12,7 +12,7 @@
 
 params ["_playerX", "_side"];
 
-//Invaders have no agreements with IDAP, and rebels are not recognized by international organizations before war level 3
+//Invaders have no agreements with IDAP, and rebels are not recognized by international organizations before war level 4
 if(_side != Occupants || tierWar < 4) exitWith {};
 
 _releasePaycheck = 0;
