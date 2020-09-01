@@ -46,7 +46,6 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["B_Soldier_F","B_Soldier_F","B_Soldier_F"];
 NATOOfficer = "B_officer_F";
 NATOOfficer2 = "B_G_officer_F";
 NATOBodyG = "B_Patrol_Soldier_TL_F";
@@ -72,9 +71,9 @@ policeGrunt = "B_GEN_Soldier_F";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["B_Soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT2 = ["B_Soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT3 = ["B_Soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT1 = ["B_Soldier_GL_F","B_Soldier_F"];
+groupsNATOSentryT2 = ["B_Soldier_GL_F","B_Soldier_F"];
+groupsNATOSentryT3 = ["B_Soldier_GL_F","B_Soldier_F"];
 groupsNATOSpecOpSmall = [
 		["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F"],
 		["I_C_Soldier_Para_7_F","I_C_Soldier_Para_4_F"]
@@ -100,9 +99,9 @@ groupsNATOSpecOpMid = [
 ];
 
 //Squads
-NATOSquadT1 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
-NATOSquadT2 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
-NATOSquadT3 = ["B_Soldier_SL_F",NATOGrunt select 0,"B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
+NATOSquadT1 = ["B_Soldier_SL_F","B_Soldier_F","B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
+NATOSquadT2 = ["B_Soldier_SL_F","B_Soldier_F","B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
+NATOSquadT3 = ["B_Soldier_SL_F","B_Soldier_F","B_soldier_LAT_F",NATOMarksman select 0,"B_Soldier_TL_F","B_soldier_AR_F","B_Soldier_A_F","B_medic_F"];
 
 NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
 

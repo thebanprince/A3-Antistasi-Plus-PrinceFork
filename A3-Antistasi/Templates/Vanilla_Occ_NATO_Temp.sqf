@@ -46,7 +46,6 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F","B_Quadbike_01_F"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["B_W_Soldier_F","B_W_Soldier_F","B_W_Soldier_F"];
 NATOOfficer = "B_W_Officer_F";
 NATOOfficer2 = "B_Competitor_F";
 NATOBodyG = "B_W_Soldier_TL_F";
@@ -72,9 +71,9 @@ policeGrunt = "B_GEN_Soldier_F";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["B_W_Soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT2 = ["B_W_Soldier_GL_F",NATOGrunt select 0];
-groupsNATOSentryT3 = ["B_W_Soldier_GL_F",NATOGrunt select 0];
+groupsNATOSentryT1 = ["B_W_Soldier_GL_F","B_W_Soldier_F"];
+groupsNATOSentryT2 = ["B_W_Soldier_GL_F","B_W_Soldier_F"];
+groupsNATOSentryT3 = ["B_W_Soldier_GL_F","B_W_Soldier_F"];
 groupsNATOSpecOpSmall = [
 		["I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F"]
 ];
@@ -97,9 +96,9 @@ groupsNATOSpecOpMid = [
 	["I_C_Soldier_Para_2_F","I_C_Soldier_Para_6_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_5_F"]
 ];
 //Squads
-NATOSquadT1 = ["B_W_Soldier_SL_F",NATOGrunt select 0,"B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
-NATOSquadT2 = ["B_W_Soldier_SL_F",NATOGrunt select 0,"B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
-NATOSquadT3 = ["B_W_Soldier_SL_F",NATOGrunt select 0,"B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
+NATOSquadT1 = ["B_W_Soldier_SL_F","B_W_Soldier_F","B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
+NATOSquadT2 = ["B_W_Soldier_SL_F","B_W_Soldier_F","B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
+NATOSquadT3 = ["B_W_Soldier_SL_F","B_W_Soldier_F","B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
 
 
 NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];

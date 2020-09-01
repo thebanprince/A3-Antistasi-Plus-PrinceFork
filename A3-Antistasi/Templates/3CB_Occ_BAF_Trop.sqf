@@ -46,7 +46,6 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Green_A_MTP","UK3CB_BAF_LandRover_Sn
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_Rifleman_762_Tropical"];
 NATOOfficer = "UK3CB_BAF_Officer_Tropical";
 NATOOfficer2 = "UK3CB_BAF_FAC_Tropical";
 NATOBodyG = "UK3CB_BAF_HeliCrew_Tropical_RM";
@@ -104,9 +103,9 @@ groupsNATOSpecOpMid = [
 
 //Squads
 //Squads
-NATOSquadT1 = ["UK3CB_BAF_SC_Tropical",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
-NATOSquadT2 = ["UK3CB_BAF_SC_Tropical",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
-NATOSquadT3 = ["UK3CB_BAF_SC_Tropical",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
+NATOSquadT1 = ["UK3CB_BAF_SC_Tropical","UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
+NATOSquadT2 = ["UK3CB_BAF_SC_Tropical","UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
+NATOSquadT3 = ["UK3CB_BAF_SC_Tropical","UK3CB_BAF_Rifleman_762_Tropical","UK3CB_BAF_GunnerM6_Tropical",NATOMarksman select 0,"UK3CB_BAF_FT_762_Tropical","UK3CB_BAF_LSW_Tropical","UK3CB_BAF_Explosive_Tropical","UK3CB_BAF_Medic_Tropical"];
 
 NATOSpecOp = ["UK3CB_BAF_SC_Tropical_BPT_RM","UK3CB_BAF_Pointman_Tropical_BPT_RM","UK3CB_BAF_Pointman_Tropical_BPT_RM","UK3CB_BAF_Marksman_Tropical_BPT_RM","UK3CB_BAF_FAC_Tropical_BPT_RM","UK3CB_BAF_Explosive_Tropical_BPT_RM","UK3CB_BAF_MGLMG_Tropical_BPT_RM","UK3CB_BAF_Medic_Tropical_BPT_RM"];
 

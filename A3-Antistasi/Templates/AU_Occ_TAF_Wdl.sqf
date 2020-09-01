@@ -51,7 +51,6 @@ vehNATOPVP = ["B_W_LSV_01_unarmed_F","B_W_MRAP_01_F","B_W_LSV_01_armed_F","B_W_L
 ////////////////////////////////////
 
 //First item - tier1, second one - tier 2, third one - tier 3
-NATOGrunt = ["TNG_Soldier_F","TAF_Soldier_F","TEAF_Soldier_F"];
 NATOMarksman = ["TAF_Soldier_M_F", "TAF_Soldier_M_F", "TEAF_Soldier_M_F"];
 NATOOfficer = "B_A_officer_F";
 NATOOfficer2 = "B_G_officer_F";

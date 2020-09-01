@@ -46,7 +46,6 @@ vehNATOPVP = ["rhsusf_m1025_w_s","rhsusf_m998_w_s_2dr","rhsusf_m998_w_s_2dr_full
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["rhsgref_cdf_b_reg_rifleman","rhsgref_cdf_b_para_rifleman","rhsusf_usmc_marpat_wd_rifleman"];
 NATOMarksman = ["rhsgref_cdf_b_reg_marksman","rhsgref_cdf_b_para_marksman","rhsusf_usmc_marpat_wd_marksman"];
 NATOOfficer = "rhsusf_usmc_marpat_wd_officer";
 NATOOfficer2 = "rhsgref_cdf_b_ngd_officer";
@@ -73,9 +72,9 @@ policeGrunt = "rhsusf_army_ucp_rifleman_82nd";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["rhsgref_cdf_b_reg_grenadier",NATOGrunt select 0];
-groupsNATOSentryT2 = ["rhsgref_cdf_b_para_grenadier",NATOGrunt select 1];
-groupsNATOSentryT3 = ["rhsusf_usmc_marpat_wd_grenadier",NATOGrunt select 2];
+groupsNATOSentryT1 = ["rhsgref_cdf_b_reg_grenadier", "rhsgref_cdf_b_reg_rifleman"];
+groupsNATOSentryT2 = ["rhsgref_cdf_b_para_grenadier", "rhsgref_cdf_b_para_rifleman"];
+groupsNATOSentryT3 = ["rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_rifleman"];
 groupsNATOSpecOpSmall = [
 		["rhsusf_army_ucp_sniper", "rhsusf_army_ucp_riflemanl"],
 		["rhsusf_usmc_lar_marpat_wd_autorifleman", "rhsusf_usmc_lar_marpat_wd_marksman"],

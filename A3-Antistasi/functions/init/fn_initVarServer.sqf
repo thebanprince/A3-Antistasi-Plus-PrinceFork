@@ -306,7 +306,6 @@ private _templateVariables = [
 	"NATOAmmobox",
 	"NATOPlayerLoadouts",
 	"vehNATOPVP",
-	"NATOGrunt",
 	"NATOOfficer",
 	"NATOOfficer2",
 	"NATOBodyG",

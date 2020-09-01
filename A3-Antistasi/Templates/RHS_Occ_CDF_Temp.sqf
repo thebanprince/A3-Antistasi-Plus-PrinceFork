@@ -46,7 +46,6 @@ vehNATOPVP = ["rhsgref_ins_g_uaz","rhsgref_ins_g_uaz_open","rhsgref_BRDM2UM_ins_
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman"];
 NATOOfficer = "rhsgref_cdf_reg_general";
 NATOOfficer2 = "rhsgref_cdf_ngd_commander";
 NATOBodyG = "rhsgref_cdf_ngd_rifleman_lite";
@@ -72,9 +71,9 @@ policeGrunt = "rhsgref_cdf_un_rifleman_lite";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
-groupsNATOSentryT2 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
-groupsNATOSentryT3 = ["rhsgref_cdf_reg_grenadier",NATOGrunt select 0];
+groupsNATOSentryT1 = ["rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_rifleman"];
+groupsNATOSentryT2 = ["rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_rifleman"];
+groupsNATOSentryT3 = ["rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_rifleman"];
 groupsNATOSpecOpSmall = [
 		["rhsgref_nat_pmil_grenadier","rhsgref_nat_pmil_rifleman_m92"],
 		["rhsgref_nat_pmil_scout","rhsgref_nat_pmil_rifleman_aksu"],

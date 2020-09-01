@@ -46,7 +46,6 @@ vehNATOPVP = ["UK3CB_BAF_LandRover_Hard_FFR_Sand_A_DDPM","UK3CB_BAF_LandRover_Sn
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-NATOGrunt = ["UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_Rifleman_DDPM"];
 NATOOfficer = "UK3CB_BAF_Officer_DDPM";
 NATOOfficer2 = "UK3CB_BAF_FAC_DDPM";
 NATOBodyG = "UK3CB_BAF_Crewman_RTR_DDPM";
@@ -72,9 +71,9 @@ policeGrunt = "UK3CB_TKP_B_RIF_1";
 ////////////////////////////////////
 //Military Groups
 //Teams
-groupsNATOSentryT1 = ["UK3CB_BAF_Grenadier_DDPM",NATOGrunt select 0];
-groupsNATOSentryT2 = ["UK3CB_BAF_Grenadier_DDPM",NATOGrunt select 0];
-groupsNATOSentryT3 = ["UK3CB_BAF_Grenadier_DDPM",NATOGrunt select 0];
+groupsNATOSentryT1 = ["UK3CB_BAF_Grenadier_DDPM","UK3CB_BAF_Rifleman_DDPM"];
+groupsNATOSentryT2 = ["UK3CB_BAF_Grenadier_DDPM","UK3CB_BAF_Rifleman_DDPM"];
+groupsNATOSentryT3 = ["UK3CB_BAF_Grenadier_DDPM","UK3CB_BAF_Rifleman_DDPM"];
 groupsNATOSpecOpSmall = [
 		["UK3CB_BAF_Grenadier_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],
 		["UK3CB_BAF_LAT_Smock_DPMW","UK3CB_BAF_Rifleman_Smock_DPMW"],
@@ -103,9 +102,9 @@ groupsNATOSpecOpMid = [
 ];
 
 //Squads
-NATOSquadT1 = ["UK3CB_BAF_Officer_DDPM",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
-NATOSquadT2 = ["UK3CB_BAF_Officer_DDPM",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
-NATOSquadT3 = ["UK3CB_BAF_Officer_DDPM",NATOGrunt select 0,"UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
+NATOSquadT1 = ["UK3CB_BAF_Officer_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
+NATOSquadT2 = ["UK3CB_BAF_Officer_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
+NATOSquadT3 = ["UK3CB_BAF_Officer_DDPM","UK3CB_BAF_Rifleman_DDPM","UK3CB_BAF_GunnerM6_DDPM","UK3CB_BAF_Marksman_DDPM","UK3CB_BAF_Officer_DDPM","UK3CB_BAF_LSW_DDPM","UK3CB_BAF_Explosive_DDPM","UK3CB_BAF_Medic_DDPM"];
 
 NATOSpecOp = ["UK3CB_BAF_Officer_DDPM_RM","UK3CB_BAF_Rifleman_DDPM_RM",NATOBodyG,"UK3CB_BAF_LAT_DDPM_RM","UK3CB_BAF_FAC_DDPM_RM","UK3CB_BAF_Explosive_DDPM_RM","UK3CB_BAF_LSW_DDPM_RM","UK3CB_BAF_Medic_DDPM_RM"];
 
