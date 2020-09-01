@@ -24,5 +24,5 @@ if (!local _unit) exitWith {
 _unit setVariable ["moneyX", ((_unit getVariable ["moneyX", 0]) + _funds) max 0, true];
 _sign = if(_funds > 0) then {"+"} else {""};
 
-_textX = format ["<br/><br/><br/><br/><br/><br/>Money %1 %2 €",_sign,_funds];
+_textX = format ["<br/><br/><br/><br/><br/><br/><t color='#00FF00'>%1 %2 €</t>",_sign,_funds];
 [petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",_unit];

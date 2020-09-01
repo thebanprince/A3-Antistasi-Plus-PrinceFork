@@ -19,4 +19,7 @@ incomeRep = false;
 //Should AI automatically heal teammates. Each client has their own copy of this.
 autoHeal = false;	
 
+//Is players knows about that IDAP pays for released prisoners
+hasPowPaycheckAnnounced = false;
+
 [2,"initVarClient completed",_fileName] call A3A_fnc_log;

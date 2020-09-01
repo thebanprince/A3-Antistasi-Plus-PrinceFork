@@ -45,7 +45,7 @@ if(_releasePaycheck > 0) then {
         _playerX setVariable ["moneyX", ((_playerX getVariable ["moneyX", 0]) + _releasePaycheck) max 0, true];
         _nickname = name _playerX;
         _textX = format [
-            "<t size='0.6'>Due to agreements with <t size='0.6' color='#FFA500'>IDAP</t>, %1 recieves %2 € for released prisoner.</t>",
+            "<t size='0.6'>Due to agreements with <t size='0.6' color='#FFA500'>IDAP</t>, %1 recieves <t color='#00FF00'>%2 €</t> for released prisoner.</t>",
             _nickname,  
             _releasePaycheck
         ];
