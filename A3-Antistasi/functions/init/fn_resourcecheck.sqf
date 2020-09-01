@@ -6,9 +6,7 @@ private ["_textX"];
 scriptName "resourcecheck";
 _countSave = autoSaveInterval;
 
-while {true} do
-	{
-	//sleep 600;//600
+while {true} do {
 	nextTick = time + 600;
 	waitUntil {sleep 15; time >= nextTick};
 	if (isMultiplayer) then {waitUntil {sleep 10; isPlayer theBoss}};
@@ -35,7 +33,6 @@ while {true} do
 	_popFIA = _popFIA + (_numCiv * (_prestigeSDK / 100));
 	_popAAF = _popAAF + (_numCiv * (_prestigeNATO / 100));
 	_multiplyingRec = if (_radioTowerSide != teamPlayer) then {0.5} else {1};
-	//if (not _radioTowerSide) then {_multiplyingRec = 0.5};
 
 	if (_city in destroyedSites) then
 		{
@@ -61,7 +58,7 @@ while {true} do
 		};
 	_recAddSDK = _recAddSDK + _resourcesAddCitySDK;
 	_hrAddBLUFOR = _hrAddBLUFOR + _hrAddCity;
-	// revuelta civil!!
+
 	if ((_prestigeNATO < _prestigeSDK) and (sidesX getVariable [_city,sideUnknown] == Occupants)) then
 		{
 		["TaskSucceeded", ["", format ["%1 joined %2",[_city, false] call A3A_fnc_location,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
@@ -96,15 +93,7 @@ while {true} do
 	} forEach citiesX;
 	if (_popCSAT > (_popTotal / 3)) then {["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"]};
 	if ((_popFIA > _popAAF) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]};
-	/*
-	{
-	_fabrica = _x;
-	if (sidesX getVariable [_fabrica,sideUnknown] == teamPlayer) then
-		{
-		if (not(_fabrica in destroyedSites)) then {_bonusFIA = _bonusFIA + 0.25};
-		};
-	} forEach factories;
-	*/
+	
 	{
 	_recurso = _x;
 	if (sidesX getVariable [_recurso,sideUnknown] == teamPlayer) then
@@ -115,9 +104,9 @@ while {true} do
 	_hrAddBLUFOR = (round _hrAddBLUFOR);
 	_recAddSDK = (round _recAddSDK);
 
-	_textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €",_hrAddBLUFOR,_recAddSDK];
+	_textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/><t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €</t></t>",_hrAddBLUFOR,_recAddSDK];
 	[] call A3A_fnc_FIAradio;
-	//_updated = false;
+
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then {_textX = format ["%1<br/>Arsenal Updated<br/><br/>%2",_textX,_updated]};
 	[petros,"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
@@ -216,4 +205,4 @@ while {true} do
 		};
 
 	sleep 4;
-	};
+};
