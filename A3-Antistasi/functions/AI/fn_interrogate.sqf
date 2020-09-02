@@ -18,7 +18,7 @@ if (!alive _unit) exitWith {};
 if (_unit getVariable ["interrogated", false]) exitWith {};
 _unit setVariable ["interrogated", true, true];
 
-_player globalChat "You imperialist! Tell me what you know!";
+_player globalChat localize "STR_interrogate_text";
 private _chance = 0;
 private _side = side (group _unit);
 if (_side == Occupants) then
@@ -34,28 +34,22 @@ _chance = _chance + 20;
 
 sleep 5;
 
-if ((round (random 100)) < _chance) then
-{
-    if((typeOf _unit) in squadLeaders) then
-    {
-        if(_unit getVariable ["hasIntel", false]) then
-        {
-            _unit globalChat "Okay, I tell you what I know";
+if ((round (random 100)) < _chance) then {
+    if((typeOf _unit) in squadLeaders) then {
+        if(_unit getVariable ["hasIntel", false]) then {
+            _unit globalChat localize "STR_interrogation_success_text";
             _unit setVariable ["hasIntel", false, true];
             private _intelText = ["Small", _side] call A3A_fnc_selectIntel;
             [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
         }
-        else
-        {
-            _unit globalChat "I would, but I don't know anything";
+        else {
+            _unit globalChat localize "STR_interrogation_fail_noknowledge_text";
         };
     }
-    else
-    {
-        _unit globalChat "I would, but only our squadleader may knows something";
+    else {
+        _unit globalChat localize "STR_interrogation_fail_nosquadleader_text";
     };
 }
-else
-{
-	_unit globalChat "Screw you, I am not telling anything!";
+else {
+	_unit globalChat localize "STR_recruit_fail_text";
 };

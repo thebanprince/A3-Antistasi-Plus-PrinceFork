@@ -2171,6 +2171,38 @@
         <German>Danke, ich werde mich definitiv daran erinnern, wenn ich dich das nächste Mal erschieße!</German>
         <Czech>Děkuji, určitě si to zapamatuji, až vás příště zastřelím!</Czech>
       </Key>
+      <Key ID="STR_interrogate_text">
+        <Original>Tell me what you know!</Original>
+        <English>Tell me what you know!</English>
+        <French>Dis moi ce que tu sais!</French>
+        <Russian>Скажи мне, что ты знаешь!</Russian>
+        <German>Sag mir, was du weisst!</German>
+        <Czech>Řekni mi, co víš!</Czech>
+      </Key>
+      <Key ID="STR_interrogation_success_text">
+        <Original>Okay, I tell you what I know.</Original>
+        <English>Okay, I tell you what I know.</English>
+        <French>D'accord, je vous dis ce que je sais.</French>
+        <Russian>Хорошо, я всё скажу, только не бейте!</Russian>
+        <German>Okay, ich sage dir was ich weiß.</German>
+        <Czech>Dobře, říkám ti, co vím.</Czech>
+      </Key>
+      <Key ID="STR_interrogation_fail_nosquadleader_text">
+        <Original>I would, but only our squadleader may knows something.</Original>
+        <English>I would, but only our squadleader may knows something.</English>
+        <French>Je le ferais, mais seul votre chef d'escouade sait quelque chose.</French>
+        <Russian>Я простой солдат и ничего не знаю, спросите лучше командира отделения.</Russian>
+        <German>Ich würde, aber nur Ihr Truppführer kann etwas wissen.</German>
+        <Czech>Chtěl bych, ale jen váš vůdce družstva může něco vědět.</Czech>
+      </Key>
+      <Key ID="STR_interrogation_fail_noknowledge_text">
+        <Original>I would, but I don't know anything.</Original>
+        <English>I would, but I don't know anything.</English>
+        <French>Je le ferais, mais je ne sais rien.</French>
+        <Russian>Я бы рассказал, но я совершенно ничего не знаю.</Russian>
+        <German>Ich würde, aber ich weiß nichts.</German>
+        <Czech>Chtěl bych, ale nic nevím.</Czech>
+      </Key>
     </Container>
   </Package>
   <Package name="General">
