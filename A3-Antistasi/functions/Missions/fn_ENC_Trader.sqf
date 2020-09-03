@@ -1,4 +1,4 @@
-if (!isServer and hasInterface) exitWith{};
+if (!isServer && hasInterface) exitWith{};
 
 diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Trader Mission Init", servertime];
 diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Server: %2", servertime, str isServer];
@@ -42,8 +42,9 @@ if(!(_radGrad > -0.2 && _radGrad < 0.2)) then {
         _iterations = _iterations + 1; 
     };
 };
-diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Trader position was found after %2 iterations.", servertime, str _iterations];
-diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Trader position: %2", servertime, str _traderPosition];
+
+[2, format ["Trader position was found after %1 iterations.", str _iterations], "ENC_Trader", true] call A3A_fnc_log;
+[2, format ["Trader position: %1", str _traderPosition], "ENC_Trader", true] call A3A_fnc_log;
 
 traderX = [_traderPosition] call SCRT_fnc_trader_createTrader;
 publicVariable "traderX";

@@ -214,6 +214,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 1;
      };
+     class fastTravelEnemyCheck
+     {
+          title = "Fast Travel Enemies Check";
+          values[] = {1,0};
+          texts[] =  {"Check for player only", "Check for player squad (Vanilla Antistasi Style)"};
+          default = 1;
+     };
 
      class Spacer10
      {
