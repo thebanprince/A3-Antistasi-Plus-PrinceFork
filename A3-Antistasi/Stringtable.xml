@@ -474,12 +474,12 @@
     </Container>
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official Antistasi Community, Barbolani, Socrates</Original>
-        <English>The Official Antistasi Community, Barbolani, Socrates</English>
-        <French>La Communauté Officielle d'Antistasi et Barbolani et Socrates</French>
-        <German>Die offizielle Antistasi Community und Barbolani und Socrates</German>
-        <Russian>Сообщество Antistasi, Barbolani, Socrates</Russian>
-        <Czech>Oficiální komunita Antistasi a Barbolani a Socrates</Czech>
+        <Original>Socrates</Original>
+        <English>Socrates</English>
+        <French>La Socrates</French>
+        <German>Die Socrates</German>
+        <Russian>Socrates</Russian>
+        <Czech>Socrates</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build FIA Army from scratch and defeat the AAF and CSAT forces in a whole map Dynamic Mission.</Original>

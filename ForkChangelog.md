@@ -1,18 +1,23 @@
 ## Changelog
 
 ### 0.6
+- New mission type: Salvage Helicrash
+- Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes from unreleased community version
 - Fixed inability to call rebel airstrike when commander is not a host
-- Attempt to mitigate vehicle placement issue on Vehicle Market (use SHIFT key for accurate vehicle placement that ignores terrain gradient and some obstacles)
-- Localized surrender context menu actions and surrender unit outcomes
+- Attempt to mitigate vehicle placement issue on Vehicle Market (use SHIFT key for accurate vehicle placement that ignores terrain gradient and obstacles)
+- Localized POW actions and outcomes
 - "Grab From Faction Pool" action money amount increased from 100 to 1000
 - Releasing POWs gives small amount of money to releasing player from this moment (paycheck depends on current aggro level, applies to occupant POWs only, starts from war level 4)
 - 3D icons with rank, role and nickname above friendly players (optional, mission parameter)
 - 3D icons above uncoscious players (optional, mission parameter)
 - Ability to buy AT Offroad (Military Vehicle submenu on vehicle crate on base)
+- Individual Fast Travel (optional, mission parameter)
 - When in engagements, AI squads without NVGs will launch flares at night from this moment (vanilla, CUP and RHS flares supported)
 - Loot truck gives money to everyone, not only players in proximity from now
 - Gather Loot systemChat messages will be transmitted only to players in proximity, not everyone (as it was before)
 - Sum Similar Weapons To Unlock mission parameter (sums same weapons with different color to unlock them all to use without limit, optional, mission parameter)
+- AT Bunkers replaced with AT sandbags (vanilla templates were mostly affected) on roadblocks and outposts
+- Disabled FFAA and 3CB support since they are not compatible with any of Antistasi Plus features
 - UI tweaks
 
 ### 0.4.4
