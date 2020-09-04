@@ -58,11 +58,9 @@ for "_i" from 1 to _max do
 	};
 };
 
-if (_frontierX) then
-{
+if (_frontierX) then {
 	_roads = _positionX nearRoads _size;
-	if (count _roads != 0) then
-	{
+	if (count _roads != 0) then {
 		_groupX = createGroup _sideX;
 		_groups pushBack _groupX;
 		_dist = 0;
@@ -73,15 +71,15 @@ if (_frontierX) then
 		{if ((position _x) distance _positionX > _dist) then {_roadcon = _x}} forEach _roadscon;
 		_dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
 		_pos = [getPos _road, 7, _dirveh + 270] call BIS_Fnc_relPos;
-		_bunker = "Land_BagBunker_01_small_green_F" createVehicle _pos;
+		_bunker = sandbag createVehicle _pos;
 		_vehiclesX pushBack _bunker;
 		_bunker setDir _dirveh;
 		_pos = getPosATL _bunker;
-		_typeVehX = if (_sideX==Occupants) then {staticATOccupants} else {staticATInvaders};
+		_typeVehX = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
 		_veh = _typeVehX createVehicle _positionX;
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;
-		_veh setPos _pos;
+		_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
 		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;

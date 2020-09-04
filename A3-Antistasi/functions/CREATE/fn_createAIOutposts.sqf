@@ -205,14 +205,14 @@ else
 			_groupX = createGroup _sideX;
 			_groups pushBack _groupX;
 			_pos = [getPos _road, 7, _dirveh + 270] call BIS_Fnc_relPos;
-			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+			_bunker = sandbag createVehicle _pos;
 			_vehiclesX pushBack _bunker;
 			_bunker setDir _dirveh;
 			_pos = getPosATL _bunker;
 			_typeVehX = if (_sideX==Occupants) then {staticATOccupants} else {staticATInvaders};
 			_veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
-			_veh setPos _pos;
+			_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
 			_veh setDir _dirVeh + 180;
 			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;

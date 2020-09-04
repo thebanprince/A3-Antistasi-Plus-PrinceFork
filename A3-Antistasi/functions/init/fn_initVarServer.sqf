@@ -449,7 +449,10 @@ private _templateVariables = [
     "shop_wheel_apc",
     "shop_track_apc",
     "shop_heli",
-    "shop_tank"
+    "shop_tank",
+
+	"smallBunker",
+	"sandbag"
 ];
 
 {

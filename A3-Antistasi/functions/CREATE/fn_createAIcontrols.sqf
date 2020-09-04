@@ -62,7 +62,7 @@ if (_isControl) then
 	if (!_isFIA) then {
 		_groupE = grpNull;
 		_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-		_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+		_bunker = smallBunker createVehicle _pos;
 		_vehiclesX pushBack _bunker;
 		_bunker setDir _dirveh;
 		_pos = getPosATL _bunker;
@@ -79,7 +79,7 @@ if (_isControl) then
 		_soldiers pushBack _unit;
 		sleep 1;
 		_pos = [getPos (_roads select 0), 7, _dirveh + 90] call BIS_Fnc_relPos;
-		_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+		_bunker = smallBunker createVehicle _pos;
 		_vehiclesX pushBack _bunker;
 		_bunker setDir _dirveh + 180;
 		_pos = getPosATL _bunker;

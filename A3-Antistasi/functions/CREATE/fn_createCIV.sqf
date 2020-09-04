@@ -92,7 +92,6 @@ if (count _mrkMar > 0) then
 			_typeVehX = selectRandomWeighted civBoatsWeighted;
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
 			_veh = _typeVehX createVehicle _pos;
-			[_veh, 20, random 2] call SCRT_fnc_common_addRandomMoneyCargo;
 			_veh setDir (random 360);
 			_vehiclesX pushBack _veh;
 			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
