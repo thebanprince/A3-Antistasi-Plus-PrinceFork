@@ -6,6 +6,12 @@ class SCRT
         class arsenal_getSimilarWeapons {};
 	};
 
+    class Effect 
+    {
+		file = "SCRT\Effect";
+        class effect_createBurningDebrisEffect {};
+	};
+
 	class Loot 
     {
 		file = "SCRT\Loot";

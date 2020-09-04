@@ -340,14 +340,15 @@ class A3A
 		class LOG_Bank {};
 		class LOG_Supplies {};
 		class LOG_Salvage {};
+		class LOG_Helicrash {};
 		class missionRequest {};
 		class missionRequestAUTO {};
 		class REP_Antenna {};
 		class RES_Prisoners {};
 		class RES_Refugees {};
+		class ENC_Trader {};
 		class taskUpdate {};
 		class underAttack {};
-		class ENC_Trader {};
 	};
 
 	class ModsAndDLC {

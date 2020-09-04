@@ -116,75 +116,75 @@ if (_typeX == "DES") then
 	else
 		{
 		_siteX = selectRandom _potentials;
-//		if (_siteX in airportsX) then {if (random 10 < 8) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
+		if (_siteX in airportsX) then {if (random 10 < 5) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_siteX],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
 		if (_siteX in airportsX) then {[[_siteX],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]};
 		if (_siteX in antennas) then {[[_siteX],"A3A_fnc_DES_Antenna"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
-if (_typeX == "LOG") then
-	{
-	_sites = outposts + citiesX + Seaports - destroyedSites;
+if (_typeX == "LOG") then {
+	_sites = outposts + citiesX + Seaports + (controlsX select {!(isOnRoad getMarkerPos _x)}) - destroyedSites;
 	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 	if (random 100 < 20) then {_sites = _sites + banks};
-	if (count _sites > 0) then
-		{
-		for "_i" from 0 to ((count _sites) - 1) do
-			{
+	if (count _sites > 0) then {
+		for "_i" from 0 to ((count _sites) - 1) do {
 			_siteX = _sites select _i;
-			if (_siteX in markersX) then
-				{
+			if (_siteX in markersX) then {
 				_pos = getMarkerPos _siteX;
-				}
-			else
-				{
+			}
+			else {
 				_pos = getPos _siteX;
-				};
-			if (_pos distance _posbase < distanceMission) then
-				{
-				if (_siteX in citiesX) then
-					{
+			};
+			if (_pos distance _posbase < distanceMission) then {
+				if (_siteX in citiesX) then {
 					_dataX = server getVariable _siteX;
 					_prestigeOPFOR = _dataX select 2;
 					_prestigeBLUFOR = _dataX select 3;
-					if (_prestigeOPFOR + _prestigeBLUFOR < 90) then
-						{
+					if (_prestigeOPFOR + _prestigeBLUFOR < 90) then {
 						_potentials pushBack _siteX;
-						};
-					}
-				else
-					{
-					if ([_pos,_posbase] call A3A_fnc_isTheSameIsland) then {_potentials pushBack _siteX};
 					};
+				}
+				else {
+					if ([_pos,_posbase] call A3A_fnc_isTheSameIsland) then {_potentials pushBack _siteX};
 				};
-			if (_siteX in banks) then
-				{
+			};
+			if (_siteX in banks) then {
 				_city = [citiesX, _pos] call BIS_fnc_nearestPosition;
 				if (sidesX getVariable [_city,sideUnknown] == teamPlayer) then {_potentials = _potentials - [_siteX]};
-				};
+			};
 			if (_siteX in Seaports) then {
 				if (_pos distance _posbase < distanceMission) then {
 					_potentials pushBack _siteX;
-					};
 				};
 			};
 		};
-	if (count _potentials == 0) then
-		{
-		if (!_silencio) then
-			{
-			[petros,"globalChat","I have no logistics missions for you. Move our HQ closer to the enemy or finish some other logistics missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			};
-		}
-	else
-		{
+	};
+	if (count _potentials == 0 && {!_silencio}) then {
+		[petros,"globalChat","I have no logistics missions for you. Move our HQ closer to the enemy or finish some other logistics missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
+		[petros,"hint","Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",theBoss];
+	}
+	else {
 		_siteX = selectRandom _potentials;
-		if (_siteX in citiesX) then {[[_siteX],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in outposts) then {[[_siteX],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in banks) then {[[_siteX],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler",2]};
-		if (_siteX in Seaports) then {[[_siteX],"A3A_fnc_LOG_Salvage"] remoteExec ["A3A_fnc_scheduler",2]};
+
+		switch(true) do {
+			case(_siteX in citiesX): {
+				[[_siteX],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler", 2];
+			};
+			case(_siteX in outposts): {
+				[[_siteX],"A3A_fnc_LOG_Ammo"] remoteExec ["A3A_fnc_scheduler", 2];
+			};
+			case(_siteX in banks): {
+				[[_siteX],"A3A_fnc_LOG_Bank"] remoteExec ["A3A_fnc_scheduler", 2];
+			};
+			case(_siteX in Seaports): {
+				[[_siteX],"A3A_fnc_LOG_Salvage"] remoteExec ["A3A_fnc_scheduler", 2];
+			};
+			case(_siteX in controlsX): {
+				[[_siteX],"A3A_fnc_LOG_Helicrash"] remoteExec ["A3A_fnc_scheduler", 2];
+			};
+			default {};
 		};
 	};
+};
 if (_typeX == "RES") then
 	{
 	_sites = airportsX + outposts + citiesX;
@@ -269,4 +269,6 @@ if (_typeX == "CONVOY") then
 		};
 	};
 
-if ((count _potentials > 0) and (!_silencio)) then {[petros,"globalChat","I have a mission for you"] remoteExec ["A3A_fnc_commsMP",theBoss]};
+if ((count _potentials > 0) && (!_silencio)) then {
+	[petros,"globalChat","I have a mission for you"] remoteExec ["A3A_fnc_commsMP",theBoss]
+};
