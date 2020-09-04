@@ -12,12 +12,6 @@ arcticmaps = ["Chernarus_Winter"];
 
 if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
   switch(true) do {
-    case (has3CB): {
-      call compile preProcessFileLineNumbers "Templates\3CB_Reb_TPGM_Arid.sqf";
-      call compile preProcessFileLineNumbers "Templates\3CB_Occ_TKA_Arid.sqf";
-      call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
-      call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
-    };
     case (hasRHS): {
       call compile preProcessFileLineNumbers "Templates\RHS_Reb_CDF_Arid.sqf";
       call compile preProcessFileLineNumbers "Templates\RHS_Occ_CDF_Arid.sqf";
@@ -38,31 +32,6 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
       call compile preprocessFileLineNumbers "Templates\AU_Occ_TAF_Wdl.sqf";
       call compile preprocessFileLineNumbers "Templates\AU_Inv_CSAT_Wdl.sqf";
       call compile preProcessFileLineNumbers "Templates\Vanilla_Civ.sqf";
-    };
-    case (has3CB): {
-      switch(true) do {
-        case (worldName in arcticmaps): {
-          call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
-        };
-        case (worldName in temperatemaps): {
-          call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Temp.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
-        };
-        case (worldName in tropicalmaps): {
-          call compile preProcessFileLineNumbers "Templates\3CB_Reb_CNM_Trop.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Trop.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_SOV_Temp.sqf";
-        };
-        default {
-          call compile preProcessFileLineNumbers "Templates\3CB_Reb_TTF_Arid.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Occ_BAF_Arid.sqf";
-          call compile preProcessFileLineNumbers "Templates\3CB_Inv_TKM_Arid.sqf";
-        };
-      };
-      call compile preProcessFileLineNumbers "Templates\3CB_Civ.sqf";
     };
     case (hasRHS): {
       switch(true) do {

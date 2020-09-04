@@ -107,24 +107,34 @@ hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
 hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
 //IFA Detection
 //Deactivated, as IFA is having some IP problems (08.05.2020 european format)
-if isClass (configFile >> "CfgPatches" >> "LIB_Core") then
-{
+if isClass (configFile >> "CfgPatches" >> "LIB_Core") then {
     [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
+if isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons") then {
+    [1, "3CB detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+if isClass (configfile >> "CfgPatches" >> "ffaa_armas") then {
+    [1, "FFAA detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
 //RHS AFRF Detection
-if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {activeAFRF = true; hasRHS = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];};
+if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {
+	activeAFRF = true; 
+	hasRHS = true; 
+	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];
+};
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {
 	activeUSAF = true; 
 	hasRHS = true; 
 	hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];
 };
-if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {activeGREF = true; diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];};
-//3CB Detection
-if (activeAFRF && activeUSAF && activeGREF && isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons")) then {has3CB = true; diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB Detected.",servertime];};
-//FFAA Detection
-if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {hasFFAA = true; diag_log format ["%1: [Antistasi] | INFO | initVar | FFAA Detected.",servertime];};
+if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
+	activeGREF = true; 
+	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];
+};
 //AntistasiUnits Detected
 if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
@@ -279,6 +289,11 @@ switch (toLower worldName) do {
 	{
         //Roads DB
         call compile preprocessFileLineNumbers "Navigation\roadsDBtaviana.sqf";
+	};
+	case "cup_chernarus_A3":
+	{
+        //Roads DB
+        call compile preprocessFileLineNumbers "Navigation\roadsDBcup_chernarus_A3.sqf";
 	};
 };
 
