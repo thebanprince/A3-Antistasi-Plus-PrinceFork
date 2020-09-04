@@ -309,7 +309,7 @@ _cargoVehicleWp setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _cargoTruckClass, _cargoVehicleCrew, _crashPosition], _filename] call A3A_fnc_log;
 
 //loiter helicopter
-_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 0) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call bis_fnc_spawnvehicle;
+_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 1) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call bis_fnc_spawnvehicle;
 _searchHeliVeh = _searchHeliData select 0;
 [_searchHeliVeh, _sideX] call A3A_fnc_AIVEHinit;
 _searchHeliCrew = _searchHeliData select 1;
