@@ -12,7 +12,7 @@ _vehiclesX = [];
 _groups = [];
 _soldiers = [];
 
-_positionX = getMarkerPos (_markerX);
+_positionX = getMarkerPos _markerX;
 _pos = [];
 
 _size = [_markerX] call A3A_fnc_sizeMarker;
@@ -33,8 +33,7 @@ _posAT = _positionsX select {(_x select 2) == "AT"};
 
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 _max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
-for "_i" from 1 to _max do
-{
+for "_i" from 1 to _max do {
 	//_pos = [_positionX, 50, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 	//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
 	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
@@ -56,6 +55,44 @@ for "_i" from 1 to _max do
 	{
 		_i = _max;
 	};
+};
+
+private _vehiclePool = if (_sideX == Occupants) then { vehNATOAttack } else { vehCSATAttack };
+private _selectedVehicle = "";
+{
+	if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
+} forEach _vehiclePool;
+//if nothing is available, then MRAP should be fine as fallback value
+if(isNil _selectedVehicle) then {
+	_selectedVehicle = if (_sideX == Occupants) then { selectRandom vehNATOLightArmed } else { selectRandom vehCSATLightArmed };
+};
+
+
+private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
+private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
+private _patrolVeh = _patrolVehicleData select 0;
+private _patrolVehCrew = crew _patrolVeh;
+private _patrolVehicleGroup = _patrolVehicleData select 2;
+{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
+[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
+_soldiers = _soldiers + _patrolVehCrew;
+_groups pushBack _patrolVehicleGroup;
+_vehiclesX pushBack _patrolVeh;
+
+[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
+
+if(_frontierX) then {
+	private _helicopterClass = if(_sideX == Occupants) then { selectRandom vehNATOAttackHelis; } else { selectRandom vehCSATAttackHelis; };
+	_heliData = [[_positionX select 0, _positionX select 1, 300], 0, _helicopterClass, _sideX] call bis_fnc_spawnvehicle;
+	_heliVeh = _heliData select 0;
+	[_heliVeh, _sideX] call A3A_fnc_AIVEHinit;
+	_heliCrew = _heliData select 1;
+	{[_x] call A3A_fnc_NATOinit} forEach _heliCrew;
+	_heliVehicleGroup = _heliData select 2;
+	_soldiers = _soldiers + _heliCrew;
+	_groups pushBack _heliVehicleGroup;
+	_vehiclesX pushBack _heliVeh;
+	[_heliVehicleGroup, _positionX, 650] call bis_fnc_taskPatrol;
 };
 
 if (_frontierX) then {
@@ -109,8 +146,8 @@ if (_radiusX < ([_markerX] call A3A_fnc_garrisonSize)) then
 }
 else
 {
-		//No patrol if patrol area overlaps with an enemy site
-		_patrol = ((markersX findIf {(getMarkerPos _x inArea _mrk) && {sidesX getVariable [_x, sideUnknown] != _sideX}}) == -1);
+	//No patrol if patrol area overlaps with an enemy site
+	_patrol = ((markersX findIf {(getMarkerPos _x inArea _mrk) && {sidesX getVariable [_x, sideUnknown] != _sideX}}) == -1);
 };
 if (_patrol) then
 {
