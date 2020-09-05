@@ -203,9 +203,9 @@ class Params
      class 3dIcons
      {
           title = "Show 3D icons above players";
-          values[] = { 0, 1, 2 };
-          texts[] =  {"Don't show", "Only on unconscious players", "Everything"};
-          default = 2;
+          values[] = { 0, 1 };
+          texts[] =  {"Don't show", "Only on unconscious players"};
+          default = 1;
      };
      class similarWeaponsUnlock
      {
