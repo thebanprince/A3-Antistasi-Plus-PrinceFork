@@ -145,7 +145,7 @@ if(_moneyEarned > 0) then {
             [_incomePerPlayer,_x] call A3A_fnc_playerScoreAdd;
         } forEach _allPlayers;
 
-        [localize "STR_antistasi_actions_common_notifications_money_found_text", localize "STR_antistasi_actions_looter_found_money_text"] remoteExecCall ["A3A_fnc_customHint", [teamPlayer, civilian]];
+        [localize "STR_antistasi_actions_common_notifications_money_found_title", localize "STR_antistasi_actions_looter_found_money_text"] remoteExecCall ["A3A_fnc_customHint", [teamPlayer, civilian]];
     };
 };
 
