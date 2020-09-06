@@ -65,6 +65,7 @@ _cargoTruckClass = nil;
 _boxClass = nil;
 _escortClass = nil;
 _infantrySquadArray = nil;
+_specOpsArray = nil;
 
 if(_sideX == Occupants) then { 
     _pilotClass = NATOPilot;
@@ -74,6 +75,7 @@ if(_sideX == Occupants) then {
     _cargoTruckClass = selectRandom vehNATOTrucks;
     _escortClass = if(random 10 < tierWar) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
     _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _specOpsArray = NATOSpecOp;
 } 
 else { 
     _pilotClass = CSATPilot;
@@ -83,6 +85,7 @@ else {
     _cargoTruckClass = selectRandom vehCSATTrucks; 
     _escortClass = if(_difficult) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
     _infantrySquadArray = groupsCSATSquad;
+    _specOpsArray = CSATSpecOp;
 };
 
 if (isNil "_pilotClass" || 
@@ -91,7 +94,8 @@ if (isNil "_pilotClass" ||
     {isNil "_cargoTruckClass"} || 
     {isNil "_boxClass"} || 
     {isNil "_escortClass"} || 
-    {isNil "_infantrySquadArray"}) 
+    {isNil "_infantrySquadArray"} ||
+    {isNil "_specOpsArray"}) 
 exitWith {
 	["LOG"] remoteExecCall ["A3A_fnc_missionRequest",2];
 	[1, format ["Problems with unit templates, rerequesting new logistics mission."], _filename] call A3A_fnc_log;
@@ -302,6 +306,26 @@ _cargoGroupX = [_missionOriginPos, _sideX, _infantrySquadArray] call A3A_fnc_spa
 } forEach units _cargoGroupX;
 deleteGroup _cargoGroupX;
 
+//crashsite patrollers
+if(_difficult) then {
+    _patrolGroup = [_crashPosition, _sideX, _specOpsArray] call A3A_fnc_spawnGroup;
+    { 
+        [_x] call A3A_fnc_NATOinit;
+    } forEach units _patrolGroup;
+    _groups pushBack _patrolGroup;
+
+    [_patrolGroup, _crashPosition, 100] call bis_fnc_taskPatrol;
+} else {
+    _patrolGroup = [_crashPosition, _sideX, _infantrySquadArray] call A3A_fnc_spawnGroup;
+    { 
+        [_x] call A3A_fnc_NATOinit;
+    } forEach units _patrolGroup;
+    _groups pushBack _patrolGroup;
+
+    [_patrolGroup, _crashPosition, 100] call bis_fnc_taskPatrol;
+};
+
+
 //moving to crash site
 _cargoVehicleWp = _cargoVehicleGroup addWaypoint [position _box, 1];
 _cargoVehicleWp setWaypointType "GETOUT";
@@ -332,7 +356,7 @@ if(_searchHeliClass == vehNATOPatrolHeli || _searchHeliClass == vehCSATPatrolHel
     [_heliVehicleGroup, 0] setWaypointLoiterType "CIRCLE_L";
 
     //spawning escort inf
-    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom (call SCRT_fnc_unit_getCurrentGroupNATOMid)} else {groupsCSATmid};
+    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom (call SCRT_fnc_unit_getCurrentGroupNATOMid)} else {selectRandom groupsCSATmid};
     private _heliInfgroupX = [_missionOriginPos, _sideX, _heliInfGroup] call A3A_fnc_spawnGroup;
     {
         _x assignAsCargo _searchHeliVeh; 
