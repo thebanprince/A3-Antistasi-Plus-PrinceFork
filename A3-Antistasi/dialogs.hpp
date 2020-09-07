@@ -3312,7 +3312,7 @@ class vehicles 		{
 		class HQ_button_tank: RscButton
 		{
 			idc = 110;
-			text = "Tank"; //--- ToDo: Localize;
+			text = "Buy Tank"; //--- ToDo: Localize;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
