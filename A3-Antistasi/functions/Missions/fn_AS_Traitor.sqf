@@ -172,9 +172,9 @@ if (not alive _traitor || traitorIntel) then
 		}
 		else
 		{
-			[10 * _factor,_x] call A3A_fnc_playerScoreAdd;
+			[25 * _factor,_x] call A3A_fnc_playerScoreAdd;
 		};
-	} forEach ([_radiusX,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+	} forEach (call BIS_fnc_listPlayers) select {side _x == teamPlayer || side _x == civilian};
 	[5 * _factor,theBoss] call A3A_fnc_playerScoreAdd;
 }
 else

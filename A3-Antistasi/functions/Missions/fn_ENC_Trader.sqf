@@ -97,8 +97,14 @@ waitUntil {
     "SUCCEEDED"
 ] call A3A_fnc_taskUpdate;
 
+
+{ [20, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+[10, theBoss] call A3A_fnc_playerScoreAdd;
+
 traderPosition = _traderPosition;
 publicVariable "traderPosition";
 
 isTraderQuestCompleted = true; 
 publicVariable "isTraderQuestCompleted";
+
+_nul = [1200,"ENC_TRADER"] spawn A3A_fnc_deleteTask;

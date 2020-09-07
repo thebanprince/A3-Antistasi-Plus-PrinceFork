@@ -60,7 +60,7 @@ else
         [[0, 0], [15, 90]] remoteExec ["A3A_fnc_prestige",2];
     };
 	[600*_bonus, _side] remoteExec ["A3A_fnc_timingCA",2];
-	{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+    { [20*_bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};
 

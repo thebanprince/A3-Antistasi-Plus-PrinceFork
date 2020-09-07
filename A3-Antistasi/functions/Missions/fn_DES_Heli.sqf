@@ -201,7 +201,7 @@ if ((not alive _heli) || {((taskState "DES") == "SUCCEEDED") || {(count (_vehicl
         [[15, 90], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
     };
 	[1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-	{if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+	{ [20*_bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	["DES1",[format ["The rebels managed to shot down a helicopter. A recovery team departing from the %1 is inbound to recover it. Cover them while they perform the whole operation",_nameXbase],"Helicopter Down",_mrkFinal],_posCrash,"FAILED","Defend"] call A3A_fnc_taskUpdate;
 	}

@@ -87,7 +87,7 @@ if (dateToNumber date > _dateLimitNum) then
 		] call A3A_fnc_taskUpdate;
 		[[15, 90], [5, 60]] remoteExec ["A3A_fnc_prestige",2];
 		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
-		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+		{ [10, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		}
 	else

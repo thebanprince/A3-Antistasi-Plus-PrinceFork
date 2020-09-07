@@ -43,43 +43,37 @@ _nul = [leader _grp, _markerX, "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] execVM "s
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or (not alive _official)};
 
-if (not alive _official) then
-	{
+if (not alive _official) then {
 	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	if (_difficultX) then
-		{
+	if (_difficultX) then {
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[2400, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+		{ [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,60] call A3A_fnc_addTimeForIdle;
-		}
-	else
-		{
+	}
+	else {
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+		{ [30,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[5,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,30] call A3A_fnc_addTimeForIdle;
-		};
+	};
 	["TaskFailed", ["", format ["Officer killed at %1",[_nameDest, false] call A3A_fnc_location]]] remoteExec ["BIS_fnc_showNotification",_sideX];
-	}
-else
-	{
+}
+else {
 	["AS",[format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming],"Kill the Officer",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
-	if (_difficultX) then
-		{
+	if (_difficultX) then {
 		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-20,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-60] call A3A_fnc_addTimeForIdle;
-		}
-	else
-		{
+	}
+	else {
 		[-600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-30] call A3A_fnc_addTimeForIdle;
-		};
 	};
+};
 
 {deleteVehicle _x} forEach units _grp;
 deleteGroup _grp;

@@ -54,31 +54,28 @@ if (dateToNumber date > _dateLimitNum) then
 else
 	{
 	["AS",[format ["We have spotted a %3 SpecOp team patrolling around an %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime,_naming],"SpecOps",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	if (_difficultX) then
-		{
+	if (_difficultX) then {
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		[1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+		{ [50,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[20,theBoss] call A3A_fnc_playerScoreAdd;
-		}
-	else
-		{
+	}
+	else {
 		[0,200] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		[600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+		{ [20,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
-		};
-	if (_sideX == Occupants) then
-    {
+	};
+
+	if (_sideX == Occupants) then {
         [[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
     }
-    else
-    {
+    else {
         [[0, 0], [10, 60]] remoteExec ["A3A_fnc_prestige",2]
     };
 	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
-	};
+};
 
 _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;

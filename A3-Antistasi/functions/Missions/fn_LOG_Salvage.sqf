@@ -78,8 +78,8 @@ _crateContents call A3A_fnc_fillLootCrate;
 [3, format ["Spawning patrol boat and crew"], _filename] call A3A_fnc_log;
 private _typeVeh = if (_difficultX) then {if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat}} else {if (_sideX == Occupants) then {vehNATORBoat} else {vehCSATRBoat}};
 private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentNATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {
-	private _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-	_squad select 0;
+		private _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+		_squad select 0;
 	} else {
 		groupsCSATmid select 0
 	}
@@ -132,7 +132,7 @@ if (_timeout && alive _box) then {
 } else {
 	["LOG",[ _text, _title,[_mrk1, _mrk2, _mrk3]],_positionX,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-	{if (_x distance _box < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+	{ [30 * _bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	[2, format ["Mission Succeeded"], _filename] call A3A_fnc_log;
 };

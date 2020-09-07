@@ -83,7 +83,7 @@ if (spawner getVariable _markerX == 0) then
             [0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
         };
 		[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (_x distance _veh < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
+		{ [20*_bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}

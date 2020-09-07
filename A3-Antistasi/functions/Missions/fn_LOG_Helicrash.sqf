@@ -542,7 +542,6 @@ switch(true) do {
         ] call A3A_fnc_taskUpdate;
 
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-        {[-30, _x] call A3A_fnc_playerScoreAdd} forEach (allPlayers - (entities "HeadlessClient_F"));
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case(!alive _box): {
@@ -566,7 +565,7 @@ switch(true) do {
 
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-        {[100, _x] call A3A_fnc_playerScoreAdd} forEach (allPlayers - (entities "HeadlessClient_F"));
+        { [100,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
         [20, theBoss] call A3A_fnc_playerScoreAdd;
     };
     default {
