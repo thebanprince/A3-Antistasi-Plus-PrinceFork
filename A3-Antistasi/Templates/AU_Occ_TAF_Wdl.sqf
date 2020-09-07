@@ -164,10 +164,7 @@ vehNATOPatrolHeli = "B_A_Heli_light_03_unarmed_F";
 vehNATOTransportHelis = ["B_W_Heli_Transport_03_F", "B_A_Heli_Transport_02_F", "B_A_Heli_light_03_dynamicLoadout_F", vehNATOPatrolHeli];
 vehNATOAttackHelis = ["B_W_Heli_Light_01_dynamicLoadout_F","B_A_Heli_light_03_dynamicLoadout_F","B_W_Heli_Attack_01_dynamicLoadout_F", "B_T_VTOL_01_armed_F"];
 //UAV
-//current variant is experimental, lets see how this plays out 
-// "B_W_UAV_05_F", 
-// "B_W_UAV_02_dynamicLoadout_F"
-vehNATOUAV = "B_UAV_03_dynamicLoadout_F";
+vehNATOUAV = "B_UAV_02_dynamicLoadout_F";
 vehNATOUAVSmall = "B_UAV_01_F";
 //Artillery
 vehNATOMRLS = "B_W_MBT_01_arty_F";
