@@ -306,13 +306,20 @@ class Params
           texts[] = {""};
           default = "";
      };
-	 class LogLevel
-	 {
-		  title = "Logging Level (Amount of detail in .rpt file)";
-		  values[] = {1,2,3};
-		  texts[] = {"Error", "Info", "Debug"};
-		  default = 3;
-	 };
+	class LogLevel
+	{
+		title = "Logging Level (Amount of detail in .rpt file)";
+		values[] = {1,2,3};
+		texts[] = {"Error", "Info", "Debug"};
+		default = 3;
+	};
+     class SystemChatLogMessages
+	{
+		title = "Post Log Messages to systemChat (Debug)";
+		values[] = {1,0};
+		texts[] = {"Yes", "No"};
+		default = 0;
+	};
      class CrateOptions
      {
           title = "LOOT CRATE OPTIONS";

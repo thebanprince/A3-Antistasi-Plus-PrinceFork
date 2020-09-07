@@ -47,3 +47,7 @@ if (isNil "blockServerLogging" && _toServer && !isServer) then {
 } else {
 	diag_log _logLine;
 };
+
+if(isSystemChatPostingAllowed) then {
+	_logLine remoteExec ["systemChat", 0];
+};
