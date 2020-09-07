@@ -1,6 +1,6 @@
 if (player != theBoss) exitWith {["Skill Add", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
 
-if (skillFIA > 20) exitWith {["Skill Add", "Your troops have the maximum training"] call A3A_fnc_customHint;};
+if (skillFIA > 40) exitWith {["Skill Add", "Your troops have the maximum training"] call A3A_fnc_customHint;};
 if (skillFIA > (tierWar*2)) exitWith {["Skill Add", "You cannot upgrade training in the current War Level"] call A3A_fnc_customHint;};
 _resourcesFIA = server getVariable "resourcesFIA";
 _costs = 1000 + (1.5*(skillFIA *750));
