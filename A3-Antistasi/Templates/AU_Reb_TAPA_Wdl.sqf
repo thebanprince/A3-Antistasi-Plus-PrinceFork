@@ -128,6 +128,7 @@ shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
 shop_track_apc = ["I_APC_tracked_03_cannon_F"];
 shop_heli = ["MYR_I_Pawnee_F","O_R_Heli_Light_02_dynamicLoadout_F","I_E_Heli_light_03_dynamicLoadout_F"];
 shop_tank = ["NAA_Nyx_AT_F","NAA_Nyx_scout_F","B_AFV_Wheeled_01_cannon_F"];
+shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";

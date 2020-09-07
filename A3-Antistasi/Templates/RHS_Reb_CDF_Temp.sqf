@@ -116,6 +116,7 @@ shop_wheel_apc = ["rhsgref_nat_btr70"];
 shop_track_apc = ["rhsgref_ins_g_bmp2"];
 shop_heli = ["RHS_Mi24P_vdv"];
 shop_tank = ["rhsgref_ins_g_t72ba"];
+shop_plane = ["rhs_l39_cdf"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_01_small_green_F";

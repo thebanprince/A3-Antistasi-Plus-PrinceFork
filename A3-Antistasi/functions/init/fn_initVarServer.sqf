@@ -450,6 +450,7 @@ private _templateVariables = [
     "shop_track_apc",
     "shop_heli",
     "shop_tank",
+	"shop_plane",
 
 	"smallBunker",
 	"sandbag"
@@ -725,18 +726,18 @@ timer setVariable [vehCSATPlaneAA,10,true];
 timer setVariable [vehNATOMRLS,0,true];
 timer setVariable [vehCSATMRLS,5,true];
 
-server setVariable [civCar,200,true];													//200
-server setVariable [civTruck,600,true];													//600
-server setVariable [civHeli,5000,true];													//5000
+server setVariable [civCar,350,true];													
+server setVariable [civTruck,700,true];	
+server setVariable [civHeli,6000,true];
 server setVariable [civBoat,200,true];
-server setVariable [civLooter,1000,true];	
-server setVariable [vehSDKBike ,50,true];												//50
-server setVariable [vehSDKLightUnarmed,200,true];										//200
-server setVariable [vehSDKTruck,300,true];		
-server setVariable [vehSDKLightArmed, 700, true];
-server setVariable [vehSDKAT, 1200, true];	//1200								
-{server setVariable [_x,400,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];			//400
-{server setVariable [_x,800,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];			//1100
+server setVariable [civLooter,1000,true];
+server setVariable [vehSDKBike, 100, true];
+server setVariable [vehSDKLightUnarmed,200,true];										
+server setVariable [vehSDKTruck,300,true];
+server setVariable [vehSDKLightArmed, 1000, true];
+server setVariable [vehSDKAT, 1500, true];
+{server setVariable [_x,700,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];
+{server setVariable [_x,1200,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];
 
 //black market costs
 {server setVariable [_x,1500,true]} forEach shop_UAV;
@@ -745,7 +746,8 @@ server setVariable [vehSDKAT, 1200, true];	//1200
 {server setVariable [_x,9000,true]} forEach shop_wheel_apc;
 {server setVariable [_x,12000,true]} forEach shop_track_apc;
 {server setVariable [_x,15000,true]} forEach shop_heli;
-{server setVariable [_x,17500,true]} forEach shop_tank;
+{server setVariable [_x,20000,true]} forEach shop_tank;
+{server setVariable [_x,35000,true]} forEach shop_plane;
 
 ///////////////////////
 //     GARRISONS    ///

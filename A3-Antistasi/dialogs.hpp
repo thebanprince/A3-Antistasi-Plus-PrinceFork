@@ -3320,6 +3320,18 @@ class vehicles 		{
 			tooltip = "Tank";
 			action = "closeDialog 0; [selectRandom shop_tank, true] spawn A3A_fnc_addFIAveh";
 		};
+
+		class HQ_button_AT: RscButton
+		{
+			idc = 111;
+			text = "Buy Aircraft"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Aircraft";
+			action = "closeDialog 0; [selectRandom shop_plane, true] spawn A3A_fnc_addFIAveh;";
+		};
 	};
 };
 
