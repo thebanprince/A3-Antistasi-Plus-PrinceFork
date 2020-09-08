@@ -3,9 +3,9 @@ if (!isServer && hasInterface) exitWith{};
 
 params ["_missionOrigin"];
 
-[2, "Helicrash mission init.", "LOG_Helicrash", true] call A3A_fnc_log;
-
 private _fileName = "fn_LOG_Helicrash";
+[2, "Helicrash mission init.", _fileName, true] call A3A_fnc_log;
+
 private _missionOriginPos = getMarkerPos _missionOrigin;
 // private _difficult = if (random 10 < tierWar) then {true} else {false};
 _difficult = true;
