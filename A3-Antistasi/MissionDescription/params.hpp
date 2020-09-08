@@ -353,7 +353,7 @@ class Params
           title = "Maximum Weapon Types in Crates";
           values[] = {0,2,4,6,8,12,16};
           texts[] = {"1","3","5","7","9","13","17"};
-          default = 9;
+          default = 3;
      };
      class crateWepNumMax
      {

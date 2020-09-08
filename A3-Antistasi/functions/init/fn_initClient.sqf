@@ -3,7 +3,10 @@ private _fileName = "initClient.sqf";
 
 //Make sure logLevel is always initialised.
 //This should be overridden by the server, as appropriate. Hence the nil check.
-if (isNil "logLevel") then { logLevel = 2 };scriptName "initClient.sqf";
+if (isNil "logLevel") then { logLevel = 2 };
+if (isNil "isSystemChatPostingAllowed") then {isSystemChatPostingAllowed = false};
+scriptName "initClient.sqf";
+
 
 [2,"initClient started",_fileName] call A3A_fnc_log;
 

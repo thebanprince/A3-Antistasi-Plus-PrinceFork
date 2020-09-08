@@ -5,6 +5,7 @@ private _fileName = "init.sqf";
 scriptName "init.sqf";
 
 if (isNil "logLevel") then {logLevel = 2};
+if (isNil "isSystemChatPostingAllowed") then {isSystemChatPostingAllowed = false};
 [2,"Init SQF started",_fileName] call A3A_fnc_log;
 
 //If it's singleplayer, delete every playable unit that isn't the player.

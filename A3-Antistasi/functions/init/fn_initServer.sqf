@@ -34,7 +34,7 @@ if (isMultiplayer) then {
 	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
 	skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
 	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-	memberOnlyMagLimit = "MemberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
+	memberOnlyMagLimit = "memberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
 	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
 	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
 	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
@@ -242,6 +242,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
+[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 
