@@ -69,6 +69,14 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
+        if(_typeB == "Land_ControlTower_02_F") exitWith {
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _dir = (getDir _building) - 180;
+            private _zpos = AGLToASL (_building buildingPos 15);
+            private _pos = _zpos getPos [0, _dir];
+            _pos = ASLToATL ([(_pos select 0) + 4.2, (_pos select 1) - 2, (_zpos select 2) + 0.5]);
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
         if 	(_typeB in listbld) exitWith			// just the big towers?
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
@@ -103,6 +111,16 @@ for "_i" from 0 to (count _buildings) - 1 do
             private _pos = getPosASL _building;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             _pos = _pos vectorAdd [ 0, 0, 0]; //offset
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+        if 	(_typeB == "Land_Radar_01_HQ_F") exitWith {
+            private _type = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
+            private _dir = getDir _building;
+            private _zOffset = [0, 0, -0.15]; //fix spawn hight
+            private _zpos = AGLToASL (_building buildingPos 35);
+            _zpos = _zpos vectorAdd _zOffset;
+            private _pos = getPosASL _building;
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
     };
