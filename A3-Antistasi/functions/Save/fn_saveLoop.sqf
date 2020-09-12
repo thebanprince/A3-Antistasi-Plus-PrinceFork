@@ -57,6 +57,7 @@ private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 ["isTraderQuestCompleted", isTraderQuestCompleted] call A3A_fnc_setStatVariable;
 ["traderPosition", traderPosition] call A3A_fnc_setStatVariable;
+["pursuersTime", pursuersTime] call A3A_fnc_setStatVariable;
 
 //Save aggression values
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;

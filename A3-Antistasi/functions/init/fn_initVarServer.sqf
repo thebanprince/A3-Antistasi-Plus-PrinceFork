@@ -100,6 +100,8 @@ DECLARE_SERVER_VAR(reportedVehs, []);
 DECLARE_SERVER_VAR(isTraderQuestCompleted, false);
 //Trader position.
 DECLARE_SERVER_VAR(traderPosition, []);
+//Latest pursuers spawn time
+DECLARE_SERVER_VAR(pursuersTime, 0);
 
 
 //Currently destroyed buildings.

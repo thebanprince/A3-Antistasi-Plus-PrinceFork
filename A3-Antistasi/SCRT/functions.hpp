@@ -4,6 +4,7 @@ class SCRT
     {
 		file = "SCRT\Arsenal";
         class arsenal_getSimilarWeapons {};
+        class arsenal_removeRestrictedItems {};
 	};
 
     class Effect 
@@ -11,6 +12,13 @@ class SCRT
 		file = "SCRT\Effect";
         class effect_createBurningDebrisEffect {};
 	};
+
+    class Encounter 
+    {
+        file = "SCRT\Encounter";
+        class encounter_gameEventCheckLoop {};
+        class encounter_spawnPursuers {};
+    };
 
 	class Loot 
     {
