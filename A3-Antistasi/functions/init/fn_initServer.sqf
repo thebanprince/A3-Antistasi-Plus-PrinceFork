@@ -242,7 +242,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
-[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
+//[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 savingServer = false;
 

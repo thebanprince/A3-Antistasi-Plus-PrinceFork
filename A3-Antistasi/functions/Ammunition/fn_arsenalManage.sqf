@@ -44,12 +44,6 @@ if (!isNil "_originalWeaponsWithSimilarWeapons" && {count _originalWeaponsWithSi
 
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
-
-private _allWithoutExcludedItems = [_allExceptNVs] call SCRT_fnc_arsenal_removeRestrictedItems;
-if (!isNil "_allWithoutExcludedItems" && {count _allWithoutExcludedItems > 0}) then {
-	_allExceptNVs = _allWithoutExcludedItems;
-};
-
 {
 	private _item = _x select 0;
 	if (_x select 1 >= minWeaps) then {
