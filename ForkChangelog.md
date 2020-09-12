@@ -2,22 +2,31 @@
 
 ### 0.6
 - New mission type: Salvage Helicrash
-- Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes from unreleased community version
+- Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes to this mission from unreleased community version
+- Ability to buy military aircraft at black market
+- Ability to buy AT Offroad at vehicle crate on rebel HQ
 - Fixed inability to call rebel airstrike when commander is not a host
 - Attempt to mitigate vehicle placement issue on Vehicle Market (use SHIFT key for accurate vehicle placement that ignores terrain gradient and obstacles)
 - Localized POW actions and outcomes
 - "Grab From Faction Pool" action money amount increased from 100 to 1000
-- Releasing POWs gives small amount of money to releasing player from this moment (paycheck depends on current aggro level, applies to occupant POWs only, starts from war level 4)
-- 3D icons with rank, role and nickname above friendly players (optional, mission parameter)
+- Releasing POWs will give small amount of money to releasing player from this moment (paycheck depends on current aggro level, applies to occupant POWs only, starts from war level 4)
 - 3D icons above uncoscious players (optional, mission parameter)
-- Ability to buy AT Offroad (Military Vehicle submenu on vehicle crate on base)
 - Individual Fast Travel (optional, mission parameter)
 - When in engagements, AI squads without NVGs will launch flares at night from this moment (vanilla, CUP and RHS flares supported)
 - Loot truck gives money to everyone, not only players in proximity from now
 - Gather Loot systemChat messages will be transmitted only to players in proximity, not everyone (as it was before)
 - Sum Similar Weapons To Unlock mission parameter (sums same weapons with different color to unlock them all to use without limit, optional, mission parameter)
-- AT Bunkers replaced with AT sandbags (vanilla templates were mostly affected) on roadblocks and outposts
+- Bunkers on AT roablocks replaced with sandbags since ordinary sandbag bunkers rendered them useless due to blocking line of sight
 - Disabled FFAA and 3CB support since they are not compatible with any of Antistasi Plus features
+- Airports will be guarded by vehicles and helicopters (on some cases)
+- SystemChat log messages (separate mission parameter, debug purposes)
+- Removed radius check for task completion check (basically, every rebel, not only those who in task proximity, will recieve paycheck for task completion)
+- Successful task completion will give money to everyone, not only players in proximity
+- Raised Train AI skillcap from 20 to 40
+- Raised base prices for vehicles on vehicle crate (about 25%-40% increase)
+- Removed radio requirement for player markers on map (since it breaks a lot for some reason)
+- Boat spawnpoints have been moved closer to cities to ensure that they will spawn at all
+- Livonia military buildings support (mostly for future Antistasi Plus ports)
 - UI tweaks
 
 ### 0.4.4
