@@ -101,7 +101,7 @@ NATOSquadT2 = ["B_W_Soldier_SL_F","B_W_Soldier_F","B_W_Soldier_LAT2_F","B_W_sold
 NATOSquadT3 = ["B_W_Soldier_SL_F","B_W_Soldier_F","B_W_Soldier_LAT2_F","B_W_soldier_M_F","B_W_Soldier_TL_F","B_W_Soldier_AR_F","B_W_Soldier_A_F","B_W_Medic_F"];
 
 
-NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F",NATOBodyG,"B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
+NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F","B_CTRG_Soldier_tna_F","B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
 
 //Militia Groups
 if ((gameMode != 4) and (!hasFFAA)) then
