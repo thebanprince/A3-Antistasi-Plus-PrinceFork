@@ -4,7 +4,6 @@ class SCRT
     {
 		file = "SCRT\Arsenal";
         class arsenal_getSimilarWeapons {};
-        class arsenal_removeRestrictedItems {};
 	};
 
     class Effect 
@@ -71,6 +70,7 @@ class SCRT
         class common_set3dIcons {};
         class common_givePrisonerReleasePaycheck {};
         class common_getNearPlayers {};
+        class common_selectRandomSite {};
     };
 
     class Quest

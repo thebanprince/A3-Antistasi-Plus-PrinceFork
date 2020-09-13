@@ -16,28 +16,30 @@
 if(!isServer) exitWith {};
 
 private _fileName = "fn_encounter_gameEventCheckLoop";
+[3, "Random Events Check Loop Init.", _filename] call A3A_fnc_log;
 
 while {true} do {
-    [3, "Random Events Check Loop started.", _filename] call A3A_fnc_log;
-    sleep 60;
+    sleep 360;
+    [3, "Random Events Check Loop tick.", _filename] call A3A_fnc_log;
 
     //Sleep if no player is online
     if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then {
         waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
     };
 
-    //TODO: different random encounters check
+    waitUntil {sleep 120; tierWar > 4};
 
-    _nextPursueTime = pursuersTime + 14400;
-    if(serverTime > _nextPursueTime) then {
-        [3, "Time check successfully passed.", _filename] call A3A_fnc_log;
+    if(serverTime > pursuersTime && {aggressionLevelOccupants > 3}) then {
+        [3, "Time and aggro check successfully passed.", _filename] call A3A_fnc_log;
 
-        _chanceCheck = (random 100 < 20); //TODO: mission parameter
+        _chanceCheck = (random 100 < 10);
 
-        if(_chanceCheck && {{tierWar > 4} && {aggressionLevelOccupants > 3}}) then {
+        if(_chanceCheck) then {
             [3, "Coin flip check successfully passed, spawning pursuers.", _filename] call A3A_fnc_log;
-            pursuersTime = _nextPursueTime;
-            [] spawn SCRT_fnc_encounter_spawnPursuers;
+            _missionSite = [Occupants] call SCRT_fnc_common_selectRandomSite;
+            [[_missionSite],"SCRT_fnc_encounter_spawnPursuers"] remoteExec ["A3A_fnc_scheduler", 2];
+
+            pursuersTime = serverTime + 14400;
         };
     };
 };

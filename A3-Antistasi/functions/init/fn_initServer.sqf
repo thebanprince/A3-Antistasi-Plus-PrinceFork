@@ -50,6 +50,7 @@ if (isMultiplayer) then {
 	isInfantryUnitTiersEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1); publicVariable "isInfantryUnitTiersEnabled";
 	areSimilarWeaponsUnlocks = ("similarWeaponsUnlock" call BIS_fnc_getParamValue == 1); publicVariable "areSimilarWeaponsUnlocks";
 	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
+	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -82,6 +83,7 @@ if (isMultiplayer) then {
 	isInfantryUnitTiersEnabled = false;
 	areSimilarWeaponsUnlocks = false;
 	fastTravelIndividualEnemyCheck = false;
+	isPursuersEnabled = true;
 };
 
 [] call A3A_fnc_crateLootParams;
@@ -242,8 +244,10 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
-//[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
+if(isPursuersEnabled) then {
+	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
+};
 savingServer = false;
 
 // Autosave loop. Save if there were any players on the server since the last save.

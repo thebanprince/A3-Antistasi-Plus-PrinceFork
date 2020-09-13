@@ -186,6 +186,20 @@ class Params
           texts[] = {""};
           default = "";
      };
+     class Spacer51
+     {
+          title = "ANTISTASI PLUS SETTINGS";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class pursuers
+     {
+          title = "Enable Pursuers (Punitive Occupant Squad)";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 1;
+     };
      class fatalWounds
      {
           title = "Enable Fatal Wounds";
