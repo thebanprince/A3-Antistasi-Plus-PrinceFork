@@ -932,12 +932,6 @@
         <German>Gefangen zwischen zwei Fronten.</German>
         <Czech>Uvízl mezi dvěma frontami.</Czech>
       </Key>
-      <Key ID="STR_antistasi_mission_info_taviana_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
-        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
-      </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
         <Original>Antistasi Plus - The Red Dawn</Original>
         <English>Antistasi Plus - The Red Dawn </English>
@@ -956,6 +950,27 @@
         <English>Red in blue.</English>
         <French>Rouge en bleu.</French>
         <Russian>Красный в синем.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus2020_mapname_text">
+        <Original>Antistasi Plus - Harvest Blue</Original>
+        <English>Antistasi Plus -  Harvest Blue</English>
+        <French>Antistasi Plus - Bleu récolte</French>
+        <German>Antistasi Plus - Ernte blau</German>
+        <Russian>Antistasi Plus - Лазурный урожай</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus2020_mapname_short_text">
+        <Original>Antistasi Plus - Harvest Blue</Original>
+        <English>Antistasi Plus -  Harvest Blue</English>
+        <French>Antistasi Plus - Bleu récolte</French>
+        <German>Antistasi Plus - Ernte blau</German>
+        <Russian>Antistasi Plus - Лазурный урожай</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus2020_blurb_text">
+        <Original>Bardak is still there.</Original>
+        <English>>Bardak is still there.</English>
+        <German>Bardak ist immer noch da.</German>
+        <French>Bardak est toujours là.</French>
+        <Russian>Бардак никуда не делся.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
