@@ -86,6 +86,7 @@ activeGREF = false;
 hasFFAA = false;
 has3CB = false;
 hasAU = false;
+hasAegis = false;
 hasTieredUnitConfigs = false;
 //Systems Mods
 hasACE = false;
@@ -95,8 +96,12 @@ hasACEMedical = false;
 hasACRE = false;
 hasTFAR = false;
 
+private _activeAegis = false;
+private _activeAtlas = false;
+private _activeAtlasOpfor = false;
+
 //attempt to fix "Error Undefined variable in expression: isinfantryunittiersenabled" which came from initPlayerLocal
-_isUnitTiersOptionEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1);
+private _isUnitTiersOptionEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1);
 
 //Radio Detection
 hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
@@ -119,6 +124,7 @@ if isClass (configfile >> "CfgPatches" >> "ffaa_armas") then {
     [1, "FFAA detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
+
 //RHS AFRF Detection
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {
 	activeAFRF = true; 
@@ -135,12 +141,46 @@ if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "r
 	activeGREF = true; 
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];
 };
+
 //AntistasiUnits Detected
 if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
     hasAU = true;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Tiered Units Configs Detected.",servertime];
 	hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+};
+
+
+if(!hasAU) then {
+	//Arma 3 Aegis detection
+	if(isClass (configFile >> "CfgFactionClasses" >> "BLU_A_F")) then {
+		_activeAegis = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Aegis Detected.",servertime];
+	};
+
+	//Arma 3 Atlas detection
+	if (isClass (configFile >> "CfgFactionClasses" >> "BLU_H_F")) then {
+		_activeAtlas = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.",servertime];
+	};
+
+	//Arma 3 Atlas - Opposing Forces detection
+	if (isClass (configFile >> "CfgFactionClasses" >> "OPF_E_F")) then {
+		_activeAtlasOpfor = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.",servertime];
+	};
+
+	if(_activeAegis && _activeAtlas && _activeAtlasOpfor) then {
+		hasAegis = true;
+		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Both Aegis Templates have been detected.",servertime];
+	} 
+	else {
+		if(_activeAegis || _activeAtlas || _activeAtlasOpfor) then {
+			[1, "Arma 3 Aegis detected or Arma 3 Atlas detected or Arma 3 Atlas - Opposing Forces detected, but not all of them. Ensure that Aegis, Atlas and Atlas - Oppsoing Forces mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+			["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+		};
+	};
 };
 
 ////////////////////////////////////

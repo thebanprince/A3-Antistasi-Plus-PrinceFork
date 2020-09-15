@@ -390,7 +390,6 @@ private _templateVariables = [
 	"CSATAmmoBox",
 	"CSATPlayerLoadouts",
 	"vehCSATPVP",
-	"CSATGrunt",
 	"CSATOfficer",
 	"CSATBodyG",
 	"CSATCrew",

@@ -48,6 +48,6 @@ if (isNil "blockServerLogging" && _toServer && !isServer) then {
 	diag_log _logLine;
 };
 
-if(isSystemChatPostingAllowed) then {
+if(isSystemChatPostingAllowed && {_file != "fn_logPerformance"}) then {
 	_logLine remoteExec ["systemChat", 0];
 };

@@ -209,7 +209,7 @@ class Params
      };
      class infantryUnitTiers
      {
-          title = "Infantry Unit Tiers for RHS or Antistasi Units";
+          title = "Infantry Unit Tiers (Supports RHS, Aegis, Antistasi Units)";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 1;
