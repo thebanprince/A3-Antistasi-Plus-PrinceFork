@@ -1,5 +1,16 @@
 ## Changelog
 
+
+### 1.0
+- Full Arma 3 Atlas, Arma 3 Aegis support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
+- Full CUP Vehicles, Cup Weapons, Cup Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
+- Chernarus 2020 support
+- Pursuers - punisher squad to shake things up on stale moments (optional, mission parameter)
+- Player marker radio requirement change rollback
+- Planes could be put into garage without nearest airport check
+- Bodyguard has been replaced with proper unit (affects BLUFOR SpecOps squad)
+- Invaders uses GMG statics on roablocks and bases (works everywhere except RHS since there is no GMG on high tripod)
+
 ### 0.6
 - New mission type: Salvage Helicrash
 - Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes to this mission from unreleased community version
