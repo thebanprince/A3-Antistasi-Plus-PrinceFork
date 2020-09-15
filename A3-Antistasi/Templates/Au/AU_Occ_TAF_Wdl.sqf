@@ -158,7 +158,7 @@ vehNATOBoats = [vehNATOBoat,vehNATORBoat,"B_W_APC_Wheeled_01_cannon_F"];
 //Planes
 vehNATOPlane = "B_W_Plane_CAS_01_dynamicLoadout_F";
 vehNATOPlaneAA = "B_A_Plane_Fighter_05_F";
-vehNATOTransportPlanes = ["B_W_VTOL_01_infantry_F", "B_A_Plane_Transport_01_infantry_F"];
+vehNATOTransportPlanes = ["B_W_VTOL_01_infantry_F", "B_W_VTOL_01_infantry_F"];
 //Heli
 vehNATOPatrolHeli = "B_A_Heli_light_03_unarmed_F";
 vehNATOTransportHelis = ["B_W_Heli_Transport_03_F", "B_A_Heli_Transport_02_F", "B_A_Heli_light_03_dynamicLoadout_F", vehNATOPatrolHeli];
@@ -175,9 +175,9 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 
 //Militia Vehicles
 if ((gameMode != 4) and (!hasFFAA)) then {
-	vehFIAArmedCar = "B_W_LSV_01_armed_F";
-	vehFIATruck = "B_W_Truck_01_transport_F";
-	vehFIACar = "B_W_LSV_01_light_F";
+	vehFIAArmedCar = "B_H_Offroad_02_LMG_F";
+	vehFIATruck = "B_G_Van_02_transport_F";
+	vehFIACar = "B_H_Offroad_02_unarmed_F";
 };
 
 //Police Vehicles

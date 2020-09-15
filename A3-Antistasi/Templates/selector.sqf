@@ -34,9 +34,9 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
       call compile preProcessFileLineNumbers "Templates\Vanilla\Vanilla_Civ.sqf";
     };
     case (hasAegis): {
-      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Reb_FIA_Woodland.sqf";
-      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Occ_NATO_Woodland.sqf";
-      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Inv_CSAT_Woodland.sqf";
+      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Reb_CHDKZ_Woodland.sqf";
+      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Occ_EUROFOR_Woodland.sqf";
+      call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Inv_RUS_Woodland.sqf";
       call compile preProcessFileLineNumbers "Templates\Aegis\Aegis_Civ.sqf";
     };
     case (hasRHS): {

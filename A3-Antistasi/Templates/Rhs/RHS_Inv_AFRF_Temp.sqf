@@ -44,7 +44,6 @@ vehCSATPVP = ["rhs_tigr_vdv","rhs_uaz_vdv","rhsgref_ins_g_uaz_dshkm_chdkz"];
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-CSATGrunt = "rhs_vmf_flora_rifleman";
 CSATOfficer = "rhs_vmf_flora_officer";
 CSATBodyG = "rhs_vmf_recon_efreitor";
 CSATCrew = "rhs_vmf_flora_armoredcrew";

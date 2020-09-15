@@ -1,10 +1,10 @@
 ////////////////////////////////////
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
-nameTeamPlayer = if (worldName == "Tanoa") then {"SDK"} else {"FIA"};
-SDKFlag = "Flag_FIA_F";
-SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
-typePetros = "I_G_officer_F";
+nameTeamPlayer = "CHDKZ";
+SDKFlag = "Flag_ChDKZ_F";
+SDKFlagTexture = "\ca\data\flag_chdkz_co.paa";
+typePetros = "I_T_Soldier_2_F";
 
 ////////////////////////////////////
 //             UNITS             ///
@@ -56,7 +56,7 @@ vehSDKRepair = "I_G_Offroad_01_repair_F";
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";
 civTruck = "C_Van_01_transport_F";
-civHeli = "C_Heli_Light_01_civil_F";
+civHeli = "C_Heli_Light_02_civil_F";
 civBoat = "C_Boat_Transport_02_F";
 civLooter = "C_Truck_02_covered_F";
 
@@ -97,12 +97,12 @@ breachingExplosivesAPC = [["DemoCharge_Remote_Mag", 1]];
 breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]];
 
 //Starting Unlocks
-initialRebelEquipment append ["hgun_Pistol_heavy_02_F","hgun_Pistol_heavy_01_green_F","sgun_HunterShotgun_01_F","SMG_02_F"];
-initialRebelEquipment append ["SMG_02_F"];
-initialRebelEquipment append ["6Rnd_45ACP_Cylinder","9Rnd_45ACP_Mag","2Rnd_12Guage_Pellets","2Rnd_12Guage_Slug","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell"];
+initialRebelEquipment append ["hgun_Pistol_01_F", "hgun_C1911_F"];
+initialRebelEquipment append ["sgun_Mp153_classic_F", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
+initialRebelEquipment append ["10Rnd_9x21_Mag", "7Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell"];
 initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
 initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_SmershVest_01_F","V_BandollierB_rgr","V_SmershVest_01_radio_F","V_BandollierB_oli","V_Rangemaster_belt"];
-initialRebelEquipment append ["Binocular","acc_flashlight"];
+initialRebelEquipment append ["Binocular","acc_flashlight", "acc_flashlight_pistol"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};
@@ -111,7 +111,7 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 shop_UAV = ["I_UAV_01_F"];
 shop_AA = ["I_LT_01_AA_F"];
 shop_MRAP = ["I_MRAP_03_gmg_F"];
-shop_wheel_apc = ["I_APC_Wheeled_03_cannon_F"];
+shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
 shop_track_apc = ["I_APC_tracked_03_cannon_F"];
 shop_heli = ["I_Heli_light_03_dynamicLoadout_F"];
 shop_tank = ["I_MBT_03_cannon_F"];

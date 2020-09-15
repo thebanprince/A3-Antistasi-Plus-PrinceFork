@@ -44,7 +44,6 @@ vehCSATPVP = ["O_T_LSV_02_armed_F","O_T_LSV_02_unarmed_F","O_T_MRAP_02_gmg_ghex_
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
-CSATGrunt = "TAV_O_soldierU_F";
 CSATOfficer = "O_T_Officer_F";
 CSATBodyG = "O_T_Soldier_F";
 CSATCrew = "O_T_Crew_F";
