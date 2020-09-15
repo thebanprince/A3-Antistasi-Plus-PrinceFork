@@ -53,14 +53,6 @@ if (!_pool) then
 
 if (_exit) exitWith {["Garage", "You are not owner of this vehicle therefore you cannot garage it"] call A3A_fnc_customHint;};
 
-if (_typeVehX isKindOf "Plane") then
-	{
-	_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (player inArea _x)};
-	if (count _airportsX == 0) then {_exit = true};
-	};
-
-if (_exit) exitWith {["Garage", format ["You cannot garage an air vehicle while you are not near an Aiport which belongs to %1. Place your HQ near an airbase flag in order to be able to garage it",nameTeamPlayer]] call A3A_fnc_customHint;};
-
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
 
 [_veh,true] call A3A_fnc_empty;
