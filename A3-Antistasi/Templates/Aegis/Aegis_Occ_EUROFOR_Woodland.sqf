@@ -195,15 +195,3 @@ NATOMG = "B_E_HMG_01_high_F";
 staticATOccupants = "B_E_Static_AT_F";
 staticAAOccupants = "B_E_Static_AA_F";
 NATOMortar = "B_E_Mortar_01_F";
-
-//Static Weapon Bags
-MGStaticNATOB = "B_HMG_01_high_Weapon_grn_F";
-ATStaticNATOB = "B_AT_01_Weapon_grn_F";
-AAStaticNATOB = "B_AA_01_Weapon_grn_F";
-MortStaticNATOB = "B_Mortar_01_Weapon_grn_F";
-//Short Support
-supportStaticNATOB = "B_HMG_01_support_grn_F";
-//Tall Support
-supportStaticNATOB2 = "B_HMG_01_support_high_grn_F";
-//Mortar Support
-supportStaticNATOB3 = "B_Mortar_01_support_grn_F";

@@ -441,6 +441,7 @@ private _templateVariables = [
 	"vehFIATruck",
 	"vehFIACar",
 	"CSATMG",
+	"CSATGMG",
 	"staticATInvaders",
 	"staticAAInvaders",
 	"CSATMortar",

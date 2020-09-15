@@ -198,15 +198,3 @@ NATOMG = "rhsgref_cdf_DSHKM";
 staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = "rhsgref_cdf_Igla_AA_pod";
 NATOMortar = "rhsgref_cdf_reg_M252";
-
-//Static Weapon Bags
-MGStaticNATOB = "RHS_DShkM_Gun_Bag";
-ATStaticNATOB = "RHS_SPG9_Gun_Bag";
-AAStaticNATOB = "not_supported";
-MortStaticNATOB = "RHS_Podnos_Gun_Bag";
-//Short Support
-supportStaticNATOB = "RHS_SPG9_Tripod_Bag";
-//Tall Support
-supportStaticNATOB2 = "RHS_DShkM_TripodHigh_Bag";
-//Mortar Support
-supportStaticNATOB3 = "RHS_Podnos_Bipod_Bag";

@@ -188,15 +188,3 @@ NATOMG = "RHS_M2StaticMG_USMC_D";
 staticATOccupants = "RHS_TOW_TriPod_USMC_D";
 staticAAOccupants = "RHS_Stinger_AA_pod_D";
 NATOMortar = "RHS_M252_USMC_D";
-
-//Static Weapon Bags
-MGStaticNATOB = "RHS_M2_Gun_Bag";
-ATStaticNATOB = "rhs_Tow_Gun_Bag";
-AAStaticNATOB = "B_AA_01_weapon_F";
-MortStaticNATOB = "rhs_M252_Gun_Bag";
-//Short Support
-supportStaticNATOB = "rhs_TOW_Tripod_Bag";
-//Tall Support
-supportStaticNATOB2 = "RHS_M2_Tripod_Bag";
-//Mortar Support
-supportStaticNATOB3 = "rhs_M252_Bipod_Bag";

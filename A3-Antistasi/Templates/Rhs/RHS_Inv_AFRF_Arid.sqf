@@ -153,18 +153,7 @@ if (gameMode == 4) then
 ////////////////////////////////////
 //Assembled Statics
 CSATMG = "rhs_KORD_high_VMF";
+CSATGMG = "rhs_KORD_high_VMF"; //no GMG on high tripod in RHS
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 CSATMortar = "rhs_2b14_82mm_vmf";
-
-//Static Weapon Bags
-MGStaticCSATB = "RHS_Kord_Gun_Bag";
-ATStaticCSATB = "RHS_Kornet_Gun_Bag";
-AAStaticCSATB = "O_AA_01_weapon_F";
-MortStaticCSATB = "RHS_Podnos_Gun_Bag";
-//Short Support
-supportStaticCSATB = "RHS_Kord_Tripod_Bag";
-//Tall Support
-supportStaticCSATB2 = "RHS_Kornet_Tripod_Bag";
-//Mortar Support
-supportStaticCSATB3 = "RHS_Podnos_Bipod_Bag";

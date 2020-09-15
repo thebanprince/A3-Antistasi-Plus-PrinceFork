@@ -52,7 +52,7 @@ for "_i" from 0 to (count _buildings) - 1 do
         if (isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
         if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
         {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 1);
             private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
@@ -62,7 +62,7 @@ for "_i" from 0 to (count _buildings) - 1 do
         if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
             or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest") or (_typeB == "Land_Hlaska")) exitWith
         {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 1);
             private _pos = _zpos getPos [-1, _dir];
@@ -70,7 +70,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if(_typeB == "Land_ControlTower_02_F") exitWith {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 15);
             private _pos = _zpos getPos [0, _dir];
