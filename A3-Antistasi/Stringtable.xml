@@ -966,11 +966,11 @@
         <Russian>Antistasi Plus - Лазурный урожай</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus2020_blurb_text">
-        <Original>Bardak is still there.</Original>
-        <English>>Bardak is still there.</English>
-        <German>Bardak ist immer noch da.</German>
-        <French>Bardak est toujours là.</French>
-        <Russian>Бардак никуда не делся.</Russian>
+        <Original>Bardak is out there.</Original>
+        <English>>Bardak is out there.</English>
+        <German>Bardak ist da draußen.</German>
+        <French>Bardak est là-bas.</French>
+        <Russian>Бардак где-то рядом.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
