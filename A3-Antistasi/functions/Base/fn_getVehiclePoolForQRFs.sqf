@@ -135,7 +135,7 @@ switch (tierWar) do
                 [vehCSATTrucks, 10],
                 [vehCSATLightArmed, 40],
                 [vehCSATAPC, 40],
-                [vehCSATTank, 10],
+                [vehCSATTanks, 10],
 
                 [vehCSATPatrolHeli, 40],
                 [vehCSATTransportHelis, 50],
@@ -153,7 +153,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 30],
                 [vehNATOTrucks, 25],
                 [vehNATOAPC, 35],
-                [vehNATOTank, 10],
+                [vehNATOTanks, 10],
 
                 [vehNATOPatrolHeli, 30],
                 [vehNATOTransportHelis, 60],
@@ -167,7 +167,7 @@ switch (tierWar) do
                 [vehCSATTruck, 10],
                 [vehCSATLightArmed, 30],
                 [vehCSATAPC, 40],
-                [vehCSATTank, 20],
+                [vehCSATTanks, 20],
 
                 [vehCSATPatrolHeli, 25],
                 [vehCSATTransportHelis, 50],
@@ -186,7 +186,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 25],
                 [vehNATOTrucks, 15],
                 [vehNATOAPC, 45],
-                [vehNATOTank, 15],
+                [vehNATOTanks, 15],
 
                 [vehNATOPatrolHeli, 20],
                 [vehNATOTransportHelis, 60],
@@ -202,7 +202,7 @@ switch (tierWar) do
                 [vehCSATLightArmed, 25],
                 [vehCSATAPC, 45],
                 [vehCSATAA, 5],
-                [vehCSATTank, 20],
+                [vehCSATTanks, 20],
 
                 [vehCSATPatrolHeli, 15],
                 [vehCSATTransportHelis, 50],
@@ -222,7 +222,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 20],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 5],
-                [vehNATOTank, 15],
+                [vehNATOTanks, 15],
 
                 [vehNATOPatrolHeli, 10],
                 [vehNATOTransportHelis, 55],
@@ -238,7 +238,7 @@ switch (tierWar) do
                 [vehCSATLightArmed, 25],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 5],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
 
                 [vehCSATPatrolHeli, 10],
                 [vehCSATTransportHelis, 40],
@@ -258,7 +258,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 15],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 5],
-                [vehNATOTank, 20],
+                [vehNATOTanks, 20],
 
                 [vehNATOPatrolHeli, 10],
                 [vehNATOTransportHelis, 40],
@@ -275,7 +275,7 @@ switch (tierWar) do
                 [vehCSATLightArmed, 20],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 10],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
 
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 40],
@@ -296,7 +296,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 10],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 10],
-                [vehNATOTank, 25],
+                [vehNATOTanks, 25],
 
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 35],
@@ -314,7 +314,7 @@ switch (tierWar) do
                 [vehCSATLightArmed, 10],
                 [vehCSATAPC, 40],
                 [vehCSATAA, 10],
-                [vehCSATTank, 30],
+                [vehCSATTanks, 30],
 
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 35],
@@ -336,7 +336,7 @@ switch (tierWar) do
                 [vehNATOLightArmed, 5],
                 [vehNATOAPC, 50],
                 [vehNATOAA, 10],
-                [vehNATOTank, 30],
+                [vehNATOTanks, 30],
 
                 [vehNATOPatrolHeli, 5],
                 [vehNATOTransportHelis, 30],
@@ -354,7 +354,7 @@ switch (tierWar) do
                 [vehCSATLightArmed, 5],
                 [vehCSATAPC, 45],
                 [vehCSATAA, 10],
-                [vehCSATTank, 35],
+                [vehCSATTanks, 35],
 
                 [vehCSATPatrolHeli, 5],
                 [vehCSATTransportHelis, 30],

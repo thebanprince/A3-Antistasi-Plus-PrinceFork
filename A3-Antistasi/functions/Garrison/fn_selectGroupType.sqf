@@ -14,8 +14,8 @@ params ["_vehicle", "_preference", "_side"];
 if(_preference == "Empty") exitWith {[]};
 
 //If tank, select AT team
-if(_vehicle == vehNATOTank) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAT};
-if(_vehicle == vehCSATTank) exitWith {groupsCSATAT};
+if(_vehicle in vehNATOTanks) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAT};
+if(_vehicle in vehCSATTanks) exitWith {groupsCSATAT};
 
 //If AA-tank, select AA team
 if(_vehicle == vehNATOAA) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAA};

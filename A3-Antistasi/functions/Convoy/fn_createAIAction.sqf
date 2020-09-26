@@ -534,14 +534,14 @@ if(_type == "convoy") then
         	{
         		if (_rnd > aggressionOccupants) then
         		{
-        			_vehPool = _vehPool - [vehNATOTank];
+        			_vehPool = _vehPool - vehNATOTanks;
         		};
         	}
         	else
         	{
         		if (_rnd > aggressionInvaders) then
         		{
-        			_vehPool = _vehPool - [vehCSATTank];
+        			_vehPool = _vehPool - vehCSATTanks;
         		};
         	};
         	if (count _vehPool == 0) then {if (_side == Occupants) then {_vehPool = vehNATOTrucks} else {_vehPool = vehCSATTrucks}};

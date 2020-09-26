@@ -19,7 +19,7 @@ if(_preference == "LAND_AIR") exitWith
 };
 if(_preference == "LAND_TANK") exitWith
 {
-  if(_side == Occupants) then {vehNATOTank} else {vehCSATTank};
+  if(_side == Occupants) then {selectRandom vehNATOTanks} else {selectRandom vehCSATTanks};
 };
 
 private _possibleVehicles = [];
@@ -53,11 +53,11 @@ if(_preference in ["LAND_ATTACK"]) then
 {
   if(_side == Occupants) then
   {
-    _possibleVehicles pushBack vehNATOTank;
+    _possibleVehicles append vehNATOTanks;
   }
   else
   {
-    _possibleVehicles pushBack vehCSATTank;
+    _possibleVehicles append vehCSATTanks;
   };
 };
 if(_preference in ["HELI_PATROL", "HELI_LIGHT"]) then

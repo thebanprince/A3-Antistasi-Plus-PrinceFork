@@ -81,7 +81,7 @@ private _typesMRAP = if (_sideX == Occupants) then {vehNATOLightArmed} else {veh
 // Just getting the variables out of scope
 call {
 	private _typesAPC = if (_sideX == Occupants) then {vehNATOAPC} else {vehCSATAPC};
-	private _typeTank = if (_sideX == Occupants) then {vehNATOTank} else {vehCSATTank};
+	private _typesTank = if (_sideX == Occupants) then {selectRandom vehNATOTanks} else {selectRandom vehCSATTanks};
 	private _typeAA = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 
 	// Add up to 4 + tierWar APCs, selected randomly from available vehicles
@@ -89,12 +89,16 @@ call {
 		private _vcount = floor (timer getVariable [_x, 0]);
 		for "_i" from 1 to (_vcount) do { _vehPoolLand pushBack _x };
 	} forEach _typesAPC;
+
+	{
+		private _vcount = tierWar min (timer getVariable [_x, 0]);
+		for "_i" from 1 to (_vcount) do { _vehPoolLand pushBack _x };
+	} forEach _typesTank;
+
 	_vehPoolLand = _vehPoolLand call BIS_fnc_arrayShuffle;
 	_vehPoolLand resize ((4 + tierWar) min (count _vehPoolLand));
 
-	// Add in war-tier capped tanks and AA vehicles
-	private _tankCount = tierWar min (timer getVariable [_typeTank, 0]);
-	for "_i" from 1 to (_tankCount) do { _vehPoolLand pushBack _typeTank };
+	// Add in war-tier capped AA vehicles
 	private _aaCount = (ceil (tierWar / 3)) min (timer getVariable [_typeAA, 0]);
 	for "_i" from 1 to (_aaCount) do { _vehPoolLand pushBack _typeAA };
 

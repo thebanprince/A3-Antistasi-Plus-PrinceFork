@@ -77,7 +77,7 @@ if (_landAttack) then
 		if ([_aaType] call A3A_fnc_vehAvailable) then { _vehPool append [_aaType, 30] };
 	};
 	if (_typeOfAttack == "Tank") then {
-		private _tankType = if (_sideX == Occupants) then {vehNATOTank} else {vehCSATTank};
+		private _tankType = if (_sideX == Occupants) then {selectRandom vehNATOTanks} else {selectRandom vehCSATTanks};
 		if ([_tankType] call A3A_fnc_vehAvailable) then { _vehPool append [_tankType, 30] };
 	};
 

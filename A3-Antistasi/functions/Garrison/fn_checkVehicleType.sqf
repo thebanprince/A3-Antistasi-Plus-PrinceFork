@@ -38,12 +38,11 @@ switch (_preference) do
     };
     case ("LAND_ATTACK"):
     {
-      //Does this work? vehXXXXTank is not an array...
-      _result = (_vehicle in vehNATOAPC || {_vehicle in vehCSATAPC || {_vehicle == vehNATOTank || {_vehicle == vehCSATTank}}})
+      _result = (_vehicle in vehNATOAPC || {_vehicle in vehCSATAPC || {_vehicle in vehNATOTanks || {_vehicle in vehCSATTanks}}})
     };
     case ("LAND_TANK"):
     {
-      _result = (_vehicle == vehNATOTank || {_vehicle == vehCSATTank});
+      _result = (_vehicle in vehNATOTanks || {_vehicle in vehCSATTanks});
     };
     case ("LAND_AIR"):
     {

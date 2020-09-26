@@ -119,7 +119,7 @@ switch (tierWar) do
                 [vehCSATUAV, 15],
                 [vehCSATAA, 15],
                 [vehCSATAttackHelis, 15],
-                [vehCSATTank, 10],
+                [vehCSATTanks, 10],
                 [vehCSATTransportPlanes, 15]
             ];
         };
@@ -135,7 +135,7 @@ switch (tierWar) do
                 [vehNATOUAV, 15],
                 [vehNATOAA, 10],
                 [vehNATOAttackHelis, 25],
-                [vehNATOTank, 10]
+                [vehNATOTanks, 10]
             ];
         };
         if(_side == Invaders) then
@@ -146,7 +146,7 @@ switch (tierWar) do
                 [vehCSATTransportHelis, 10],
                 [vehCSATAA, 15],
                 [vehCSATAttackHelis, 15],
-                [vehCSATTank, 20],
+                [vehCSATTanks, 20],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 5],
                 [vehCSATPlaneAA, 5]
@@ -163,7 +163,7 @@ switch (tierWar) do
                 [vehNATOTransportHelis, 10],
                 [vehNATOAA, 10],
                 [vehNATOAttackHelis, 20],
-                [vehNATOTank, 15],
+                [vehNATOTanks, 15],
                 [vehNATOTransportPlanes, 15],
                 [vehNATOPlane, 10],
                 [vehNATOPlaneAA, 5]
@@ -177,7 +177,7 @@ switch (tierWar) do
                 [vehCSATTransportHelis, 5],
                 [vehCSATAA, 10],
                 [vehCSATAttackHelis, 20],
-                [vehCSATTank, 20],
+                [vehCSATTanks, 20],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 10],
                 [vehCSATPlaneAA, 10]
@@ -194,7 +194,7 @@ switch (tierWar) do
                 [vehNATOTransportHelis, 10],
                 [vehNATOAA, 5],
                 [vehNATOAttackHelis, 20],
-                [vehNATOTank, 20],
+                [vehNATOTanks, 20],
                 [vehNATOTransportPlanes, 15],
                 [vehNATOPlane, 10],
                 [vehNATOPlaneAA, 10]
@@ -207,7 +207,7 @@ switch (tierWar) do
                 [vehCSATAPC, 10],
                 [vehCSATAA, 10],
                 [vehCSATAttackHelis, 25],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 5],
                 [vehCSATPlaneAA, 10]
@@ -224,7 +224,7 @@ switch (tierWar) do
                 [vehNATOTransportHelis, 10],
                 [vehNATOAA, 5],
                 [vehNATOAttackHelis, 20],
-                [vehNATOTank, 20],
+                [vehNATOTanks, 20],
                 [vehNATOTransportPlanes, 15],
                 [vehNATOPlane, 10],
                 [vehNATOPlaneAA, 10]
@@ -237,7 +237,7 @@ switch (tierWar) do
                 [vehCSATAPC, 10],
                 [vehCSATAA, 10],
                 [vehCSATAttackHelis, 25],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 5],
                 [vehCSATPlaneAA, 10]
@@ -254,7 +254,7 @@ switch (tierWar) do
                 [vehNATOTransportHelis, 10],
                 [vehNATOAA, 5],
                 [vehNATOAttackHelis, 20],
-                [vehNATOTank, 20],
+                [vehNATOTanks, 20],
                 [vehNATOTransportPlanes, 15],
                 [vehNATOPlane, 10],
                 [vehNATOPlaneAA, 10]
@@ -267,7 +267,7 @@ switch (tierWar) do
                 [vehCSATAPC, 10],
                 [vehCSATAA, 10],
                 [vehCSATAttackHelis, 25],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 5],
                 [vehCSATPlaneAA, 10]
@@ -284,7 +284,7 @@ switch (tierWar) do
                 [vehNATOTransportHelis, 10],
                 [vehNATOAA, 5],
                 [vehNATOAttackHelis, 20],
-                [vehNATOTank, 20],
+                [vehNATOTanks, 20],
                 [vehNATOTransportPlanes, 15],
                 [vehNATOPlane, 10],
                 [vehNATOPlaneAA, 10]
@@ -297,7 +297,7 @@ switch (tierWar) do
                 [vehCSATAPC, 10],
                 [vehCSATAA, 10],
                 [vehCSATAttackHelis, 25],
-                [vehCSATTank, 25],
+                [vehCSATTanks, 25],
                 [vehCSATTransportPlanes, 15],
                 [vehCSATPlane, 5],
                 [vehCSATPlaneAA, 10]

@@ -37,7 +37,7 @@ private _accelerator = [1 + (tierWar + difficultyCoef) / 20, 0] select (tierWar 
 [0.2, "", staticATOccupants, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
 [0.1, "", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.2, "random", vehNATOAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehNATOTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "random", vehNATOTanks, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "", vehNATOAA, _airbases, _accelerator] spawn _fnc_economics;
 [0.3, "", vehNATOBoat, _seaports, _accelerator] spawn _fnc_economics;
 [0.2, "", vehNATOPlane, _airbases * 4, _accelerator] spawn _fnc_economics;
@@ -56,7 +56,7 @@ _accelerator = 1.2 + (tierWar + difficultyCoef) / 20;
 [0.2, "", staticATInvaders, _outposts * 0.2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
 [0.1, "", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.2, "random", vehCSATAPC, _outposts * 0.3 + _airbases * 2, _accelerator] spawn _fnc_economics;
-[0.1, "", vehCSATTank, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "random", vehCSATTanks, _outposts * 0.5 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "", vehCSATAA, _airbases, _accelerator] spawn _fnc_economics;
 [0.3, "", vehCSATBoat, _seaports, _accelerator] spawn _fnc_economics;
 [0.2, "", vehCSATPlane, _airbases * 4, _accelerator] spawn _fnc_economics;

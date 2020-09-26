@@ -21,7 +21,6 @@ removeAllAssignedItems _unit;
 removeAllWeapons _unit;
 _unit forceAddUniform (selectRandom allCivilianUniforms);
 
-//_airportsX = airportsX + outposts;// + (controlsX select {isOnRoad getMarkerPos _x});
 while {(captive _LeaderX) and (captive _unit)} do
 	{
 	sleep 1;

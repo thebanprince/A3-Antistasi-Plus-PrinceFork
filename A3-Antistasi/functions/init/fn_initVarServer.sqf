@@ -353,7 +353,7 @@ private _templateVariables = [
 	"vehNATORepairTruck",
 	"vehNATOLight",
 	"vehNATOAPC",
-	"vehNATOTank",
+	"vehNATOTanks",
 	"vehNATOAA",
 	"vehNATOAttack",
 	"vehNATOBoat",
@@ -419,7 +419,7 @@ private _templateVariables = [
 	"vehCSATRepairTruck",
 	"vehCSATLight",
 	"vehCSATAPC",
-	"vehCSATTank",
+	"vehCSATTanks",
 	"vehCSATAA",
 	"vehCSATAttack",
 	"vehCSATBoat",
@@ -656,7 +656,7 @@ DECLARE_SERVER_VAR(vehAmmoTrucks, _vehAmmoTrucks);
 private _vehAPCs = vehNATOAPC + vehCSATAPC;
 DECLARE_SERVER_VAR(vehAPCs, _vehAPCs);
 
-private _vehTanks = [vehNATOTank,vehCSATTank];
+private _vehTanks = [vehNATOTanks, vehCSATTanks];
 DECLARE_SERVER_VAR(vehTanks, _vehTanks);
 
 private _vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
@@ -709,8 +709,8 @@ if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","AC
 {timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
 {timer setVariable [_x,0,true]} forEach vehNATOAPC;
 {timer setVariable [_x,10,true]} forEach vehCSATAPC;
-timer setVariable [vehNATOTank,0,true];
-timer setVariable [vehCSATTank,10,true];
+{timer setVariable [_x,0,true]} forEach vehNATOTanks;
+{timer setVariable [_x,10,true]} forEach vehCSATTanks;
 timer setVariable [vehNATOAA,0,true];
 timer setVariable [vehCSATAA,3,true];
 timer setVariable [vehNATOBoat,3,true];
