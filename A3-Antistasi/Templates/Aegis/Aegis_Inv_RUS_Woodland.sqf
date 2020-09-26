@@ -116,9 +116,9 @@ vehCSATRepairTruck = "O_R_Truck_03_repair_F";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["O_R_APC_Tracked_02_cannon_F", "O_R_APC_Wheeled_02_rcws_v2_F"];
-vehCSATTank = "O_R_MBT_04_cannon_F";
+vehCSATTanks = ["O_R_MBT_04_cannon_F", "O_R_MBT_02_cannon_F", "O_R_MBT_04_command_F"];
 vehCSATAA = "O_R_APC_Tracked_02_AA_F";
-vehCSATAttack = vehCSATAPC + [vehCSATTank, "O_R_MBT_02_cannon_F", "O_R_MBT_04_command_F"];
+vehCSATAttack = vehCSATAPC + vehCSATTanks;
 //Boats
 vehCSATBoat = "O_R_Boat_Armed_01_hmg_F";
 vehCSATRBoat = "O_R_Boat_Transport_01_F";

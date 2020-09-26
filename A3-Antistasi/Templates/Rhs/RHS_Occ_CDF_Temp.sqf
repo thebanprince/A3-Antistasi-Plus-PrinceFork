@@ -147,9 +147,9 @@ vehNATORepairTruck = "rhsgref_cdf_gaz66_repair";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["rhsgref_cdf_btr60","rhsgref_cdf_btr70","rhsgref_BRDM2","rhsgref_cdf_bmp2k","rhsgref_cdf_bmp2e","rhsgref_cdf_bmd2","rhsgref_cdf_bmd1k","rhsgref_cdf_bmp1"];
-vehNATOTank = "rhsgref_cdf_t72ba_tv";
+vehNATOTanks = ["rhsgref_cdf_t72ba_tv"];
 vehNATOAA = "rhsgref_cdf_zsu234";
-vehNATOAttack = vehNATOAPC + [vehNATOTank];
+vehNATOAttack = vehNATOAPC + vehNATOTanks;
 //Boats
 vehNATOBoat = "I_Boat_Armed_01_minigun_F";
 vehNATORBoat = "I_Boat_Transport_01_F";

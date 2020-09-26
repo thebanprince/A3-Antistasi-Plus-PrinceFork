@@ -147,9 +147,9 @@ vehNATOAmmoTruck = "rhsgref_cdf_b_gaz66_ammo";
 vehNATORepairTruck = "rhsgref_cdf_b_gaz66_repair";
 //Armored
 vehNATOAPC = ["rhsusf_stryker_m1126_m2_wd","rhsusf_stryker_m1126_mk19_wd","rhsusf_stryker_m1134_wd","rhsusf_m113_usarmy","rhsusf_m113_usarmy_MK19","rhsusf_M1117_W","RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","rhsgref_cdf_b_bmd1pk","rhsgref_cdf_b_bmp1","rhsgref_cdf_b_bmp2d","rhsgref_cdf_b_bmd2","rhsgref_cdf_b_bmp2e","rhsgref_BRDM2_ATGM_b"];
-vehNATOTank = "rhsgref_cdf_b_t80bv_tv";
+vehNATOTanks = ["rhsgref_cdf_b_t80bv_tv", "rhsgref_cdf_b_t72ba_tv","rhsgref_cdf_b_t80b_tv","rhsgref_cdf_b_t72bb_tv","rhsusf_m1a1hc_wd"];
 vehNATOAA = "rhsgref_cdf_b_zsu234";
-vehNATOAttack = vehNATOAPC + ["rhsgref_cdf_b_t72ba_tv","rhsgref_cdf_b_t80b_tv","rhsgref_cdf_b_t72bb_tv","rhsusf_m1a1hc_wd",vehNATOTank];
+vehNATOAttack = vehNATOAPC + vehNATOTanks;
 //Boats
 vehNATOBoat = "rhsusf_mkvsoc";
 vehNATORBoat = "rhsgref_hidf_rhib";

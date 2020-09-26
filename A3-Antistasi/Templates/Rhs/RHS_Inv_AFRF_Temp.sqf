@@ -115,9 +115,9 @@ vehCSATRepairTruck = "rhs_gaz66_repair_vdv";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["rhs_bmd1r","rhs_bmp1p_vdv","rhs_bmd1p","rhs_bmd2m","rhs_bmp1p_vdv","rhs_bmp2k_vdv","rhs_btr80a_vdv","rhs_bmp3mera_msv","rhs_bmd1pk"];
-vehCSATTank = "rhs_t90sab_tv";
+vehCSATTanks = ["rhs_t90sab_tv"];
 vehCSATAA = "rhs_zsu234_aa";
-vehCSATAttack = vehCSATAPC + [vehCSATTank];
+vehCSATAttack = vehCSATAPC + vehCSATTanks;
 //Boats
 vehCSATBoat = "O_T_Boat_Armed_01_hmg_F";
 vehCSATRBoat = "O_T_Boat_Transport_01_F";

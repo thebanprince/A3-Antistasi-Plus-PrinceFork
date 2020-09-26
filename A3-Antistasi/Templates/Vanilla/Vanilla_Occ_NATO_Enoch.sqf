@@ -151,9 +151,9 @@ vehNATORepairTruck = "B_Truck_01_repair_F";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F"];
-vehNATOTank = "B_MBT_01_cannon_F";
+vehNATOTanks = ["B_MBT_01_cannon_F"];
 vehNATOAA = "B_APC_Tracked_01_AA_F";
-vehNATOAttack = vehNATOAPC + [vehNATOTank];
+vehNATOAttack = vehNATOAPC + vehNATOTanks;
 //Boats
 vehNATOBoat = "B_Boat_Armed_01_minigun_F";
 vehNATORBoat = "B_Boat_Transport_01_F";
