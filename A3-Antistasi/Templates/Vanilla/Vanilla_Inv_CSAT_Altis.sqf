@@ -162,22 +162,10 @@ if (gameMode == 4) then
 ////////////////////////////////////
 //Assembled Statics
 CSATMG = "I_G_HMG_02_high_F";
-CSATGMG = "O_R_GMG_01_high_F";
+CSATGMG = "O_GMG_01_high_F";
 staticATInvaders = "O_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 CSATMortar = "O_Mortar_01_F";
-
-//Static Weapon Bags
-MGStaticCSATB = "I_G_HMG_02_high_weapon_F";
-ATStaticCSATB = "O_AT_01_weapon_F";
-AAStaticCSATB = "O_AA_01_weapon_F";
-MortStaticCSATB = "O_Mortar_01_weapon_F";
-//Short Support
-supportStaticCSATB = "I_G_HMG_02_support_F";
-//Tall Support
-supportStaticCSATB2 = "I_G_HMG_02_support_high_F";
-//Mortar Support
-supportStaticCSATB3 = "O_Mortar_01_support_F";
 
 CSATAARadar = "O_Radar_System_02_F";
 CSATAACiws = "";
