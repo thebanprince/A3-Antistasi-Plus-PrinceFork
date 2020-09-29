@@ -490,12 +490,12 @@
         <Czech>Postavte armádu FIA od nuly a porazte síly AAF a CSAT v celé mapě dynamické misi.</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
-        <Original>Antistasi Altis</Original>
-        <English>Antistasi Altis</English>
-        <French>Antistasi Altis</French>
-        <Russian>Antistasi Альтис</Russian>
-        <German>Antistasi Altis</German>
-        <Czech>Antistasi Altis</Czech>
+        <Original>Antistasi Plus - Altis</Original>
+        <English>Antistasi Plus - Altis</English>
+        <French>Antistasi Plus - Altis</French>
+        <Russian>Antistasi Plus - Алтис</Russian>
+        <German>Antistasi Plus - Altis</German>
+        <Czech>Antistasi Plus - Altis</Czech>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
@@ -741,9 +741,9 @@
         <Czech>Buďte vedoucím odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-        <Original>Antistasi - Liberation of Altis</Original>
-        <English>Antistasi - Liberation of Altis</English>
-        <French>Antistasi - Libération d'Altis</French>
+        <Original>Antistasi Plus - Liberation of Altis</Original>
+        <English>Antistasi Plus - Liberation of Altis</English>
+        <French>Antistasi Plus - Libération d'Altis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_text">
         <Original>Antistasi - Liberation of Virolahti</Original>
@@ -756,8 +756,8 @@
         <French>Antistasi - Libération de Stratis</French>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
-        <Original>Antistasi Altis</Original>
-        <English>Antistasi Altis</English>
+        <Original>Antistasi Plus - Altis</Original>
+        <English>Antistasi Plus - Altis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_short_text">
         <Original>Antistasi Virolahti</Original>
@@ -768,12 +768,12 @@
         <English>Antistasi Stratis</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi - Liberation of Altis (BLUFOR)</Original>
-        <English>Antistasi - Liberation of Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Liberation of Altis (BLUFOR)</Original>
+        <English>Antistasi Plus - Liberation of Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Altis (BLUFOR)</Original>
-        <English>Antistasi Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Altis (BLUFOR)</Original>
+        <English>Antistasi Plus - Altis (BLUFOR)</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>

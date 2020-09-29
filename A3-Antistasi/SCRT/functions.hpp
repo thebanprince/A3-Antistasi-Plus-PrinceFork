@@ -71,6 +71,7 @@ class SCRT
         class common_givePrisonerReleasePaycheck {};
         class common_getNearPlayers {};
         class common_selectRandomSite {};
+        class common_unflipVehicle {};
     };
 
     class Quest

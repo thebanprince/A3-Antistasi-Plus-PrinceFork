@@ -1421,13 +1421,13 @@ class radio_comm 		{
 		class 10slots_L5: RscButton
 		{
 			idc = -1;
-			text = "Unflip Vehicle"; //--- ToDo: Localize;
+			text = "Unflip Vehicle";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.710047 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Unflips the vehicle at cursor/crosshair. Requires 4 people to successfully perform, heavy vehicles requires repair truck in proximity.";
-			action = "";
+			action = "closeDialog 0; [] call SCRT_fnc_common_unflipVehicle";
 		};
 	};
 }; 										// slots: 8
