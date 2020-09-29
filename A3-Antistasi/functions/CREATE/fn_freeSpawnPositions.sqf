@@ -12,7 +12,7 @@ if(_spawns isEqualTo [[],[],[],[]]) exitWith
 diag_log format ["Logging spawn places of %1", _marker];
 [_spawns, "Spawn places"] call A3A_fnc_logArray;
 
-for "_i" from 0 to 3 do
+for "_i" from 0 to 4 do
 {
   _places = _spawns select _i;
   {
