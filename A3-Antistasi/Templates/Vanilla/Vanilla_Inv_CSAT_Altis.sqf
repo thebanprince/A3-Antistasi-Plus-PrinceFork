@@ -24,17 +24,17 @@ CSATAmmoBox = "O_supplyCrate_F";
 //PvP Loadouts
 CSATPlayerLoadouts = [
 	//Team Leader
-	["vanilla_opfor_teamLeader_enoch"] call A3A_fnc_getLoadout,
+	["vanilla_opfor_teamLeader_altis"] call A3A_fnc_getLoadout,
 	//Medic
-	["vanilla_opfor_medic_enoch"] call A3A_fnc_getLoadout,
+	["vanilla_opfor_medic_altis"] call A3A_fnc_getLoadout,
 	//Autorifleman
-	["vanilla_opfor_machineGunner_enoch"] call A3A_fnc_getLoadout,
+	["vanilla_opfor_machineGunner_altis"] call A3A_fnc_getLoadout,
 	//Marksman
-	["vanilla_opfor_marksman_enoch"] call A3A_fnc_getLoadout,
+	["vanilla_opfor_marksman_altis"] call A3A_fnc_getLoadout,
 	//Anti-tank Scout
-	["vanilla_opfor_AT_enoch"] call A3A_fnc_getLoadout,
+	["vanilla_opfor_AT_altis"] call A3A_fnc_getLoadout,
 	//AT2
-	["vanilla_opfor_AT2_enoch"] call A3A_fnc_getLoadout
+	["vanilla_opfor_AT2_altis"] call A3A_fnc_getLoadout
 ];
 
 //PVP Player Vehicles
@@ -44,6 +44,7 @@ vehCSATPVP = ["O_MRAP_02_F","O_LSV_02_unarmed_F","O_MRAP_02_hmg_F","O_LSV_02_arm
 //             UNITS             ///
 ////////////////////////////////////
 //Military Units
+CSATGrunt = "O_Soldier_F";
 CSATOfficer = "O_officer_F";
 CSATBodyG = "O_V_Soldier_hex_F";
 CSATCrew = "O_crew_F";
@@ -160,11 +161,23 @@ if (gameMode == 4) then
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Statics
-CSATMG = "O_HMG_01_high_F";
-CSATGMG = "O_GMG_01_high_F";
+CSATMG = "I_G_HMG_02_high_F";
+CSATGMG = "O_R_GMG_01_high_F";
 staticATInvaders = "O_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 CSATMortar = "O_Mortar_01_F";
+
+//Static Weapon Bags
+MGStaticCSATB = "I_G_HMG_02_high_weapon_F";
+ATStaticCSATB = "O_AT_01_weapon_F";
+AAStaticCSATB = "O_AA_01_weapon_F";
+MortStaticCSATB = "O_Mortar_01_weapon_F";
+//Short Support
+supportStaticCSATB = "I_G_HMG_02_support_F";
+//Tall Support
+supportStaticCSATB2 = "I_G_HMG_02_support_high_F";
+//Mortar Support
+supportStaticCSATB3 = "O_Mortar_01_support_F";
 
 CSATAARadar = "O_Radar_System_02_F";
 CSATAACiws = "";

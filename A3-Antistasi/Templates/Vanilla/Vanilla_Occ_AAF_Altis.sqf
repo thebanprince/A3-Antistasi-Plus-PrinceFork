@@ -140,6 +140,7 @@ vehNATOLightArmed = ["I_MRAP_03_hmg_F"];
 vehNATOLightUnarmed = ["I_MRAP_03_F"];
 vehNATOTrucks = ["I_Truck_02_covered_F","I_Truck_02_transport_F"];
 vehNATOCargoTrucks = [];
+vehNATOFlatbedTrucks = [];
 vehNATOAmmoTruck = "I_Truck_02_ammo_F";
 vehNATORepairTruck = "I_Truck_02_box_F";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
@@ -189,3 +190,7 @@ NATOMG = "I_G_HMG_02_high_F";
 staticATOccupants = "I_static_AT_F";
 staticAAOccupants = "I_static_AA_F";
 NATOMortar = "I_Mortar_01_F";
+
+NATOAARadar = "";
+NATOAACiws = "";
+NATOAASam = "";

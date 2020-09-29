@@ -142,7 +142,8 @@ vehNATOBike = "B_Quadbike_01_F";
 vehNATOLightArmed = ["rhsgref_cdf_b_ural_Zu23","rhsusf_m1043_w_s_m2","rhsusf_m1045_w_s","rhsusf_CGRCAT1A2_M2_usmc_wd","rhsusf_M1232_MC_M2_usmc_wd","rhsusf_m1240a1_m2_usmc_wd","rhsusf_m1240a1_m240_usmc_wd", "rhsgref_cdf_b_reg_uaz_ags","rhsgref_cdf_b_reg_uaz_dshkm","rhsgref_cdf_b_reg_uaz_spg9","rhsgref_BRDM2_b","rhsgref_BRDM2_HQ_b"];
 vehNATOLightUnarmed = ["rhsusf_CGRCAT1A2_usmc_wd","rhsusf_m998_w_s_2dr_fulltop","rhsusf_m1043_w_s","rhsusf_m1240a1_usmc_wd","rhsgref_BRDM2UM_b","rhsgref_cdf_b_reg_uaz"];
 vehNATOTrucks = ["rhsgref_cdf_b_gaz66","rhsgref_cdf_b_ural","rhsgref_cdf_b_zil131_open","rhsgref_cdf_b_ural_open","rhsgref_cdf_b_gaz66o","rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy"];
-vehNATOCargoTrucks = ["rhsgref_cdf_b_gaz66_flat","rhsgref_cdf_b_gaz66o_flat","rhsgref_cdf_b_zil131_flatbed_cover","rhsgref_cdf_b_zil131_flatbed","rhsusf_M1083A1P2_B_M2_WD_flatbed_fmtv_usarmy"];
+vehNATOCargoTrucks = ["rhsgref_cdf_b_zil131_flatbed_cover","rhsgref_cdf_b_zil131_flatbed","rhsusf_M1083A1P2_B_M2_WD_flatbed_fmtv_usarmy"];
+vehNATOFlatbedTrucks = ["rhsgref_cdf_b_gaz66_flat", "rhsgref_cdf_b_gaz66o_flat"];
 vehNATOAmmoTruck = "rhsgref_cdf_b_gaz66_ammo";
 vehNATORepairTruck = "rhsgref_cdf_b_gaz66_repair";
 //Armored

@@ -165,3 +165,7 @@ CSATGMG = "O_GMG_01_high_F";
 staticATInvaders = "O_static_AT_F";
 staticAAInvaders = "O_static_AA_F";
 CSATMortar = "O_Mortar_01_F";
+
+CSATAARadar = "O_Radar_System_02_F";
+CSATAACiws = "";
+CSATAASam = "O_SAM_System_04_F";

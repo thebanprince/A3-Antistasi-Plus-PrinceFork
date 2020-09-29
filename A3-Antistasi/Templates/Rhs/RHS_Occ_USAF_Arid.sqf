@@ -139,6 +139,7 @@ vehNATOLightArmed = ["rhsusf_m1025_d_s_m2","rhsusf_CGRCAT1A2_M2_usmc_d","rhsusf_
 vehNATOLightUnarmed = ["rhsusf_m1025_d_s","rhsusf_m998_d_s_2dr","rhsusf_m998_d_s_2dr_fulltop","rhsusf_m998_d_s_4dr","rhsusf_CGRCAT1A2_usmc_d","rhsusf_M1232_usarmy_d","rhsusf_m1240a1_usmc_d"];
 vehNATOTrucks = ["rhsusf_M1078A1P2_D_open_fmtv_usarmy","rhsusf_M1078A1P2_B_D_fmtv_usarmy","rhsusf_M1078A1P2_B_D_open_fmtv_usarmy","rhsusf_M1083A1P2_D_fmtv_usarmy","rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy"];
 vehNATOCargoTrucks = [];
+vehNATOFlatbedTrucks = [];
 vehNATOAmmoTruck = "rhsusf_M977A4_AMMO_BKIT_usarmy_d";
 vehNATORepairTruck = "rhsusf_M977A4_REPAIR_BKIT_usarmy_d";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;

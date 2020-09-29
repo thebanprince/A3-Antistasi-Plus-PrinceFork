@@ -146,6 +146,7 @@ vehNATOLightArmed = ["B_MRAP_01_hmg_F"];
 vehNATOLightUnarmed = ["B_T_MRAP_01_F"];
 vehNATOTrucks = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
 vehNATOCargoTrucks = ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"];
+vehNATOFlatbedTrucks = ["B_Truck_01_flatbed_F"];
 vehNATOAmmoTruck = "B_Truck_01_ammo_F";
 vehNATORepairTruck = "B_Truck_01_repair_F";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
@@ -195,3 +196,7 @@ NATOMG = "B_HMG_01_high_F";
 staticATOccupants = "B_static_AT_F";
 staticAAOccupants = "B_static_AA_F";
 NATOMortar = "B_Mortar_01_F";
+
+NATOAARadar = "B_Radar_System_01_F";
+NATOAACiws = "B_AAA_System_01_F";
+NATOAASam = "B_SAM_System_03_F";

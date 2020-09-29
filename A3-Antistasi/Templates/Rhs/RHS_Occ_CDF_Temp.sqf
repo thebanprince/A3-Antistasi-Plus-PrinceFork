@@ -142,6 +142,7 @@ vehNATOLightArmed = ["rhsgref_cdf_uaz_ags","rhsgref_cdf_reg_uaz_dshkm","rhsgref_
 vehNATOLightUnarmed = ["rhsgref_cdf_reg_uaz","rhsgref_cdf_reg_uaz_open","rhsgref_BRDM2UM"];
 vehNATOTrucks = ["rhsgref_cdf_gaz66","rhsgref_cdf_ural","rhsgref_cdf_ural_open","rhsgref_cdf_gaz66o","rhsgref_cdf_zil131","rhsgref_cdf_zil131_open"];
 vehNATOCargoTrucks = [];
+vehNATOFlatbedTrucks = [];
 vehNATOAmmoTruck = "rhsgref_cdf_gaz66_ammo";
 vehNATORepairTruck = "rhsgref_cdf_gaz66_repair";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
