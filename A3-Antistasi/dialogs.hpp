@@ -1301,25 +1301,25 @@ class radio_comm 		{
 
 	class controls {
 		//Menu Structure
-		class 8slots_box: BOX
+		class 10slots_box: BOX
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_box_text;
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
-			h = 0.492103 * safezoneH;
+			h = 0.5751155 * safezoneH;
 		};
-		class 8slots_frame: RscFrame
+		class 10slots_frame: RscFrame
 		{
 			idc = -1;
 			text = "Battle Options"; //--- ToDo: Localize;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
-			h = 0.462103 * safezoneH;
+			h = 0.5451155 * safezoneH;
 		};
-		class 8slots_Back: RscButton
+		class 10slots_Back: RscButton
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
@@ -1330,7 +1330,7 @@ class radio_comm 		{
 			action = "closeDialog 0";
 		};
 		//Action Buttons
-		class 8slots_L1: RscButton
+		class 10slots_L1: RscButton
 		{
 			idc = -1;
 			text = "Fast Travel"; //--- ToDo: Localize;
@@ -1341,7 +1341,7 @@ class radio_comm 		{
 			tooltip = "Teleport your squad or a HC selected squad to a friendly zone depending on several factors";
 			action = "closeDialog 0; [] spawn A3A_fnc_fastTravelRadio;";
 		};
-		class 8slots_R1: RscButton
+		class 10slots_R1: RscButton
 		{
 			idc = -1;
 			text = "Player and Money"; //--- ToDo: Localize;
@@ -1352,7 +1352,7 @@ class radio_comm 		{
 			tooltip = "Look at some player and interact with him";
 			action = "closeDialog 0;if (isMultiPlayer) then {nul = createDialog ""player_money""} else {[""Money"", ""MP Only Menu""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_L2: RscButton
+		class 10slots_L2: RscButton
 		{
 			idc = -1;
 			text = "Undercover ON"; //--- ToDo: Localize;
@@ -1363,7 +1363,7 @@ class radio_comm 		{
 			tooltip = "Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you";
 			action = "closeDialog 0;nul = [] spawn A3A_fnc_goUndercover";
 		};
-		class 8slots_R2: RscButton
+		class 10slots_R2: RscButton
 		{
 			idc = -1;
 			text = "Construct Here"; //--- ToDo: Localize;
@@ -1374,7 +1374,7 @@ class radio_comm 		{
 			tooltip = "Construct in the spot where you are a selected building facing this direction";
 			action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
 		};
-		class 8slots_L3: RscButton
+		class 10slots_L3: RscButton
 		{
 			idc = -1;
 			text = "Garage Vehicle"; //--- ToDo: Localize;
@@ -1385,7 +1385,7 @@ class radio_comm 		{
 			tooltip = "Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve";
 			action = "closeDialog 0; if (isMultiplayer && [player] call A3A_fnc_isMember) then {_nul = createDialog ""garage_check""} else {nul = [false] call A3A_fnc_garageVehicle};";
 		};
-		class 8slots_R3: RscButton
+		class 10slots_R3: RscButton
 		{
 			idc = -1;
 			text = "Unlock Vehicle"; //--- ToDo: Localize;
@@ -1396,7 +1396,7 @@ class radio_comm 		{
 			tooltip = "Allow other groups to mount this vehicle";
 			action = "closeDialog 0;[] call A3A_fnc_unlockVehicle";
 		};
-		class 8slots_L4: RscButton
+		class 10slots_L4: RscButton
 		{
 			idc = -1;
 			text = "AI Management"; //--- ToDo: Localize;
@@ -1407,7 +1407,7 @@ class radio_comm 		{
 			tooltip = "Several AI options";
 			action = "if (player == leader group player) then {closeDialog 0;nul = createDialog ""AI_management""} else {[""AI Management"", ""Only group leaders may access to this option""] call A3A_fnc_customHint;};";
 		};
-		class 8slots_R4: RscButton
+		class 10slots_R4: RscButton
 		{
 			idc = -1;
 			text = "Commander"; //--- ToDo: Localize;
@@ -1417,6 +1417,17 @@ class radio_comm 		{
 			h = 0.0560125 * safezoneH;
 			tooltip = "Open commander options";
 			action = "closeDialog 0; nul = createDialog ""commander_comm"";";
+		};
+		class 10slots_L5: RscButton
+		{
+			idc = -1;
+			text = "Unflip Vehicle"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.710047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Unflips the vehicle at cursor/crosshair. Requires 4 people to successfully perform, heavy vehicles requires repair truck in proximity.";
+			action = "";
 		};
 	};
 }; 										// slots: 8
