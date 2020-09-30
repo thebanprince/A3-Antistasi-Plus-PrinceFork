@@ -196,3 +196,7 @@ NATOMG = "B_E_HMG_01_high_F";
 staticATOccupants = "B_E_Static_AT_F";
 staticAAOccupants = "B_E_Static_AA_F";
 NATOMortar = "B_E_Mortar_01_F";
+
+NATOAARadar = "B_E_Radar_System_01_F";
+NATOAACiws = "B_AAA_System_01_F";
+NATOAASam = "B_E_SAM_System_03_F";
