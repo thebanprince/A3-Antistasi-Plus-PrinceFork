@@ -46,6 +46,7 @@ class SCRT
         file = "SCRT\Misc";
         class misc_getMissionTitle {};
         class misc_toggleMenuBlur {};
+        class misc_getWorldName {};
     };
 
     class Trader
