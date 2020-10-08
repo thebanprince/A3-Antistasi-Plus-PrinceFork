@@ -52,7 +52,7 @@ defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
-markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
+markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + milbases + ["Synd_HQ"];
 if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Building roads for %2.",servertime,worldname];
 };
@@ -298,12 +298,13 @@ switch (toLower worldName) do {
 	};
 	case "taviana": {
 	    _posAntennas = [[2125.54,7056.53,0],[13270.3,7026.68,0],[22507.8,19886.3,0],[10385.4,18230.1,-0.000144958],[1057.86,18179.6,0.341925],[8381.83,10848.1,0],[7713.27,9080.84,0],[6902.18,8357.42,0],[3764.54,17179.6,0],[9146.62,14856,0],[11146.5,15750.3,0],[9574,4720.8,0],[16310.4,10091.3,0],[17227.3,8238.31,0],[15627.1,5517.46,0],[13994.7,12354.9,0],[14799.2,18632,0],[11333.4,941.792,0]];
-	    _posBank = [[5023.18,17540.2,0],[7838.32,4289.21,0],[14823.1,9329.75,0],[11795.1,15797.1,0],[9208.6,8103.17,0]];
+	    _posBank = [[5033.44,17475.4,0],[7801.44,4305.77,0],[14850.1,9391.44,0],[11808,15824.6,0],[9202.28,8109.23,0]];
+		_blackListPos = [];
 	    antennas = [];
 	};
 	case "cup_chernarus_A3":
 	{
-		_posAntennas = [[7175.2,3018.23,0],[1275.49,6215.75,0],[3688.6,5958.29,0],[13326.2,3256.85,0],[514.324,11082.6,0],[1418.55,14495.1,0]];
+		_posAntennas = [[7175.2,3018.23,0],[1275.49,6215.75,0],[3688.6,5958.29,0],[13326.2,3256.85,0],[514.324,11082.6,0],[1418.55,14495.1,0],[11445.2,7565.58,0],[13326.4,3257.08,0],[8138.89,9286.22,0]];
 		_posBank = [[6831.07,2433.6,0],[12127.5,9093.7,0],[2832.72,5240.6,0],[10396.5,2266.98,0]];
 		_blackListPos = [];
 	    antennas = [];
@@ -422,6 +423,7 @@ publicVariable "blackListDest";
 publicVariable "markersX";
 publicVariable "citiesX";
 publicVariable "airportsX";
+publicVariable "milbases";
 publicVariable "resourcesX";
 publicVariable "factories";
 publicVariable "outposts";
