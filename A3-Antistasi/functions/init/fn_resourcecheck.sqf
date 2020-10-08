@@ -7,7 +7,7 @@ scriptName "resourcecheck";
 _countSave = autoSaveInterval;
 
 while {true} do {
-	nextTick = time + 600;
+	nextTick = time + 720;
 	waitUntil {sleep 15; time >= nextTick};
 	if (isMultiplayer) then {waitUntil {sleep 10; isPlayer theBoss}};
 	_suppBoost = 1+ ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports);
@@ -92,7 +92,11 @@ while {true} do {
 		};
 	} forEach citiesX;
 	if (_popCSAT > (_popTotal / 3)) then {["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"]};
-	if ((_popFIA > _popAAF) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]};
+	if ((_popFIA > _popAAF) && 
+	({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX) &&
+	({sidesX getVariable [_x,sideUnknown] == teamPlayer} count milbases == count milbases)) then {
+		["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]
+	};
 	
 	{
 	_recurso = _x;
@@ -102,9 +106,33 @@ while {true} do {
 		};
 	} forEach resourcesX;
 	_hrAddBLUFOR = (round _hrAddBLUFOR);
+
+	//rebel salary
+	private _rebels = (call BIS_fnc_listPlayers) select {side _x == teamPlayer};
+	private _rebelsCount = count _rebels;
+	private _totalSalary = _recAddSDK / 4;
+		
+	if(_rebelsCount > 0) then {
+		// private _incomePerPlayer = round((_totalSalary / _rebelsCount) / 10);
+		private _incomePerPlayer = round(_totalSalary / _rebelsCount);
+		{
+			// [_incomePerPlayer, _x] call A3A_fnc_playerScoreAdd;
+			_x setVariable ["moneyX", ((_x getVariable ["moneyX", 0]) + _incomePerPlayer) max 0, true];
+			private _paycheckText = format [
+    	        "<t size='0.6'>%1 got paid <t color='#00FF00'>%2 €</t> for fighting for the freedom!</t>",
+    	        name _x,  
+    	        _incomePerPlayer
+    	    ];
+
+			[petros, "income", _paycheckText] remoteExec ["A3A_fnc_commsMP", _x];
+		} forEach _rebels;
+
+		_recAddSDK = _recAddSDK - _totalSalary;
+	};
+
 	_recAddSDK = (round _recAddSDK);
 
-	_textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €",_hrAddBLUFOR,_recAddSDK];
+	_textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'></t></t><br/>Manpower: +%1<br/>Money: +%2 €",_hrAddBLUFOR,_recAddSDK];
 	[] call A3A_fnc_FIAradio;
 
 	_updated = [] call A3A_fnc_arsenalManage;
