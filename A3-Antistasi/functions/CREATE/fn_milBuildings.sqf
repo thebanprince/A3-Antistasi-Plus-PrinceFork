@@ -70,7 +70,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
         if(_typeB == "Land_ControlTower_02_F") exitWith {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
             private _dir = (getDir _building) - 180;
             private _zpos = AGLToASL (_building buildingPos 15);
             private _pos = _zpos getPos [0, _dir];
@@ -80,6 +80,8 @@ for "_i" from 0 to (count _buildings) - 1 do
         if 	(_typeB in listbld) exitWith			// just the big towers?
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+            private _gmgType = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+            private _atType = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
             _dir = getDir _building;
             _zOffset = [0, 0, -0.3]; //fix spawn hight
             _Tdir = _dir + 90; //relative rotation to building
@@ -87,7 +89,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = _zpos getPos [-1, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _Tdir] call _fnc_spawnStatic;
+            [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
             sleep 0.5;			// why only here?
             _Tdir = _dir + 0;
             _zpos = AGLToASL (_building buildingPos 13); //relative North
@@ -100,8 +102,8 @@ for "_i" from 0 to (count _buildings) - 1 do
             _zpos = AGLToASL (_building buildingPos 16); //relative South
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _Tdir] call _fnc_spawnStatic;
+            _pos = ASLToATL ([(_pos select 0) + 2, (_pos select 1) + 2, _zpos select 2]);
+            [_atType, _pos, _Tdir] call _fnc_spawnStatic;
         };
         if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
         {

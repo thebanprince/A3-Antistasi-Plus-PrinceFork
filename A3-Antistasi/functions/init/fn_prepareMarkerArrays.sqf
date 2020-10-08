@@ -9,6 +9,7 @@ resourcesX = [];
 factories = [];
 outposts = [];
 seaports = [];
+milbases = [];
 controlsX = [];
 seaMarkers = [];
 seaSpawn = [];
@@ -24,13 +25,13 @@ fnc_sortPlacementMarker =
 
   //Calculating linked main marker
   _type = "";
-  switch (_split select 0) do
-  {
+  switch (_split select 0) do {
     case ("airp"): {_type = "airport";};
     case ("outp"): {_type = "outpost";};
     case ("reso"): {_type = "resource";};
     case ("fact"): {_type = "factory";};
     case ("seap"): {_type = "seaport";};
+    case ("milb"): {_type = "milbase";};
   };
 
   _number = parseNumber (_split select 1);
@@ -68,6 +69,7 @@ fnc_sortPlacementMarker =
   {
     //Detect main marker
     case ("airport"): {airportsX pushBack _x;};
+    case ("milbase"): {milbases pushBack _x;};
     case ("spawnpoint"): {spawnPoints pushBack _x;};
     case ("resource"): {resourcesX pushBack _x;};
     case ("factory"): {factories pushBack _x;};
@@ -97,6 +99,7 @@ fnc_sortPlacementMarker =
     case ("reso");
     case ("fact");
     case ("outp");
+    case ("milb");
     case ("seap"): {[_placementMarker, _split] call fnc_sortPlacementMarker;};
 
     default
@@ -105,9 +108,6 @@ fnc_sortPlacementMarker =
     };
   };
 } forEach _allMarker;
-
-//diag_log "Marker setup done, placement marker are";
-//[_placementMarker, "Placements"] call A3A_fnc_logArray;
 
 {
     [_x select 0, _x select 1] spawn A3A_fnc_initSpawnPlaces;

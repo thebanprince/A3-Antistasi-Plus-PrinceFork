@@ -14,6 +14,7 @@ _size = [_markerX] call A3A_fnc_sizeMarker;
 
 if ((!isNull _playerX) and (captive _playerX)) exitWith {["Capture", "You cannot Capture the Flag while Undercover"] call A3A_fnc_customHint;};
 if ((_markerX in airportsX) and (tierWar < 3)) exitWith {["Capture", "You cannot capture Airports until you reach War Level 3"] call A3A_fnc_customHint;};
+if ((_markerX in milbases) and (tierWar < 3)) exitWith {["Capture", "You cannot capture Military Bases until you reach War Level 3"] call A3A_fnc_customHint;};
 
 //Check if the flag is locked
 if(_flagX getVariable ["isGettingCaptured", false]) exitWith

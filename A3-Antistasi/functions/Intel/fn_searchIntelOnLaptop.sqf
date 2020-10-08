@@ -32,7 +32,7 @@ if(_isTrap) exitWith
 
 private _marker = _intel getVariable "marker";
 private _side = sidesX getVariable _marker;
-private _isAirport = (_marker in airportsX);
+private _isHardOutpost = ((_marker in airportsX) || (_marker in milbases));
 
 //Hack laptop to get intel
 private _pointsPerSecond = 25;
@@ -63,7 +63,7 @@ private _neededPoints = 1000 + random 1000;
 } forEach ([200, 0, _intel, teamPlayer] call A3A_fnc_distanceUnits);
 
 private _noAttackChance = 0.2;
-if(_isAirport) then
+if(_isHardOutpost) then
 {
     _noAttackChance = 0;
 }
@@ -75,7 +75,7 @@ else
     };
 };
 private _largeAttackChance = 0.2;
-if(_isAirport) then
+if(_isHardOutpost) then
 {
     _largeAttackChance = 0.4;
 }

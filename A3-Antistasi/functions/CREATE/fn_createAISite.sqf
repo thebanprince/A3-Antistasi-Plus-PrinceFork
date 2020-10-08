@@ -25,7 +25,7 @@ if(_side == sideUnknown) exitWith
 if(_side == Occupants) then
 {
   //Frontline is never hold by militia
-  if(!_isFrontline && {!(_marker in airportsX)}) then
+  if(!_isFrontline && {!(_marker in airportsX)} && {!(_marker in milbases)}) then
   {
     _chance = 10 min (tierWar + difficultyCoef);
     _isMilitia = selectRandomWeighted [false, _chance, true, (10 - _chance)]; //Well it doesn't change the units (facepalm)
@@ -70,22 +70,32 @@ _flag allowDamage false;
 [_flag,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flag];
 
 _box = objNull;
-if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
+if(_marker in airportsX || {_marker in seaports || {_marker in outposts || {_marker in milbases}}}) then
 {
   if (_side == Occupants) then
   {
   	_box = NATOAmmoBox createVehicle _markerPos;
     [_box] spawn A3A_fnc_fillLootCrate;
+    
+    if(_marker in milbases) then {
+        _additionalBox = NATOAmmoBox createVehicle _markerPos;
+        [_additionalBox] spawn A3A_fnc_fillLootCrate;
+    };
   }
   else
   {
   	_box = CSATAmmoBox createVehicle _markerPos;
     [_box] spawn A3A_fnc_fillLootCrate;
+
+    if(_marker in milbases) then {
+        _additionalBox = CSATAmmoBox createVehicle _markerPos;
+        [_additionalBox] spawn A3A_fnc_fillLootCrate;
+    };
   };
   _box call jn_fnc_logistics_addAction;
 
 };
 
-[_marker, _patrolMarker, _flag, _box] call A3A_fnc_cycleSpawn;
+[_marker, _patrolMarker, _flag] call A3A_fnc_cycleSpawn;
 
 diag_log "Marker spawn prepared!";

@@ -67,7 +67,7 @@ _fnc_initGarrison =
 			}
 			else
 			{
-				if(_type != "Airport" && {_type != "Outpost"}) then
+				if(_type != "Airport" && {_type != "Outpost"} && {_type != "MilitaryBase"}) then
 				{
 					_groupsRandom = groupsFIASquad;
 				}
@@ -107,7 +107,7 @@ if (gameMode == 1) then
 			_controlsCSAT = ["control_20"];
 		};
 		case "altis": {
-			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "control_52", "control_33"];
+			_mrkCSAT = ["airport_2", "seaport_4", "outpost_5", "outpost_6", "milbase_4", "control_52", "control_33"];
 			_controlsCSAT = ["control_52", "control_33"];
 		};
 		case "chernarus_summer": {
@@ -148,6 +148,11 @@ if (gameMode == 1) then
 		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
             _controlsCSAT = ["control", "control_1", "control_2"];
 		};
+		case "cup_chernarus_A3": {
+			//TODO: chernarus OPFOR control zones
+			// _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
+            // _controlsCSAT = ["control", "control_1", "control_2"];
+		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
@@ -179,6 +184,7 @@ else
 [_mrkCSAT, factories, "u_installation", "Factory"] call _fnc_initMarker;
 [_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] call _fnc_initMarker;
 [_mrkCSAT, seaports, "b_naval", "Sea Port"] call _fnc_initMarker;
+[_mrkCSAT, milbases, "b_hq", "%1 Military Base", true] call _fnc_initMarker;
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
 
@@ -220,6 +226,13 @@ if (debug) then {
 
 [seaports, "Seaport"] call _fnc_initGarrison;
 [seaports, "Other", [1,0,0]] call A3A_fnc_createGarrison;
+
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Military Base stuff.", servertime];
+};
+
+[milbases, "MilitaryBase"] call _fnc_initGarrison;					
+[milbases, "MilitaryBase", [0,0,0]] call A3A_fnc_createGarrison;
 
 //New system, adding cities
 [citiesX, "City", [0,0,0]] call A3A_fnc_createGarrison;

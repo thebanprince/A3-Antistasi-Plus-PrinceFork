@@ -4,7 +4,7 @@ _markerX = _this select 0;
 _isFrontier = false;
 
 _sideX = sidesX getVariable [_markerX,sideUnknown];
-_mrkENY = (airportsX + outposts + seaports) select {sidesX getVariable [_x,sideUnknown] != _sideX};
+_mrkENY = (airportsX + outposts + seaports + milbases) select {sidesX getVariable [_x,sideUnknown] != _sideX};
 
 if (count _mrkENY > 0) then
 	{

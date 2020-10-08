@@ -24,7 +24,7 @@ private _dateFinal = [date select 0, date select 1, date select 2, date select 3
 private _enddateNum = dateToNumber _dateFinal;
 
 private _convoyTypes = [];
-if ((_mrkDest in airportsX) or (_mrkDest in outposts)) then
+if ((_mrkDest in airportsX) or (_mrkDest in outposts) or (_mrkDest in milbases)) then
 {
 	_convoyTypes = ["Ammunition","Armor"];
 	if (_mrkDest in outposts) then {if (((count (garrison getVariable [_mrkDest, []]))/2) >= [_mrkDest] call A3A_fnc_garrisonSize) then {_convoyTypes pushBack "Reinforcements"}};

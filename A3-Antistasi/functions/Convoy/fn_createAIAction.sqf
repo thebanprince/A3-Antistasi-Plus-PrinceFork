@@ -121,7 +121,7 @@ if(_type == "patrol") then
 	{
 		if (!_super) then
 		{
-			_siteX = [(resourcesX + factories + airportsX + outposts + seaports),_posDestination] call BIS_fnc_nearestPosition;
+			_siteX = [(resourcesX + factories + airportsX + outposts + seaports + milbases),_posDestination] call BIS_fnc_nearestPosition;
 			_airportsX = _airportsX select {({_x == _siteX} count (killZones getVariable [_x,[]])) < 3};
 		};
 	};
@@ -361,7 +361,7 @@ if(_type == "convoy") then
     if(!_abort && !(_origin isEqualTo "")) then
     {
       _typeConvoy = [];
-      if ((_destination in airportsX) or (_destination in outposts)) then
+      if ((_destination in airportsX) or (_destination in outposts) or (_destination in milbases)) then
       {
       	_typeConvoy = ["Ammunition","Armor"];
         /* Reinforcement convoys will be standard not a special mission

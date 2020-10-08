@@ -9,8 +9,6 @@
 // 	How to use: 
 // 	[position] call SCRT_fnc_trader_createTrader;
 
-
-
 _position = _this select 0;
 
 
@@ -81,16 +79,5 @@ _traderX disableAI "MOVE";
 _traderX disableAI "COVER";
 _traderX disableAI "SUPPRESSION";
 _traderX setDir -30;
-
-// _allPlayers = call BIS_fnc_listPlayers;
-// _playersCount = count _allPlayers;
-
-// if(_playersCount > 0) then {
-//     { 
-//         _player = _x;
-// 		[_traderX, _player] remoteExecCall ["disableCollisionWith", 0, true];
-
-//     } forEach _allPlayers;
-// };
 
 _traderX

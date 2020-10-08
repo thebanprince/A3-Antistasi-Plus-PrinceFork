@@ -204,6 +204,7 @@ class A3A
 		class createAIcontrols {};
 		class createAIOutposts {};
 		class createAIResources {};
+		class createAIMilbase {};
 		class createAISite {};
 		class createCIV {};
 		class createFIAOutposts2 {};
@@ -519,6 +520,7 @@ class A3A
 		class aceModCompat {};
 		class getLoadout {};
 		class rhsModCompat {};
+		class cupModCompat {};
 	};
 
 	class UI

@@ -19,7 +19,7 @@ private _fileName = "placeIntel";
 ] call A3A_fnc_log;
 
 //Catch invalid cases
-if(!(_marker  in airportsX || {_marker in outposts})) exitWith
+if(!(_marker  in airportsX || {_marker in outposts} || {_marker in milbases})) exitWith
 {
     [
         1,

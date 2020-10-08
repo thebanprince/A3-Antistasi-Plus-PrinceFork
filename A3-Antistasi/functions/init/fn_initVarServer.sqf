@@ -349,6 +349,7 @@ private _templateVariables = [
 	"vehNATOLightUnarmed",
 	"vehNATOTrucks",
 	"vehNATOCargoTrucks",
+	"vehNATOFlatbedTrucks",
 	"vehNATOAmmoTruck",
 	"vehNATORepairTruck",
 	"vehNATOLight",
@@ -379,6 +380,9 @@ private _templateVariables = [
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
+	"NATOAARadar",
+	"NATOAACiws",
+	"NATOAASam",
 
 	//Invaders
 	"nameInvaders",
@@ -445,6 +449,9 @@ private _templateVariables = [
 	"staticATInvaders",
 	"staticAAInvaders",
 	"CSATMortar",
+	"CSATAARadar",
+	"CSATAACiws",
+	"CSATAASam",
 	"shop_UAV",
     "shop_AA",
     "shop_MRAP",
@@ -674,7 +681,7 @@ DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_Tropical_RM","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 
-private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,vehCSATUAV,vehCSATUAVSmall,CSATMG,CSATMortar];
+private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATGMG, CSATMortar, CSATAARadar, CSATAACiws, CSATAASam];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
 private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
@@ -690,6 +697,9 @@ if (hasACE) then {
 };
 if (hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
+};
+if (hasCup) then {
+	[] call A3A_fnc_cupModCompat;
 };
 
 ////////////////////////////////////
@@ -763,6 +773,8 @@ airportUpdateTiers = [3, 6, 8];
 airportStaticsTiers = [0.5, 0.75, 1];
 outpostUpdateTiers = [4, 7, 9];
 outpostStaticsTiers = [0.4, 0.7, 1];
+milbaseUpdateTiers = [3, 6, 8];
+milbaseStaticsTiers = [0.5, 0.75, 1];
 otherUpdateTiers = [3, 7];
 otherStaticsTiers = [0.3, 1];
 [] call A3A_fnc_initPreference;

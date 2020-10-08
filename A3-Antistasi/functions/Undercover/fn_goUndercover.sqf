@@ -13,7 +13,7 @@ _changeX = "";
 _roadblocks = (controlsX select {
 	isOnRoad(getMarkerPos _x)
 });
-_airportsX = airportsX + outposts + _roadblocks;
+_airportsX = airportsX + outposts + _roadblocks + milbases;
 _airportsX1 = airportsX;
 _compromised = _player getVariable "compromised";
 

@@ -166,7 +166,7 @@ if (_spawnParameter isEqualType []) then
 {
 	_typeVehX = if (_sideX == Occupants) then
 	{
-		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks + vehNATOFlatbedTrucks} else {[vehFIATruck]};
 	}
 	else
 	{

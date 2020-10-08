@@ -1,4 +1,4 @@
-private ["_soldiers","_vehiclesX","_groups","_base","_posBase","_roads","_typeCar","_arrayAirports","_arrayDestinations","_radiusX","_road","_veh","_vehCrew","_groupVeh","_groupX","_groupP","_distanceX","_spawnPoint"];
+private ["_soldiers","_vehiclesX","_groups","_base","_posBase","_roads","_typeCar","_possibleBases","_arrayDestinations","_radiusX","_road","_veh","_vehCrew","_groupVeh","_groupX","_groupP","_distanceX","_spawnPoint"];
 
 diag_log "[Antistasi] Spawning AAF Road Patrol (AAFroadPatrol.sqf)";
 
@@ -8,8 +8,8 @@ _groups = [];
 _base = "";
 _roads = [];
 
-_arrayAirports = (seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-_arrayAirports1 = [];
+_possibleBases = (seaports + airportsX + outposts + milbases) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
+_selectedBases = [];
 
 private _isValidPatrolOrigin = if (isMultiplayer) then {
 	{playableUnits findIf {(side (group _x) == teamPlayer) and (_x distance2d _this < distanceForLandAttack)} != -1};
@@ -18,51 +18,61 @@ private _isValidPatrolOrigin = if (isMultiplayer) then {
 };
 
 {
-	_airportX = _x;
-	_pos = getMarkerPos _airportX;
-	if (_pos call _isValidPatrolOrigin) then {_arrayAirports1 pushBack _airportX};
-} forEach _arrayAirports;
+	_possibleBase = _x;
+	_pos = getMarkerPos _possibleBase;
+	if (_pos call _isValidPatrolOrigin) then {_selectedBases pushBack _possibleBase};
+} forEach _possibleBases;
 
-if (_arrayAirports1 isEqualTo []) exitWith {};
+if (_selectedBases isEqualTo []) exitWith {};
 
-_base = selectRandom _arrayAirports1;
+_base = selectRandom _selectedBases;
 _typeCar = "";
 _sideX = Occupants;
 _typePatrol = "LAND";
-if (sidesX getVariable [_base,sideUnknown] == Occupants) then
-	{
-	if ((_base in seaports) and ([vehNATOBoat] call A3A_fnc_vehAvailable)) then
-		{
+if (sidesX getVariable [_base,sideUnknown] == Occupants) then {
+	if ((_base in seaports) and ([vehNATOBoat] call A3A_fnc_vehAvailable)) then {
 		_typeCar = vehNATOBoat;
 		_typePatrol = "SEA";
-		}
-	else
-		{
-		if (random 100 < aggressionOccupants) then
-			{
-			_typeCar = if (_base in airportsX) then {selectRandom (vehNATOLight + [vehNATOPatrolHeli])} else {selectRandom vehNATOLight};
-			if (_typeCar == vehNATOPatrolHeli) then {_typePatrol = "AIR"};
-			}
-		else
-			{
-			_typeCar = selectRandom [vehPoliceCar,vehFIAArmedCar];
-			};
-		};
 	}
-else
-	{
-	_sideX = Invaders;
-	if ((_base in seaports) and ([vehCSATBoat] call A3A_fnc_vehAvailable)) then
-		{
-		_typeCar = vehCSATBoat;
-		_typePatrol = "SEA";
+	else {
+		if (random 100 < aggressionOccupants) then {
+			_typeCar = if (_base in airportsX) then {
+				if(_base in milbases) then {
+					selectRandom vehNATOAttack;
+				} else {
+					selectRandom (vehNATOLight + [vehNATOPatrolHeli]);
+				};
+			} else {
+				selectRandom vehNATOLight
+			};
+			
+			if (_typeCar == vehNATOPatrolHeli) then {_typePatrol = "AIR"};
 		}
-	else
-		{
-		_typeCar = if (_base in airportsX) then {selectRandom (vehCSATLight + [vehCSATPatrolHeli])} else {selectRandom vehCSATLight};
-		if (_typeCar == vehCSATPatrolHeli) then {_typePatrol = "AIR"};
+		else {
+			_typeCar = selectRandom [vehPoliceCar,vehFIAArmedCar];
 		};
 	};
+}
+else {
+	_sideX = Invaders;
+	if ((_base in seaports) and ([vehCSATBoat] call A3A_fnc_vehAvailable)) then {
+		_typeCar = vehCSATBoat;
+		_typePatrol = "SEA";
+	}
+	else {
+		_typeCar = if (_base in airportsX) then {
+			if(_base in milbases) then {
+				selectRandom vehCSATAttack;
+			} else {
+				selectRandom (vehCSATLight + [vehCSATPatrolHeli]);
+			};
+		} else {
+			selectRandom vehCSATLight
+		};
+			
+		if (_typeCar == vehCSATPatrolHeli) then {_typePatrol = "AIR"};
+	};
+};
 
 _posbase = getMarkerPos _base;
 
@@ -91,26 +101,21 @@ if (count _arrayDestinations < 4) exitWith {};
 
 AAFpatrols = AAFpatrols + 1;
 
-if (_typePatrol != "AIR") then
-	{
-	if (_typePatrol == "SEA") then
-		{
+if (_typePatrol != "AIR") then {
+	if (_typePatrol == "SEA") then {
 		_posbase = [_posbase,50,150,10,2,0,0] call BIS_Fnc_findSafePos;
-		}
-	else
-		{
+	}
+	else {
 		_indexX = airportsX find _base;
-		if (_indexX != -1) then
-		{
+		if (_indexX != -1) then {
 			_spawnPoint = server getVariable (format ["spawn_%1", _base]);
 			_posBase = getMarkerPos _spawnPoint;
 		}
-		else
-		{
+		else {
 			_posbase = position ([_posbase] call A3A_fnc_findNearestGoodRoad);
 		};
-		};
 	};
+};
 
 _vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
 _veh = _vehicle select 0;

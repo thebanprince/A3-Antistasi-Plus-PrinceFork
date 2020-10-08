@@ -28,6 +28,7 @@ if(_winner != teamPlayer) then
     {
         case (_marker in airportsX): {_type = "Airport"};
         case (_marker in outposts): {_type = "Outpost"};
+        case (_marker in milbases): {_type = "MilitaryBase"};
         case (_marker in citiesX): {_type = "City"};
     };
     private _preference = garrison getVariable (format ["%1_preference", _type]);

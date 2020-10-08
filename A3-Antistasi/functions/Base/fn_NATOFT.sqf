@@ -40,7 +40,7 @@ if (count _positionTel > 0) then
 
 	if ((sidesX getVariable [_base,sideUnknown] == teamPlayer) or (_base in _mrkENY)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone"] call A3A_fnc_customHint; openMap [false,false]};
 
-	if ((!(_base in airportsX)) and (!(_base in seaports)) and (!(_base in outposts)) and (_base != _mrkRespawn)) exitWith {["Fast Travel", "You can only Fast Travel to Airbases, Outposts and Seaports"] call A3A_fnc_customHint; openMap [false,false]};
+	if (!(_base in airportsX) and !(_base in milbases) and !(_base in seaports) and !(_base in outposts) and (_base != _mrkRespawn)) exitWith {["Fast Travel", "You can only Fast Travel to Airbases, Outposts, Seaports and Military Bases"] call A3A_fnc_customHint; openMap [false,false]};
 
 	{
 		if (((side (group _x) == teamPlayer) or (side (group _x) == _enemyFaction)) and (_x distance (getMarkerPos _base) < 500) and (not(captive _x))) then {_checkX = true};

@@ -122,7 +122,8 @@ if (!_forced) then
 {
 	private _airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == _sideX) and ([_x,true] call A3A_fnc_airportCanAttack) and (getMarkerPos _x distance2D _posDest < distanceForAirAttack)};
 	private _outposts = if (_threatEvalLand <= 15) then {outposts select {(sidesX getVariable [_x,sideUnknown] == _sideX) and ([_posDest,getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _posDest < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
-	private _bases = _airportsX + _outposts;
+	private _milbases = if (_threatEvalLand <= 15) then {milbases select {(sidesX getVariable [_x,sideUnknown] == _sideX) and ([_posDest,getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _posDest < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
+	private _bases = _airportsX + _outposts + _milbases;
 	if (_isMarker) then
 	{
 		if (_target in blackListDest) then { _bases = _bases - outposts };
@@ -133,7 +134,7 @@ if (!_forced) then
 	{
 		if (!_super) then
 		{
-			private _siteX = [(resourcesX + factories + airportsX + outposts + seaports),_posDest] call BIS_fnc_nearestPosition;
+			private _siteX = [(resourcesX + factories + airportsX + outposts + seaports + milbases),_posDest] call BIS_fnc_nearestPosition;
 			_bases = _bases select {({_x == _siteX} count (killZones getVariable [_x,[]])) < 3};
 		};
 	};

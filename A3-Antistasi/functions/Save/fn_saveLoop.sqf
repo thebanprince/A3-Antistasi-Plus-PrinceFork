@@ -212,7 +212,7 @@ if (!isDedicated) then {
 _dataX = [];
 {
 	_dataX pushBack [_x,server getVariable _x];
-} forEach airportsX + outposts;
+} forEach airportsX + outposts + milbases;
 
 ["idlebases",_dataX] call A3A_fnc_setStatVariable;
 
@@ -226,7 +226,7 @@ _dataX = [];
 _dataX = [];
 {
 	_dataX pushBack [_x,killZones getVariable [_x,[]]];
-} forEach airportsX + outposts;
+} forEach airportsX + outposts + milbases;
 
 ["killZones",_dataX] call A3A_fnc_setStatVariable;
 

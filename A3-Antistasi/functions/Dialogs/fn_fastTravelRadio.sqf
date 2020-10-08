@@ -54,7 +54,7 @@ _positionTel = positionTel;
 if (count _positionTel > 0) then
 	{
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
-	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ or Airbases"] call A3A_fnc_customHint;};
+	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call A3A_fnc_customHint;};
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone"] call A3A_fnc_customHint; openMap [false,false]};
 
 	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
@@ -86,7 +86,7 @@ if (count _positionTel > 0) then
 			{if (vehicle _x != _x) then {_vehicles pushBackUnique (vehicle _x)}} forEach units _groupX;
 			{if ((vehicle _x) in _vehicles) exitWith {_checkForPlayer = true}} forEach (call A3A_fnc_playableUnits);
 			};
-		if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX))) exitWith {["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase",groupID _groupX]] call A3A_fnc_customHint;};
+		if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ, Airbase or Military Base",groupID _groupX]] call A3A_fnc_customHint;};
 		{
 		_unit = _x;
 		if ((!isPlayer _unit) or (_unit == player)) then

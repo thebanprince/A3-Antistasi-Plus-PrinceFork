@@ -15,7 +15,7 @@ _killer = _this select 1;
 						_super = false;
 						_markerX = (leader _groupX) getVariable "markerX";
 						if (!isNil "_markerX") then {
-							if (_markerX in airportsX) then {_super = true};
+							if (_markerX in airportsX || {_markerX in milbases}) then {_super = true};
 						};
 						if (vehicle _killer == _killer) then {
 							[getPosASL _enemy,side _x,"Normal",_super] remoteExec ["A3A_fnc_patrolCA", 2];

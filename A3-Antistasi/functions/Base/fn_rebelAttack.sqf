@@ -21,7 +21,7 @@ private _fileName = "rebelAttack";
     true
 ] call A3A_fnc_log;
 
-private _possibleTargets = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;;
+private _possibleTargets = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;
 private _possibleStartBases = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) && (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
 
 if(_side != sideEnemy) then
@@ -192,6 +192,7 @@ if (count _availableTargets == 0) exitWith
     switch (true) do
     {
         case (_target in airportsX): {_targetMultiplier = 0.1};
+        case (_target in milbases): {_targetMultiplier = 0.2};
         case (_target in outposts): {_targetMultiplier = 0.35};
         case (_target in resourcesX): {_targetMultiplier = 0.5};
         case (_target in factories): {_targetMultiplier = 0.6};
@@ -370,6 +371,7 @@ else
     private _waves =
 		_attackPoints / 2500
 		+ ([0, 1] select (_attackTarget in airportsX))
+        + ([0, 1] select (_attackTarget in milbases))
 		+ (count allPlayers / 40)
 		+ (tierWar / 10);
 

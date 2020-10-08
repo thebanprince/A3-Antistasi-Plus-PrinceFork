@@ -148,7 +148,8 @@ else
 						}
 						else
 						{
-							_bases = airportsX select {(getMarkerPos _x distance _mortarX < distanceForAirAttack) and ([_x,true] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
+							_possibleSites = airportsX + milbases;
+							_bases = _possibleSites select {(getMarkerPos _x distance _mortarX < distanceForAirAttack) and ([_x,true] call A3A_fnc_airportCanAttack) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
 							if (count _bases > 0) then
 							{
 								_base = [_bases,_positionX] call BIS_fnc_nearestPosition;

@@ -27,7 +27,7 @@ private _groups = [];
 private _effects = [];
 
 //choosing enemy delivery target site
-private _potentialSites = outposts + airportsX;
+private _potentialSites = outposts + milbases + airportsX;
 _potentialSites = _potentialSites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 private _deliverySite = getMarkerPos _missionOrigin;
 if(count _potentialSites > 0) then {

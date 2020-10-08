@@ -99,12 +99,6 @@ if (isServer) then {
 
 	["chopForest"] call A3A_fnc_getStatVariable;
 
-	/*
-	{
-	_buildings = nearestObjects [_x, listMilBld, 25, true];
-	(_buildings select 1) setDamage 1;
-	} forEach destroyedBuildings;
-	*/
 
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
@@ -113,15 +107,8 @@ if (isServer) then {
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
-	//Isn't that just tierCheck.sqf?
-//	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
-//	if (tierWar > 10) then {tierWar = 10};
-//	publicVariable "tierWar";
-
 	tierPreference = 1;
 	publicVariable "tierPreference";
-	//Updating the preferences based on war level
-//	[] call A3A_fnc_updatePreference;
 
 	// update war tier silently, calls updatePreference if changed
 	[true] call A3A_fnc_tierCheck;
@@ -129,10 +116,11 @@ if (isServer) then {
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new
 		diag_log "No WurzelGarrison found, creating new!";
-		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
+		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;
 		[resourcesX, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 		[factories, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;
 		[outposts, "Outpost", [1,1,0]] spawn A3A_fnc_createGarrison;
+		[milbases, "MilitaryBase", [0,0,0]] spawn A3A_fnc_createGarrison;
 		[seaports, "Other", [1,0,0]] spawn A3A_fnc_createGarrison;
 
 	} else {
@@ -207,7 +195,20 @@ if (isServer) then {
 				_nul = [_x] call A3A_fnc_createControls;
 			};
 		} forEach seaports;
+
+		{
+			_pos = getMarkerPos _x;
+			_dmrk = createMarker [format ["Dum%1",_x], _pos];
+			_dmrk setMarkerShape "ICON";
+			_dmrk setMarkerType "b_hq";
+			_dmrk setMarkerText "Military Base";
+			[_x] call A3A_fnc_mrkUpdate;
+			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
+				_nul = [_x] call A3A_fnc_createControls;
+			};
+		} forEach milbases;
 	};
+
 	statsLoaded = 0; publicVariable "statsLoaded";
 	placementDone = true; publicVariable "placementDone";
 	petros allowdamage true;

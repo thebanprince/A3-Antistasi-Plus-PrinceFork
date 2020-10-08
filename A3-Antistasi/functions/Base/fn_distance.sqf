@@ -67,8 +67,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 	{
 	if (spawner getVariable _markerX != 0) then
 		{
-		if (spawner getVariable _markerX == 2) then
-			{
+		if (spawner getVariable _markerX == 2) then {
 			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or (_markerX in forcedSpawn)) then
 				{
 				spawner setVariable [_markerX,0,true];
@@ -80,15 +79,28 @@ if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 						if (({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1};false} count allUnits > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createCIV"] call A3A_fnc_scheduler};
 						};
 					}
-				else
-					{
-					if (_markerX in controlsX) then {[[_markerX],"A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler} else {
-					if (_markerX in airportsX) then {[[_markerX],"A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler} else {
-					if (((_markerX in resourcesX) or (_markerX in factories))) then {[[_markerX],"A3A_fnc_createAIResources"] call A3A_fnc_scheduler} else {
-					if ((_markerX in outposts) or (_markerX in seaports)) then {[[_markerX],"A3A_fnc_createAIOutposts"] call A3A_fnc_scheduler};};};};
+				else {
+					switch(true) do {
+    					case(_markerX in controlsX): {
+							[[_markerX],"A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
+						};
+						case(_markerX in airportsX): {
+							[[_markerX],"A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+						};
+						case((_markerX in resourcesX) or (_markerX in factories)): {
+							[[_markerX],"A3A_fnc_createAIResources"] call A3A_fnc_scheduler;
+						};
+						case((_markerX in outposts) or (_markerX in seaports)): {
+							[[_markerX],"A3A_fnc_createAIOutposts"] call A3A_fnc_scheduler;
+						};
+						case(_markerX in milbases): {
+							[[_markerX],"A3A_fnc_createAIMilbase"] call A3A_fnc_scheduler;
+						};
+						default { };
 					};
 				};
-			}
+			};
+		}
 		else
 			{
 			if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if ((_x distance2D _positionMRK < distanceSPWN2)) exitWith {1}} count _opfor > 0) or (_markerX in forcedSpawn)) then
@@ -195,15 +207,28 @@ else
 			{
 			if (spawner getVariable _markerX == 2) then
 				{
-				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then
-					{
+				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then {
 					spawner setVariable [_markerX,0,true];
-					if (_markerX in controlsX) then {[[_markerX],"A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler} else {
-					if (_markerX in airportsX) then {[[_markerX],"A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler} else {
-					if (((_markerX in resourcesX) or (_markerX in factories))) then {[[_markerX],"A3A_fnc_createAIResources"] call A3A_fnc_scheduler} else {
-					if ((_markerX in outposts) or (_markerX in seaports)) then {[[_markerX],"A3A_fnc_createAIOutposts"] call A3A_fnc_scheduler};};};};
+					switch(true) do {
+    					case(_markerX in controlsX): {
+							[[_markerX],"A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
+						};
+						case(_markerX in airportsX): {
+							[[_markerX],"A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+						};
+						case((_markerX in resourcesX) or (_markerX in factories)): {
+							[[_markerX],"A3A_fnc_createAIResources"] call A3A_fnc_scheduler;
+						};
+						case((_markerX in outposts) or (_markerX in seaports)): {
+							[[_markerX],"A3A_fnc_createAIOutposts"] call A3A_fnc_scheduler;
+						};
+						case(_markerX in milbases): {
+							[[_markerX],"A3A_fnc_createAIMilbase"] call A3A_fnc_scheduler;
+						};
+						default { };
 					};
-				}
+				};
+			}
 			else
 				{
 				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _greenfor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN2) exitWith {1}} count _blufor > 0) or (_markerX in forcedSpawn)) then

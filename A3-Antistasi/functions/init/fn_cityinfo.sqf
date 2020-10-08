@@ -150,6 +150,21 @@ while {visibleMap} do
 				_textX = format ["%2 Seaport%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
 			};
+		if (_siteX in milbases) then
+			{
+			if (not(sidesX getVariable [_siteX,sideUnknown] == teamPlayer)) then
+				{
+				_textX = format ["%1 Military Base",_nameFaction];
+				_busy = [_siteX,true] call A3A_fnc_airportCanAttack;
+				if (_busy) then {_textX = format ["%1<br/>Status: Idle",_textX]} else {_textX = format ["%1<br/>Status: Busy",_textX]};
+				_garrison = count (garrison getVariable [_siteX, []]);
+				if (_garrison >= 40) then {_textX = format ["%1<br/>Garrison: Good",_textX]} else {if (_garrison >= 20) then {_textX = format ["%1<br/>Garrison: Weakened",_textX]} else {_textX = format ["%1<br/>Garrison: Decimated",_textX]}};
+				}
+			else
+				{
+				_textX = format ["%2 Military Base%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+				};
+			};
 		if (_siteX in outpostsFIA) then
 			{
 			if (isOnRoad (getMarkerPos _siteX)) then

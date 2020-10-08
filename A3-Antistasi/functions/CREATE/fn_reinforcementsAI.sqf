@@ -38,7 +38,7 @@ _reinfPlaces = [];
 	//Reinforce nearby sides
 	if ((_numberX >= 4) and (reinfPatrols <= 4)) then
 	{
-		_potentials = (outposts + seaports - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
+		_potentials = (outposts + milbases + seaports - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
 		if (_potentials isEqualTo []) then
 		{
 			_potentials = (resourcesX + factories - _reinfPlaces - (killZones getVariable [_airportX,[]])) select {sidesX getVariable [_x,sideUnknown] == _sideX};
@@ -69,8 +69,8 @@ _reinfPlaces = [];
 							selectRandom _squad;
 							} else {
 								call SCRT_fnc_unit_getCurrentNATOSquad
-								}
-							} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
+							}
+						} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
 							
 						[_typeGroup,_sideX,_siteX,2] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
@@ -95,21 +95,26 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 
 
 {
-		//Setting the number of recruitable units per ticks per airport
+	//Setting the number of recruitable units per ticks per airport
     garrison setVariable [format ["%1_recruit", _x], 12, true];
 } forEach airportsX;
 
 {
     //Setting the number of recruitable units per ticks per outpost
-		garrison setVariable [format ["%1_recruit", _x], 0, true];
+	garrison setVariable [format ["%1_recruit", _x], 0, true];
 } forEach outposts;
+
+{
+    //Setting the number of recruitable units per ticks per outpost
+	garrison setVariable [format ["%1_recruit", _x], 6, true];
+} forEach milbases;
 
 //New reinf system (still reactive, so a bit shitty)
 {
 	_side = _x;
-  _reinfMarker = if(_x == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
+  	_reinfMarker = if(_x == Occupants) then {reinforceMarkerOccupants} else {reinforceMarkerInvader};
 	_canReinf = if(_x == Occupants) then {canReinforceOccupants} else {canReinforceInvader};
-  diag_log format ["Side %1, needed %2, possible %3", _x, count _reinfMarker, count _canReinf];
+  	diag_log format ["Side %1, needed %2, possible %3", _x, count _reinfMarker, count _canReinf];
 	_reinfMarker sort true;
 	{
 		_target = (_x select 1);
@@ -118,9 +123,8 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 		//TODO add a feedback if something was send or not
 	} forEach _reinfMarker;
 } forEach [Occupants, Invaders];
-//hint "Reinforce AI done!";
 
-//Replenish airports if possible
+//Replenish airports and milbases if possible
 {
 	[_x] call A3A_fnc_replenishGarrison;
-} forEach airportsX;
+} forEach (airportsX + milbases);

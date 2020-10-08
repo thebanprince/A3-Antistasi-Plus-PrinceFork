@@ -8,6 +8,7 @@ _vehicleMarker = [];
 _heliMarker = [];
 _hangarMarker = [];
 _mortarMarker = [];
+_samMarker = [];
 
 //Calculating marker prefix
 _markerPrefix = "";
@@ -19,6 +20,7 @@ switch (_markerSplit select 0) do
   case ("resource"): {_markerPrefix = "reso_";};
   case ("factory"): {_markerPrefix = "fact_";};
   case ("seaport"): {_markerPrefix = "seap_";};
+  case ("milbase"): {_markerPrefix = "milb_";};
 };
 if(count _markerSplit > 1) then
 {
@@ -40,6 +42,7 @@ _mainMarker = getMarkerPos _marker;
     case ("helipad"): {_heliMarker pushBack _fullName;};
     case ("hangar"): {_hangarMarker pushBack _fullName;};
     case ("mortar"): {_mortarMarker pushBack _fullName;};
+    case ("sam"): {_samMarker pushBack _fullName;};
   };
   _fullName setMarkerAlpha 0;
 } forEach _placementMarker;
@@ -198,7 +201,14 @@ _mortarSpawns = [];
   _mortarSpawns pushBack [[_pos, 0], false];
 } forEach _mortarMarker;
 
-_spawns = [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns];
+_samSpawns = [];
+{
+  _pos = getMarkerPos _x;
+  _pos set [2, ((_pos select 2) + 0.1) max 0.1];
+  _samSpawns pushBack [[_pos, 0], false];
+} forEach _samMarker;
+
+_spawns = [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns, _samSpawns];
 
 //diag_log format ["%1 set to %2", _marker, _spawns];
 

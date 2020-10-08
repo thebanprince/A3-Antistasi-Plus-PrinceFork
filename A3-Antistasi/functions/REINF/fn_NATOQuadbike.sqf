@@ -4,7 +4,7 @@ _sideX = side player;
 _nameX = if (_sideX == Occupants) then {nameOccupants} else {nameInvaders};
 
 if (sidesX getVariable [_markerX,sideUnknown] != _sideX) exitWith {["Transportation", format ["You need to be close to a zone belonging to %1 in order to request a vehicle",_nameX]] call A3A_fnc_customHint;};
-if ((!(_markerX in airportsX)) and (!(_markerX in seaports)) and (!(_markerX in outposts))) exitWith {["Transportation", "You need to be close to an Airbase, Seaport or Outpost of your side in order to request a vehicle"] call A3A_fnc_customHint;};
+if ((!(_markerX in airportsX)) and (!(_markerX in milbases)) and (!(_markerX in seaports)) and (!(_markerX in outposts))) exitWith {["Transportation", "You need to be close to an Airbase, Seaport, Outpost or Military Base of your side in order to request a vehicle"] call A3A_fnc_customHint;};
 if (not(player inArea _markerX)) exitWith {["Transportation", "You need to be close to an Airbase, Seaport or Outpost in order to request a vehicle"] call A3A_fnc_customHint;};
 
 _typeBike = if (_sideX == Occupants) then {selectRandom vehNATOPVP} else {selectRandom vehCSATPVP};

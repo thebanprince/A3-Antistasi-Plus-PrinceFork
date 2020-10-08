@@ -1,5 +1,5 @@
 _filename = "fn_patrolReinf";
-private ["_mrkDestination","_mrkOrigin","_numberX","_sideX","_typeGroup","_typeVehX","_indexX","_spawnPoint","_pos","_timeOut","_veh","_groupX","_landPos","_Vwp0","_posOrigin","_land","_pos1","_pos2"];
+private ["_mrkDestination","_mrkOrigin","_numberX","_sideX","_typeGroup","_typeVehX","_spawnPoint","_pos","_timeOut","_veh","_groupX","_landPos","_Vwp0","_posOrigin","_land","_pos1","_pos2"];
 
 _mrkDestination = _this select 0;
 _mrkOrigin = _this select 1;
@@ -43,7 +43,6 @@ _groupX = grpNull;
 
 if (_land) then
 {
-	_indexX = airportsX find _mrkOrigin;
 	_spawnPoint = server getVariable (format ["spawn_%1", _mrkOrigin]);
 	_pos = getMarkerPos _spawnPoint;
 	_timeOut = 0;

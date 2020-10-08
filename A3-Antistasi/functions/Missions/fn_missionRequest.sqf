@@ -187,7 +187,7 @@ if (_typeX == "LOG") then {
 };
 if (_typeX == "RES") then
 	{
-	_sites = airportsX + outposts + citiesX;
+	_sites = airportsX + milbases + outposts + citiesX;
 	_sites = _sites select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 	if (count _sites > 0) then
 		{
@@ -216,7 +216,7 @@ if (_typeX == "CONVOY") then
 	{
 	if (!bigAttackInProgress) then
 		{
-		_sites = (airportsX + resourcesX + factories + seaports + outposts - blackListDest) + (citiesX select {count (garrison getVariable [_x,[]]) < 10});
+		_sites = (airportsX + milbases + resourcesX + factories + seaports + outposts - blackListDest) + (citiesX select {count (garrison getVariable [_x,[]]) < 10});
 		_sites = _sites select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and !(_x in blackListDest)};
 		if (count _sites > 0) then
 			{

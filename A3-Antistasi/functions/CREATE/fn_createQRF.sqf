@@ -425,7 +425,7 @@ else
 	else {waitUntil {sleep 5; (_timeX < time) or (call _fnc_lowStrength)}};
 	if (call _fnc_lowStrength) then
 	{
-		_markersX = resourcesX + factories + airportsX + outposts + seaports select {getMarkerPos _x distance _posDest < distanceSPWN};
+		_markersX = resourcesX + factories + airportsX + outposts + seaports + milbases select {getMarkerPos _x distance _posDest < distanceSPWN};
 		_killZones = killZones getVariable [_source,[]];
 		_killZones append _markersX;
 		killZones setVariable [_source,_killZones,true];

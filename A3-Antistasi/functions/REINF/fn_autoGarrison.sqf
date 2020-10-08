@@ -16,7 +16,7 @@ _size = [_markerX] call A3A_fnc_sizeMarker;
 
 _divisor = 50;
 
-if (_markerX in airportsX) then {_divisor = 100};
+if (_markerX in airportsX || {_markerX in milbases}) then {_divisor = 100};
 
 _size = round (_size / _divisor);
 
