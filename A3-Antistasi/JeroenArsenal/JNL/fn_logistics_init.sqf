@@ -125,6 +125,48 @@ jnl_vehicleHardpoints = [
       [1,[-0.0615234,0.492443,0.322869],[5,6,2]]
   ]],
 
+// ---------- СUP ----------
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural_open.p3d",[
+    [1,         [0,-0.6,1.5],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,1.5],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural_open2.p3d",[
+    [1,         [0,-0.3,-0.5],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.5],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural.p3d",[
+    [1,         [0,-0.3,-0.5],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.5],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_LR\model\LeftHand\CUP_LR.p3d",[
+    [1,         [0,-0.8,-0.9],    [3,4,5,6]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_LR\model\RightHand\CUP_LR.p3d",[
+    [1,         [0,-0.8,-0.9],    [3,4,5,6]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_v3s\cup_v3s_open.p3d",[
+    [1,         [0,-0.1,-0.5],    [1,2,3,4,11,12]  ],
+    [1,         [0,-2,-0.5],    [5,6,7,8,9,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_v3s\cup_v3s_transport.p3d",[
+    [1,         [0,-0.1,-0.5],    [1,2,3,4,11,12]  ],
+    [1,         [0,-2,-0.5],    [5,6,7,8,9,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_unarmed",[
+    [1,         [0,-1.4,-0.7],    [1,2,3,4]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Datsun\CUP_datsun_civil.p3d",[
+    [1,         [0,-1.3,-1.1],    [2, 4]  ]
+  ]],
+
 // ---------- RHS ----------
 //Urals
 //Ural Open
