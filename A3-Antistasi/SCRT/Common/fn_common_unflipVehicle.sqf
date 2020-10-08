@@ -3,8 +3,6 @@ private _vehicle = cursorTarget;
 if(isNil "_vehicle" || {isNull _vehicle}) exitWith {};
 if !(_vehicle isKindOf "Car") exitWith {};
 
-// if (!((getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "hasDriver")) isEqualTo 1)) exitWith {};
-
 private _isAlive = alive _vehicle;
 if !(alive _vehicle) exitWith {
     playSound "3DEN_notificationWarning";
@@ -25,8 +23,15 @@ if (_nearFriendlies < 4) exitWith {
 
 private _vehicleMass = getMass _vehicle;
 if(_vehicleMass > 10000) exitWith {
-    private _repairValue = getRepairCargo _vehicle;
-    if (_repairValue in [-1, 0]) exitWith {
+    _nearVehicles = _vehicle nearEntities ["Car", 50];
+    _canRepair = false;
+
+    {
+        private _repairValue = getRepairCargo _vehicle;
+        if (_repairValue > 0) exitWith { _canRepair = true };
+    } forEach _nearVehicles;
+
+    if !(_canRepair) exitWith {
         playSound "3DEN_notificationWarning";
         ["Unflip failed", "Vehicle is too heavy, requires repair truck to perform unflip."] call A3A_fnc_customHint;
     };
