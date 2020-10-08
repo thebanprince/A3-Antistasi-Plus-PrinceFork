@@ -193,6 +193,13 @@ class Params
           texts[] = {""};
           default = "";
      };
+     class traderOnStart
+     {
+          title = "Arms Dealer Store on Start";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
      class pursuers
      {
           title = "Enable Pursuers (Punitive Occupant Squad)";
@@ -340,13 +347,6 @@ class Params
           values[] = {""};
           texts[] = {""};
           default = "";
-     };
-     class CUP_Weapons
-     {
-          title = "Allow CUP Weapons in LootBoxes?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
      };
 	 class truelyRandomCrates
 	 {

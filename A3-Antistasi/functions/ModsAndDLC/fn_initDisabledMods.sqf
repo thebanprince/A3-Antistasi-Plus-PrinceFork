@@ -38,10 +38,6 @@ if ("Enoch" call BIS_fnc_getParamValue isEqualTo 0) then {
 	_disabledMods pushBack "enoch";
 };
 
-if("CUP_Weapons" call BIS_fnc_getParamValue isEqualTo 0) then {
-	_disabledMods pushBack "CUP_Weapons";
-};
-
 [2,format ["Disabled DLC: %1",_disabledMods],_fileName] call A3A_fnc_log;
 
 _disabledMods;

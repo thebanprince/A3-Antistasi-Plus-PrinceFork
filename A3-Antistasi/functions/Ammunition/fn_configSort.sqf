@@ -41,12 +41,6 @@ private _allConfigs = _allWeaponConfigs + _allMagazineConfigs + _allBackpackConf
 ////////////////////////////////////////////////////
 _allConfigs = _allConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)};
 
-//additional check required because sometimes CUP_Weapons can't be recognized correctly -
-//A3A_fnc_getModOfConfigClass checks mods using a first addon only
-if("CUP_Weapons" in disabledMods) then {
-	_allConfigs = _allConfigs select {!(["CUP", str _x, true] call BIS_fnc_inString)};
-};
-
 //////////////////////////////
 //    Sorting Function     ///
 //////////////////////////////
