@@ -51,6 +51,7 @@ if (isMultiplayer) then {
 	areSimilarWeaponsUnlocks = ("similarWeaponsUnlock" call BIS_fnc_getParamValue == 1); publicVariable "areSimilarWeaponsUnlocks";
 	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
 	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
+	spawnTraderOnStart = ("traderOnStart" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnStart";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -84,6 +85,7 @@ if (isMultiplayer) then {
 	areSimilarWeaponsUnlocks = false;
 	fastTravelIndividualEnemyCheck = false;
 	isPursuersEnabled = true;
+	spawnTraderOnStart = false;
 };
 
 [] call A3A_fnc_crateLootParams;
@@ -276,3 +278,16 @@ savingServer = false;
 };
 execvm "functions\init\fn_initSnowFall.sqf";
 [2,"initServer completed",_fileName] call A3A_fnc_log;
+
+
+waitUntil{sleep 1;!(isNil "initVar")};
+
+//spawns trader on start if it is possible
+if(spawnTraderOnStart && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
+	[3, "Spawning trader.", _fileName] call A3A_fnc_log;
+	[] remoteExec ["SCRT_fnc_trader_prepareTraderQuest", 2];
+};
+
+
+
+

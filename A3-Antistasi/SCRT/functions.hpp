@@ -63,11 +63,9 @@ class SCRT
     {
         file = "SCRT\Common";
         class common_attachLightSource {};
-        class common_clearLocationFromTrees {};
         class common_addRandomMoneyCargo {};
         class common_addRandomMoneyMagazine {};
         class common_spawnMoneyOnGround {};
-        class common_addClearLocationAction {};
         class common_set3dIcons {};
         class common_givePrisonerReleasePaycheck {};
         class common_getNearPlayers {};

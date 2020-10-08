@@ -29,7 +29,7 @@ publicVariable "traderVehicleMarker";
 //clear point
 {  
 	[_x, true] remoteExec ["hideObject", 0, true];
-} forEach nearestTerrainObjects [_position, [], 15, false, true];
+} forEach nearestTerrainObjects [_position, [], 60, false, true];
 
 //trader prop objects
 _traderTent = createVehicle ["Land_MedicalTent_01_wdl_generic_open_F", _position];
@@ -46,8 +46,6 @@ _table setPos [getPos _table select 0, getPos _table select 1, (getPos _table se
 
 _laptopArray = [[_table, "TOP"],"Land_Laptop_02_unfolded_F",1,[0,0,0],180] call BIS_fnc_spawnObjects;
 _laptop = _laptopArray select 0;
-
-[_laptop] remoteExecCall ["SCRT_fnc_common_addClearLocationAction", 0, true];
 
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
