@@ -55,8 +55,7 @@ civVehIndustrialData = [
 	,"C_Tractor_01_F", 0.3
 	,"CUP_C_V3S_Open_TKC", 0.3	
 	,"CUP_C_Tractor_Old_CIV", 0.3
-	,"CUP_C_Tractor_CIV", 0.3
-	,"CUP_C_TowingTractor_CIV", 0.2		
+	,"CUP_C_Tractor_CIV", 0.3		
 ];
 
 civBoatData = [
