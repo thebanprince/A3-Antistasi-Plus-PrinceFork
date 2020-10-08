@@ -167,6 +167,53 @@ jnl_vehicleHardpoints = [
     [1,         [0,-1.3,-1.1],    [2, 4]  ]
   ]],
 
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_T810\CUP_t810_v.p3d",[
+    [1,         [0,-0.3,-0.5],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-0.5],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_T810\CUP_t810_vp2.p3d",[
+    [1,         [0,-0.3,-1.3],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.2,-1.3],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["\CUP\WheeledVehicles\CUP_WheeledVehicles_MTVR\CUP_MTVR.p3d",[
+    [1,         [0,-0.6,-0.4],    [12,3,13,4,5,2]  ],
+    [1,         [0,-2.6,-0.4],    [6,7,8,9,11,10]  ]
+  ]],
+
+  ["CUP\WheeledVehicles\CUP_WheeledVehicles_Coyote\Coyote_L2A1_BAF",[
+    [1,         [0,-3,0.9],    [5,6,7,8]  ]
+  ]],
+
+  ["CUP\WheeledVehicles\CUP_WheeledVehicles_Coyote\Coyote_L2A1_BAF_w",[
+    [1,         [0,-3,0.9],    [5,6,7,8]  ]
+  ]],
+
+  ["CUP\WheeledVehicles\CUP_WheeledVehicles_Coyote\Coyote_GMG_BAF",[
+    [1,         [0,-3,0.9],    [5,6,7,8]  ]
+  ]], 
+
+  ["CUP\WheeledVehicles\CUP_WheeledVehicles_Coyote\Coyote_GMG_BAF_w",[
+    [1,         [0,-3,0.9],    [5,6,7,8]  ]
+  ]],
+
+  ["\cup\wheeledvehicles\cup_wheeledvehicles_Wolfhound\CUP_Wolfhound.p3d",[
+    [1,         [0,-3.7,1.3],    [5,6,7,8]  ]
+  ]],
+
+  ["\cup\wheeledvehicles\cup_wheeledvehicles_wolfhound\CUP_wolfhound_LMG.p3d",[
+    [1,         [0,-3.7,1.3],    [5,6,7,8]  ]
+  ]],
+
+  ["\cup\wheeledvehicles\cup_wheeledvehicles_Wolfhound\CUP_Wolfhound",[
+    [1,         [0,-3.7,1.3],    [5,6,7,8]  ]
+  ]],
+
+  ["\cup\wheeledvehicles\cup_wheeledvehicles_wolfhound\CUP_wolfhound_GMG.p3d",[
+    [1,         [0,-3.7,1.3],    [5,6,7,8]  ]
+  ]],
+
 // ---------- RHS ----------
 //Urals
 //Ural Open
