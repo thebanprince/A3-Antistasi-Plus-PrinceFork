@@ -19,8 +19,9 @@ private _fileName = "fn_encounter_gameEventCheckLoop";
 [3, "Random Events Check Loop Init.", _filename] call A3A_fnc_log;
 
 while {true} do {
-    sleep 360;
-    [3, "Random Events Check Loop tick.", _filename] call A3A_fnc_log;
+    nextGameLoopTick = time + 600;
+	waitUntil {sleep 15; time >= nextGameLoopTick};
+    [3, "Random Events loop tick.", _filename] call A3A_fnc_log;
 
     //Sleep if no player is online
     if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then {
