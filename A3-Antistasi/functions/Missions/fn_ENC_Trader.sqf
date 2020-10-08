@@ -8,11 +8,11 @@ _positionX = getMarkerPos _markerX;
 
 _traderPosition = [
     _positionX, //center
-    1, //minimal distance
-    150, //maximumDistance
+    0, //minimal distance
+    300, //maximumDistance
     0, //object distance
     0, //water mode
-    0.2, //maximum terrain gradient
+    0.3, //maximum terrain gradient
     0, //shore mode
     [], //blacklist positions
     [_positionX, _positionX] //default position
@@ -22,7 +22,7 @@ _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
 private _iterations = 0;
 
 //mitigation of negative terrain gradient
-if(!(_radGrad > -0.2 && _radGrad < 0.2)) then {
+if(!(_radGrad > -0.3 && _radGrad < 0.3)) then {
     while {_iterations < 30} do {
         _traderPosition = [
             _positionX, 
@@ -30,7 +30,7 @@ if(!(_radGrad > -0.2 && _radGrad < 0.2)) then {
             150, 
             0, 
             0, 
-            0.2, 
+            0.3, 
             0, 
             [], 
             [_positionX, _positionX] 
@@ -38,7 +38,7 @@ if(!(_radGrad > -0.2 && _radGrad < 0.2)) then {
 
         _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
 
-        if((_radGrad > -0.2 && _radGrad < 0.2)) exitWith {};
+        if((_radGrad > -0.3 && _radGrad < 0.3)) exitWith {};
         _iterations = _iterations + 1; 
     };
 };
@@ -54,7 +54,7 @@ publicVariable "traderX";
 [traderX] remoteExecCall ["SCRT_fnc_trader_setTraderStock", 0];
 [traderX] remoteExecCall ["SCRT_fnc_trader_addVehicleMarketAction", 0, true];
 
-_worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+_worldName = [] call SCRT_fnc_misc_getWorldName;
 
 [
     [teamPlayer,civilian],
