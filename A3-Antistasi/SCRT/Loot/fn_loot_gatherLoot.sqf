@@ -125,6 +125,15 @@ private _moneyEarned = 0;
             removeBackpackGlobal _body;
         };
 
+        _bodyWeapons = weapons _body;
+        if(count _bodyWeapons > 0) then {
+            {
+                
+                _vehicle addWeaponCargoGlobal [_x, 1];
+                _body removeWeaponGlobal _x;
+            } forEach _bodyMagazines;
+        };
+
         removeAllWeapons _body;
     };
 
