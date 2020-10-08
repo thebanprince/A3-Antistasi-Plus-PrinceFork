@@ -87,7 +87,7 @@ hasFFAA = false;
 has3CB = false;
 hasAU = false;
 hasAegis = false;
-hasTieredUnitConfigs = false;
+hasCup = false;
 //Systems Mods
 hasACE = false;
 hasACEHearing = false;
@@ -96,9 +96,16 @@ hasACEMedical = false;
 hasACRE = false;
 hasTFAR = false;
 
+//Tiered unit configs
+hasTieredUnitConfigs = false;
+
 private _activeAegis = false;
 private _activeAtlas = false;
 private _activeAtlasOpfor = false;
+
+private _activeCupVehicles = false;
+private _activeCupUnits = false;
+private _activeCupWeapons = false;
 
 //attempt to fix "Error Undefined variable in expression: isinfantryunittiersenabled" which came from initPlayerLocal
 private _isUnitTiersOptionEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1);
@@ -155,29 +162,62 @@ if(!hasAU) then {
 	//Arma 3 Aegis detection
 	if(isClass (configFile >> "CfgFactionClasses" >> "BLU_A_F")) then {
 		_activeAegis = true;
-		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Aegis Detected.",servertime];
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Aegis Detected.", servertime];
 	};
 
 	//Arma 3 Atlas detection
 	if (isClass (configFile >> "CfgFactionClasses" >> "BLU_H_F")) then {
 		_activeAtlas = true;
-		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.",servertime];
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.", servertime];
 	};
 
 	//Arma 3 Atlas - Opposing Forces detection
 	if (isClass (configFile >> "CfgFactionClasses" >> "OPF_E_F")) then {
 		_activeAtlasOpfor = true;
-		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.",servertime];
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.", servertime];
 	};
 
 	if(_activeAegis && _activeAtlas && _activeAtlasOpfor) then {
 		hasAegis = true;
 		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
-		diag_log format ["%1: [Antistasi] | INFO | initVar | Both Aegis Templates have been detected.",servertime];
+		diag_log format ["%1: [Antistasi] | INFO | initVar | All Aegis mods have been detected.", servertime];
 	} 
 	else {
 		if(_activeAegis || _activeAtlas || _activeAtlasOpfor) then {
 			[1, "Arma 3 Aegis detected or Arma 3 Atlas detected or Arma 3 Atlas - Opposing Forces detected, but not all of them. Ensure that Aegis, Atlas and Atlas - Oppsoing Forces mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+			["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+		};
+	};
+};
+
+if(!hasAU) then {
+	//CUP Units detection
+	if(isClass (configFile >> "CfgFactionClasses" >> "CUP_B_US")) then {
+		_activeCupUnits = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | CUP Units Detected.", servertime];
+	};
+
+	//CUP Weapons detection
+	if (isClass (configFile >> "CfgWeapons" >> "CUP_lmg_M60")) then {
+		_activeCupWeapons = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | CUP Weapons Detected.", servertime];
+	};
+
+	//CUP Vehicles detection
+	if (isClass (configFile >> "CfgVehicles" >> "CUP_B_T72_CDF")) then {
+		_activeCupVehicles = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | CUP Vehicles Detected.", servertime];
+	};
+
+	if(_activeCupUnits && _activeCupWeapons && _activeCupVehicles) then {
+		hasCup = true;
+		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | All CUP mods have been detected.",servertime];
+	} 
+	else {
+		//if at least one of these mods enabled - shut down mission
+		if(_activeCupUnits || _activeCupWeapons || _activeCupVehicles) then {
+			[1, "One of CUP mods detected, but not all of them. Ensure that CUP Vehicles, CUP Units and CUP Weapons mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
 			["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 		};
 	};

@@ -419,7 +419,10 @@ if (hasFFAA) then {
 	_textX = _textX + ["FFAA Detected\n\nAntistasi detects FFAA in the server config.\nFIA Faction will be replaced by Spanish Armed Forces"];
 };
 if (hasAU) then {
-	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\nDepending on the modules will have the following effects.\n\nOPFOR: Replaces CSAT by a mix units based on True Viking.\n\BLUFOR: Replaces NATO by a mix of LDF and Aegis units.\n\nINDEP: Recruited AI will count with CUP as basic weapons, replaces FIA with Chdk units. Adds some civilian trucks"];
+	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\nDepending on the modules will have the following effects.\n\n\BLUFOR: Replaces NATO by a mix of LDF and Aegis units.\n\nINDEP: Recruited AI will count with CUP as basic weapons, replaces FIA with Chdk units. Adds some civilian trucks"];
+};
+if (hasCup) then {
+	_textX = _textX + ["CUP Detected\n\nAntistasi detects CUP modset in the server config.\n Unit roster will be replaced with CUP entries."];
 };
 if (hasAegis) then {
 	_textX = _textX + ["Arma 3 Aegis Detected\n\Arma 3 Atlas Detected\n\nAntistasi detects Aegis, Atlas and Atlas - Opposing Forces in the server config.\nDepending on the modules will have the following effects.\n\nOPFOR: Replaces CSAT by Russia.\n\BLUFOR: Replaces NATO by mix of EUROFOR (Bundeswehr, British armed forces, ION) units.\n\nINDEP: New starting weapons."];
@@ -440,10 +443,6 @@ if (hasTFAR or hasACE or hasRHS or hasACRE or hasFFAA or hasAU or hasAegis) then
 };
 waituntil {!isnull (finddisplay 46)};
 gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",A3A_fnc_keys];
-//removeAllActions boxX;
-
-//if ((!isServer) and (isMultiplayer)) then {boxX call jn_fnc_arsenal_init};
-
 
 if (hasACE) then
 {
