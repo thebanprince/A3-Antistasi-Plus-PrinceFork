@@ -82,7 +82,7 @@ else {
 			_mrkD setMarkerText "Resources";
 		};
 		case(_markerX in factories): {
-			__mrkD setMarkerText "Factory";
+			_mrkD setMarkerText "Factory";
 		};
 		case(_markerX in seaports): {
 			_mrkD setMarkerText "Sea Port";
