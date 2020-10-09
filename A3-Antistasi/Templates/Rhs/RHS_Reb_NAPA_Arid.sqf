@@ -48,7 +48,6 @@ vehSDKLightArmed = "rhsgref_nat_uaz_dshkm";
 vehSDKAT = "rhsgref_nat_uaz_spg9";
 vehSDKLightUnarmed = "rhsgref_cdf_reg_uaz_open";
 vehSDKTruck = "rhsgref_cdf_zil131";
-//vehSDKHeli = "rhsgref_ins_g_Mi8amt";
 vehSDKPlane = "RHS_AN2";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "rhsgref_cdf_gaz66_repair";
@@ -97,9 +96,11 @@ breachingExplosivesAPC = [["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhs
 breachingExplosivesTank = [["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1]];
 
 //Starting Unlocks
-initialRebelEquipment append ["rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k"];
-initialRebelEquipment append ["rhs_weap_rpg75"];
-initialRebelEquipment append ["rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag"];
+initialRebelEquipment append ["rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k","rhs_weap_m3a1", "rhs_weap_m38", "rhs_weap_m1garand_sa43"];
+initialRebelEquipment append ["rhs_weap_panzerfaust60"];
+initialRebelEquipment append ["rhsgref_30rnd_1143x23_M1911B_SMG", "rhsgref_30rnd_1143x23_M1T_SMG", "rhsgref_5Rnd_762x54_m38", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle", "rhsgref_8Rnd_762x63_M2B_M1rifle"];
+initialRebelEquipment append ["rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag"];
+initialRebelEquipment append ["rhsgref_mag_rkg3em", "rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr43_mag"];
 initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
 initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing"];
 initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
@@ -109,13 +110,13 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 
 //black market stuff
 shop_UAV = ["rhs_pchela1t_vvs"];
-shop_AA = ["I_LT_01_AA_F"];
-shop_MRAP = ["rhsgref_BRDM2_HQ_ins_g"];
-shop_wheel_apc = ["rhsgref_nat_btr70"];
-shop_track_apc = ["rhsgref_ins_g_bmp2"];
-shop_heli = ["RHS_Mi24P_vdv"];
-shop_tank = ["rhsgref_ins_g_t72ba"];
-shop_plane = ["rhs_l39_cdf"];
+shop_AA = ["rhsgref_nat_ural_Zu23", "rhsgref_nat_ural_Zu23", "I_LT_01_AA_F"];
+shop_MRAP = ["rhsgref_BRDM2UM_ins_g", "rhsgref_BRDM2_ins_g", "rhsgref_BRDM2_ATGM_ins_g"];
+shop_wheel_apc = ["rhsgref_ins_g_btr60", "rhsgref_nat_btr70", "rhs_btr80a_vmf"];
+shop_track_apc = ["rhsgref_ins_g_bmd1", "rhsgref_ins_g_bmd2", "rhsgref_ins_g_bmp2d"];
+shop_heli = ["B_Heli_Light_01_dynamicLoadout_F", "RHS_UH1Y_d", "rhsgref_cdf_reg_Mi17Sh"];
+shop_tank = ["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"];
+shop_plane = ["rhs_l39_cdf", "rhs_l159_CDF", "rhsgref_cdf_su25"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_01_small_green_F";

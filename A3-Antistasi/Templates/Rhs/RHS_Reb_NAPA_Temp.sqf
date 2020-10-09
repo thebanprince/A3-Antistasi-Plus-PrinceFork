@@ -48,7 +48,6 @@ vehSDKLightArmed = "rhsgref_nat_uaz_dshkm";
 vehSDKAT = "rhsgref_nat_uaz_spg9";
 vehSDKLightUnarmed = "rhsgref_cdf_reg_uaz_open";
 vehSDKTruck = "rhsgref_cdf_zil131";
-//vehSDKHeli = "rhsgref_ins_g_Mi8amt";
 vehSDKPlane = "RHS_AN2";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "rhsgref_cdf_gaz66_repair";
@@ -111,13 +110,13 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 
 //black market stuff
 shop_UAV = ["rhs_pchela1t_vvs"];
-shop_AA = ["I_LT_01_AA_F"];
-shop_MRAP = ["rhsgref_BRDM2_HQ_ins_g"];
-shop_wheel_apc = ["rhsgref_nat_btr70"];
-shop_track_apc = ["rhsgref_ins_g_bmp2"];
-shop_heli = ["RHS_Mi24P_vdv"];
-shop_tank = ["rhsgref_ins_g_t72ba"];
-shop_plane = ["rhs_l39_cdf"];
+shop_AA = ["rhsgref_nat_ural_Zu23", "rhsgref_nat_ural_Zu23", "I_LT_01_AA_F"];
+shop_MRAP = ["rhsgref_BRDM2UM_ins_g", "rhsgref_BRDM2_ins_g", "rhsgref_BRDM2_ATGM_ins_g"];
+shop_wheel_apc = ["rhsgref_ins_g_btr60", "rhsgref_nat_btr70", "rhs_btr80a_vmf"];
+shop_track_apc = ["rhsgref_ins_g_bmd1", "rhsgref_ins_g_bmd2", "rhsgref_ins_g_bmp2d"];
+shop_heli = ["B_Heli_Light_01_dynamicLoadout_F", "RHS_UH1Y_d", "rhsgref_cdf_reg_Mi17Sh"];
+shop_tank = ["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"];
+shop_plane = ["rhs_l39_cdf", "rhs_l159_CDF", "rhsgref_cdf_su25"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";

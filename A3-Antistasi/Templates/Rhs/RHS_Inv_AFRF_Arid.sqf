@@ -115,7 +115,7 @@ vehCSATRepairTruck = "rhs_gaz66_repair_vdv";
 vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 //Armored
 vehCSATAPC = ["rhs_bmd1r","rhs_bmp1p_vdv","rhs_bmd1p","rhs_bmd2m","rhs_bmp1p_vdv","rhs_bmp2k_vdv","rhs_btr80a_vdv","rhs_bmp3mera_msv","rhs_bmd1pk"];
-vehCSATTanks = ["rhs_t90sab_tv"];
+vehCSATTanks = ["rhs_t90sm_tv", "rhs_t90a_tv", "rhs_t80um", "rhs_t80bvk", "rhs_t72be_tv", "rhs_t80b", "rhs_t72bb_tv", "rhs_t72ba_tv"];
 vehCSATAA = "rhs_zsu234_aa";
 vehCSATAttack = vehCSATAPC + vehCSATTanks;
 //Boats
@@ -157,3 +157,7 @@ CSATGMG = "rhs_KORD_high_VMF"; //no GMG on high tripod in RHS
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
 staticAAInvaders = "RHS_ZU23_MSV";
 CSATMortar = "rhs_2b14_82mm_vmf";
+
+CSATAARadar = "O_Radar_System_02_F";
+CSATAACiws = "";
+CSATAASam = "O_SAM_System_04_F";

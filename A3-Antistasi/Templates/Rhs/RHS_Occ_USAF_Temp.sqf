@@ -145,7 +145,7 @@ vehNATORepairTruck = "rhsusf_M977A4_REPAIR_BKIT_usarmy_wd";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["rhsusf_stryker_m1126_m2_wd","rhsusf_stryker_m1126_mk19_wd","rhsusf_stryker_m1127_m2_wd","rhsusf_stryker_m1132_m2_wd","RHS_M2A3_BUSKIII_wd","RHS_M2A3_BUSKI_wd","rhsusf_M1237_MK19_usarmy_wd","RHS_M2A2_BUSKI_WD","rhsusf_m113_usarmy","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19"];
-vehNATOTanks = ["rhsusf_m1a1fep_wd"];
+vehNATOTanks = ["rhsusf_m1a2sep1tuskiiwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1hc_wd", "rhsusf_m1a1fep_wd"];
 vehNATOAA = "RHS_M6_wd";
 vehNATOAttack = vehNATOAPC + vehNATOTanks;
 //Boats
@@ -189,3 +189,7 @@ NATOMG = "RHS_M2StaticMG_USMC_WD";
 staticATOccupants = "RHS_TOW_TriPod_USMC_WD";
 staticAAOccupants = "RHS_Stinger_AA_pod_WD";
 NATOMortar = "RHS_M252_USMC_WD";
+
+NATOAARadar = "B_Radar_System_01_F";
+NATOAACiws = "B_AAA_System_01_F";
+NATOAASam = "B_SAM_System_03_F";

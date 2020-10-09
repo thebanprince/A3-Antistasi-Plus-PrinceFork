@@ -48,7 +48,6 @@ vehSDKLightArmed = "I_C_Offroad_02_LMG_F";//rebel MG car
 vehSDKAT = "I_C_Offroad_02_AT_F";//rebel self propelled cannon
 vehSDKLightUnarmed = "I_C_Offroad_01_F";//rebel car
 vehSDKTruck = "I_C_Van_01_Transport_F";//rebel truck
-//vehSDKHeli = "I_C_Heli_Light_01_civil_F";//this no longer exists
 vehSDKPlane = "I_C_Plane_civil_01_F";//rebel plane, pick the most basic plane
 vehSDKBoat = "I_C_Boat_Transport_01_F";//rebel rudder boat
 vehSDKRepair = "B_G_Offroad_01_repair_F";//repair car or truck
