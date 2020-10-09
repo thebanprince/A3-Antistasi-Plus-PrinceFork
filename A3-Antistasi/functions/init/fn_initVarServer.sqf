@@ -752,14 +752,14 @@ server setVariable [vehSDKAT, 1500, true];
 {server setVariable [_x,1200,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];
 
 //black market costs
-{server setVariable [_x,1500,true]} forEach shop_UAV;
-{server setVariable [_x,7000,true]} forEach shop_AA;
-{server setVariable [_x,2500,true]} forEach shop_MRAP;
-{server setVariable [_x,9000,true]} forEach shop_wheel_apc;
-{server setVariable [_x,12000,true]} forEach shop_track_apc;
-{server setVariable [_x,15000,true]} forEach shop_heli;
-{server setVariable [_x,20000,true]} forEach shop_tank;
-{server setVariable [_x,35000,true]} forEach shop_plane;
+{server setVariable [_x,2000,true]} forEach shop_UAV;
+{server setVariable [_x,10000,true]} forEach shop_AA;
+{server setVariable [_x,5000,true]} forEach shop_MRAP;
+{server setVariable [_x,10000,true]} forEach shop_wheel_apc;
+{server setVariable [_x,12500,true]} forEach shop_track_apc;
+{server setVariable [_x,25000,true]} forEach shop_heli;
+{server setVariable [_x,22500,true]} forEach shop_tank;
+{server setVariable [_x,40000,true]} forEach shop_plane;
 
 ///////////////////////
 //     GARRISONS    ///

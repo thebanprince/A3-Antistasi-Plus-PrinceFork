@@ -17,6 +17,7 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
+				vehicleMarketIsOpen = false;
 				garageLocked = nil;
 				publicVariable "garageLocked";
 			};
@@ -96,6 +97,7 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
+				vehicleMarketIsOpen = false;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -140,14 +142,11 @@ switch (_callbackTarget) do {
 				if (_purchasedVeh isKindOf "Car") then {_purchasedVeh setPlateNumber format ["%1",name player]};
 				
 				//Handle Money
-				if (!isMultiplayer) then
-					{
+				if (!isMultiplayer) then {
 					[0,(-1 * vehiclePurchase_cost)] spawn A3A_fnc_resourcesFIA;
-					}
-				else
-					{
-					if (player ==	theBoss && ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic))) then
-						{
+				}
+				else {
+					if (player ==	theBoss && ((_typeVehX == SDKMortar) or (_typeVehX == staticATteamPlayer) or (_typeVehX == staticAAteamPlayer) or (_typeVehX == SDKMGStatic))) then {
 						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2]
 						}
 					else
@@ -158,7 +157,6 @@ switch (_callbackTarget) do {
 					};
 				if (_purchasedVeh isKindOf "StaticWeapon") then {staticsToSave pushBackUnique _purchasedVeh; publicVariable "staticsToSave"};
 
-				//hint "Vehicle Purchased";
 				player reveal _purchasedVeh;
 				petros directSay "SentGenBaseUnlockVehicle";
 			};
@@ -168,6 +166,80 @@ switch (_callbackTarget) do {
 				_createdVehicle = 0;
                 _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
 				[_createdVehicle] call SCRT_fnc_loot_addLooterCapability;
+				_createdVehicle;
+			};
+		};
+	};
+
+	case "BUYVEHICLEMARKET": {
+		switch (_callbackType) do {
+			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
+				garageIsOpen = false;
+				vehicleMarketIsOpen = false;
+			};
+		
+			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
+			};
+		
+			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {
+				if (!(player inArea traderVehicleMarker)) exitWith {
+					[true, "You need to be close to the flag to be able to purchase a vehicle"];
+				};
+				[false];
+			};
+			
+			case CALLBACK_VEH_IS_VALID_LOCATION: {
+				private _pos = _callbackParams select 0;
+				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
+				if (_pos distance2d (getMarkerPos traderVehicleMarker) > _maxDist) exitWith
+				{
+					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
+				};
+				[true];
+			};
+		
+			case CALLBACK_CAN_PLACE_VEH: {
+				if (!(player inArea traderVehicleMarker)) exitWith  {
+					[false, "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage"];
+				};
+				if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {
+					[false, "You cannotbuy vehicles with enemies nearby"];
+				};
+				[true];
+			};
+		
+			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
+				private _purchasedVeh = _callbackParams param [0];
+				private _typeVehX = typeOf _purchasedVeh;
+				
+				[_purchasedVeh, teamPlayer] call A3A_fnc_AIVEHinit;
+
+				if (_purchasedVeh isKindOf "Car") then {_purchasedVeh setPlateNumber format ["%1",name player]};
+				
+				//Handle Money
+				if (!isMultiplayer) then {
+					[0,(-1 * vehiclePurchase_cost)] spawn A3A_fnc_resourcesFIA;
+				}
+				else {
+					_factionMoney = server getVariable "resourcesFIA";
+
+					if (player == theBoss && {vehiclePurchase_cost <= _factionMoney}) then {
+						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
+					}
+					else {
+						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
+						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+					};
+				};
+
+				player reveal _purchasedVeh;
+				[traderX, "hint", "say3D"] call BIS_fnc_sayMessage;
+			};
+			
+			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
+				_callbackParams params ["_vehicleType", "_pos", "_dir"];
+				_createdVehicle = 0;
+                _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
 				_createdVehicle;
 			};
 		};

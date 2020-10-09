@@ -57,6 +57,7 @@ class SCRT
         class trader_setTraderStock {};
         class trader_addVehicleMarketAction {};
         class trader_tryOpenVehicleMarketMenu {};
+        class trader_pickFromVehiclePool {};
     };
 
     class Common 

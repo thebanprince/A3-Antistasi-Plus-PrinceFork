@@ -48,10 +48,27 @@ if (_typeX == "tier") then {
 	playSound "3DEN_notificationDefault";
 
 	_textX = format ["War Level Changed<br/><br/>Current Level: %1",tierWar];
-	if(tierWar > 3 && {!hasPowPaycheckAnnounced}) then {
+	if(tierWar > 3 && {!isPowPaycheckAnnounced}) then {
 		_textX = _textX + format ["<br/><br/><t size='0.6'>Resistance has been recognized by <t size='0.6' color='#FFA500'>IDAP</t>, an third party peace-keeping organization and agreement has been made - <br/><t size='0.6' color='#FFA500'>IDAP</t> will pay <t size='0.6' color='#008000'>%1</t> for freeing <t size='0.6' color='#0033CC'>%2</t> soldiers.</t>", nameTeamPlayer, nameOccupants];
-		hasPowPaycheckAnnounced = true; 
-		publicVariable "hasPowPaycheckAnnounced";
+		isPowPaycheckAnnounced = true; 
+		publicVariable "isPowPaycheckAnnounced";
+	};
+
+	private _tierStockUpdate = false;
+
+	if(tierWar > 3 && {!isMarketUpgradeAnnounced}) then {
+		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with T2 vehicles.</t>"];
+		_tierStockUpdate = true; 
+	};
+
+	if(tierWar > 8 && {!isMarketUpgradeAnnounced}) then {
+		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with T3 vehicles.</t>"];
+		_tierStockUpdate = true; 
+	};
+
+	if(_tierStockUpdate) then {
+		isMarketUpgradeAnnounced = true; 
+		publicVariable "isMarketUpgradeAnnounced";
 	};
 
 	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
