@@ -53,6 +53,30 @@ private _categoryOverrideTable = [
 ["UK3CB_BAF_AT4_CS_AT_Launcher", ["RocketLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
 
+["CUP_launch_M72A6_Special_Loaded", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_RPG18", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_M136", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_RShG2", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_RPG26", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_M72A6", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_BF3", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_HCPF3", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_PzF3", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_RPG7V", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_MAAWS", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_Mk153Mod0", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_Mk153Mod0_blk", ["RocketLaunchers","Weapons","AT"]],
+["CUP_launch_APILAS", ["RocketLaunchers","Weapons","AT"]],
+
+["CUP_launch_Metis", ["MissileLaunchers","Weapons","AT"]],
+["CUP_launch_M47", ["MissileLaunchers","Weapons","AT"]],
+["CUP_launch_NLAW", ["MissileLaunchers","Weapons","AT"]],
+["CUP_launch_Javelin", ["MissileLaunchers","Weapons","AT"]],
+
+["CUP_launch_9K32Strela", ["MissileLaunchers","Weapons","AA"]],
+["CUP_launch_Igla", ["MissileLaunchers","Weapons","AA"]],
+["CUP_launch_FIM92Stinger", ["MissileLaunchers","Weapons","AA"]],
+
 ["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
 ["hgun_PDW2000_F", ["SMGs","Weapons"]],
 
