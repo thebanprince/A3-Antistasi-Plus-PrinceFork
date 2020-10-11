@@ -6665,6 +6665,7 @@ class cfgHALsStore {
 			ITEM(CUP_launch_APILAS, 1000, 50);
 
 			ITEM(CUP_launch_Igla, 1750, 30);
+			ITEM(CUP_launch_FIM92Stinger, 1900, 30);
 			ITEM(CUP_launch_9K32Strela, 2500, 30);
 			ITEM(CUP_launch_M47, 4500, 8);
 			ITEM(CUP_launch_Javelin, 8500, 3);
