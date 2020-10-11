@@ -108,17 +108,15 @@ if (_baseCategory == "RocketLaunchers") then {
 if (_baseCategory == "MissileLaunchers") then {
 	private _launcherInfo = [_className] call A3A_fnc_launcherInfo;
 	
-	if(!(["CUP_", _className, true] call BIS_fnc_inString)) then {
-			if(count _launcherInfo != 0) then {
-			//If we can lock air, it's AA.
-			if (_launcherInfo select 1) then {
-				_categories pushBack "AA";
-			};
+	if(count _launcherInfo != 0) then {
+		//If we can lock air, it's AA.
+		if (_launcherInfo select 1) then {
+			_categories pushBack "AA";
+		};
 
-			//If we can lock ground, or can't lock either air or ground, it's AT.
-			if (_launcherInfo select 0 || !(_launcherInfo select 0 || _launcherInfo select 1)) then {
-				_categories pushBack "AT";
-			};
+		//If we can lock ground, or can't lock either air or ground, it's AT.
+		if (_launcherInfo select 0 || !(_launcherInfo select 0 || _launcherInfo select 1)) then {
+			_categories pushBack "AT";
 		};
 	};
 };
