@@ -190,7 +190,7 @@ vehPoliceCar = "rhsgref_un_uaz";
 //Assembled Statics
 NATOMG = "rhsgref_cdf_DSHKM";
 staticATOccupants = "rhsgref_cdf_SPG9M";
-staticAAOccupants = ["rhsgref_cdf_Igla_AA_pod"];
+staticAAOccupants = ["rhsgref_cdf_Igla_AA_pod", "RHSgref_cdf_ZU23"];
 NATOMortar = "rhsgref_cdf_reg_M252";
 
 NATOAARadar = "";
