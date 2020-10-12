@@ -194,7 +194,7 @@ vehPoliceCar = "B_GEN_Offroad_01_gen_F";
 //Assembled Statics
 NATOMG = "I_G_HMG_02_high_F";
 staticATOccupants = "B_T_Static_AT_F";
-staticAAOccupants = "B_T_Static_AA_F";
+staticAAOccupants = ["B_T_Static_AA_F"];
 NATOMortar = "B_T_Mortar_01_F";
 
 NATOAARadar = "B_Radar_System_01_F";

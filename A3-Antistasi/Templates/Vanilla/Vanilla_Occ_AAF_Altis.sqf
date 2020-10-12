@@ -188,7 +188,7 @@ vehPoliceCar = vehFIACar;
 //Assembled
 NATOMG = "I_G_HMG_02_high_F";
 staticATOccupants = "I_static_AT_F";
-staticAAOccupants = "I_static_AA_F";
+staticAAOccupants = ["I_static_AA_F"];
 NATOMortar = "I_Mortar_01_F";
 
 NATOAARadar = "";

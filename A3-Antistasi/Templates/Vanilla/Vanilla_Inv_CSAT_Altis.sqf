@@ -164,7 +164,7 @@ if (gameMode == 4) then
 CSATMG = "I_G_HMG_02_high_F";
 CSATGMG = "O_GMG_01_high_F";
 staticATInvaders = "O_static_AT_F";
-staticAAInvaders = "O_static_AA_F";
+staticAAInvaders = ["O_static_AA_F"];
 CSATMortar = "O_Mortar_01_F";
 
 CSATAARadar = "O_Radar_System_02_F";

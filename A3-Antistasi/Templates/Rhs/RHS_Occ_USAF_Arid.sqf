@@ -187,7 +187,7 @@ vehPoliceCar = "rhsusf_mrzr4_d_mud";
 //Assembled Statics
 NATOMG = "RHS_M2StaticMG_USMC_D";
 staticATOccupants = "RHS_TOW_TriPod_USMC_D";
-staticAAOccupants = "RHS_Stinger_AA_pod_D";
+staticAAOccupants = ["RHS_Stinger_AA_pod_D"];
 NATOMortar = "RHS_M252_USMC_D";
 
 NATOAARadar = "B_Radar_System_01_F";

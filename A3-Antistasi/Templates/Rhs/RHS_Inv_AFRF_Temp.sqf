@@ -155,7 +155,7 @@ if (gameMode == 4) then
 CSATMG = "rhs_KORD_high_VMF";
 CSATGMG = "rhs_KORD_high_VMF";
 staticATInvaders = "rhs_Kornet_9M133_2_vmf";
-staticAAInvaders = "RHS_ZU23_MSV";
+staticAAInvaders = ["RHS_ZU23_MSV"];
 CSATMortar = "rhs_2b14_82mm_vmf";
 
 CSATAARadar = "O_Radar_System_02_F";
