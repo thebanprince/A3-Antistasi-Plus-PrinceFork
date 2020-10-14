@@ -52,6 +52,7 @@ if (isMultiplayer) then {
 	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
 	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
 	spawnTraderOnStart = ("traderOnStart" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnStart";
+	settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
 	//These should be set in the set parameters dialog.
@@ -86,7 +87,10 @@ if (isMultiplayer) then {
 	fastTravelIndividualEnemyCheck = false;
 	isPursuersEnabled = true;
 	spawnTraderOnStart = false;
+	settingsTimeMultiplier = 1;
 };
+
+setTimeMultiplier settingsTimeMultiplier;
 
 [] call A3A_fnc_crateLootParams;
 
