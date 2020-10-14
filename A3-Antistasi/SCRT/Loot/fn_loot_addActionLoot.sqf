@@ -17,44 +17,23 @@ if(!isnil "_lootActionID") then
 
 //add action
 _lootActionID = [_vehicle,
-localize "STR_antistasi_actions_loot_around_text",
-"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-"vehicle player == player && _this distance _target < 5",
-"vehicle player == player && _caller distance _target < 5",
-{},
-{},
-{
-     [_this select 0] remoteExec ["SCRT_fnc_loot_gatherLoot", 2];
-},
-{},
-[],
-3,
-5,
-false,
-false] call BIS_fnc_holdActionAdd;
-
-//JIP Compatible Implementation
-// _lootActionID = [
-// 	_vehicle,											
-// 	localize "STR_antistasi_actions_loot_around_text",										
-// 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-// 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-// 	"vehicle player == player && _this distance _target < 5",
-// 	"vehicle player == player && _caller distance _target < 5",					
-// 	{},													
-// 	{},													
-// 	{
-//      	[_this select 0] remoteExec ["SCRT_fnc_loot_gatherLoot", 2];
-// 	},			
-// 	{},													
-// 	[],													
-// 	3,													
-// 	5,													
-// 	false,												
-// 	false												
-// ] remoteExec ["BIS_fnc_holdActionAdd", 0, _vehicle];
-
+	localize "STR_antistasi_actions_loot_around_text",
+	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+	"vehicle player == player && _this distance _target < 5",
+	"vehicle player == player && _caller distance _target < 5",
+	{},
+	{},
+	{
+		[_this select 0] remoteExec ["SCRT_fnc_loot_gatherLoot", 2];
+	},
+	{},
+	[],
+	3,
+	5,
+	false,
+	false
+] call BIS_fnc_holdActionAdd;
 
 diag_log format ["%1: [Antistasi] | INFO | fn_loot_addActionLoot | Loot action to loot truck has been added.",servertime];
 
