@@ -131,7 +131,7 @@ private _moneyEarned = 0;
                 
                 _vehicle addWeaponCargoGlobal [_x, 1];
                 _body removeWeaponGlobal _x;
-            } forEach _bodyMagazines;
+            } forEach _bodyWeapons;
         };
 
         removeAllWeapons _body;
