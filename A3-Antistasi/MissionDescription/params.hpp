@@ -193,6 +193,13 @@ class Params
           texts[] = {""};
           default = "";
      };
+     class timeMultiplier
+     {
+          title="Time Multiplier (EXPERIMENTAL)";
+		values[]={1,6,12,24};
+		texts[]={"1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
+		default = 1;
+     };
      class traderOnStart
      {
           title = "Arms Dealer Store on Start";
@@ -233,7 +240,7 @@ class Params
           title = "Sum Similar Weapons To Unlock";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class fastTravelEnemyCheck
      {
