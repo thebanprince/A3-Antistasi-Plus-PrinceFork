@@ -97,17 +97,17 @@ for "_i" from 0 to (count _buildings) - 1 do
             _zpos = _zpos vectorAdd _zOffset;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
-            sleep 0,5;
+            sleep 0.5;
             _Tdir = _dir + 180;
-            _zpos = AGLToASL (_building buildingPos 16); //relative South
+            _zpos = AGLToASL (_building buildingPos 15); //relative South
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
-            _pos = ASLToATL ([(_pos select 0) + 2, (_pos select 1) + 2, _zpos select 2]);
+            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_atType, _pos, _Tdir] call _fnc_spawnStatic;
         };
         if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
         {
-            private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
+            private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
             private _dir = getDir _building;
             private _zpos = AGLToASL (_building buildingPos 8);
             private _pos = getPosASL _building;
