@@ -36,7 +36,7 @@ private _seaports = { sidesX getVariable [_x, sideUnknown] == Occupants } count 
 private _accelerator = [1 + (tierWar + difficultyCoef) / 20, 0] select (tierWar == 1);
 
 [0.2, "", staticATOccupants, _outposts * 0.2 + _milbases * 2 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "random", staticAAOccupants, _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.2, "random", vehNATOAPC, _outposts * 0.3 + _milbases * 1.4 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "random", vehNATOTanks, _outposts * 0.5 + _milbases * 1.2 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "", vehNATOAA, _airbases, _accelerator] spawn _fnc_economics;
@@ -56,7 +56,7 @@ _seaports = { sidesX getVariable [_x, sideUnknown] == Invaders } count seaports;
 _accelerator = 1.2 + (tierWar + difficultyCoef) / 20;
 
 [0.2, "", staticATInvaders, _outposts * 0.2 + _milbases * 0.35 + _airbases * 0.5, _accelerator] spawn _fnc_economics;
-[0.1, "", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
+[0.1, "random", staticAAInvaders, _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.2, "random", vehCSATAPC, _outposts * 0.3 + _milbases * 1.4 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "random", vehCSATTanks, _outposts * 0.5  + _milbases * 1.2 + _airbases * 2, _accelerator] spawn _fnc_economics;
 [0.1, "", vehCSATAA, _airbases, _accelerator] spawn _fnc_economics;
