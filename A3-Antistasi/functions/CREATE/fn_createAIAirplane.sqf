@@ -223,7 +223,7 @@ if (spawner getVariable _markerX != 2) then
 		};
 	};
 } forEach _posMG;
-_typeVehX = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
+_typeVehX = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
 {
 if (spawner getVariable _markerX != 2) then
 	{
