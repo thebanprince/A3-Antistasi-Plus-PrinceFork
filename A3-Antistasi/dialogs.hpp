@@ -3346,6 +3346,182 @@ class vehicles 		{
 	};
 };
 
+class technicalMarket_menu 	{
+	idd=-1;
+	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
+
+	class controls {
+
+		class HQ_box: BOX
+		{
+			idc = -1;
+			text = ""; //--- ToDo: Localize;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.20 * safezoneH;//30
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = -1;
+			text = "Technicals"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.18 * safezoneH;//28
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = -1;
+			text = "Back"; //--- ToDo: Localize;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0;";
+		};
+		class HQ_button_Gsquad: RscButton
+		{
+			idc = -1;
+			text = "Vehicles"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Vehicles";
+			action = "closeDialog 0; createDialog ""technicals"";";
+		};
+	};
+};
+
+class technicals {
+	idd= 100;
+	movingenable=false;
+	onLoad = "['on'] call SCRT_fnc_misc_toggleMenuBlur;";
+	onUnload = "['off'] call SCRT_fnc_misc_toggleMenuBlur;";
+	class controls {
+		class HQ_box: BOX
+		{
+			idc = 101;
+			text = ""; //--- ToDo: Localize;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.492103 * safezoneH;
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = 102;
+			text = "Technicals"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.462103 * safezoneH;
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = 103;
+			text = "Back"; //--- ToDo: Localize;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0; createDialog ""technicalMarket_menu"";";
+		};
+		class HQ_button_technicalAa: RscButton
+		{
+			idc = 104;
+			text = "Buy Hilux (ZU-23)"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [techicalAa] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalBtr: RscButton
+		{
+			idc = 105;
+			text = "Buy Hilux (BTR-60)"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [technicalBtr] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalNar: RscButton
+		{
+			idc = 126;
+			text = "Buy Hilux (UB-32)"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [technicalNar] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalJackal: RscButton
+		{
+			idc = 107;
+			text = "Buy Jackal"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [technicalJackal] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalArmoredBtr: RscButton
+		{
+			idc = 108;
+			text = "Buy Tracked APC"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.514003 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Buy Armored Hilux (BTR-60)";
+			action = "closeDialog 0; [technicalArmoredBtr] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalArmoredAa: RscButton
+		{
+			idc = 109;
+			text = "Buy Armored Hilux (ZU-23)"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [technicalArmoredAa] spawn A3A_fnc_addFIAveh;";
+		};
+		class HQ_button_technicalArmoredSpg: RscButton
+		{
+			idc = 110;
+			text = "Buy Armored Hilux (SPG-9)"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "";
+			action = "closeDialog 0; [technicalArmoredSpg] spawn A3A_fnc_addFIAveh;";
+		};
+
+		class HQ_button_technicalArmoredMg: RscButton
+		{
+			idc = 111;
+			text = "Buy Armored Hilux (MG)"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.612025 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Aircraft";
+			action = "closeDialog 0; [technicalArmoredMg] spawn A3A_fnc_addFIAveh;";
+		};
+	};
+};
+
 class RscTitles {
 	class Default {
        idd = -1;

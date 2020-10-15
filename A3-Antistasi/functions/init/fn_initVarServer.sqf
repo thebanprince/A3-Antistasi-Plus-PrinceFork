@@ -465,6 +465,11 @@ private _templateVariables = [
 	"sandbag"
 ];
 
+//CUP-only technical variables
+if(hasCup) then {
+	_templateVariables append ["techicalAa", "technicalBtr", "technicalNar", "technicalJackal", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
+};
+
 {
 	ONLY_DECLARE_SERVER_VAR_FROM_VARIABLE(_x);
 } forEach _templateVariables;
@@ -715,12 +720,14 @@ if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","AC
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
-{timer setVariable [_x,3,true]} forEach [staticATOccupants,staticAAOccupants];
-{timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
+{timer setVariable [_x,3,true]} forEach staticAAOccupants;
+{timer setVariable [_x,6,true]} forEach staticAAInvaders;
 {timer setVariable [_x,0,true]} forEach vehNATOAPC;
 {timer setVariable [_x,10,true]} forEach vehCSATAPC;
 {timer setVariable [_x,0,true]} forEach vehNATOTanks;
 {timer setVariable [_x,10,true]} forEach vehCSATTanks;
+timer setVariable [staticATOccupants, 3, true];
+timer setVariable [staticATInvaders, 6, true];
 timer setVariable [vehNATOAA,0,true];
 timer setVariable [vehCSATAA,3,true];
 timer setVariable [vehNATOBoat,3,true];
@@ -760,6 +767,18 @@ server setVariable [vehSDKAT, 1500, true];
 {server setVariable [_x,25000,true]} forEach shop_heli;
 {server setVariable [_x,22500,true]} forEach shop_tank;
 {server setVariable [_x,40000,true]} forEach shop_plane;
+
+//technicals cost
+if(hasCup) then {
+	server setVariable [techicalAa, 1500, true];													
+	server setVariable [technicalBtr, 1750, true];	
+	server setVariable [technicalNar, 3500, true];
+	server setVariable [technicalJackal, 1750, true];
+	server setVariable [technicalArmoredBtr, 3250, true];
+	server setVariable [technicalArmoredAa, 3000, true];
+	server setVariable [technicalArmoredSpg, 3000, true];										
+	server setVariable [technicalArmoredMg, 2250, true];
+};
 
 ///////////////////////
 //     GARRISONS    ///
