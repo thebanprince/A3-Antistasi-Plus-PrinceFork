@@ -43,44 +43,44 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 //           VEHICLES            ///
 ////////////////////////////////////
 //Military Vehicles
-vehSDKBike = "I_G_Quadbike_01_F";
-vehSDKLightArmed = "I_G_Offroad_01_armed_F";
-vehSDKAT = "I_G_Offroad_01_AT_F";
-vehSDKLightUnarmed = "I_G_Offroad_01_F";
-vehSDKTruck = "I_G_Van_01_transport_F";
+vehSDKBike = "CUP_I_TT650_NAPA";
+vehSDKLightArmed = "CUP_I_Hilux_DSHKM_NAPA";
+vehSDKAT = "CUP_I_Hilux_SPG9_NAPA";
+vehSDKLightUnarmed = "CUP_I_Hilux_unarmed_NAPA";
+vehSDKTruck = "CUP_V3S_Open_NAPA";
 vehSDKPlane = "I_C_Plane_Civil_01_F";
 vehSDKBoat = "I_G_Boat_Transport_01_F";
-vehSDKRepair = "I_G_Offroad_01_repair_F";
+vehSDKRepair = "CUP_I_V3S_Repair_TKG";
 
 //Civilian Vehicles
-civCar = "C_Offroad_01_F";
-civTruck = "C_Van_01_transport_F";
-civHeli = "C_Heli_Light_01_civil_F";
-civBoat = "C_Boat_Transport_02_F";
-civLooter = "C_Truck_02_covered_F";
+civCar = "CUP_O_Hilux_unarmed_CR_CIV";
+civTruck = "CUP_C_Ural_Civ_03";
+civHeli = "CUP_C_Mi17_Civilian_RU";
+civBoat = "CUP_C_Fishing_Boat_Chernarus";
+civLooter = "CUP_C_V3S_Open_TKC";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
 ////////////////////////////////////
 //Assembled Static Weapons
-SDKMGStatic = "I_G_HMG_02_high_F";
-staticATteamPlayer = "I_static_AT_F";
-staticAAteamPlayer = "I_static_AA_F";
-SDKMortar = "I_G_Mortar_01_F";
+SDKMGStatic = "CUP_I_DSHKM_NAPA";
+staticATteamPlayer = "CUP_I_SPG9_NAPA";
+staticAAteamPlayer = "CUP_I_ZU23_NAPA";
+SDKMortar = "CUP_I_2b14_82mm_NAPA";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
 SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
-MGStaticSDKB = "I_G_HMG_02_high_weapon_F";
-ATStaticSDKB = "I_AT_01_weapon_F";
+MGStaticSDKB = "CUP_B_DShkM_Gun_Bag";
+ATStaticSDKB = "CUP_B_SPG9_Gun_Bag";
 AAStaticSDKB = "I_AA_01_weapon_F";
-MortStaticSDKB = "I_Mortar_01_weapon_F";
+MortStaticSDKB = "CUP_B_Podnos_Gun_Bag";
 //Short Support
-supportStaticSDKB = "I_G_HMG_02_support_F";
+supportStaticSDKB = "CUP_B_SPG9_Tripod_Bag";
 //Tall Support
-supportStaticsSDKB2 = "I_G_HMG_02_support_high_F";
+supportStaticsSDKB2 = "CUP_B_DShkM_TripodHigh_Bag";
 //Mortar Support
-supportStaticsSDKB3 = "I_Mortar_01_support_F";
+supportStaticsSDKB3 = "CUP_B_Podnos_Bipod_Bag";
 
 ////////////////////////////////////
 //             ITEMS             ///
@@ -96,25 +96,33 @@ breachingExplosivesAPC = [["DemoCharge_Remote_Mag", 1]];
 breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]];
 
 //Starting Unlocks
-initialRebelEquipment append ["hgun_Pistol_heavy_02_F","hgun_Pistol_heavy_01_green_F","sgun_HunterShotgun_01_F","SMG_02_F"];
-initialRebelEquipment append ["SMG_02_F"];
-initialRebelEquipment append ["6Rnd_45ACP_Cylinder","9Rnd_45ACP_Mag","2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell"];
-initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
-initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_SmershVest_01_F","V_BandollierB_rgr","V_SmershVest_01_radio_F","V_BandollierB_oli","V_Rangemaster_belt"];
-initialRebelEquipment append ["Binocular","acc_flashlight"];
+initialRebelEquipment append ["CUP_hgun_SA61","CUP_hgun_TaurusTracker455", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
+
+initialRebelEquipment append ["CUP_srifle_CZ550_rail", "hgun_Pistol_01_F", "CUP_sgun_CZ584", "CUP_sgun_CZ584_RIS"];
+initialRebelEquipment append ["CUP_srifle_Remington700", "CUP_smg_saiga9", "hgun_Pistol_Signal_F"];
+
+initialRebelEquipment append ["CUP_6Rnd_45ACP_M", "10Rnd_9x21_Mag", "CUP_20Rnd_B_765x17_Ball_M", "CUP_6Rnd_45ACP_M"];
+initialRebelEquipment append ["CUP_5x_22_LR_17_HMR_M","2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "CUP_1Rnd_B_CZ584_74Slug", "CUP_1Rnd_B_CZ584_74Pellets", "CUP_1Rnd_762x51_CZ584"];
+initialRebelEquipment append ["CUP_6Rnd_762x51_R700","CUP_10Rnd_9x19_Saiga9", "6Rnd_GreenSignal_F", "6Rnd_RedSignal_F"];
+initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
+
+initialRebelEquipment append ["B_Messenger_Gray_F", "B_AssaultPack_blk"];
+initialRebelEquipment append ["CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_B_ALICE", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket"];
+initialRebelEquipment append ["Binocular", "acc_flashlight"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};
 
 //black market stuff
+//3 tiers except UAV
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["I_LT_01_AA_F", "I_LT_01_AA_F", "I_LT_01_AA_F"];
-shop_MRAP = ["I_MRAP_03_hmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_hmg_F"];
-shop_wheel_apc = ["O_APC_Wheeled_02_rcws_v2_F", "B_APC_Wheeled_01_cannon_v2_F", "I_APC_Wheeled_03_cannon_F"];
-shop_track_apc = ["I_E_APC_tracked_03_cannon_v2_F", "I_E_APC_tracked_03_cannon_v2_F", "B_APC_Tracked_01_rcws_F"];
-shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "I_E_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
-shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_03_dynamicLoadout_F", "I_E_Plane_Fighter_04_F"];
+shop_AA = ["CUP_I_Ural_ZU23_NAPA", "CUP_I_ZSU23_Afghan_AAF", "CUP_I_M163_AAF"];
+shop_MRAP = ["CUP_I_BTR40_MG_TKG", "CUP_I_BRDM2_TK_Gue", "CUP_I_BRDM2_ATGM_TK_Gue"];
+shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80A_FIA", "CUP_I_LAV25M240_RACS"];
+shop_track_apc = ["CUP_B_MTLB_pk_FIA", "CUP_I_BMP1_TK_GUE", "CUP_I_BMP2_NAPA"];
+shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_I_Wildcat_Green_AAF", "I_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_I_T72_NAPA"];
+shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";

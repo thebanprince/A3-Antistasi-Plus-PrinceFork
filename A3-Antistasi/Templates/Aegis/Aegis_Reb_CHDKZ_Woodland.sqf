@@ -100,7 +100,7 @@ initialRebelEquipment append ["hgun_Pistol_01_F", "hgun_C1911_F"];
 initialRebelEquipment append ["sgun_Mp153_classic_F", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
 initialRebelEquipment append ["10Rnd_9x21_Mag", "7Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell"];
 initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
-initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_rgr","V_SmershVest_01_radio_F","V_BandollierB_oli","V_Rangemaster_belt"];
+initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt"];
 initialRebelEquipment append ["Binocular","acc_flashlight", "acc_flashlight_pistol"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -108,13 +108,13 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["I_LT_01_AA_F"];
-shop_MRAP = ["I_MRAP_03_gmg_F"];
-shop_wheel_apc = ["I_G_APC_Wheeled_03_cannon_F"];
-shop_track_apc = ["I_APC_tracked_03_cannon_F"];
-shop_heli = ["I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["I_MBT_03_cannon_F"];
-shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F"];
+shop_AA = ["I_LT_01_AA_F", "I_LT_01_AA_F", "I_LT_01_AA_F"];
+shop_MRAP = ["I_MRAP_03_hmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_hmg_F"];
+shop_wheel_apc = ["O_APC_Wheeled_02_rcws_v2_F", "B_APC_Wheeled_01_cannon_v2_F", "I_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_E_APC_tracked_03_cannon_v2_F", "I_E_APC_tracked_03_cannon_v2_F", "B_APC_Tracked_01_rcws_F"];
+shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "I_E_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
+shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_03_dynamicLoadout_F", "I_E_Plane_Fighter_04_F"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";

@@ -108,13 +108,13 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["I_LT_01_AA_F"];
-shop_MRAP = ["I_MRAP_03_gmg_F"];
-shop_wheel_apc = ["I_APC_Wheeled_03_cannon_F"];
-shop_track_apc = ["I_APC_tracked_03_cannon_F"];
-shop_heli = ["I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["I_MBT_03_cannon_F"];
-shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F"];
+shop_AA = ["I_LT_01_AA_F", "I_LT_01_AA_F", "I_LT_01_AA_F"];
+shop_MRAP = ["I_MRAP_03_hmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_hmg_F"];
+shop_wheel_apc = ["O_APC_Wheeled_02_rcws_v2_F", "B_APC_Wheeled_01_cannon_v2_F", "I_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_APC_tracked_03_cannon_F", "I_APC_tracked_03_cannon_F", "B_APC_Tracked_01_rcws_F"];
+shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "I_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
+shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_04_F"];
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";
