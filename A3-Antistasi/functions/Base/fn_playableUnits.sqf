@@ -3,7 +3,7 @@
 **/
 
 if (isMultiplayer) then {
-	playableUnits;
+	(call BIS_fnc_listPlayers);
 } else {
 	[player];
 };
