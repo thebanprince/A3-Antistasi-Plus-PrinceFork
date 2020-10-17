@@ -10,7 +10,7 @@ _groupContact = grpNull;
 _tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
-_timeLimit = if (_difficultX) then {60} else {120};
+_timeLimit = if (_difficultX) then {60 * settingsTimeMultiplier} else {120 * settingsTimeMultiplier};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly

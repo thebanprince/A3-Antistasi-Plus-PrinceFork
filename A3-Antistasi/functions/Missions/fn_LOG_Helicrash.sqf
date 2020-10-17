@@ -13,7 +13,7 @@ private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupant
 private _sideName = if(_sideX == Occupants) then { nameOccupants } else { nameInvaders };
 [3, format ["Origin: %1, Hardmode: %2, Controlling Side: %3", _missionOrigin, _difficult, _sideX], _filename] call A3A_fnc_log;
 
-private _timeLimit = 90;
+private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum]; //converts datenumber back to date array so that time formats correctly

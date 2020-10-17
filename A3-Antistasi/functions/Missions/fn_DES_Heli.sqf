@@ -10,7 +10,7 @@ private _posCrashOrig = [];
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _posHQ = getMarkerPos respawnTeamPlayer;
-_timeLimit = 120;
+_timeLimit = 120 * settingsTimeMultiplier;
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _ang = random 360;

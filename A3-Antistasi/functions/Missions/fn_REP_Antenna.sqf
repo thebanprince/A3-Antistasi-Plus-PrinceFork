@@ -6,7 +6,7 @@ private ["_markerX","_antennaDead","_dateLimit","_dateLimitNum","_nameDest","_tr
 _markerX = _this select 0;
 _antennaDead = _this select 1;
 
-_timeLimit = 60;
+_timeLimit = 60 * settingsTimeMultiplier;
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly

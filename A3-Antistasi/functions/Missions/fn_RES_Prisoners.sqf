@@ -14,7 +14,7 @@ _positionX = getMarkerPos _markerX;
 
 _POWs = [];
 
-_timeLimit = if (_difficultX) then {30} else {120};//120
+_timeLimit = if (_difficultX) then {30 * settingsTimeMultiplier} else {120 * settingsTimeMultiplier};
 
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 

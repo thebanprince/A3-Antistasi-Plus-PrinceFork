@@ -19,7 +19,7 @@ private _reinforcementsX = [];
 
 // Setup start/end times and convoy type
 
-private _timeXfin = 120;
+private _timeXfin = 120 * settingsTimeMultiplier;
 private _dateFinal = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeXfin];
 private _enddateNum = dateToNumber _dateFinal;
 

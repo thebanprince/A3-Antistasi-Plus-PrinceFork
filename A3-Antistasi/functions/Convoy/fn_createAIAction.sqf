@@ -403,8 +403,9 @@ if(_type == "convoy") then
       private ["_timeLimit", "_dateLimitNum", "_displayTime", "_nameDest", "_nameOrigin" ,"_timeToFinish", "_dateFinal"];
       //The time the convoy will wait before starting
       _timeLimit = if (_isHeavy) then {0} else {round random 10};// timeX for the convoy to come out, we should put a random round 15
+      _timeLimit = _timeLimit * settingsTimeMultiplier;
 
-      _timeToFinish = 120;
+      _timeToFinish = 120 * settingsTimeMultiplier;
       _dateTemp = date;
       _dateFinal = [_dateTemp select 0, _dateTemp select 1, _dateTemp select 2, _dateTemp select 3, (_dateTemp select 4) + _timeToFinish];
       _dateLimit = [_dateTemp select 0, _dateTemp select 1, _dateTemp select 2, _dateTemp select 3, (_dateTemp select 4) + _timeLimit];
