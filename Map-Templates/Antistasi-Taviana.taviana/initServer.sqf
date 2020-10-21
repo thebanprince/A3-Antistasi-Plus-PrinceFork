@@ -28,7 +28,11 @@ _forbiddenTerrainObjects = [
     "tram",
     "tavi_p_carduus",
     "tavi_fort_barricade",
-    "vetrak1"
+    "vetrak1",
+    "fort_rampart",
+    "brdm2_wrecked",
+    "misc_rubble_ep1",
+    "skodovka_wrecked"
 ];
 
 _allTerainObjects = nearestTerrainObjects [[worldSize/2, worldSize/2], ["HIDE"], worldSize];
