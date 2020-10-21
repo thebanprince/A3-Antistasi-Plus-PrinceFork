@@ -95,8 +95,8 @@ else
 			{
 			[petros,"hint","Supplies Delivered", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 			["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
-			{ [25 * _bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
-			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+			{ [35 * _bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+			[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			if (!isMultiplayer) then {_bonus = _bonus + ((20-skillFIA)*0.1)};
 			[-1*(20-skillFIA),15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
             [
@@ -120,8 +120,5 @@ deleteVehicle _truckX;
 _emptybox = "Land_PaperBox_01_open_empty_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
 
-//sleep (600 + random 1200);
-
-//_nul = [_tsk,true] call BIS_fnc_deleteTask;
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
 
