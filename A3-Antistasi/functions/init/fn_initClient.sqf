@@ -419,10 +419,10 @@ if (hasFFAA) then {
 	_textX = _textX + ["FFAA Detected\n\nAntistasi detects FFAA in the server config.\nFIA Faction will be replaced by Spanish Armed Forces"];
 };
 if (hasAU) then {
-	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\nDepending on the modules will have the following effects.\n\n\BLUFOR: Replaces NATO by a mix of LDF and Aegis units.\n\nINDEP: Recruited AI will count with CUP as basic weapons, replaces FIA with Chdk units. Adds some civilian trucks"];
+	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\nDepending on the modules will have the following effects.\n\n\"];
 };
 if (hasCup) then {
-	_textX = _textX + ["CUP Detected\n\nAntistasi detects CUP modset in the server config.\n Unit roster will be replaced with CUP entries."];
+	_textX = _textX + ["CUP Detected\n\nAntistasi detects CUP modset in the server config.\n Unit roster will be replaced with CUP and Aegis entries."];
 };
 if (hasAegis) then {
 	_textX = _textX + ["Arma 3 Aegis Detected\n\Arma 3 Atlas Detected\n\nAntistasi detects Aegis, Atlas and Atlas - Opposing Forces in the server config.\nDepending on the modules will have the following effects.\n\nOPFOR: Replaces CSAT by Russia.\n\BLUFOR: Replaces NATO by mix of EUROFOR (Bundeswehr, British armed forces, ION) units.\n\nINDEP: New starting weapons."];
@@ -487,7 +487,7 @@ if (isMultiplayer) then {
 vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
-if(hasCup) then {
+if(hasCup || {hasAU}) then {
     vehicleBox addAction ["Buy Technical", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Technical", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "technicalMarket_menu"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 }; 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];

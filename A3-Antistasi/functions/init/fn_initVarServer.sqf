@@ -769,7 +769,7 @@ server setVariable [vehSDKAT, 1500, true];
 {server setVariable [_x,40000,true]} forEach shop_plane;
 
 //technicals cost
-if(hasCup) then {
+if(hasCup || {hasAU}) then {
 	server setVariable [techicalAa, 1500, true];													
 	server setVariable [technicalBtr, 1750, true];	
 	server setVariable [technicalNar, 3500, true];

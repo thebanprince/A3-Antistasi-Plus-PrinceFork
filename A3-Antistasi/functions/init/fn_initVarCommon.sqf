@@ -102,6 +102,7 @@ hasTieredUnitConfigs = false;
 private _activeAegis = false;
 private _activeAtlas = false;
 private _activeAtlasOpfor = false;
+private _activePolice = false;
 
 private _activeCupVehicles = false;
 private _activeCupUnits = false;
@@ -177,14 +178,20 @@ if(!hasAU) then {
 		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.", servertime];
 	};
 
-	if(_activeAegis && _activeAtlas && _activeAtlasOpfor) then {
+	//Arma 3 - Police detection
+	if (isClass (configFile >> "CfgFactionClasses" >> "IND_P_F")) then {
+		_activePolice = true;
+		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Police Detected.", servertime];
+	};
+
+	if(_activeAegis && _activeAtlas && _activeAtlasOpfor && _activePolice) then {
 		hasAegis = true;
 		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All Aegis mods have been detected.", servertime];
 	} 
 	else {
-		if(_activeAegis || _activeAtlas || _activeAtlasOpfor) then {
-			[1, "Arma 3 Aegis detected or Arma 3 Atlas detected or Arma 3 Atlas - Opposing Forces detected, but not all of them. Ensure that Aegis, Atlas and Atlas - Oppsoing Forces mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+		if(_activeAegis || _activeAtlas || _activeAtlasOpfor || _activePolice) then {
+			[1, "Arma 3 Aegis or Arma 3 Atlas or Arma 3 Atlas - Opposing Forces or Arma 3 - Police detected, but not all of them. Ensure that Aegis, Atlas, Atlas - Oppsoing Forces and Police mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
 			["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 		};
 	};

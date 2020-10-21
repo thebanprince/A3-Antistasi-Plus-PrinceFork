@@ -22,7 +22,7 @@ switch _typeX do
     case "vehicle":
     {
         _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        if(hasCup) then {
+        if(hasCup || {hasAU}) then {
             _flag addAction ["Buy Techical", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Techical", "You cannot buy techicals while there are enemies near you"] call A3A_fnc_customHint;} else {createDialog "technicalMarket_menu"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         };  
     };
