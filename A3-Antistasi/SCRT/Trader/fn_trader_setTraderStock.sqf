@@ -18,13 +18,13 @@ switch (true) do {
         diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Using RHS trader stock.", servertime];
         [_traderX, "rhs"] call HALs_store_fnc_addTrader;
     };
-    case (hasAegis): {
-        diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Initializing Aegis trader.", servertime];
-        [_traderX, "aegis"] call HALs_store_fnc_addTrader;
-    };
     case (hasAU): {
         diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Using Antistasi Units trader stock.", servertime];
         [_traderX, "antistasiUnits"] call HALs_store_fnc_addTrader;
+    };
+    case (hasAegis): {
+        diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Initializing Aegis trader.", servertime];
+        [_traderX, "aegis"] call HALs_store_fnc_addTrader;
     };
     case (hasCup): {
         diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Using CUP trader stock.", servertime];
