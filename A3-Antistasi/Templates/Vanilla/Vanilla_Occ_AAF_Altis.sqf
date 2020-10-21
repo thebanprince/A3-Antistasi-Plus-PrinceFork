@@ -192,5 +192,5 @@ staticAAOccupants = ["I_static_AA_F"];
 NATOMortar = "I_Mortar_01_F";
 
 NATOAARadar = "I_E_Radar_System_01_F";
-NATOAACiws = "I_E_SAM_System_03_F";
-NATOAASam = "";
+NATOAACiws = "";
+NATOAASam = "I_E_SAM_System_03_F";

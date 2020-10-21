@@ -5,7 +5,7 @@
 nameOccupants = "AAF";
 
 //Police Faction
-factionGEN = "IND_E_F";
+factionGEN = "IND_P_F";
 //SF Faction
 factionMaleOccupants = "IND_I_F";
 //Miltia Faction
@@ -63,8 +63,8 @@ if (gameMode != 4) then
 	};
 
 //Police Units
-policeOfficer = "I_E_Soldier_MP_F";
-policeGrunt = "I_E_Soldier_lite_F";
+policeOfficer = "I_P_PoliceOfficer_Rifle_F";
+policeGrunt = "I_P_PoliceOfficer_F";
 
 ////////////////////////////////////
 //            GROUPS             ///
@@ -189,5 +189,5 @@ staticAAOccupants = ["I_static_AA_F"];
 NATOMortar = "I_Mortar_01_F";
 
 NATOAARadar = "I_E_Radar_System_01_F";
-NATOAACiws = "I_E_SAM_System_03_F";
-NATOAASam = "";
+NATOAACiws = "";
+NATOAASam = "I_E_SAM_System_03_F";

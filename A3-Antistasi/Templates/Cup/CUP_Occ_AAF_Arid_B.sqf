@@ -9,7 +9,7 @@ factionGEN = "IND_E_F";
 //SF Faction
 factionMaleOccupants = "CUP_I_PMC_ION";
 //Miltia Faction
-if (gameMode != 4) then {factionFIA = "IND_C_F"};
+if (gameMode != 4) then {factionFIA = "CUP_I_RACS"};
 
 //Flag Images
 NATOFlag = "Flag_AltisColonial_F";
@@ -169,7 +169,7 @@ vehNATOPlaneAA = "I_Plane_Fighter_04_F";
 vehNATOTransportPlanes = ["CUP_I_C130J_AAF"];
 //Heli
 vehNATOPatrolHeli = "I_Heli_light_03_unarmed_F";
-vehNATOTransportHelis = ["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F", "CUP_I_Wildcat_Unarmed_Green_AAF", "CUP_I_Wildcat_Unarmed_Digital_AAF"];
+vehNATOTransportHelis = ["CUP_I_Mi24_D_Dynamic_AAF", "I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F", "CUP_I_Wildcat_Unarmed_Green_AAF", "CUP_I_Wildcat_Unarmed_Digital_AAF"];
 vehNATOAttackHelis = ["CUP_I_AH1Z_Dynamic_AAF", "CUP_I_Wildcat_Digital_AAF", "CUP_I_Wildcat_Green_AAF", "CUP_I_Ka60_GL_Digi_AAF", "CUP_I_Mi24_Mk3_AAF", "CUP_I_Mi24_Mk4_AAF", "CUP_I_Mi24_D_Dynamic_AAF", "I_Heli_light_03_dynamicLoadout_F"];
 //UAV
 vehNATOUAV = "I_UAV_02_dynamicLoadout_F";
@@ -184,12 +184,12 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 //Militia Vehicles
 if (gameMode != 4) then {
 	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
-	vehFIATruck = "CUP_I_MTLB_pk_NAPA";
+	vehFIATruck = "CUP_I_LAV25_HQ_RACS";
 	vehFIACar = "I_C_Offroad_02_unarmed_F";
 };
 
 //Police Vehicles
-vehPoliceCar = "I_E_Offroad_01_comms_F";
+vehPoliceCar = "I_P_Offroad_01_police_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
@@ -201,5 +201,5 @@ staticAAOccupants = ["I_static_AA_F", "CUP_I_ZU23_NAPA"];
 NATOMortar = "I_Mortar_01_F";
 
 NATOAARadar = "I_E_Radar_System_01_F";
-NATOAACiws = "I_E_SAM_System_03_F";
-NATOAASam = "";
+NATOAACiws = "";
+NATOAASam = "I_E_SAM_System_03_F";
