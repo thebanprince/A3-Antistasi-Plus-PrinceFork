@@ -2,14 +2,33 @@
 
 
 ### 1.0
-- Full Arma 3 Atlas, Arma 3 Aegis support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
-- Full CUP Vehicles, Cup Weapons, Cup Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
-- Chernarus 2020 support
+- Full Arma 3 Atlas, Arma 3 Aegis, Arma 3 Atlas - Opposing Forces, Arma 3 - Police support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
+- Full CUP Vehicles, CUP Weapons, CUP Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, technicals store, tiered unit configs)
+- Time Multiplier mission parameter (Experimental)
 - Pursuers - punisher squad to shake things up on stale moments (optional, mission parameter)
+- New outpost type: Military Base. Heavily guarded outpost with vehicles and SAM site
+- Added Unflip Vehicle action (Y menu, requires 4 people to unflip the car, heavy vehicles require repair vehicle in proximity)
+- SAM site support
+- Altis support - more points of interest, military base markers
+- Multiple vehicle tiers on Vehicle Market (use arrow keys to switch tiers, requires certain war levels to unlock next tier vehicle) 
 - Player marker radio requirement change rollback
 - Planes could be put into garage without nearest airport check
-- Bodyguard has been replaced with proper unit (affects BLUFOR SpecOps squad)
-- Invaders uses GMG statics on roablocks and bases (works everywhere except RHS since there is no GMG on high tripod)
+- Individual rebel salary - each rebel recieves his own paycheck, scales with overall side income
+- Bodyguard has been replaced with proper specops unit (affects BLUFOR SpecOps squad)
+- Invaders uses GMGs on roablocks and bases (works everywhere except RHS since there is no GMG on high tripod)
+- Tank pool for BLUFOR and OPFOR sides now includes multiple tank variants 
+- Static AA pool (RHS, CUP)
+- Technicals store (CUP only)
+- Lowered prices for some RHS weapons
+- Fixed some minor loot truck issues 
+- Removed Clear Forest action on trader's laptop since this action already applies on initial trader spawn 
+- More variety to static weapons on High Cargo Towers
+- (Taviana) Some airports and outposts has been replaced with new Military Base outpost type
+- (Taviana) Another wreck clearance pass
+- (Taviana) Seaport placement adjustments
+- (Taviana) Bank buildings fix
+- (Taviana) Bridges fix
+- Removed True Viking mod support (Antistasi Units template)
 
 ### 0.6
 - New mission type: Salvage Helicrash
