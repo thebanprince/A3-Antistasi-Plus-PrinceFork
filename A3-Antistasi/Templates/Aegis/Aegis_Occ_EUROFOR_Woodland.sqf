@@ -11,7 +11,7 @@ factionGEN = "BLU_GEN_F";
 //SF Faction
 factionMaleOccupants = "BLU_A_wdl_F";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = ""};
+if (gameMode != 4) then {factionFIA = ""};
 
 //Flag Images
 NATOFlag = "Flag_Blue_F";
@@ -58,7 +58,7 @@ staticCrewOccupants = "B_E_Support_AMG_F";
 NATOPilot = "B_E_Helipilot_F";
 
 //Militia Units
-if ((gameMode != 4) and (!hasFFAA)) then {
+if (gameMode != 4) then {
 	FIARifleman = "B_ION_Soldier_F";
 	FIAMarksman = "B_ION_Soldier_M_F";
 };
@@ -115,7 +115,7 @@ NATOSquadT3 = ["B_A_Soldier_SL_wdl_F", "B_A_Soldier_GL_wdl_F", "B_A_Soldier_LAT_
 NATOSpecOp = ["B_A_Recon_TL_wdl_F", "B_A_Recon_Sharpshooter_wdl_F", "B_A_Recon_wdl_F", "B_A_Recon_LAT_wdl_F", "B_A_Recon_JTAC_wdl_F", "B_A_Recon_Exp_wdl_F", "B_A_Recon_MG_wdl_F", "B_A_Recon_Medic_wdl_F"];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then {
+if (gameMode != 4) then {
 	//Teams
 	groupsFIASmall = [
 		["B_ION_Soldier_GL_F", FIARifleman],
@@ -179,7 +179,7 @@ vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "B_E_Truck_01_
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then {
+if (gameMode != 4) then {
 	vehFIAArmedCar = "B_H_Offroad_02_LMG_F";
 	vehFIATruck = "B_ION_Van_02_transport_F";
 	vehFIACar = "B_H_Offroad_02_unarmed_F";

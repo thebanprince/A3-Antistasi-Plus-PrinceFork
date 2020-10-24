@@ -9,7 +9,7 @@ factionGEN = "BLU_GEN_F";
 //SF Faction
 factionMaleOccupants = "CUP_B_CZ";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = "CUP_B_HIL_Soldier_Res"};
+if (gameMode != 4) then {factionFIA = "CUP_B_HIL_Soldier_Res"};
 
 //Flag Images
 NATOFlag = "Flag_Blue_F";
@@ -56,7 +56,7 @@ staticCrewOccupants = "CUP_B_CDF_Militia_FST";
 NATOPilot = "CUP_B_CDF_Pilot_FST";
 
 //Militia Units
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	FIARifleman = "CUP_B_HIL_Soldier_Res";
 	FIAMarksman = "CUP_B_HIL_M_Res";
@@ -107,7 +107,7 @@ NATOSquadT3 = ["CUP_B_CZ_Soldier_SL_WDL","CUP_B_CZ_Soldier_805_GL_WDL","CUP_B_CZ
 NATOSpecOp = ["CUP_B_CZ_SpecOps_TL_WDL","CUP_B_CZ_SpecOps_Scout_WDL","CUP_B_CZ_SpecOps_Recon_WDL","CUP_B_CZ_SpecOps_MG_WDL","CUP_B_CZ_SpecOps_GL_WDL","CUP_B_CZ_SpecOps_Exp_WDL","CUP_B_CZ_SpecOps_WDL","CUP_B_CZ_Medic_WDL"];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then {
+if (gameMode != 4) then {
 	//Teams
 	groupsFIASmall = [
 		["CUP_B_HIL_GL_Res", "CUP_B_HIL_Soldier_Res"],
@@ -171,7 +171,7 @@ vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "CUP_B_Kamaz_R
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then {
+if (gameMode != 4) then {
 	vehFIAArmedCar = "CUP_B_M151_M2_HIL";
 	vehFIATruck = "CUP_B_MTLB_pk_CDF";
 	vehFIACar = "CUP_B_M151_HIL";
