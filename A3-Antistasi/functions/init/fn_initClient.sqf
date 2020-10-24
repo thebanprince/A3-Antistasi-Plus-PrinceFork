@@ -71,7 +71,7 @@ if (isMultiplayer) then {
 	};
 	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
 	if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
-	
+
 	[] call SCRT_fnc_common_set3dIcons;
 }
 else {
@@ -121,6 +121,7 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 };
 
 [player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
+[] spawn A3A_fnc_outOfBounds;
 
 if (!hasACE) then {
 	[] spawn A3A_fnc_tags;
@@ -489,7 +490,7 @@ vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearChe
 
 if(hasCup || {hasAU}) then {
     vehicleBox addAction ["Buy Technical", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Technical", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "technicalMarket_menu"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-}; 
+};
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 fireX allowDamage false;
@@ -548,6 +549,7 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 [2,"initClient completed",_fileName] call A3A_fnc_log;
+A3A_customHintEnable = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.
 
 if(!isMultiplayer) then
 {

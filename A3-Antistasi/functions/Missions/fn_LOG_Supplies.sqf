@@ -26,7 +26,8 @@ missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
 _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
 
 //Creating the box
-_truckX = "Land_PaperBox_01_open_boxes_F" createVehicle _pos;
+_truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
+_truckX enableRopeAttach true;
 _truckX allowDamage false;
 _truckX call jn_fnc_logistics_addAction;
 _truckX addAction ["Delivery infos",
@@ -47,7 +48,7 @@ _truckX setVariable ["destinationX",_nameDest,true];
 
 [_truckX,"Supply Box"] spawn A3A_fnc_inmuneConvoy;
 
-waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX)) or (isNull _truckX)};
+waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	{
@@ -78,8 +79,8 @@ else
 		{
 		while {(_countX > 0) and (_truckX distance _positionX < 40) and ({[_x] call A3A_fnc_canFight} count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits) == count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0) and (dateToNumber date < _dateLimitNum) and (isNull attachedTo _truckX)} do
 			{
-			_formatX = format ["%1", _countX];
-			{if (isPlayer _x) then {[petros,"countdown",_formatX] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+			_formatX = format ["Keep the area clear of hostiles for %1 more seconds", _countX];
+			{if (isPlayer _x) then {[petros,"hint",_formatX,"Logistics Mission"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 			sleep 1;
 			_countX = _countX - 1;
 			};
@@ -117,8 +118,7 @@ else
 
 _ecpos = getpos _truckX;
 deleteVehicle _truckX;
-_emptybox = "Land_PaperBox_01_open_empty_F" createVehicle _ecpos;
+_emptybox = "Land_Pallet_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
 
 _nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
-

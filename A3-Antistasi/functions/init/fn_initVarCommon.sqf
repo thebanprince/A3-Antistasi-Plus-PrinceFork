@@ -15,6 +15,7 @@ antistasiPlusVersion = localize "STR_antistasi_plus_credits_generic_version_text
 ////////////////////////////////////
 [2,"Setting initial variables",_fileName] call A3A_fnc_log;													//Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 debug = false;
+A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
 
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
@@ -47,7 +48,7 @@ colorInvaders = "colorOPFOR";
 [2,"Declaring item categories",_fileName] call A3A_fnc_log;
 
 weaponCategories = ["Rifles", "Handguns", "MachineGuns", "MissileLaunchers", "Mortars", "RocketLaunchers", "Shotguns", "SMGs", "SniperRifles"];
-itemCategories = ["Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators",
+itemCategories = ["Gadgets", "Bipods", "MuzzleAttachments", "PointerAttachments", "Optics", "Binoculars", "Compasses", "FirstAidKits", "GPS", "LaserDesignators",
 	"Maps", "Medikits", "MineDetectors", "NVGs", "Radios", "Toolkits", "UAVTerminals", "Watches", "Glasses", "Headgear", "Vests", "Uniforms", "Backpacks"];
 
 magazineCategories = ["MagArtillery", "MagBullet", "MagFlare", "Grenades", "MagLaser", "MagMissile", "MagRocket", "MagShell", "MagShotgun", "MagSmokeShell"];
@@ -135,18 +136,18 @@ if isClass (configfile >> "CfgPatches" >> "ffaa_armas") then {
 
 //RHS AFRF Detection
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {
-	activeAFRF = true; 
-	hasRHS = true; 
+	activeAFRF = true;
+	hasRHS = true;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS AFRF Detected.",servertime];
 };
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {
-	activeUSAF = true; 
-	hasRHS = true; 
+	activeUSAF = true;
+	hasRHS = true;
 	hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];
 };
 if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
-	activeGREF = true; 
+	activeGREF = true;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];
 };
 
@@ -188,7 +189,7 @@ if(!hasAU) then {
 		hasAegis = true;
 		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All Aegis mods have been detected.", servertime];
-	} 
+	}
 	else {
 		if(_activeAegis || _activeAtlas || _activeAtlasOpfor || _activePolice) then {
 			[1, "Arma 3 Aegis or Arma 3 Atlas or Arma 3 Atlas - Opposing Forces or Arma 3 - Police detected, but not all of them. Ensure that Aegis, Atlas, Atlas - Oppsoing Forces and Police mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
@@ -220,7 +221,7 @@ if(!hasAU) then {
 		hasCup = true;
 		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All CUP mods have been detected.",servertime];
-	} 
+	}
 	else {
 		//if at least one of these mods enabled - shut down mission
 		if(_activeCupUnits || _activeCupWeapons || _activeCupVehicles) then {

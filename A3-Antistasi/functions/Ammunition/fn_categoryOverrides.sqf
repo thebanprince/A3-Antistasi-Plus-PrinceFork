@@ -121,7 +121,11 @@ private _categoryOverrideTable = [
 ["ace_compat_rhs_usf3_mk19_carry" , ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_usf3_tow_carry" , ["StaticWeaponParts","Items"]],
 ["ace_compat_rhs_gref3_dshkm_carry" , ["StaticWeaponParts","Items"]],
-
+["ACE_Kestrel4500", ["Gadgets","Items"]],
+["ACE_ATragMX", ["Gadgets","Items"]],
+["ACE_HuntIR_monitor", ["Gadgets","Items"]],
+["ACE_microDAGR", ["Gadgets","Items"]],
+["ACE_DAGR", ["Gadgets","Items"]],
 ["ace_dragon_super", ["MissileLaunchers","Weapons","AT"]],
 ["ace_dragon_sight", ["Binoculars","Items"]] ];
 

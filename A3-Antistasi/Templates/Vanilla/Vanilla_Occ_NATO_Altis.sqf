@@ -9,7 +9,7 @@ factionGEN = "BLU_GEN_F";
 //SF Faction
 factionMaleOccupants = "BLU_CTRG_F";
 //Miltia Faction
-if ((gameMode != 4) and (!hasFFAA)) then {factionFIA = ""};
+if (gameMode != 4) then {factionFIA = ""};
 
 //Flag Images
 NATOFlag = "Flag_NATO_F";
@@ -48,7 +48,7 @@ vehNATOPVP = ["B_MRAP_01_F","B_MRAP_01_hmg_F"];
 //Military Units
 NATOOfficer = "B_officer_F";
 NATOOfficer2 = "B_G_officer_F";
-NATOBodyG = "B_Patrol_Soldier_TL_F";
+NATOBodyG = "B_Patrol_Medic_F";
 NATOCrew = "B_crew_F";
 NATOUnarmed = "B_G_Survivor_F";
 NATOMarksman = ["B_Sharpshooter_F","B_Sharpshooter_F","B_Sharpshooter_F"];
@@ -56,7 +56,7 @@ staticCrewOccupants = "B_support_MG_F";
 NATOPilot = "B_Helipilot_F";
 
 //Militia Units
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	FIARifleman = "B_Soldier_lite_F";
 	FIAMarksman = "B_soldier_M_F";
@@ -106,7 +106,7 @@ NATOSquadT3 = ["B_Soldier_SL_F","B_Soldier_F","B_soldier_LAT_F",NATOMarksman sel
 NATOSpecOp = ["B_CTRG_Soldier_TL_tna_F","B_CTRG_Soldier_M_tna_F","B_CTRG_Soldier_tna_F","B_CTRG_Soldier_LAT_tna_F","B_CTRG_Soldier_JTAC_tna_F","B_CTRG_Soldier_Exp_tna_F","B_CTRG_Soldier_AR_tna_F","B_CTRG_Soldier_Medic_tna_F"];
 
 //Militia Groups
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	//Teams
 	groupsFIASmall =
@@ -177,7 +177,7 @@ vehNATONormal = vehNATOLight + vehNATOTrucks + [vehNATOAmmoTruck, "B_Truck_01_fu
 vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA] + vehNATOTransportPlanes;
 
 //Militia Vehicles
-if ((gameMode != 4) and (!hasFFAA)) then
+if (gameMode != 4) then
 	{
 	vehFIAArmedCar = "B_LSV_01_armed_F";
 	vehFIATruck = "B_Truck_01_transport_F";
