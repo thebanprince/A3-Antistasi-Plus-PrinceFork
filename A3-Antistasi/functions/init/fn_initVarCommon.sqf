@@ -139,12 +139,12 @@ if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") then {
 if isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") then {
 	activeUSAF = true;
 	hasRHS = true;
-	hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS USAF Detected.",servertime];
 };
 if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
 	activeGREF = true;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | RHS GREF Detected.",servertime];
+	hasTieredUnitConfigs = true;
 };
 
 //AntistasiUnits Detected
@@ -152,7 +152,7 @@ if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
     hasAU = true;
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Tiered Units Configs Detected.",servertime];
-	hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+	hasTieredUnitConfigs = true;
 };
 
 
@@ -183,7 +183,7 @@ if(!hasAU) then {
 
 	if(_activeAegis && _activeAtlas && _activeAtlasOpfor && _activePolice) then {
 		hasAegis = true;
-		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+		hasTieredUnitConfigs = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All Aegis mods have been detected.", servertime];
 	}
 	else {
@@ -215,7 +215,7 @@ if(!hasAU) then {
 
 	if(_activeCupUnits && _activeCupWeapons && _activeCupVehicles) then {
 		hasCup = true;
-		hasTieredUnitConfigs = _isUnitTiersOptionEnabled;
+		hasTieredUnitConfigs = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All CUP mods have been detected.",servertime];
 	}
 	else {

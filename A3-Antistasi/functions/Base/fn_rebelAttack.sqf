@@ -307,7 +307,8 @@ if(count _easyTargets >= 4) then
                 {
                     if (_side == Occupants) then
                     {
-                        _soldiers append (selectRandom (groupsNATOSquad + groupsNATOmid));
+                        private _squads = [(call SCRT_fnc_unit_getCurrentNATOSquad) + (call SCRT_fnc_unit_getCurrentGroupNATOMid)];  
+                        _soldiers append (selectRandom _squads);
                     }
                     else
                     {
@@ -429,7 +430,8 @@ else
                 {
                     if (_side == Occupants) then
                     {
-                        _soldiers append (selectRandom (groupsNATOSquad + groupsNATOmid));
+                        private _squads = [(call SCRT_fnc_unit_getCurrentNATOSquad) + (call SCRT_fnc_unit_getCurrentGroupNATOMid)];
+                        _soldiers append (selectRandom _squads);
                     }
                     else
                     {

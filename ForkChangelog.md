@@ -2,13 +2,14 @@
 
 
 ### 1.0
+- Upgrade to 2.3.1 Community Version 
 - Full Arma 3 Atlas, Arma 3 Aegis, Arma 3 Atlas - Opposing Forces, Arma 3 - Police support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
 - Full CUP Vehicles, CUP Weapons, CUP Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, technicals store, tiered unit configs)
 - Time Multiplier mission parameter (Experimental)
 - Pursuers - punisher squad to shake things up on stale moments (optional, mission parameter)
 - New outpost type: Military Base. Heavily guarded outpost with vehicles and SAM site
 - Added Unflip Vehicle action (Y menu, requires 4 people to unflip the car, heavy vehicles require repair vehicle in proximity)
-- SAM site support
+- SAM sites
 - Altis support - more points of interest, military base markers
 - Multiple vehicle tiers on Vehicle Market (use arrow keys to switch tiers, requires certain war levels to unlock next tier vehicle) 
 - Player marker radio requirement change rollback
@@ -18,16 +19,19 @@
 - Invaders uses GMGs on roablocks and bases (works everywhere except RHS since there is no GMG on high tripod)
 - Tank pool for BLUFOR and OPFOR sides now includes multiple tank variants 
 - Static AA pool (RHS, CUP)
-- Technicals store (CUP only)
+- Technicals store (CUP only, accessable through vehicle box on base)
 - Lowered prices for some RHS weapons
 - Fixed some minor loot truck issues 
 - Removed Clear Forest action on trader's laptop since this action already applies on initial trader spawn 
 - More variety to static weapons on High Cargo Towers
+- Small IED in the store (Misc section)
+- Both Kozilce variants in the starting equipment (RHS)
 - (Taviana) Some airports and outposts has been replaced with new Military Base outpost type
 - (Taviana) Another wreck clearance pass
 - (Taviana) Seaport placement adjustments
 - (Taviana) Bank buildings fix
 - (Taviana) Bridges fix
+- Removed Infantry Unit Tiers setting (the feature is still there but can't be turned off)
 - Removed True Viking mod support (Antistasi Units template)
 
 ### 0.6
