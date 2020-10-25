@@ -47,7 +47,6 @@ if (isMultiplayer) then {
 	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
 	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
 	isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
-	isInfantryUnitTiersEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1); publicVariable "isInfantryUnitTiersEnabled";
 	areSimilarWeaponsUnlocks = ("similarWeaponsUnlock" call BIS_fnc_getParamValue == 1); publicVariable "areSimilarWeaponsUnlocks";
 	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
 	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
@@ -82,7 +81,6 @@ if (isMultiplayer) then {
 	helmetLossChance = 33;
     startWithLongRangeRadio = false;
 	isFatalWoundsEnabled = false;
-	isInfantryUnitTiersEnabled = false;
 	areSimilarWeaponsUnlocks = false;
 	fastTravelIndividualEnemyCheck = false;
 	isPursuersEnabled = true;

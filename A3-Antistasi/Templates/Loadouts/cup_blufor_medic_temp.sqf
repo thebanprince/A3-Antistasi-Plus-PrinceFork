@@ -52,7 +52,7 @@
 		[] + _medicSupplies
 	],
 
-		"CUP_H_CDF_H_PASGT_MNT",,
+		"CUP_H_CDF_H_PASGT_MNT",
 		"",													//Facewear
 
 	[//Binocular

@@ -60,7 +60,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
     case (hasCup): {
       switch(true) do {
         case (worldName in temperatemaps): {
-          call compile preProcessFileLineNumbers "Templates\Cup\CUP_Reb_CHDKZ_Temp.sqf";
+          call compile preProcessFileLineNumbers "Templates\Cup\CUP_Reb_NAPA_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\Cup\CUP_Occ_CDF_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\Cup\CUP_Inv_RU_Temp.sqf";
         };
@@ -80,11 +80,7 @@ if(teamplayer != independent) then {//This section is for Altis Blufor ONLY!
           call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Inv_AFRF_Temp.sqf";
         };
         case (worldName in temperatemaps): {
-          if ("infantryUnitTiers" call BIS_fnc_getParamValue == 1) then {
-            call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Occ_NATOCDF_Temp.sqf";
-          } else {
-            call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Occ_USAF_Temp.sqf";
-          };
+          call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Occ_NATOCDF_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Reb_NAPA_Temp.sqf";
           call compile preProcessFileLineNumbers "Templates\Rhs\RHS_Inv_AFRF_Temp.sqf";
         };

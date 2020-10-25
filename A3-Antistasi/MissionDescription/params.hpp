@@ -200,6 +200,13 @@ class Params
 		texts[]={"1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
 		default = 1;
      };
+     class pursuers
+     {
+          title = "Enable Pursuers (EXPERIMENTAL)";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 0;
+     };
      class traderOnStart
      {
           title = "Arms Dealer Store on Start";
@@ -207,26 +214,12 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
-     class pursuers
-     {
-          title = "Enable Pursuers (Punitive Occupant Squad)";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
      class fatalWounds
      {
           title = "Enable Fatal Wounds";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;
-     };
-     class infantryUnitTiers
-     {
-          title = "Infantry Unit Tiers (Supports RHS, CUP, Aegis, Antistasi Units)";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
      };
      class 3dIcons
      {

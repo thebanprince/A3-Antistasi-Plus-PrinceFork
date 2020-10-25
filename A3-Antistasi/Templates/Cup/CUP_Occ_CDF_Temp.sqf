@@ -135,7 +135,7 @@ groupsNATOGen = [policeOfficer,policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "B_Quadbike_01_F";
-vehNATOLightArmed = ["CUP_B_UAZ_MG_CDF", "CUP_B_UAZ_SPG9_CDF", "CUP_B_LR_MG_CZ_W", "CUP_B_Dingo_CZ_Wdl", "CUP_B_BRDM2_CDF", "CUP_B_BRDM2_HQ_CDF", "CUP_B_BRDM2_ATGM_CDF", "CUP_B_Ural_ZU23_CDF",];
+vehNATOLightArmed = ["CUP_B_UAZ_MG_CDF", "CUP_B_UAZ_SPG9_CDF", "CUP_B_LR_MG_CZ_W", "CUP_B_Dingo_CZ_Wdl", "CUP_B_BRDM2_CDF", "CUP_B_BRDM2_HQ_CDF", "CUP_B_BRDM2_ATGM_CDF", "CUP_B_Ural_ZU23_CDF"];
 vehNATOLightUnarmed = ["CUP_B_UAZ_Unarmed_CDF", "CUP_B_UAZ_Open_CDF", "CUP_B_LR_Transport_CZ_W"];
 vehNATOTrucks = ["CUP_B_T810_Unarmed_CZ_WDL", "CUP_B_T810_Armed_CZ_WDL", "CUP_B_Kamaz_Open_CDF", "CUP_B_Kamaz_CDF", "CUP_B_Ural_Open_CDF", "CUP_B_Ural_CDF", "CUP_B_MTLB_pk_CDF"];
 vehNATOCargoTrucks = ["CUP_B_Kamaz_Open_CDF", "CUP_B_Ural_Open_CDF"];

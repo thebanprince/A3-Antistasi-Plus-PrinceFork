@@ -85,7 +85,6 @@ activeAFRF = false;
 activeUSAF = false;
 activeGREF = false;
 hasFFAA = false;
-has3CB = false;
 hasAU = false;
 hasAegis = false;
 hasCup = false;
@@ -108,9 +107,6 @@ private _activePolice = false;
 private _activeCupVehicles = false;
 private _activeCupUnits = false;
 private _activeCupWeapons = false;
-
-//attempt to fix "Error Undefined variable in expression: isinfantryunittiersenabled" which came from initPlayerLocal
-private _isUnitTiersOptionEnabled = ("infantryUnitTiers" call BIS_fnc_getParamValue == 1);
 
 //Radio Detection
 hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
