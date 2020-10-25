@@ -3366,7 +3366,7 @@ class technicalMarket_menu 	{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = "Technicals"; //--- ToDo: Localize;
+			text = "Technicals, APCs"; //--- ToDo: Localize;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -3414,7 +3414,7 @@ class technicals {
 		class HQ_frame: RscFrame
 		{
 			idc = 102;
-			text = "Technicals"; //--- ToDo: Localize;
+			text = "Technicals, APCs"; //--- ToDo: Localize;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;

@@ -178,7 +178,7 @@ if (gameMode != 4) then {
 };
 
 //Police Vehicles
-vehPoliceCar = "CUP_LADA_LM_CIV";
+vehPoliceCar = "B_GEN_Offroad_01_gen_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
