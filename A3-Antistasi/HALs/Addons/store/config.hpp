@@ -57,7 +57,7 @@ class cfgHALsStore
 			displayName = "Launchers";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\secondaryWeapon_ca.paa";
 
-			ITEM(launch_RPG7_F, 1500, 15);
+			ITEM(launch_RPG7_F, 900, 15);
 
 			ITEM(launch_NLAW_F, 3250, 10);
 
@@ -1138,7 +1138,7 @@ class cfgHALsStore
 			displayName = "Launchers";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\secondaryWeapon_ca.paa";
 
-			ITEM(launch_RPG7_F, 1500, 15);
+			ITEM(launch_RPG7_F, 900, 15);
 
 			ITEM(launch_NLAW_F, 3250, 10);
 
@@ -2974,7 +2974,7 @@ class cfgHALsStore
 			ITEM(CUP_launch_HCPF3, 700, 50);
 			ITEM(CUP_launch_PzF3, 600, 50);
 
-			ITEM(launch_RPG7_F, 1500, 15);
+			ITEM(launch_RPG7_F, 900, 15);
 
 			ITEM(CUP_launch_NLAW, 1300, 15);
 			ITEM(launch_NLAW_F, 3250, 10);
@@ -5803,9 +5803,9 @@ class cfgHALsStore
 			ITEM(CUP_launch_HCPF3, 700, 50);
 			ITEM(CUP_launch_PzF3, 600, 50);
 
-			ITEM(CUP_launch_NLAW, 1000, 10);
+			ITEM(CUP_launch_NLAW, 1250, 10);
 
-			ITEM(CUP_launch_RPG7V, 1500, 15);
+			ITEM(CUP_launch_RPG7V, 900, 15);
 
 			ITEM(launch_RPG32_F, 2500, LAUNCHER_STOCK);
 			ITEM(launch_RPG32_green_F, 2500, LAUNCHER_STOCK);
@@ -9014,7 +9014,7 @@ class cfgHALsStore
 			ITEM(rhs_weap_M136_hedp, 700, 50);
 			ITEM(rhs_weap_M136_hp, 750, 50);
 
-			ITEM(launch_RPG7_F, 1000, 15);
+			ITEM(launch_RPG7_F, 900, 15);
 
 			ITEM(rhs_weap_rpg7, 1500, 15);
 
