@@ -13,7 +13,7 @@ switch(true) do {
     };
     case (hasAegis): {
         call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Reb_FIA_B_Altis.sqf";
-        call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Occ_AAF_Woodland.sqf";
+        call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Occ_AAF_Altis.sqf";
         call compile preprocessFileLineNumbers "Templates\Aegis\Aegis_Inv_RUS_Woodland.sqf";
         call compile preProcessFileLineNumbers "Templates\Aegis\Aegis_Civ.sqf";
     };

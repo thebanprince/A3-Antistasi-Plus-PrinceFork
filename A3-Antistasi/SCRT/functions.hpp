@@ -22,6 +22,7 @@ class SCRT
         class template_setAegisTemplate {};
         class template_setRhsTemplate {};
         class template_setAuTemplate {};
+        class template_setCupTemplate {};
         class template_set3cbTemplate {};
     };
 
