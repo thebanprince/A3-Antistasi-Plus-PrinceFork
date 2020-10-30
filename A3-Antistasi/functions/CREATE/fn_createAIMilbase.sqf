@@ -90,6 +90,20 @@ while {_spawnParameter isEqualType []} do {
 	sleep 1;
 };
 
+if(_ciwsType == "") then {
+	private _aaVehicleType = if(_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
+	private _vehiclePosition = [_positionX, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
+	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call bis_fnc_spawnvehicle;
+	private _aaVehicle = _aaVehicleData select 0;
+	private _aaVehicleCrew = _aaVehicleData select 1;
+	{[_x] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
+	_soldiers = _soldiers + _aaVehicleCrew;
+	[_aaVehicle, _sideX] call A3A_fnc_AIVEHinit;
+	_aaVehicleGroup = _aaVehicleData select 2;
+	_vehiclesX pushBack _aaVehicle;
+	_groups pushBack _aaVehicleGroup;
+};
+
 /////////////////////////////
 // SPAWNING PATROL VEHICLES
 ////////////////////////////
