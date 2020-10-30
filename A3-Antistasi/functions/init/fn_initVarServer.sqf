@@ -467,7 +467,7 @@ private _templateVariables = [
 ];
 
 //CUP-only technical variables
-if(hasCup) then {
+if(hasCup || {hasAU}) then {
 	_templateVariables append ["techicalAa", "technicalBtr", "technicalNar", "technicalJackal", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
@@ -704,7 +704,7 @@ if (hasACE) then {
 if (hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
 };
-if (hasCup) then {
+if (hasCup || {hasAU}) then {
 	[] call A3A_fnc_cupModCompat;
 };
 

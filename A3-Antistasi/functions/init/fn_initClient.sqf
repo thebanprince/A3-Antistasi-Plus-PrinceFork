@@ -420,7 +420,7 @@ if (hasFFAA) then {
 	_textX = _textX + ["FFAA Detected\n\nAntistasi detects FFAA in the server config.\nFIA Faction will be replaced by Spanish Armed Forces"];
 };
 if (hasAU) then {
-	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\nDepending on the modules will have the following effects.\n\n\"];
+	_textX = _textX + ["Antistasi Units Detected\n\nAntistasi detects Antistasi Units mod in the server config.\n"];
 };
 if (hasCup) then {
 	_textX = _textX + ["CUP Detected\n\nAntistasi detects CUP modset in the server config.\n Unit roster will be replaced with CUP and Aegis entries."];
