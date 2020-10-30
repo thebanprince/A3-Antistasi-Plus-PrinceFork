@@ -1,6 +1,14 @@
 ## Changelog
 
-
+### 1.0.1
+- Fixed hangar explosion on spawn (Taviana)
+- Misson size reduction, slightly lowered loading times (Taviana)
+- Weapon prices little tuning 
+- SAM Site adjustment - if template has no CIWS vehicle, default AA will be spawned instead
+- Altis BLUFOR version release
+- A few new control markers
+- Tuned excessive logging on BLUFOR squad spawn (less spam to .rpt)
+  
 ### 1.0
 - Upgrade to 2.3.1 Community Version 
 - Full Arma 3 Atlas, Arma 3 Aegis, Arma 3 Atlas - Opposing Forces, Arma 3 - Police support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
