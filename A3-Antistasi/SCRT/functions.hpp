@@ -12,6 +12,19 @@ class SCRT
         class effect_createBurningDebrisEffect {};
 	};
 
+    class Template 
+    {
+        file = "SCRT\Template";
+        class template_selectTemplateGroup {};
+        class template_selectBluforModTemplate {};
+        class template_selectIndepModTemplate {};
+        class template_setVanillaTemplate {};
+        class template_setAegisTemplate {};
+        class template_setRhsTemplate {};
+        class template_setAuTemplate {};
+        class template_set3cbTemplate {};
+    };
+
     class Encounter 
     {
         file = "SCRT\Encounter";

@@ -88,6 +88,7 @@ hasFFAA = false;
 hasAU = false;
 hasAegis = false;
 hasCup = false;
+has3CB = false;
 //Systems Mods
 hasACE = false;
 hasACEHearing = false;
@@ -121,12 +122,12 @@ if isClass (configFile >> "CfgPatches" >> "LIB_Core") then {
     [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
-if isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons") then {
-    [1, "3CB detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
-};
 if isClass (configfile >> "CfgPatches" >> "ffaa_armas") then {
     [1, "FFAA detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+if isClass (configfile >> "CfgPatches" >> "UK3CB_BAF_Weapons") then {
+    [1, "3CB detected, but it's support is disabled at this moment due to incompatibility with Antistasi Plus features until further notice. Turn off this mod to be able to play.", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
@@ -147,7 +148,7 @@ if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "r
 	hasTieredUnitConfigs = true;
 };
 
-//AntistasiUnits Detected
+//Antistasi Units Detected
 if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
     hasAU = true;
@@ -226,6 +227,19 @@ if(!hasAU) then {
 		};
 	};
 };
+
+
+//TODO: uncomment when 3CB templates will be ready
+// if(isClass (configFile >> "CfgFactionClasses" >> "UK3CB_CPD_O")) then {
+// 	if(!activeUSAF || {!activeAFRF} || {!activeGREF}) then {
+// 		[1, "3CB Factions detected, but it could work only with RHSGREF, RHSAFRF and RHS USAF. Turn on all these mods to proceed.", _fileName] call A3A_fnc_log;
+// 	} else {
+// 		diag_log format ["%1: [Antistasi] | INFO | initVar | 3CB factions detected.",servertime];
+// 		has3CB = true;
+// 		diag_log format ["%1: [Antistasi] | INFO | initVar | Tiered Units Configs Detected.",servertime];
+// 		hasTieredUnitConfigs = true;
+// 	};
+// };
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///

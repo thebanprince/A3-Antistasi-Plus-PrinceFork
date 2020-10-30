@@ -548,13 +548,13 @@
         <Korean>바닥부터 FIA 군을 일으켜 다이나믹 미션이 생성되는 맵 전체에서 AAF와 CSAT을 패퇴시키십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missionname_text">
-        <Original>Antistasi Plus - Altis</Original>
-        <English>Antistasi Plus - Altis</English>
-        <French>Antistasi Plus - Altis</French>
-        <Russian>Antistasi Plus - Алтис</Russian>
-        <German>Antistasi Plus - Altis</German>
-        <Czech>Antistasi Plus - Altis</Czech>
-        <Korean>Antistasi Altis</Korean>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
+        <French>Antistasi Plus - Altis Requiem</French>
+        <Russian>Antistasi Plus - Алтийский Реквием</Russian>
+        <German>Antistasi Plus - Altis Requiem</German>
+        <Czech>Antistasi Plus - Altis Requiem</Czech>
+        <Korean>Antistasi Plus - Altis Requiem</Korean>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
@@ -569,7 +569,7 @@
         <Original>2.3.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.0</Original>
+        <Original>1.0.1</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -800,14 +800,14 @@
     </Container>
     <Container name="mission_info">
       <Key ID="STR_antistasi_mission_info_altis_mapname_short_text">
-        <Original>Antistasi Altis</Original>
-        <English>Antistasi Altis</English>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_mapname_text">
-        <Original>Antistasi - Liberation of Altis</Original>
-        <English>Antistasi - Liberation of Altis</English>
-        <French>Antistasi - Libération d'Altis</French>
-        <Korean>Antistasi - Altis 해방</Korean>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
+        <French>Antistasi Plus - Altis Requiem</French>
+        <Korean>Antistasi Plus - Altis Requiem</Korean>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -819,20 +819,21 @@
         <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_mission_info_altis_blurb_text">
-        <Original>Because nothing is more important than Freedom.</Original>
-        <English>Because nothing is more important than Freedom.</English>
-        <French>Parce que rien n'est plus important que la Liberté.</French>
-        <German>Weil nichts wichtiger ist als die Freiheit.</German>
-        <Czech>Protože nic není důležitější než svoboda.</Czech>
-        <Korean>자유보다 중요한건 없기에.</Korean>
+        <Original>Whether we wanted it or not, we stepped into a war with occupants on Altis.</Original>
+        <English>Whether we wanted it or not, we stepped into a war with occupants on Altis.</English>
+        <French>Que nous le voulions ou non, nous sommes entrés dans une guerre avec les occupants d'Altis.</French>
+        <Russian>Петрос снова просит помощи в войне с оккупантами на своей родине.</Russian>
+        <German>Ob wir es wollten oder nicht, wir traten in einen Krieg mit Besatzern auf Altis.</German>
+        <Czech>Ať jsme to chtěli nebo ne, vstoupili jsme do války s obyvateli Altisu.</Czech>
+        <Korean>우리가 원하든 원하지 않든, 우리는 알 티스에서 거주자들과 전쟁에 뛰어 들었습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Altis (BLUFOR)</Original>
-        <English>Antistasi Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi - Liberation of Altis (BLUFOR)</Original>
-        <English>Antistasi - Liberation of Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
         <Original>Antistasi Stratis</Original>
@@ -845,12 +846,12 @@
         <Korean>Antistasi - Stratis 해방</Korean>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi Plus - Liberation of Altis (BLUFOR)</Original>
-        <English>Antistasi Plus - Liberation of Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Plus - Altis (BLUFOR)</Original>
-        <English>Antistasi Plus - Altis (BLUFOR)</English>
+        <Original>Antistasi Plus - Altis Requiem</Original>
+        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>

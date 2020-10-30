@@ -475,7 +475,7 @@ if(hasCup) then {
 	ONLY_DECLARE_SERVER_VAR_FROM_VARIABLE(_x);
 } forEach _templateVariables;
 
-call compile preProcessFileLineNumbers "Templates\selector.sqf";
+[] call SCRT_fnc_template_selectTemplateGroup;
 
 ////////////////////////////////////
 //     TEMPLATE SANITY CHECK      //
