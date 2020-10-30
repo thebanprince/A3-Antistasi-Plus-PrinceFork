@@ -193,6 +193,6 @@ staticATOccupants = "rhsgref_cdf_SPG9M";
 staticAAOccupants = ["rhsgref_cdf_Igla_AA_pod", "RHSgref_cdf_ZU23"];
 NATOMortar = "rhsgref_cdf_reg_M252";
 
-NATOAARadar = "";
+NATOAARadar = "I_E_Radar_System_01_F";
 NATOAACiws = "";
-NATOAASam = "";
+NATOAASam = "I_E_SAM_System_03_F";
