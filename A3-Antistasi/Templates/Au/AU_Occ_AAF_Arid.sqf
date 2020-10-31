@@ -189,7 +189,7 @@ if (gameMode != 4) then {
 };
 
 //Police Vehicles
-vehPoliceCar = "I_E_Offroad_01_comms_F";
+vehPoliceCar = "I_P_Offroad_01_police_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///

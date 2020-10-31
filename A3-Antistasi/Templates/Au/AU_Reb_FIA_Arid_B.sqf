@@ -57,7 +57,7 @@ civCar = "CUP_O_Hilux_unarmed_CR_CIV";
 civTruck = "CUP_C_Ural_Civ_03";
 civHeli = "CUP_C_Mi17_Civilian_RU";
 civBoat = "CUP_C_Fishing_Boat_Chernarus";
-civLooter = "CUP_C_V3S_Open_TKC";
+civLooter = "C_Truck_02_transport_F";
 
 ////////////////////////////////////
 //        STATIC WEAPONS         ///
