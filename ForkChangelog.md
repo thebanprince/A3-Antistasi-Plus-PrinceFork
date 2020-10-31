@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.0.2
+- Attempt to fix neverending BLUFOR/OPFOR attacks
+
 ### 1.0.1
 - Fixed hangar explosion on spawn (Taviana)
 - Misson size reduction, slightly lowered loading times (Taviana)

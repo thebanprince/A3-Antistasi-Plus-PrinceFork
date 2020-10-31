@@ -81,7 +81,7 @@ private _typesMRAP = if (_sideX == Occupants) then {vehNATOLightArmed} else {veh
 // Just getting the variables out of scope
 call {
 	private _typesAPC = if (_sideX == Occupants) then {vehNATOAPC} else {vehCSATAPC};
-	private _typesTank = if (_sideX == Occupants) then {selectRandom vehNATOTanks} else {selectRandom vehCSATTanks};
+	private _typesTank = if (_sideX == Occupants) then {vehNATOTanks} else {vehCSATTanks};
 	private _typeAA = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 
 	// Add up to 4 + tierWar APCs, selected randomly from available vehicles
