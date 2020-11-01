@@ -165,19 +165,19 @@ if(!hasAU) then {
 	};
 
 	//Arma 3 Atlas detection
-	if (isClass (configFile >> "CfgFactionClasses" >> "BLU_H_F")) then {
+	if (isClass (configFile >> "CfgFactionClasses" >> "Atlas_BLU_G_F")) then {
 		_activeAtlas = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.", servertime];
 	};
 
 	//Arma 3 Atlas - Opposing Forces detection
-	if (isClass (configFile >> "CfgFactionClasses" >> "OPF_E_F")) then {
+	if (isClass (configFile >> "CfgFactionClasses" >> "Opf_OPF_P_F")) then {
 		_activeAtlasOpfor = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Atlas Detected.", servertime];
 	};
 
 	//Arma 3 - Police detection
-	if (isClass (configFile >> "CfgFactionClasses" >> "IND_P_F")) then {
+	if (isClass (configFile >> "CfgFactionClasses" >> "Police_IND_P_F")) then {
 		_activePolice = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | Arma 3 Police Detected.", servertime];
 	};

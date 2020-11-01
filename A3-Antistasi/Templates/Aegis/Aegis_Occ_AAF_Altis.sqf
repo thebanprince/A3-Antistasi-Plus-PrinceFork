@@ -5,9 +5,9 @@
 nameOccupants = "AAF";
 
 //Police Faction
-factionGEN = "IND_P_F";
+factionGEN = "Police_IND_P_F";
 //SF Faction
-factionMaleOccupants = "IND_I_F";
+factionMaleOccupants = "Atlas_IND_I_F";
 //Miltia Faction
 if (gameMode != 4) then {factionFIA = "IND_C_F"};
 
