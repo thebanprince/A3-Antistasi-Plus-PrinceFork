@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.0.3
+- Aegis mod detection fix
+
 ### 1.0.2
 - Attempt to fix neverending BLUFOR/OPFOR attacks
 
