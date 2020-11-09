@@ -114,9 +114,13 @@ class cfgHALsStore
 			ITEM(arifle_TRG20_F, 650, RIFLE_STOCK);
 			ITEM(arifle_TRG21_GL_F, 1050, RIFLE_STOCK);
 
-			ITEM(arifle_TRG21_black_F, 800, RIFLE_STOCK);
-			ITEM(arifle_TRG20_black_F, 650, RIFLE_STOCK);
-			ITEM(arifle_TRG21_GL_black_F, 1050, RIFLE_STOCK);
+			ITEM(arifle_AUG_C_black_F, 900, RIFLE_STOCK);
+			ITEM(arifle_AUG_black_F, 1050, RIFLE_STOCK);
+			ITEM(arifle_AUG_GL_black_F, 1300, RIFLE_STOCK);
+
+			ITEM(arifle_AUG_C_F, 900, RIFLE_STOCK);
+			ITEM(arifle_AUG_F, 1050, RIFLE_STOCK);
+			ITEM(arifle_AUG_GL_F, 1300, RIFLE_STOCK);
 
 			ITEM(arifle_AKM_F, 1250, RIFLE_STOCK);
 
@@ -2399,6 +2403,15 @@ class cfgHALsStore
 			ITEM(arifle_Mk20_plain_F, 1000, RIFLE_STOCK);
 			ITEM(arifle_Mk20C_plain_F, 850, RIFLE_STOCK);
 			ITEM(arifle_Mk20_GL_plain_F, 1250, RIFLE_STOCK);
+
+			ITEM(arifle_AUG_C_black_F, 900, RIFLE_STOCK);
+			ITEM(arifle_AUG_black_F, 1050, RIFLE_STOCK);
+			ITEM(arifle_AUG_GL_black_F, 1300, RIFLE_STOCK);
+
+			ITEM(arifle_AUG_C_F, 900, RIFLE_STOCK);
+			ITEM(arifle_AUG_F, 1050, RIFLE_STOCK);
+			ITEM(arifle_AUG_GL_F, 1300, RIFLE_STOCK);
+
 
 			ITEM(CUP_arifle_OTS14_GROZA, 900, RIFLE_STOCK);
 			ITEM(CUP_arifle_OTS14_GROZA_GL, 1150, RIFLE_STOCK);

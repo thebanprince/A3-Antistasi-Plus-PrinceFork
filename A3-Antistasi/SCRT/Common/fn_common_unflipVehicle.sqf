@@ -16,7 +16,7 @@ if !(_crew isEqualTo []) exitWith {
 };
 
 private _nearFriendlies = count ([25, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
-if (_nearFriendlies < 4) exitWith {
+if (_nearFriendlies < 3) exitWith {
     playSound "3DEN_notificationWarning";
     ["Unflip failed", "Not enough people to unflip vehicle."] call A3A_fnc_customHint;
 };
@@ -33,7 +33,7 @@ if(_vehicleMass > 10000) exitWith {
 
     if !(_canRepair) exitWith {
         playSound "3DEN_notificationWarning";
-        ["Unflip failed", "Vehicle is too heavy, requires repair truck to perform unflip."] call A3A_fnc_customHint;
+        ["Unflip failed", "Vehicle is too heavy, repair truck is needed to perform unflip."] call A3A_fnc_customHint;
     };
 };
 

@@ -116,7 +116,7 @@ for "_i" from 0 to (count _buildings) - 1 do
         };
 		if 	((_typeB == "Land_Radar_01_HQ_F")) exitWith
         {
-            private _type = if (_sideX == Occupants) then {staticAAOccupants} else {staticAAInvaders};
+            private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
             private _dir = getDir _building;
             private _zpos = AGLToASL (_building buildingPos 30);
             private _pos = getPosASL _building;

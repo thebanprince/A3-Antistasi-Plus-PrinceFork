@@ -1,7 +1,13 @@
 ## Changelog
 
+### 1.0.4
+- Reduced count of players required to unflip vehicle from 4 to 3
+- Fixed PVP player vehicle ejection
+
 ### 1.0.3
 - Aegis mod detection fix
+- Added AUR 90 series in the arms dealer's store (Aegis)
+- Fixed AA placement on Control Tower
 
 ### 1.0.2
 - Attempt to fix neverending BLUFOR/OPFOR attacks

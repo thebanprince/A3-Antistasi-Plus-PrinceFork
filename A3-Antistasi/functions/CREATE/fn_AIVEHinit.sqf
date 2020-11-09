@@ -23,7 +23,6 @@ _veh setVariable ["ownerSide", _side, true];
 
 // probably just shouldn't be called for these
 if ((_veh isKindOf "FlagCarrier") or (_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
-//if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later
 if (_side == teamPlayer) then
@@ -32,6 +31,8 @@ if (_side == teamPlayer) then
 	clearWeaponCargoGlobal _veh;
 	clearItemCargoGlobal _veh;
 	clearBackpackCargoGlobal _veh;
+} else {
+	clearWeaponCargoGlobal _veh;
 };
 
 private _typeX = typeOf _veh;
