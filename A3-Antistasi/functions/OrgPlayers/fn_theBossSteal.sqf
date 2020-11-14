@@ -1,5 +1,5 @@
 _resourcesFIA = server getVariable "resourcesFIA";
-if (_resourcesFIA < 100) exitWith {["Money Grab", "FIA has not enough resources to grab"] call A3A_fnc_customHint;};
+if (_resourcesFIA < 1000) exitWith {["Money Grab", "FIA has not enough money to transfer."] call A3A_fnc_customHint;};
 server setvariable ["resourcesFIA",_resourcesFIA - 1000, true];
 [-2,theBoss] call A3A_fnc_playerScoreAdd;
 [1000] call A3A_fnc_resourcesPlayer;
