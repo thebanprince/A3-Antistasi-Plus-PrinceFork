@@ -196,7 +196,7 @@ switch (_mode) do {
 						_stock = [_trader, _classname] call HALs_store_fnc_getTraderStock;
 					};
 
-					if (!(_showAvaliable && {_price > _money || _stock < 1})) then {
+					if (_stock > 0 && !(_showAvaliable && {_price > _money})) then {
 						_cfg = _classname call HALs_fnc_getConfigClass;
 						_idx = _ctrlList lbAdd getText (_cfg >> "displayName");
 						

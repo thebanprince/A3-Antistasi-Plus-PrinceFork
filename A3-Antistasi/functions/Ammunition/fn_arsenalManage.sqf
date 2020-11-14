@@ -42,6 +42,8 @@ if (!isNil "_originalWeaponsWithSimilarWeapons" && {count _originalWeaponsWithSi
 	_weapons = _originalWeaponsWithSimilarWeapons;
 };
 
+[] call SCRT_fnc_trader_removeUnlockedItemsFromStock;
+
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
 {

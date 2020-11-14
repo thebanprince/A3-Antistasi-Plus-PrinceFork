@@ -35,3 +35,5 @@ switch (true) do {
         [_traderX, "vanilla"] call HALs_store_fnc_addTrader;
     };
 };
+
+[] call SCRT_fnc_trader_removeUnlockedItemsFromStock;
