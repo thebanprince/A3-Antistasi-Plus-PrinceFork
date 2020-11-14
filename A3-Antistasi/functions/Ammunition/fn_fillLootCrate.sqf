@@ -228,6 +228,14 @@ if (_crateItemTypeMax != 0) then {
 		[4, format ["Breakdown: %1, %2, %3", lootItem, _unlocks, itemCargo _crate], _filename] call A3A_fnc_log;
 		[4, format ["Items available: %1", _available], _filename] call A3A_fnc_log;
 		_loot = selectRandom _available;
+
+		//exclude NVGs until war level 4
+		if(tierWar < 3 && {_loot in allNVGs}) then {
+			while {_loot in allNVGs} do {
+				_loot = selectRandom _available;
+			};
+		};
+
 		if (isNil "_loot") then {
 			[3, "No Items Left in Loot List", _filename] call A3A_fnc_log;
 		}

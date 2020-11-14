@@ -3,15 +3,10 @@
 //////////////////
 lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedikits + allFirstAidKits;
 
-/////////////////
-//    NVG'S   ///
-/////////////////
-lootNVG append allNVGs;
-
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + allNVGs + allGadgets;
 
 ////////////////////
 //    Weapons    ///

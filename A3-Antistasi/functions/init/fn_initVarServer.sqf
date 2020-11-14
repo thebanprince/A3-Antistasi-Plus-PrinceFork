@@ -161,7 +161,6 @@ DECLARE_SERVER_VAR(unlockedEquipmentArrayNames, _unlockableCategories apply {"un
 private _otherEquipmentArrayNames = [
 	"initialRebelEquipment",
 	"lootBasicItem",
-	"lootNVG",
 	"lootItem",
 	"lootWeapon",
 	"lootAttachment",
