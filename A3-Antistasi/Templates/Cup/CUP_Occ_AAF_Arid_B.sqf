@@ -183,9 +183,9 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 
 //Militia Vehicles
 if (gameMode != 4) then {
-	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
-	vehFIATruck = "CUP_I_LAV25_HQ_RACS";
-	vehFIACar = "I_C_Offroad_02_unarmed_F";
+	vehFIAArmedCar = "CUP_I_LR_MG_RACS";
+	vehFIATruck = "CUP_I_MTVR_RACS";
+	vehFIACar = "CUP_I_LR_Transport_RACS";
 };
 
 //Police Vehicles
