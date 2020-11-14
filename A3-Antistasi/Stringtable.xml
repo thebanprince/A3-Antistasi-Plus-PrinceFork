@@ -569,7 +569,7 @@
         <Original>2.3.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.0.4</Original>
+        <Original>1.4</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -2381,8 +2381,8 @@
           <Russian>Деньги</Russian>
         </Key>
       <Key ID="STR_antistasi_actions_common_notifications_money_found_text">
-        <Original>Money has been found in cargo. Found banknotes have been divided equally among all players.</Original>
-        <English>Money has been found in cargo. Found banknotes have been divided equally among all players.</English>
+        <Original>Money has been found. Found banknotes have been divided equally among all players.</Original>
+        <English>Money has been found. Found banknotes have been divided equally among all players.</English>
         <French>Rien d'utile n'a été.</French>
         <Russian>В грузе были найдены деньги. Найденная валюта разделена поровну между всеми игроками.</Russian>
       </Key>

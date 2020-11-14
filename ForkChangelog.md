@@ -1,5 +1,19 @@
 ## Changelog
 
+### 1.4
+- AI aiming accuracy, aiming shake and aiming speed capped by general AI difficulty settings
+- AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces)
+- Rebel AI training cap increased from 40 to 50
+- Unlocked items in arsenal will be removed from trader stock on each arsenal tick 
+- Removed movement delay after revive
+- Grab 1000$ from faction pool bugfix (less than 1000$ situation)
+- Individual fast travel edge cases bugfix
+- Loot truck money found localized string fix
+- Early CSAT attacks fix (vehCSATTruck error)
+- (CUP) MT-LB is capable to carry ammo boxes
+- (CUP, Altis) Land Rover, MTVR militia trucks and cars 
+- (Altis) new outpost
+
 ### 1.0.4
 - Reduced count of players required to unflip vehicle from 4 to 3
 - Fixed PVP player vehicle ejection
@@ -10,7 +24,7 @@
 - Fixed AA placement on Control Tower
 
 ### 1.0.2
-- Attempt to fix neverending BLUFOR/OPFOR attacks
+- Fixed neverending BLUFOR/OPFOR attacks
 
 ### 1.0.1
 - Fixed hangar explosion on spawn (Taviana)
