@@ -146,7 +146,7 @@ groupsNATOGen = [policeOfficer, policeGrunt];
 //Military Vehicles
 //Lite
 vehNATOBike = "I_Quadbike_01_F";
-vehNATOLightArmed = ["I_MRAP_03_hmg_F", "CUP_I_LR_SF_HMG_AAF", "CUP_I_LR_MG_AAF", "I_LT_01_cannon_F"];
+vehNATOLightArmed = ["CUP_I_MTLB_pk_NAPA", "I_MRAP_03_hmg_F", "CUP_I_LR_SF_HMG_AAF", "CUP_I_LR_MG_AAF", "I_LT_01_cannon_F"];
 vehNATOLightUnarmed = ["I_MRAP_03_F", "CUP_I_LR_Transport_AAF"];
 vehNATOTrucks = ["I_Truck_02_covered_F","I_Truck_02_transport_F"];
 vehNATOCargoTrucks = ["I_Truck_02_transport_F"];
@@ -183,9 +183,9 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 
 //Militia Vehicles
 if (gameMode != 4) then {
-	vehFIAArmedCar = "I_C_Offroad_02_LMG_F";
-	vehFIATruck = "CUP_I_MTLB_pk_NAPA";
-	vehFIACar = "I_C_Offroad_02_unarmed_F";
+	vehFIAArmedCar = "CUP_I_M151_M2_SYND";
+	vehFIATruck = "CUP_I_MTVR_RACS";
+	vehFIACar = "CUP_I_M151_SYND";
 };
 
 //Police Vehicles
