@@ -214,6 +214,10 @@ jnl_vehicleHardpoints = [
     [1,         [0,-3.7,1.3],    [5,6,7,8]  ]
   ]],
 
+  ["\CUP\TrackedVehicles\CUP_TrackedVehicles_MTLB\CUP_MTLB_pk.p3d",[
+    [1,         [0,-2,-0.3],    []  ]
+  ]],
+
 // ---------- RHS ----------
 //Urals
 //Ural Open
