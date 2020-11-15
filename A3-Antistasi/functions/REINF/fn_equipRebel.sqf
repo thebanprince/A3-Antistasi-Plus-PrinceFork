@@ -9,7 +9,7 @@ private _addWeaponAndMags = {
 	params["_unit", "_weapon", "_magCount"];
 
 	if !(isClass (configFile / "CfgWeapons" / _weapon)) exitwith {
-		[1, format ["Bad weapon class: %1", _weapon], _filename, true] call A3A_log;
+		[1, format ["Bad weapon class: %1", _weapon], _filename] call A3A_fnc_log;
 	};
 
 	_unit addWeapon _weapon;

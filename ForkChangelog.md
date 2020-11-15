@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 1.4
+- Share Faction Money commander option
 - AI aiming accuracy, aiming shake and aiming speed capped by general AI difficulty settings
 - AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces)
 - Rebel AI training cap increased from 40 to 50
@@ -10,6 +11,7 @@
 - Individual fast travel edge cases bugfix
 - Loot truck money found localized string fix
 - Early CSAT attacks fix (vehCSATTruck error)
+- Loot truck no longer grants reputation increase to everyone on money share action
 - (CUP) MT-LB is capable to carry ammo boxes
 - (CUP, Altis) Land Rover, MTVR militia trucks and cars 
 - (Altis) new outpost

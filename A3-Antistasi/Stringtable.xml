@@ -2379,12 +2379,30 @@
           <English>Money</English>
           <French>Argent</French>
           <Russian>Деньги</Russian>
-        </Key>
+      </Key>
+      <Key ID="STR_antistasi_actions_common_notifications_share_money_title">
+          <Original>Faction money has been shared</Original>
+          <English>Faction money has been shared</English>
+          <French>L'argent a été partagé</French>
+          <Russian>Разделение денег фракции</Russian>
+      </Key>
+      <Key ID="STR_antistasi_actions_common_notifications_share_money_not_enough_text">
+        <Original>Not enough money to share.</Original>
+        <English>Not enough money to share.</English>
+        <French>Pas assez d'argent à partager.</French>
+        <Russian>Недостаточно денег для разделения.</Russian>
+      </Key>
       <Key ID="STR_antistasi_actions_common_notifications_money_found_text">
         <Original>Money has been found. Found banknotes have been divided equally among all players.</Original>
         <English>Money has been found. Found banknotes have been divided equally among all players.</English>
         <French>Rien d'utile n'a été.</French>
         <Russian>В грузе были найдены деньги. Найденная валюта разделена поровну между всеми игроками.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_actions_common_notifications_share_money_text">
+        <Original>Faction money has been shared by commander equally among all server members.</Original>
+        <English>Faction money has been shared by commander equally among all server members.</English>
+        <French>Rien d'utile n'a été.</French>
+        <Russian>Деньги фракции были разделены поровну между всеми членами сервера.</Russian>
       </Key>
     </Container>
     <Container name="draw3d_text">

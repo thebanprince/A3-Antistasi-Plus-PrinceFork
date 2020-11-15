@@ -113,10 +113,8 @@ while {true} do {
 	private _totalSalary = _recAddSDK / 4;
 		
 	if(_rebelsCount > 0) then {
-		// private _incomePerPlayer = round((_totalSalary / _rebelsCount) / 10);
 		private _incomePerPlayer = round(_totalSalary / _rebelsCount);
 		{
-			// [_incomePerPlayer, _x] call A3A_fnc_playerScoreAdd;
 			_x setVariable ["moneyX", ((_x getVariable ["moneyX", 0]) + _incomePerPlayer) max 0, true];
 			private _paycheckText = format [
     	        "<t size='0.6'>%1 got paid <t color='#00FF00'>%2 €</t> for fighting for the freedom!</t>",
