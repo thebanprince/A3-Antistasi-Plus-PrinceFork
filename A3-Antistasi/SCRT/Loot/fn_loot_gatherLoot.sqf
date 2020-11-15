@@ -145,13 +145,13 @@ private _moneyEarned = 0;
 
 
 if(_moneyEarned > 0) then {
-    _allPlayers = call BIS_fnc_listPlayers;
+    _allPlayers = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian };
     _playersCount = count _allPlayers;
     
     if(_playersCount > 0) then {
         _incomePerPlayer = round((_moneyEarned / _playersCount) / 10);
         {
-            [_incomePerPlayer,_x] call A3A_fnc_playerScoreAdd;
+            [_incomePerPlayer] remoteExec ["A3A_fnc_resourcesPlayer", _x];
         } forEach _allPlayers;
 
         [localize "STR_antistasi_actions_common_notifications_money_found_title", localize "STR_antistasi_actions_common_notifications_money_found_text"] remoteExecCall ["A3A_fnc_customHint", [teamPlayer, civilian]];

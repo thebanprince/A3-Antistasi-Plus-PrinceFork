@@ -110,6 +110,26 @@ initialRebelEquipment append ["B_Messenger_Gray_F", "B_AssaultPack_blk"];
 initialRebelEquipment append ["CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_B_ALICE", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket"];
 initialRebelEquipment append ["Binocular", "acc_flashlight"];
 
+allRebelUniforms append [
+    "Opf_U_I_I_Uniform_01_urb_F",
+    "Opf_U_O_S_Uniform_01_taiga_F",
+    "Opf_U_O_S_Uniform_01_sweater_F",
+    "Opf_U_O_S_Uniform_01_arid_F",
+    "U_B_ION_Uniform_01_tshirt_black_F",
+    "U_B_ION_Uniform_01_poloshirt_wdl_F",
+    "U_B_ION_Uniform_01_poloshirt_blue_F",
+    "U_BG_Guerilla1_3",
+    "U_I_L_Uniform_01_deserter_F",
+    "U_I_L_Uniform_01_camo_F",
+    "GUR_fat_ALSIR_12",
+    "WAM_fat_CE_villapaita",
+    "NAA_fat_alpat_tanktop1",
+    "WAM_fat_1",
+    "WAM_fat_4",
+    "WAM_fat_5",
+    "WAM_fat_jeans"
+];
+
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_rf7800str"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_rt1523g_big_rhs"};
