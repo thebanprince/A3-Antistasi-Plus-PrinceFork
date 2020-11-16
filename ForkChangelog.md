@@ -1,7 +1,8 @@
 ## Changelog
 
 ### 1.4
-- Share Faction Money commander option
+- Share Faction Money action (Y menu, commander section)
+- Move Static Weapon action (Y menu)
 - AI aiming accuracy, aiming shake and aiming speed capped by general AI difficulty settings
 - AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces)
 - Rebel AI training cap increased from 40 to 50
