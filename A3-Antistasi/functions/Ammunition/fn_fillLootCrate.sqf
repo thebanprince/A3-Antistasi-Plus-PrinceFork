@@ -230,9 +230,14 @@ if (_crateItemTypeMax != 0) then {
 		_loot = selectRandom _available;
 
 		//exclude NVGs until war level 4
-		if(tierWar < 3 && {_loot in allNVGs}) then {
-			while {_loot in allNVGs} do {
+		if(tierWar < 3) then {
+			_itemData = [_loot] call BIS_fnc_itemType;
+			_itemType = _itemData select 1;
+
+			while {_itemType == "NVGoggles"} do {
 				_loot = selectRandom _available;
+				_itemData = [_loot] call BIS_fnc_itemType;
+				_itemType = _itemData select 1;
 			};
 		};
 

@@ -88,6 +88,7 @@ class SCRT
         class common_selectRandomSite {};
         class common_unflipVehicle {};
         class common_shareFactionMoneyWithMembers {};
+        class common_moveStatic {};
     };
 
     class Quest
