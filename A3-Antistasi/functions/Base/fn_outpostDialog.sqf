@@ -7,17 +7,13 @@ if (!([player] call A3A_fnc_hasRadio)) exitWith {
 	["Radio Required", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;
 };
 
-private _actionType = _this select 0;
-private _outpostType = _this select 1;
+private _outpostType = _this select 0;
 
 if (!visibleMap) then {
 	openMap true
 };
-if (_actionType != "delete") then {
-	["Outposts", "Click on the position you wish to build the Observation Post or Roadblock. <br/><br/> Remember: to build Roadblocks you must click exactly on a road map section"] call A3A_fnc_customHint;
-} else {
-	["Outposts", "Click on the Observation Post, Roadblock, AA Emplacement, AT Emplacement to delete."] call A3A_fnc_customHint;
-};
+
+["Outposts", "Click on map to establish Observation Post, Roadblock, AA Emplacement or AT Emplacement."] call A3A_fnc_customHint;
 
 positionTel = [];
 
@@ -31,21 +27,20 @@ if (!visibleMap) exitWith {};
 private _positionTel = positionTel;
 _pos = [];
 
-if (_actionType == "delete") then {
-	[_positionTel] call SCRT_fnc_outpost_delete;
-} else {
-	switch (true) do {
-        case (_outpostType == "watchpost"): {
-			[_positionTel] call SCRT_fnc_outpost_createWatchpost;
-		};
-        case (_outpostType == "roadblock"): {
-		};
-        case (_outpostType == "aa"): {
-		};
-        case (_outpostType == "at"): {
-		};
-		default {
-			[1, "Bad outpost type.", "outpostDialog"] call A3A_fnc_log;
-		};
-    };
+switch (true) do {
+	case (_outpostType == "watchpost"): {
+		[_positionTel] call SCRT_fnc_outpost_createWatchpost;
+	};
+	case (_outpostType == "roadblock"): {
+		[_positionTel] call SCRT_fnc_outpost_createRoadblock;
+	};
+	case (_outpostType == "aa"): {
+		[_positionTel] call SCRT_fnc_outpost_createAa;
+	};
+	case (_outpostType == "at"): {
+		[_positionTel] call SCRT_fnc_outpost_createAt;
+	};
+	default {
+		[1, "Bad outpost type.", "outpostDialog"] call A3A_fnc_log;
+	};
 };

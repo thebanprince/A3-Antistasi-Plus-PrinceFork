@@ -45,7 +45,6 @@ class A3A
 		class commsMP {};
         class createBreachChargeText {};
 		class createControls {};
-		class createOutpostsFIA {};
 		class createPetros {};
 		class deleteControls {};
 		class destroyCity {};
@@ -209,7 +208,6 @@ class A3A
 		class createAIMilbase {};
 		class createAISite {};
 		class createCIV {};
-		class createFIAOutposts2 {};
 		class createQRF {};
 		class createSDKGarrisons {};
 		class createSDKgarrisonsTemp {};

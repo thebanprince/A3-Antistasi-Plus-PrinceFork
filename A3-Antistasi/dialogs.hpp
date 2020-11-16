@@ -1863,13 +1863,13 @@ class commander_comm 		{
 		class 10slots_L3: RscButton
 		{
 			idc = -1;
-			text = "O.Post-Roadblock Delete"; //--- ToDo: Localize;
+			text = "PLACEHOLDER";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Remove selected observation post or roadblock, money will be refunded";
-			action = "if (player == theBoss) then {closeDialog 0; [""delete""] spawn A3A_fnc_outpostDialog} else {[""Outposts/Roadblocks"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
+			tooltip = "Reserved for future purposes.";
+			action = "closeDialog 0; systemChat 'Reserved for future purposes.";
 		};
 		class 10slots_R3: RscButton
 		{
@@ -2181,7 +2181,7 @@ class outpost_menu {
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Establish a small watchpost.";
-			action = "closeDialog 0; ['create', 'watchpost'] spawn A3A_fnc_outpostDialog;";
+			action = "closeDialog 0; ['watchpost'] spawn A3A_fnc_outpostDialog;";
 		};
 		class HQ_button_Gstatic: RscButton
 		{
@@ -2192,7 +2192,7 @@ class outpost_menu {
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Establish a squad-sized roadblock.";
-			action = "closeDialog 0; ['create', 'roadblock'] spawn A3A_fnc_outpostDialog;";
+			action = "closeDialog 0; ['roadblock'] spawn A3A_fnc_outpostDialog;";
 		};
 		class HQ_button_Gremove: RscButton
 		{
@@ -2203,7 +2203,7 @@ class outpost_menu {
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Establish a mid sized emplacement with stationary AA armament.";
-			action = "closeDialog 0; ['create', 'aa'] spawn A3A_fnc_outpostDialog;";
+			action = "closeDialog 0; ['aa'] spawn A3A_fnc_outpostDialog;";
 		};
 		class HQ_button_unlock: RscButton
 		{
@@ -2214,7 +2214,7 @@ class outpost_menu {
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Establish a mid sized emplacement with stationary AT armament.";
-			action = "closeDialog 0; ['create', 'at'] spawn A3A_fnc_outpostDialog;";
+			action = "closeDialog 0; ['at'] spawn A3A_fnc_outpostDialog;";
 		};
 	};
 };
