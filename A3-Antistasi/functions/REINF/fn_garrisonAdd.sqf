@@ -25,7 +25,7 @@ if (_costs > _resourcesFIA) exitWith {["Garrisons", format ["You do not have eno
 
 _markerX = positionXGarr;
 
-if ((_typeX == staticCrewTeamPlayer) and (_markerX in outpostsFIA)) exitWith {["Garrisons", "You cannot add mortars to a Roadblock garrison"] call A3A_fnc_customHint;};
+if ((_typeX == staticCrewTeamPlayer) and (_markerX in watchpostsFIA || _markerX in roadblocksFIA || _markerX in aapostsFIA || _markerX in atpostsFIA)) exitWith {["Garrisons", "You cannot add mortars to a Roadblock, Watchpost, AA, AT emplacement garrisons"] call A3A_fnc_customHint;};
 
 _positionX = getMarkerPos _markerX;
 

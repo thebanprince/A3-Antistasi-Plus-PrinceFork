@@ -41,7 +41,7 @@ private _antennasDeadPositions = [];
 { _antennasDeadPositions pushBack getPos _x; } forEach antennasDead;
 ["antennas", _antennasDeadPositions] call A3A_fnc_setStatVariable;
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call A3A_fnc_setStatVariable;
-["mrkSDK", (markersX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;
+["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;
 ["mrkCSAT", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Invaders}] call A3A_fnc_setStatVariable;
 ["posHQ", [getMarkerPos respawnTeamPlayer,getPos fireX,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox]]] call A3A_fnc_setStatVariable;
 ["dateX", date] call A3A_fnc_setStatVariable;
@@ -63,7 +63,7 @@ private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;
 ["aggressionInvaders", [aggressionLevelInvaders, aggressionStackInvaders]] call A3A_fnc_setStatVariable;
 
-private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_arrayOutpostsFIA","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
+private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
 
 _hrBackground = (server getVariable "hr") + ({(alive _x) and (not isPlayer _x) and (_x getVariable ["spawner",false]) and ((group _x in (hcAllGroups theBoss) or (isPlayer (leader _x))) and (side group _x == teamPlayer))} count allUnits);
 _resourcesBackground = server getVariable "resourcesFIA";
@@ -148,7 +148,7 @@ _prestigeBLUFOR = [];
 ["prestigeOPFOR", _prestigeOPFOR] call A3A_fnc_setStatVariable;
 ["prestigeBLUFOR", _prestigeBLUFOR] call A3A_fnc_setStatVariable;
 
-_markersX = markersX - outpostsFIA - controlsX;
+_markersX = markersX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - controlsX;
 _garrison = [];
 _wurzelGarrison = [];
 
@@ -186,14 +186,41 @@ _arrayMines = [];
 
 ["minesX", _arrayMines] call A3A_fnc_setStatVariable;
 
-_arrayOutpostsFIA = [];
+private _arrayWatchpostsFIA = [];
 
 {
 	_positionOutpost = getMarkerPos _x;
-	_arrayOutpostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
-} forEach outpostsFIA;
+	_arrayWatchpostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach watchpostsFIA;
 
-["outpostsFIA", _arrayOutpostsFIA] call A3A_fnc_setStatVariable;
+["watchpostsFIA", _arrayWatchpostsFIA] call A3A_fnc_setStatVariable;
+
+private _arrayRoadblocksFIA = [];
+
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayRoadblocksFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach roadblocksFIA;
+
+["roadblocksFIA", _arrayRoadblocksFIA] call A3A_fnc_setStatVariable;
+
+private _arrayAAPostsFIA = [];
+
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayAAPostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach aapostsFIA;
+
+["aapostsFIA", _arrayAAPostsFIA] call A3A_fnc_setStatVariable;
+
+private _arrayATPostsFIA = [];
+
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayATPostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach atpostsFIA;
+
+["atpostsFIA", _arrayATPostsFIA] call A3A_fnc_setStatVariable;
 
 if (!isDedicated) then {
 	_typesX = [];

@@ -19,7 +19,7 @@ private _antennasDeadPositions = [];
 { _antennasDeadPositions pushBack getPos _x; } forEach antennasDead;
 ["antennas", _antennasDeadPositions] call fn_SaveStat;
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call fn_SaveStat;
-["mrkSDK", (markersX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call fn_SaveStat;
+["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call fn_SaveStat;
 ["mrkCSAT", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Invaders}] call fn_SaveStat;
 ["posHQ", [getMarkerPos respawnTeamPlayer,getPos fireX,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox]]] call fn_Savestat;
 ["prestigeNATO", prestigeNATO] call fn_SaveStat;
@@ -38,7 +38,7 @@ private _antennasDeadPositions = [];
 ["traderPosition", traderPosition] call fn_SaveStat;
 ["pursuersTime", pursuersTime] call fn_SaveStat;
 
-private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_arrayOutpostsFIA","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
+private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];
 
 _hrBackground = (server getVariable "hr") + ({(alive _x) and (not isPlayer _x) and (_x getVariable ["spawner",false]) and ((group _x in (hcAllGroups theBoss) or (isPlayer (leader _x))) and (side group _x == teamPlayer))} count allUnits);
 _resourcesBackground = server getVariable "resourcesFIA";
@@ -122,7 +122,7 @@ _prestigeBLUFOR = [];
 ["prestigeOPFOR", _prestigeOPFOR] call fn_SaveStat;
 ["prestigeBLUFOR", _prestigeBLUFOR] call fn_SaveStat;
 
-_markersX = markersX - outpostsFIA - controlsX;
+_markersX = markersX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - controlsX;
 _garrison = [];
 _wurzelGarrison = [];
 
@@ -160,14 +160,38 @@ _arrayMines = [];
 
 ["minesX", _arrayMines] call fn_SaveStat;
 
-_arrayOutpostsFIA = [];
-
+_arrayWatchpostsFIA = [];
 {
 	_positionOutpost = getMarkerPos _x;
-	_arrayOutpostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
-} forEach outpostsFIA;
+	_arrayWatchpostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach watchpostsFIA;
 
-["outpostsFIA", _arrayOutpostsFIA] call fn_SaveStat;
+["watchpostsFIA", _arrayWatchpostsFIA] call fn_SaveStat;
+
+_arrayRoadblocksFIA = [];
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayRoadblocksFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach roadblocksFIA;
+
+["roadblocksFIA", _arrayRoadblocksFIA] call fn_SaveStat;
+
+_arrayAApostsFIA = [];
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayAApostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach aapostsFIA;
+
+["aapostsFIA", _arrayAApostsFIA] call fn_SaveStat;
+
+_arrayATpostsFIA = [];
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayATpostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+} forEach atpostsFIA;
+
+["atpostsFIA", _arrayATpostsFIA] call fn_SaveStat;
+
 
 if (!isDedicated) then {
 	_typesX = [];

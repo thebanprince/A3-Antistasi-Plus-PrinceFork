@@ -5,7 +5,6 @@ if (isNil "loadingTranslationTable" or {!(loadingTranslationTable getVariable ["
   private _translationTable = [
     ["miembros","membersX"],
     ["dinero","moneyX"],
-    ["puestosFIA", "outpostsFIA"],
     ["dificultad", "difficultyX"],
     ["minas", "minesX"],
     ["cuentaCA", "attackCountdownOccupants"],

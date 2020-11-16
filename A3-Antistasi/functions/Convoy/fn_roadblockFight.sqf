@@ -78,9 +78,8 @@ else
 };
 
 
-if(_result) then
-{
-  outpostsFIA = outpostsFIA - [_roadblockMarker]; publicVariable "outpostsFIA";
+if(_result) then {
+  roadblocksFIA = roadblocksFIA - [_roadblockMarker]; publicVariable "roadblocksFIA";
   markersX = markersX - [_roadblockMarker]; publicVariable "markersX";
   sidesX setVariable [_roadblockMarker, nil, true];
   [5, -5, (getMarkerPos _roadblockMarker)] remoteExec ["A3A_fnc_citySupportChange",2];

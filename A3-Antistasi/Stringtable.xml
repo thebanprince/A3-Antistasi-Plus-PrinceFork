@@ -196,13 +196,13 @@
         <Korean>AI는 현재 아스널의 지뢰 재고를 이용하여, 목표물에 지뢰를 심거나 제거합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_text">
-        <Original>Outpost or Roadblock</Original>
-        <English>Outpost or Roadblock</English>
-        <French>Avant-Poste ou Barrage Routier</French>
-        <Russian>БП или НП</Russian>
-        <German>Außenposten oder Straßensperre</German>
-        <Czech>Předsunutá hlídka nebo Zátaras</Czech>
-        <Korean>전초기지 또는 검문소</Korean>
+        <Original>Establish Outpost</Original>
+        <English>Establish Outpost</English>
+        <French>Créer un avant-poste</French>
+        <Russian>Основать точку</Russian>
+        <German>Außenposten einrichten</German>
+        <Czech>Zřídit základnu</Czech>
+        <Korean>전초 기지 구축</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select.</Original>

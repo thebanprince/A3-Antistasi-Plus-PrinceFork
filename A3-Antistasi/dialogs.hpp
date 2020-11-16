@@ -272,7 +272,7 @@ class build_menu  			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; [""create""] spawn A3A_fnc_outpostDialog";
+			action = "closeDialog 0; if (player == theBoss) then {closeDialog 0;_nul = createDialog ""outpost_menu"";} else {[""Outposts"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
 		};
 		class 4slots_L2: RscButton
 		{
@@ -1429,6 +1429,17 @@ class radio_comm 		{
 			tooltip = "Unflips the vehicle at cursor/crosshair. Requires 4 people to successfully perform, heavy vehicles requires repair truck in proximity.";
 			action = "closeDialog 0; [] call SCRT_fnc_common_unflipVehicle";
 		};
+		class 10slots_R5: RscButton
+		{
+			idc = -1;
+			text = "Move Static Weapon"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.710047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Grants the ability to move static weapon at cursor/crosshair.";
+			action = "closeDialog 0; [] spawn SCRT_fnc_common_moveStatic;";
+		};
 	};
 }; 										// slots: 8
 class vehicle_manager 		{
@@ -1830,13 +1841,13 @@ class commander_comm 		{
 		class 10slots_L2: RscButton
 		{
 			idc = -1;
-			text = "O.Post - Roadblock"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_build_outpost_button_text;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Establish a new watchpost or roadblock depending on the type of terrain you select";
-			action = "if (player == theBoss) then {closeDialog 0;[""create""] spawn A3A_fnc_outpostDialog} else {[""Outposts/Roadblocks"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
+			tooltip = "Establish a new watchpost, roadblock, AA or AT emplacement.";
+			action = "if (player == theBoss) then {closeDialog 0;_nul = createDialog ""outpost_menu"";} else {[""Outposts"", ""You're not the Commander!""] call A3A_fnc_customHint;};";
 		};
 		class 10slots_R2: RscButton
 		{
@@ -2048,7 +2059,7 @@ class dismiss_menu 				{
 		*/
 	};
 };
-class construction_menu 	{
+class construction_menu {
 	idd=-1;
 	movingenable=false;
 
@@ -2128,6 +2139,87 @@ class construction_menu 	{
 		};
 	};
 };
+class outpost_menu {
+	idd=-1;
+	movingenable=false;
+
+	class controls {
+		class HQ_box: BOX
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_generic_box_text;
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.30 * safezoneH;//30
+		};
+		class HQ_frame: RscFrame
+		{
+			idc = -1;
+			text = "Outpost Menu"; //--- ToDo: Localize;
+			x = 0.254979 * safezoneW + safezoneX;
+			y = 0.233941 * safezoneH + safezoneY;
+			w = 0.425038 * safezoneW;
+			h = 0.28 * safezoneH;//28
+		};
+		class HQ_button_back: RscButton
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_generic_button_back_text;
+			x = 0.61 * safezoneW + safezoneX;
+			y = 0.251941 * safezoneH + safezoneY;
+			w = 0.06 * safezoneW;//0.175015
+			h = 0.05 * safezoneH;
+			action = "closeDialog 0;_nul = createDialog ""radio_comm"";";
+		};
+		class HQ_button_Gsquad: RscButton
+		{
+			idc = -1;
+			text = "Watchpost"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Establish a small watchpost.";
+			action = "closeDialog 0; ['create', 'watchpost'] spawn A3A_fnc_outpostDialog;";
+		};
+		class HQ_button_Gstatic: RscButton
+		{
+			idc = -1;
+			text = "Roadblock"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.317959 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Establish a squad-sized roadblock.";
+			action = "closeDialog 0; ['create', 'roadblock'] spawn A3A_fnc_outpostDialog;";
+		};
+		class HQ_button_Gremove: RscButton
+		{
+			idc = -1;
+			text = "AA Emplacement"; //--- ToDo: Localize;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Establish a mid sized emplacement with stationary AA armament.";
+			action = "closeDialog 0; ['create', 'aa'] spawn A3A_fnc_outpostDialog;";
+		};
+		class HQ_button_unlock: RscButton
+		{
+			idc = -1;
+			text = "AT Emplacement"; //--- ToDo: Localize;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.415981 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			tooltip = "Establish a mid sized emplacement with stationary AT armament.";
+			action = "closeDialog 0; ['create', 'at'] spawn A3A_fnc_outpostDialog;";
+		};
+	};
+};
+
+
 class bunker_menu 				{
 	idd=-1;
 	movingenable=false;

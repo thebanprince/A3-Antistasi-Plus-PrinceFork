@@ -165,17 +165,18 @@ while {visibleMap} do
 				_textX = format ["%2 Military Base%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 				};
 			};
-		if (_siteX in outpostsFIA) then
-			{
-			if (isOnRoad (getMarkerPos _siteX)) then
-				{
-				_textX = format ["%2 Roadblock%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
-				}
-			else
-				{
-				_textX = format ["%1 Watchpost",_nameFaction];
-				};
-			};
+		if (_siteX in watchpostsFIA) then {
+			_textX = format ["%1 Watchpost",_nameFaction];
+		};
+		if (_siteX in roadblocksFIA) then {
+			_textX = format ["%2 Roadblock%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+		};
+		if (_siteX in aapostsFIA) then {
+			_textX = format ["%2 AA Emplacement%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+		};
+		if (_siteX in atpostsFIA) then {
+			_textX = format ["%2 AT Emplacement%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+		};
 		["City Information", _textX] call A3A_fnc_customHint;
 		};
 	positionTel = [];

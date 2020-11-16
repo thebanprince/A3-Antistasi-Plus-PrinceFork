@@ -18,7 +18,7 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-	"outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
@@ -147,7 +147,6 @@ if (_varName in _specialVarLoads) then {
 		};
 	};
 	if (_varName == 'garrison') then {
-		//_markersX = markersX - outpostsFIA - controlsX - citiesX;
 		{garrison setVariable [[_x select 0] call _translateMarker,_x select 1,true]} forEach _varvalue;
 	};
 	if (_varName == 'wurzelGarrison') then {
@@ -158,19 +157,70 @@ if (_varName in _specialVarLoads) then {
 			[(_x select 0)] call A3A_fnc_updateReinfState;
 		} forEach _varvalue;
 	};
-	if (_varName == 'outpostsFIA') then {
+	if (_varName == 'watchpostsFIA') then {
 		if (count (_varValue select 0) == 2) then {
 			{
 				_positionX = _x select 0;
 				_garrison = _x select 1;
-				_mrk = createMarker [format ["FIApost%1", random 1000], _positionX];
+				_mrk = createMarker [format ["FIAWatchpost%1", random 1000], _positionX];
 				_mrk setMarkerShape "ICON";
-				_mrk setMarkerType "loc_bunker";
+				_mrk setMarkerType "n_recon";
 				_mrk setMarkerColor colorTeamPlayer;
-				if (isOnRoad _positionX) then {_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer]} else {_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer]};
+				_mrk setMarkerText format ["%1 Watchpost",nameTeamPlayer];
 				spawner setVariable [_mrk,2,true];
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
-				outpostsFIA pushBack _mrk;
+				watchpostsFIA pushBack _mrk;
+				sidesX setVariable [_mrk,teamPlayer,true];
+			} forEach _varvalue;
+		};
+	};
+	if (_varName == 'roadblocksFIA') then {
+		if (count (_varValue select 0) == 2) then {
+			{
+				_positionX = _x select 0;
+				_garrison = _x select 1;
+				_mrk = createMarker [format ["FIARoadblock%1", random 1000], _positionX];
+				_mrk setMarkerShape "ICON";
+				_mrk setMarkerType "n_support";
+				_mrk setMarkerColor colorTeamPlayer;
+				_mrk setMarkerText format ["%1 Roadblock",nameTeamPlayer];
+				spawner setVariable [_mrk,2,true];
+				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+				roadblocksFIA pushBack _mrk;
+				sidesX setVariable [_mrk,teamPlayer,true];
+			} forEach _varvalue;
+		};
+	};
+	if (_varName == 'aapostsFIA') then {
+		if (count (_varValue select 0) == 2) then {
+			{
+				_positionX = _x select 0;
+				_garrison = _x select 1;
+				_mrk = createMarker [format ["FIAAApost%1", random 1000], _positionX];
+				_mrk setMarkerShape "ICON";
+				_mrk setMarkerType "n_antiair";
+				_mrk setMarkerColor colorTeamPlayer;
+				_mrk setMarkerText format ["%1 AA Emplacement",nameTeamPlayer];
+				spawner setVariable [_mrk,2,true];
+				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+				aapostsFIA pushBack _mrk;
+				sidesX setVariable [_mrk,teamPlayer,true];
+			} forEach _varvalue;
+		};
+	};
+	if (_varName == 'atpostsFIA') then {
+		if (count (_varValue select 0) == 2) then {
+			{
+				_positionX = _x select 0;
+				_garrison = _x select 1;
+				_mrk = createMarker [format ["FIAATpost%1", random 1000], _positionX];
+				_mrk setMarkerShape "ICON";
+				_mrk setMarkerType "n_antiarmor";
+				_mrk setMarkerColor colorTeamPlayer;
+				_mrk setMarkerText format ["%1 AT Emplacement",nameTeamPlayer];
+				spawner setVariable [_mrk,2,true];
+				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+				atpostsFIA pushBack _mrk;
 				sidesX setVariable [_mrk,teamPlayer,true];
 			} forEach _varvalue;
 		};

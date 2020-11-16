@@ -74,7 +74,7 @@ for "_i" from 1 to (_pointsCount - 1) do
       if(_isDebug) then {_debugObject setPos _currentPos;};
 
       //Search for nearby roadblocks
-      _roadBlocks = outpostsFIA select {(getMarkerPos _x distance _currentPos < 250) && {isOnRoad (getMarkerPos _x)}};
+      _roadBlocks = roadblocksFIA select { getMarkerPos _x distance _currentPos < 250 };
       if(count _roadBlocks > 0) then
       {
         _currentRoadBlock = _roadBlocks select 0;

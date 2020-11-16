@@ -23,37 +23,93 @@ if (getMarkerPos _nearX distance _positionTel > 40) exitWith {["Garrison", "You 
 
 if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {["Garrison", format ["That zone does not belong to %1",nameTeamPlayer]] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
 if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {["Garrison", "You cannot manage this garrison while there are enemies nearby"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu"};
-//if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
-_outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
-_wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};
-_garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {SDKSniper};
+private _watchpostFIA = if (_nearX in watchpostsFIA) then {true} else {false};
+private _roadblockFIA = if (_nearX in roadblocksFIA) then {true} else {false};
+private _aapostFIA = if (_nearX in aapostsFIA) then {true} else {false};
+private _atpostFIA = if (_nearX in atpostsFIA) then {true} else {false};
+_garrison = if (!_watchpostFIA) then {
+	garrison getVariable [_nearX,[]]
+} else {
+	SDKSniper
+};
 
-if (_typeX == "rem") then
-	{
-	if ((count _garrison == 0) and !(_nearX in outpostsFIA)) exitWith {["Garrison", "The place has no garrisoned troops to remove"] call A3A_fnc_customHint; _nul=CreateDialog "build_menu";};
+if (_typeX == "rem") then {
+	if ((count _garrison == 0) and {!(_watchpostFIA) || !(_roadblockFIA) || !(_aapostFIA) || !(_atpostFIA)}) exitWith {
+		["Garrison", "The place has no garrisoned troops to remove"] call A3A_fnc_customHint; 
+		_nul = CreateDialog "build_menu";
+	};
 	_costs = 0;
 	_hr = 0;
-	{
-	if (_x == staticCrewTeamPlayer) then {if (_outpostFIA) then {_costs = _costs + ([vehSDKLightArmed] call A3A_fnc_vehiclePrice)} else {_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice)}};
-	_hr = _hr + 1;
-	_costs = _costs + (server getVariable [_x,0]);
-	} forEach _garrison;
-	[_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-	if (_outpostFIA) then
-		{
-		garrison setVariable [_nearX,nil,true];
-		outpostsFIA = outpostsFIA - [_nearX]; publicVariable "outpostsFIA";
-		markersX = markersX - [_nearX]; publicVariable "markersX";
-		deleteMarker _nearX;
-		sidesX setVariable [_nearX,nil,true];
-		}
-	else
-		{
-		garrison setVariable [_nearX,[],true];
-		//[_nearX] call A3A_fnc_mrkUpdate;
-		//[_nearX] remoteExec ["tempMoveMrk",2];
-		{if (_x getVariable ["markerX",""] == _nearX) then {deleteVehicle _x}} forEach allUnits;
+
+	switch (true) do {
+		case (_watchpostFIA): {
+			_hr = 2;
+			_costs = 200;
 		};
+		case (_roadblockFIA): {
+			_hr = 8;
+			_costs = 1000;
+		};
+		case (_aapostFIA): {
+			_hr = 5;
+			_costs = 1000;
+		};
+		case (_atpostFIA): {
+			_hr = 5;
+			_costs = 1000;
+		};
+		default {
+			{
+				if (_x == staticCrewTeamPlayer) then {
+					if (_outpostFIA) then {
+						_costs = _costs + ([vehSDKLightArmed] call A3A_fnc_vehiclePrice)
+					} else {
+						_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice)
+					};
+				};
+				_hr = _hr + 1;
+				_costs = _costs + (server getVariable [_x,0]);
+			} forEach _garrison;
+		};
+	};
+
+	[_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+	switch (true) do {
+		case (_watchpostFIA): {
+			garrison setVariable [_nearX,nil,true];
+			watchpostsFIA = watchpostsFIA - [_nearX]; publicVariable "watchpostsFIA";
+			markersX = markersX - [_nearX]; publicVariable "markersX";
+			deleteMarker _nearX;
+			sidesX setVariable [_nearX,nil,true];
+		};
+		case (_roadblockFIA): {
+			garrison setVariable [_nearX,nil,true];
+			roadblocksFIA = roadblocksFIA - [_nearX]; publicVariable "roadblocksFIA";
+			markersX = markersX - [_nearX]; publicVariable "markersX";
+			deleteMarker _nearX;
+			sidesX setVariable [_nearX,nil,true];
+		};
+		case (_aapostFIA): {
+			garrison setVariable [_nearX,nil,true];
+			aapostsFIA = aapostsFIA - [_nearX]; publicVariable "aapostsFIA";
+			markersX = markersX - [_nearX]; publicVariable "markersX";
+			deleteMarker _nearX;
+			sidesX setVariable [_nearX,nil,true];
+		};
+		case (_atpostFIA): {
+			garrison setVariable [_nearX,nil,true];
+			atpostsFIA = atpostsFIA - [_nearX]; publicVariable "atpostsFIA";
+			markersX = markersX - [_nearX]; publicVariable "markersX";
+			deleteMarker _nearX;
+			sidesX setVariable [_nearX,nil,true];
+		};
+		default {
+			garrison setVariable [_nearX,[],true];
+			{if (_x getVariable ["markerX",""] == _nearX) then {deleteVehicle _x}} forEach allUnits;
+		};
+	};
+
 	[_nearX] call A3A_fnc_mrkUpdate;
 	["Garrison", format ["Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2",_costs,_hr]] call A3A_fnc_customHint;
 	_nul=CreateDialog "build_menu";

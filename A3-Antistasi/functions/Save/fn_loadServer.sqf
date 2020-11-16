@@ -4,7 +4,10 @@ if (isServer) then {
 	petros allowdamage false;
 
 	["savedPlayers"] call A3A_fnc_getStatVariable;
-	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
+	["watchpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "watchpostsFIA";
+	["roadblocksFIA"] call A3A_fnc_getStatVariable; publicVariable "roadblocksFIA";
+	["aapostsFIA"] call A3A_fnc_getStatVariable; publicVariable "aapostsFIA";
+	["atpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "atpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
 	["difficultyX"] call A3A_fnc_getStatVariable;
@@ -65,7 +68,7 @@ if (isServer) then {
 	{
 		if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
 			_positionX = getMarkerPos _x;
-			_nearX = [(markersX - controlsX - outpostsFIA),_positionX] call BIS_fnc_nearestPosition;
+			_nearX = [(markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA),_positionX] call BIS_fnc_nearestPosition;
 			_sideX = sidesX getVariable [_nearX,sideUnknown];
 			sidesX setVariable [_x,_sideX,true];
 		};
@@ -82,8 +85,24 @@ if (isServer) then {
 		[_x] call A3A_fnc_mrkUpdate
 	} forEach (markersX - controlsX);
 
-	if (count outpostsFIA > 0) then {
-		markersX = markersX + outpostsFIA; publicVariable "markersX"
+	if (count watchpostsFIA > 0) then {
+		markersX = markersX + watchpostsFIA; 
+		publicVariable "markersX";
+	};
+
+	if (count roadblocksFIA > 0) then {
+		markersX = markersX + roadblocksFIA; 
+		publicVariable "markersX";
+	};
+
+	if (count aapostsFIA > 0) then {
+		markersX = markersX + aapostsFIA; 
+		publicVariable "markersX";
+	};
+
+	if (count atpostsFIA > 0) then {
+		markersX = markersX + atpostsFIA; 
+		publicVariable "markersX";
 	};
 
 	{

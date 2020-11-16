@@ -153,15 +153,32 @@ else
 					spawner setVariable [_markerX,0,true];
 					if (_markerX in citiesX) then
 						{
-						//[_markerX] remoteExec ["A3A_fnc_createAICities",HCGarrisons];
 						if (not(_markerX in destroyedSites)) then
 							{
 							if (({if ((isPlayer _x) and (_x distance2D _positionMRK < distanceSPWN)) exitWith {1};false} count allUnits > 0) or (_markerX in forcedSpawn)) then {[[_markerX],"A3A_fnc_createCIV"] call A3A_fnc_scheduler};
 							};
 						};
-					if (_markerX in outpostsFIA) then {[[_markerX],"A3A_fnc_createFIAOutposts2"] call A3A_fnc_scheduler} else {if (not(_markerX in controlsX)) then {[[_markerX],"A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler}};
+					switch (true) do {
+						case (_markerX in watchpostsFIA): {
+							[[_markerX],"SCRT_fnc_outpost_createWatchpostDistance"] call A3A_fnc_scheduler;
+						};
+						case (_markerX in roadblocksFIA): {
+							[[_markerX],"SCRT_fnc_outpost_createRoadblockDistance"] call A3A_fnc_scheduler;
+						};
+						case (_markerX in aapostsFIA): {
+							[[_markerX],"SCRT_fnc_outpost_createAaDistance"] call A3A_fnc_scheduler;
+						};
+						case (_markerX in atpostsFIA): {
+							[[_markerX],"SCRT_fnc_outpost_createAtDistance"] call A3A_fnc_scheduler;
+						};
+						default {
+							if (!(_markerX in controlsX)) then {
+								[[_markerX],"A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
+							};
+						};
 					};
-				}
+				};
+			}
 			else
 				{
 				if (({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _blufor > 0) or ({if (_x distance2D _positionMRK < distanceSPWN) exitWith {1}} count _opfor > 0) or ({if (((_x getVariable ["owner",objNull]) == _x) and (_x distance2D _positionMRK < distanceSPWN2) or (_markerX in forcedSpawn)) exitWith {1}} count _greenfor > 0)) then

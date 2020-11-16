@@ -91,6 +91,20 @@ class SCRT
         class common_moveStatic {};
     };
 
+    class Outpost
+    {
+        file = "SCRT\Outpost";
+        class outpost_createWatchpost {};
+        class outpost_createWatchpostDistance {};
+        class outpost_createRoadblock {};
+        class outpost_createRoadblockDistance {};
+        class outpost_createAa {};
+        class outpost_createAaDistance {};
+        class outpost_createAt {};
+        class outpost_createAtDistance {};
+        class outpost_delete {};
+    }
+
     class Quest
     {
         file = "SCRT\Quest";

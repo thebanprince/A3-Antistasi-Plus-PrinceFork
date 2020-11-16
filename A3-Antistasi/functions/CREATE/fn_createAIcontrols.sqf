@@ -135,7 +135,7 @@ if (_isControl) then
 else
 	{
 	_markersX = markersX select {(getMarkerPos _x distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};
-	_markersX = _markersX - ["Synd_HQ"] - outpostsFIA;
+	_markersX = _markersX - ["Synd_HQ"] - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA;
 	_frontierX = if (count _markersX > 0) then {true} else {false};
 	if (_frontierX) then
 		{

@@ -16,7 +16,7 @@ params [["_side", sideEnemy]];
 private _fileName = "rebelAttack";
 [2, format ["Starting large attack script for side %1", _side], _fileName, true] call A3A_fnc_log;
 
-private _possibleTargets = markersX - controlsX - outpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;;
+private _possibleTargets = markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;
 private _possibleStartBases = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) && (sidesX getVariable [_x,sideUnknown] == _side)};
 
 if((_side == Occupants) && (gameMode != 4)) then
@@ -127,7 +127,7 @@ private _availableTargets = [];
             };
 
             //If the target is surrounded by our friendly markers, remove points
-            private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - outpostsFIA) select
+            private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select
             {
                 (sidesX getVariable [_x,sideUnknown] == _airportSide) &&
                 {(getMarkerPos _x) distance2D (getMarkerPos _target) < 1500}
@@ -194,7 +194,7 @@ if (count _availableTargets == 0) exitWith
     };
 
     //Adding points based on nearby friendly locations
-    private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - outpostsFIA) select
+    private _nearbyFriendlyMarkers = (markersX - controlsX - citiesX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select
     {
         (sidesX getVariable [_x,sideUnknown] == _targetSide) &&
         {(getMarkerPos _x) distance2D (getMarkerPos _target) < 1500}

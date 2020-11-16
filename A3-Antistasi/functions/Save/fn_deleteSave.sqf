@@ -33,9 +33,10 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 	"chopForest", "maxUnits", "nextTick", "weather", "destroyedBuildings", "aggressionOccupants",
 	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "jna_datalist",
 	"prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",
-	"outpostsFIA", "tasks", "idlebases", "idleassets", "killZones", "controlsSDK", "params",
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "tasks", "idlebases", 
+	"idleassets", "killZones", "controlsSDK", "params",
 	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT",
-	"savedPlayers", "testingTimerIsActive"];
+	"savedPlayers", "testingTimerIsActive", "traderPosition", "isTraderQuestCompleted"];
 
 
 // Remove this campaign from the save list, if present
