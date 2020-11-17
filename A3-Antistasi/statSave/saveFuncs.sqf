@@ -274,7 +274,7 @@ fn_SetStat = {
 					_garrison = _x select 1;
 					_mrk = createMarker [format ["FIAATpost%1", random 1000], _positionX];
 					_mrk setMarkerShape "ICON";
-					_mrk setMarkerType "n_antiarmor";
+					_mrk setMarkerType "n_armor";
 					_mrk setMarkerColor colorTeamPlayer;
 					_mrk setMarkerText format ["%1 AT Emplacement",nameTeamPlayer];
 					spawner setVariable [_mrk,2,true];
