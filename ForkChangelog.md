@@ -1,20 +1,24 @@
 ## Changelog
 
 ### 1.4
+- Establish roadblock, watchposts, AA Emplacement or AT Emplacement action (Y menu, commander section)
 - Share Faction Money action (Y menu, commander section)
 - Move Static Weapon action (Y menu)
-- AI aiming accuracy, aiming shake and aiming speed capped by general AI difficulty settings
-- AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces)
+- Move Arms Dealer to rebel HQ laptop action (costs some money, 5000$)
+- AI aiming accuracy, aiming shake and aiming speed capped by general server AI difficulty settings
+- AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces on early game)
 - Rebel AI training cap increased from 40 to 50
-- Unlocked items in arsenal will be removed from trader stock on each arsenal tick 
+- Unlocked items (Arsenal) will be removed from trader stock on each arsenal tick 
 - Removed movement delay after revive
 - Grab 1000$ from faction pool bugfix (less than 1000$ situation)
 - Individual fast travel edge cases bugfix
 - Loot truck money found localized string fix
 - Early CSAT attacks fix (vehCSATTruck error)
 - Loot truck no longer grants reputation increase to everyone on money share action
+- Enemy factions gains earlier access to attack helicopters and planes (starting war level 3)
+- Helipad spawn pool extension (transport helicopters since war level 3, small chance to spawn attack helicopter since war level 8)
 - (CUP) MT-LB is capable to carry ammo boxes
-- (CUP, Altis) Land Rover, MTVR militia trucks and cars 
+- (CUP, Altis) Land Rover, MTVR militia trucks and cars for BLUFOR militia
 - (Altis) new outpost
 
 ### 1.0.4

@@ -9,15 +9,16 @@
 // 	How to use: 
 // 	[position] call SCRT_fnc_trader_createTrader;
 
-_position = _this select 0;
+private _position = _this select 0;
 
+traderProps = [];
 
-_traderMarker = createMarker ["TraderMarker", _position];
-_traderMarker setMarkerType "hd_objective";
-_traderMarker setMarkerSize [1, 1];
-_traderMarker setMarkerText "Arms Dealer";
-_traderMarker setMarkerColor "ColorUNKNOWN";
-_traderMarker setMarkerAlpha 1;
+traderMarker = createMarker ["TraderMarker", _position];
+traderMarker setMarkerType "hd_objective";
+traderMarker setMarkerSize [1, 1];
+traderMarker setMarkerText "Arms Dealer";
+traderMarker setMarkerColor "ColorUNKNOWN";
+traderMarker setMarkerAlpha 1;
 
 traderVehicleMarker = createMarker ["TraderVehicleMarker", _position];
 traderVehicleMarker setMarkerSize [25, 25];
@@ -47,12 +48,15 @@ _table setPos [getPos _table select 0, getPos _table select 1, (getPos _table se
 _laptopArray = [[_table, "TOP"],"Land_Laptop_02_unfolded_F",1,[0,0,0],180] call BIS_fnc_spawnObjects;
 _laptop = _laptopArray select 0;
 
+[_laptop] remoteExecCall ["SCRT_fnc_trader_addMoveTraderAction", 0, true];
+
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
 _satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 1.75];
 _satellite setDir 45; 
 
-[[_table, "TOP"],"Land_Ammobox_rounds_F",1,[-0.4,(random 0.2),(random 20)-10],(random 180)] call BIS_fnc_spawnObjects;
+_tableBoxArray = [[_table, "TOP"],"Land_Ammobox_rounds_F",1,[-0.4,(random 0.2),(random 20)-10],(random 180)] call BIS_fnc_spawnObjects;
+_tableBox = _tableBoxArray select 0;
 
 _ammoBox1 = ["Land_PaperBox_open_full_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _ammoBox1 setPos [(getPos _ammoBox1 select 0) + 2.6, (getPos _ammoBox1 select 1) + 3, (getPos _ammoBox1 select 2) - 1.4];
@@ -66,6 +70,8 @@ _container setPos [(getPos _container select 0) - 8, (getPos _container select 1
 _container setDir 90;
 
 [_traderTent, [0, 0, 1]] remoteExec ["SCRT_fnc_common_attachLightSource", 0, true];
+
+traderProps append [_traderTent, _container, _ammoBox1, _ammoBox2, _satellite, _laptop, _table, _chair, _traderTent, _tableBox];
 
 //trader itself
 _traderX = createAgent ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];

@@ -76,7 +76,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	spawner setVariable [_marker,2,true];
 	["outpostTask",["We are sending a team to establish a AT Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
-	_marker setMarkerType "n_recon";
+	_marker setMarkerType "n_armor";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
     _garrison = [staticCrewTeamPlayer];

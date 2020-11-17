@@ -2372,6 +2372,12 @@
           <French>Accéder au marché des véhicules</French>
           <Russian>Посмотреть чёрный рынок техники</Russian>
       </Key>
+      <Key ID="STR_antistasi_actions_common_move_trader_text">
+          <Original>Move Arms Dealer to Rebel HQ</Original>
+          <English>Move Arms Dealer to Rebel HQ</English>
+          <French>Déplacer le commerçant vers le QG des rebelles</French>
+          <Russian>Перевести торговца оружием на базу</Russian>
+      </Key>
     </Container>
     <Container name="common_notifications">
       <Key ID="STR_antistasi_actions_common_notifications_money_found_title">
