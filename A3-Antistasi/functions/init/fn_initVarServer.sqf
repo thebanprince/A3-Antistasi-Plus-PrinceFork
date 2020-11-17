@@ -668,7 +668,7 @@ DECLARE_SERVER_VAR(vehAmmoTrucks, _vehAmmoTrucks);
 private _vehAPCs = vehNATOAPC + vehCSATAPC;
 DECLARE_SERVER_VAR(vehAPCs, _vehAPCs);
 
-private _vehTanks = [vehNATOTanks, vehCSATTanks];
+private _vehTanks = vehNATOTanks + vehCSATTanks;
 DECLARE_SERVER_VAR(vehTanks, _vehTanks);
 
 private _vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
