@@ -1869,7 +1869,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Reserved for future purposes.";
-			action = "closeDialog 0; systemChat 'Reserved for future purposes.";
+			action = "closeDialog 0; systemChat 'Reserved for future purposes.';";
 		};
 		class 10slots_R3: RscButton
 		{

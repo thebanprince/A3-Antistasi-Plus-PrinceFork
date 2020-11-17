@@ -1,17 +1,10 @@
 private _position = _this select 0;
 
-
-private _isRoad = isOnRoad _position;
-if !(_isRoad) exitWith {
-    playSound "3DEN_notificationWarning";
-	["Roadblock", "Roadblock should be on road."] call A3A_fnc_customHint;
-};
-
 //calculating cost and manipulating rebel resources
-private _costs = 1000; //car with mg
+private _costs = 1500; //AT gun
 private _hr = 1; //static gunner
-private _typeGroup = groupsSDKSquad;
-private _typeVeh = vehSDKTruck;
+private _typeGroup = groupsSDKAT;
+private _typeVeh = vehSDKLightUnarmed;
 
 
 {
@@ -24,15 +17,15 @@ private _hrFIA = server getVariable "hr";
 
 if ((_resourcesFIA < _costs) or (_hrFIA < _hr)) exitWith {
     playSound "3DEN_notificationWarning";
-	["Roadblock", format ["You lack of resources to build this Roadblock <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call A3A_fnc_customHint;
+	["AT Emplacement", format ["You lack of resources to build this AT Emplacement <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call A3A_fnc_customHint;
 };
 
 [-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
-private _textX = format ["%1 Roadblock", nameTeamPlayer];
+private _textX = format ["%1 AT Emplacement", nameTeamPlayer];
 private _tsk = "";
 
-private _marker = createMarker [format ["FIARoadblock%1", random 1000], _position];
+private _marker = createMarker [format ["FIATApost%1", random 1000], _position];
 _marker setMarkerShape "ICON";
 
 //creating task
@@ -40,7 +33,7 @@ private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 
-[[teamPlayer,civilian],"outpostTask",["We are sending a team to establish a roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],"outpostTask",["We are sending a team to establish a AT emplacement. Use HC to send the team to their destination","Post \ AT Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 _formatX = [];
 {
     if (random 20 <= skillFIA) then {
@@ -51,7 +44,7 @@ _formatX = [];
 } forEach _typeGroup;
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
-_groupX setGroupId ["Roadblock"];
+_groupX setGroupId ["Emplacement Crew"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = _typeVeh createVehicle _pos;
@@ -76,12 +69,12 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 		"" remoteExec ["hint",_owner];
 		waitUntil {!(isPlayer leader _groupX)};
 	};
-	roadblocksFIA = roadblocksFIA + [_marker]; publicVariable "roadblocksFIA";
+	atpostsFIA = atpostsFIA + [_marker]; publicVariable "atpostsFIA";
 	sidesX setVariable [_marker,teamPlayer,true];
 	markersX = markersX + [_marker];
 	publicVariable "markersX";
 	spawner setVariable [_marker,2,true];
-	["outpostTask",["We are sending a team to establish a Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	["outpostTask",["We are sending a team to establish a AT Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
 	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
 	_marker setMarkerType "n_recon";
 	_marker setMarkerColor colorTeamPlayer;
@@ -96,7 +89,7 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
     } forEach _typeGroup;
     garrison setVariable [_marker,_garrison,true];
 } else {
-    ["outpostTask",["We are sending a team to establish a Roadblock. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
+    ["outpostTask",["We are sending a team to establish a Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
     sleep 3;
     deleteMarker _marker;
 };
