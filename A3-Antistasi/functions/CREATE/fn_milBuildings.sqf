@@ -18,6 +18,23 @@ _typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewIn
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];
 _helicopterTypes pushBack (if (_sideX == Occupants) then {vehNATOPatrolHeli} else {vehCSATPatrolHeli});
+
+if(tierWar > 3) then {
+    if (_sideX == Occupants) then {
+        _helicopterTypes append vehNATOTransportHelis;
+    } else {
+        _helicopterTypes append vehCSATTransportHelis;
+    };
+};
+
+if(tierWar > 7 && {random 11 > tierWar}) then {
+    if (_sideX == Occupants) then {
+        _helicopterTypes append vehNATOAttackHelis;
+    } else {
+        _helicopterTypes append vehCSATAttackHelis;
+    };
+};
+
 private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
 private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
 while {_spawnParameter isEqualType [] && {_count > 0}} do
