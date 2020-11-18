@@ -183,7 +183,7 @@ if (count _availableTargets == 0) exitWith
     switch (true) do
     {
         case (_target in airportsX): {_targetMultiplier = 0.05};
-        case (_target in milbases): {_targetMultiplier = 0.1};
+        case (_target in milbases): {_targetMultiplier = 0.15};
         case (_target in outposts): {_targetMultiplier = 0.25};
         case (_target in resourcesX): {_targetMultiplier = 0.35};
         case (_target in factories): {_targetMultiplier = 0.5};
