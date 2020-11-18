@@ -24,7 +24,7 @@ __________________________________________________________________*/
 class cfgHALsStore 
 {
 	containerTypes[] = {"LandVehicle", "Air", "Ship"};
-	containerRadius = 10;
+	containerRadius = 30;
 	currencySymbol = "€";
 	sellFactor = 0.5;
 	debug = 0;
@@ -2292,6 +2292,12 @@ class cfgHALsStore
 			displayName = "Misc";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
 
+			ITEM(H_HelmetO_ViperSP_ghex_F, 15000, MISC_STOCK);
+			ITEM(U_O_V_Soldier_Viper_F, 25000, MISC_STOCK);
+
+			ITEM(H_HelmetO_ViperSP_hex_F, 15000, MISC_STOCK);
+			ITEM(U_O_V_Soldier_Viper_hex_F, 25000, MISC_STOCK);
+
 			ITEM(B_Bergen_dgtl_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_hex_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_mcamo_F, 900, MISC_STOCK);
@@ -2307,7 +2313,44 @@ class cfgHALsStore
 			ITEM(B_ViperHarness_khk_F, 750, MISC_STOCK);
 			ITEM(B_ViperHarness_oli_F, 750, MISC_STOCK);
 
-			ITEM(V_PlateCarrierIAGL_oli, 650, MISC_STOCK);
+			ITEM(B_Carryall_cbr, 800, MISC_STOCK);
+			ITEM(B_Carryall_eaf_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_ghex_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_green_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_ocamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_khk, 800, MISC_STOCK);
+			ITEM(B_Carryall_mcamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_oli, 800, MISC_STOCK);
+			ITEM(B_Carryall_taiga_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_oucamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_wdl_F, 800, MISC_STOCK);
+
+			ITEM(H_HelmetSpecB, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_blk, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_paint2, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_paint1, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_sand, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_snakeskin, 1000, MISC_STOCK);
+			ITEM(H_HelmetB_Enh_tna_F, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_wdl, 1000, MISC_STOCK);
+
+			ITEM(H_HelmetAggressor_F, 1000, MISC_STOCK);
+			ITEM(H_HelmetAggressor_cover_F, 1000, MISC_STOCK);
+
+			ITEM(V_SmershVest_01_F, 300, MISC_STOCK);
+			ITEM(V_SmershVest_01_radio_F, 300, MISC_STOCK);
+
+			ITEM(V_PlateCarrier1_blk, 900, MISC_STOCK);
+			ITEM(V_PlateCarrier2_blk, 1250, MISC_STOCK);
+			ITEM(V_PlateCarrierIAGL_oli, 1300, MISC_STOCK);
+
+			ITEM(V_CarrierRigKBT_01_heavy_Olive_F, 1300, MISC_STOCK);
+			ITEM(V_CarrierRigKBT_01_light_Olive_F, 700, MISC_STOCK);
+			ITEM(V_CarrierRigKBT_01_Olive_F, 700, MISC_STOCK);
+
+			ITEM(NVGogglesB_blk_F, 2500, MISC_STOCK);
+			ITEM(NVGogglesB_grn_F, 2500, MISC_STOCK);
+			ITEM(NVGogglesB_gry_F, 2500, MISC_STOCK);
 
 			ITEM(U_I_FullGhillie_lsh, 1000, MISC_STOCK);
 			ITEM(U_I_FullGhillie_ard, 1000, MISC_STOCK);
@@ -5651,6 +5694,13 @@ class cfgHALsStore
 			displayName = "Misc";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
 
+			ITEM(H_HelmetO_ViperSP_ghex_F, 15000, MISC_STOCK);
+			ITEM(U_O_V_Soldier_Viper_F, 25000, MISC_STOCK);
+
+			ITEM(H_HelmetO_ViperSP_hex_F, 15000, MISC_STOCK);
+			ITEM(U_O_V_Soldier_Viper_hex_F, 25000, MISC_STOCK);
+
+
 			ITEM(B_Bergen_dgtl_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_hex_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_mcamo_F, 900, MISC_STOCK);
@@ -5666,17 +5716,44 @@ class cfgHALsStore
 			ITEM(B_ViperHarness_khk_F, 750, MISC_STOCK);
 			ITEM(B_ViperHarness_oli_F, 750, MISC_STOCK);
 
-			ITEM(CUP_O_RUS_Patrol_bag_BeigeDigital, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Green, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Green_Shovel, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Desert, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Desert_Shovel, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Summer, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Summer_Shovel, 500, MISC_STOCK);
-			ITEM(CUP_O_RUS_Patrol_bag_Winter, 500, MISC_STOCK);
+			ITEM(B_Carryall_cbr, 800, MISC_STOCK);
+			ITEM(B_Carryall_eaf_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_ghex_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_green_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_ocamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_khk, 800, MISC_STOCK);
+			ITEM(B_Carryall_mcamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_oli, 800, MISC_STOCK);
+			ITEM(B_Carryall_taiga_F, 800, MISC_STOCK);
+			ITEM(B_Carryall_oucamo, 800, MISC_STOCK);
+			ITEM(B_Carryall_wdl_F, 800, MISC_STOCK);
 
-			ITEM(V_PlateCarrierIAGL_oli, 650, MISC_STOCK);
+			ITEM(H_HelmetSpecB, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_blk, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_paint2, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_paint1, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_sand, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_snakeskin, 1000, MISC_STOCK);
+			ITEM(H_HelmetB_Enh_tna_F, 1000, MISC_STOCK);
+			ITEM(H_HelmetSpecB_wdl, 1000, MISC_STOCK);
+
+			ITEM(H_HelmetAggressor_F, 1000, MISC_STOCK);
+			ITEM(H_HelmetAggressor_cover_F, 1000, MISC_STOCK);
+
+			ITEM(V_SmershVest_01_F, 300, MISC_STOCK);
+			ITEM(V_SmershVest_01_radio_F, 300, MISC_STOCK);
+
+			ITEM(V_PlateCarrier1_blk, 900, MISC_STOCK);
+			ITEM(V_PlateCarrier2_blk, 1250, MISC_STOCK);
+			ITEM(V_PlateCarrierIAGL_oli, 1300, MISC_STOCK);
+
+			ITEM(V_CarrierRigKBT_01_heavy_Olive_F, 1300, MISC_STOCK);
+			ITEM(V_CarrierRigKBT_01_light_Olive_F, 700, MISC_STOCK);
+			ITEM(V_CarrierRigKBT_01_Olive_F, 700, MISC_STOCK);
+
+			ITEM(NVGogglesB_blk_F, 2500, MISC_STOCK);
+			ITEM(NVGogglesB_grn_F, 2500, MISC_STOCK);
+			ITEM(NVGogglesB_gry_F, 2500, MISC_STOCK);
 
 			ITEM(U_I_FullGhillie_lsh, 1000, MISC_STOCK);
 			ITEM(U_I_FullGhillie_ard, 1000, MISC_STOCK);
@@ -5684,10 +5761,9 @@ class cfgHALsStore
 
 			ITEM(U_O_R_Gorka_01_F, 250, MISC_STOCK);
 			ITEM(U_O_R_Gorka_01_brown_F, 250, MISC_STOCK);
-			ITEM(U_O_R_Gorka_01_black_F, 250, MISC_STOCK);
 			ITEM(U_O_R_Gorka_01_camo_F, 250, MISC_STOCK);
-			ITEM(U_O_E_Gorka_01_autumn_F, 250, MISC_STOCK);
-			ITEM(U_O_E_Gorka_01_summer_F, 250, MISC_STOCK);
+			ITEM(Opf_U_O_S_Gorka_01_autumn_F, 250, MISC_STOCK);
+			ITEM(Opf_U_O_S_Gorka_01_summer_F, 250, MISC_STOCK);
 
 			ITEM(APERSMineDispenser_Mag, 400, MISC_STOCK);
 			ITEM(ClaymoreDirectionalMine_Remote_Mag, 300, MISC_STOCK);
