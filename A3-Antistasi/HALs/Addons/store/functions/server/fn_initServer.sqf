@@ -19,7 +19,7 @@ if (!isNil "HALs_store_debug") exitWith {};
 	["CfgHALsStore"],
 	"HALs_store_",
 	[
-		["containerRadius", 20, {_this max 0}, true],
+		["containerRadius", 30, {_this max 0}, true],
 		["containerTypes", ["LandVehicle", "Air", "Ship"], {_this}, true],
 		["currencySymbol", "€", {_this}, true],
 		["sellFactor", 1, {_this max 0 min 1}, true],
