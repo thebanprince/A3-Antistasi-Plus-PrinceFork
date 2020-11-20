@@ -57,12 +57,12 @@ if (_typeX == "tier") then {
 	private _tierStockUpdate = false;
 
 	if(tierWar > 3 && {!isMarketUpgradeAnnounced}) then {
-		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with T2 vehicles.</t>"];
+		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with Tier 2 vehicles.</t>"];
 		_tierStockUpdate = true; 
 	};
 
 	if(tierWar > 8 && {!isMarketUpgradeAnnounced}) then {
-		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with T3 vehicles.</t>"];
+		_textX = _textX + format ["<br/><br/><t size='0.6'>Vehicle Market stock has been updated with Tier 3 vehicles.</t>"];
 		_tierStockUpdate = true; 
 	};
 
