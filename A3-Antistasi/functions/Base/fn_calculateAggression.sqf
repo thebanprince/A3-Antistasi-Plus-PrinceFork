@@ -13,6 +13,18 @@ params [["_silent", false]];
         Nothing
 */
 
+if(isMarketUpgradeAnnounced && {!isMarketUpgradeMessageShown}) then {
+    _silent = true;
+    isMarketUpgradeMessageShown = true;
+    publicVariable "isMarketUpgradeMessageShown";
+};
+
+if(isPowPaycheckAnnounced && {!isIdapPowMessageShown}) then {
+    _silent = true;
+    isIdapPowMessageShown = true;
+    publicVariable "isIdapPowMessageShown";
+};
+
 //Calculate the new values from the stacks
 private _newOccupantsValue = 0;
 {
