@@ -15,9 +15,9 @@
 - Loot truck money found localized string fix
 - Early CSAT attacks fix (vehCSATTruck error)
 - Loot truck no longer grants reputation increase to everyone on money share action
-- Enemy factions gains earlier access to attack helicopters and planes (starting war level 3)
 - Helipad spawn pool extension (transport helicopters since war level 3, small chance to spawn attack helicopter since war level 8)
 - Increased vehicle detection radius for arms dealer store
+- Mortars on milbases, outposts and airports will be surrounded by sandbags
 - Reworked Sum Similar Weapons to Unlock mission parameter - no excess weapons and parasite duplicates (requires starting new game, since previous arsenal is already plagued with dupes)
 - (CUP) MT-LB is capable to carry ammo boxes
 - (CUP, Altis) Land Rover, MTVR militia trucks and cars for BLUFOR militia
