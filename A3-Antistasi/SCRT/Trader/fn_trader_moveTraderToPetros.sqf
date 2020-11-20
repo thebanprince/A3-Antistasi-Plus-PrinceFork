@@ -31,11 +31,12 @@ private _traderPosition = [
     [_petrosPosition, _petrosPosition] //default position
 ] call BIS_fnc_findSafePos;
 
+_isOnRoad = isOnRoad _traderPosition;
 _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
 private _iterations = 0;
 
 //mitigation of negative terrain gradient
-if(!(_radGrad > -0.5 && _radGrad < 0.5)) then {
+if(!(_radGrad > -0.5 && _radGrad < 0.5 && !(_isOnRoad))) then {
     while {_iterations < 30} do {
         _traderPosition = [
             _petrosPosition, 
@@ -50,8 +51,9 @@ if(!(_radGrad > -0.5 && _radGrad < 0.5)) then {
         ] call BIS_fnc_findSafePos;
 
         _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
+        _isOnRoad = isOnRoad _traderPosition;
 
-        if((_radGrad > -0.5 && _radGrad < 0.5)) exitWith {};
+        if((_radGrad > -0.5 && _radGrad < 0.5) && {_isOnRoad}) exitWith {};
         _iterations = _iterations + 1; 
     };
 };
