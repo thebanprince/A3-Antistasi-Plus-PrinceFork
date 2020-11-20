@@ -8,6 +8,7 @@ if(spawner getVariable _markerX == 2) exitWith {};
 _vehiclesX = [];
 _groups = [];
 _soldiers = [];
+_props = [];
 
 _positionX = getMarkerPos (_markerX);
 _pos = [];
@@ -105,8 +106,9 @@ if ((_frontierX) and (_markerX in outposts)) then
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if(_spawnParameter isEqualType []) then
 	{
+		_mortarPos = _spawnParameter select 0;
 		_groupX = createGroup _sideX;
-		_veh = _typeVehX createVehicle (_spawnParameter select 0);
+		_veh = _typeVehX createVehicle (_mortarPos);
 		_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -115,6 +117,15 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
+
+		
+		{
+			private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+			private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
+			_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
+			_sandbag setVectorUp surfaceNormal position _sandbag;
+			_props pushBack _sandbag;
+		} forEach [0, 90, 180, 270];
 	};
 };
 
@@ -348,3 +359,7 @@ deleteMarker _mrk;
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+
+{
+	deleteVehicle _x;
+} forEach _props;

@@ -11,6 +11,7 @@ diag_log format ["[Antistasi] Spawning Airbase %1 (createAIAirplane.sqf)", _mark
 _vehiclesX = [];
 _groups = [];
 _soldiers = [];
+_props = [];
 
 _positionX = getMarkerPos _markerX;
 _pos = [];
@@ -184,7 +185,8 @@ _typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 while {_spawnParameter isEqualType []} do
 {
-	_veh = _typeVehX createVehicle (_spawnParameter select 0);
+	private _mortarPos = _spawnParameter select 0;
+	_veh = _typeVehX createVehicle (_mortarPos);
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
@@ -196,6 +198,14 @@ while {_spawnParameter isEqualType []} do
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	sleep 1;
+
+	{
+		private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+		private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
+		_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
+		_sandbag setVectorUp surfaceNormal position _sandbag;
+		_props pushBack _sandbag;
+	} forEach [0, 90, 180, 270];
 };
 
 _typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
@@ -442,3 +452,7 @@ deleteMarker _mrk;
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+
+{
+	deleteVehicle _x;
+} forEach _props;

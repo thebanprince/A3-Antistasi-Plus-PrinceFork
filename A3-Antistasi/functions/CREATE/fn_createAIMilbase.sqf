@@ -10,6 +10,7 @@ diag_log format ["[Antistasi] Spawning Military Base %1", _markerX];
 private _vehiclesX = [];
 private _groups = [];
 private _soldiers = [];
+private _props = [];
 
 private _positionX = getMarkerPos _markerX;
 private _pos = [];
@@ -214,13 +215,12 @@ private _groupX = createGroup _sideX;
 _groups pushBack _groupX;
 private _typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
 private _typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
-_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
-_typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 while {_spawnParameter isEqualType []} do
 {
-	_veh = _typeVehX createVehicle (_spawnParameter select 0);
+	_mortarPos = _spawnParameter select 0;
+	_veh = _typeVehX createVehicle (_mortarPos);
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
 	_nul=[_veh] execVM "scripts\UPSMON\MON_artillery_add.sqf";//TODO need delete UPSMON link
@@ -232,6 +232,14 @@ while {_spawnParameter isEqualType []} do
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	sleep 1;
+
+	{
+		private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+		private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
+		_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
+		_sandbag setVectorUp surfaceNormal position _sandbag;
+		_props pushBack _sandbag;
+	} forEach [0, 90, 180, 270];
 };
 
 private _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
@@ -332,3 +340,6 @@ deleteMarker _mrk;
 	};
 } forEach _vehiclesX;
 
+{
+	deleteVehicle _x;
+} forEach _props;
