@@ -145,7 +145,7 @@ vehNATORepairTruck = "CUP_B_Kamaz_Repair_CDF";
 vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 //Armored
 vehNATOAPC = ["CUP_B_MTLB_pk_CDF","CUP_B_BMP2_CDF", "CUP_B_BTR60_CDF", "CUP_B_BTR80_CDF", "CUP_B_BTR80A_CDF"];
-vehNATOTanks = ["CUP_B_BMP2_CDF", "CUP_B_BTR60_CDF", "CUP_B_BTR80_CDF"];
+vehNATOTanks = ["CUP_B_T72_CDF", "CUP_B_T72_CZ"];
 vehNATOAA = "CUP_B_ZSU23_CDF";
 vehNATOAttack = vehNATOAPC + vehNATOTanks + ["CUP_B_ZSU23_Afghan_CDF"];
 //Boats
@@ -173,7 +173,7 @@ vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + [vehNATOPlane,vehNATOP
 //Militia Vehicles
 if (gameMode != 4) then {
 	vehFIAArmedCar = "CUP_B_M151_M2_HIL";
-	vehFIATruck = "CUP_B_MTLB_pk_CDF";
+	vehFIATruck = "CUP_B_MTVR_HIL";
 	vehFIACar = "CUP_B_M151_HIL";
 };
 
