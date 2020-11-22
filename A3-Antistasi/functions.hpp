@@ -342,9 +342,11 @@ class A3A
 		class LOG_Supplies {};
 		class LOG_Salvage {};
 		class LOG_Helicrash {};
+		class LOG_Airdrop {};
 		class missionRequest {};
 		class REP_Antenna {};
 		class RES_Prisoners {};
+		class RES_Shipwreck {};
 		class RES_Refugees {};
 		class ENC_Trader {};
 		class taskUpdate {};
