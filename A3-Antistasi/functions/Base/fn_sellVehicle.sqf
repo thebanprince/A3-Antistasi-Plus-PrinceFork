@@ -38,38 +38,38 @@ else
 		}
 		else
 		{
-			_costs = 200;
+			_costs = 250;
 		};
 	}
 	else
 	{
-		if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) then
+		if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks) or (_typeX in vehNATOCargoTrucks) or (_typeX in vehNATOFlatbedTrucks)) then
 		{
-			_costs = 100;
+			_costs = 300;
 		}
 		else
 		{
 			if (_typeX in vehAPCs) then
 			{
-				_costs = 1000;
+				_costs = 3000;
 			}
 			else
 			{
 				if (_typeX isKindOf "Plane") then
 				{
-					_costs = 4000;
+					_costs = 10000;
 				}
 				else
 				{
 					if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) then
 					{
-						_costs = 3000;
+						_costs = 10000;
 					}
 					else
 					{
 						if (_typeX in vehTransportAir) then
 						{
-							_costs = 500;
+							_costs = 5000;
 						};
 					};
 				};
