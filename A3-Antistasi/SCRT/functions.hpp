@@ -92,6 +92,7 @@ class SCRT
         class common_shareFactionMoneyWithMembers {};
         class common_moveStatic {};
         class common_sinkShip {};
+        class common_airdropCargo {};
     };
 
     class Outpost
