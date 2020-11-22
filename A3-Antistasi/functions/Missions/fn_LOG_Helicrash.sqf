@@ -84,7 +84,7 @@ else {
     _boxClass = CSATAmmoBox;
     _cargoTruckClass = selectRandom vehCSATTrucks; 
     _escortClass = if(_difficult) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = groupsCSATSquad;
+    _infantrySquadArray = CSATSquad;
     _specOpsArray = CSATSpecOp;
 };
 
