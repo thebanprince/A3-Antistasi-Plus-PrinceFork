@@ -49,17 +49,13 @@
 	],
 
     [//Backpack
-		"CUP_B_USMC_AssaultPack",								//Backpack
-		[//Inventory
-			["CUP_PG7V_M",1,1]
-		]
 	],
 
 		"CUP_H_CDF_H_PASGT_MNT",
 		"",													//Facewear
 
 	[//Binocular
-		"Binocular",										//Binocular
+		"",										//Binocular
 		"",
 		"",
 		"",

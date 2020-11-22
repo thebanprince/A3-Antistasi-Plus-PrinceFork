@@ -56,7 +56,7 @@
 		"",													//Facewear
 
 	[//Binocular
-		"Binocular",										//Binocular
+		"",										//Binocular
 		"",
 		"",
 		"",

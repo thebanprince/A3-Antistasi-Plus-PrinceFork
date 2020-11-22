@@ -49,10 +49,6 @@
 	],
 
     [//Backpack
-		"CUP_O_RUS_Patrol_bag_Summer_Shovel",								//Backpack
-		[//Inventory
-			["CUP_PG7V_M",1,1]
-		]
 	],
 
 		selectRandom										//Headgear
@@ -60,7 +56,7 @@
 		"",													//Facewear
 
 	[//Binocular
-		"Binocular",										//Binocular
+		"",										//Binocular
 		"",
 		"",
 		"",
