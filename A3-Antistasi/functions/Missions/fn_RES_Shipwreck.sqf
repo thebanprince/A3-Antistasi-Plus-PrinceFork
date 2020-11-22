@@ -312,7 +312,7 @@ waitUntil {
             _isInArea = true;
         };
     } forEach _players;
-    _isInArea
+    _isInArea or (dateToNumber date > _dateLimitNum)
 };
 
 
