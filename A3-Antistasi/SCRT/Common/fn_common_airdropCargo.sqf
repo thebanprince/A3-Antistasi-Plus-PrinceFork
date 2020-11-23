@@ -51,6 +51,8 @@ _obj attachTo [_para, _attachTo];
 
 [_obj, _para] spawn {
 	params ["_obj","_para"];
+
+	private _smokeShellVariants = ["SmokeShellRed", "SmokeShellGreen", "SmokeShellYellow", "SmokeShellPurple", "SmokeShellBlue", "SmokeShellOrange"];
 		
 	waitUntil {
 		sleep 0.01;
@@ -65,7 +67,10 @@ _obj attachTo [_para, _attachTo];
 	_obj setVectorUp [0,0,1];
 	_obj setVelocity [0,0,0];
 	detach _obj;
-		
+	
+	//mark landing with smoke
+	_smokeShell = (selectRandom _smokeShellVariants) createVehicle (position _obj);
+	
 	if (!isNull _para) then {deleteVehicle _para};
 };
 

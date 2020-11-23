@@ -1,10 +1,14 @@
 ## Changelog
 
 ### 1.4
-- Establish roadblock, watchposts, AA Emplacement or AT Emplacement action (Y menu, commander section)
+- New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborator, Seize Airdrop, Rescue Smugglers
+- Establish roadblock, watchpost, AA Emplacement or AT Emplacement action (Y menu, commander section)
 - Share Faction Money action (Y menu, commander section)
 - Move Static Weapon action (Y menu)
-- Move Arms Dealer to rebel HQ laptop action (costs some money, 5000$)
+- Island Panthera map support
+- Napf map support
+- Chernarus 2.0 map support (Beta)
+- Move Arms Dealer to rebel HQ laptop action
 - AI aiming accuracy, aiming shake and aiming speed capped by general server AI difficulty settings
 - AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces on early game)
 - Rebel AI training cap increased from 40 to 50
@@ -14,14 +18,22 @@
 - Individual fast travel edge cases bugfix
 - Loot truck money found localized string fix
 - Early CSAT attacks fix (vehCSATTruck error)
-- Loot truck no longer grants reputation increase to everyone on money share action
-- Helipad spawn pool extension (transport helicopters since war level 3, small chance to spawn attack helicopter since war level 8)
+- Loot truck no longer grants reputation increase to everyone on money share
+- Helipad spawn pool extension (transport helicopters starting war level 3, small chance to spawn attack helicopter starting war level 8)
 - Increased vehicle detection radius for arms dealer store
+- Increased vehicle cost on selling
+- Ability to sell cargo and flatbed trucks
 - Mortars on milbases, outposts and airports will be surrounded by sandbags
+- Fixed static weapon bags instead of normal ones with cargo on AI rebels
 - Reworked Sum Similar Weapons to Unlock mission parameter - no excess weapons and parasite duplicates (requires starting new game, since previous arsenal is already plagued with dupes)
+- (CUP) EUROFOR faction
+- (CUP) Occupant Side mission parameter (CDF or EUROFOR)
 - (CUP) MT-LB is capable to carry ammo boxes
 - (CUP, Altis) Land Rover, MTVR militia trucks and cars for BLUFOR militia
+- (CUP) CDF Tank pool fix
 - (Altis) new outpost
+- (Taviana) Removed preplaced props near mortar emplacements
+- (Taviana) Misson file size reduction, slightly lowered loading times
 
 ### 1.0.4
 - Reduced count of players required to unflip vehicle from 4 to 3

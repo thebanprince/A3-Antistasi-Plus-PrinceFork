@@ -183,7 +183,7 @@ switch (_callbackTarget) do {
 		
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {
 				if (!(player inArea traderVehicleMarker)) exitWith {
-					[true, "You need to be close to the flag to be able to purchase a vehicle"];
+					[true, "You need to be close to the trader to be able to purchase a vehicle"];
 				};
 				[false];
 			};
