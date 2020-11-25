@@ -827,14 +827,6 @@
         <Czech>Ať jsme to chtěli nebo ne, vstoupili jsme do války s obyvateli Altisu.</Czech>
         <Korean>우리가 원하든 원하지 않든, 우리는 알 티스에서 거주자들과 전쟁에 뛰어 들었습니다.</Korean>
       </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Plus - Altis Requiem</Original>
-        <English>Antistasi Plus - Altis Requiem</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi Plus - Altis Requiem</Original>
-        <English>Antistasi Plus - Altis Requiem</English>
-      </Key>
       <Key ID="STR_antistasi_mission_info_stratis_mapname_short_text">
         <Original>Antistasi Stratis</Original>
         <English>Antistasi Stratis</English>
@@ -1101,7 +1093,7 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus2020_blurb_text">
         <Original>Bardak is out there.</Original>
-        <English>>Bardak is out there.</English>
+        <English>Bardak is out there.</English>
         <German>Bardak ist da draußen.</German>
         <French>Bardak est là-bas.</French>
         <Russian>Бардак где-то рядом.</Russian>
@@ -2501,14 +2493,6 @@
         <Russian>Рекрутировать</Russian>
         <German>Rekrutieren</German>
         <Czech>Rekrut</Czech>
-      </Key>
-      <Key ID="STR_release_response_three_text">
-        <Original>Thank you, I will definitely remember this when I shoot you next time!</Original>
-        <English>Thank you, I will definitely remember this when I shoot you next time!</English>
-        <French>Merci, je m'en souviendrai certainement la prochaine fois que je vous tirerai dessus!</French>
-        <Russian>Спасибо, я обязательно об этом вспомню, когда буду стрелять в вас в следующий раз!</Russian>
-        <German>Danke, ich werde mich definitiv daran erinnern, wenn ich dich das nächste Mal erschieße!</German>
-        <Czech>Děkuji, určitě si to zapamatuji, až vás příště zastřelím!</Czech>
       </Key>
       <Key ID="STR_recruit_text">
         <Original>How about joining the good guys?</Original>
