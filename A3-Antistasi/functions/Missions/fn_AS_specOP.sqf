@@ -4,10 +4,6 @@ if (!isServer and hasInterface) exitWith{};
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
-_leave = false;
-_contactX = objNull;
-_groupContact = grpNull;
-_tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 _timeLimit = if (_difficultX) then {60 * settingsTimeMultiplier} else {120 * settingsTimeMultiplier};

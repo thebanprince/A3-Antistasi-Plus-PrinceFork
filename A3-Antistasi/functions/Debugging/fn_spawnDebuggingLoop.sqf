@@ -17,8 +17,8 @@ while {shouldRunDebuggingLoop} do {
 		_lastGroupCleanTime = serverTime;
 	};
 	
-	//If petros ceases to exist, the whole gamemode is fucked. No exaggeration. At all.
-	//As a precaution, this is the 'OH FUCK I HOPE PETROS EXISTS' check, that makes sure he always exists.
+	//If petros ceases to exist, the whole gamemode is ****ed. No exaggeration. At all.
+	//As a precaution, this is the 'OH **** I HOPE PETROS EXISTS' check, that makes sure he always exists.
 	if (isNil "petros" ||	{isNull petros}) then {
 		[] call A3A_fnc_createPetros;
 	};

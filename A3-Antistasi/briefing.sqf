@@ -93,7 +93,7 @@ player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry
 	};
 
 };
-//Mission Specific stuff, fuck this code. This specifies the Rules of Engagement option in the menus.
+//Mission Specific stuff, **** this code. This specifies the Rules of Engagement option in the menus.
 switch (gameMode) do {
 	case 1: {
 				player createDiaryRecord ["Diary",[format [localize "STR_antistasi_journal_entry_header_gamemode"],format [localize "STR_antistasi_journal_entry_text_gamemode_4",nameOccupants,nameInvaders,nameTeamPlayer]]]

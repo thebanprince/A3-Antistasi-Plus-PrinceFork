@@ -149,9 +149,8 @@ if (gameMode == 1) then
             _controlsCSAT = ["control", "control_1", "control_2"];
 		};
 		case "cup_chernarus_A3": {
-			//TODO: chernarus OPFOR control zones
-			// _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
-            // _controlsCSAT = ["control", "control_1", "control_2"];
+			_mrkCSAT = ["airport_3","outpost_24","outpost_20", "outpost_23", "outpost_22", "outpost_20"];
+            _controlsCSAT = ["control_143", "control_149", "control_147"];
 		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;

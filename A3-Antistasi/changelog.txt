@@ -208,7 +208,7 @@ Implemented Jeroen Nots Enhanced Debug Console
   - Fixed marker and flag bugs
   - Fixed disappearing vehicles
   - Fixing outposts needing a road to spawn the truck for the crate
-  - Fixed addGarrison variables fucking up
+  - Fixed addGarrison variables ****king up
   - Fixed diving gear spawn
   - Fixed Arsenal exploit based on Armas inability to count
   - Deleted vanilla units in RHS modset

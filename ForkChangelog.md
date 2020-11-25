@@ -1,11 +1,10 @@
 ## Changelog
 
 ### 1.4
-- New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborator, Seize Airdrop, Rescue Smugglers
+- New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
 - Establish roadblock, watchpost, AA Emplacement or AT Emplacement action (Y menu, commander section)
 - Share Faction Money action (Y menu, commander section)
 - Move Static Weapon action (Y menu)
-- Island Panthera map support
 - Napf map support
 - Chernarus 2.0 map support (Beta)
 - Move Arms Dealer to rebel HQ laptop action
@@ -34,6 +33,7 @@
 - (Altis) new outpost
 - (Taviana) Removed preplaced props near mortar emplacements
 - (Taviana) Misson file size reduction, slightly lowered loading times
+- (Taviana) Additional Police stations
 
 ### 1.0.4
 - Reduced count of players required to unflip vehicle from 4 to 3

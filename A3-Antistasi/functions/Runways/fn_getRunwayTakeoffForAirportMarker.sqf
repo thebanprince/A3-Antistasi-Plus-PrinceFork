@@ -6,7 +6,7 @@ private _markerPos = getMarkerPos _marker;
 private _runways = call A3A_fnc_runwayInfo;
 
 //This is a fairly arbitrary number, but usually, the airport marker is the closest thing to the runway in 700m.
-//The only case where this might fuck up is if it's called on some the weird airports which have bases in them near the ends of the runway.
+//The only case where this might **** up is if it's called on some the weird airports which have bases in them near the ends of the runway.
 //They might actually falsely claim to have a runway.
 //SO DO NOT USE THIS FUNCTION TO CHECK IF SOMETHING HAS A RUNWAY.
 private _min = 490000;
