@@ -41,6 +41,16 @@ switch (_type) do {
 			};
 		}forEach _controlsX;
 
+		private _nearbyCities = [citiesX] call _findIfNearAndHostile;
+		private _policeCities = [];
+
+		if(count _nearbyCities > 0) then {
+			private _policeStations = nearestObjects [getMarkerPos _x, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
+			if(count _policeStations > 0) then {
+				_policeCities pushBack _x;
+			};
+		};
+
 		if (count _possibleMarkers == 0) then {
 			if (!_autoSelect) then {
 				[petros,"globalChat","I have no assasination missions for you. Move our HQ closer to the enemy"] remoteExec ["A3A_fnc_commsMP",_requester];
@@ -48,9 +58,21 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			if (_site in airportsX) then {[[_site],"A3A_fnc_AS_Official"] remoteExec ["A3A_fnc_scheduler",2]}
-			else {if (_site in citiesX) then {[[_site],"A3A_fnc_AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2]}
-			else {[[_site],"A3A_fnc_AS_SpecOP"] remoteExec ["A3A_fnc_scheduler",2]}};
+			switch(true) do {
+				case (count _policeCities > 0): {
+					_policeCity = selectRandom _policeCities;
+					[[_policeCity],"A3A_fnc_AS_Collaborationist"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+				case (_site in airportsX): {
+					[[_site],"A3A_fnc_AS_Official"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+				case (_site in citiesX): {
+					[[_site],"A3A_fnc_AS_Traitor"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+				default {
+					[[_site],"A3A_fnc_AS_SpecOP"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+			};
 		};
 	};
 
@@ -106,10 +128,9 @@ switch (_type) do {
 		if (random 100 < 20) then {
 			{
 				private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
-				if (
-					(sidesX getVariable [_nearbyMarker,sideUnknown] != teamPlayer)
-					&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)
-					) then {_possibleMarkers pushBack _x};
+				if ((sidesX getVariable [_nearbyMarker,sideUnknown] != teamPlayer) && (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)) then {
+					_possibleMarkers pushBack _x
+				};
 			}forEach banks;
 		};
 

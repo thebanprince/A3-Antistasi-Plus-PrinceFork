@@ -7,7 +7,6 @@ if (isNil "loadingTranslationTable" or {!(loadingTranslationTable getVariable ["
     ["dinero","moneyX"],
     ["dificultad", "difficultyX"],
     ["minas", "minesX"],
-    ["cuentaCA", "attackCountdownOccupants"],
     ["antenas", "antennas"],
     ["fecha","dateX"],
     ["distanciaSPWN","distanceSPWN"],

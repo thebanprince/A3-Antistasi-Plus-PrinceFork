@@ -329,6 +329,7 @@ class A3A
 	{
 		class AS_Official {};
 		class AS_specOP {};
+		class AS_Collaborationist {};
 		class AS_Traitor {};
 		class attackHQ {};
 		class CON_Outpost {};
