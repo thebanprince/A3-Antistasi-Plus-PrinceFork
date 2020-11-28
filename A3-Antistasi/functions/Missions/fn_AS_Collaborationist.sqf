@@ -5,14 +5,13 @@ private _fileName = "fn_AS_Collaborationist";
 [2, "Collaborationist mission init.", _fileName] call A3A_fnc_log;
 
 private _markerX = _this select 0;
-private _difficultX = if (random 10 < tierWar) then {true} else {false};
 private _positionX = getMarkerPos _markerX;
 
 private _POWs = [];
 private _groups = [];
 private _vehicles = [];
 
-private _timeLimit = if (_difficultX) then {60 * settingsTimeMultiplier} else {120 * settingsTimeMultiplier};
+private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];
@@ -231,10 +230,6 @@ _objects1 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180,
 _randomPos = [(random 0.1) + 0.2, (random 0.2) - 0.2, 0]; 
 _objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
 
-_vehicles append _objects1;
-_vehicles append _objects2;
-
-
 ////////////
 //Tasks
 ////////////
@@ -307,8 +302,10 @@ sleep 30;
 
 _nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
 
-
 {[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
 {[_x] spawn A3A_fnc_groupDespawner} forEach _groups;
-{deleteVehicle _x} forEach _POWs;
 [3, format ["Collaborationist clean up complete."], _filename] call A3A_fnc_log;
+
+sleep 1000;
+{deleteVehicle _x} forEach _POWs;
+deleteGroup _grpPOW;
