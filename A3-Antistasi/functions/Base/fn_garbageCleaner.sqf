@@ -17,6 +17,8 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach (allMissionObjects "Box_IND_Wps_F");				// Surrender boxes
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
+{ deleteVehicle _x } forEach (allMissionObjects "Land_CampingTable_F");
+{ deleteVehicle _x } forEach (allMissionObjects "Land_CampingTable_small_F");
 
 _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
 
