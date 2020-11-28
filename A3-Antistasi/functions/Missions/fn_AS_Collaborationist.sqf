@@ -62,8 +62,6 @@ switch(true) do {
 
 private _buildingPositions = [_building] call BIS_fnc_buildingPositions;
 
-player setPos (_buildingPositions select 0);
-
 ////////////
 //POWs
 ////////////
@@ -287,7 +285,6 @@ if (dateToNumber date > _dateLimitNum) then {
         "FAILED"
     ] call A3A_fnc_taskUpdate;
     [-20,theBoss] call A3A_fnc_playerScoreAdd;
-    [-1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
     [10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 } else {
     [
@@ -304,7 +301,6 @@ if (dateToNumber date > _dateLimitNum) then {
     [10,theBoss] call A3A_fnc_playerScoreAdd;
     [0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-	[600, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 };
 
 sleep 30;
