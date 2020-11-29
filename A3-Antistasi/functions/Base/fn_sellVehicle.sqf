@@ -28,57 +28,29 @@ if (_typeX in vehFIA) then
 }
 else
 {
-	if (_typeX in arrayCivVeh) then
-	{
-		//This is for selling supply trucks, but currently is unused.
-		_destinationX = _veh getVariable "destinationX";
-		if (isNil "_destinationX") then
-		{
-			if (_typeX == "C_Van_01_fuel_F") then {_costs = 50} else {_costs = 25};
-		}
-		else
-		{
+	switch (true) do {
+		case (_typeX in arrayCivVeh || _typeX == vehPoliceCar): {
 			_costs = 250;
 		};
-	}
-	else
-	{
-		if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks) or (_typeX in vehNATOCargoTrucks) or (_typeX in vehNATOFlatbedTrucks)) then
-		{
-			_costs = 300;
-		}
-		else
-		{
-			if (_typeX in vehAPCs) then
-			{
-				_costs = 3000;
-			}
-			else
-			{
-				if (_typeX isKindOf "Plane") then
-				{
-					_costs = 10000;
-				}
-				else
-				{
-					if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) then
-					{
-						_costs = 10000;
-					}
-					else
-					{
-						if (_typeX in vehTransportAir) then
-						{
-							_costs = 5000;
-						};
-					};
-				};
-			};
+		case ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks) or (_typeX in vehNATOCargoTrucks) or (_typeX in vehNATOFlatbedTrucks)): {
+			_costs = 350;
+		};
+		case (_typeX in vehAPCs): {
+			_costs = 2500;
+		};
+		case (_typeX isKindOf "Plane"): {
+			_costs = 5000;
+		};
+		case ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)): {
+			_costs = 7500;
+		};
+		case (_typeX in vehTransportAir): {
+			_costs = 5000;
 		};
 	};
 };
 
-if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace"] call A3A_fnc_customHint;};
+if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace."] call A3A_fnc_customHint;};
 
 _costs = round (_costs * (1-damage _veh));
 
