@@ -227,7 +227,7 @@ _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_sta
 
 _randomPos = [(random 0.4) + 0.2, (random 0.2) - 0.2, 0]; 
 _objects1 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
-_randomPos = [(random 0.1) + 0.2, (random 0.2) - 0.2, 0]; 
+_randomPos = [(random 0.2) + 0.1, (random 0.1) - 0.2, 0]; 
 _objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
 
 ////////////

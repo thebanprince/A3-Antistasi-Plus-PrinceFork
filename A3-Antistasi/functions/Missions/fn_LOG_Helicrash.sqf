@@ -7,8 +7,7 @@ private _fileName = "fn_LOG_Helicrash";
 [2, "Helicrash mission init.", _fileName, true] call A3A_fnc_log;
 
 private _missionOriginPos = getMarkerPos _missionOrigin;
-// private _difficult = if (random 10 < tierWar) then {true} else {false};
-_difficult = true;
+private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_missionOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _sideName = if(_sideX == Occupants) then { nameOccupants } else { nameInvaders };
 [3, format ["Origin: %1, Hardmode: %2, Controlling Side: %3", _missionOrigin, _difficult, _sideX], _filename] call A3A_fnc_log;
@@ -70,10 +69,10 @@ _specOpsArray = nil;
 if(_sideX == Occupants) then { 
     _pilotClass = NATOPilot;
     _helicopterClass = selectRandom vehNATOTransportHelis; 
-    _searchHeliClass = if(random 10 < tierWar) then { selectRandom vehNATOAttackHelis; } else { vehNATOPatrolHeli; };
+    _searchHeliClass = if(_difficult) then { selectRandom vehNATOAttackHelis; } else { vehNATOPatrolHeli; };
     _boxClass = NATOAmmoBox;
     _cargoTruckClass = selectRandom vehNATOTrucks;
-    _escortClass = if(random 10 < tierWar) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
+    _escortClass = if(_difficult) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
     _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
     _specOpsArray = NATOSpecOp;
 } 
@@ -184,8 +183,8 @@ for "_i" from 0 to (random [3,5,6]) do {
 };
 
 //creating mission marker near crash site
-private _crashPositionhMarker = _helicopter getRelPos [random 500,random 360];
-private _taskMarker = createMarker [format ["LOG%1", random 100],_crashPositionhMarker];
+private _crashPositionMarker = _helicopter getRelPos [random 500,random 360];
+private _taskMarker = createMarker [format ["LOG%1", random 100],_crashPositionMarker];
 _taskMarker setMarkerShape "ICON";
 
 //creating Task
@@ -199,7 +198,7 @@ private _rebelTaskText = format [
     [teamPlayer,civilian],
     "LOG",
     [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-    _crashPositionhMarker,
+    _crashPositionMarker,
     false,
     0,
     true,
