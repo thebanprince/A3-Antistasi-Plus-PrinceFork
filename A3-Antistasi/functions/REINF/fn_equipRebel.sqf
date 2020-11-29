@@ -25,11 +25,6 @@ _unit setUnitLoadout [ [], [], [],    [uniform _unit, []], [], [],    "", "", []
 	["ItemMap","","","ItemCompass","ItemWatch",""] ];		// no GPS, radio, NVG
 if (haveRadio) then {_unit linkItem "ItemRadio"};
 
-// Removed for the moment because I'm not sure what the intentions are for rebel uniforms
-// forceadd required for greenfor vanilla because allRebelUniforms has the blufor guerilla uniforms
-//_unit forceAddUniform (if (!activeGREF) then { selectRandom allRebelUniforms } else { uniform _unit });
-
-
 // Chance of picking armored rather than random vests and headgear, rising with unlocked gear counts
 if !(unlockedHeadgear isEqualTo []) then {
 	if (count unlockedArmoredHeadgear * 20 < random(100)) then { _unit addHeadgear (selectRandom unlockedHeadgear) }
@@ -39,7 +34,24 @@ if !(unlockedVests isEqualTo []) then {
 	if (count unlockedArmoredVests * 20 < random(100)) then { _unit addVest (selectRandom unlockedVests) }
 	else { _unit addVest (selectRandom unlockedArmoredVests); };
 };
-if !(unlockedBackpacksCargo isEqualTo []) then { _unit addBackpack (selectRandom unlockedBackpacksCargo) };
+
+if !(unlockedBackpacksCargo isEqualTo []) then { 
+	private _backpack = selectRandom unlockedBackpacksCargo;
+	_unit addBackpack _backpack;
+
+	//check for backpacks with zero cargo space
+	if(!(_unit canAddItemToBackpack "FirstAidKit")) then {
+		private _iterations = 0;
+		
+		while {_iterations < 10} do {
+			removeBackpack _unit;
+			_backpack = selectRandom unlockedBackpacksCargo;
+			_unit addBackpack _backpack;
+			if(_unit canAddItemToBackpack "FirstAidKit") exitWith {};
+			_iterations = _iterations + 1;
+		};
+	};
+};
 
 _unit addItemToUniform "FirstAidKit";
 _unit addItemToUniform "FirstAidKit";
@@ -134,19 +146,6 @@ if (sunOrMoon < 1) then {
 	} else {
 		// inclined to hand these out even in daytime, but whatever
 		_unit linkItem (selectRandom unlockedNVGs);
-
-/* Removed because it's pretty daft to use IR pointers when all your enemies have NV
-		private _pointers = allLaserAttachments arrayIntersect unlockedItems;
-		if !(_pointers isEqualTo []) then {
-			_pointers = _pointers arrayIntersect ((primaryWeapon _unit) call BIS_fnc_compatibleItems);
-			if !(_pointers isEqualTo []) then {
-				_pointer = selectRandom _pointers;
-				_unit addPrimaryWeaponItem _pointer;
-				_unit assignItem _pointer;
-				_unit enableIRLasers true;
-			};
-		};
-*/
 	};
 };
 
