@@ -1,4 +1,4 @@
-_fileName = "fn_unit_getCurrentGroupNATOAT";
+private _fileName = "fn_unit_getCurrentGroupNATOAT";
 
 if(!(hasTieredUnitConfigs)) exitWith {
     [3, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;

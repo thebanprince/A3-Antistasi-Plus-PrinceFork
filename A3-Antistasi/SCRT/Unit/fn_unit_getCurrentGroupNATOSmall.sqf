@@ -1,4 +1,4 @@
-_fileName = "fn_unit_getCurrentGroupNATOSmall";
+private _fileName = "fn_unit_getCurrentGroupNATOSmall";
 
 if(!(hasTieredUnitConfigs)) exitWith {
     [3, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;

@@ -1,4 +1,4 @@
-_fileName = "fn_unit_getCurrentFIAPatrol";
+private _fileName = "fn_unit_getCurrentFIAPatrol";
 
 if(!(hasTieredUnitConfigs) || gameMode == 4) exitWith {
     [3, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;

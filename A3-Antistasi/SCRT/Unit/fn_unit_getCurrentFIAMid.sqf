@@ -1,4 +1,4 @@
-_fileName = "fn_unit_getCurrentFIAMid";
+private _fileName = "fn_unit_getCurrentFIAMid";
 
 if(!(hasTieredUnitConfigs)) exitWith {
     [3, "Tiered unit config is not enabled, returning default value.", _fileName] call A3A_fnc_log;
