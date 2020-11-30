@@ -142,6 +142,11 @@ if (isNil "vehicleMarket_keyDownHandler") then {
 };
 
 vehiclePurchase_cost = [_initialType] call A3A_fnc_vehiclePrice;
+
+private _resourcesFIA = player getVariable "moneyX";
+
+if (_resourcesFIA < vehiclePurchase_cost) exitWith {["Black Market Purchase", format ["You do not have enough money for this vehicle: %1 € required",vehiclePurchase_cost]] call A3A_fnc_customHint;};
+
 private _extraMessage = format ["Arrow Up-Down to Switch Vehicles<br/> Buying vehicle for $%1", vehiclePurchase_cost];
 
 vehicleMarketIsOpen = true;
