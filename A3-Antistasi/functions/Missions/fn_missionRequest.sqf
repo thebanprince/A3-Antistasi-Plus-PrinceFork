@@ -100,6 +100,22 @@ switch (_type) do {
 		//find apropriate sites
 		_possibleMarkers = [airportsX] call _findIfNearAndHostile;
 		_possibleMarkers = _possibleMarkers select {spawner getVariable _x == 2};
+
+		private _controlsX = [controlsX] call _findIfNearAndHostile;
+		private _nearbyFriendlyMarkers = markersX select {
+			(getMarkerPos _x inArea [getMarkerPos respawnTeamPlayer, distanceMission+distanceSPWN, distanceMission+distanceSPWN, 0, false])
+			and (sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer)
+		};
+		_nearbyFriendlyMarkers deleteAt (_nearbyFriendlyMarkers find "Synd_HQ");
+		{
+			private _pos = getmarkerPos _x;
+			if !(isOnRoad _pos) then {
+				if (_nearbyFriendlyMarkers findIf {getMarkerPos _x distance _pos < distanceSPWN} != -1) then {
+					_possibleMarkers pushBack _x
+				};
+			};
+		} forEach _controlsX;
+
 		//append occupants antennas to list
 		{
 			private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
@@ -116,8 +132,21 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			if (_site in airportsX) then {if (random 10 < 8) then {[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2]} else {[[_site],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2]}};
-			if (_site in antennas) then {[[_site],"A3A_fnc_DES_antenna"] remoteExec ["A3A_fnc_scheduler",2]}
+			switch (true) do {
+				case (_site in airportsX): {
+					if (random 10 < 8) then {
+						[[_site],"A3A_fnc_DES_Vehicle"] remoteExec ["A3A_fnc_scheduler",2];
+					} else {
+						[[_site],"A3A_fnc_DES_Heli"] remoteExec ["A3A_fnc_scheduler",2];
+					};
+				};
+				case (_site in antennas): {
+					[[_site],"A3A_fnc_DES_antenna"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+				case (_site in controlsX): {
+					[[_site],"A3A_fnc_DES_Artillery"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+			};
 		};
 	};
 

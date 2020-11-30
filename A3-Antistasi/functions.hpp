@@ -339,6 +339,7 @@ class A3A
 		class DES_Antenna {};
 		class DES_Heli {};
 		class DES_Vehicle {};
+		class DES_Artillery {};
 		class LOG_Ammo {};
 		class LOG_Bank {};
 		class LOG_Supplies {};
