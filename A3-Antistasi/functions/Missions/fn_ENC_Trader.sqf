@@ -22,28 +22,26 @@ _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
 private _iterations = 0;
 
 //mitigation of negative terrain gradient
-if(!(_radGrad > -0.3 && _radGrad < 0.3)) then {
-    while {_iterations < 30} do {
+if(!(_radGrad > -0.3 && _radGrad < 0.3) || isOnRoad _traderPosition || surfaceIsWater _traderPosition) then {
+    private _radiusX = 100;
+    while {true} do {
         _traderPosition = [
-            _positionX, 
-            1, 
-            150, 
-            0, 
-            0, 
-            0.3, 
-            0, 
-            [], 
-            [_positionX, _positionX] 
+            _positionX, //center
+            0, //minimal distance
+            _radiusX, //maximumDistance
+            0, //object distance
+            0, //water mode
+            0.3, //maximum terrain gradient
+            0, //shore mode
+            [], //blacklist positions
+            [_positionX, _positionX] //default position
         ] call BIS_fnc_findSafePos;
-
         _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
-
-        if((_radGrad > -0.3 && _radGrad < 0.3)) exitWith {};
-        _iterations = _iterations + 1; 
+        if ((_radGrad > -0.3 && _radGrad < 0.3) && !(isOnRoad _traderPosition) && !(surfaceIsWater _traderPosition)) exitWith {};
+        _radiusX = _radiusX + 50;
     };
 };
 
-[2, format ["Trader position was found after %1 iterations.", str _iterations], "ENC_Trader", true] call A3A_fnc_log;
 [2, format ["Trader position: %1", str _traderPosition], "ENC_Trader", true] call A3A_fnc_log;
 
 traderX = [_traderPosition] call SCRT_fnc_trader_createTrader;
