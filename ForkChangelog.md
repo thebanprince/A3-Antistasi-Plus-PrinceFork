@@ -29,6 +29,7 @@
 - Reduced count of players required to unflip vehicle from 4 to 3
 - Fixed PVP player vehicle ejection
 - Fixed ability to buy vehicles from black market dealer even if player has no money
+- Increased base attack timing (less frequent attacks on rebels, should resolve problem when rebels are constantly bombed in stone age by neverending attacks from airbases or carriers)
 - (CUP) EUROFOR faction
 - (CUP) Occupant Side mission parameter (CDF or EUROFOR)
 - (CUP) MT-LB is capable to carry ammo boxes

@@ -127,45 +127,65 @@ if((_unit skill "aimingShake") > _aimingSpeed) then {
 //Sets NVGs, lights, lasers, radios and spotting skills for the night
 private _hmd = hmd _unit;
 
-if (sunOrMoon < 1) then
-{
-    if (!hasRHS) then
-    {
-        if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders) and (_unit != leader (group _unit))) then
-        {
-            if (_hmd != "") then
-            {
-                if ((random 5 > tierWar) and (!haveNV)) then
-                {
+if (sunOrMoon < 1) then {
+    if (!hasRHS) then {
+        //specops don't have NVGs except leader until war level 4
+        if(((faction _unit == factionMaleOccupants) || (faction _unit == factionMaleInvaders)) && (_unit != leader (group _unit))) then {
+            if (tierWar < 3) then {
+                if (_hmd != "" && {_unit != leader (group _unit)}) then {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
                     _hmd = "";
                 };
+            }; 
+        } else {
+            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then {
+                if (tierWar < 3) then {
+                    if (_hmd != "") then {
+                        _unit unassignItem _hmd;
+                        _unit removeItem _hmd;
+                        _hmd = "";
+                    };
+                } else {
+                    if (_hmd != "") then {
+                        if ((random 5 > tierWar) and (!haveNV)) then {
+                            _unit unassignItem _hmd;
+                            _unit removeItem _hmd;
+                            _hmd = "";
+                        };
+                    };
+                }; 
             };
         };
     }
-    else
-    {
+    else {
         private _arr = (allNVGs arrayIntersect (items _unit));
-        if (!(_arr isEqualTo []) or (_hmd != "")) then
-        {
-            if ((random 5 > tierWar) and (!haveNV) and (_unit != leader (group _unit))) then
-            {
-                if (_hmd == "") then
-                {
+        if (!(_arr isEqualTo []) or (_hmd != "")) then {
+            if ((random 5 > tierWar) and (!haveNV)) then {
+                if (_hmd == "") then {
                     _hmd = _arr select 0;
                     _unit removeItem _hmd;
                 }
-                else
-                {
+                else {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
                 };
                 _hmd = "";
             }
-            else
-            {
-                _unit assignItem _hmd;
+            else {
+                if(tierWar < 3) then {
+                    if (_hmd == "") then {
+                        _hmd = _arr select 0;
+                        _unit removeItem _hmd;
+                    }
+                    else {
+                        _unit unassignItem _hmd;
+                        _unit removeItem _hmd;
+                    };
+                    _hmd = "";
+                } else {
+                    _unit assignItem _hmd;
+                };
             };
         };
     };
@@ -210,24 +230,25 @@ if (sunOrMoon < 1) then
         _unit setskill ["spotTime", _skill * 0.5];
     };
 }
-else
-{
-    if (!hasRHS) then
-    {
-        if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then
-        {
-            if (_hmd != "") then
-            {
+else {
+    if (!hasRHS) then {
+        if (tierWar < 3) then {
+            if (_hmd != "") then {
                 _unit unassignItem _hmd;
                 _unit removeItem _hmd;
             };
+        } else {
+            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then {
+                if (_hmd != "") then {
+                    _unit unassignItem _hmd;
+                    _unit removeItem _hmd;
+                };
+            };
         };
     }
-    else
-    {
+    else {
         private _arr = (allNVGs arrayIntersect (items _unit));
-        if (count _arr > 0) then
-        {
+        if (count _arr > 0) then {
             _hmd = _arr select 0;
             _unit removeItem _hmd;
         };
