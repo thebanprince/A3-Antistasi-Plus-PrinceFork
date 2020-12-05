@@ -218,8 +218,7 @@ if(!hasAU) then {
 		hasCup = true;
 		hasTieredUnitConfigs = true;
 		diag_log format ["%1: [Antistasi] | INFO | initVar | All CUP mods have been detected.",servertime];
-	}
-	else {
+	} else {
 		//if at least one of these mods enabled - shut down mission
 		if(_activeCupUnits || _activeCupWeapons || _activeCupVehicles) then {
 			[1, "One of CUP mods detected, but not all of them. Ensure that CUP Vehicles, CUP Units and CUP Weapons mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
@@ -247,7 +246,7 @@ if(!hasAU) then {
 [2,"Creating building arrays",_fileName] call A3A_fnc_log;
 
 listbld = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V4_F"];
-listMilBld = listbld + ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F", "Land_Cargo_HQ_V4_F", "Land_Cargo_Patrol_V1_F", "Land_Cargo_Patrol_V2_F", "Land_Cargo_Patrol_V3_F", "Land_Cargo_Patrol_V4_F", "Land_HelipadSquare_F", "Land_Posed", "Land_Hlaska", "Land_fortified_nest_small_EP1", "Land_fortified_nest_small", "Fort_Nest", "Fortress1", "Land_GuardShed", "Land_BagBunker_Small_F", "Land_BagBunker_01_small_green_F", "Land_GuardTower_01_F", "Land_Radar_01_HQ_F", "Land_Barracks_06_F", "Land_ControlTower_02_F", "Land_ControlTower_01_F", "Land_GuardHouse_02_F", "Land_ServiceHangar_01_L_F", "Land_ServiceHangar_01_R_F", "Land_GuardTower_02_F", "Land_MobileRadar_01_radar_F"];
+listMilBld = listbld + ["Land_Mil_House","Land_aif_strazni_vez", "Land_aif_hlaska", "Land_MBG_Killhouse_2", "WarfareBDepot", "Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F", "Land_Cargo_HQ_V4_F", "Land_Cargo_Patrol_V1_F", "Land_Cargo_Patrol_V2_F", "Land_Cargo_Patrol_V3_F", "Land_Cargo_Patrol_V4_F", "Land_HelipadSquare_F", "Land_Posed", "Land_Hlaska", "Land_fortified_nest_small_EP1", "Land_fortified_nest_small", "Fort_Nest", "Fortress1", "Land_GuardShed", "Land_BagBunker_Small_F", "Land_BagBunker_01_small_green_F", "Land_GuardTower_01_F", "Land_Radar_01_HQ_F", "Land_Barracks_06_F", "Land_ControlTower_02_F", "Land_ControlTower_01_F", "Land_GuardHouse_02_F", "Land_ServiceHangar_01_L_F", "Land_ServiceHangar_01_R_F", "Land_GuardTower_02_F", "Land_MobileRadar_01_radar_F"];
 UPSMON_Bld_remove = ["Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f","cliff_wall_tall_f","cliff_wall_round_f","containerline_02_f","containerline_01_f","warehouse_01_f","quayconcrete_01_20m_f","airstripplatform_01_f","airport_02_terminal_f","cliff_wall_long_f","shop_town_05_f","Land_ContainerLine_01_F"];
 //Lights and Lamps array used for 'Blackout'
 lamptypes = ["Lamps_Base_F", "PowerLines_base_F","Land_LampDecor_F","Land_LampHalogen_F","Land_LampHarbour_F","Land_LampShabby_F","Land_NavigLight","Land_runway_edgelight","Land_PowerPoleWooden_L_F"];
@@ -340,58 +339,51 @@ switch (toLower worldName) do {
 		roadsX setVariable ["airport",[[[12190.479,12604.712,9.432],0,"MG"],[[12194.2,12599.4,13.3954],0,"AA"],[[12141,12609,0.00088501],0,"Mort"],[[12144.3,12615.9,0],0,"Mort"],[[12156.5,12614.3,0],0,"Mort"],[[12170,12595.9,0.000305176],250.234,"AT"],[[12070.4,12656,0.0098114],23.5329,"Tank"],[[12022.5,12670.9,0.0098114],18.9519,"Tank"]]];
 		roadsX setVariable ["airport_1",[[[4782.75,10251.4,18],0,"AA"],[[4716.17,10215.3,13.1149],278.308,"AA"],[[4714.530,10210.043,9.122],238.755,"MG"],[[4787.34,10248.9,4.99982],188.303,"MG"],[[4740.75,10333.2,20.3206],232.414,"MG"],[[4818.39,10200.1,0.00982666],239.625,"Tank"],[[4765.22,10330.8,0],0,"Mort"],[[4758.21,10328.1,0],0,"Mort"],[[4751.45,10324.4,0],0,"Mort"],[[4745.39,10320.6,0],0,"Mort"],[[4739.97,10283.2,0.00567627],291.41,"AT"],[[4814.19,10245.1,0.00567627],211.414,"AT"],[[4841.34,10158.9,0.0102844],240.137,"Tank"],[[4865.7,10116.7,0.00970459],239.499,"Tank"],[[4888.33,10074.2,0.00982666],235.077,"Tank"]]];
 		roadsX setVariable ["airport_2",[[[4717.95,2595.24,12.9766],0,"AA"],[[4714.134,2591.637,8.97349],227.835,"MG"],[[4743.55,2567.69,0.0130215],207.155,"Tank"],[[4775.62,2547.37,0.00691605],210.579,"Tank"],[[4719.88,2582.34,0.00566483],261.79,"AT"],[[4826.5,2558.35,0.00150108],0,"Mort"],[[4821.12,2550.32,0.00147152],0,"Mort"],[[4816.59,2543.65,0.00147247],0,"Mort"],[[4812.77,2518.77,0.00566483],150.397,"AT"]]];
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
 	};
 	case "malden":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBmalden.sqf";
 	};
 	case "enoch":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBLivonia.sqf";
 	};
 	case "kunduz":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBKunduz.sqf";
 	};
 	case "tembelan":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBTembelan.sqf";
 	};
 	case "tem_anizay":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBanizay.sqf";
 	};
 	case "tem_kujari":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBkujari.sqf";
 	};
 	case "vt7":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBvirolahti.sqf";
 	};
 	case "stratis":
 	{
-		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBstratis.sqf";
 	};
 	case "taviana":
 	{
-        //Roads DB
         call compile preprocessFileLineNumbers "Navigation\roadsDBtaviana.sqf";
 	};
 	case "cup_chernarus_A3":
 	{
-        //Roads DB
         call compile preprocessFileLineNumbers "Navigation\roadsDBcup_chernarus_A3.sqf";
+	};
+	case "napf":
+	{
+        call compile preprocessFileLineNumbers "Navigation\roadsDBNapf.sqf";
 	};
 };
 

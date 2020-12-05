@@ -9,10 +9,10 @@
 - Chernarus 2.0 map support (Beta)
 - Move Arms Dealer to rebel HQ laptop action
 - AI aiming accuracy, aiming shake and aiming speed capped by general server AI difficulty settings
-- AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces on early game)
+- AI soldiers and ammo boxes have no NVGS until war level 4 (attempt to fix balance issue where rebels have more NVGs than regular armed forces early game)
 - Rebel AI training cap increased from 40 to 50
 - Unlocked items (Arsenal) will be removed from trader stock on each arsenal tick 
-- Removed movement delay after revive
+- Fixed movement delay after revive (non-ACE only)
 - Grab 1000$ from faction pool bugfix (less than 1000$ situation)
 - Individual fast travel edge cases bugfix
 - Loot truck money found localized string fix
@@ -21,10 +21,14 @@
 - Helipad spawn pool extension (transport helicopters starting war level 3, small chance to spawn attack helicopter starting war level 8)
 - Increased vehicle detection radius for arms dealer store
 - Increased vehicle cost on selling
-- Ability to sell cargo and flatbed trucks
+- Ability to sell cargo, flatbed trucks and police cars
+- Improvements to trader position search algorhitm
 - Mortars on milbases, outposts and airports will be surrounded by sandbags
-- Fixed static weapon bags instead of normal ones with cargo on AI rebels
+- Fixed static weapon bags instead of normal ones with cargo capacity on AI rebels
 - Reworked Sum Similar Weapons to Unlock mission parameter - no excess weapons and parasite duplicates (requires starting new game, since previous arsenal is already plagued with dupes)
+- Reduced count of players required to unflip vehicle from 4 to 3
+- Fixed PVP player vehicle ejection
+- Fixed ability to buy vehicles from black market dealer even if player has no money
 - (CUP) EUROFOR faction
 - (CUP) Occupant Side mission parameter (CDF or EUROFOR)
 - (CUP) MT-LB is capable to carry ammo boxes
@@ -33,11 +37,7 @@
 - (Altis) new outpost
 - (Taviana) Removed preplaced props near mortar emplacements
 - (Taviana) Misson file size reduction, slightly lowered loading times
-- (Taviana) Additional Police stations
-
-### 1.0.4
-- Reduced count of players required to unflip vehicle from 4 to 3
-- Fixed PVP player vehicle ejection
+- (Taviana) Additional Police stations in cities to expand possible Kill Collaborationist sites
 
 ### 1.0.3
 - Aegis mod detection fix

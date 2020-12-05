@@ -120,7 +120,7 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
-	//TODO: taviana config
+	//TODO: taviana, NAPF, cherno 2020 config
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
@@ -128,7 +128,7 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
 
 "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela""])"
+!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt""])"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -309,6 +309,13 @@ switch (toLower worldName) do {
 	{
 		_posAntennas = [[7175.2,3018.23,0],[1275.49,6215.75,0],[3688.6,5958.29,0],[13326.2,3256.85,0],[514.324,11082.6,0],[1418.55,14495.1,0],[11445.2,7565.58,0],[13326.4,3257.08,0],[8138.89,9286.22,0],[6874.77,11458.9,0],[11560.7,11313.6,0],[12936.5,12763.4,0]];
 		_posBank = [[6831.07,2433.6,0],[12127.5,9093.7,0],[2832.72,5240.6,0],[10396.5,2266.98,0]];
+		_blackListPos = [];
+	    antennas = [];
+	};
+	case "napf":
+	{
+		_posAntennas = [[15116.9,12587,0], [18100.3,2555.68,0],[8966.71,3432.88,0], [15684.9,19837.4,0],[4974.47,9258.15,0],[10978.2,16960.1,0],[8171.18,14687,0]];
+		_posBank = [[8558.25,16204.7,0], [14515,13873.3,0],[6378.62,10606,0],[2418.86,7766.25,0]];
 		_blackListPos = [];
 	    antennas = [];
 	};
