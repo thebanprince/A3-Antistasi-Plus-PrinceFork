@@ -45,10 +45,12 @@ switch (_type) do {
 		private _policeCities = [];
 
 		if(count _nearbyCities > 0) then {
-			private _policeStations = nearestObjects [getMarkerPos _x, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
-			if(count _policeStations > 0) then {
-				_policeCities pushBack _x;
-			};
+			{
+				private _policeStations = nearestObjects [getMarkerPos _x, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true];
+				if(count _policeStations > 0) then {
+					_policeCities pushBack _x;
+				};
+			} forEach _nearbyCities;
 		};
 
 		if (count _possibleMarkers == 0) then {
