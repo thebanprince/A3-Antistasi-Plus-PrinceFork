@@ -53,6 +53,10 @@ switch (toLower worldName) do {
 	{
 		_title = localize "STR_antistasi_mission_info_chernarus2020_mapname_text";
 	};
+	case "napf":
+	{
+		_title = localize "STR_antistasi_mission_info_napf_mapname_text";
+	};
 	default
 	{
 	    _title = "Antistasi";
