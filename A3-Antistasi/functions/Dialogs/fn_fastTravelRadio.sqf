@@ -1,5 +1,7 @@
 private ["_roads","_pos","_positionX","_groupX"];
 
+private _distanceX = 250;
+
 _markersX = markersX + [respawnTeamPlayer];
 
 _esHC = false;
@@ -19,25 +21,42 @@ if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "Yo
 private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
 if (!isNil "_punishmentoffenceTotal" && {_punishmentoffenceTotal >= 1}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
 
-_checkX = false;
-//_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
-_distanceX = 250;
+private _isEnemiesNearby = false;
 
 if(fastTravelIndividualEnemyCheck) then {
-	_checkX = [player,_distanceX] call A3A_fnc_enemyNearCheck;
+	_isEnemiesNearby = [player,_distanceX] call A3A_fnc_enemyNearCheck;
+	
 } else {
-	{if ([_x,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
+	{
+		if ([_x,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {_isEnemiesNearby = true}
+	} forEach units _groupX;
 };
 
-if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group"] call A3A_fnc_customHint;};
+if (_isEnemiesNearby) exitWith {
+	["Fast Travel", "You cannot Fast Travel with enemies near the group"] call A3A_fnc_customHint;
+};
 
-{if ((vehicle _x!= _x) and ((isNull (driver vehicle _x)) or (!canMove vehicle _x) or (vehicle _x isKindOf "Boat"))) then
+private _checkX = false;
+
+if(fastTravelIndividualEnemyCheck) then {
+	if ((vehicle player != player) and ((isNull (driver vehicle player)) or (!canMove vehicle player) or (vehicle player isKindOf "Boat"))) then {
+		if (!(vehicle player isKindOf "StaticWeapon")) then {
+			_checkX = true;
+		};
+	};
+} else {
 	{
-	if (not(vehicle _x isKindOf "StaticWeapon")) then {_checkX = true};
-	}
-} forEach units _groupX;
+		if ((vehicle _x!= _x) and ((isNull (driver vehicle _x)) or (!canMove vehicle _x) or (vehicle _x isKindOf "Boat"))) then {
+			if (!(vehicle _x isKindOf "StaticWeapon")) then {
+				_checkX = true;
+			};
+		};
+	} forEach units _groupX;
+};
 
-if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or your group is in a boat"] call A3A_fnc_customHint;};
+if (_checkX) exitWith {
+	["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or you (your group) is in a boat"] call A3A_fnc_customHint;
+};
 
 positionTel = [];
 
@@ -56,8 +75,6 @@ if (count _positionTel > 0) then
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call A3A_fnc_customHint;};
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone"] call A3A_fnc_customHint; openMap [false,false]};
-
-	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 
 	if ([getMarkerPos _base,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call A3A_fnc_customHint; openMap [false,false]};
 
@@ -132,9 +149,7 @@ if (count _positionTel > 0) then
 					};
 				};
 			};
-			//_unit hideObject false;
 		} forEach units _groupX;
-		//if (!_esHC) then {sleep _distanceX};
 		if (!_esHC) then {disableUserInput false;cutText ["You arrived to destination","BLACK IN",1]} else {["Fast Travel", format ["Group %1 arrived to destination",groupID _groupX]] call A3A_fnc_customHint;};
 		if (_forcedX) then {forcedSpawn = forcedSpawn - [_base]};
 		sleep 5;
