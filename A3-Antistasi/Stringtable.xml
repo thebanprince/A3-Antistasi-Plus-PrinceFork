@@ -1100,17 +1100,17 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_napf_mapname_text">
         <Original>Antistasi Plus - Amber Insurgency</Original>
-        <English>Antistasi Plus -  Amber Insurgency</English>
+        <English>Antistasi Plus - Amber Insurgency</English>
         <French>Antistasi Plus - Insurrection ambre</French>
         <German>Antistasi Plus - Bernsteinfarbener Aufstand</German>
         <Russian>Antistasi Plus - Янтарное Восстание</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_napf_mapname_short_text">
-        <Original>Antistasi Plus - Amber Insurgency</Original>
-        <English>Antistasi Plus -  Amber Insurgency</English>
-        <French>Antistasi Plus - Insurrection ambre</French>
-        <German>Antistasi Plus - Bernsteinfarbener Aufstand</German>
-        <Russian>Antistasi Plus - Янтарное Восстание</Russian>
+        <Original>Antistasi Plus - Amber Ins.</Original>
+        <English>Antistasi Plus -  Amber Ins.</English>
+        <French>Antistasi Plus - Insur. ambre</French>
+        <German>Antistasi Plus - Bernst. Aufstand</German>
+        <Russian>Antistasi Plus - Янтарь</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_napf_blurb_text">
         <Original>Yellow soil under our boots.</Original>

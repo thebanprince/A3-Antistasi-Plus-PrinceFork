@@ -241,7 +241,7 @@ _objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180,
         "Kill Collaborationist",
         _markerX
     ],
-    _positionX,
+    _buildingPos,
     false,
     0,
     true,
