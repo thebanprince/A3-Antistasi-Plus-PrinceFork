@@ -179,6 +179,65 @@ class Params
           texts[] = {"Never","Sometimes","Often","Always"};
           default = 33;
      };
+     class Spacer60
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class Spacer61
+     {
+          title = "CUP SETTINGS";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class occupantFactionCup
+     {
+          title="Select Occupant Faction (Works on Taviana, Chernarus and Napf)";
+		values[]={0, 1};
+		texts[]={"CDF","EUROFOR"};
+		default = 1;
+     };
+     class Spacer62
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+
+     class Spacer70
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class Spacer71
+     {
+          title = "RHS SETTINGS";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class occupantFactionRhs
+     {
+          title="Select Occupant Faction (Works on Taviana, Chernarus and Napf)";
+		values[]={0, 1};
+		texts[]={"CDF mixed with NATO","US"};
+		default = 1;
+     };
+     class Spacer72
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     
+
      class Spacer50
      {
           title = "";
@@ -206,13 +265,6 @@ class Params
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;
-     };
-     class occupantFaction
-     {
-          title="Select Occupant Faction (CUP only, works on Taviana and Chernarus)";
-		values[]={0, 1};
-		texts[]={"CDF","EUROFOR"};
-		default = 0;
      };
      class traderOnStart
      {

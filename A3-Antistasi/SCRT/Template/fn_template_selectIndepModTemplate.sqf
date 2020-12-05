@@ -7,14 +7,14 @@ switch(true) do {
   case (hasAegis): {
     [] call SCRT_fnc_template_setAegisTemplate;
   };
+  case (hasRHS): {
+    [] call SCRT_fnc_template_setRhsTemplate;
+  };
   case (hasCup): {
     [] call SCRT_fnc_template_setCupTemplate;
   };
   case (has3CB): {
     [] call SCRT_fnc_template_setAuTemplate;
-  };
-  case (hasRHS): {
-    [] call SCRT_fnc_template_setRhsTemplate;
   };
   default {
     [] call SCRT_fnc_template_setVanillaTemplate;

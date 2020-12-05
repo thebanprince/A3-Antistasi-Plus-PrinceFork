@@ -1,6 +1,6 @@
-private _occupantFaction = "occupantFaction" call BIS_fnc_getParamValue;
+private _occupantFaction = "occupantFactionCup" call BIS_fnc_getParamValue;
 // 0 - CDF
-// 1 - BAF, Bundeswehr
+// 1 - EUROFOR
 
 switch(true) do {
     case (terrainName in temperatemaps): {
