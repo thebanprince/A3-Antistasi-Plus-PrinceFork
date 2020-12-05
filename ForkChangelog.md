@@ -34,6 +34,7 @@
 - (CUP) MT-LB is capable to carry ammo boxes
 - (CUP, Altis) Land Rover, MTVR militia trucks and cars for BLUFOR militia
 - (CUP) CDF Tank pool fix
+- (RHS) US unit roster (mission parameter)
 - (Altis) new outpost
 - (Taviana) Removed preplaced props near mortar emplacements
 - (Taviana) Misson file size reduction, slightly lowered loading times
