@@ -16,6 +16,7 @@ if (!isMultiplayer) then {
 };
 
 enableSaving [false,false];
+mapX setObjectTexture [0, "Pictures\Mission\whiteboard.jpg"];
 
 diag_log format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.",servertime];
 [] execVM "MagRepack\MagRepack_init_sv.sqf";
