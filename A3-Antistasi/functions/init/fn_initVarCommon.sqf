@@ -377,7 +377,7 @@ switch (toLower worldName) do {
 	{
         call compile preprocessFileLineNumbers "Navigation\roadsDBtaviana.sqf";
 	};
-	case "cup_chernarus_A3":
+	case "cup_chernarus_a3":
 	{
         call compile preprocessFileLineNumbers "Navigation\roadsDBcup_chernarus_A3.sqf";
 	};

@@ -1,7 +1,7 @@
 private _worldName = nil;
 
 switch (toLower worldName) do {
-	case "cup_chernarus_A3":
+	case "cup_chernarus_a3":
 	{
 		_worldName = "Chernarus";
 	};

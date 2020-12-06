@@ -2,7 +2,7 @@
 //       NAMES AND FLAGS         ///
 ////////////////////////////////////
 //Name Used for notifications
-nameOccupants = "US";
+nameOccupants = "USAF";
 
 //Police Faction
 factionGEN = "BLU_GEN_F";
@@ -15,7 +15,7 @@ if (gameMode != 4) then {factionFIA = "rhsgref_faction_hidf"};
 NATOFlag = "Flag_US_F";
 NATOFlagTexture = "\A3\Data_F\Flags\flag_us_CO.paa";
 flagNATOmrk = "flag_USA";
-if (isServer) then {"NATO_carrier" setMarkerText "NATO Carrier"};
+if (isServer) then {"NATO_carrier" setMarkerText "USAF Carrier"};
 
 //Loot Crate
 NATOAmmobox = "B_supplyCrate_F";

@@ -49,7 +49,7 @@ switch (toLower worldName) do {
 	{
 	    _title = localize "STR_antistasi_mission_info_taviana_mapname_text";
 	};
-	case "cup_chernarus_A3":
+	case "cup_chernarus_a3":
 	{
 		_title = localize "STR_antistasi_mission_info_chernarus2020_mapname_text";
 	};
