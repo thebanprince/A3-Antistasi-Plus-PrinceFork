@@ -1,5 +1,15 @@
 ## Changelog
 
+### 1.4.1
+- Increased base attack timings (3600->5400, 600-900)
+- Fixed price presentation in hint on "Move Trader to HQ" action
+- Mag Repack mission parameter
+- Removed Sum Similar Weapons to Unlock parameter (tied functionality is always on from this point)
+- Fixed silent HR update on POW recruitment
+- Independent params page for Altis version to reduce the confusion with settings for other maps
+- Improvements to position searching algorhitms on Rescue Smugglers mission
+- The Great Price Reduction on arms dealer weapon store (up to 2x price reduction depending on weapon)
+
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
 - Establish roadblock, watchpost, AA Emplacement or AT Emplacement action (Y menu, commander section)
