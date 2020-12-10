@@ -54,7 +54,7 @@ while {true} do
             }
             else
             {
-                [1400, Occupants] call A3A_fnc_timingCA;
+                [900, Occupants] call A3A_fnc_timingCA;
             };
         }
         else
@@ -79,7 +79,7 @@ while {true} do
             }
             else
             {
-                [1400, Invaders] call A3A_fnc_timingCA;
+                [900, Invaders] call A3A_fnc_timingCA;
             };
         }
         else
