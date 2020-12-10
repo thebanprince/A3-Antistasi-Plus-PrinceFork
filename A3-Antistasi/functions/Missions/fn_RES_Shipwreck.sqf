@@ -24,7 +24,7 @@ private _positionX = getMarkerPos _markerX;
 private _shorePosition = [
     _positionX, //center
     0, //minimal distance
-    1000, //maximumDistance
+    10000, //maximumDistance
     10, //object distance
     0, //water mode
     1, //maximum terrain gradient
@@ -39,52 +39,44 @@ _shoreMarker setMarkerColor "ColorUNKNOWN";
 _shoreMarker setMarkerShape "RECTANGLE";
 _shoreMarker setMarkerAlpha 0;
 
+private _dummy = createVehicle ["C_man_1", _shorePosition, [], 0 , "NONE"];
+
 private _shipPosition = [
-    _shorePosition, //center
-    150, //minimal distance
-    400, //maximumDistance
-    5, //object distance
-    2, //water mode
-    1, //maximum terrain gradient
-    0, //shore mode
-    [], //blacklist positions
-    [_shorePosition, _shorePosition] //default position
+    _shorePosition,
+    0,
+    5000,
+    0,
+    2,
+    1,
+    0,
+    [],
+    [_shorePosition, _shorePosition]
 ] call BIS_fnc_findSafePos;
-
 private _ship = "C_Boat_Civil_04_F" createVehicle _shipPosition;
-
-private _dummy = createVehicle ["C_man_1", position _ship, [], 0 , "CAN_COLLIDE"];
 _dummy setDir ([_dummy, _ship] call BIS_fnc_dirTo);
 sleep 0.2;
 
-_visibility = [objNull, "VIEW"] checkVisibility [eyePos _dummy, position _ship];
+private _radiusX = 250;
 
-if(_visibility == 0) then {
-    private _iterations = 0;
+while {true} do {
+    _shipPosition = [
+        _shorePosition,
+        0,
+        _radiusX,
+        0,
+        2,
+        1,
+        0,
+        [],
+        [_shorePosition, _shorePosition]
+    ] call BIS_fnc_findSafePos;
 
-    while {_iterations < 30} do {
-        private _shipPosition = [
-            _shorePosition, //center
-            150, //minimal distance
-            400, //maximumDistance
-            5, //object distance
-            2, //water mode
-            1, //maximum terrain gradient
-            0, //shore mode
-            [], //blacklist positions
-            [_shorePosition, _shorePosition] //default position
-        ] call BIS_fnc_findSafePos;
+    _ship setPos _shipPosition;
+    _visibility = [objNull, "VIEW"] checkVisibility [eyePos _dummy, position _ship];
 
-        deleteVehicle _ship;
-        _ship = "C_Boat_Civil_04_F" createVehicle _shipPosition;
-        _visibility = [objNull, "VIEW"] checkVisibility [eyePos _dummy, position _ship];
-
-        if(_visibility != 0) exitWith {};
-        _iterations = _iterations + 1; 
-    };
+    if(_visibility > 0.3 && surfaceIsWater _shipPosition) exitWith {};
+    _radiusX = _radiusX + 100;
 };
-
-[2, format ["Ship position: %1, shore position: %2", str _shipPosition, str _shorePosition], _fileName, true] call A3A_fnc_log; 
 
 deleteVehicle _dummy;
 

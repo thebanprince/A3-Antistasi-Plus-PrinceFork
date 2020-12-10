@@ -11,7 +11,7 @@
 
 params ["_weapons"];
 
-if(!areSimilarWeaponsUnlocks || {_weapons isEqualTo []} || {count _weapons < 1}) exitWith {};
+if(_weapons isEqualTo [] || {count _weapons < 1}) exitWith {};
 
 private _weaponConfigs = "getNumber(_x >> 'scope') isEqualTo 2 && {getNumber(_x >> 'type') in [1,2,4,4096]}" configClasses(configFile >> "CfgWeapons") apply { configName _x };
 
