@@ -8,7 +8,7 @@ private _costs = 5000;
 
 if (_resourcesFIA < _costs) exitWith {
     playSound "3DEN_notificationWarning";
-	["Move Arms Dealer", format ["You need %2 € to move arms dealer.",_costs]] call A3A_fnc_customHint;
+	["Move Arms Dealer", format ["You need %1 € to move arms dealer.",_costs]] call A3A_fnc_customHint;
 };
 
 private _fileName = "trader_moveTraderToPetros";
