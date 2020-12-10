@@ -266,6 +266,13 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
+     class magRepack 
+     {
+          title = "Enable Mag Repack";
+          values[] = {1,0};
+          texts[] =  {"Yes","No"};
+          default = 1;
+     };
      class traderOnStart
      {
           title = "Arms Dealer Store on Start";
@@ -285,13 +292,6 @@ class Params
           title = "Show 3D icons above players";
           values[] = { 0, 1 };
           texts[] =  {"Don't show", "Only on unconscious players"};
-          default = 1;
-     };
-     class similarWeaponsUnlock
-     {
-          title = "Sum Similar Weapons To Unlock";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
           default = 1;
      };
      class fastTravelEnemyCheck
