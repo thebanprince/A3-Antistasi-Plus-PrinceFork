@@ -551,7 +551,11 @@ enableEnvironment [false, true];
 [2,"initClient completed",_fileName] call A3A_fnc_log;
 A3A_customHintEnable = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.
 
-if(!isMultiplayer) then
-{
+if("magRepack" call BIS_fnc_getParamValue == 1) then {
+	diag_log format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.",servertime];
+	[] execVM "MagRepack\MagRepack_init_sv.sqf";
+};
+
+if(!isMultiplayer) then {
     [] spawn A3A_fnc_singlePlayerBlackScreenWarning;
 };
