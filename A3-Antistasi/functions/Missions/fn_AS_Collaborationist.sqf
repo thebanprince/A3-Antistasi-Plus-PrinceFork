@@ -23,8 +23,8 @@ private _policeTitle = if (factionGEN == "BLU_GEN_F") then { "Gendramerie"} else
 ////////////
 //building occupation
 ////////////
-//building should be on marker (because of missionRequest)
 _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
+_appropriateBuildings = _appropriateBuildings select {alive _x};
 if(count _appropriateBuildings < 1) exitWith {
     [1, "Can't find suitable house for mission, resetting mission request.", _fileName] call A3A_fnc_log;
     ["AS"] remoteExecCall ["A3A_fnc_missionRequest",2];
@@ -60,6 +60,29 @@ switch(true) do {
 };
 
 private _buildingPositions = [_building] call BIS_fnc_buildingPositions;
+private _buildingPos = position _building;
+
+////////////
+//Tasks
+////////////
+[
+    [teamPlayer,civilian],
+    "AS",
+    [
+        format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
+        "Kill Collaborationist",
+        _markerX
+    ],
+    _buildingPos,
+    false,
+    0,
+    true,
+    "attack",
+    true
+] call BIS_fnc_taskCreate;
+missionsX pushBack ["AS","CREATED"]; 
+publicVariable "missionsX";
+
 
 ////////////
 //POWs
@@ -83,15 +106,14 @@ for "_i" from 0 to _powCount do {
 	_unit allowFleeing 0;
 	removeAllWeapons _unit;
 	removeAllAssignedItems _unit;
-	sleep 1;
 	_POWS pushBack _unit;
 	[_unit,"prisonerX"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
 	[_unit] call A3A_fnc_reDress;
     [_unit] spawn {
         params ["_prisoner"];
-        waitUntil { sleep 3; !(captive _prisoner) || {!(alive _prisoner)}};
+        waitUntil { sleep 0.5; !(captive _prisoner) || {!(alive _prisoner)}};
 
-        if (alive _prisoner) then {
+        if (alive _prisoner && {!(captive _prisoner)}) then {
             [_prisoner,"sideChat","I'm free, thank you!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
             private _fakeGroup = createGroup [teamPlayer, true];
             [_prisoner] joinSilent _fakeGroup;
@@ -104,8 +126,6 @@ for "_i" from 0 to _powCount do {
         };
     };
 };
-
-sleep 5;
 
 {
     _x allowDamage true;
@@ -181,8 +201,6 @@ for "_i" from 0 to _soilderCount do {
     _soldier allowDamage true;
 };
 
-//патрульные машины
-
 sleep 10;
 
 _collaborant allowDamage true;
@@ -230,28 +248,6 @@ _objects1 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180,
 _randomPos = [(random 0.2) + 0.1, (random 0.1) - 0.2, 0]; 
 _objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
 
-////////////
-//Tasks
-////////////
-[
-    [teamPlayer,civilian],
-    "AS",
-    [
-        format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
-        "Kill Collaborationist",
-        _markerX
-    ],
-    _buildingPos,
-    false,
-    0,
-    true,
-    "attack",
-    true
-] call BIS_fnc_taskCreate;
-missionsX pushBack ["AS","CREATED"]; 
-publicVariable "missionsX";
-
-
 //make sure that no one is invincible
 {
     private _group = _x;
@@ -266,7 +262,6 @@ waitUntil  {
 	sleep 5; 
 	(dateToNumber date > _dateLimitNum) || !(alive _collaborant)
 };
-
 
 if (dateToNumber date > _dateLimitNum) then {
     [
