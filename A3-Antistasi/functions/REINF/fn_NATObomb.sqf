@@ -1,7 +1,12 @@
-if (bombRuns < 1) exitWith {["Air Support", "You lack of enough Air Support to make this request"] call A3A_fnc_customHint;};
-//if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. <br/>Wait one minute or change FPS settings in order to fulfill this request"};
-	if (!([player] call A3A_fnc_hasRadio)) exitWith {["Air Support", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;};
-if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {["Air Support", "You need to control an airport in order to fulfill this request"] call A3A_fnc_customHint;};
+// if (bombRuns < 1) exitWith {
+// 	["Air Support", "You lack of enough Air Support to make this request"] call A3A_fnc_customHint;
+// };
+// if (!([player] call A3A_fnc_hasRadio)) exitWith {
+// 	["Air Support", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;
+// };
+// if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {
+// 	["Air Support", "You need to control an airport in order to fulfill this request"] call A3A_fnc_customHint;
+// };
 _typeX = _this select 0;
 
 positionTel = [];
@@ -22,8 +27,14 @@ positionTel = [];
 _mrkorig = createMarkerLocal [format ["BRStart%1",random 1000], _pos1];
 _mrkorig setMarkerShapeLocal "ICON";
 _mrkorig setMarkerTypeLocal "hd_destroy";
-_mrkorig setMarkerColorLocal "ColorRed";
-_mrkOrig setMarkerTextLocal "Bomb Run Init";
+if(_typeX == "SUPPLY") then {
+	_mrkorig setMarkerColorLocal "ColorBlue";
+	_mrkOrig setMarkerTextLocal "Supply Run Init";
+} else {
+	_mrkOrig setMarkerTextLocal "Bomb Run Init";
+	_mrkorig setMarkerColorLocal "ColorRed";
+};
+
 
 ["Air Support", "Select the map position to which the plane will exit to calculate plane's route vector"] call A3A_fnc_customHint;
 
@@ -46,10 +57,13 @@ publicVariable "bombRuns";
 _mrkDest = createMarkerLocal [format ["BRFin%1",random 1000], _pos2];
 _mrkDest setMarkerShapeLocal "ICON";
 _mrkDest setMarkerTypeLocal "hd_destroy";
-_mrkDest setMarkerColorLocal "ColorRed";
-_mrkDest setMarkerTextLocal "Bomb Run Exit";
-
-//openMap false;
+if(_typeX == "SUPPLY") then {
+	_mrkDest setMarkerColorLocal "ColorBlue";
+	_mrkDest setMarkerTextLocal "Supply Run Exit";
+} else {
+	_mrkDest setMarkerColorLocal "ColorRed";
+	_mrkDest setMarkerTextLocal "Bomb Run Exit";
+};
 
 _angorig = _ang - 180;
 
@@ -69,13 +83,25 @@ private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
 driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";
+if(_typeX == "SUPPLY") then {
+	driver _plane sideChat "Starting Supply Run. ETA 30 seconds.";
+} else {
+	driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";
+};
+
 _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
 
 if ((_typeX == "NAPALM") and (!napalmEnabled)) then {_typeX = "HE"};
-_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
+
+if(_typeX == "SUPPLY") then {
+	_wp1 setWaypointStatements ["true", "if !(local this) exitWith {}; [this] spawn SCRT_fnc_common_supplyDrop"];
+} else {
+	_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", _typeX]];
+};
+
 
 _wp2 = group _plane addWaypoint [_pos2, 1];
 _wp2 setWaypointSpeed "LIMITED";
