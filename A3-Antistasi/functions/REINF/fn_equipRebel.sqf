@@ -115,6 +115,12 @@ switch (true) do {
 			[_unit, selectRandom unlockedAT, 4] call _addWeaponAndMags;
 		};
 	};
+	case (_unitClass in SDKAAman): {
+		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
+		if !(unlockedAA isEqualTo []) then {
+			[_unit, selectRandom unlockedAA, 4] call _addWeaponAndMags;
+		};
+	};
 	// squad leaders and
 	case (_unitClass in squadLeaders): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;

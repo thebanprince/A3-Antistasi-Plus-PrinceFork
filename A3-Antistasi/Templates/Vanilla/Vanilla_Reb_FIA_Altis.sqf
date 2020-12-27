@@ -14,6 +14,7 @@ staticCrewTeamPlayer = "I_G_Soldier_unarmed_F";
 SDKUnarmed = "I_G_Survivor_F";
 SDKSniper = ["I_G_Sharpshooter_F","I_ghillie_ard_F"];
 SDKATman = ["I_G_Soldier_LAT2_F","I_Soldier_LAT2_F"];
+SDKAAman = ["I_G_Soldier_A_F","I_Soldier_AA_F"];
 SDKMedic = ["I_G_medic_F","I_medic_F"];
 SDKMG = ["I_G_Soldier_AR_F","I_Soldier_AR_F"];
 SDKExp = ["I_G_Soldier_exp_F","I_Soldier_exp_F"];
@@ -27,6 +28,7 @@ SDKEng = ["I_G_engineer_F","I_engineer_F"];
 ////////////////////////////////////
 groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
 groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
+groupsSDKAA = [SDKSL,SDKMil,SDKMil,SDKAAman,SDKAAman];
 groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
 groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
 groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
@@ -36,7 +38,7 @@ groupsSDKSentry = [SDKGL,SDKMil];
 //Rebel Unit Tiers (for costs)
 sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
 sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper;
+sdkTier3 = SDKSL + SDKSniper + SDKAAman;
 soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 
 ////////////////////////////////////
@@ -96,9 +98,10 @@ breachingExplosivesAPC = [["DemoCharge_Remote_Mag", 1]];
 breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]];
 
 //Starting Unlocks
-initialRebelEquipment append ["hgun_Pistol_heavy_02_F", "hgun_P07_F", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
-initialRebelEquipment append ["2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
-initialRebelEquipment append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell"];
+initialRebelEquipment append ["hgun_Pistol_heavy_02_F", "hgun_P07_F", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "hgun_PDW2000_F"];
+initialRebelEquipment append ["2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "30Rnd_9x21_Mag", "30Rnd_9x21_Red_Mag"];
+
+initialRebelEquipment append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","MiniGrenade","SmokeShell"];
 initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
 initialRebelEquipment append ["V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];
 initialRebelEquipment append ["Binocular","acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];

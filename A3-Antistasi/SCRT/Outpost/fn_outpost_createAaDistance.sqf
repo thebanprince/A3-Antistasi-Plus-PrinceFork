@@ -14,7 +14,7 @@ if (isNil "_garrison") then {//this is for backward compatibility, remove after 
         } else {
             _garrison pushBack (_x select 0)
         };
-    } forEach groupsSDKmid;
+    } forEach groupsSDKAA;
     garrison setVariable [_markerX,_garrison,true];
 };
 
