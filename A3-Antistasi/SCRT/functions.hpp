@@ -93,6 +93,7 @@ class SCRT
         class common_moveStatic {};
         class common_sinkShip {};
         class common_airdropCargo {};
+        class common_supplyDrop {};
     };
 
     class Outpost

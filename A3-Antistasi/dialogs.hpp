@@ -1929,16 +1929,16 @@ class carpet_bombing 			{
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
-			h = 0.30 * safezoneH;//30
+			h = 0.3760125 * safezoneH;
 		};
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = "Carpet Bombing Strike"; //--- ToDo: Localize;
+			text = $STR_antistasi_dialogs_dialog_vehicle_purchase_civ_text;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
-			h = 0.28 * safezoneH;//28
+			h = 0.3560125 * safezoneH;
 		};
 		class HQ_button_back: RscButton
 		{
@@ -1948,7 +1948,7 @@ class carpet_bombing 			{
 			y = 0.251941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
-			action = "closeDialog 0; nul = createDialog ""radio_comm"";";
+			action = "closeDialog 0; nul = createDialog ""vehicle_option"";";
 		};
 		class HQ_button_Gsquad: RscButton
 		{
@@ -1983,9 +1983,20 @@ class carpet_bombing 			{
 			tooltip = "Cost: 1 point";
 			action = "closeDialog 0;[""NAPALM""] spawn A3A_fnc_NATObomb;";
 		};
-		class 4slots_R2: RscButton
-		{
-			idc = -1;
+		class HQ_button_supply: RscButton
+        {
+            idc = -1;
+            text = "Supply Drop";
+            x = 0.272481 * safezoneW + safezoneX;
+            y = 0.514003 * safezoneH + safezoneY;
+            w = 0.175015 * safezoneW;
+            h = 0.0560125 * safezoneH;
+            tooltip = "Drops ammo for rebel's small arms and launchers. Cost: 1 point";
+			action = "closeDialog 0;[""SUPPLY""] spawn A3A_fnc_NATObomb;";
+        };
+		class HQ_button_AirSupport: RscButton
+        {
+            idc = -1;
 			text = "Add to Air Support"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
@@ -1993,7 +2004,7 @@ class carpet_bombing 			{
 			h = 0.0560125 * safezoneH;
 			tooltip = "Gain Airstrike points giving this aircraft to the faction Air pool";
 			action = "closeDialog 0;nul = [] call A3A_fnc_addBombRun";
-		};
+        };
 	};
 };
 
@@ -2609,88 +2620,6 @@ class garage_check 				{
 		*/
 	};
 };
-class tu_madre 				{
-	idd=-1;
-	movingenable=false;
-
-	class controls {
-		class HQ_box: BOX
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_box_text;
-			x = 0.244979 * safezoneW + safezoneX;
-			y = 0.223941 * safezoneH + safezoneY;
-			w = 0.445038 * safezoneW;
-			h = 0.30 * safezoneH;//30
-		};
-		class HQ_frame: RscFrame
-		{
-			idc = -1;
-			text = "Carpet Bombing Strike"; //--- ToDo: Localize;
-			x = 0.254979 * safezoneW + safezoneX;
-			y = 0.233941 * safezoneH + safezoneY;
-			w = 0.425038 * safezoneW;
-			h = 0.28 * safezoneH;//28
-		};
-		class HQ_button_back: RscListBox
-		{
-			idc = -1;
-			//text = $STR_antistasi_dialogs_generic_button_back_text;
-			x = 0.61 * safezoneW + safezoneX;
-			y = 0.251941 * safezoneH + safezoneY;
-			w = 0.06 * safezoneW;//0.175015
-			h = 0.05 * safezoneH;
-			sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 35) * 1.2)";
-			colorText[] = {1,1,1,1}; // Text and frame color
-			colorDisabled[] = {1,1,1,0.5}; // Disabled text color
-			colorSelect[] = {1,1,1,1}; // Text selection color
-			colorSelect2[] = {1,1,1,1}; // Text selection color (oscillates between this and colorSelect)
-			colorShadow[] = {0,0,0,0.5}; // Text shadow color (used only when shadow is 1)
-			pictureColor[] = {1,1,1,1}; // Picture color
-			pictureColorSelect[] = {1,1,1,1}; // Selected picture color
-			pictureColorDisabled[] = {0,1,0,1}; // Disabled picture color
-
-
-			//action = "closeDialog 0; nul = createDialog ""NATO_Options"";";
-		};
-		class HQ_button_Gsquad: RscButton
-		{
-			idc = -1;
-			text = "HE Bombs"; //--- ToDo: Localize;
-			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			tooltip = "Cost: 10 points";
-			action = "closeDialog 0;[""HE""] spawn A3A_fnc_NATObomb;";
-		};
-		class HQ_button_Gstatic: RscButton
-		{
-			idc = -1;
-			text = "Cluster Bombing"; //--- ToDo: Localize;
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			tooltip = "Cost: 10 points";
-			action = "closeDialog 0;[""CLUSTER""] spawn A3A_fnc_NATObomb;";
-		};
-
-		class HQ_button_Gremove: RscButton
-		{
-			idc = -1;
-			text = "NAPALM Bomb"; //--- ToDo: Localize;
-			x = 0.37749 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			tooltip = "Cost: 10 points";
-			action = "closeDialog 0;[""NAPALM""] spawn A3A_fnc_NATObomb;";
-		};
-	};
-};
-
-
 
 //Mortar shift+Y
 class mortar_type {
