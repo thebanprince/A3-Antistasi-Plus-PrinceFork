@@ -28,7 +28,7 @@ SDKEng = ["I_G_engineer_F","I_G_engineer_F"];
 ////////////////////////////////////
 groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
 groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
-groupsSDKAA = [SDKSL,SDKMil,SDKMil,SDKAAman,SDKAAman];
+groupsSDKAA = [SDKSL,SDKMG,SDKGL,SDKAAman,SDKAAman];
 groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
 groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
 groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];

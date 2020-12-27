@@ -1,13 +1,14 @@
 ## Changelog
 
 ### 1.4.1
-- Greatly increased chances to obtain Find the Arms Dealer task (5%->25% from interrogations, 20%-40% from documents steal, 25%-60% from laptop hacks)
+- Greatly increased chances to obtain Find the Arms Dealer task (5%->25% from interrogations, 20%->40% from documents steal, 25%->60% from laptop hacks)
 - Grab Money From Faction Pool money amount changed from 1000 to 500
 - Added PDW2000 as starting weapon in vanilla templates
 - Improvements and optimizations to Kill Collaborationist mission
 - Rebel AA emplacements are occupied with AA Missile Specialists (when AA launchers are unlocked)
 - Increased price of AA Emplacement (1200->1750) due to it's potential huge firepower
 - Removed pistols from Sum Similar Weapons to Unlock feature due to base class issues
+- Enemy AI Skillcap Aiming Speed paremeter fix
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
