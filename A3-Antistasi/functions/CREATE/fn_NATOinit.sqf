@@ -120,8 +120,8 @@ if((_unit skill "aimingShake") > _shake) then {
     _unit setSkill ["aimingShake", _shake];
 };
 
-if((_unit skill "aimingShake") > _aimingSpeed) then {
-    _unit setSkill ["aimingShake", _aimingSpeed];
+if((_unit skill "aimingSpeed") > _aimingSpeed) then {
+    _unit setSkill ["aimingSpeed", _aimingSpeed];
 };
 
 //Sets NVGs, lights, lasers, radios and spotting skills for the night
