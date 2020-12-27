@@ -32,13 +32,13 @@
         <Korean>닫기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_text">
-        <Original>Grab 1000€ from Pool</Original>
-        <English>Grab $1000 from Pool</English>
-        <French>Prendre 1000€ de la cagnotte</French>
-        <Russian>Взять 1000€ из казны</Russian>
-        <German>Entnehme 1000€ aus der Kasse</German>
-        <Czech>Vzít 1000€ ze společného fondu</Czech>
-        <Korean>팩션 자금에서 1000€ 가져가기</Korean>
+        <Original>Grab 500€ from Pool</Original>
+        <English>Grab 500€ from Pool</English>
+        <French>Prendre 500€ de la cagnotte</French>
+        <Russian>Взять 500€ из казны</Russian>
+        <German>Entnehme 500€ aus der Kasse</German>
+        <Czech>Vzít 500€ ze společného fondu</Czech>
+        <Korean>팩션 자금에서 500€ 가져가기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
         <Original>Take 100€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
@@ -569,7 +569,7 @@
         <Original>2.3.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.4</Original>
+        <Original>1.4.1</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
