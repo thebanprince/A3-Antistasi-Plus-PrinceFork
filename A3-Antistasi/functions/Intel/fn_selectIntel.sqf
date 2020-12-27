@@ -54,7 +54,7 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, ACCESS_CAR, 0.325, CONVOY, 0.325, TASK, 0.05];
+    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.25, ACCESS_CAR, 0.25, CONVOY, 0.25, TASK, 0.25];
     switch (_intelContent) do
     {
         case (TROOPS):
@@ -180,7 +180,7 @@ if(_intelType == "Small") then
 };
 if(_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.2, ACCESS_ARMOR, 0.2, CONVOYS, 0.2, COUNTER_ATTACK, 0, TASK, 0.2];
+    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, COUNTER_ATTACK, 0, TASK, 0.4];
     switch (_intelContent) do
     {
         case (ACCESS_AIR):
@@ -270,11 +270,11 @@ if(_intelType == "Large") then
 {
     if(["AS"] call BIS_fnc_taskExists) then
     {
-        _intelContent = selectRandomWeighted [TRAITOR, 0.225, WEAPON, 0.225, MONEY, 0.3, TASK, 0.25];
+        _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.2, TASK, 0.6];
     }
     else
     {
-        _intelContent = selectRandomWeighted [WEAPON, 0.3, MONEY, 0.4, TASK, 0.3];
+        _intelContent = selectRandomWeighted [WEAPON, 0.15, MONEY, 0.25, TASK, 0.6];
     };
     switch (_intelContent) do
     {
