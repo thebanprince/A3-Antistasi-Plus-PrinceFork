@@ -70,6 +70,11 @@ _obj attachTo [_para, _attachTo];
 	
 	//mark landing with smoke
 	_smokeShell = (selectRandom _smokeShellVariants) createVehicle (position _obj);
+
+	if(sunOrMoon < 1) then {
+		private _chemlightVariants = ["Chemlight_green", "Chemlight_red", "Chemlight_yellow", "Chemlight_blue"];
+		_chemLight = (selectRandom _chemlightVariants) createVehicle (position _obj);
+	};
 	
 	if (!isNull _para) then {deleteVehicle _para};
 };

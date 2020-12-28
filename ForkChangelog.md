@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 1.4.1
+- New rebel airstrike type: Supply Drop (filled with magazines for player's and commander's AI mates weapons, available through commander airstrike menu on Y key)
 - Greatly increased chances to obtain Find the Arms Dealer task (5%->25% from interrogations, 20%->40% from documents steal, 25%->60% from laptop hacks)
 - Grab Money From Faction Pool money amount changed from 1000 to 500
 - Added PDW2000 as starting weapon in vanilla templates

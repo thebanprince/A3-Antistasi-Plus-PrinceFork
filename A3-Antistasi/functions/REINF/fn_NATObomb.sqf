@@ -1,12 +1,12 @@
-// if (bombRuns < 1) exitWith {
-// 	["Air Support", "You lack of enough Air Support to make this request"] call A3A_fnc_customHint;
-// };
-// if (!([player] call A3A_fnc_hasRadio)) exitWith {
-// 	["Air Support", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;
-// };
-// if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {
-// 	["Air Support", "You need to control an airport in order to fulfill this request"] call A3A_fnc_customHint;
-// };
+if (bombRuns < 1) exitWith {
+	["Air Support", "You lack of enough Air Support to make this request"] call A3A_fnc_customHint;
+};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {
+	["Air Support", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;
+};
+if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {
+	["Air Support", "You need to control an airport in order to fulfill this request"] call A3A_fnc_customHint;
+};
 _typeX = _this select 0;
 
 positionTel = [];

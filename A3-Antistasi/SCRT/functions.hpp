@@ -94,6 +94,7 @@ class SCRT
         class common_sinkShip {};
         class common_airdropCargo {};
         class common_supplyDrop {};
+        class common_fillSupplyDrop {};
     };
 
     class Outpost
