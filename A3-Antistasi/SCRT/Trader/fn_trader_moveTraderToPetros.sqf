@@ -1,21 +1,22 @@
+#define COST 2500
+
 if (player != theBoss) exitWith {
     playSound "3DEN_notificationWarning";
 	["Move Arms Dealer", "Only commander can do this."] call A3A_fnc_customHint;
 };
 
 private _resourcesFIA = server getVariable "resourcesFIA";
-private _costs = 5000;
 
-if (_resourcesFIA < _costs) exitWith {
+if (_resourcesFIA < COST) exitWith {
     playSound "3DEN_notificationWarning";
-	["Move Arms Dealer", format ["You need %2 € to move arms dealer.",_costs]] call A3A_fnc_customHint;
+	["Move Arms Dealer", format ["You need %2 € to move the arms dealer.", str COST]] call A3A_fnc_customHint;
 };
 
 private _fileName = "trader_moveTraderToPetros";
 
 [2,"Starting to move arms dealer to rebel HQ.",_fileName] call A3A_fnc_log;
 
-[0, -_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+[0, -COST] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 private _petrosPosition = position petros;
 

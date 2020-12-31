@@ -10,6 +10,7 @@
 - Increased price of AA Emplacement (1200->1750) due to it's potential huge firepower
 - Removed pistols from Sum Similar Weapons to Unlock feature due to base class issues
 - Enemy AI Skillcap Aiming Speed paremeter fix
+- Reduced cost of moving arms dealer to rebel base (5000->2500)
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
