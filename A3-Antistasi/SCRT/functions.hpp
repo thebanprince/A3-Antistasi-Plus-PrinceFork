@@ -61,6 +61,7 @@ class SCRT
         class misc_getMissionTitle {};
         class misc_toggleMenuBlur {};
         class misc_getWorldName {};
+        class misc_showDeniedActionHint {};
     };
 
     class Trader
@@ -73,8 +74,7 @@ class SCRT
         class trader_tryOpenVehicleMarketMenu {};
         class trader_pickFromVehiclePool {};
         class trader_removeUnlockedItemsFromStock {};
-        class trader_moveTraderToPetros {};
-        class trader_addMoveTraderAction {};
+        class trader_addTraderActions {};
     };
 
     class Common 

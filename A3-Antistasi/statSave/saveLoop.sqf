@@ -21,7 +21,7 @@ private _antennasDeadPositions = [];
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call fn_SaveStat;
 ["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call fn_SaveStat;
 ["mrkCSAT", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Invaders}] call fn_SaveStat;
-["posHQ", [getMarkerPos respawnTeamPlayer,getPos fireX,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox]]] call fn_Savestat;
+["posHQ", [getMarkerPos respawnTeamPlayer,getPos fireX,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox],[getDir traderScreenX,getPos traderScreenX]]] call fn_Savestat;
 ["prestigeNATO", prestigeNATO] call fn_SaveStat;
 ["prestigeCSAT", prestigeCSAT] call fn_SaveStat;
 ["dateX", date] call fn_SaveStat;
@@ -92,7 +92,7 @@ _arrayEst = [];
 			_arrayEst pushBack [_typeVehX,_posVeh,_dirVeh];
 		};
 	};
-} forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];
+} forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX,traderScreenX];
 
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {

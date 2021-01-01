@@ -1,6 +1,6 @@
 if (!isServer && hasInterface) exitWith{};
 
-diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Trader Mission Init", servertime];
+diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Trader Mission Init.", servertime];
 diag_log format ["%1: [Antistasi] | INFO | ENC_Trader | Server: %2", servertime, str isServer];
 
 _markerX = _this select 0;

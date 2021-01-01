@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1546;
+	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=2753;
+		nextID=2754;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=658;
+		nextID=663;
 	};
 	class Camera
 	{
-		pos[]={13789.87,45.141449,18934.18};
-		dir[]={0.46633992,-0.77940714,0.41840062};
-		up[]={0.58013773,0.62651467,0.52049965};
-		aside[]={0.66781586,9.1793481e-008,-0.74433374};
+		pos[]={10342.972,134.40958,17988.699};
+		dir[]={-0.81164247,-0.41339415,0.41276199};
+		up[]={-0.3684893,0.91054815,0.18739524};
+		aside[]={0.45330703,3.2174285e-008,0.8913691};
 	};
 };
 binarizationWanted=0;
@@ -218,7 +218,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Antistasi - Liberation of Altis";
+		briefingName="Antistasi - Altis Requiem";
 		resistanceWest=0;
 		startWind=0.1;
 		forecastWind=0.1;
@@ -232,7 +232,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=582;
+		items=583;
 		class Item0
 		{
 			dataType="Marker";
@@ -2122,7 +2122,7 @@ class Mission
 			position[]={7336.4771,16.045,11418.288};
 			name="roadMarker_2";
 			type="hd_arrow";
-			angle=13.068992;
+			angle=13.068991;
 			id=1442;
 			atlOffset=3.2958031;
 		};
@@ -3087,7 +3087,7 @@ class Mission
 					colorName="ColorGreen";
 					a=15.529018;
 					b=5.5;
-					angle=56.906021;
+					angle=56.906017;
 					id=1646;
 					atlOffset=-0.15297318;
 				};
@@ -3687,7 +3687,7 @@ class Mission
 					colorName="ColorGreen";
 					a=19.902;
 					b=5.5;
-					angle=223.22183;
+					angle=223.22182;
 					id=2564;
 					atlOffset=-0.00015258789;
 				};
@@ -4488,7 +4488,7 @@ class Mission
 					colorName="ColorGreen";
 					a=16;
 					b=6;
-					angle=3.5407562;
+					angle=3.540756;
 					id=1684;
 					atlOffset=0.75311279;
 				};
@@ -5432,7 +5432,7 @@ class Mission
 					colorName="ColorGreen";
 					a=14.691898;
 					b=6.699769;
-					angle=54.630524;
+					angle=54.63052;
 					id=2508;
 					atlOffset=22.844414;
 				};
@@ -5572,7 +5572,7 @@ class Mission
 					colorName="ColorGreen";
 					a=56.322723;
 					b=23.859966;
-					angle=145.95692;
+					angle=145.95691;
 					id=2751;
 					atlOffset=0.016839981;
 				};
@@ -5586,7 +5586,7 @@ class Mission
 					colorName="ColorGreen";
 					a=17.723;
 					b=9.7600002;
-					angle=45.557995;
+					angle=45.557991;
 					id=2752;
 					atlOffset=22.928255;
 				};
@@ -10388,7 +10388,7 @@ class Mission
 			type="rectangle";
 			a=15;
 			b=15;
-			angle=210.71342;
+			angle=210.71341;
 			id=2493;
 			atlOffset=-3.9764347;
 		};
@@ -10563,7 +10563,7 @@ class Mission
 			colorName="ColorGreen";
 			a=14.241;
 			b=41.716278;
-			angle=56.489372;
+			angle=56.489368;
 			id=2505;
 			atlOffset=238.07205;
 		};
@@ -14629,6 +14629,23 @@ class Mission
 			id=2750;
 			type="Flag_AAF_F";
 			atlOffset=9.5367432e-007;
+		};
+		class Item582
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10329.773,129.3075,17993.42};
+				angles[]={0.083803542,1.354055,6.2378845};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="traderScreenX";
+			};
+			id=2753;
+			type="Land_TripodScreen_01_large_black_F";
 		};
 	};
 	class Connections

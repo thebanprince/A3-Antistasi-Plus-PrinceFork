@@ -207,14 +207,6 @@ class Params
           texts[] = {""};
           default = "";
      };
-
-     class Spacer70
-     {
-          title = "";
-          values[] = {""};
-          texts[] = {""};
-          default = "";
-     };
      class Spacer71
      {
           title = "RHS SETTINGS";
@@ -237,14 +229,6 @@ class Params
           default = "";
      };
      
-
-     class Spacer50
-     {
-          title = "";
-          values[] = {""};
-          texts[] = {""};
-          default = "";
-     };
      class Spacer51
      {
           title = "ANTISTASI PLUS SETTINGS";
@@ -266,9 +250,9 @@ class Params
           texts[] =  {"Yes","No"};
           default = 0;
      };
-     class traderOnStart
+     class traderOnBase
      {
-          title = "Arms Dealer Store on Start";
+          title = "Arms Dealer Store on HQ (WORKS ONLY IF ARMS DEALER IS NOT FOUND YET)";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;

@@ -6,10 +6,17 @@ params ["_vehicleType"];
 private _fileName = "trader_pickFromVehiclePool";
 
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {
-    ["Garage", "Unable to open garage, you are already placing something"] call A3A_fnc_customHint;
+    ["Vehicle Market", "Unable to buy vehicle, you are already placing something."] call SCRT_fnc_misc_showDeniedActionHint;
 };
+
 if (player != player getVariable ["owner",player]) exitWith {
-    ["Add Vehicle", "You cannot buy vehicles while you are controlling AI"] call A3A_fnc_customHint;
+    ["Vehicle Market", "You cannot buy vehicles while you are controlling AI."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+private _airports = { sidesX getVariable [_x, sideUnknown] == teamPlayer } count airportsX;
+
+if(_vehicleType in ["HELI", "PLANE"] && {_airports < 1}) exitWith {
+    ["Vehicle Market", "You cannot buy helicopters or planes without captured airports."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 if (isNil "vehicleMarketIsOpen") then {
@@ -145,7 +152,9 @@ vehiclePurchase_cost = [_initialType] call A3A_fnc_vehiclePrice;
 
 private _resourcesFIA = player getVariable "moneyX";
 
-if (_resourcesFIA < vehiclePurchase_cost) exitWith {["Black Market Purchase", format ["You do not have enough money for this vehicle: %1 € required",vehiclePurchase_cost]] call A3A_fnc_customHint;};
+if (_resourcesFIA < vehiclePurchase_cost) exitWith {
+    ["Vehicle Market", format ["You do not have enough money for this vehicle: %1 € required",vehiclePurchase_cost]] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
 private _extraMessage = format ["Arrow Up-Down to Switch Vehicles<br/> Buying vehicle for $%1", vehiclePurchase_cost];
 

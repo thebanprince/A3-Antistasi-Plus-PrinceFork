@@ -16,8 +16,7 @@ private _resourcesFIA = server getVariable "resourcesFIA";
 private _hrFIA = server getVariable "hr";
 
 if ((_resourcesFIA < _costs) or (_hrFIA < _hr)) exitWith {
-    playSound "3DEN_notificationWarning";
-	["AT Emplacement", format ["You lack of resources to build this AT Emplacement <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call A3A_fnc_customHint;
+    ["AT Emplacement", format ["You have no resources to build this AT Emplacement <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 [-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];

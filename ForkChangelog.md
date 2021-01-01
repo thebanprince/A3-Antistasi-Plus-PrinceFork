@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 1.4.1
+- Arms Dealer Store on HQ mission parameter (when turned on Arms Dealer store is available right from the start on the HQ in new special terminal, will work only in sessions where arms dealer isn't found yet)
 - New rebel airstrike type: Supply Drop (filled with magazines for player's and commander's AI mates weapons, available through commander airstrike menu on Y key)
 - Greatly increased chances to obtain Find the Arms Dealer task (5%->25% from interrogations, 20%->40% from documents steal, 25%->60% from laptop hacks)
 - Grab Money From Faction Pool money amount changed from 1000 to 500
@@ -10,7 +11,7 @@
 - Increased price of AA Emplacement (1200->1750) due to it's potential huge firepower
 - Removed pistols from Sum Similar Weapons to Unlock feature due to base class issues
 - Enemy AI Skillcap Aiming Speed paremeter fix
-- Reduced cost of moving arms dealer to rebel base (5000->2500)
+- Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers

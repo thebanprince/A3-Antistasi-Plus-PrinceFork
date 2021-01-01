@@ -6,9 +6,7 @@ private _fileName = "fn_common_fillSupplyDrop";
 
 [3,"Supply crate airdrop init.",_fileName, true] call A3A_fnc_log;
 
-if(jna_dataList isEqualTo []) then {
-    ["buttonInvToJNA"] call jn_fnc_arsenal;
-};
+["buttonInvToJNA"] call jn_fnc_arsenal;
 
 [3,"Clearing supply crate from predefined content.",_fileName, true] call A3A_fnc_log;
 
