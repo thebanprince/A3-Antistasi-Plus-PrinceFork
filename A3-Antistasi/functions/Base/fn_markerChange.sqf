@@ -81,7 +81,7 @@ else
 	switch (true) do
 	{
 	    case (_markerX in airportsX): {_type = "Airport"};
-		case (_markerX in milbases): {_type = "Military Base"};
+		case (_markerX in milbases): {_type = "MilitaryBase"};
 		case (_markerX in outposts): {_type = "Outpost"};
 		case (_markerX in citiesX): {_type = "City"};
 	};
