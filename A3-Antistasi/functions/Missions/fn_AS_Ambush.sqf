@@ -24,7 +24,7 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString; //Converts th
 
 private _originName = [_missionOrigin] call A3A_fnc_localizar;
 
-private _departingTimeLimit = 15 * settingsTimeMultiplier;
+private _departingTimeLimit = 10 * settingsTimeMultiplier;
 private _departingDateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _departingTimeLimit];
 private _departingDateLimitNum = dateToNumber _departingDateLimit;
 _departingDateLimit = numberToDate [date select 0, _departingDateLimitNum]; //converts datenumber back to date array so that time formats correctly
