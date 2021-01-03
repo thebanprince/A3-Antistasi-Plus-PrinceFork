@@ -10,7 +10,7 @@ private _missionOriginPos = getMarkerPos _markerX;
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_markerX, sideUnknown] == Occupants) then {Occupants} else {Invaders};
 
-private _timeLimit = 1 * settingsTimeMultiplier;
+private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];
