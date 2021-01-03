@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=9567;
+		nextID=9568;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2689;
+		nextID=2751;
 	};
 	class Camera
 	{
-		pos[]={7588.2432,232.91998,9409.4199};
-		dir[]={0.66578454,-0.72661859,0.17028457};
-		up[]={0.7039721,0.68700713,0.18005066};
-		aside[]={0.24780676,2.4660258e-006,-0.96892124};
+		pos[]={18449.061,12.956827,3796.8604};
+		dir[]={-0.76885933,-0.61982459,-0.15713197};
+		up[]={-0.60727686,0.78473431,-0.12410931};
+		aside[]={-0.20023324,-7.6252036e-008,0.97975469};
 	};
 };
 binarizationWanted=0;
@@ -336,7 +336,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1243;
+		items=1244;
 		class Item0
 		{
 			dataType="Layer";
@@ -62808,6 +62808,7 @@ class Mission
 			};
 			id=9560;
 			type="Land_PoliceStation_01_F";
+			atlOffset=1.9073486e-006;
 		};
 		class Item1237
 		{
@@ -62910,6 +62911,7 @@ class Mission
 			};
 			id=9564;
 			type="Land_PoliceStation_01_F";
+			atlOffset=7.6293945e-006;
 		};
 		class Item1241
 		{
@@ -62942,6 +62944,24 @@ class Mission
 			};
 			id=9566;
 			type="Land_PoliceStation_01_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item1243
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={18440.873,7.806448,3795.9993};
+				angles[]={0,1.5669854,0.015625158};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="traderScreenX";
+			};
+			id=9567;
+			type="Land_TripodScreen_01_large_black_F";
 		};
 	};
 	class Connections
