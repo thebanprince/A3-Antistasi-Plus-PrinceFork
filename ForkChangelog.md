@@ -15,6 +15,16 @@
 - Reduced Waved Attack time limit (60 minutes -> 45 minutes)
 - (CUP) Removed Skoda Octavia and Volkswagen Golf from civilian vehicle pool due to broken LODs
 - (CUP) Hilux with UB-32 pylon replaced with Hilux with Podnos mortar
+- Arms Dealer Store on HQ mission parameter (when turned on Arms Dealer store is available right from the start on the HQ in new special terminal, will work only in sessions where arms dealer isn't found yet, also it will disable arms dealer task)
+- New rebel airstrike type: Supply Drop (filled with magazines for player's and commander's AI mates weapons, available through commander airstrike menu on Y key)
+- Greatly increased chances to obtain Find the Arms Dealer task (5%->25% from interrogations, 20%->40% from documents steal, 25%->60% from laptop hacks)
+- Grab Money From Faction Pool money amount changed from 1000 to 500
+- Added PDW2000 as starting weapon in vanilla templates
+- Improvements and optimizations to Kill Collaborationist mission
+- Rebel AA emplacements are occupied with AA Missile Specialists (when AA launchers are unlocked)
+- Increased price of AA Emplacement (1200->1750) due to it's potential huge firepower
+- Enemy AI Skillcap Aiming Speed paremeter fix
+- Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers

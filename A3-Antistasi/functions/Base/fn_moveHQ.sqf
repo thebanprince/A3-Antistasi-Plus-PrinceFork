@@ -15,26 +15,6 @@ petros setBehaviour "AWARE";
 petros enableAI "MOVE";
 petros enableAI "AUTOTARGET";
 
-/*
-if (isMultiplayer) then
-	{
-	// these would need to be remoteExec'd on the server
-	boxX hideObjectGlobal true;
-	vehicleBox hideObjectGlobal true;
-	mapX hideObjectGlobal true;
-	fireX hideObjectGlobal true;
-	flagX hideObjectGlobal true;
-	}
-else
-	{
-	boxX hideObject true;
-	vehicleBox hideObject true;
-	mapX hideObject true;
-	fireX hideObject true;
-	flagX hideObject true;
-	};
-*/
-
 fireX inflame false;
 
 [respawnTeamPlayer, 0, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;

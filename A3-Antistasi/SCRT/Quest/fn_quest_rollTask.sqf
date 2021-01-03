@@ -19,10 +19,8 @@ _return = false;
 
 _tasksWithProbabilities = selectRandomWeighted [TRADER, 1];
 
-switch (_tasksWithProbabilities) do
-{
-    case (TRADER):
-    {
+switch (_tasksWithProbabilities) do {
+    case (TRADER): {
         diag_log format ["%1: [Antistasi] | INFO | fn_quest_rollTask | Trader quest roll.",servertime];
 
         if(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned})) then {

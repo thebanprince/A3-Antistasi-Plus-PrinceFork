@@ -11,6 +11,7 @@ flagX allowDamage false;
 vehicleBox allowDamage false;
 fireX allowDamage false;
 mapX allowDamage false;
+traderScreenX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
 //Load server id
@@ -49,7 +50,7 @@ if (isMultiplayer) then {
 	isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
 	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
 	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
-	spawnTraderOnStart = ("traderOnStart" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnStart";
+	spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
 	settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
 } else {
 	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
@@ -82,7 +83,7 @@ if (isMultiplayer) then {
 	isFatalWoundsEnabled = false;
 	fastTravelIndividualEnemyCheck = false;
 	isPursuersEnabled = true;
-	spawnTraderOnStart = false;
+	spawnTraderOnBase = false;
 	settingsTimeMultiplier = 1;
 };
 
@@ -289,10 +290,15 @@ execvm "functions\init\fn_initSnowFall.sqf";
 
 waitUntil{sleep 1;!(isNil "initVar")};
 
-//spawns trader on start if it is possible
-if(spawnTraderOnStart && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
-	[3, "Spawning trader.", _fileName] call A3A_fnc_log;
-	[] remoteExec ["SCRT_fnc_trader_prepareTraderQuest", 2];
+//trader functionality on HQ
+if(spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
+	[3, "Spawning trader screen on base.", _fileName] call A3A_fnc_log;
+	isTraderQuestAssigned = true;
+	[] remoteExec ["SCRT_fnc_trader_addTraderActions", 0, true];
+} else {
+	[3, "Hiding trader screen.", _fileName] call A3A_fnc_log;
+	[traderScreenX, true] remoteExec ["hideObject", 0, true];
+	[traderScreenX, false] remoteExec ["enableSimulation", 0, true];
 };
 
 

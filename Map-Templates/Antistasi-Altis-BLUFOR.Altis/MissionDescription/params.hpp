@@ -215,9 +215,9 @@ class Params
           texts[] =  {"Yes","No"};
           default = 1;
      };
-     class traderOnStart
+     class traderOnBase
      {
-          title = "Arms Dealer Store on Start";
+          title = "Arms Dealer Store on HQ (WORKS ONLY IF ARMS DEALER IS NOT FOUND YET)";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;

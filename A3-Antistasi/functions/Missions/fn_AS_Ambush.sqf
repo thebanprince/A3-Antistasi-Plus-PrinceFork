@@ -171,8 +171,6 @@ private _groupOfficer = createGroup _sideX;
 private _officer =  [_groupOfficer, _officerClass, position _roadR, [], 0, "NONE"] call A3A_fnc_createUnit;
 _officer allowDamage false;
 
-_officer assignAsCargo _officerVeh; 
-_officer moveInCargo _officerVeh; 
 [_officer] join _officerVehicleGroup; 
 [_officer] call A3A_fnc_NATOinit;
 _officerVehicleGroup selectLeader _officer;
@@ -180,6 +178,8 @@ deleteGroup _groupOfficer;
 
 sleep 2;
 _officer allowDamage true;
+_officer assignAsCargo _officerVeh; 
+_officer moveInCargo _officerVeh; 
 
 [3, "Waiting for starting convoy movement...", _filename] call A3A_fnc_log;
 waitUntil {

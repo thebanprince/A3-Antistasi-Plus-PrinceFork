@@ -1,7 +1,9 @@
-_resourcesFIA = server getVariable "resourcesFIA";
-if (_resourcesFIA < 1000) exitWith {["Money Grab", "FIA has not enough money to transfer."] call A3A_fnc_customHint;};
-server setvariable ["resourcesFIA",_resourcesFIA - 1000, true];
-[-2,theBoss] call A3A_fnc_playerScoreAdd;
-[1000] call A3A_fnc_resourcesPlayer;
+#define MONEY_AMOUNT 500
 
-["Money Grab", format ["You grabbed 1000 € from the %1 Money Pool.<br/><br/>This will affect your prestige and status among %1 forces",nameTeamPlayer]] call A3A_fnc_customHint;
+_resourcesFIA = server getVariable "resourcesFIA";
+if (_resourcesFIA < MONEY_AMOUNT) exitWith {["Money Grab", "FIA has not enough money to transfer."] call A3A_fnc_customHint;};
+server setvariable ["resourcesFIA",_resourcesFIA - MONEY_AMOUNT, true];
+[-2,theBoss] call A3A_fnc_playerScoreAdd;
+[MONEY_AMOUNT] call A3A_fnc_resourcesPlayer;
+
+["Money Grab", format ["You grabbed %1 € from the %2 Money Pool.<br/><br/>This will affect your prestige and status among %2 forces", str MONEY_AMOUNT, nameTeamPlayer]] call A3A_fnc_customHint;

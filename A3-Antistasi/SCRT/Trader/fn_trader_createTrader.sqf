@@ -11,8 +11,6 @@
 
 private _position = _this select 0;
 
-traderProps = [];
-
 traderMarker = createMarker ["TraderMarker", _position];
 traderMarker setMarkerType "hd_objective";
 traderMarker setMarkerSize [1, 1];
@@ -48,8 +46,6 @@ _table setPos [getPos _table select 0, getPos _table select 1, (getPos _table se
 _laptopArray = [[_table, "TOP"],"Land_Laptop_02_unfolded_F",1,[0,0,0],180] call BIS_fnc_spawnObjects;
 _laptop = _laptopArray select 0;
 
-[_laptop] remoteExecCall ["SCRT_fnc_trader_addMoveTraderAction", 0, true];
-
 _satellite = ["SatelliteAntenna_01_Black_F", getPosWorld _traderTent] call BIS_fnc_createSimpleObject;
 _satellite setPos (_buildingPositions select 0);
 _satellite setPos [(getPos _laptop select 0) + 5.5, getPos _laptop select 1, (getPos _laptop select 2) + 1.75];
@@ -70,8 +66,6 @@ _container setPos [(getPos _container select 0) - 8, (getPos _container select 1
 _container setDir 90;
 
 [_traderTent, [0, 0, 1]] remoteExec ["SCRT_fnc_common_attachLightSource", 0, true];
-
-traderProps append [_traderTent, _container, _ammoBox1, _ammoBox2, _satellite, _laptop, _table, _chair, _traderTent, _tableBox];
 
 //trader itself
 _traderX = createAgent ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];

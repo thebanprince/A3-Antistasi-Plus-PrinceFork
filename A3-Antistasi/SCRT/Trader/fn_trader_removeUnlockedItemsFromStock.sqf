@@ -1,13 +1,16 @@
 private _fileName = "trader_removeUnlockedWeaponsFromStock";
 
-if (isNil "traderX") exitWith {
+private _trader = if (!isNil "traderX") then { traderX } else { nil };
+_trader = if (isNil "_trader" && spawnTraderOnBase) then { traderScreenX } else { nil };
+
+if (isNil "_trader") exitWith {
     [3, "Trader is not spawned yet.", _fileName] call A3A_fnc_log;
 };
 
-private _stocks = traderX getVariable ["HALs_store_trader_stocks", []];
+private _stocks = _trader getVariable ["HALs_store_trader_stocks", []];
 
 if (_stocks isEqualTo []) exitWith {
-    [3, "Trader has empty stock.", _fileName] call A3A_fnc_log;
+    [3, "Trader has empty stock.", _fileName, true] call A3A_fnc_log;
 };
 
 //looks like this is needed to grab weapons from arsenal
@@ -34,6 +37,8 @@ private _vests = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST) select {_x
 } forEach _weapons + _explosives + _magazines + _backpacks + _items + _optics + _nv + _helmets + _vests;
 
 //saving all changes
-traderX setVariable ["HALs_store_trader_stocks", _stocks, true];
-private _players = allPlayers select {(_x getVariable ["HALs_store_trader_current", objNull]) isEqualTo traderX} apply {owner _x};
+_trader setVariable ["HALs_store_trader_stocks", _stocks, true];
+private _players = allPlayers select {(_x getVariable ["HALs_store_trader_current", objNull]) isEqualTo _trader} apply {owner _x};
 [] remoteExecCall ["HALs_store_fnc_update", _players, false];
+
+[3, "Stock clearance pass finished.", _fileName, true] call A3A_fnc_log;

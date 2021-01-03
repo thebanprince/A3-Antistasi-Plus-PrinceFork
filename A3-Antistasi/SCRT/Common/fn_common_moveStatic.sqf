@@ -6,30 +6,24 @@ private _playerX = player;
 if(isNil "_thingX" || {isNull _thingX}) exitWith {};
 
 if(!(_thingX isKindOf "StaticWeapon")) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "Only static weapons can be moved."] call A3A_fnc_customHint;
+	["Move Asset Failed", "Only static weapons can be moved."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 if !(side _playerX == teamPlayer || side _playerX == civilian) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "Only rebels are allowed to move assets."] call A3A_fnc_customHint;
+	["Move Asset Failed", "Only rebels are allowed to move assets."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 if (!(isNull attachedTo _thingX)) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "The asset you want to move is being moved by another player"] call A3A_fnc_customHint;
+	["Move Asset Failed", "The asset you want to move is being moved by another player."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 if (vehicle _playerX != _playerX) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "You cannot move assets while in a vehicle"] call A3A_fnc_customHint;
+	["Move Asset Failed", "You cannot move assets while being in a vehicle."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "You have other things attached, you cannot move this"] call A3A_fnc_customHint;
+	["Move Asset Failed", "You have other things attached, you cannot move this."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 if !((crew _vehicle) isEqualTo []) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "Vehicle is occupied by someone, clear crew before unflip."] call A3A_fnc_customHint;
+	["Move Asset Failed", "Vehicle is occupied by someone, clear crew before moving it."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 _thingX setVariable ["objectBeingMoved", true];

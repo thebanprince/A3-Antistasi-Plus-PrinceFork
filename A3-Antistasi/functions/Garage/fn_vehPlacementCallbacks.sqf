@@ -233,7 +233,7 @@ switch (_callbackTarget) do {
 				};
 
 				player reveal _purchasedVeh;
-				[traderX, "hint", "say3D"] call BIS_fnc_sayMessage;
+				playSound "3DEN_notificationDefault";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {

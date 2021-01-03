@@ -3,8 +3,7 @@ private _position = _this select 0;
 
 private _isRoad = isOnRoad _position;
 if !(_isRoad) exitWith {
-    playSound "3DEN_notificationWarning";
-	["Roadblock", "Roadblock should be on road."] call A3A_fnc_customHint;
+    ["Roadblock", "Roadblock should be on road."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 //calculating cost and manipulating rebel resources
@@ -23,8 +22,7 @@ private _resourcesFIA = server getVariable "resourcesFIA";
 private _hrFIA = server getVariable "hr";
 
 if ((_resourcesFIA < _costs) or (_hrFIA < _hr)) exitWith {
-    playSound "3DEN_notificationWarning";
-	["Roadblock", format ["You lack of resources to build this Roadblock <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call A3A_fnc_customHint;
+    ["Roadblock", format ["You have no resources to build this Roadblock <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 [-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
