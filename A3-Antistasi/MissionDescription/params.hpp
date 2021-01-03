@@ -238,7 +238,7 @@ class Params
      };
      class timeMultiplier
      {
-          title="Time Multiplier (EXPERIMENTAL, might affect enemy attack timings)";
+          title="Time Multiplier (EXPERIMENTAL)";
 		values[]={1,6,12,24};
 		texts[]={"1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
 		default = 1;

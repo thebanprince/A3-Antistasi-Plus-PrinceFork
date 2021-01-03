@@ -148,6 +148,13 @@ if (activeAFRF && activeUSAF && isClass (configFile >> "CfgFactionClasses" >> "r
 	hasTieredUnitConfigs = true;
 };
 
+if (activeAFRF || activeUSAF || activeGREF) then {
+	if !(activeAFRF && activeUSAF && activeGREF) then {
+		[1, "RHS USAF or RHS GREF or RHS AFRF detected, but not all of them. Ensure that RHS USAF, RHS GREF, RHS AFRF mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+		["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+	};
+};
+
 //Antistasi Units Detected
 if(isClass (configfile >> "CfgFactionClasses" >> "TavianaNationalGuard")) then {
 	diag_log format ["%1: [Antistasi] | INFO | initVar | Antistasi Units Detected.",servertime];
@@ -225,6 +232,11 @@ if(!hasAU) then {
 			["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 		};
 	};
+};
+
+if((activeAFRF || activeUSAF || activeGREF) && (_activeCupUnits || _activeCupWeapons || _activeCupVehicles)) then {
+	[1, "CUP Units/Vehicles/Weapons and RHS simultaneously are not supported and leads to inconsistent experience. Choose either RHS or CUP modset to proceed.", _fileName] call A3A_fnc_log;
+	["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
 
@@ -326,44 +338,9 @@ switch (toLower worldName) do {
 		//Roads DB
 		call compile preprocessFileLineNumbers "Navigation\roadsDBAltis.sqf";
 	};
-	case "chernarus_summer":
-	{
-		roadsX setVariable ["airport",[[[12190.479,12604.712,9.432],0,"MG"],[[12194.2,12599.4,13.3954],0,"AA"],[[12141,12609,0.00088501],0,"Mort"],[[12144.3,12615.9,0],0,"Mort"],[[12156.5,12614.3,0],0,"Mort"],[[12170,12595.9,0.000305176],250.234,"AT"],[[12070.4,12656,0.0098114],23.5329,"Tank"],[[12022.5,12670.9,0.0098114],18.9519,"Tank"]]];
-		roadsX setVariable ["airport_1",[[[4782.75,10251.4,18],0,"AA"],[[4716.17,10215.3,13.1149],278.308,"AA"],[[4714.530,10210.043,9.122],238.755,"MG"],[[4787.34,10248.9,4.99982],188.303,"MG"],[[4741.488,10333.261,20.4],238.946,"MG"],[[4818.39,10200.1,0.00982666],239.625,"Tank"],[[4765.22,10330.8,0],0,"Mort"],[[4758.21,10328.1,0],0,"Mort"],[[4751.45,10324.4,0],0,"Mort"],[[4745.39,10320.6,0],0,"Mort"],[[4739.97,10283.2,0.00567627],291.41,"AT"],[[4814.19,10245.1,0.00567627],211.414,"AT"],[[4841.34,10158.9,0.0102844],240.137,"Tank"],[[4865.7,10116.7,0.00970459],239.499,"Tank"],[[4888.33,10074.2,0.00982666],235.077,"Tank"]]];
-		roadsX setVariable ["airport_2",[[[4717.95,2595.24,12.9766],0,"AA"],[[4714.134,2591.637,8.97349],227.835,"MG"],[[4743.55,2567.69,0.0130215],207.155,"Tank"],[[4775.62,2547.37,0.00691605],210.579,"Tank"],[[4719.88,2582.34,0.00566483],261.79,"AT"],[[4826.5,2558.35,0.00150108],0,"Mort"],[[4821.12,2550.32,0.00147152],0,"Mort"],[[4816.59,2543.65,0.00147247],0,"Mort"],[[4812.77,2518.77,0.00566483],150.397,"AT"]]];
-		//Roads DB
-		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
-	};
-	case "chernarus_winter":
-	{
-		roadsX setVariable ["airport",[[[12190.479,12604.712,9.432],0,"MG"],[[12194.2,12599.4,13.3954],0,"AA"],[[12141,12609,0.00088501],0,"Mort"],[[12144.3,12615.9,0],0,"Mort"],[[12156.5,12614.3,0],0,"Mort"],[[12170,12595.9,0.000305176],250.234,"AT"],[[12070.4,12656,0.0098114],23.5329,"Tank"],[[12022.5,12670.9,0.0098114],18.9519,"Tank"]]];
-		roadsX setVariable ["airport_1",[[[4782.75,10251.4,18],0,"AA"],[[4716.17,10215.3,13.1149],278.308,"AA"],[[4714.530,10210.043,9.122],238.755,"MG"],[[4787.34,10248.9,4.99982],188.303,"MG"],[[4740.75,10333.2,20.3206],232.414,"MG"],[[4818.39,10200.1,0.00982666],239.625,"Tank"],[[4765.22,10330.8,0],0,"Mort"],[[4758.21,10328.1,0],0,"Mort"],[[4751.45,10324.4,0],0,"Mort"],[[4745.39,10320.6,0],0,"Mort"],[[4739.97,10283.2,0.00567627],291.41,"AT"],[[4814.19,10245.1,0.00567627],211.414,"AT"],[[4841.34,10158.9,0.0102844],240.137,"Tank"],[[4865.7,10116.7,0.00970459],239.499,"Tank"],[[4888.33,10074.2,0.00982666],235.077,"Tank"]]];
-		roadsX setVariable ["airport_2",[[[4717.95,2595.24,12.9766],0,"AA"],[[4714.134,2591.637,8.97349],227.835,"MG"],[[4743.55,2567.69,0.0130215],207.155,"Tank"],[[4775.62,2547.37,0.00691605],210.579,"Tank"],[[4719.88,2582.34,0.00566483],261.79,"AT"],[[4826.5,2558.35,0.00150108],0,"Mort"],[[4821.12,2550.32,0.00147152],0,"Mort"],[[4816.59,2543.65,0.00147247],0,"Mort"],[[4812.77,2518.77,0.00566483],150.397,"AT"]]];
-		call compile preprocessFileLineNumbers "Navigation\roadsDBcherna.sqf";
-	};
-	case "malden":
-	{
-		call compile preprocessFileLineNumbers "Navigation\roadsDBmalden.sqf";
-	};
 	case "enoch":
 	{
 		call compile preprocessFileLineNumbers "Navigation\roadsDBLivonia.sqf";
-	};
-	case "kunduz":
-	{
-		call compile preprocessFileLineNumbers "Navigation\roadsDBKunduz.sqf";
-	};
-	case "tembelan":
-	{
-		call compile preprocessFileLineNumbers "Navigation\roadsDBTembelan.sqf";
-	};
-	case "tem_anizay":
-	{
-		call compile preprocessFileLineNumbers "Navigation\roadsDBanizay.sqf";
-	};
-	case "tem_kujari":
-	{
-		call compile preprocessFileLineNumbers "Navigation\roadsDBkujari.sqf";
 	};
 	case "vt7":
 	{

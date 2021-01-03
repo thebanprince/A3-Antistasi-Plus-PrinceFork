@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 1.4.1
+- Upgrade to 2.3.2 Community Version
 - Increased base attack timings (3600 seconds -> 5400 seconds for base value, 600 seconds->900 seconds for subsequent additions)
 - Fixed price presentation in hint on "Move Trader to HQ" action
 - Mag Repack mission parameter
@@ -25,6 +26,8 @@
 - Increased price of AA Emplacement (1200->1750) due to it's potential huge firepower
 - Enemy AI Skillcap Aiming Speed paremeter fix
 - Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
+- Added forced game ending when both CUP Units/Vehicles/Weapons and RHS turned on simultaneosly (since it is not supported mode that leads to a lot of errors and incosistent experience)
+- Removed unused code from (leads to slight mission file size reduction)
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
