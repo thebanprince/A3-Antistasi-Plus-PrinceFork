@@ -5,7 +5,7 @@
 nameOccupants = "AAF";
 
 //Police Faction
-factionGEN = "IND_P_F";
+factionGEN = "Police_IND_P_F";
 //SF Faction
 factionMaleOccupants = "AafSpecialForces";
 //Miltia Faction
