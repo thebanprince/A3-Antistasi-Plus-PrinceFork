@@ -151,7 +151,7 @@ if(_moneyEarned > 0) then {
     if(_playersCount > 0) then {
         _incomePerPlayer = round((_moneyEarned / _playersCount) / 10);
         {
-            [_incomePerPlayer] remoteExec ["A3A_fnc_resourcesPlayer", _x];
+            [_incomePerPlayer, _x] call A3A_fnc_playerScoreAdd;
         } forEach _allPlayers;
 
         [localize "STR_antistasi_actions_common_notifications_money_found_title", localize "STR_antistasi_actions_common_notifications_money_found_text"] remoteExecCall ["A3A_fnc_customHint", [teamPlayer, civilian]];

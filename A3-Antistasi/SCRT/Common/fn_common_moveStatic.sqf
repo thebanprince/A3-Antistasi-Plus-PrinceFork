@@ -10,11 +10,6 @@ if(!(_thingX isKindOf "StaticWeapon")) exitWith {
     ["Move Asset Failed", "Only static weapons can be moved."] call A3A_fnc_customHint;
 };
 
-private _playerUid = getPlayerUID _playerX;
-if !(_playerUid in membersX) exitWith {
-    playSound "3DEN_notificationWarning";
-    ["Move Asset Failed", "Only members are allowed to move assets."] call A3A_fnc_customHint;
-};
 if !(side _playerX == teamPlayer || side _playerX == civilian) exitWith {
     playSound "3DEN_notificationWarning";
     ["Move Asset Failed", "Only rebels are allowed to move assets."] call A3A_fnc_customHint;

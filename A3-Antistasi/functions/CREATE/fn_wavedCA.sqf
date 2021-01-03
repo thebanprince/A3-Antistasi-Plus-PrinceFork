@@ -59,15 +59,12 @@ _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 [_sideTsk,"rebelAttack",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_sideTsk1,"rebelAttackPVP",[format ["We are attacking %2 from the %1. Help the operation if you can",_nameOrigin,_nameDest],format ["%1 Attack",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,false,0,true,"Attack",true] call BIS_fnc_taskCreate;
-//_tsk = ["rebelAttack",_sideTsk,[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,"CREATED",10,true,true,"Defend"] call BIS_fnc_setTask;
-//missionsX pushbackUnique "rebelAttack"; publicVariable "missionsX";
-//_tsk1 = ["rebelAttackPVP",_sideTsk1,[format ["We are attacking %2 from the %1. Help the operation if you can",_nameOrigin,_nameDest],format ["%1 Attack",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,"CREATED",10,true,true,"Attack"] call BIS_fnc_setTask;
 
 // Use fixed aggro value for non-rebel targets for the moment
 private _aggro = if (_sideX == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 if !(_isSDK) then {_aggro = 100 - _aggro;};
 
-_timeX = time + 3600;
+_timeX = time + 2700;
 
 private _vehPoolLand = [];
 private _vehPoolAirSupport = [];
@@ -712,9 +709,13 @@ while {(_waves > 0)} do
 	if (sidesX getVariable [_mrkDestination,sideUnknown] != teamPlayer) then {_soldiers spawn A3A_fnc_remoteBattle};
 	if (_sideX == Occupants) then
 		{
-		waitUntil {sleep 5; (({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax) or (time > _timeX) or (sidesX getVariable [_mrkDestination,sideUnknown] == Occupants) or (({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))};
-		if  ((({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits)) or (sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) then
-			{
+		waitUntil {sleep 5; 
+			(({!([_x] call A3A_fnc_canFight)} count _soldiers) >= _solMax) or 
+			(time > _timeX) or 
+			(sidesX getVariable [_mrkDestination,sideUnknown] == Occupants) or 
+			(({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits))
+		};
+		if  ((({[_x,_mrkDestination] call A3A_fnc_canConquer} count _soldiers) > 3*({(side _x != _sideX) and (side _x != civilian) and ([_x,_mrkDestination] call A3A_fnc_canConquer)} count allUnits)) or (sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) then {
 			_waves = 0;
 			if ((!(sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) and !(_mrkDestination in citiesX)) then {[Occupants,_mrkDestination] remoteExec ["A3A_fnc_markerChange",2]};
 			["rebelAttack",[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,"FAILED"] call A3A_fnc_taskUpdate;
@@ -767,7 +768,7 @@ while {(_waves > 0)} do
 		sleep 10;
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Occupants)) then
 			{
-			_timeX = time + 3600;
+			_timeX = time + 2700;
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then
 				{
 				_killZones = killZones getVariable [_mrkOrigin,[]];
@@ -799,7 +800,7 @@ while {(_waves > 0)} do
 		sleep 10;
 		if (!(sidesX getVariable [_mrkDestination,sideUnknown] == Invaders)) then
 			{
-			_timeX = time + 3600;
+			_timeX = time + 2700;
 			diag_log format ["%1: [Antistasi] | INFO | Wave number %2 on wavedCA lost",servertime,_waves];
 			if (sidesX getVariable [_mrkOrigin,sideUnknown] == Invaders) then
 				{
@@ -843,9 +844,8 @@ _nul = [0,"rebelAttackPVP"] spawn A3A_fnc_deleteTask;
 
 [_mrkOrigin,60] call A3A_fnc_addTimeForIdle;
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
-//forcedSpawn = forcedSpawn - _forced; publicVariable "forcedSpawn";
 forcedSpawn = forcedSpawn - [_mrkDestination]; publicVariable "forcedSpawn";
-[3600, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
+[5400, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
 
 
 // Hand remaining aggressor units to the group despawner
