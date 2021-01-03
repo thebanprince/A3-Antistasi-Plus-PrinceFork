@@ -4,13 +4,10 @@ civVehCommonData = [
 	,"CUP_C_TT650_CIV", 0.2
 	,"CUP_C_Skoda_CR_CIV", 1.0
 	,"CUP_C_Volha_CR_CIV", 1.0
-	,"CUP_C_Octavia_CIV", 1.0
 	,"CUP_C_Lada_CIV", 1.0
 	,"CUP_C_Lada_TK_CIV", 1.0
 	,"CUP_C_UAZ_Unarmed_TK_CIV", 0.8
 	,"CUP_C_UAZ_Open_TK_CIV", 0.8
-	,"CUP_C_Golf4_CR_Civ", 0.5
-	,"CUP_C_Golf4_Sport_CR_Civ", 0.3
 	,"CUP_C_LR_Transport_CTK", 0.5
 	,"C_Offroad_01_F", 0.5
 	,"CUP_O_Hilux_unarmed_CR_CIV", 0.5
