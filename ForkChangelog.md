@@ -1,14 +1,20 @@
 ## Changelog
 
 ### 1.4.1
-- Increased base attack timings (3600->5400, 600-900)
+- Increased base attack timings (3600 seconds -> 5400 seconds for base value, 600 seconds->900 seconds for subsequent additions)
 - Fixed price presentation in hint on "Move Trader to HQ" action
 - Mag Repack mission parameter
 - Removed Sum Similar Weapons to Unlock parameter (tied functionality is always on from this point)
 - Fixed silent HR update on POW recruitment
 - Independent params page for Altis version to reduce the confusion with settings for other maps
 - Improvements to position searching algorhitms on Rescue Smugglers mission
-- The Great Price Reduction on arms dealer weapon store (up to 2x price reduction depending on weapon)
+- The Great Price Reduction on arms dealer weapon store (up to 2x price reduction depending on item)
+- Increased Destroy Artillery mission time limit (1->90)
+- Removed membership requirement in "Move Static Weapon" action
+- Excluded pistols from similar weapons to unlock system due to CUP base classes issues
+- Reduced Waved Attack time limit (60 minutes -> 45 minutes)
+- (CUP) Removed Skoda Octavia and Volkswagen Golf from civilian vehicle pool due to broken LODs
+- (CUP) Hilux with UB-32 pylon replaced with Hilux with Podnos mortar
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers

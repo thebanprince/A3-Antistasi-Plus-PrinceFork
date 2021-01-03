@@ -124,14 +124,15 @@ shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_I_Wildcat_Green_AAF", "I_Heli_light_0
 shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_I_T72_NAPA"];
 shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
 
-shop_AA = ["CUP_I_Ural_ZU23_NAPA", "CUP_I_ZSU23_Afghan_AAF", "CUP_I_M163_AAF"];
-shop_MRAP = ["CUP_I_BTR40_MG_TKG", "CUP_I_BRDM2_TK_Gue", "CUP_I_BRDM2_ATGM_TK_Gue"];
-shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80A_FIA", "CUP_I_LAV25M240_RACS"];
-shop_track_apc = ["CUP_B_MTLB_pk_FIA", "CUP_I_BMP1_TK_GUE", "CUP_I_BMP2_NAPA"];
-shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_I_Wildcat_Green_AAF", "I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_I_T72_NAPA"];
-shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
-
+//technical menu content, CUP exclusive
+techicalAa = "CUP_B_Hilux_zu23_BLU_G_F";
+technicalBtr = "CUP_B_Hilux_btr60_BLU_G_F";
+technicalNar = "CUP_B_Hilux_podnos_BLU_G_F";
+technicalJackal = "CUP_B_Jackal2_L2A1_FIA";
+technicalArmoredBtr = "CUP_B_Hilux_armored_BTR60_BLU_G_F";
+technicalArmoredAa = "CUP_B_Hilux_armored_zu23_BLU_G_F";
+technicalArmoredSpg = "CUP_B_Hilux_armored_SPG9_BLU_G_F";
+technicalArmoredMg = "CUP_B_Hilux_armored_DSHKM_BLU_G_F";
 
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";

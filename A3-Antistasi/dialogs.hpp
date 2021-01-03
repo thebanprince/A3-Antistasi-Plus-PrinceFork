@@ -3558,7 +3558,7 @@ class technicals {
 		class HQ_button_technicalNar: RscButton
 		{
 			idc = 126;
-			text = "Buy Hilux (UB-32)"; //--- ToDo: Localize;
+			text = "Buy Hilux (Podnos Mortar)"; //--- ToDo: Localize;
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
