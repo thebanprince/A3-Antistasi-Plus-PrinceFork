@@ -392,12 +392,11 @@ else
 
     //Maybe have aggro play a role here?
     //Select the number of waves based on the points as higher points mean higher difficulty
-    private _waves =
-		_attackPoints / 2500
+    private _waves = 
+        _attackPoints / 2500
 		+ ([0, 1] select (_attackTarget in airportsX))
         + ([0, 1] select (_attackTarget in milbases))
-		+ (count allPlayers / 40)
-		+ (tierWar / 10);
+		+ (count allPlayers / 40);
 
 	_waves = round _waves;
     if(_waves < 1) then {_waves = 1};
