@@ -14,7 +14,6 @@ staticCrewTeamPlayer = "B_G_Soldier_unarmed_F";
 SDKUnarmed = "B_G_Survivor_F";
 SDKSniper = ["B_G_Soldier_M_F","B_G_Sharpshooter_F"];
 SDKATman = ["B_G_Soldier_LAT2_F","B_G_Soldier_LAT_F"];
-SDKAAman = ["B_G_Soldier_A_F","B_Soldier_AA_F"];
 SDKMedic = ["B_G_medic_F","B_G_medic_F"];
 SDKMG = ["B_G_Soldier_AR_F","B_G_Soldier_AR_F"];
 SDKExp = ["B_G_Soldier_exp_F","B_G_Soldier_exp_F"];
@@ -28,7 +27,6 @@ SDKEng = ["B_G_engineer_F","B_G_engineer_F"];
 ////////////////////////////////////
 groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
 groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
-groupsSDKAA = [SDKSL,SDKMG,SDKGL,SDKAAman,SDKAAman];
 groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
 groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
 groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
@@ -38,7 +36,7 @@ groupsSDKSentry = [SDKGL,SDKMil];
 //Rebel Unit Tiers (for costs)
 sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
 sdkTier2 = SDKMedic + SDKExp + SDKEng;
-sdkTier3 = SDKSL + SDKSniper + SDKAAman;
+sdkTier3 = SDKSL + SDKSniper;
 soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 
 ////////////////////////////////////

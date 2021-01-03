@@ -3,7 +3,7 @@ class modUnautorized
 {
 	title = "Incompatible Mods";
 	subtitle = "Incompatible Mods detected";
-	description = "An incompatible mod installed on the server or your PC has been detected. To avoid support problems the mission is finished. Please uninstall unsupported (IFA, ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer or server to be able to play Antistasi.";
+	description = "An incompatible mod or incompatible set of supported mods (both RHS and CUP) installed on the server or your PC has been detected. To avoid support problems the mission is finished. Please turn off unsupported (IFA, ASR AI, aLIVE, MCC or any AI behaviour) mods from your computer or server to be able to play Antistasi. See server .rpt log for more information.";
 	picture = "b_unknown";
 	pictureColor[] = {0.0,0.5,0.0,1};
 };

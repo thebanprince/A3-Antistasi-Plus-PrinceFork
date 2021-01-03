@@ -195,7 +195,7 @@ class Params
      };
      class occupantFactionCup
      {
-          title="Select Occupant Faction (Works on Taviana, Chernarus and Napf)";
+          title="Select Occupant Faction";
 		values[]={0, 1};
 		texts[]={"CDF","EUROFOR"};
 		default = 1;
@@ -216,7 +216,7 @@ class Params
      };
      class occupantFactionRhs
      {
-          title="Select Occupant Faction (Works on Taviana, Chernarus and Napf)";
+          title="Select Occupant Faction";
 		values[]={0, 1};
 		texts[]={"CDF mixed with NATO","US"};
 		default = 1;

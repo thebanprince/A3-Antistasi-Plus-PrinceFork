@@ -3,7 +3,7 @@ private _position = _this select 0;
 //calculating cost and manipulating rebel resources
 private _costs = 1750; 
 private _hr = 1; //static gunner
-private _typeGroup = groupsSDKAA;
+private _typeGroup = [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];
 private _typeVeh = vehSDKLightUnarmed;
 
 

@@ -27,7 +27,7 @@
 - Enemy AI Skillcap Aiming Speed paremeter fix
 - Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
 - Added forced game ending when both CUP Units/Vehicles/Weapons and RHS turned on simultaneosly (since it is not supported mode that leads to a lot of errors and incosistent experience)
-- Removed unused code from (leads to slight mission file size reduction)
+- Removed unused code (leads to slight mission file size reduction)
 
 ### 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers

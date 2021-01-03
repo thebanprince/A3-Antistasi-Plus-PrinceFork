@@ -9237,7 +9237,7 @@ class cfgHALsStore
 			ITEM(rhs_weap_hk416d10_LMT_wd, 1500, RIFLE_STOCK);
 			ITEM(rhs_weap_hk416d10_m320, 1500, RIFLE_STOCK);
 
-			ITEM(rhs_weap_hk416d145, 150, RIFLE_STOCK);
+			ITEM(rhs_weap_hk416d145, 1500, RIFLE_STOCK);
 			ITEM(rhs_weap_hk416d145_d, 1650, RIFLE_STOCK);
 			ITEM(rhs_weap_hk416d145_d_2, 1650, RIFLE_STOCK);
 			ITEM(rhs_weap_hk416d145_wd, 1650, RIFLE_STOCK);
