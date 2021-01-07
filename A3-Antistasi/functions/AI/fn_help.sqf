@@ -1,5 +1,5 @@
 private ["_unit","_medicX","_timeOut","_cured","_isPlayer","_smoked","_enemy","_coverX","_dummyGrp","_dummy"];
-_unit = _this select 0;///no usar canfight porque algunas tienen setcaptive true y te va a liar todo
+_unit = _this select 0;
 if !(isNull (_unit getVariable ["helped",objNull])) exitWith {};
 _medicX = _this select 1;
 if (isPlayer _medicX) exitWith {};
@@ -54,7 +54,6 @@ if (_medicX != _unit) then
 			{if (([_x] call A3A_fnc_canFight) and (_x distance _medicX < 50) and !(_x getVariable ["helping",false]) and (!isPlayer _x)) then {[_x,_enemy] call A3A_fnc_suppressingFire}} forEach units (group _medicX);
 			if (count _coverX == 3) then
 				{
-				//if (_isPlayer) then {_unit setVariable ["carryX",true,true]};
 				_medicX setUnitPos "MIDDLE";
 				_medicX playAction "grabDrag";
 				sleep 0.1;
