@@ -19,9 +19,7 @@ if (_typeX == "globalChat") then {
 if (_typeX == "income") then {
 	waitUntil {sleep 0.2; !incomeRep};
 	incomeRep = true;
-	//playSound3D ["a3\sounds_f\sfx\beep_target.wss", player];
 	playSound "3DEN_notificationDefault";
-	//[_textX,0.8,0.5,5,0,0,2] spawn bis_fnc_dynamicText;
 	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
 	incomeRep = false;
 
