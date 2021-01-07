@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.4.2
+- Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
+- Fixed wrong money reward for completing Ambush Officer and Destroy Artillery tasks
+- Slightly lowered prices for vehicles in Vehicles Market
+- Medics fully heal unconscious person on revive, non-medics leave 75% HP (previous - medic 75%, non-medic - 50%)
+
 ### 1.4.1
 - Upgrade to 2.3.2 Community Version
 - Increased base attack timings (3600 seconds -> 5400 seconds for base value, 600 seconds->900 seconds for subsequent additions)

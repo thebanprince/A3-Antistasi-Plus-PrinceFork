@@ -63,7 +63,6 @@ if (_medicX != _unit) then
 					{
 					[_unit,"AinjPpneMrunSnonWnonDb"] remoteExec ["switchMove"];
 					_medicX disableAI "ANIM";
-					//_medicX playMoveNow "AcinPknlMstpSrasWrflDnon";
 					_medicX stop false;
 					_dummyGrp = createGroup civilian;
 					_dummy = [_dummyGrp, "C_man_polo_1_F", [0,0,20], [], 0, "FORM"] call A3A_fnc_createUnit;

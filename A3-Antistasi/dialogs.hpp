@@ -1863,13 +1863,13 @@ class commander_comm 		{
 		class 10slots_L3: RscButton
 		{
 			idc = -1;
-			text = "PLACEHOLDER";
+			text = "Assign Loot Vehicle";
 			x = 0.272481 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Reserved for future purposes.";
-			action = "closeDialog 0; systemChat 'Reserved for future purposes.';";
+			tooltip = "Adds Loot To Vehicle action to vehicle. Costs 1000€.";
+			action = "closeDialog 0; [] call SCRT_fnc_loot_assignLootVehicle;";
 		};
 		class 10slots_R3: RscButton
 		{

@@ -40,6 +40,7 @@ class SCRT
         class loot_gatherLoot {};
         class loot_addActionLoot {};
         class loot_removeActionLoot {};
+        class loot_assignLootVehicle {};
 	};
 
     class Unit 

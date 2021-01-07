@@ -234,7 +234,7 @@ switch(true) do {
         ] call A3A_fnc_taskUpdate;
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-        { [600,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+        { [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
         [20, theBoss] call A3A_fnc_playerScoreAdd;
     };
     default {

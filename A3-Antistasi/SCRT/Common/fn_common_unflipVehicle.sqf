@@ -19,18 +19,18 @@ if (_nearFriendlies < 3) exitWith {
 };
 
 private _vehicleMass = getMass _vehicle;
-if(_vehicleMass > 10000) exitWith {
+private _escape = false;
+
+if(_vehicleMass > 10000) then {
     _nearVehicles = _vehicle nearEntities ["Car", 50];
-    _canRepair = false;
 
-    {
-        private _repairValue = getRepairCargo _vehicle;
-        if (_repairValue > 0) exitWith { _canRepair = true };
-    } forEach _nearVehicles;
-
-    if !(_canRepair) exitWith {
-        ["Unflip failed", "Vehicle is too heavy, repair truck is needed to perform unflip."] call SCRT_fnc_misc_showDeniedActionHint;
+    if !(count _nearVehicles < 1) then {
+        _escape = true;
     };
+};
+
+if (_escape) exitWith {
+    ["Unflip failed", "Vehicle is too heavy, additional car is needed to perform unflip."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 (_vehicle call BIS_fnc_getPitchBank) params ["_vx","_vy"];
@@ -44,3 +44,5 @@ if (([_vx,_vy] findIf {_x > 80 || _x < -80}) != -1) then {
         _unflippableVehicle allowDamage true;
 	};
 };
+
+playSound "3DEN_notificationDefault";

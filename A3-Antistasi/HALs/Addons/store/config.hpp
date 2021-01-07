@@ -4075,51 +4075,51 @@ class cfgHALsStore
 			};
 
 			class CUP_1Rnd_HE_GP25_M {
-				price = 75;
+				price = 40;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_IlumFlareGreen_GP25_M {
-				price = 35;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_IlumFlareWhite_GP25_M {
-				price = 35;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_IlumFlareRed_GP25_M {
-				price = 35;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareWhite_GP25_M {
-				price = 30;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareGreen_GP25_M {
-				price = 30;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareRed_GP25_M {
-				price = 30;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareYellow_GP25_M {
-				price = 30;
+				price = 15;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SMOKE_GP25_M {
-				price = 50;
+				price = 20;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeRed_GP25_M {
-				price = 50;
+				price = 20;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeGreen_GP25_M {
-				price = 50;
+				price = 20;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeYellow_GP25_M {
-				price = 50;
+				price = 20;
 				stock = MAGAZINE_STOCK;
 			};
 
@@ -4177,139 +4177,139 @@ class cfgHALsStore
 			};
 
 			class CUP_6Rnd_HE_GP25_M {
-				price = 500;
+				price = 250;
 				stock = MAGAZINE_STOCK;
 			};
 
 			class CUP_6Rnd_FlareWhite_GP25_M {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareGreen_GP25_M {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareRed_GP25_M {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareYellow_GP25_M {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_Smoke_GP25 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeRed_GP25 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeGreen_GP25 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeYellow_GP25 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 
 			class CUP_6Rnd_HE_M203 {
-				price = 500;
+				price = 250;
 				stock = MAGAZINE_STOCK;
 			};
 
 			class CUP_6Rnd_FlareWhite_M203 {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareGreen_M203 {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareRed_M203 {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_FlareYellow_M203 {
-				price = 300;
+				price = 125;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_Smoke_M203 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeRed_M203 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeGreen_M203 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_6Rnd_SmokeYellow_M203 {
-				price = 350;
+				price = 200;
 				stock = MAGAZINE_STOCK;
 			};
 
 			class CUP_1Rnd_HE_M203 {
-				price = 100;
+				price = 50;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_HEDP_M203 {
-				price = 200;
+				price = 100;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_StarCluster_Red_M203 {
-				price = 75;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_StarCluster_Green_M203 {
-				price = 75;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_StarFlare_Red_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_StarFlare_Green_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareWhite_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareGreen_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareRed_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_FlareYellow_M203 {
-				price = 50;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_Smoke_M203 {
-				price = 60;
+				price = 35;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeRed_M203 {
-				price = 60;
+				price = 35;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeGreen_M203 {
-				price = 60;
+				price = 35;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_SmokeYellow_M203 {
-				price = 60;
+				price = 35;
 				stock = MAGAZINE_STOCK;
 			};
 			class CUP_1Rnd_StarFlare_White_M203 {
-				price = 75;
+				price = 25;
 				stock = MAGAZINE_STOCK;
 			};
 

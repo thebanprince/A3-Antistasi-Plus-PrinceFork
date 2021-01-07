@@ -760,13 +760,13 @@ server setVariable [vehSDKAT, 1500, true];
 
 //black market costs
 {server setVariable [_x,2000,true]} forEach shop_UAV;
-{server setVariable [_x,10000,true]} forEach shop_AA;
-{server setVariable [_x,5000,true]} forEach shop_MRAP;
-{server setVariable [_x,10000,true]} forEach shop_wheel_apc;
-{server setVariable [_x,12500,true]} forEach shop_track_apc;
+{server setVariable [_x,7500,true]} forEach shop_AA;
+{server setVariable [_x,3000,true]} forEach shop_MRAP;
+{server setVariable [_x,8000,true]} forEach shop_wheel_apc;
+{server setVariable [_x,9500,true]} forEach shop_track_apc;
 {server setVariable [_x,25000,true]} forEach shop_heli;
-{server setVariable [_x,22500,true]} forEach shop_tank;
-{server setVariable [_x,40000,true]} forEach shop_plane;
+{server setVariable [_x,20000,true]} forEach shop_tank;
+{server setVariable [_x,35000,true]} forEach shop_plane;
 
 //technicals cost
 if(hasCup || {hasAU}) then {
