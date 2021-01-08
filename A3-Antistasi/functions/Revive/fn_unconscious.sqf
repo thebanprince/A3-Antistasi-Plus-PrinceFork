@@ -143,10 +143,6 @@ if (time > _bleedOut) exitWith {
 };
 if (alive _unit) then {
 	_unit setUnconscious false;
+	_unit setBleedingRemaining 0;
 	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
-	//previous animation has length issues, let's play other animation to regain character controls faster
-	private _timeOut = time + 4;
-	waitUntil {time > _timeOut};
-	_unit playMoveNow "AmovPpneMstpSrasWrflDnon";
-	_unit setBleedingremaining 0;
 };
