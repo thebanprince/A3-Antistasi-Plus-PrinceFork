@@ -109,7 +109,7 @@ _medicX addEventHandler ["AnimDone",
             if (_cured getVariable ["incapacitated",false]) then
             {
                 _medicX setVariable ["success",true];
-                if !([_medicX] call A3A_fnc_isMedic) then {_cured setDamage 0.25};
+                if ([_medicX] call A3A_fnc_isMedic) then {_cured setDamage 0.25} else {_cured setDamage 0.5};
                 if(!("Medikit" in (items _medicX))) then
                 {
                     _medicX removeItem "FirstAidKit";
