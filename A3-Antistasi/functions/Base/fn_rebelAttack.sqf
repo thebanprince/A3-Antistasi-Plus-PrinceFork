@@ -398,6 +398,11 @@ else
         + ([0, 1] select (_attackTarget in milbases))
 		+ (count allPlayers / 40);
 
+    //three waves max
+    if(_waves > 3) then {
+        _waves = 3;
+    };
+
 	_waves = round _waves;
     if(_waves < 1) then {_waves = 1};
 
