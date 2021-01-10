@@ -287,7 +287,6 @@ private _templateVariables = [
 	"ATStaticSDKB",
 	"AAStaticSDKB",
 	"MortStaticSDKB",
-	"supportStaticSDKB",
 	"supportStaticsSDKB2",
 	"supportStaticsSDKB3",
 	"ATMineMag",
