@@ -75,8 +75,6 @@ MGStaticSDKB = "I_G_HMG_02_high_weapon_F";
 ATStaticSDKB = "B_AT_01_weapon_F";
 AAStaticSDKB = "B_AA_01_weapon_F";
 MortStaticSDKB = "B_Mortar_01_weapon_F";
-//Short Support
-supportStaticSDKB = "I_G_HMG_02_support_F";
 //Tall Support
 supportStaticsSDKB2 = "I_G_HMG_02_support_high_F";
 //Mortar Support

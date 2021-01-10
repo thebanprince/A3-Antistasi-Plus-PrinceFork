@@ -76,8 +76,6 @@ MGStaticSDKB = "RHS_M2_Gun_Bag";
 ATStaticSDKB = "RHS_SPG9_Gun_Bag";
 AAStaticSDKB = "no_exists";
 MortStaticSDKB = "rhs_M252_Gun_Bag";
-//Short Support
-supportStaticSDKB = "RHS_SPG9_Tripod_Bag";
 //Tall Support
 supportStaticsSDKB2 = "RHS_M2_Tripod_Bag";
 //Mortar Support

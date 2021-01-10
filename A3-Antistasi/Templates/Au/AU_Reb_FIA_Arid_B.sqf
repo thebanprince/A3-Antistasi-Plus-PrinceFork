@@ -44,9 +44,9 @@ soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 ////////////////////////////////////
 //Military Vehicles
 vehSDKBike = "B_G_Quadbike_01_F";
-vehSDKLightArmed = "CUP_B_Hilux_M2_BLU_G_F";
-vehSDKAT = "CUP_B_Hilux_SPG9_BLU_G_F";
-vehSDKLightUnarmed = "CUP_B_Hilux_unarmed_BLU_G_F";
+vehSDKLightArmed = "Atlas_B_H_Offroad_02_LMG_F";
+vehSDKAT = "Atlas_B_H_Offroad_02_AT_F";
+vehSDKLightUnarmed = "Atlas_B_H_Offroad_02_unarmed_F";
 vehSDKTruck = "B_G_Van_01_transport_F";
 vehSDKPlane = "C_Plane_Civil_01_F";
 vehSDKBoat = "B_G_Boat_Transport_01_F";
@@ -64,7 +64,7 @@ civLooter = "C_Truck_02_transport_F";
 ////////////////////////////////////
 //Assembled Static Weapons
 SDKMGStatic = "CUP_B_DSHKM_CDF";
-staticATteamPlayer = "CUP_B_SPG9_CDF";
+staticATteamPlayer = "I_AT_01_weapon_F";
 staticAAteamPlayer = "CUP_B_ZU23_CDF";
 SDKMortar = "CUP_B_2b14_82mm_CDF";
 SDKMortarHEMag = "8Rnd_82mm_Mo_shells";
@@ -72,11 +72,9 @@ SDKMortarSmokeMag = "8Rnd_82mm_Mo_Smoke_white";
 
 //Static Weapon Bags
 MGStaticSDKB = "CUP_B_DShkM_Gun_Bag";
-ATStaticSDKB = "CUP_B_SPG9_Gun_Bag";
+ATStaticSDKB = "I_AT_01_weapon_F";
 AAStaticSDKB = "B_AA_01_weapon_F";
 MortStaticSDKB = "CUP_B_Podnos_Gun_Bag";
-//Short Support
-supportStaticSDKB = "CUP_B_SPG9_Tripod_Bag";
 //Tall Support
 supportStaticsSDKB2 = "CUP_B_DShkM_TripodHigh_Bag";
 //Mortar Support
@@ -127,7 +125,16 @@ allRebelUniforms append [
     "WAM_fat_1",
     "WAM_fat_4",
     "WAM_fat_5",
-    "WAM_fat_jeans"
+    "WAM_fat_jeans",
+    "NAA_fat_alpat_ard1",
+    "NAA_fat_alpat_ard2",
+    "NAA_fat_alpat_ard3",
+    "NAA_fat_alpat_rs_ard1",
+    "NAA_fat_alpat_rs_ard2",
+    "NAA_fat_alpat_rs_ard3",
+    "NAA_hel_can_alpat_ard1",
+    "NAA_hel_can_alpat_ard2",
+    "NAA_hel_can_alpat_ard3"
 ];
 
 //TFAR Unlocks

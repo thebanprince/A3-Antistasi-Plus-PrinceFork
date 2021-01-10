@@ -75,8 +75,6 @@ MGStaticSDKB = "CUP_B_DShkM_Gun_Bag";
 ATStaticSDKB = "CUP_B_SPG9_Gun_Bag";
 AAStaticSDKB = "B_AA_01_weapon_F";
 MortStaticSDKB = "CUP_B_Podnos_Gun_Bag";
-//Short Support
-supportStaticSDKB = "CUP_B_SPG9_Tripod_Bag";
 //Tall Support
 supportStaticsSDKB2 = "CUP_B_DShkM_TripodHigh_Bag";
 //Mortar Support
