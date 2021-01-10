@@ -32,8 +32,7 @@ if (_vehicle in lootVehicles || {typeOf _vehicle == civLooter}) exitWith {
     [_failHeader, "Vehicle is already have loot capabilities."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-server setvariable ["resourcesFIA",_resourcesFIA - COST, true];
-[] spawn A3A_fnc_statistics;
+[0, -1000] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 _vehicle addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -50,4 +49,5 @@ publicVariable "lootVehicles";
 
 [_vehicle] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _vehicle];
 
+["Loot Vehicle Assign Succeeded", "Targeted vehicle has been assigned."] call A3A_fnc_customHint;
 playSound "3DEN_notificationDefault";
