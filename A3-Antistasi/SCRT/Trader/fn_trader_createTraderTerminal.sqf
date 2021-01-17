@@ -6,6 +6,7 @@ traderMarker setMarkerSize [1, 1];
 traderMarker setMarkerText "Arms Dealer";
 traderMarker setMarkerColor "ColorUNKNOWN";
 traderMarker setMarkerAlpha 0;
+publicVariable "traderMarker";
 
 traderVehicleMarker = createMarker ["TraderVehicleMarker", _position];
 traderVehicleMarker setMarkerSize [25, 25];
@@ -14,6 +15,5 @@ traderVehicleMarker setMarkerShape "RECTANGLE";
 traderVehicleMarker setMarkerAlpha 0;
 publicVariable "traderVehicleMarker";
 
-[traderScreenX] remoteExecCall ["SCRT_fnc_trader_setTraderStock", 0];
+[traderScreenX] call SCRT_fnc_trader_setTraderStock;
 [traderScreenX] remoteExecCall ["SCRT_fnc_trader_addVehicleMarketAction", 0, true];
-traderScreenX addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 0, false, true, "", "(_this == theBoss)", 4];

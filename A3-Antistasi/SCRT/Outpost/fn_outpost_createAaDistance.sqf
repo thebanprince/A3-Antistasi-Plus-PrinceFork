@@ -6,7 +6,7 @@ private _garrison = garrison getVariable [_markerX, []];
 
 private _props = [];
 
-if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
+if (isNil "_garrison") then {
     _garrison = [staticCrewTeamPlayer];
     {
         if (random 20 <= skillFIA) then {
@@ -42,7 +42,8 @@ _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup
     };
 } forEach units _groupX;
 
-
+_groupX setBehaviour "AWARE";
+_groupX setCombatMode "YELLOW";
 
 waitUntil {
 	sleep 1; 

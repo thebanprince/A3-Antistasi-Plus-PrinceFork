@@ -4,7 +4,10 @@
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
 - Fixed wrong money reward for completing Ambush Officer and Destroy Artillery tasks
 - Slightly lowered prices for vehicles in Vehicles Market
-- Medics fully heal unconscious person on revive, non-medics leave 75% HP (previous - medic 75%, non-medic - 50%)
+- Revive movement delay fix rollback due inconsistent work on some configurations that leads to no player actions bug
+- Rebel attacks waves capped at 3 (no more 2-hour airport/milbase defence slog)
+- Fixed another bug that contributed to neverending rebel attack bug
+- Fixed trader terminal JIP issue
 
 ### 1.4.1
 - Upgrade to 2.3.2 Community Version

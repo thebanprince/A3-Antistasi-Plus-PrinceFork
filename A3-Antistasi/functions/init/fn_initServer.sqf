@@ -294,7 +294,7 @@ waitUntil{sleep 1;!(isNil "initVar")};
 if(spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
 	[3, "Spawning trader screen on base.", _fileName] call A3A_fnc_log;
 	isTraderQuestAssigned = true;
-	[] remoteExec ["SCRT_fnc_trader_addTraderActions", 0, true];
+	[] call SCRT_fnc_trader_createTraderTerminal;
 } else {
 	[3, "Hiding trader screen.", _fileName] call A3A_fnc_log;
 	[traderScreenX, true] remoteExec ["hideObject", 0, true];

@@ -45,7 +45,8 @@ _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup
     };
 } forEach units _groupX;
 
-
+_groupX setBehaviour "AWARE";
+_groupX setCombatMode "YELLOW";
 
 waitUntil {
 	sleep 1; 

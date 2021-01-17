@@ -11,3 +11,5 @@ _traderX addAction [
 	"(isPlayer _this) and ([_this] call A3A_fnc_isMember)",
 	3
 ]; 
+
+_traderX addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 0, false, true, "", "(_this == theBoss)", 4];
