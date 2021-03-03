@@ -50,7 +50,8 @@ vehSDKLightUnarmed = "I_G_Offroad_01_F";
 vehSDKTruck = "I_C_Van_01_transport_F";
 vehSDKPlane = "I_C_Plane_Civil_01_F";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
-vehSDKRepair = "B_G_Offroad_01_repair_F";
+vehSDKRepair = "I_G_Offroad_01_repair_F";
+vehSDKFuel = "I_G_Van_01_fuel_F";
 
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";

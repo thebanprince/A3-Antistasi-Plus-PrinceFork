@@ -51,6 +51,7 @@ vehSDKTruck = "B_G_Van_01_transport_F";
 vehSDKPlane = "C_Plane_Civil_01_F";
 vehSDKBoat = "B_G_Boat_Transport_01_F";
 vehSDKRepair = "B_G_Offroad_01_repair_F";
+vehSDKFuel = "B_G_Van_01_fuel_F";
 
 //Civilian Vehicles
 civCar = "CUP_O_Hilux_unarmed_CR_CIV";
@@ -154,7 +155,7 @@ shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8
 //technical menu content, CUP exclusive
 techicalAa = "CUP_B_Hilux_zu23_BLU_G_F";
 technicalBtr = "CUP_B_Hilux_btr60_BLU_G_F";
-technicalNar = "CUP_B_Hilux_podnos_BLU_G_F";
+techicalMortar = "CUP_B_Hilux_podnos_BLU_G_F";
 technicalJackal = "CUP_B_Jackal2_L2A1_FIA";
 technicalArmoredBtr = "CUP_B_Hilux_armored_BTR60_BLU_G_F";
 technicalArmoredAa = "CUP_B_Hilux_armored_zu23_BLU_G_F";

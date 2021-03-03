@@ -51,6 +51,7 @@ vehSDKTruck = "rhsgref_cdf_zil131";
 vehSDKPlane = "RHS_AN2";
 vehSDKBoat = "I_C_Boat_Transport_01_F";
 vehSDKRepair = "rhsgref_cdf_gaz66_repair";
+vehSDKFuel = "rhsgref_cdf_ural_fuel";
 
 //Civilian Vehicles
 civCar = "C_Offroad_01_F";

@@ -51,6 +51,7 @@ vehSDKTruck = "CUP_B_Kamaz_Open_CDF";
 vehSDKPlane = "C_Plane_Civil_01_F";
 vehSDKBoat = "B_G_Boat_Transport_01_F";
 vehSDKRepair = "CUP_B_Kamaz_Repair_CDF";
+vehSDKFuel = "CUP_B_Kamaz_Refuel_CDF";
 
 //Civilian Vehicles
 civCar = "CUP_O_Hilux_unarmed_CR_CIV";
@@ -125,7 +126,7 @@ shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8
 //technical menu content, CUP exclusive
 techicalAa = "CUP_I_Ural_ZU23_NAPA";
 technicalBtr = "CUP_B_Hilux_btr60_BLU_G_F";
-technicalNar = "CUP_B_Hilux_podnos_BLU_G_F";
+techicalMortar = "CUP_B_Hilux_podnos_BLU_G_F";
 technicalJackal = "CUP_B_Jackal2_L2A1_FIA";
 technicalArmoredBtr = "CUP_B_Hilux_armored_BTR60_BLU_G_F";
 technicalArmoredAa = "CUP_B_Hilux_armored_zu23_BLU_G_F";
