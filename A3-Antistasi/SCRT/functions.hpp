@@ -107,8 +107,11 @@ class SCRT
         class ui_createVehicleBlackMarketMenu {};
         class ui_setVehicleCostText {};
         class ui_setTechnicalVehicleCostText {};
-        class ui_createTechnicalMenu {};
         class ui_buyTechnical {};
+        class ui_createBuyVehicleMenu {};
+        class ui_setAvailableBuyVehicleTypes {};
+        class ui_getMarketLookup {};
+        class ui_buyBuyVehicle {};
     };
 
     class Trader

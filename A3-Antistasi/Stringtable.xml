@@ -85,6 +85,15 @@
         <Czech>Koupit vozidlo</Czech>
         <Korean>차량 구매</Korean>
       </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_note_text">
+        <Original>Note that rebel vehicle roster will expand as war evolves.</Original>
+        <English>Note that rebel vehicle roster will expand as war evolves.</English>
+        <French>Notez que la liste des véhicules rebelles augmentera au fur et à mesure que la guerre évoluera.</French>
+        <Russian>Обратите внимание, что список доступной для повстанцев техники будет расширяться по мере развития войны.</Russian>
+        <German>Beachten Sie, dass die Liste der Rebellenfahrzeuge im Verlauf des Krieges erweitert wird.</German>
+        <Czech>Pamatujte, že soupiska rebelských vozidel se bude s vývojem války rozšiřovat.</Czech>
+        <Korean>반란군 차량 명단은 전쟁이 진행됨에 따라 확장됩니다.</Korean>
+      </Key>
       <Key ID="STR_antistasi_dialogs_available_missions_frame_text">
         <Original>Available Missions</Original>
         <English>Available Missions</English>
@@ -713,8 +722,8 @@
         <Korean>차량을 구입하도록 허가를 해줍니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_text">
-        <Original>Civilian Vehicle</Original>
-        <English>Civilian Vehicle</English>
+        <Original>Civilian Vehicles</Original>
+        <English>Civilian Vehicles</English>
         <French>Véhicule civil</French>
         <Russian>Гражданская техника</Russian>
         <German>Zivilfahrzeuge</German>

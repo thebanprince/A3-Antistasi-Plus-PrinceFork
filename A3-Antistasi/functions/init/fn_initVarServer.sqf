@@ -278,6 +278,7 @@ private _templateVariables = [
 	"vehSDKPlane",
 	"vehSDKBoat",
 	"vehSDKRepair",
+	"vehSDKFuel",
 	"civCar",
 	"civTruck",
 	"civHeli",
@@ -472,7 +473,7 @@ private _templateVariables = [
 
 //CUP-only technical variables
 if(hasCup || {hasAU}) then {
-	_templateVariables append ["techicalAa", "technicalBtr", "technicalNar", "technicalJackal", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
+	_templateVariables append ["techicalAa", "technicalBtr", "techicalMortar", "technicalJackal", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
 {
@@ -646,7 +647,7 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
-private _vehNormal = (vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair]);
+private _vehNormal = (vehNATONormal + vehCSATNormal + [vehFIATruck,vehSDKTruck,vehSDKLightArmed,vehSDKBike,vehSDKRepair,vehSDKFuel]);
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
 private _vehBoats = [vehNATOBoat,vehCSATBoat,vehSDKBoat];
@@ -694,7 +695,7 @@ DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATGMG, CSATMortar, CSATAARadar, CSATAACiws, CSATAASam];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
-private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair];
+private _vehFIA = [vehSDKBike,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 ///////////////////////////
@@ -752,14 +753,16 @@ timer setVariable [vehCSATMRLS,5,true];
 
 server setVariable [civCar,350,true];													
 server setVariable [civTruck,700,true];	
-server setVariable [civHeli,6000,true];
+server setVariable [civHeli, 5000,true];
 server setVariable [civBoat,200,true];
-server setVariable [civLooter,1000,true];
+server setVariable [civLooter,1250,true];
 server setVariable [vehSDKBike, 100, true];
 server setVariable [vehSDKLightUnarmed,200,true];										
 server setVariable [vehSDKTruck,300,true];
 server setVariable [vehSDKLightArmed, 1000, true];
 server setVariable [vehSDKAT, 1500, true];
+server setVariable [vehSDKFuel, 550, true];
+
 {server setVariable [_x,700,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];
 {server setVariable [_x,1200,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];
 
@@ -777,7 +780,7 @@ server setVariable [vehSDKAT, 1500, true];
 if(hasCup || {hasAU}) then {
 	server setVariable [techicalAa, 1500, true];													
 	server setVariable [technicalBtr, 1750, true];	
-	server setVariable [technicalNar, 3500, true];
+	server setVariable [techicalMortar, 3500, true];
 	server setVariable [technicalJackal, 1750, true];
 	server setVariable [technicalArmoredBtr, 3250, true];
 	server setVariable [technicalArmoredAa, 3000, true];
