@@ -23,22 +23,7 @@ if (hasInterface) then
 	//--- Dust
 	setwind [0.401112*2,0.204166*2,false];
 	_velocity = wind;
-	/*
-	_color = [.1, .1, .06];
-	_alpha = 0.47 + random 0.12;
-	_ps2 = "#particlesource" createVehicleLocal _pos;  // this is black smoke
-	_ps2 setParticleParams [["a3\data_f\ParticleEffects\Universal\Universal.p3d", 16, 12, 8, 0], "", "Billboard", 1, 75 + random 10, [0, 0, 1], _velocity, 25, 1.36, 1.15, 0, [45 + (random 145)], [_color + [0], _color + [_alpha], _color + [0]], [1000], 1, 0, "", "", 1];
-	_ps2 setParticleRandom [3, [4 + (random 10), 4 + (random 10), 1 + random 1], [random 2, random 2, 0], 1, 0, [0, 0, 0, 0.01], 0, 0];
-	_ps2 setParticleCircle [0.1, [0, 0, 0]];
-	_ps2 setDropInterval 0.05;
-	_alpha = 0.17 + random 0.04;
-	_color = [.13, .2, .06];
-	_ps3 = "#particlesource" createVehicleLocal _pos;  // this is gray white smoke
-	_ps3 setParticleParams [["a3\data_f\ParticleEffects\Universal\Universal.p3d", 16, 9, 8, 0], "", "Billboard", 1, 1 + random 5, [0, 0, 0], _velocity, 1, 1.39, 1.15, 0, [3 + (random 3)], [_color + [0], _color + [_alpha], _color + [0]], [1000], 1, 0, "", "", 1];
-	_ps3 setParticleRandom [3, [25 + (random 1), 25 + (random 1), 2], [random 2, random 2, 0], 1, 1, [0, 0, 0, 4], 0, 0];
-	_ps3 setParticleCircle [0.1, [0, 0, 0]];
-	_ps3 setDropInterval 0.01;
-	*/
+
 	_color = [1, 1, 1];
 	_alpha = 0.31 ;
 	_ps4 = "#particlesource" createVehicleLocal _pos;  // this is fire i think yellow
