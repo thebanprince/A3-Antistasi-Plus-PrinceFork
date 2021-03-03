@@ -143,7 +143,7 @@ while {true} do {
 	bombRuns = bombRuns + (({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX) * 0.25);
 
 	private _outposts = {sidesX getVariable [_x,sideUnknown] == teamPlayer} count outposts;
-	if(_outposts > 5) then {
+	if(_outposts > 4) then {
 		supportPoints = supportPoints + 1;
 	};
 
