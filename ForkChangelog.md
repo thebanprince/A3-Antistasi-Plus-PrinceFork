@@ -1,6 +1,31 @@
-## Changelog
+# Changelog
+## 2.0
+### Additions
+- UI/UX overhaul - new commander menu (O key shortcut), all other menus were remade on new UI framework
+- New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
+- Support points for non-offensive commander abilities (capped at 3 max, requires 4 captured outposts to start gaining them)
+- Construction overhaul: persistent save for everything, new UI/UX, much more options to build
+- Tune weather and fog options (Environment tab in commander menu)
+- Rocket Camera
+- Ability to buy repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck) or 3 resources (fuel truck))
 
-### 1.4.2
+### Changes
+- Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and captured points 
+- UI/UX overhaul - new commander menu, all others menu remade on new UI framework
+- Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
+- Maximum for AI Limit option changed from 200 to 300
+- Moved Artillery Support menu from Shift+Y to AI Management submenu
+- Increased Loot Truck price from 1000 to 1250
+- (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (Technicals submenu) 
+- (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska 
+- (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
+
+### Removals
+- Removed Airstrikes title from top status bar
+- Removed tent on rebel HQ (all actions from it moved to new commander UI)
+- Removed duplicated or obsolete code -> less mission file size
+
+## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
 - Fixed wrong money reward for completing Ambush Officer and Destroy Artillery tasks
 - Slightly lowered prices for vehicles in Vehicles Market
@@ -9,7 +34,8 @@
 - Fixed another bug that contributed to neverending rebel attack bug
 - Fixed trader terminal JIP issue
 
-### 1.4.1
+
+## 1.4.1
 - Upgrade to 2.3.2 Community Version
 - Increased base attack timings (3600 seconds -> 5400 seconds for base value, 600 seconds->900 seconds for subsequent additions)
 - Mag Repack mission parameter
@@ -37,7 +63,7 @@
 - Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
 - Removed unused code (leads to slight mission file size reduction)
 
-### 1.4
+## 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
 - Establish roadblock, watchpost, AA Emplacement or AT Emplacement action (Y menu, commander section)
 - Share Faction Money action (Y menu, commander section)
@@ -79,15 +105,15 @@
 - (Taviana) Misson file size reduction, slightly lowered loading times
 - (Taviana) Additional Police stations in cities to expand possible Kill Collaborationist sites
 
-### 1.0.3
+## 1.0.3
 - Aegis mod detection fix
 - Added AUR 90 series in the arms dealer's store (Aegis)
 - Fixed AA placement on Control Tower
 
-### 1.0.2
+## 1.0.2
 - Fixed neverending BLUFOR/OPFOR attacks
 
-### 1.0.1
+## 1.0.1
 - Fixed hangar explosion on spawn (Taviana)
 - Misson size reduction, slightly lowered loading times (Taviana)
 - Weapon prices little tuning 
@@ -96,7 +122,7 @@
 - A few new control markers
 - Tuned excessive logging on BLUFOR squad spawn (less spam to .rpt)
   
-### 1.0
+## 1.0
 - Upgrade to 2.3.1 Community Version 
 - Full Arma 3 Atlas, Arma 3 Aegis, Arma 3 Atlas - Opposing Forces, Arma 3 - Police support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
 - Full CUP Vehicles, CUP Weapons, CUP Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, technicals store, tiered unit configs)
@@ -129,7 +155,7 @@
 - Removed Infantry Unit Tiers setting (the feature is still there but can't be turned off)
 - Removed True Viking mod support (Antistasi Units template)
 
-### 0.6
+## 0.6
 - New mission type: Salvage Helicrash
 - Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes to this mission from unreleased community version
 - Ability to buy military aircraft at black market
@@ -158,7 +184,7 @@
 - Livonia military buildings support (mostly for future Antistasi Plus ports)
 - UI tweaks
 
-### 0.4.4
+## 0.4.4
 - Fixed serialization of trader quest completion parameter on dedicated servers and HCs
 - Fixed incorrect trader creation function call on dedicated servers and HCs
 - Fixed Bug with gearless and weaponless helicopter troops
@@ -168,7 +194,7 @@
 - Moved initial HQ placement to Taviana Zoo (safest place on island)
 - little roadwreck purge on Taviana's south part
 
-### 0.4.3
+## 0.4.3
 - Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool
 - "Clear Forest" action on arms dealer's laptop now properly works on dedicated server
 - Fixed inability to place black market vehicle in some cases on dedicated server
@@ -186,13 +212,13 @@
 - The Great Roadwreck Purge
 - HallyG store framework 1.5.0 update
 
-### 0.4.1
+## 0.4.1
 - Fixed wrong text on vehicle market entries
 - "Clear Forest" action on arms dealer's laptop
 - Fixed inability to buy vehicles on vehicle market
 
 
-### 0.4
+## 0.4
 - Updgrade to stable release of 2.3 Antistasi Community Version
 - New Find the Arms Dealer task type (can be obtained via intel search/interrogation)
 - Arms Dealer with the ability to directly sell weapons, magazines, items etc
@@ -204,12 +230,12 @@
 - Additional control zones, 2 new outposts
 
 
-### 0.2.1
+## 0.2.1
 - Fixed bug with CHDKZ flagpole
 - Added Infantry Units Tiers setting 
 
 
-### 0.2
+## 0.2
 - Upgrade to 2.3 (still unstable) Antistasi Community Version
 - Fixed bug with commander squads spawn
 - Fixed bug with not working Fatal Wounds mission parameter
@@ -226,7 +252,7 @@
 - Infantry unit tiers enabled for RHS
 - Starting equipment adjustment for RHS template
 
-### 0.1
+## 0.1
 - Taviana support
 - Special truck with ability to autoloot bodies around the truck to reduce tediousness of looting enemy (can be bought on Civilian section)
 - Integrated Mag Repack script (menu can be accessed via Ctrl+R hotkey)
