@@ -443,7 +443,6 @@ class switchButton
 	h = "4 * pixelGridNoUIScale * pixelW";
 };
 
-
 class BaseComboBox 
 {
 	idc = -1;
@@ -459,11 +458,11 @@ class BaseComboBox
 	rowHeight = "((pixelH * (pixelGridNoUIScale) * 2) * 1.3) * 0.5";
 	wholeHeight = "((pixelH * (pixelGridNoUIScale) * 2) * 25) * 0.5";
 	
-	colorSelect[] = {0,0,0,1};
+	colorSelect[] = {1,1,1,1};
 	colorText[] = {1,1,1,1};
 	colorDisabled[] = {1,1,1,0.85}; // Disabled text color
 	colorBackground[] = {0,0,0,0.85};
-	colorSelectBackground[] = { 0.376, 0.125, 0.043, 0.9 }; // Selected item fill color
+	colorSelectBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9}; // Selected item fill color
 	colorScrollbar[] = {1,1,1,0.85};
 	font = "PuristaMedium";
 	
@@ -512,11 +511,11 @@ class ButtonBase
 	fade = 1;
 	
 	colorBackground[] = {0.17,0.17,0.17,0.85};
-	colorBackgroundActive[] = {0.274, 0.062, 0.027, 0.85};
+	colorBackgroundActive[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.274]) - 0.08","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.062]) - 0.08","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.027]) - 0.08", 0.85};
 	colorBackgroundDisabled[] = {0.17,0.17,0.17,0.85};
 	colorBorder[] = {0,0,0,1};
 	colorDisabled[] = {1,1,1,0.25};
-	colorFocused[] = {0.627, 0.125, 0.039,0.75};
+	colorFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.627]) + 0.08","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125]) + 0.08","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.039]) + 0.08", 0.75};
 	colorShadow[] = {0,0,0,0};
 	colorText[] = {1,1,1,1};
 	
@@ -1102,7 +1101,7 @@ class SimpleMenuBig : SimpleMenu
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
 			w = ((safezoneW / safezoneH) min 1.2);
 			h = 0.02 * safezoneH;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
 	};
 };
@@ -1129,7 +1128,7 @@ class SimpleMenuBigger : SimpleMenu
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
 			w = ((safezoneW / safezoneH) min 1.2);
 			h = 0.02 * safezoneH;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
 	};
 };
@@ -1156,7 +1155,7 @@ class SimpleMenuSmall : SimpleMenu
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
 			w = ((safezoneW / safezoneH) min 1.2);
 			h = 0.02 * safezoneH;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
 	};
 };
@@ -1183,7 +1182,7 @@ class SimpleMenuMedium : SimpleMenu
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
 			w = ((safezoneW / safezoneH) min 1.2);
 			h = 0.02 * safezoneH;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
 	};
 };
@@ -1209,6 +1208,11 @@ class SimpleButton: ButtonBase
 };
 
 class SimpleText: TextBase
+{
+	fade = 0;
+};
+
+class SimpleTextMt: TextBaseMT 
 {
 	fade = 0;
 };

@@ -66,7 +66,7 @@ class startupMenu: SimpleMenuSmall
 			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "loadLastSave = true; closeDialog 0;";
 		};
 		
@@ -101,7 +101,7 @@ class loadLastPersonalSaveMenu: SimpleMenuSmall
 			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "[true] call A3A_fnc_loadPreviousSession; closeDialog 0;";
 		};
 		
@@ -312,51 +312,6 @@ class unitRecruit: SimpleMenuBig
 	};
 };
 
-class vehicleOption: SimpleMenuSmall 
-{
-	idd=-1;
-
-	class Controls
-	{
-		class closeButton: RscCloseButton
-		{
-			idc = -1;
-			x = 0.732 * safezoneW + safezoneX;
-			y = 0;
-			w = 0.02 * safezoneW;
-			h = 0.02 * safezoneH;
-			action = "closeDialog 0";
-		};
-
-		class title: SimpleTitle
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_buy_vehicle_frame_text;
-		};
-
-		class civVehButton: SimpleButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_vehicle_purchase_civie_text;
-			tooltip = $STR_antistasi_dialogs_vehicle_purchase_civie_tooltip;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
-			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicleCiv;";
-		};
-		
-		class milVehButton: SimpleButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
-			tooltip = $STR_antistasi_dialogs_vehicle_purchase_military_tooltip;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicle;";
-		};
-	};
-};
-
 class buyVehicle: SimpleMenuBig 
 {
 	idd = 100;
@@ -532,7 +487,6 @@ class missionMenu: SimpleMenuMedium
 {
 	idd = 100;
 	
-
 	class Controls
 	{
 		class closeButton: RscCloseButton
@@ -750,7 +704,7 @@ class vehQuery: SimpleMenuSmall
 			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "closeDialog 0; vehQuery = true;";
 		};
 		
@@ -1044,7 +998,7 @@ class constructionMenu: SimpleMenuSmall
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			tooltip = "Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.";
 			action = "[] call SCRT_fnc_ui_prepareConstructionBuild;";
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 		};
 	};
 };
@@ -1653,7 +1607,7 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
-			onLBSelChanged = "[] call SCRT_fnc_ui_setVehicleCostText;";
+			onLBSelChanged = "[90000] call SCRT_fnc_ui_setVehicleCostText;";
 		};
 
 		class costsText: SimpleText
@@ -1672,15 +1626,15 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 			text = "Purchase";
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "[] call SCRT_fnc_trader_buyBlackMarketVehicle;";
 		};
 	};
 };
 
-class technicalsMenu: SimpleMenuSmall
+class buyVehicleMenu: SimpleMenuSmall
 {
-	idd = 100000;
+	idd = 110000;
 	
 	class Controls
 	{
@@ -1697,27 +1651,47 @@ class technicalsMenu: SimpleMenuSmall
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = $STR_trader_technicals_title;
+			text = $STR_antistasi_dialogs_buy_vehicle_frame_text;
 		};
 
-		class technicalsComboBox: SimpleComboBox
+		class vehicleTypeComboBox: SimpleComboBox
 		{
-			idc = 2005;
+			idc = 715;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.075;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
-			onLBSelChanged = "[] call SCRT_fnc_ui_setTechnicalVehicleCostText;";
+			onLBSelChanged = "[] call SCRT_fnc_ui_setAvailableBuyVehicleTypes;";
+		};
+
+		class vehicleComboBox: SimpleComboBox
+		{
+			idc = 705;
+			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			w = "22 * pixelGridNoUIScale * pixelW";
+			h = "2 * pixelGridNoUIScale * pixelH";
+			onLBSelChanged = "[110000] call SCRT_fnc_ui_setVehicleCostText;";
 		};
 
 		class costsText: SimpleText
 		{
-			idc = 2010;
+			idc = 710;
 			text = "Cost";
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.225;
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.275;
 			w = "22 * pixelGridNoUIScale * pixelW";	
 			h = "1.5 * pixelGridNoUIScale * pixelH";
+		};
+
+		class noteText: SimpleTextMt
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_buy_vehicle_note_text;
+			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.075;
+			w = "22 * pixelGridNoUIScale * pixelW";	
+			h = "3 * pixelGridNoUIScale * pixelH";
 		};
 
 		class r2Button: SimpleButton
@@ -1725,9 +1699,9 @@ class technicalsMenu: SimpleMenuSmall
 			idc = -1;
 			text = "Purchase";
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
-			action = "[] call SCRT_fnc_ui_buyTechnical;";
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
+			action = "[] call SCRT_fnc_ui_buyBuyVehicle;";
 		};
 	};
 };

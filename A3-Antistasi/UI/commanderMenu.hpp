@@ -72,7 +72,7 @@ class commanderMenu
 			w = "24 * pixelGridNoUIScale * pixelW";	
 			h = "3 * pixelGridNoUIScale * pixelH";			
 			sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.5) * 0.5";
-			colorBackground[] = {0.376, 0.125, 0.043, 1};
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};		
 		
 		class tabSelectorLeftButton: ButtonBase
@@ -214,7 +214,7 @@ class commanderMenu
 							h = "3 * pixelGridNoUIScale * pixelH";
 							sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
 							shadow = 2;
-							colorBackground[] = {0.376, 0.125, 0.043, 1};
+							colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 							action = "[] spawn SCRT_fnc_ui_launchSupport;";			
 						};
 					};
@@ -482,7 +482,7 @@ class commanderMenu
 					h = "3 * pixelGridNoUIScale * pixelH";
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
 					shadow = 2;			
-					colorBackground[] = {0.376, 0.125, 0.043, 1};
+					colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 					tooltip = $STR_antistasi_dialogs_hq_button_move_headquarters_tooltip;
 					action = "closeDialog 0; closeDialog 0; [] spawn A3A_fnc_moveHQ;";				
 				};
@@ -901,7 +901,7 @@ class commanderMenu
 					h = "3 * pixelGridNoUIScale * pixelH";
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
 					shadow = 2;			
-					colorBackground[] = {0.376, 0.125, 0.043, 1};
+					colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 					tooltip = "Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This option allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features";
 					action = "closeDialog 0; closeDialog 0; [] spawn A3A_fnc_persistentSave;";				
 				};
