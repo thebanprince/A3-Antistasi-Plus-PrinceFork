@@ -44,7 +44,7 @@ private _antennasDeadPositions = [];
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call A3A_fnc_setStatVariable;
 ["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;
 ["mrkCSAT", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Invaders}] call A3A_fnc_setStatVariable;
-["posHQ", [getMarkerPos respawnTeamPlayer,getPos fireX,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox],[getDir traderScreenX,getPos traderScreenX]]] call A3A_fnc_setStatVariable;
+["posHQ", [getMarkerPos respawnTeamPlayer,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox],[getDir traderScreenX,getPos traderScreenX]]] call A3A_fnc_setStatVariable;
 ["dateX", date] call A3A_fnc_setStatVariable;
 ["skillFIA", skillFIA] call A3A_fnc_setStatVariable;
 ["destroyedSites", destroyedSites] call A3A_fnc_setStatVariable;
@@ -120,7 +120,7 @@ _arrayEst = [];
 			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir];
 		};
 	};
-} forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX,traderScreenX];
+} forEach vehicles - [boxX,flagX,vehicleBox,mapX,traderScreenX];
 
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {

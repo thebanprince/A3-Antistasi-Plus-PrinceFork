@@ -12,8 +12,6 @@ private _alignNormals = {
 };
 
 private _firePos = [_newPosition, 3, getDir petros] call BIS_Fnc_relPos;
-//Extra height on the fire to avoid it clipping into the ground
-fireX setPos (_firePos vectorAdd [0,0,0.1]);
 _rnd = getdir petros;
 _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;
 boxX setPos _pos;
@@ -35,7 +33,7 @@ _pos = [_firePos, 3, _rnd] call BIS_Fnc_relPos;
 vehicleBox setPos _pos;
 
 //Align with ground. Deliberately ignoring flagX, because a flag pole at 45 degrees looks /weird/
-{_x call _alignNormals} forEach [fireX, boxX, mapX, vehicleBox, traderScreenX];
+{_x call _alignNormals} forEach [boxX, mapX, vehicleBox, traderScreenX];
 
 "Synd_HQ" setMarkerPos _newPosition;
 chopForest = false; publicVariable "chopForest";

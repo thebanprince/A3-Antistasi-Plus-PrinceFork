@@ -9,7 +9,6 @@ isSystemChatPostingAllowed = ("SystemChatLogMessages" call BIS_fnc_getParamValue
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
-fireX allowDamage false;
 mapX allowDamage false;
 traderScreenX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
