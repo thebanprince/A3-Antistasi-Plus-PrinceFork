@@ -47,6 +47,8 @@ DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
 //Max units we aim to spawn in. It's not very strictly adhered to.
 DECLARE_SERVER_VAR(maxUnits, 140);
+//Max constructions that players are able to build. Acts on LIFO principle
+DECLARE_SERVER_VAR(maxConstructions, 150);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
@@ -83,14 +85,18 @@ DECLARE_SERVER_VAR(aggressionLevelInvaders, 1);
 //Initial war tier.
 DECLARE_SERVER_VAR(tierWar, 1);
 DECLARE_SERVER_VAR(bombRuns, 0);
+DECLARE_SERVER_VAR(supportPoints, 0);
 //Should various units, such as patrols and convoys, be revealed.
 DECLARE_SERVER_VAR(revealX, false);
 DECLARE_SERVER_VAR(napalmCurrent, false);
+DECLARE_SERVER_VAR(chemicalCurrent, false);
 //Whether the players have Nightvision unlocked
 DECLARE_SERVER_VAR(haveNV, false);
 DECLARE_SERVER_VAR(missionsX, []);
 //List of statics (MGs, AA, etc) that will be saved and loaded.
 DECLARE_SERVER_VAR(staticsToSave, []);
+//List of player-placed buildings that will be saved and loaded.
+DECLARE_SERVER_VAR(constructionsToSave, []);
 //Whether the players have access to radios.
 DECLARE_SERVER_VAR(haveRadio, hasTFAR || hasACRE);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)

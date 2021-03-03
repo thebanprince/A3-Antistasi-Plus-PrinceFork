@@ -12,6 +12,145 @@
         <Korean>이전 저장 데이터를 로드 하시겠습니까?</Korean>
       </Key>
     </Container>
+    <Container name="simple_menu_dialogs">
+      <Key ID="STR_antistasi_dialogs_construction_menu_frame_text">
+        <Original>Construction</Original>
+        <English>Construction</English>
+        <French>Construction</French>
+        <Russian>Строительство</Russian>
+        <German>Konstruktion</German>
+        <Czech>Konstrukce</Czech>
+        <Korean>구성</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_squad_recruitment_menu_frame_text">
+        <Original>Squad Recruitment</Original>
+        <English>Squad Recruitment</English>
+        <French>Recrutement d'escouade</French>
+        <Russian>Набор отрядов</Russian>
+        <German>Squad Rekrutierung</German>
+        <Czech>Nábor družstev</Czech>
+        <Korean>분대 모집</Korean>
+      </Key>
+       <Key ID="STR_antistasi_dialogs_squad_money_player_interaction_menu_frame_text">
+        <Original>Player and Money</Original>
+        <English>Player and Money</English>
+        <French>Joueur et argent</French>
+        <Russian>Игроки и деньги</Russian>
+        <German>Spieler und Geld</German>
+        <Czech>Hráč a peníze</Czech>
+        <Korean>플레이어와 돈</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_battle_options_frame_text">
+        <Original>Battle Options</Original>
+        <English>Battle Options</English>
+        <French>Options de combat</French>
+        <Russian>Быстрые действия</Russian>
+        <German>Kampfoptionen</German>
+        <Czech>Možnosti bitvy</Czech>
+        <Korean>전투 옵션</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_commander_battle_options_frame_text">
+        <Original>Commander  Battle Options</Original>
+        <English>Commander Battle Options</English>
+        <French>Options de combat du commandant</French>
+        <Russian>Командирские быстрые действия</Russian>
+        <German>Commander Battle-Optionen</German>
+        <Czech>Možnosti bitvy velitele</Czech>
+        <Korean>사령관 전투 옵션</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_add_vehicle_to_squad_frame_text">
+        <Original>Add Vehicle To Squad?</Original>
+        <English>Add Vehicle To Squad?</English>
+        <French>Ajouter un véhicule à l'équipe?</French>
+        <Russian>Придать технику отряду?</Russian>
+        <German>Fahrzeug zum Kader hinzufügen?</German>
+        <Czech>Přidat vozidlo do týmu?</Czech>
+        <Korean>분대에 차량을 추가 하시겠습니까?</Korean>
+      </Key>
+       <Key ID="STR_antistasi_dialogs_ai_management_frame_text">
+        <Original>AI Management</Original>
+        <English>AI Management</English>
+        <French>Gestion de l'IA</French>
+        <Russian>Менеджмент ИИ</Russian>
+        <German>KI-Management</German>
+        <Czech>Správa AI</Czech>
+        <Korean>AI 관리</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_frame_text">
+        <Original>Buy Vehicle</Original>
+        <English>Buy Vehicle</English>
+        <French>Acheter un véhicule</French>
+        <Russian>Покупка техники</Russian>
+        <German>Fahrzeug kaufen</German>
+        <Czech>Koupit vozidlo</Czech>
+        <Korean>차량 구매</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_available_missions_frame_text">
+        <Original>Available Missions</Original>
+        <English>Available Missions</English>
+        <French>Missions disponibles</French>
+        <Russian>Доступные миссии</Russian>
+        <German>Verfügbare Missionen</German>
+        <Czech>Dostupné mise</Czech>
+        <Korean>사용 가능한 임무</Korean>
+      </Key>
+    </Container>
+    <Container name="simple_menu_missions">
+      <Key ID="STR_antistasi_dialogs_assassination_text">
+        <Original>Assasination Mission</Original>
+        <English>Assasination Mission</English>
+        <French>Mission d'assassinat</French>
+        <Russian>Миссии по устранению</Russian>
+        <German>Attentatsmission</German>
+        <Czech>Atentátová mise</Czech>
+        <Korean>암살 임무</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_convoy_text">
+        <Original>Convoy Ambush</Original>
+        <English>Convoy Ambush</English>
+        <French>Embuscade du convoi</French>
+        <Russian>Засады на конвой</Russian>
+        <German>Konvoi Hinterhalt</German>
+        <Czech>Konvoj Ambush</Czech>
+        <Korean>호송 매복</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_destroy_text">
+        <Original>Destroy Missions</Original>
+        <English>Destroy Missions</English>
+        <French>Détruire les missions</French>
+        <Russian>Миссии по уничтожению</Russian>
+        <German>Missionen zerstören</German>
+        <Czech>Zničte mise</Czech>
+        <Korean>임무 파괴</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_logistics_text">
+        <Original>Logistics Missions</Original>
+        <English>Logistics Missions</English>
+        <French>Mission logistiques</French>
+        <Russian>Логистические миссии</Russian>
+        <German>Logistikmissionen</German>
+        <Czech>Logistické mise</Czech>
+        <Korean>물류 임무</Korean>
+      </Key>
+    <Key ID="STR_antistasi_dialogs_rescue_text">
+      <Original>Rescue Missions</Original>
+      <English>Rescue Missions</English>
+      <French>Missions de sauvetage</French>
+      <Russian>Спасательные миссии</Russian>
+      <German>Rettungsmissionen</German>
+      <Czech>Záchranné mise</Czech>
+      <Korean>구조 임무</Korean>
+    </Key>
+    <Key ID="STR_antistasi_dialogs_conquest_text">
+      <Original>Conquest Missions</Original>
+      <English>Conquest Missions</English>
+      <French>Missions de conquête</French>
+      <Russian>Миссии по захвату</Russian>
+      <German>Eroberungsmissionen</German>
+      <Czech>Dobývací mise</Czech>
+      <Korean>정복 임무</Korean>
+    </Key>
+    </Container>
     <Container name="dialog_headquarters">
       <Key ID="STR_antistasi_dialogs_hq_frame_text">
         <Original>HQ Options: Commander Only</Original>
@@ -41,12 +180,12 @@
         <Korean>팩션 자금에서 500€ 가져가기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_withdraw_tooltip">
-        <Original>Take 500€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</Original>
-        <English>Take 500€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career</English>
+        <Original>Take 500€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career.</Original>
+        <English>Take 500€ from faction pool and add it to your personal account. It will damage your position among the faction in the commander career.</English>
         <French>Prendre 500€ de la cagnotte de la faction pour l'ajouter sur votre compte. Cela va nuire à votre réputation au sein de la faction et ralentir votre progression des rangs.</French>
-        <Russian>Перевести 500$ из фонда сопротивления себе на счёт. Это вредит вашей репутации как командира</Russian>
+        <Russian>Перевести 500$ из казны сопротивления себе на счёт. Это вредит вашей репутации как командира.</Russian>
         <German>Transferiere 500€ aus der Fraktionskasse zu deinem persönlichen Konto. Dies wird deiner Reputation bezüglich deiner Karriere innerhalb der Fraktion schaden.</German>
-        <Czech>Převod 500€ ze společného fondu na váš účet.Poškodí vaši pozici mezi frakcí a též vaší kariéru velitele</Czech>
+        <Czech>Převod 500€ ze společného fondu na váš účet.Poškodí vaši pozici mezi frakcí a též vaší kariéru velitele.</Czech>
         <Korean>팩션 자금 500€를 당신의 계좌에 가져가면 횡령이기때문에 팩션내 당신의 평판이 내려갈 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
@@ -77,11 +216,11 @@
         <Korean>HQ 이사하기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
-        <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
-        <English>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</English>
+        <Original>Petros will join your group. Ammobox must be empty. To rebuild, select the Build action near Petros.</Original>
+        <English>Petros will join your group. Ammobox must be empty. To rebuild, select the Build action near Petros.</English>
         <French>Petros va rejoindre votre groupe. L'Arsenal doit être vide. Pour reconstruire, sélectionnez l'action "Construire" à côté de Petros.</French>
         <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
-        <German>Maru/Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Maru/Petros auswählen.</German>
+        <German>Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Petros auswählen.</German>
         <Czech>Petros se připojí k vaší skupině. Chcete-li vytvořit velitelství, vyberte možnost u Petrose „Zřídit velitelství“. Arzenál musí být prázdný.</Czech>
         <Korean>페트로스가 당신의 그룹에 참가할 것입니다. 탄약상자는 비워져 있어야합니다. 재건축하려면 페트로스 근처에서 건축하기를 선택하시오.</Korean>
       </Key>
@@ -113,13 +252,13 @@
         <Korean>재건축</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_tooltip">
-        <Original>Cost: €5000</Original>
-        <English>Cost: €5000</English>
-        <French>Coût : 5000€</French>
-        <Russian>Цена: 5000$</Russian>
-        <German>Kosten: 5.000€</German>
-        <Czech>Cena: 5000€</Czech>
-        <Korean>가격: 5000€</Korean>
+        <Original>Rebuilds radio towers and military buildings on selected marker.</Original>
+        <English>Rebuilds radio towers and military buildings on selected marker.</English>
+        <French>Reconstruit les tours radio et les bâtiments militaires sur le marqueur. </French>
+        <Russian>Ремонтирует радиовышки и военные здания на маркере.</Russian>
+        <German>Baut Funktürme und Militärgebäude auf Marker wieder auf. </German>
+        <Czech>Přestavuje rádiové věže a vojenské budovy na značku. </Czech>
+        <Korean>마커에 라디오 타워와 군사 건물을 재건합니다. </Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
         <Original>Train FIA Troops</Original>
@@ -138,24 +277,6 @@
         <German>Erhöht den KI Fähigkeitslevel.</German>
         <Czech>Vylepší úroveň dovednosti AI</Czech>
         <Korean>AI 스킬 레벨 업그레이드</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_text">
-        <Original>Garage Access</Original>
-        <English>Garage Access</English>
-        <French>Accès au garage</French>
-        <Russian>Гараж Сопротивления</Russian>
-        <German>Fuhrparkzugriff</German>
-        <Czech>Přístup do garáže</Czech>
-        <Korean>차고 열기</Korean>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_button_garage_tooltip">
-        <Original>Check Faction garage</Original>
-        <English>Check Faction garage</English>
-        <French>Examiner le garage de la faction</French>
-        <Russian>Проверить Гараж Сопротивления</Russian>
-        <German>Fuhrpark der Fraktion einsehen.</German>
-        <Czech>Zkontrolujte frakční garáž</Czech>
-        <Korean>팩션 차고 확인</Korean>
       </Key>
     </Container>
     <Container name="dialog_build_menu">
@@ -569,7 +690,7 @@
         <Original>2.3.2</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.4.2</Original>
+        <Original>2.0</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -610,8 +731,8 @@
         <Korean>민간 차량은 군사기지, 전초기지, 검문소를 접근하지 않는다면 잠복모드가 가능합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
-        <Original>Military Vehicle</Original>
-        <English>Military Vehicle</English>
+        <Original>Military Vehicles</Original>
+        <English>Military Vehicles</English>
         <French>Véhicule Militaire</French>
         <Russian>Военная Техника</Russian>
         <German>Militärfahrzeuge</German>
@@ -1791,13 +1912,6 @@
         <Czech>Pouze velitel. Tuto hru můžete uložit u své štábní mapy. To vám umožní pokračovat ve hraní po aktualizaci mise nebo restartu serveru, při zachování statistik, vybavení hráče, dobytých zón, dostupnosti nepřátelského majetku a mnoha dalších věcí. VAROVÁNÍ: Normální ukládání a načítání probíhá v této misi špatně. Tento systém je vaší jedinou zárukou správného uložení hry</Czech>
         <Korean>지휘관 전용. HQ 지역 안에서 게임 저장이 가능합니다. 현재 모든 상황을 저장합니다.</Korean>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_Options_4">
-        <Original>Music ON/OFF</Original>
-        <French>Musique ON/OFF</French>
-        <German>Musik An/Aus</German>
-        <Czech>Hudba ZAPNUTO/VYPNUTO</Czech>
-        <Korean>배경음 켜기 / 끄기</Korean>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_4">
         <Original>Antistasi has a situational music script, depending on a player's stance and time of day. The default in Multiplayer is OFF, and ON in Singleplayer</Original>
         <French>Antistasi a un script de musique situationnelle, selon la position du joueur et l'heure de la journée. La valeur par défaut en mode multijoueur est désactivée et activée en mode solo.</French>
@@ -2087,12 +2201,34 @@
         <French>La capacité de pillage a été utilisée au cours des 15 dernières secondes! Veuillez patienter un peu.</French>
         <Russian>Сборщик лута уже был использован недавно. Пожалуйста, подождите 15 секунд.</Russian>
       </Key>
-        <Key ID="STR_antistasi_actions_looter_found_money_title">
+        <Key ID="STR_antistasi_actions_looter_found_money_titleЬш">
           <Original>Money</Original>
           <English>Money</English>
           <French>Argent</French>
           <Russian>Деньги</Russian>
         </Key>
+    </Container>
+    <Container name="black_market">
+      <Key ID="STR_trader_black_market_title">
+          <Original>Military Vehicles Black Market</Original>
+          <English>Military Vehicles Black Market</English>
+          <French>Marché noir des véhicules militaires</French>
+          <Russian>Черный рынок военной техники</Russian>
+          <German>Schwarzmarkt für Militärfahrzeuge</German>
+          <Czech>Černý trh s vojenskými vozidly</Czech>
+          <Korean>군용 차량 암시장</Korean>
+      </Key>
+    </Container>
+    <Container name="technicals_menu">
+      <Key ID="STR_trader_technicals_title">
+          <Original>Additional Rebel Vehicles</Original>
+          <English>Additional Rebel Vehicles</English>
+          <French>Véhicules rebelles supplémentaires</French>
+          <Russian>Дополнительная повстанческая техника</Russian>
+          <German>Schwarzmarkt für Militärfahrzeuge</German>
+          <Czech>Další povstalecká vozidla</Czech>
+          <Korean>추가 반란군 차량</Korean>
+      </Key>
     </Container>
     <Container name="intel_tasks">
       <Key ID="STR_trader_task_hint_outdated">

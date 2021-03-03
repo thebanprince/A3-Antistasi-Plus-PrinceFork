@@ -1,12 +1,23 @@
-if (player != theBoss) exitWith {["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {
+	["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;
+};
 
-if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;};
+private _hqPosition = getMarkerPos "Synd_HQ";
 
-if !(isNull attachedTo petros) exitWith {["Move HQ", "Put Petros down before you move the HQ!"] call A3A_fnc_customHint;};
+if (theBoss distance2D _hqPosition > 50) exitWith {
+	["Move HQ", "Commander needs to be at HQ site to move it."] call A3A_fnc_customHint;
+};
+
+if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {
+	["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;
+};
+
+if !(isNull attachedTo petros) exitWith {
+	["Move HQ", "Put Petros down before you move the HQ!"] call A3A_fnc_customHint;
+};
 
 
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
-//removeAllActions petros;
 private _groupPetros = group petros;
 [petros] join theBoss;
 deleteGroup _groupPetros;

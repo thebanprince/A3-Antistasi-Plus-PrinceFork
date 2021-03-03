@@ -1,19 +1,64 @@
-if (player != theBoss) exitWith {["Skill Add", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {
+    [
+        "FAIL",
+        "Skill Add",  
+        parseText "Only our Commander has access to this function.", 
+        30
+    ] spawn SCRT_fnc_ui_showMessage;
+};
 
-if (skillFIA > 50) exitWith {["Skill Add", "Your troops have the maximum training"] call A3A_fnc_customHint;};
-if (skillFIA > (tierWar*2)) exitWith {["Skill Add", "You cannot upgrade training in the current War Level"] call A3A_fnc_customHint;};
+if (skillFIA > 50) exitWith {
+    [
+        "FAIL",
+        "Skill Add",  
+        parseText "Your troops have the maximum training.", 
+        30
+    ] spawn SCRT_fnc_ui_showMessage;
+};
+
+if (skillFIA > (tierWar*2)) exitWith {
+    [
+        "FAIL",
+        "Skill Add",  
+        parseText format ["War level %1 required to be able to train %2 troops.", (tierWar*2), nameTeamPlayer], 
+        30
+    ] spawn SCRT_fnc_ui_showMessage;
+};
+
 _resourcesFIA = server getVariable "resourcesFIA";
 _costs = 1000 + (1.5*(skillFIA *750));
-if (_resourcesFIA < _costs) exitWith {["Skill Add", format ["You do not have enough money to afford additional training. %1 € needed",_costs]] call A3A_fnc_customHint;};
+
+if (_resourcesFIA < _costs) exitWith {
+    [
+        "FAIL",
+        "Skill Add",  
+        parseText format ["%1 do not have enough money to afford additional training. %2 € needed", nameTeamPlayer, _costs], 
+        30
+    ] spawn SCRT_fnc_ui_showMessage;
+};
 
 _resourcesFIA = _resourcesFIA - _costs;
 skillFIA = skillFIA + 1;
-["Skill Add", format ["%2 Skill Level has been Upgraded<br/>Current level is %1",skillFIA,nameTeamPlayer]] call A3A_fnc_customHint;
+
+[
+    "SUCCESS",
+    "Skill Add",  
+    parseText format ["%2 Skill Level has been Upgraded<br/>Current level is %1.",skillFIA, nameTeamPlayer], 
+    15
+] spawn SCRT_fnc_ui_showMessage;
+
 publicVariable "skillFIA";
 server setVariable ["resourcesFIA",_resourcesFIA,true];
 [] spawn A3A_fnc_statistics;
+
 {
-_costs = server getVariable _x;
-_costs = round (_costs + (_costs * (skillFIA/280)));
-server setVariable [_x,_costs,true];
+    _costs = server getVariable _x;
+    _costs = round (_costs + (_costs * (skillFIA/280)));
+    server setVariable [_x,_costs,true];
 } forEach soldiersSDK;
+
+private _display = findDisplay 60000;
+if !(str (_display) == "no display") then {
+    private _title = _display displayCtrl 3102;
+    _title ctrlSetText format ["FIA Skill Level: %1", skillFIA];
+};

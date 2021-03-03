@@ -4,5 +4,6 @@ if (player == theBoss) then {
 	[] remoteExecCall ["A3A_fnc_saveLoop", 2];
 } else {
 	[getPlayerUID player, player] remoteExecCall ["A3A_fnc_savePlayer", 2];
+	closeDialog 0;
 	hintC "Personal Stats Saved";
 };

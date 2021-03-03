@@ -2,10 +2,10 @@ private ["_playersX","_playerX","_mrk","_veh","_sideX"];
 _sideX = side group player;
 while {true} do
 	{
-	waitUntil {sleep 0.5; (visibleMap or visibleGPS) and ([player] call A3A_fnc_hasRadio)};
+	waitUntil {sleep 0.5; (visibleMap || {visibleGPS || {isMenuOpen}}) and ([player] call A3A_fnc_hasRadio)};
 	_playersX = [];
 	_markersX = [];
-	while {visibleMap or visibleGPS} do {
+	while {visibleMap || {visibleGPS || {isMenuOpen}}} do {
 		{
 			_playerX = _x getVariable ["owner",_x];
 			if ((not(_playerX in _playersX)) and ((side group _playerX == _sideX))) then {

@@ -35,6 +35,7 @@ private ["_garrison"];
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
+["supportPoints", supportPoints] call A3A_fnc_setStatVariable;
 ["smallCAmrk", smallCAmrk] call A3A_fnc_setStatVariable;
 ["membersX", membersX] call A3A_fnc_setStatVariable;
 private _antennasDeadPositions = [];
@@ -51,6 +52,7 @@ private _antennasDeadPositions = [];
 ["civPerc", civPerc] call A3A_fnc_setStatVariable;
 ["chopForest", chopForest] call A3A_fnc_setStatVariable;
 ["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
+["maxConstructions", maxConstructions] call A3A_fnc_setStatVariable;
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
@@ -127,8 +129,25 @@ _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 		_arrayEst pushBack [typeOf _x,getPosATL _x,getDir _x];
 	};
 } forEach staticsToSave;
-
 ["staticsX", _arrayEst] call A3A_fnc_setStatVariable;
+
+private _excessiveConstructions = maxConstructions - (count constructionsToSave);
+if(_excessiveConstructions < 0) then {
+	private _top = abs _excessiveConstructions;
+	for "_i" from 0 to _top do {
+		constructionsToSave deleteAt _i;
+	};
+};
+
+_arrayConstructions = [];
+{
+	_positionX = position _x;
+	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+		_arrayConstructions pushBack [typeOf _x,getPosATL _x,getDir _x];
+	};
+} forEach constructionsToSave;
+["constructionsX", _arrayConstructions] call A3A_fnc_setStatVariable;
+
 [] call A3A_fnc_arsenalManage;
 
 _jna_dataList = [];

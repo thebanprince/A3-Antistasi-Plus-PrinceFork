@@ -151,8 +151,6 @@ do {
 		if (_changeX == "") then {
 			if ((_typeX != civHeli) and(!(_typeX in civBoats))) then {
 				_base = [_secureBases, _player] call BIS_fnc_nearestPosition;
-				//_size = [_base] call A3A_fnc_sizeMarker;
-				//Following lines are for the detection of players in the detectionAreas
 				_onDetectionMarker = (detectionAreas findIf {
 					_player inArea _x
 				} != -1);
@@ -228,9 +226,7 @@ if (vehicle _player != _player) then {
 switch _changeX do {
 	case "Reported":{
 			["Undercover", "You have been reported or spotted by the enemy"] call A3A_fnc_customHint;
-			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
-				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
 				reportedVehs pushBackUnique(vehicle _player);
 				publicVariable "reportedVehs";
 			}

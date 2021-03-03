@@ -27,15 +27,11 @@ if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 		if ((canFire _veh) and (alive _veh) and (isNil "typeAmmunition")) then
 			{
 			_areAlive = true;
-			_nul = createDialog "mortar_type";
+			_nul = createDialog "mortarType";
 			waitUntil {!dialog or !(isNil "typeAmmunition")};
 			if !(isNil "typeAmmunition") then
 				{
 				_typeAmmunition = typeAmmunition;
-				//typeAmmunition = nil;
-			//	};
-			//if (! isNil "_typeAmmunition") then
-				//{
 				{
 				if (_x select 0 == _typeAmmunition) then
 					{
@@ -70,7 +66,7 @@ hcShowBar true;
 if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 	{
 	closedialog 0;
-	_nul = createDialog "strike_type";
+	createDialog "strikeType";
 	}
 else
 	{
@@ -143,7 +139,7 @@ if (_typeArty != "BARRAGE") then
 	if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 		{
 		closedialog 0;
-		_nul = createDialog "rounds_number";
+		createDialog "roundsNumber";
 		}
 	else
 		{
@@ -270,12 +266,10 @@ sleep 10;
 deleteMarkerLocal _mrkFinal;
 if (_typeArty == "BARRAGE") then {deleteMarkerLocal _mrkFinal2};
 
-if (_forcedX) then
-	{
+if (_forcedX) then {
 	sleep 20;
-	if (_markerX in forcedSpawn) then
-		{
+	if (_markerX in forcedSpawn) then {
 		forcedSpawn = forcedSpawn - [_markerX];
 		publicVariable "forcedSpawn";
-		};
 	};
+};

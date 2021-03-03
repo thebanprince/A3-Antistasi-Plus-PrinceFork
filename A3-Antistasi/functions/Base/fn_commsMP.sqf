@@ -74,3 +74,7 @@ if (_typeX == "tier") then {
 
 	[] spawn A3A_fnc_statistics;
 };
+
+if (_typeX == "support") then {
+	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
+};

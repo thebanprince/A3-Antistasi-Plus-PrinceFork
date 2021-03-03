@@ -17,35 +17,6 @@ if (_typeX == "APERSMine") then
 	_typeAmmunition = APERSMineMag;
 	};
 
-/*
-_magazines = getMagazineCargo boxX;
-_typeMagazines = _magazines select 0;
-_cantMagazines = _magazines select 1;
-_newCantMagazines = [];
-
-for "_i" from 0 to (count _typeMagazines) - 1 do
-	{
-	if ((_typeMagazines select _i) != _typeAmmunition) then
-		{
-		_newCantMagazines pushBack (_cantMagazines select _i);
-		}
-	else
-		{
-		_hasQuantity = (_cantMagazines select _i);
-		_hasQuantity = _hasQuantity - _quantity;
-		if (_hasQuantity < 0) then {_countXsHay = 0};
-		_newCantMagazines pushBack _hasQuantity;
-		};
-	};
-
-clearMagazineCargoGlobal boxX;
-
-for "_i" from 0 to (count _typeMagazines) - 1 do
-	{
-	boxX addMagazineCargoGlobal [_typeMagazines select _i,_newCantMagazines select _i];
-	};
-*/
-
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 _index = _typeAmmunition call jn_fnc_arsenal_itemType;
@@ -61,8 +32,6 @@ _mrk setMarkerText _textX;
 [_mrk,0] remoteExec ["setMarkerAlpha",[Occupants,Invaders]];
 
 [[teamPlayer,civilian],"Mines",[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,false,0,true,"map",true] call BIS_fnc_taskCreate;
-//_tsk = ["Mines",[teamPlayer,civilian],[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,"CREATED",5,true,true,"map"] call BIS_fnc_setTask;
-//missionsX pushBack _tsk; publicVariable "missionsX";
 
 _groupX = createGroup teamPlayer;
 

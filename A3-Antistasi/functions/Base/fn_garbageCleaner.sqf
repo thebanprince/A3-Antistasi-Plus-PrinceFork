@@ -19,6 +19,11 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 { deleteVehicle _x } forEach (allMissionObjects "Land_CampingTable_F");
 { deleteVehicle _x } forEach (allMissionObjects "Land_CampingTable_small_F");
+{ deleteVehicle _x } forEach (allMissionObjects "Box_Syndicate_WpsLaunch_F");
+
+if !(!isNil "chemicalCurrent" && {chemicalCurrent}) then {
+	{ deleteVehicle _x } forEach (allMissionObjects "Land_GarbageBarrel_02_F");
+};
 
 _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
 

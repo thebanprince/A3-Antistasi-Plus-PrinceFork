@@ -17,7 +17,6 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
-				vehicleMarketIsOpen = false;
 				garageLocked = nil;
 				publicVariable "garageLocked";
 			};
@@ -97,7 +96,6 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
-				vehicleMarketIsOpen = false;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -175,7 +173,6 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
-				vehicleMarketIsOpen = false;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -248,7 +245,8 @@ switch (_callbackTarget) do {
 	case "BUILDSTRUCTURE": {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
-				build_handleDamageHandler =	player removeEventHandler ["HandleDamage", build_handleDamageHandler];
+				constructionInProgress = false;
+				construction_handleDamageHandler =	player removeEventHandler ["HandleDamage", construction_handleDamageHandler];
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -261,15 +259,9 @@ switch (_callbackTarget) do {
 			
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos =	_callbackParams param [0];
-				switch (build_type) do {
-					case "RB": {
-						[isOnRoad _pos, "Roadblocks can only be built on roads"];
-					};
-					case "SB": {
-						[!(isOnRoad _pos) && _pos inArea build_nearestFriendlyMarker, "Bunkers can only be built off roads, in friendly areas"];
-					};
-					case "CB": {
-						[!(isOnRoad _pos) && _pos inArea build_nearestFriendlyMarker, "Bunkers can only be built off roads, in friendly areas"];
+				switch (construction_type) do {
+					case "CONCRETE_BUNKER": {
+						[_pos inArea construction_nearestFriendlyMarker, "Bunkers can only be built off roads, in friendly areas."];
 					};
 					default {
 						[true];
@@ -283,6 +275,9 @@ switch (_callbackTarget) do {
 		
 			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
 				//No return needed.
+				// private _construction = _callbackParams param [0];
+				// constructionsToSave pushBack _construction; 
+				// publicVariable "constructionsToSave";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {

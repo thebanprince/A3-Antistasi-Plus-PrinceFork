@@ -1,4 +1,5 @@
 #include "..\Garage\defineGarage.inc"
+
 private _fileName = "initClient.sqf";
 
 //Make sure logLevel is always initialised.
@@ -58,7 +59,7 @@ if (isMultiplayer) then {
 		player setVariable ["eligible",true,true];
 	};
 	musicON = false;
-	//waitUntil {scriptdone _introshot};
+	isLauncherCamEnabled = false;
 	disableUserInput true;
 	cutText ["Waiting for Players and Server Init","BLACK",0];
 	[2,"Waiting for server...",_fileName] call A3A_fnc_log;
@@ -142,6 +143,7 @@ if (player getVariable ["pvp",false]) exitWith {
 		if ((_boxX == NATOAmmoBox) or (_boxX == CSATAmmoBox)) then {_override = true};
 		_override
 	}];
+
 	_nameX = if (side player == Occupants) then {nameOccupants} else {nameInvaders};
 	waituntil {!isnull (finddisplay 46)};
 	gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
@@ -161,7 +163,7 @@ if (player getVariable ["pvp",false]) exitWith {
 		else {
 			if (_this select 1 == 21) then {
 				closedialog 0;
-				_nul = createDialog "NATO_player";
+				_nul = createDialog "NATOPlayer";
 			};
 		};
 		_handled
@@ -209,6 +211,11 @@ player addEventHandler ["FiredMan", {
 		};
 	};
 }];
+
+if (isLauncherCamEnabled) then {
+	["ADD"] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+};
+
 player addEventHandler ["InventoryOpened", {
 	private ["_playerX","_containerX","_typeX"];
 	_control = false;
@@ -486,10 +493,10 @@ if (isMultiplayer) then {
 	vehicleBox addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
 vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "vehicleOption"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 if(hasCup || {hasAU}) then {
-    vehicleBox addAction ["Buy Technical", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Technical", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {nul = createDialog "technicalMarket_menu"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+    vehicleBox addAction ["Buy Technical", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Technical", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {[] call SCRT_fnc_ui_createTechnicalMenu}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 };
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
@@ -497,10 +504,47 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {["Game Options", format ["Antistasi - %2<br/><br/>Version: %1<br/><br/>Antistasi Plus Version: %6<br/><br/>Difficulty: %3<br/>Unlock Weapon Number: %4<br/>Limited Fast Travel: %5",antistasiVersion,worldName,if (skillMult == 2) then {"Normal"} else {if (skillMult == 1) then {"Easy"} else {"Hard"}},minWeaps,if (limitedFT) then {"Yes"} else {"No"},antistasiPlusVersion]] call A3A_fnc_customHint; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) && (side (group _this) == teamPlayer)", 4];
+mapX addAction [
+	"Game Options", 
+	{
+		closeDialog 0;
+		closeDialog 0;
+		createDialog "commanderMenu";
+		isMenuOpen = true;
+		[] spawn SCRT_fnc_misc_orbitingCamera;
+		[] call SCRT_fnc_ui_populateGameOptionsMenu;
+	},
+	nil,
+	0,
+	false,
+	true,
+	"",
+	"(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer) and player == theBoss", 
+	4
+];
+mapX addAction [
+	"Game Options", 
+	{
+		closeDialog 0;
+		closeDialog 0;
+		createDialog "playerMenu";
+		isMenuOpen = true;
+		[] spawn SCRT_fnc_misc_orbitingCamera;
+		[] call SCRT_fnc_ui_populatePlayerMenu;
+	},
+	nil,
+	0,
+	false,
+	true,
+	"",
+	"(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer) and player != theBoss", 
+	4
+];
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
+if (isMultiplayer) then {
+	mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"];
+};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 
 // only add petros actions if he's static

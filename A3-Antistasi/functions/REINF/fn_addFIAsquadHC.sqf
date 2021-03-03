@@ -178,7 +178,7 @@ if (count _formatX == 2) then {
 _costs = [_typeVehX] call A3A_fnc_vehiclePrice;
 if (_costs > server getVariable "resourcesFIA") exitWith {};
 
-createDialog "veh_query";
+createDialog "vehQuery";
 
 sleep 1;
 disableSerialization;

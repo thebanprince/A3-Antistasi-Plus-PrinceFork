@@ -1,7 +1,6 @@
 private ["_display","_childControl"];
-_nul = createDialog "buy_vehicle";
+createDialog "buyVehicle";
 
-//sleep 1;
 disableSerialization;
 
 _display = findDisplay 100;

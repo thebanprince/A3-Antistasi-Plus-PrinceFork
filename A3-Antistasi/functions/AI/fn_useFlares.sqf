@@ -44,5 +44,3 @@ _flare = _flareModel createVehicle _initialFlarePosition;
 _flare setVelocity [-10+random 20, -10+random 20, -5];
 
 playSound3D [(selectRandom _soundPool), _unit, false,  getPosASL _unit, 1.5, 1, 450, 0];
-
-[2, format ["Flare Vehicle: %1, Flare starting position: %2", typeOf _flare, str _initialFlarePosition], _funcName] call A3A_fnc_log;

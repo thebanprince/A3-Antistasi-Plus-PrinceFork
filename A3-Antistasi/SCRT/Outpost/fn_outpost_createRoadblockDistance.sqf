@@ -33,16 +33,7 @@ private _roadcon = roadsConnectedto (_road select 0);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
-if (staticCrewTeamPlayer in _garrison) then {
-    _veh = vehSDKLightArmed createVehicle getPos (_road select 0);
-    _veh setDir _dirveh + 90;
-    _veh lock 3;
-    [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-    sleep 1;
-};
-
-// private _barricadePosition = [getPos (_road select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-private _barricade1Position = [(_roadPosition select 0), (_roadPosition select 1) + 2, 0];
+private _barricade1Position = [(_roadPosition select 0) - 2, (_roadPosition select 1) + 2, 0];
 private _barricade1 = "Land_Barricade_01_10m_F" createVehicle _barricade1Position;
 _barricade1 setDir _dirveh;
 
@@ -56,6 +47,14 @@ _props pushBack _barricade2;
 {
 	_x setVectorUp surfaceNormal position _x;
 } forEach _props;
+
+if (staticCrewTeamPlayer in _garrison) then {
+    _veh = vehSDKLightArmed createVehicle getPos (_road select 0);
+    _veh setDir _dirveh + 90;
+    _veh lock 3;
+    [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
+    sleep 1;
+};
 
 _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
 {

@@ -30,6 +30,7 @@ if (isServer) then {
 	["distanceSPWN"] call A3A_fnc_getStatVariable;
 	["civPerc"] call A3A_fnc_getStatVariable;
 	["maxUnits"] call A3A_fnc_getStatVariable;
+	["maxConstructions"] call A3A_fnc_getStatVariable;
 	["membersX"] call A3A_fnc_getStatVariable;
 	["vehInGarage"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
@@ -38,6 +39,7 @@ if (isServer) then {
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;
+	["supportPoints"] call A3A_fnc_getStatVariable;
 	waitUntil {!isNil "arsenalInit"};
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	["isTraderQuestCompleted"] call A3A_fnc_getStatVariable;
@@ -122,6 +124,7 @@ if (isServer) then {
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;
+	["constructionsX"] call A3A_fnc_getStatVariable;
 
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};

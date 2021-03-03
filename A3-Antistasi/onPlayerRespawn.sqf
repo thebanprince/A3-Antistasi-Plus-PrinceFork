@@ -86,11 +86,9 @@ if (side group player == teamPlayer) then
 	//Give them a map, in case they're commander and need to replace petros.
 	_newUnit linkItem "ItemMap";
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
-	player addEventHandler ["FIRED",
-		{
+	player addEventHandler ["FIRED", {
 		_player = _this select 0;
-		if (captive _player) then
-			{
+		if (captive _player) then {
 			if ({if (((side _x == Occupants) or (side _x == Invaders)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
 				{
 				[_player,false] remoteExec ["setCaptive",0,_player];
@@ -114,9 +112,13 @@ if (side group player == teamPlayer) then
 						};
 					};
 				};
-			}
+			};
 		}
-		];
+	];
+
+	if (isLauncherCamEnabled) then {
+		["ADD"] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+	};
 
 	player addEventHandler ["InventoryOpened",
 		{

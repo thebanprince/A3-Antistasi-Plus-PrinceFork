@@ -18,12 +18,12 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","constructionsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
-	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
+	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+	"bombRuns","supportPoints","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
 	"countCA", "attackCountdownInvaders", "testingTimerIsActive","isTraderQuestCompleted","traderPosition"
 ];
 
@@ -55,6 +55,7 @@ if (_varName in _specialVarLoads) then {
 		};
 	};
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
+	if (_varName == 'supportPoints') then {supportPoints = _varValue; publicVariable "supportPoints"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
 	if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
 	if (_varName == 'smallCAmrk') then {};		// Ignore. These are not persistent.
@@ -105,6 +106,7 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
 	if (_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
 	if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
+	if (_varName == 'maxConstructions') then {maxConstructions=_varValue; publicVariable "maxConstructions"};
 	if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
 	if (_varName == 'destroyedBuildings') then {
 		{
@@ -345,6 +347,27 @@ if (_varName in _specialVarLoads) then {
 			};
 		};
 		publicVariable "staticsToSave";
+	};
+	if (_varname == 'constructionsX') then {
+		for "_i" from 0 to (count _varvalue) - 1 do {
+			_typeVehX = _varvalue select _i select 0;
+			_posVeh = _varvalue select _i select 1;
+			_xVectorUp = _varvalue select _i select 2;
+			_xVectorDir = _varvalue select _i select 3;
+			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
+			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
+			if ((_varvalue select _i select 2) isEqualType 0) then {
+				_dirVeh = _varvalue select _i select 2;
+				_veh setDir _dirVeh;
+				_veh setVectorUp surfaceNormal (_posVeh);
+				_veh setPosATL _posVeh;
+			} else {
+				_veh setPosATL _posVeh;
+				_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
+			};
+			constructionsToSave pushBack _veh;
+		};
+		publicVariable "constructionsToSave";
 	};
 	if (_varname == 'tasks') then {
 		{

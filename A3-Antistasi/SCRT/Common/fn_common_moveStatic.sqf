@@ -90,7 +90,6 @@ private _size = [_markerX] call A3A_fnc_sizeMarker;
 private _positionX = getMarkerPos _markerX;
 
 if (_playerX distance2D _positionX < _size) then {
-	// [_thingX, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
     if (!(_thingX in staticsToSave)) then {
         staticsToSave pushBack _thingX;
         publicVariable "staticsToSave";

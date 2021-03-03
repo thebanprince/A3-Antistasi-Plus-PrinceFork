@@ -25,6 +25,11 @@ isPowPaycheckAnnounced = false;
 //Are players know about new vehicle in store
 isMarketUpgradeAnnounced = false;
 
+isMenuOpen = false;
+
+// rocket camera
+isLauncherCamEnabled = false;
+
 isMarketUpgradeMessageShown = false;
 isIdapPowMessageShown = false;
 

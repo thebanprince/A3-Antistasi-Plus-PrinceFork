@@ -2,16 +2,16 @@ params ["_structureType", "_posASL", "_dir"];
 
 private _positionX = ASLtoATL _posASL;
 
-private _isPlayer = if (player == build_engineerSelected) then {true} else {false};
+private _isPlayer = if (player == construction_selectedEngineer) then {true} else {false};
 private _timeOut = time + 30;
 
 if (!_isPlayer) then
 {
-	build_engineerSelected doMove _positionX
+	construction_selectedEngineer doMove _positionX
 }
 else
 {
-	build_time = build_time / 2;
+	construction_buildTime = construction_buildTime / 2;
 	["Build Info", "Walk to the selected position to start building"] call A3A_fnc_customHint;
 };
 
@@ -26,7 +26,7 @@ addMissionEventHandler ["Draw3D", {
 	drawIcon3D ["\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa", [1,1,1,1], build_targetLocation, 1,1,0,"Build", 0, 0.05, "PuristaMedium"];
 }];
 
-waitUntil {sleep 1;(time > _timeOut) or (build_engineerSelected distance _positionX < 3)};
+waitUntil {sleep 1;(time > _timeOut) or (construction_selectedEngineer distance _positionX < 3)};
 
 if (time > _timeOut) exitWith 
 {
@@ -38,30 +38,27 @@ build_atBuildLocation = true;
 build_targetLocation = nil;
 
 
-if (build_cost > 0) then
-	{
-	if (!isMultiPlayer) then
-		{
-		_nul = [0, - build_cost] remoteExec ["A3A_fnc_resourcesFIA",2];
-		}
-	else
-		{
-		[-build_cost] call A3A_fnc_resourcesPlayer;
-		};
+if (construction_cost > 0) then {
+	if (!isMultiPlayer) then {
+		_nul = [0, - construction_cost] remoteExec ["A3A_fnc_resourcesFIA",2];
+	}
+	else {
+		[-construction_cost] call A3A_fnc_resourcesPlayer;
 	};
+};
 
-build_engineerSelected setVariable ["constructing",true];
+construction_selectedEngineer setVariable ["constructing",true];
 
-_timeOut = time + build_time;
+_timeOut = time + construction_buildTime;
 
 if (!_isPlayer) then
 	{
-	{build_engineerSelected disableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
+	{construction_selectedEngineer disableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 	};
 
-build_engineerSelected playMoveNow selectRandom medicAnims;
+construction_selectedEngineer playMoveNow selectRandom medicAnims;
 
-build_engineerSelected addEventHandler ["AnimDone",
+construction_selectedEngineer addEventHandler ["AnimDone",
 	{
 	private _engineer = _this select 0;
 	if (([_engineer] call A3A_fnc_canFight) and !(_engineer getVariable ["helping",false]) and !(_engineer getVariable ["rearming",false]) and (_engineer getVariable ["constructing",false])) then
@@ -74,59 +71,29 @@ build_engineerSelected addEventHandler ["AnimDone",
 		};
 	}];
 
-waitUntil  {sleep 5; !([build_engineerSelected] call A3A_fnc_canFight) or (build_engineerSelected getVariable ["helping",false]) or (build_engineerSelected getVariable ["rearming",false]) or (build_engineerSelected distance _positionX > 4) or (time > _timeOut)};
+waitUntil  {sleep 5; !([construction_selectedEngineer] call A3A_fnc_canFight) or (construction_selectedEngineer getVariable ["helping",false]) or (construction_selectedEngineer getVariable ["rearming",false]) or (construction_selectedEngineer distance _positionX > 4) or (time > _timeOut)};
 
-build_engineerSelected setVariable ["constructing",false];
-if (!_isPlayer) then {{build_engineerSelected enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"]};
+construction_selectedEngineer setVariable ["constructing",false];
+if (!_isPlayer) then {{construction_selectedEngineer enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"]};
 
 if (time <= _timeOut) exitWith {["Build Info", "Construction cancelled"] call A3A_fnc_customHint;};
-if (!_isPlayer) then {build_engineerSelected doFollow (leader build_engineerSelected)};
+if (!_isPlayer) then {construction_selectedEngineer doFollow (leader construction_selectedEngineer)};
 
 private _veh = createVehicle [_structureType, _positionX, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
 
-if ((build_type == "SB") or (build_type == "CB")) exitWith
-{
-	staticsToSave pushBackUnique _veh;
-	publicVariable "staticsToSave"
+constructionsToSave pushBackUnique _veh;
+publicVariable "constructionsToSave";
+
+//removing previous
+private _excessiveConstructions = maxConstructions - (count constructionsToSave);
+if(_excessiveConstructions < 0) then {
+	private _top = abs _excessiveConstructions;
+	for "_i" from 0 to _top do {
+		deleteVehicle (constructionsToSave select _i);
+		constructionsToSave deleteAt _i;
+	};
 };
 
-
-//falta inicializarlo en veh init
-if (build_type == "RB") then
-	{
-	sleep 30;
-	_l1 = "#lightpoint" createVehicle getpos _veh;
-	_l1 setLightDayLight true;
-	_l1 setLightColor [5, 2.5, 0];
-	_l1 setLightBrightness 0.1;
-	_l1 setLightAmbient [5, 2.5, 0];
-	_l1 lightAttachObject [_veh, [0, 0, 0]];
-	_l1 setLightAttenuation [3, 0, 0, 0.6];
-	_source01 = "#particlesource" createVehicle getpos _veh;
-	_source01 setParticleClass "BigDestructionFire";
-	_source02 = "#particlesource" createVehicle getpos _veh;
-	_source02 setParticleClass "BigDestructionSmoke";
-	[_l1,_source01,_source02,_veh] spawn
-		{
-		private _veh = _this select 3;
-		while {alive _veh} do
-			{
-			_veh say3D "fire";
-			sleep 13;
-			};
-		{deleteVehicle _x} forEach (_this - [_veh]);
-		};
-	};
-
-build_nearestFriendlyMarker = nil;
-build_engineerSelected = nil;
-	
-while {alive _veh} do
-	{
-	if ((not([distanceSPWN,1,_veh,teamPlayer] call A3A_fnc_distanceUnits)) and (_veh distance getMarkerPos respawnTeamPlayer > 100)) then
-		{
-		deleteVehicle _veh
-		};
-	sleep 60;
-	};
+construction_nearestFriendlyMarker = nil;
+construction_selectedEngineer = nil;

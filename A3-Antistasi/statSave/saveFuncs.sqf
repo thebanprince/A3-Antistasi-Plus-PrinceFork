@@ -95,12 +95,12 @@ fn_RetrievePlayerStat = {
 */
 
 specialVarLoads = [
-	"watchpostsFIA", "roadblocksFIA","aapostsFIA", "atpostsFIA", "minesX","staticsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"watchpostsFIA", "roadblocksFIA","aapostsFIA", "atpostsFIA", "minesX","staticsX","constructionsX","countCA","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
-	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
+	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","isTraderQuestCompleted","traderPosition"
+	"bombRuns","supportPoints","difficultyX","gameMode","wurzelGarrison","isTraderQuestCompleted","traderPosition"
 ];
 
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
@@ -129,6 +129,7 @@ fn_SetStat = {
 			};
 		};
 		if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
+		if (_varName == 'supportPoints') then {supportPoints = _varValue; publicVariable "supportPoints"};
 		if (_varName == 'nextTick') then {nextTick = time + _varValue};
 		if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
 		if (_varName == 'smallCAmrk') then {smallCAmrk = +_varValue};
@@ -166,6 +167,7 @@ fn_SetStat = {
 		if (_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
 		if (_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
 		if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
+		if (_varName == 'maxConstructions') then {maxConstructions=_varValue; publicVariable "maxConstructions"};
 		if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
 		if (_varName == 'destroyedBuildings') then {
 			destroyedBuildings= +_varValue;
@@ -393,6 +395,19 @@ fn_SetStat = {
 				[_veh] call A3A_fnc_AIVEHinit;
 			};
 			publicVariable "staticsToSave";
+		};
+		if (_varname == 'constructionsX') then {
+			for "_i" from 0 to (count _varvalue) - 1 do {
+				_typeVehX = _varvalue select _i select 0;
+				_posVeh = _varvalue select _i select 1;
+				_dirVeh = _varvalue select _i select 2;
+				_veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
+				_veh setDir _dirVeh;_veh setDir _dirVeh;
+				_veh setVectorUp surfaceNormal (_posVeh);
+				_veh setPosATL _posVeh;
+				constructionsToSave pushBack _veh;
+			};
+			publicVariable "constructionsToSave";
 		};
 		if (_varname == 'tasks') then {
 			{

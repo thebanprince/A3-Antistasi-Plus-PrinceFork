@@ -79,7 +79,6 @@ class A3A
 		class numericRank {};
 		class onHeadlessClientDisconnect {};
 		class onPlayerDisconnect {};
-		class outpostDialog {};
 		class patrolDestinations {};
 		class placementSelection {};
 		class playableUnits {};
@@ -458,7 +457,6 @@ class A3A
 		class addFIAveh {};
 		class addSquadVeh {};
 		class autoGarrison {};
-		class build {};
 		class buildCreateVehicleCallback {};
 		class buildMinefield {};
 		class enemyNearCheck {};
@@ -467,7 +465,6 @@ class A3A
 		class FIAskillAdd {};
 		class garrisonAdd {};
 		class garrisonDialog {};
-		class NATObomb {};
 		class NATOQuadbike {};
 		class postmortem {};
 		class reDress {};

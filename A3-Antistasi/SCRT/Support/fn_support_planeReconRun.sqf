@@ -1,0 +1,55 @@
+private _positionOrigin = getMarkerPos supportMarkerOrigin;
+private _poisitionDestination = getMarkerPos supportMarkerDestination;
+private _angle = [_positionOrigin, _poisitionDestination] call BIS_fnc_dirTo;
+private _angleOrigin = _angle - 180;
+
+private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
+private _finPosition = [_poisitionDestination, 2500, _angle] call BIS_fnc_relPos;
+
+private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
+private _plane = _planeData select 0;
+private _planeCrew = _planeData select 1;
+private _groupPlane = _planeData select 2;
+
+_plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
+_plane disableAI "TARGET";
+_plane disableAI "AUTOTARGET";
+_plane flyInHeight 250;
+private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
+_plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
+
+driver _plane sideChat "Starting plane run. ETA 30 seconds.";
+private _wp1 = group _plane addWaypoint [_positionOrigin, 0];
+_wp1 setWaypointType "MOVE";
+_wp1 setWaypointSpeed "LIMITED";
+_wp1 setWaypointBehaviour "CARELESS";
+
+private _relativePositions = [];
+
+{
+    private _relativePosition = [_poisitionDestination, 300, _x] call BIS_fnc_relPos;
+    _relativePositions pushBack _relativePosition;
+} forEach [0, 180];
+
+{
+    private _index = _forEachIndex + 1;
+    private _wp = group _plane addWaypoint [_x, _index];
+    _wp setWaypointSpeed "LIMITED";
+    _wp setWaypointType "MOVE";
+
+    if(_index == 1) then {
+        _wp setWaypointStatements ["true", format ["if !(local this) exitWith {}; [%1, %2, %3] spawn SCRT_fnc_common_recon", _poisitionDestination, 350, 180]];
+    };
+} forEach _relativePositions;
+
+_wp3 = group _plane addWaypoint [_finPosition, 3];
+_wp3 setWaypointType "MOVE";
+_wp3 setWaypointSpeed "FULL";
+
+private _timeOut = time + 600;
+waitUntil { sleep 2; (currentWaypoint group _plane == 5) or (time > _timeOut) or !(canMove _plane) };
+
+if !(canMove _plane) then { sleep cleantime };
+deleteVehicle _plane;
+{deleteVehicle _x} forEach _planeCrew;
+deleteGroup _groupPlane;

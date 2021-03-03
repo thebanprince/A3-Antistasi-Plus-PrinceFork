@@ -1,29 +1,9 @@
-private _position = _this select 0;
+params ["_position"];
 
-private _isRoad = isOnRoad _position;
-if(_isRoad) exitWith {
-	["Watchpost", "Watchpost can't be on road."] call SCRT_fnc_misc_showDeniedActionHint;
-};
+private _moneyCost = outpostCost select 0;
+private _hrCost = outpostCost select 1;
 
-//calculating cost and manipulating rebel resources
-private _costs = 50;
-private _hr = 0;
-private _typeGroup = groupsSDKSniper;
-private _typeVehicle = vehSDKBike;
-
-{
-    _costs = _costs + (server getVariable (_x select 0)); 
-    _hr = _hr +1;
-} forEach _typeGroup;
-
-private _resourcesFIA = server getVariable "resourcesFIA";
-private _hrFIA = server getVariable "hr";
-
-if ((_resourcesFIA < _costs) or (_hrFIA < _hr)) exitWith {
-	["Watchpost", format ["You have no resources to build this Watchpost <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call SCRT_fnc_misc_showDeniedActionHint;
-};
-
-[-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+[-_hrCost,-_moneyCost] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 private _textX = format ["%1 Observation Post", nameTeamPlayer];
 private _tsk = "";
@@ -44,13 +24,13 @@ _formatX = [];
     } else {
         _formatX pushBack (_x select 0)
     };
-} forEach _typeGroup;
+} forEach groupsSDKSniper;
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 _groupX setGroupId ["Watchpost"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
-_truckX = _typeVehicle createVehicle _pos;
+_truckX = vehSDKBike createVehicle _pos;
 _groupX addVehicle _truckX;
 {
     [_x] call A3A_fnc_FIAinit
@@ -59,9 +39,16 @@ leader _groupX setBehaviour "SAFE";
 (units _groupX) orderGetIn true;
 theBoss hcSetGroup [_groupX];
 
-waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
+outpostCost = nil;
+["REMOVE"] call SCRT_fnc_ui_establishOutpostEventHandler;
+ctrlSetFocus ((findDisplay 60000) displayCtrl 2700);
+sleep 0.01;
+closeDialog 0;
+closeDialog 0;
 
-if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) then {
+waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
+
+if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then {
 	if (isPlayer leader _groupX) then {
 		_owner = (leader _groupX) getVariable ["owner",leader _groupX];
 		(leader _groupX) remoteExec ["removeAllActions",leader _groupX];
@@ -77,13 +64,13 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	markersX = markersX + [_marker];
 	publicVariable "markersX";
 	spawner setVariable [_marker,2,true];
-	["outpostTask",["We are sending a team to establish a Watchpost. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
+	["outpostTask",["We are sending a team to establish a Watchpost. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_position,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	_nul = [-5,5,_position] remoteExec ["A3A_fnc_citySupportChange",2];
 	_marker setMarkerType "n_recon";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
 } else {
-    ["outpostTask",["We are sending a team to establish a Watchpost. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
+    ["outpostTask",["We are sending a team to establish a Watchpost. Use HC to send the team to their destination","Post \ Roadblock Deploy",_marker],_position,"FAILED"] call A3A_fnc_taskUpdate;
     sleep 3;
     deleteMarker _marker;
 };

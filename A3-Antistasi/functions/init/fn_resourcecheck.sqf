@@ -141,6 +141,16 @@ while {true} do {
 	server setVariable ["hr",_hrAddBLUFOR,true];
 	server setVariable ["resourcesFIA",_recAddSDK,true];
 	bombRuns = bombRuns + (({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX) * 0.25);
+
+	private _outposts = {sidesX getVariable [_x,sideUnknown] == teamPlayer} count outposts;
+	if(_outposts > 5) then {
+		supportPoints = supportPoints + 1;
+	};
+
+	if(supportPoints > 3) then {
+		supportPoints = 3;
+	};
+
 	[petros,"taxRep",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	[] call A3A_fnc_economicsAI;
     [] call A3A_fnc_cleanConvoyMarker;

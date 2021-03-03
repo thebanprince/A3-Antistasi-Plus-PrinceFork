@@ -70,7 +70,6 @@ player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_ent
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_7"],format [localize "STR_antistasi_journal_entry_text_Options_7"]]];
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_6"],format [localize "STR_antistasi_journal_entry_text_Options_6"]]];
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_5"],format [localize "STR_antistasi_journal_entry_text_Options_5"]]];
-player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_4"],format [localize "STR_antistasi_journal_entry_text_Options_4"]]];
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_3"],format [localize "STR_antistasi_journal_entry_text_Options_3"]]];
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_2"],format [localize "STR_antistasi_journal_entry_text_Options_2"]]];
 player createDiaryRecord ["Options",[format [localize "STR_antistasi_journal_entry_header_Options_1"],format [localize "STR_antistasi_journal_entry_text_Options_1"]]];

@@ -1,5 +1,7 @@
 #include "defines.hpp"
-#include "dialogs.hpp"
+#include "UI\commanderMenu.hpp"
+#include "UI\playerMenu.hpp"
+#include "UI\menu.hpp"
 
 author = $STR_antistasi_credits_generic_author_text;
 OnLoadName = $STR_antistasi_mission_info_altis_mapname_short_text;
