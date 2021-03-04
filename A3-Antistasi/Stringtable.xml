@@ -2382,6 +2382,15 @@
         <German>Freisetzung</German>
         <Czech>Uvolnění</Czech>
       </Key>
+      <Key ID="STR_reveal_action">
+        <Original>Reveal Enemy Positions</Original>
+        <English>Reveal Enemy Positions</English>
+        <French>Révéler les positions ennemies</French>
+        <Russian>Выведать вражеские позиции</Russian>
+        <German>Enthülle feindliche Positionen</German>
+        <Czech>Odhalte nepřátelské pozice</Czech>
+        <Korean>적 위치 공개</Korean>
+      </Key>
       <Key ID="STR_recruit_action">
         <Original>Recruit</Original>
         <English>Recruit</English>

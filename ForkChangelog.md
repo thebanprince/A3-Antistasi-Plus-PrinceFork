@@ -8,6 +8,7 @@
 - Tune weather and fog options (Environment tab in commander menu)
 - Rocket Camera
 - Ability to buy repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck) or 3 resources (fuel truck))
+- New action on surrended enemy - reveal near enemies position for 30 sec through interrogation
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and captured points 
@@ -19,7 +20,8 @@
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (Technicals submenu) 
 - (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska 
 - (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
-
+- Remade announcement system - much less messages on screen will be overwritten by new information
+ 
 ### Removals
 - Removed Airstrikes title from top status bar
 - Removed tent on rebel HQ (all actions from it moved to new commander UI)

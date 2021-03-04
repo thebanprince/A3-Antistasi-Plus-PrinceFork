@@ -147,6 +147,7 @@ class SCRT
         class common_fillSupplyDrop {};
         class common_chemicalDamage {};
         class common_recon {};
+        class common_reveal {};
     };
 
     class Outpost

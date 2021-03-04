@@ -1,4 +1,4 @@
-params ["_position", "_radius", "_revealTime"];
+params ["_position", "_radius", "_revealTime", ["_isInterrogation", false]];
 
 private _affectedEntities = ["Car","Truck","CAManBase", "StaticWeapon"];
 private _timeOut = time + _revealTime;
@@ -21,9 +21,17 @@ private _markers = [];
 private _revealText = nil;
 
 if (!isNil "_units" && {count _units > 0}) then {
-    _revealText = format ["<t size='0.6'><t size='0.6' color='#D96600'>Reconnaissance</t> shares approximate enemy positions with rebel ground forces.</t>"];
+    if (_isInterrogation) then {
+        _revealText = format ["<t size='0.6'><t size='0.6' color='#988df7'>Interrogation</t> shares approximate enemy positions with rebel ground forces.</t>"];
+    } else {
+        _revealText = format ["<t size='0.6'><t size='0.6' color='#D96600'>Reconnaissance</t> shares approximate enemy positions with rebel ground forces.</t>"];
+    };
 } else {
-     _revealText = format ["<t size='0.6'><t size='0.6' color='#D96600'>Reconnaissance</t> has not detected any enemy activity.</t>"];
+    if (_isInterrogation) then {
+        _revealText = format ["<t size='0.6'><t size='0.6' color='#988df7'>Interrogation</t> has not detected any enemy activity.</t>"];
+    } else {
+        _revealText = format ["<t size='0.6'><t size='0.6' color='#D96600'>Reconnaissance</t> has not detected any enemy activity.</t>"];
+    };
 };
 
 {
