@@ -79,8 +79,8 @@ class Params
      class unlockItem
      {
           title = "Number of the same item required to unlock";
-          values[] = {15,20,25,30,45};
-          default = 20;
+          values[] = {25,30,35,40,45,50};
+          default = 30;
      };
      class memberOnlyMagLimit
      {
@@ -91,7 +91,7 @@ class Params
      class civTraffic
      {
           title = "Rate of Civ Traffic";
-          values[] = {0,1,2,4,};
+          values[] = {0,1,2,4};
           texts[] = {"None","Low","Medium","High"};
           default = 2;
      };
