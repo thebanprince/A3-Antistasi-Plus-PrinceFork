@@ -85,6 +85,10 @@ if (isNull construction_selectedEngineer ||((player != construction_selectedEngi
 	["Build", _abortMessage] call A3A_fnc_customHint;
 };
 
+if (_constructionType == "CONCRETE_BUNKER" && {{sidesX getVariable [_x,sideUnknown] == teamPlayer} count factories < 3}) exitWith {
+    ["Build", "Concrete bunkers requires 3 captured factories to build."] call A3A_fnc_customHint;
+};
+
 construction_buildingsAvailable = [];
 construction_buildingIndex = 0;
 construction_cost = 0;
