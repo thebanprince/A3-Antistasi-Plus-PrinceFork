@@ -2407,6 +2407,15 @@
         <German>Wie wäre es mit den Guten?</German>
         <Czech>Co takhle se přidat k dobrým klukům?</Czech>
       </Key>
+      <Key ID="STR_search_intel_text">
+        <Original>Search for Intel</Original>
+        <English>Search for Intel</English>
+        <French>Rechercher Intel</French>
+        <Russian>Обыскать</Russian>
+        <German>Suche nach Informationen</German>
+        <Czech>Hledat informace</Czech>
+        <Korean>인텔 검색</Korean>
+      </Key>
       <Key ID="STR_recruit_fail_text">
         <Original>Screw you!</Original>
         <English>Screw you!</English>
@@ -2462,6 +2471,15 @@
         <Russian>Скажи мне, что ты знаешь!</Russian>
         <German>Sag mir, was du weisst!</German>
         <Czech>Řekni mi, co víš!</Czech>
+      </Key>
+      <Key ID="STR_reveal_text">
+        <Original>Tell me where are your comrades!</Original>
+        <English>Tell me where are your comrades!</English>
+        <French>Dites-moi où sont vos camarades!</French>
+        <Russian>Скажи мне - где твои товарищи?</Russian>
+        <German>Sag mir, wo sind deine Kameraden!</German>
+        <Czech>Řekněte mi, kde jsou vaši soudruzi!</Czech>
+        <Korean>동지들이 어디 있는지 말해줘!</Korean>
       </Key>
       <Key ID="STR_interrogation_success_text">
         <Original>Okay, I tell you what I know.</Original>
