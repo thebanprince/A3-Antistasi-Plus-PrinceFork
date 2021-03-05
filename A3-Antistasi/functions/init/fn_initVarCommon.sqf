@@ -294,6 +294,29 @@ gasMasks = [
 	"G_AirPurifyingRespirator_02_black_F"
 ];
 
+belongings = ["Land_Document_01_F", 
+	"Land_File1_F", 
+	"Land_FilePhotos_F", 
+	"Land_File2_F", 
+	"Land_File_research_F", 
+	"Land_Notepad_F", 
+	"Land_PenBlack_F", 
+	"Land_Wallet_01_F", 
+	"Land_TacticalBacon_F", 
+	"Land_TinContainer_F", 
+	"Land_MobilePhone_smart_F", 
+	"Land_MobilePhone_old_F", 
+	"Land_SatellitePhone_F", 
+	"Land_Tablet_01_F", 
+	"Land_Magazine_rifle_F", 
+	"Land_Antimalaricum_01_F", 
+	"Land_Bandage_F", 
+	"MedicalGarbage_01_FirstAidKit_F", 
+	"Land_Map_F", 
+	"Land_Map_unfolded_Malden_F", 
+	"Land_Matches_F", 
+	"Land_CanOpener_F"
+];
 
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 

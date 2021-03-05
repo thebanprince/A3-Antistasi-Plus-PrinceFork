@@ -12,12 +12,16 @@ params ["_squadLeader", "_caller", "_searchAction"];
 
 [_squadLeader, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _squadLeader];
 
+searchedSquadLeader = _squadLeader;
+spawnedBelongings = [];
+
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
 
 _caller setVariable ["intelSearchTime",time + _timeForSearch];
 _caller setVariable ["intelAnimsDone",false];
 _caller setVariable ["intelFound",false];
+_caller setVariable ["intelSearchDone", false];
 _caller setVariable ["cancelIntelSearch",false];
 
 _caller playMoveNow selectRandom medicAnims;
@@ -28,27 +32,30 @@ _caller addEventHandler
     "AnimDone",
     {
         private _caller = _this select 0;
-        if
-        (
+        if (
             ([_caller] call A3A_fnc_canFight) &&                        //Caller is still able to fight
             {(time <= (_caller getVariable ["intelSearchTime",time])) &&     //Time is not yet finished
             {!(_caller getVariable ["cancelIntelSearch",false]) &&           //Search hasn't been cancelled
             {(isNull objectParent _caller)}}}                           //Caller has not entered a vehicle
-        ) then
-        {
+        ) then {
             _caller playMoveNow selectRandom medicAnims;
+
+            private _leaderWorldPosition = getPosWorld searchedSquadLeader;
+            private _belongingObject = [
+                selectRandom belongings, 
+                [(_leaderWorldPosition select 0) + (random [0.25, 0.6, 1]),( _leaderWorldPosition select 1) + (random [0.25, 0.6, 1]), _leaderWorldPosition select 2]
+            ] call BIS_fnc_createSimpleObject;
+            _belongingObject setDir (random 360);
+            spawnedBelongings pushBack _belongingObject;
         }
-        else
-        {
+        else {
             _caller removeEventHandler ["AnimDone", _thisEventHandler];
             _caller setVariable ["intelAnimsDone",true];
-            if
-            (
+            if (
                 ([_caller] call A3A_fnc_canFight) &&                //Can fight
                 {!(_caller getVariable ["cancelIntelSearch",false]) &&   //Not cancelled
                 {(isNull objectParent _caller)}}                     //Not in vehicle
-            ) then
-            {
+            ) then {
                 _caller setVariable ["intelFound",true];
             };
         };
@@ -68,7 +75,10 @@ if(_wasCancelled) exitWith
 {
     ["Intel", "Search cancelled"] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
+    _caller setVariable ["intelSearchDone", nil];
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
+    searchedSquadLeader = nil;
+    spawnedBelongings = nil;
 };
 
 if(random 100 < (40 + tierWar * 3)) then {
@@ -76,8 +86,7 @@ if(random 100 < (40 + tierWar * 3)) then {
     [position _squadLeader, 1] remoteExec ["SCRT_fnc_common_spawnMoneyOnGround", 2];
 };
 
-if(_caller getVariable ["intelFound", false]) then
-{
+if(_caller getVariable ["intelFound", false]) then {
     private _hasIntel = _squadLeader getVariable ["hasIntel", false];
     if(_hasIntel) then
     {
@@ -92,9 +101,21 @@ if(_caller getVariable ["intelFound", false]) then
     {
         ["Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
+
+    _squadLeader setVariable ["intelSearchDone", true];
 }
 else
 {
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
+
 _caller setVariable ["intelFound", nil];
+
+private _bTimeOut = time + 60;
+waitUntil {sleep 0.5; time > _bTimeOut};
+
+{
+    deleteVehicle _x;
+} forEach spawnedBelongings;
+spawnedBelongings = nil; 
+searchedSquadLeader = nil;

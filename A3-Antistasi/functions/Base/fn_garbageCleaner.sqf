@@ -34,6 +34,13 @@ _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_sta
 	} forEach (allMissionObjects _moneyItem);	
 } forEach _moneyItems;
 
+{
+	private _belongingItem = _x;
+	{ 
+		deleteVehicle _x; 
+	} forEach (allMissionObjects _belongingItem);	
+} forEach belongings;
+
 
 if (hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
