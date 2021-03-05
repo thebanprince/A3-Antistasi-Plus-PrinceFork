@@ -18,11 +18,14 @@
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1250
 - AI have a chance to drop their gun and run away instead of surrender when their morale is low
+- Airbases will have SAM sites too
 - Multiple "Search for Intel" action fixes - fixed some bugs and exploits (multiple searchs on same squad leader), localized string for action, search process visualization
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (Technicals submenu) 
 - (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska 
 - (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
 - Remade announcement system - much less messages on screen will be overwritten by new information
+- AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
+- AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these outposts)
  
 ### Removals
 - Removed Airstrikes title from top status bar

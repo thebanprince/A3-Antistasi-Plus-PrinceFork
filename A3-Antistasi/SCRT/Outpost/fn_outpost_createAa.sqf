@@ -68,13 +68,9 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	_marker setMarkerType "n_recon";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [staticCrewTeamPlayer];
+    _garrison = [(SDKMil select 0)];
     {
-        if (random 20 <= skillFIA) then {
-            _garrison pushBack (_x select 1)
-        } else {
-            _garrison pushBack (_x select 0)
-        };
+    	_garrison pushBack (_x select 0);
     } forEach [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];
     garrison setVariable [_marker,_garrison,true];
 } else {

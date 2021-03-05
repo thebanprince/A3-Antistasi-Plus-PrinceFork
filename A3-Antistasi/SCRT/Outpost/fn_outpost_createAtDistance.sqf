@@ -7,13 +7,9 @@ private _garrison = garrison getVariable [_markerX, []];
 private _props = [];
 
 if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
-    _garrison = [staticCrewTeamPlayer];
+    _garrison = [(SDKMil select 0)];
     {
-        if (random 20 <= skillFIA) then {
-            _garrison pushBack (_x select 1)
-        } else {
-            _garrison pushBack (_x select 0)
-        };
+        _garrison pushBack (_x select 0);
     } forEach groupsSDKAT;
     garrison setVariable [_markerX,_garrison,true];
 };
@@ -29,21 +25,22 @@ if (isNil "_garrison") then {//this is for backward compatibility, remove after 
 private _camonet = createVehicle ["CamoNet_BLUFOR_open_F", _positionX, [], 0, "CAN_COLLIDE"];
 _props pushBack _camonet;
 
-sleep 2;
-
 _veh = staticATteamPlayer createVehicle _positionX;
 _veh lock 3;
 [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 
 sleep 1;
-_groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
-{
-    [_x,_markerX] spawn A3A_fnc_FIAinitBases; 
-    if (typeOf _x == staticCrewTeamPlayer) then {
-        _x moveInGunner _veh;
-        sleep 2;
-    };
-} forEach units _groupX;
+
+private _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
+private _groupXUnits = units _groupX;
+_groupXUnits apply { [_x,_markerX] spawn A3A_fnc_FIAinitBases; };
+
+private _crewManIndex = _groupXUnits findIf  {typeOf _x == (SDKMil select 0)};
+if (_crewManIndex != -1) then {
+    private _crewMan = _groupXUnits select _crewManIndex;
+    _crewMan moveInGunner _veh;
+    [_crewMan, 200] spawn SCRT_fnc_common_scanHorizon;
+};
 
 _groupX setBehaviour "AWARE";
 _groupX setCombatMode "YELLOW";

@@ -147,6 +147,7 @@ class SCRT
         class common_recon {};
         class common_reveal {};
         class common_panicFlee {};
+        class common_scanHorizon {};
     };
 
     class Outpost
