@@ -117,7 +117,7 @@ switch(_constructionType) do {
         construction_buildTime = 90;
     };
     case("MISC"): {
-        construction_buildingsAvailable = ["CamoNet_BLUFOR_F", "CamoNet_BLUFOR_open_F", "CamoNet_BLUFOR_big_F", "Land_CanvasCover_02_F", "Land_CanvasCover_01_F"];
+        construction_buildingsAvailable = ["CamoNet_BLUFOR_F", "CamoNet_BLUFOR_open_F", "CamoNet_BLUFOR_big_F", "Land_CanvasCover_02_F", "Land_CanvasCover_01_F", "Land_LampShabby_F"];
         construction_cost = 10;
         construction_buildTime = 20;
     };
