@@ -2,13 +2,18 @@ private ["_groupX","_killer","_markerX","_super","_enemy"];
 _groupX = _this select 0;
 _killer = _this select 1;
 
+
 {
 	if (fleeing _x) then {
 		if ([_x] call A3A_fnc_canFight) then {
 			_enemy = _x findNearestEnemy _x;
 			if (!isNull _enemy) then {
 				if ((_x distance _enemy < 50) and (vehicle _x == _x)) then {
-					[_x] spawn A3A_fnc_surrenderAction;
+					if ((random 100) < 12) then {
+						[_x] spawn SCRT_fnc_common_panicFlee;
+					} else {
+						[_x] spawn A3A_fnc_surrenderAction;
+					};
 				}
 				else {
 					if (_x == leader group _x) then {
@@ -57,7 +62,6 @@ _killer = _this select 1;
 						} else {
 							[_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
 						};
-						// if hmd _x == ""
 					};
 				};
 			}

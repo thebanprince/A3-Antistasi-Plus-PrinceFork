@@ -8,7 +8,7 @@
 - Tune weather and fog options (Environment tab in commander menu)
 - Rocket Camera
 - Ability to buy repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck) or 3 resources (fuel truck))
-- New action on surrended enemy - reveal near enemies position for 30 sec through interrogation
+- New action on surrended enemy - reveal near enemies position for 30 sec
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and captured points 
@@ -17,6 +17,8 @@
 - Maximum for AI Limit option changed from 200 to 300
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1250
+- AI have a chance to drop their gun and run away instead of surrender when their morale is low
+- Multiple "Search for Intel" action fixes - fixed some bugs and exploits (multiple searchs on same squad leader), localized string for action, search process visualization
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (Technicals submenu) 
 - (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska 
 - (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
