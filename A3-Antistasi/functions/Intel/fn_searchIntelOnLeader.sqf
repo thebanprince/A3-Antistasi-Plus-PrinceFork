@@ -43,7 +43,7 @@ _caller addEventHandler
             private _leaderWorldPosition = getPosWorld searchedSquadLeader;
             private _belongingObject = [
                 selectRandom belongings, 
-                [(_leaderWorldPosition select 0) + (random [0.25, 0.6, 1]),( _leaderWorldPosition select 1) + (random [0.25, 0.6, 1]), _leaderWorldPosition select 2]
+                [(_leaderWorldPosition select 0) + (random [0.25, 0.6, 1.5]),( _leaderWorldPosition select 1) + (random [0.25, 0.6, 1.5]), _leaderWorldPosition select 2]
             ] call BIS_fnc_createSimpleObject;
             _belongingObject setDir (random 360);
             spawnedBelongings pushBack _belongingObject;
