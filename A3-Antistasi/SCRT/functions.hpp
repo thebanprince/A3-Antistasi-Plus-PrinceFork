@@ -106,8 +106,6 @@ class SCRT
         class ui_setAvailableVehicleTypes {};
         class ui_createVehicleBlackMarketMenu {};
         class ui_setVehicleCostText {};
-        class ui_setTechnicalVehicleCostText {};
-        class ui_buyTechnical {};
         class ui_createBuyVehicleMenu {};
         class ui_setAvailableBuyVehicleTypes {};
         class ui_getMarketLookup {};
@@ -148,6 +146,7 @@ class SCRT
         class common_chemicalDamage {};
         class common_recon {};
         class common_reveal {};
+        class common_panicFlee {};
     };
 
     class Outpost
