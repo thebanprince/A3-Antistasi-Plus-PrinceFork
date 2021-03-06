@@ -62,3 +62,10 @@ class hcDown
 	picture = "b_unknown";
 	pictureColor[] = {0.0,0.5,0.0,1};
 };
+class noSinglplayer
+{
+	title = "Singleplayer detected.";
+	subtitle = "Singleplayer is no longer supported. If you want to play as single player, start mission in LAN server.";
+	picture = "b_unknown";
+	pictureColor[] = {1,0.5,0.0,1};
+};

@@ -50,42 +50,39 @@ if (_shouldStripLoadout) then {
 	[_playerId, "loadoutPlayer", getUnitLoadout _playerUnit] call A3A_fnc_savePlayerStat;
 };
 
-if (isMultiplayer) then
+private _garage = [_playerUnit] call A3A_fnc_getPersonalGarage;
+[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
+[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
+[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
+
+_totalMoney = _playerUnit getVariable ["moneyX", 0];
+if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
+
+if (_globalSave) then 
 {
-	private _garage = [_playerUnit] call A3A_fnc_getPersonalGarage;
-	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
-	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage", [_playerUnit] call A3A_fnc_getPersonalGarage] call A3A_fnc_savePlayerStat;
-
-	_totalMoney = _playerUnit getVariable ["moneyX", 0];
-	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
-
-	if (_globalSave) then 
+	// Add value of live AIs owned by player
+	// plus cost of vehicles driven by player-owned units, including self
+	// plus cost of unsaved static weapons aimed by player-owned units, including self
 	{
-		// Add value of live AIs owned by player
-		// plus cost of vehicles driven by player-owned units, including self
-		// plus cost of unsaved static weapons aimed by player-owned units, including self
+		if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
 		{
-			if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
-			{
-				if (_x != _playerUnit) then {
-					private _unitPrice = server getVariable [typeOf _x, 0];
-					_totalMoney = _totalMoney + _unitPrice;
-				};
-				private _veh = vehicle _x;
-				if (_veh == _x || {_veh in staticsToSave}) exitWith {};
-				if (_x == driver _veh || {_x == gunner _veh && _veh isKindOf "StaticWeapon"}) then {
-					private _vehPrice = [typeof _veh] call A3A_fnc_vehiclePrice;
-					_totalMoney = _totalMoney + _vehPrice;
-				};
+			if (_x != _playerUnit) then {
+				private _unitPrice = server getVariable [typeOf _x, 0];
+				_totalMoney = _totalMoney + _unitPrice;
 			};
+			private _veh = vehicle _x;
+			if (_veh == _x || {_veh in staticsToSave}) exitWith {};
+			if (_x == driver _veh || {_x == gunner _veh && _veh isKindOf "StaticWeapon"}) then {
+				private _vehPrice = [typeof _veh] call A3A_fnc_vehiclePrice;
+				_totalMoney = _totalMoney + _vehPrice;
+			};
+		};
 
-		} forEach (units group _playerUnit);
-	};
-	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
-
-	[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage], _filename] call A3A_fnc_log;
+	} forEach (units group _playerUnit);
 };
+[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
+
+[2, format ["Saved player %1: %2 rank, %3 money, %4 vehicles", _playerId, rank _playerUnit, _totalMoney, count _garage], _filename] call A3A_fnc_log;
 
 if (!_globalSave) then { saveProfileNamespace };
 true;

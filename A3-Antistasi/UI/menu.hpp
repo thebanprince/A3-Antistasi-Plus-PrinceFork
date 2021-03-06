@@ -47,41 +47,6 @@ class RscTitles
 	};
 };
 
-class startupMenu: SimpleMenuSmall 
-{
-	idd=-1;
-	
-	class Controls
-	{
-		class title: SimpleTitle
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_lps_frame_text;
-		};
-
-		class yesButton: SimpleButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_button_yes_text;
-			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
-			action = "loadLastSave = true; closeDialog 0;";
-		};
-		
-		class noButton: SimpleButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_generic_button_no_text;
-			tooltip = $STR_antistasi_dialogs_generic_button_no_tooltip;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			action = "loadLastSave = false; closeDialog 0;";
-		};
-	};
-};
-
 class loadLastPersonalSaveMenu: SimpleMenuSmall 
 {
 	idd=-1;
@@ -893,7 +858,7 @@ class commanderComm: SimpleMenuBigger
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
 			tooltip = "Step down from commander or toggle eligibility";
-			action = "if (isMultiplayer) then {closedialog 0;[player, cursorTarget] remoteExec [""A3A_fnc_theBossToggleEligibility"", 2]} else {[""Resign Commander"", ""This feature is MP Only""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [player, cursorTarget] remoteExec ['A3A_fnc_theBossToggleEligibility', 2];";
 		};
 
 		class l5Button: SimpleButton
@@ -1188,7 +1153,7 @@ class playerMoney: SimpleMenuSmall
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
 			tooltip = "Use this option to add the player which you are currently looking to the member's list";
-			action = "if (isMultiplayer) then {closeDialog 0;nul = [""add""] call A3A_fnc_memberAdd;} else {[""Membership"", ""This function is MP only""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; ['add'] call A3A_fnc_memberAdd;";
 		};
 
 		class l2Button: SimpleButton
@@ -1198,7 +1163,7 @@ class playerMoney: SimpleMenuSmall
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
 			tooltip = "Use this option to remove the player which you are currently looking to the member's list";
-			action = "if (isMultiplayer) then {closeDialog 0;nul = [""remove""] call A3A_fnc_memberAdd;} else {[""Membership"", ""This function is MP only""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; ['remove'] call A3A_fnc_memberAdd;";
 		};
 		
 		class r1Button: SimpleButton
@@ -1463,107 +1428,6 @@ class NATOPlayer: SimpleMenuSmall
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0;[] spawn A3A_fnc_NATOFT";
-		};
-	};
-};
-
-class diffMenu: SimpleMenuSmall 
-{
-	idd = -1;
-
-	class Controls
-	{
-		class title: SimpleTitle
-		{
-			idc = -1;
-			text = "Choose Difficulty";
-		};
-
-		class l1Button: SimpleButton
-		{
-			idc = -1;
-			text = "Easy";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			action = "skillMult = 1; closeDialog 0;";
-		};
-
-		class l2Button: SimpleButton
-		{
-			idc = -1;
-			text = "Hard";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
-			action = "skillMult = 3; closeDialog 0;";
-		};
-		
-		class r1Button: SimpleButton
-		{
-			idc = -1;
-			text = "Normal";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			action = "skillMult = 1; closeDialog 0;";
-		};
-	};
-};
-
-class gameModeMenu: SimpleMenuSmall
-{
-	idd = 100;
-
-	class Controls
-	{
-		class closeButton: RscCloseButton
-		{
-			idc = -1;
-			x = 0.732 * safezoneW + safezoneX;
-			y = 0;
-			w = 0.02 * safezoneW;
-			h = 0.02 * safezoneH;
-			action = "closeDialog 0; createDialog 'radioComm'";
-		};
-
-		class title: SimpleTitle
-		{
-			idc = -1;
-			text = "Select your Game Mode";
-		};
-
-		class l1Button: SimpleButton
-		{
-			idc = 104;
-			text = "Reb vs Gov vs Inv";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			action = "closeDialog 0;gameMode = 1;";
-		};
-
-		class l2Button: SimpleButton
-		{
-			idc = 105;
-			text = "Rev vs Gov & Inv";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
-			action = "closeDialog 0;gameMode = 2;";
-		};
-		
-		class r1Button: SimpleButton
-		{
-			idc = 106;
-			text = "Reb vs Gov";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			action = "closeDialog 0;gameMode = 3;";
-		};
-
-		class r2Button: SimpleButton
-		{
-			idc = 107;
-			text = "Reb vs Inv";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
-			action = "closeDialog 0;gameMode = 4";
 		};
 	};
 };

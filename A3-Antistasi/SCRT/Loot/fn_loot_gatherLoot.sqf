@@ -7,7 +7,7 @@ params ["_vehicle"];
 
 #define RADIUS 50
 
-private _time = if (isMultiplayer) then {serverTime} else {time};
+private _time = serverTime;
 
 if ((_time - (_vehicle getVariable ["lastLooted", -15])) < 15) exitWith {
 	if (hasInterface) then {

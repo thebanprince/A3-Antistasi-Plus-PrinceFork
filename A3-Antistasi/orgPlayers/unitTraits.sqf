@@ -2,11 +2,7 @@ private ["_typeX","_textX"];
 
 _typeX = typeOf player;
 _textX = "";
-switch (_typeX) do
-	{
-	//case "I_C_Soldier_Para_7_F": {player setUnitTrait ["UAVHacker",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
-	//case "I_C_Soldier_Para_8_F": {player setUnitTrait ["engineer",true]; player setUnitTrait ["explosiveSpecialist",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
-	//case "I_C_Soldier_Para_3_F": {player setUnitTrait ["medic",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
+switch (_typeX) do {
 	case typePetros: {player setUnitTrait ["UAVHacker",true]};
 	//cases for greenfor missions
 	case "I_G_medic_F":  {_textX = "Medic role.<br/><br/>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration"}; //reintroduced - 8th January 2020, Bob Murphy
@@ -42,8 +38,9 @@ switch (_typeX) do
 	case "O_T_Recon_LAT_F":  {player setUnitTrait ["audibleCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _textX = "Antitank role.<br/><br/>Antitanks have a slight bonus on carry capacity, but make too much noise when they move"}; //added - 9th January 2020, Bob Murphy
 	};
 
-if (isMultiPlayer) then
-	{
-	sleep 5;
-	["Unit Traits", format ["You have selected %1",_textX]] call A3A_fnc_customHint;
-	};
+if (player == theBoss && {_typeX == "I_G_Soldier_TL_F"}) then {
+	player setUnitTrait ["loadCoef",1];
+};
+
+sleep 5;
+["Unit Traits", format ["You have selected %1",_textX]] call A3A_fnc_customHint;

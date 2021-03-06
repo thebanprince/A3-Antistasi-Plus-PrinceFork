@@ -98,7 +98,6 @@ class A3A
 		class scheduler {};
 		class sellVehicle {};
 		class setMarkerAlphaForSide {};
-        class singlePlayerBlackScreenWarning {};
 		class sizeMarker {};
 		class splitVehicleCrewIntoOwnGroups {};
 		class startBreachVehicle {};
@@ -251,7 +250,6 @@ class A3A
 		class buyVehicle {};
 		class buyVehicleCiv {};
 		class clearForest {};
-		class createDialog_setParams {};
 		class createDialog_shouldLoadPersonalSave {};
 		class dialogHQ {};
 		class fastTravelRadio {};

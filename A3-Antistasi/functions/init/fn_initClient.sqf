@@ -592,7 +592,3 @@ if("magRepack" call BIS_fnc_getParamValue == 1) then {
 	diag_log format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.",servertime];
 	[] execVM "MagRepack\MagRepack_init_sv.sqf";
 };
-
-if(!isMultiplayer) then {
-    [] spawn A3A_fnc_singlePlayerBlackScreenWarning;
-};
