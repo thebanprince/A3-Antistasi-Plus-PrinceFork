@@ -11,6 +11,8 @@
 
 private _position = _this select 0;
 
+traderObjects = [];
+
 traderMarker = createMarker ["TraderMarker", _position];
 traderMarker setMarkerType "hd_objective";
 traderMarker setMarkerSize [1, 1];
@@ -65,7 +67,10 @@ _container setPos (_buildingPositions select 0);
 _container setPos [(getPos _container select 0) - 8, (getPos _container select 1) + 3, (getPos _container select 2) + 2.4];
 _container setDir 90;
 
-[_traderTent, [0, 0, 1]] remoteExec ["SCRT_fnc_common_attachLightSource", 0, true];
+traderObjects append [_traderTent, _chair, _table, _laptop, _satellite, _tableBox, _ammoBox1, _ammoBox2, _container];
+publicVariable "traderObjects";
+
+[_traderTent, [0, 0, 1]] remoteExec ["SCRT_fnc_common_attachLightSource", 0, _traderTent];
 
 //trader itself
 _traderX = createAgent ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];
