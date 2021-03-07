@@ -21,68 +21,34 @@ if(isNil "serverID") then {
 };
 publicVariable "serverID";
 
-if (isMultiplayer) then {
-	//Load server parameters
-	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
-	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
-	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
-	skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
-	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-	memberOnlyMagLimit = "memberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
-	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
-	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
-	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
-	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
-	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
-	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
-	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-	isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
-	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
-	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
-	spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
-	settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
-} else {
-	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
-	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
-	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
-	autoSave = false;
-	autoSaveInterval = 3600;
-	membershipEnabled = false;
-	switchCom = false;
-	tkPunish = false;
-	distanceMission = 4000;
-	pvpEnabled = false;
-	skillMult = if (isNil "skillMult") then {2} else {skillMult};
-	//Acceptable to default this one.
-	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
-	memberOnlyMagLimit = 0;
-	allowMembersFactionGarageAccess = true;
-	personalGarageMax = 2;
-	civTraffic = 1;
-	memberDistance = 10;
-	limitedFT = false;
-	napalmEnabled = false;
-	teamSwitchDelay = 0;
-	playerMarkersEnabled = true;
-	minPlayersRequiredforPVP = 2;
-	helmetLossChance = 33;
-    startWithLongRangeRadio = false;
-	isFatalWoundsEnabled = false;
-	fastTravelIndividualEnemyCheck = false;
-	isPursuersEnabled = true;
-	spawnTraderOnBase = false;
-	settingsTimeMultiplier = 1;
-};
+loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
+gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
+autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
+autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
+membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
+switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
+tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
+distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
+pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
+skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
+minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
+memberOnlyMagLimit = "memberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
+allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
+personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
+civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
+memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
+limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
+napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
+startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
+teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
+playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
+minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
+helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
+isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
+fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
+isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
+spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
+settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
 
 setTimeMultiplier settingsTimeMultiplier;
 
@@ -288,7 +254,7 @@ execvm "functions\init\fn_initSnowFall.sqf";
 waitUntil{sleep 1;!(isNil "initVar")};
 
 //trader functionality on HQ
-if(spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
+if (spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
 	[3, "Spawning trader screen on base.", _fileName] call A3A_fnc_log;
 	isTraderQuestAssigned = true;
 	[] call SCRT_fnc_trader_createTraderTerminal;
