@@ -14,4 +14,4 @@ if (count missionsX > 0) then
 		};
 	};
 
-_nul = [_tsk] call BIS_fnc_deleteTask;
+[_tsk] call BIS_fnc_deleteTask;
