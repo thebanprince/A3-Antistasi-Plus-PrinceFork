@@ -37,7 +37,7 @@ lbSetData [2758, 1, "ATMine"];
 lbSetCurSel [2758, 0];
 
 {	
-	if (!(ctrlIDC _x in [1055, 1056, 1140, 1700, 1701, 1750, 1751, 1702, 1703, 1704, 1710, 1711, 1712])) then {
+	if (!(ctrlIDC _x in [1055, 1056, 1140, 1700, 1701, 1750, 1751, 1702, 1703, 1704, 1710, 1711, 1712, 6014])) then {
 		((findDisplay 60000) displayCtrl (ctrlIDC _x)) ctrlSetFade 0;
 	};
 
@@ -46,6 +46,11 @@ lbSetCurSel [2758, 0];
 
 private _fiaTrainingText = format ["FIA Skill Level: %1", skillFIA];
 ((findDisplay 60000) displayCtrl 3102) ctrlSetText _fiaTrainingText;
+
+//hiding reroll button if conditions are not met
+if (spawnTraderOnBase || {!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))}) then {
+	((findDisplay 60000) displayCtrl 6014) ctrlShow false;
+};
 
 menuComplete = true;
 

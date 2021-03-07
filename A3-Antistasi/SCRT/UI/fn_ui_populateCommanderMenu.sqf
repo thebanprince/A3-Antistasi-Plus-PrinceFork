@@ -84,7 +84,7 @@ lbSetData [2758, 1, "ATMine"];
 lbSetCurSel [2758, 0];
 
 {	
-	if (ctrlIDC _x != 1055 && {ctrlIDC _x != 1056}) then {
+	if (!(ctrlIDC _x in [1055, 1056, 6014])) then {
 		((findDisplay 60000) displayCtrl (ctrlIDC _x)) ctrlSetFade 0;
 	};
 
@@ -137,6 +137,11 @@ private _serverMembersText = [] call A3A_fnc_membersList;
 
 private _fiaTrainingText = format ["FIA Skill Level: %1", skillFIA];
 ((findDisplay 60000) displayCtrl 3102) ctrlSetText _fiaTrainingText;
+
+//hiding reroll button if conditions are not met
+if (spawnTraderOnBase || {!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))}) then {
+	((findDisplay 60000) displayCtrl 6014) ctrlShow false;
+};
 
 menuComplete = true;
 

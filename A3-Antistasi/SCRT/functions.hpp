@@ -123,6 +123,7 @@ class SCRT
         class trader_removeUnlockedItemsFromStock {};
         class trader_createTraderTerminal {};
         class trader_buyBlackMarketVehicle {};
+        class trader_rerollTrader {};
     };
 
     class Common 

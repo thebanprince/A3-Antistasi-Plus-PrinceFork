@@ -960,6 +960,22 @@ class commanderMenu
 					h = "6 * pixelGridNoUIScale * pixelH";
 					colorText[] = {1,1,1,0.7};
 				};
+
+				class rerollTraderButton: ButtonBase
+				{		
+					idc = 6014;
+					text = "Redo Arms Dealer Task";
+					x = "1 * pixelGridNoUIScale * pixelW";
+					y = "34.5 * pixelGridNoUIScale * pixelH";
+					w = "22 * pixelGridNoUIScale * pixelW";	
+					h = "3 * pixelGridNoUIScale * pixelH";
+					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
+					fade = 0;
+					shadow = 2;
+					colorBackground[] = {0.376, 0.125, 0.043, 1};
+					tooltip = "Rollbacks Arms Dealer's game state and allows to redo task about his whereabouts. Helps in situations when Arms Dealer stuck in some undesired location. Costs 1000€ to prevent exploiting.";
+					action = "[] spawn SCRT_fnc_trader_rerollTrader;";			
+				};
 			};
 		};
 	};
