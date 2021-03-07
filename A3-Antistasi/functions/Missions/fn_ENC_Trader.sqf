@@ -105,4 +105,4 @@ publicVariable "traderPosition";
 isTraderQuestCompleted = true; 
 publicVariable "isTraderQuestCompleted";
 
-_nul = [1200,"ENC_TRADER"] spawn A3A_fnc_deleteTask;
+[5,"ENC_TRADER"] spawn A3A_fnc_deleteTask;
