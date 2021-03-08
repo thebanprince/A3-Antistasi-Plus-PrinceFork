@@ -263,7 +263,7 @@ class unitRecruit: SimpleMenuBig
 			text = $STR_antistasi_dialogs_unit_recruit_marksman_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			action = "[SDKATman] spawn A3A_fnc_reinfPlayer";
+			action = "[SDKSniper] spawn A3A_fnc_reinfPlayer";
 		};
 
 		class atButton: SimpleButton
