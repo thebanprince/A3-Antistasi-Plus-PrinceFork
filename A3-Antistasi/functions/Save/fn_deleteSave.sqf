@@ -36,7 +36,7 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "tasks", "idlebases", 
 	"idleassets", "killZones", "controlsSDK", "params",
 	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT",
-	"savedPlayers", "testingTimerIsActive", "traderPosition", "isTraderQuestCompleted"];
+	"savedPlayers", "testingTimerIsActive", "traderPosition", "isTraderQuestCompleted", "traderDiscount"];
 
 
 // Remove this campaign from the save list, if present

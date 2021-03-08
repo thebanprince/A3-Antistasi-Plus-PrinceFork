@@ -23,7 +23,7 @@ private _specialVarLoads = [
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","supportPoints","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+	"bombRuns", "traderDiscount", "supportPoints","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
 	"countCA", "attackCountdownInvaders", "testingTimerIsActive","isTraderQuestCompleted","traderPosition"
 ];
 
@@ -401,9 +401,15 @@ if (_varName in _specialVarLoads) then {
         isTraderQuestCompleted = _varvalue;  publicVariable "isTraderQuestCompleted";
     };
 
-    if(_varname == 'traderPosition') then {
-        diag_log format ["Trader Position: %1", str _varvalue];
+	if(_varName == 'traderDiscount') then {
+		if(_varValue > 0) then {
+			[_varValue] call SCRT_fnc_trader_setTraderDiscount;
+		};
+		traderDiscount = _varValue;
+		publicVariable "traderDiscount";
+	};
 
+    if(_varname == 'traderPosition') then {
         if(count _varvalue > 0) then {
             traderX = [_varvalue] call SCRT_fnc_trader_createTrader; publicVariable "traderX";
             [traderX] call SCRT_fnc_trader_setTraderStock;

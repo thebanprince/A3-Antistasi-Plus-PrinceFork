@@ -38,6 +38,7 @@ private _antennasDeadPositions = [];
 ["destroyedBuildings",destroyedBuildings] call fn_SaveStat;
 ["isTraderQuestCompleted", isTraderQuestCompleted] call fn_SaveStat;
 ["traderPosition", traderPosition] call fn_SaveStat;
+["traderDiscount", traderDiscount] call fn_SaveStat;
 ["pursuersTime", pursuersTime] call fn_SaveStat;
 
 private ["_hrBackground","_resourcesBackground","_veh","_typeVehX","_weaponsX","_ammunition","_items","_backpcks","_containers","_arrayEst","_posVeh","_dierVeh","_prestigeOPFOR","_prestigeBLUFOR","_city","_dataX","_markersX","_garrison","_arrayMrkMF","_positionOutpost","_typeMine","_posMine","_detected","_typesX","_exists","_friendX"];

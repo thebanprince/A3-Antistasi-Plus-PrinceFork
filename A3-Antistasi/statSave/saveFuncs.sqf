@@ -100,7 +100,7 @@ specialVarLoads = [
 	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","supportPoints","difficultyX","gameMode","wurzelGarrison","isTraderQuestCompleted","traderPosition"
+	"bombRuns", "traderDiscount", "supportPoints","difficultyX","gameMode","wurzelGarrison","isTraderQuestCompleted","traderPosition"
 ];
 
 //THIS FUNCTIONS HANDLES HOW STATS ARE LOADED
@@ -428,6 +428,13 @@ fn_SetStat = {
 		if (_varName == 'traderPosition') then { 
 			traderPosition = _varValue; 
 			publicVariable "traderPosition"; 
+		};
+		if(_varName == 'traderDiscount') then {
+			if(_varValue > 0) then {
+				[_varValue] call SCRT_fnc_trader_setTraderDiscount;
+			};
+			traderDiscount = _varValue;
+			publicVariable "traderDiscount";
 		};
 	} else {
 		call compile format ["%1 = %2",_varName,_varValue];

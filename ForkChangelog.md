@@ -6,9 +6,10 @@
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Construction overhaul: persistent save for everything, new UI/UX, much more options to build
 - Tune weather and fog options (Environment tab in commander menu)
-- Rocket Camera
+- New intel type - Arms Dealer store discount
 - Ability to buy repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck) or 3 resources (fuel truck))
 - New action on surrended enemy - reveal near enemies position for 30 sec
+- Rocket Camera (Game Options on map)
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and captured points 

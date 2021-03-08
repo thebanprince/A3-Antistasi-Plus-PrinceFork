@@ -35,6 +35,7 @@ private ["_garrison"];
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
+["traderDiscount", traderDiscount] call A3A_fnc_setStatVariable;
 ["supportPoints", supportPoints] call A3A_fnc_setStatVariable;
 ["smallCAmrk", smallCAmrk] call A3A_fnc_setStatVariable;
 ["membersX", membersX] call A3A_fnc_setStatVariable;

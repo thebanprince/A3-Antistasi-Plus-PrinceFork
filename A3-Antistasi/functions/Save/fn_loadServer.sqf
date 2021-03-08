@@ -44,6 +44,7 @@ if (isServer) then {
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	["isTraderQuestCompleted"] call A3A_fnc_getStatVariable;
 	["traderPosition"] call A3A_fnc_getStatVariable;
+	["traderDiscount"] call A3A_fnc_getStatVariable;
 	["pursuersTime"] call A3A_fnc_getStatVariable;
 	//===========================================================================
 	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"

@@ -1,5 +1,4 @@
 //Define results for small intel
-#define TROOPS          100
 #define TIME_LEFT       101
 #define ACCESS_CAR      102
 #define CONVOY          103
@@ -16,8 +15,9 @@
 #define TRAITOR         301
 #define MONEY           302
 
-//Define results for any intel
+//Define results for (mostly) any intel
 #define TASK          500
+#define DISCOUNT      501
 
 params ["_intelType", "_side"];
 
@@ -54,14 +54,10 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.25, ACCESS_CAR, 0.25, CONVOY, 0.25, TASK, 0.25];
+    _intelContent = selectRandomWeighted [TIME_LEFT, 0.2, ACCESS_CAR, 0.2, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.15];
+    
     switch (_intelContent) do
     {
-        case (TROOPS):
-        {
-            //Case not yet implemented as system is not usable right now
-            //This can be added when the new garrison system is active
-        };
         case (TIME_LEFT):
         {
             private _nextAttack = 0;
@@ -118,14 +114,9 @@ if(_intelType == "Small") then
             } else {
                 [2, "Rerolling small intel outcome", _fileName] call A3A_fnc_log;
 
-                _rerollIntelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, ACCESS_CAR, 0.35, CONVOY, 0.35];
+                _rerollIntelContent = selectRandomWeighted [TIME_LEFT, 0.3, ACCESS_CAR, 0.35, CONVOY, 0.35];
 
                 switch (_rerollIntelContent) do {
-                    case (TROOPS):
-                    {
-                        //Case not yet implemented as system is not usable right now
-                        //This can be added when the new garrison system is active
-                    };
                     case (TIME_LEFT):
                     {
                         private _nextAttack = 0;
@@ -176,11 +167,21 @@ if(_intelType == "Small") then
                 };
             };
         };
+        case (DISCOUNT): 
+        {
+            private _discount = traderDiscount + 0.01;
+            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+            
+            private _money = (round (random 5)) * 100;
+            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+            _text = format ["We some found information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+        };
     };
 };
 if(_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, COUNTER_ATTACK, 0, TASK, 0.4];
+    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.125, ACCESS_HELI, 0.125, ACCESS_ARMOR, 0.125, CONVOYS, 0.125, TASK, 0.4, DISCOUNT, 0.1];
     switch (_intelContent) do
     {
         case (ACCESS_AIR):
@@ -212,9 +213,15 @@ if(_intelType == "Medium") then
             } forEach _convoyMarkers;
             _text = format ["We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map", _sideName, count _convoyMarkers];
         };
-        case (COUNTER_ATTACK):
+        case (DISCOUNT): 
         {
-            //Not yet implemented, needs a rework of the attack script
+            private _discount = traderDiscount + 0.05;
+            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+
+            private _money = (round (random 50)) * 100;
+            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+            _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
         };
         case (TASK):
         {
@@ -270,11 +277,11 @@ if(_intelType == "Large") then
 {
     if(["AS"] call BIS_fnc_taskExists) then
     {
-        _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.2, TASK, 0.6];
+        _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.15, TASK, 0.5, DISCOUNT, 0.15];
     }
     else
     {
-        _intelContent = selectRandomWeighted [WEAPON, 0.15, MONEY, 0.25, TASK, 0.6];
+        _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
     };
     switch (_intelContent) do
     {
@@ -339,6 +346,16 @@ if(_intelType == "Large") then
                     };
                 };
             };
+        };
+        case (DISCOUNT): 
+        {
+            private _discount = traderDiscount + 0.05;
+            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+            
+            private _money = (round (random 50)) * 100;
+            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+            _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
         };
     };
 };

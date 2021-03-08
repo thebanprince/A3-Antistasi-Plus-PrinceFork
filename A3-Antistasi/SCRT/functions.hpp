@@ -124,6 +124,7 @@ class SCRT
         class trader_createTraderTerminal {};
         class trader_buyBlackMarketVehicle {};
         class trader_rerollTrader {};
+        class trader_setTraderDiscount {};
     };
 
     class Common 
