@@ -288,6 +288,55 @@ switch (_callbackTarget) do {
 			};
 		};
 	};
+
+	case "CREATELOOTCRATE": {
+		switch (_callbackType) do {
+			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
+			};
+		
+			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
+			};
+		
+			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {
+			};
+			
+			case CALLBACK_VEH_IS_VALID_LOCATION: {
+			};
+		
+			case CALLBACK_CAN_PLACE_VEH: {
+			};
+		
+			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
+				private _purchasedVeh = _callbackParams param [0];
+				private _typeVehX = typeOf _purchasedVeh;
+				
+				[_purchasedVeh, teamPlayer] call A3A_fnc_AIVEHinit;
+				
+				//Handle Money
+				_factionMoney = server getVariable "resourcesFIA";
+
+				if (player == theBoss && {vehiclePurchase_cost <= _factionMoney}) then {
+					_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
+				}
+				else {
+					[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
+					_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+				};
+				
+				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
+				_purchasedVeh call jn_fnc_logistics_addAction;
+
+				playSound "3DEN_notificationDefault";
+			};
+			
+			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
+				_callbackParams params ["_vehicleType", "_pos", "_dir"];
+				_createdVehicle = 0;
+                _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				_createdVehicle;
+			};
+		};
+	};
 	
 	default {
 		switch (_callbackType) do {

@@ -408,6 +408,4 @@ switch (toLower worldName) do {
 	};
 };
 
-lootVehicles = [];
-
 [2,"initVarCommon completed",_fileName] call A3A_fnc_log;

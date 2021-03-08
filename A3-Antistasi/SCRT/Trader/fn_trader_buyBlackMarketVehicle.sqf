@@ -1,4 +1,4 @@
-private _fileName = "trader_pickFromVehiclePool";
+private _fileName = "trader_buyBlackMarketVehicle";
 
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {
     ["Vehicle Market", "Unable to buy vehicle, you are already placing something."] call SCRT_fnc_misc_showDeniedActionHint;

@@ -663,11 +663,11 @@ class commanderComm: SimpleMenuBigger
 		class l2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Assign Loot Vehicle";
+			text = "Place Rally Point";
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Adds Loot To Vehicle action to vehicle. Costs 1000€.";
-			action = "closeDialog 0; [] call SCRT_fnc_loot_assignLootVehicle;";
+			tooltip = "Creates temporary spawn point. Costs 750€.";
+			//action = "closeDialog 0; [] call SCRT_fnc_loot_createLootCrate;";
 		};
 
 		class l3Button: SimpleButton
