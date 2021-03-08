@@ -247,8 +247,6 @@ class A3A
 
 	class Dialogs
 	{
-		class buyVehicle {};
-		class buyVehicleCiv {};
 		class clearForest {};
 		class createDialog_shouldLoadPersonalSave {};
 		class dialogHQ {};
