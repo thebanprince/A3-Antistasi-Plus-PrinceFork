@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=9568;
+		nextID=9570;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2782;
+		nextID=2813;
 	};
 	class Camera
 	{
-		pos[]={18449.061,12.956827,3796.8604};
-		dir[]={-0.76885271,-0.61981916,-0.15713032};
-		up[]={-0.60726708,0.78474462,-0.12410709};
-		aside[]={-0.20023112,0,0.97974879};
+		pos[]={15282.489,40.149643,9412.7461};
+		dir[]={0.061573412,-0.76751798,0.63806903};
+		up[]={0.073722981,0.64102745,0.76397163};
+		aside[]={0.99538022,-5.6897989e-009,-0.096053801};
 	};
 };
 binarizationWanted=0;
@@ -337,7 +337,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1243;
+		items=1244;
 		class Item0
 		{
 			dataType="Layer";
@@ -4285,7 +4285,7 @@ class Mission
 				};
 			};
 			id=635;
-			atlOffset=159.29935;
+			atlOffset=134.40298;
 		};
 		class Item7
 		{
@@ -62923,6 +62923,60 @@ class Mission
 			};
 			id=9567;
 			type="Land_TripodScreen_01_large_black_F";
+		};
+		class Item1243
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15280.438,15.251643,9429.2979};
+			};
+			areaSize[]={3.6220703,0,5.0354004};
+			flags=1;
+			id=9569;
+			type="ModuleHideTerrainObjects_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections
