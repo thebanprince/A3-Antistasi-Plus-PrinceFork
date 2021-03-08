@@ -3,7 +3,7 @@
 ### Additions
 - UI/UX overhaul - new commander menu (O key shortcut), all other menus were remade on new UI framework
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
-- Support points for non-offensive commander abilities (capped at 3 max, requires 4 captured outposts to start gaining them)
+- Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Construction overhaul: persistent save for everything, new UI/UX, much more options to build
 - Tune weather and fog options (Environment tab in commander menu)
 - Rocket Camera

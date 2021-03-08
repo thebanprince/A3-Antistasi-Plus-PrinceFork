@@ -142,8 +142,7 @@ while {true} do {
 	server setVariable ["resourcesFIA",_recAddSDK,true];
 	bombRuns = bombRuns + (({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX) * 0.25);
 
-	private _outposts = {sidesX getVariable [_x,sideUnknown] == teamPlayer} count outposts;
-	if(_outposts > 4) then {
+	if(tierWar > 2) then {
 		supportPoints = supportPoints + 1;
 	};
 
