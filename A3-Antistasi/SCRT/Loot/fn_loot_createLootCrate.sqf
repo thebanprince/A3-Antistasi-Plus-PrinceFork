@@ -1,5 +1,5 @@
 
-#define COST 1000
+#define COST 500
 
 private _fileName = "loot_createLootCrate";
 private _boxClass = "Box_Syndicate_Ammo_F";
