@@ -28,6 +28,7 @@
 - Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), magazine check to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)
 - Singleplayer support is fully turned off
 - Adjusted commander loadCoeff (1.4->1.0)
+- Players can fast travel to Arms Dealer location
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (CUP Technicals) 
 - (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska
 - (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
