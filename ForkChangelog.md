@@ -9,6 +9,7 @@
 - New intel type - Arms Dealer store discount
 - Ability to buy repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck) or 3 resources (fuel truck))
 - New action on surrended enemy - reveal near enemies position for 30 sec
+- Ability to repair military buildings on rebel-controlled points
 - Rocket Camera (Game Options on map)
 
 ### Changes

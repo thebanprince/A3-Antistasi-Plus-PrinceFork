@@ -18,24 +18,15 @@ if(_mode == "ADD") then {
             };
 
             private _side = sidesX getVariable [_site, sideUnknown];
-            if !(_side != teamPlayer) exitWith {
+            if (_side != teamPlayer) exitWith {
                 [
                     "FAIL",
                     "Rebuild Assets",  
-                    parseText format ["Selected site does not belong to %2.", nameTeamPlayer], 
+                    parseText format ["Selected site does not belong to %1.", nameTeamPlayer], 
                     30
                 ] spawn SCRT_fnc_ui_showMessage;
             };
 
-            private _destroyedSites = destroyedSites - citiesX;
-            if !(_site in _destroyedSites) exitWith {
-                [
-                    "FAIL",
-                    "Rebuild Assets",  
-                    parseText "Selected site is not destroyed.", 
-                    30
-                ] spawn SCRT_fnc_ui_showMessage;
-            };
             
             private _resourcesFIA = server getVariable "resourcesFIA";
             if (_resourcesFIA < 5000) exitWith {
