@@ -13,6 +13,58 @@ private _comboboxId = _controlIds select 1;
 private _costTextBox = _display displayCtrl _textBoxId;
 private _comboBox = _display displayCtrl _comboboxId;
 private _index = lbCurSel _comboBox;
-private _vehicleType = _comboBox lbData _index;
+private _vehicleClass = _comboBox lbData _index;
 
-_costTextBox ctrlSetText format ["Cost: %1€", [_vehicleType] call A3A_fnc_vehiclePrice];
+private _price = [_vehicleClass] call A3A_fnc_vehiclePrice;
+
+if(_displayId == 90000) then {
+    private _vehicleTypeComboBox = _display displayCtrl 1015;
+    private _vehicleTypeIndex = lbCurSel _vehicleTypeComboBox;
+    private _vehicleType = _vehicleTypeComboBox lbData _vehicleTypeIndex;
+
+    private _shopLookupArrayIndex = nil;
+
+    switch(_vehicleType) do {
+        case("AA"): {
+            _shopLookupArrayIndex = shop_AA find _vehicleClass;
+        };
+        case("MRAP"): {
+            _shopLookupArrayIndex = shop_MRAP find _vehicleClass;
+        };
+        case("WHEELED_APC"): {
+            _shopLookupArrayIndex = shop_track_apc find _vehicleClass;
+        };
+        case("TRACKED_APC"): {
+            _shopLookupArrayIndex = shop_track_apc find _vehicleClass;
+        };
+        case("HELI"): {
+            _shopLookupArrayIndex = shop_heli find _vehicleClass;
+        };
+        case("TANK"): {
+            _shopLookupArrayIndex = shop_tank find _vehicleClass;
+        };
+        case("PLANE"): {
+            _shopLookupArrayIndex = shop_plane find _vehicleClass;
+        };
+    };
+
+    // systemChat str _vehicleType;
+    systemChat str _shopLookupArrayIndex;
+
+    if (!isNil "_shopLookupArrayIndex" && {_shopLookupArrayIndex != -1}) then {
+        switch (true) do {
+            case(_shopLookupArrayIndex == 0 && {tierWar > 3}): {
+                _price = _price * 0.85;
+            };
+            case(_shopLookupArrayIndex == 0 && {tierWar > 6}): {
+                _price = _price * 0.7;
+            };
+            case(_shopLookupArrayIndex == 1 && {tierWar > 6}): {
+                _price = _price * 0.75;
+            };
+        };
+    };
+};
+
+
+_costTextBox ctrlSetText format ["Cost: %1€", _price];
