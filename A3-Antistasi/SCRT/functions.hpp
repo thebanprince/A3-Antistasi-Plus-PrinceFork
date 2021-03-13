@@ -66,6 +66,7 @@ class SCRT
         class misc_followCamera {};
         class misc_launcherCamera {};
         class misc_toggleLauncherCamEventHandler {};
+        class misc_updateRichPresence {};
     };
 
     class UI
@@ -141,6 +142,7 @@ class SCRT
         class common_unflipVehicle {};
         class common_shareFactionMoneyWithMembers {};
         class common_moveStatic {};
+        class common_moveObject {};
         class common_sinkShip {};
         class common_airdropCargo {};
         class common_supplyDrop {};
