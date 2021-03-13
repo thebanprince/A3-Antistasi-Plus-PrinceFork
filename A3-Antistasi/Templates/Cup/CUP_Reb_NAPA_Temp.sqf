@@ -6,6 +6,8 @@ SDKFlag = "Flag_Green_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_Green_CO.paa";
 typePetros = "CUP_I_GUE_Commander";
 
+lootCrate = "Box_Syndicate_Ammo_F";
+
 ////////////////////////////////////
 //             UNITS             ///
 ////////////////////////////////////

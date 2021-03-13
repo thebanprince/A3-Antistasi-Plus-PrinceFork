@@ -1,13 +1,7 @@
-private ["_thingX","_playerX"];
-
 private _thingX = cursorObject;
 private _playerX = player;
 
 if(isNil "_thingX" || {isNull _thingX}) exitWith {};
-
-if(!(_thingX isKindOf "StaticWeapon")) exitWith {
-	["Move Asset Failed", "Only static weapons can be moved."] call SCRT_fnc_misc_showDeniedActionHint;
-};
 
 if !(side _playerX == teamPlayer || side _playerX == civilian) exitWith {
 	["Move Asset Failed", "Only rebels are allowed to move assets."] call SCRT_fnc_misc_showDeniedActionHint;
@@ -22,8 +16,16 @@ if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {
 	["Move Asset Failed", "You have other things attached, you cannot move this."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-if !((crew _vehicle) isEqualTo []) exitWith {
+if((typeOf _thingX) == lootCrate) exitWith {
+	[_thingX] call SCRT_fnc_common_moveObject;
+};
+
+if !((crew _thingX) isEqualTo []) exitWith {
 	["Move Asset Failed", "Vehicle is occupied by someone, clear crew before moving it."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if(!(_thingX isKindOf "StaticWeapon")) exitWith {
+	["Move Asset Failed", "Only static weapons or loot crates can be moved."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 _thingX setVariable ["objectBeingMoved", true];

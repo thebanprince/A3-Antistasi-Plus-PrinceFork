@@ -6,6 +6,8 @@ SDKFlag = "Flag_Syndikat_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
 typePetros = "rhsgref_nat_warlord";
 
+lootCrate = "Box_Syndicate_Ammo_F";
+
 ////////////////////////////////////
 //             UNITS             ///
 ////////////////////////////////////

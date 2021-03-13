@@ -470,10 +470,10 @@ class radioComm: SimpleMenuBigger
 		class r5Button: SimpleButton
 		{
 			idc = -1;
-			text = "Move Static Weapon";
+			text = "Move Static/Loot Crate";
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
-			tooltip = "Grants the ability to move static weapon at cursor/crosshair.";
+			tooltip = "Grants the ability to move static weapon or loot crate you're pointing at.";
 			action = "closeDialog 0; [] spawn SCRT_fnc_common_moveStatic;";
 		};
 	};

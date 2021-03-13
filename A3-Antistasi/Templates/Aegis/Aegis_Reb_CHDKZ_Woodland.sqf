@@ -6,6 +6,8 @@ SDKFlag = "Flag_ChDKZ_F";
 SDKFlagTexture = "\ca\data\flag_chdkz_co.paa";
 typePetros = "I_T_Soldier_2_F";
 
+lootCrate = "Box_Syndicate_Ammo_F";
+
 ////////////////////////////////////
 //             UNITS             ///
 ////////////////////////////////////

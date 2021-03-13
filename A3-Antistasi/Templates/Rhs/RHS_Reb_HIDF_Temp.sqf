@@ -6,6 +6,8 @@ SDKFlag = "Flag_FIA_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_FIA_CO.paa";
 typePetros = "rhsgref_hidf_teamleader";
 
+lootCrate = "Box_Syndicate_Ammo_F";
+
 ////////////////////////////////////
 //             UNITS             ///
 ////////////////////////////////////
