@@ -663,11 +663,11 @@ class commanderComm: SimpleMenuBigger
 		class l2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Place Rally Point";
+			text = "Place/Remove Rally Point";
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Creates temporary spawn point. Costs 750€.";
-			//action = "closeDialog 0; [] call SCRT_fnc_loot_createLootCrate;";
+			tooltip = "Places or removes temporary rally spawn point.";
+			action = "closeDialog 0; [] call SCRT_fnc_rally_toggleRallyPoint;";
 		};
 
 		class l3Button: SimpleButton
