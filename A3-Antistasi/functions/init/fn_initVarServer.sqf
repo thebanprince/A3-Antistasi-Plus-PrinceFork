@@ -757,7 +757,7 @@ server setVariable [civCar,350,true];
 server setVariable [civTruck,700,true];	
 server setVariable [civHeli, 5000,true];
 server setVariable [civBoat,200,true];
-server setVariable [civLooter,1250,true];
+server setVariable [civLooter,1500,true];
 server setVariable [vehSDKBike, 100, true];
 server setVariable [vehSDKLightUnarmed,200,true];										
 server setVariable [vehSDKTruck,300,true];
@@ -791,6 +791,9 @@ if(hasCup || {hasAU}) then {
 	server setVariable [technicalArmoredSpg, 3000, true];										
 	server setVariable [technicalArmoredMg, 2250, true];
 };
+
+//lootcrate cost
+server setVariable [lootCrate, 300, true];
 
 ///////////////////////
 //     GARRISONS    ///
