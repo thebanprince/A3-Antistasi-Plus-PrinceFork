@@ -1,7 +1,7 @@
 //lower-case only!
 aridmaps = ["altis"];
 tropicalmaps = ["tanoa"];
-temperatemaps = ["enoch", "vt7", "taviana", "cup_chernarus_a3", "napf"];
+temperatemaps = ["enoch", "vt7", "cup_chernarus_a3", "napf"];
 
 terrainName = toLower worldName;
 

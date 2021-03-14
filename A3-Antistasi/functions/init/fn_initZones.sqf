@@ -102,7 +102,7 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
-	//TODO: taviana, NAPF, cherno 2020 config
+	//TODO: NAPF, cherno 2020 config
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
@@ -256,12 +256,6 @@ switch (toLower worldName) do {
 		[1768.36,15526.1,0.00277328], [15449.2,16603.3,0]];
 		_blackListPos = [];
 		antennas = [];
-	};
-	case "taviana": {
-	    _posAntennas = [[2125.54,7056.53,0],[13270.3,7026.68,0],[22507.8,19886.3,0],[10385.4,18230.1,-0.000144958],[1057.86,18179.6,0.341925],[8381.83,10848.1,0],[7713.27,9080.84,0],[6902.18,8357.42,0],[3764.54,17179.6,0],[9146.62,14856,0],[11146.5,15750.3,0],[9574,4720.8,0],[16310.4,10091.3,0],[17227.3,8238.31,0],[15627.1,5517.46,0],[13994.7,12354.9,0],[14799.2,18632,0],[11333.4,941.792,0]];
-	    _posBank = [[5033.44,17475.4,0],[7801.44,4305.77,0],[14850.1,9391.44,0],[11808,15824.6,0],[9202.28,8109.23,0]];
-		_blackListPos = [];
-	    antennas = [];
 	};
 	case "cup_chernarus_a3":
 	{
