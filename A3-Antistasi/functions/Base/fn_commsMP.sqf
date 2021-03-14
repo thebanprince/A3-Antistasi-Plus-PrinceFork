@@ -54,7 +54,7 @@ if (_typeX == "tier") then {
 };
 
 if (_typeX == "support") then {
-	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
+	[_textX, [safeZoneX + (0.65 * safeZoneW), (0.2 * safeZoneW)], 0.65, 8, 0, 0, 147] spawn BIS_fnc_dynamicText;
 };
 
 if (_typeX == "unlock") then {
