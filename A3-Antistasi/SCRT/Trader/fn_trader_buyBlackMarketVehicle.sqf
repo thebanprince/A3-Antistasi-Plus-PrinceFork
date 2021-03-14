@@ -80,4 +80,6 @@ if (_resourcesFIA < vehiclePurchase_cost) exitWith {
 
 private _extraMessage = format  ["Price: %1€<br/>", vehiclePurchase_cost];
 
+[["UpdateState", "Buys vehicle at black market"]] call SCRT_fnc_misc_updateRichPresence;
+
 [_vehicleClass, "BUYVEHICLEMARKET", _extraMessage] call A3A_fnc_vehPlacementBegin;

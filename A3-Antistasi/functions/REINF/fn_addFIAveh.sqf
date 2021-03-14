@@ -37,4 +37,6 @@ if (!(player inArea vehiclePurchase_nearestMarker)) exitWith {["Add Vehicle", "Y
 
 private _extraMessage =	format ["Buying vehicle for $%1", vehiclePurchase_cost];
 
+[["UpdateState", "Buys vehicle at HQ"]] call SCRT_fnc_misc_updateRichPresence;
+
 [_typeVehX, "BUYFIA", _extraMessage] call A3A_fnc_vehPlacementBegin;

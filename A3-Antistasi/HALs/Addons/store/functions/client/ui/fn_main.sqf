@@ -42,6 +42,8 @@ switch (_mode) do {
 		
 		(_display displayCtrl IDC_TITLE) ctrlSetText (_trader getVariable ["HALs_store_name", "Store"]);
 
+		[["UpdateState", "Trades in Arms Dealer Weapon store"]] call SCRT_fnc_misc_updateRichPresence;
+
 		["onInit"] call HALs_store_fnc_main;
 	};
 
@@ -55,6 +57,8 @@ switch (_mode) do {
 		HALs_store_vehicles = nil;
 		HALs_store_blur ppEffectAdjust [0];
 		HALs_store_blur ppEffectCommit 0.3;
+
+		[] call SCRT_fnc_misc_updateRichPresence;
 	};
 
 	case ("onInit"): {

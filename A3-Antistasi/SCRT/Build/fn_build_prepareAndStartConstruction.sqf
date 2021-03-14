@@ -205,4 +205,7 @@ private _extraMessage = format ["Use Arrow Up-Down Keys to Switch Building Type.
 construction_handleDamageHandler = player addEventHandler ["HandleDamage",{[] call A3A_fnc_vehPlacementCancel;nil;}];
 
 constructionInProgress = true;
+
+[["UpdateState", "Builds field construction"]] call SCRT_fnc_misc_updateRichPresence;
+
 [_initialType, "BUILDSTRUCTURE", _extraMessage] call A3A_fnc_vehPlacementBegin;
