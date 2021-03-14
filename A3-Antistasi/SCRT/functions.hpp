@@ -154,6 +154,14 @@ class SCRT
         class common_scanHorizon {};
     };
 
+    class Rally
+    {
+        file = "SCRT\Rally";
+        class rally_toggleRallyPoint {};
+        class rally_placeRallyPoint {};
+        class rally_travelToRallyPoint {};
+    };
+
     class Outpost
     {
         file = "SCRT\Outpost";
