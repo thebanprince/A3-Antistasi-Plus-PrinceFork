@@ -328,14 +328,65 @@ switch (_callbackTarget) do {
 				
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
 				_purchasedVeh call jn_fnc_logistics_addAction;
-
-				playSound "3DEN_notificationDefault";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
 				_callbackParams params ["_vehicleType", "_pos", "_dir"];
 				_createdVehicle = 0;
                 _createdVehicle = [_vehicleType, _pos, _dir] call A3A_fnc_placeEmptyVehicle;
+				_createdVehicle;
+			};
+		};
+	};
+
+	case "CREATERALLYPOINT": {
+		switch (_callbackType) do {
+			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
+			};
+		
+			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
+			};
+		
+			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {
+			};
+			
+			case CALLBACK_VEH_IS_VALID_LOCATION: {
+			};
+		
+			case CALLBACK_CAN_PLACE_VEH: {
+			};
+		
+			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
+				private _purchasedVeh = _callbackParams param [0];
+				private _typeVehX = typeOf _purchasedVeh;
+				
+				[_purchasedVeh, teamPlayer] call A3A_fnc_AIVEHinit;
+				
+				_factionMoney = server getVariable "resourcesFIA";
+
+				if (player == theBoss && {vehiclePurchase_cost <= _factionMoney}) then {
+					[0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
+				}
+				else {
+					[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
+					_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+				};
+
+				isRallyPointPlaced = true;
+    			publicVariable "isRallyPointPlaced";
+			
+				petros sideRadio "SentGenBaseUnlockRespawn";
+
+				[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
+
+				private _announceText = format ["<t size='0.6'><t size='0.6' color='#008000'>Rally point </t> has been established.</t>"];
+    			[petros, "support", _announceText] remoteExec ["A3A_fnc_commsMP", 0];
+			};
+			
+			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
+				_callbackParams params ["_vehicleType", "_pos", "_dir"];
+				_createdVehicle = 0;
+                _createdVehicle = [_pos, _dir] call SCRT_fnc_rally_placeRallyPoint;
 				_createdVehicle;
 			};
 		};

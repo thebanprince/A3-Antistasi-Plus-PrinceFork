@@ -13,7 +13,7 @@
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Garage", "Unable to place vehicle, already placing a vehicle"] call A3A_fnc_customHint;};
 placingVehicle = true;
 
-params ["_vehicleType", ["_callbackTarget", ""], ["_displayMessage", ""]];
+params ["_vehicleType", ["_callbackTarget", ""], ["_displayMessage", ""], ["_title", ""]];
 
 vehPlace_callbackTarget = _callbackTarget;
 vehPlace_extraMessage = _displayMessage;
@@ -22,7 +22,7 @@ vehPlace_previewVeh = createSimpleObject [_vehicleType ,[0,0,1000], true];
 vehPlace_previewVeh allowDamage false;
 vehPlace_previewVeh enableSimulation false;
 
-[_vehicleType] call A3A_fnc_displayVehiclePlacementMessage;
+[_vehicleType, _title] call A3A_fnc_displayVehiclePlacementMessage;
 ["Garage", "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle"] call A3A_fnc_customHint;
 
 //Control flow is weird here. KeyDown tells onEachFrame it can stop running, and which action to do.
