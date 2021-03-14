@@ -42,5 +42,14 @@ if (player == theBoss && {_typeX == "I_G_Soldier_TL_F"}) then {
 	player setUnitTrait ["loadCoef",1];
 };
 
+if (isDiscordRichPresenceActive) then {
+	if(player != theBoss) then {
+		private _roleName = getText (configFile >> "CfgVehicles" >> _typeX >> "displayName");
+		[["UpdateDetails", _roleName]] call SCRT_fnc_misc_updateRichPresence;
+	} else {
+		[["UpdateDetails", format ["%1 Commander", nameTeamPlayer]]] call SCRT_fnc_misc_updateRichPresence;
+	};
+};
+
 sleep 5;
 ["Unit Traits", format ["You have selected %1",_textX]] call A3A_fnc_customHint;
