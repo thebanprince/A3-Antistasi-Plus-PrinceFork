@@ -96,6 +96,7 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
+				[] call SCRT_fnc_misc_updateRichPresence;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -173,6 +174,7 @@ switch (_callbackTarget) do {
 		switch (_callbackType) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				garageIsOpen = false;
+				[] call SCRT_fnc_misc_updateRichPresence;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
@@ -247,6 +249,7 @@ switch (_callbackTarget) do {
 			case CALLBACK_VEH_PLACEMENT_CLEANUP: {
 				constructionInProgress = false;
 				construction_handleDamageHandler =	player removeEventHandler ["HandleDamage", construction_handleDamageHandler];
+				[] call SCRT_fnc_misc_updateRichPresence;
 			};
 		
 			case CALLBACK_VEH_PLACEMENT_CANCELLED: {
