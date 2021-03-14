@@ -34,6 +34,10 @@ switch(_vehicleType) do {
         if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count factories > 2) then {
             _shopLookupArray pushBack vehSDKRepair;
         };
+
+        if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX > 0) then {
+            _shopLookupArray pushBack vehSDKPlane;
+        };
     };
     case("TECH"): {
         if (tierWar > 2) then {

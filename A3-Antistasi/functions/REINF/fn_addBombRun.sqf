@@ -1,10 +1,20 @@
 _veh = cursortarget;
 
-if (isNull _veh) exitWith {["Airstrike", "You are not looking to any vehicle"] call A3A_fnc_customHint;};
+if (isNull _veh) exitWith {
+	["Airstrike", "You are not looking to any vehicle."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Airstrike", "Vehicle must be closer than 50 meters to the flag"] call A3A_fnc_customHint;};
+if ((typeOf _veh) == vehSDKPlane) exitWith {
+	["Airstrike", format ["%1 have plenty of these planes, they cannot be used to increase Airstrike points.",nameTeamPlayer]] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
-if ({isPlayer _x} count crew _veh > 0) exitWith {["Airstrike", "In order to sell, vehicle must be empty."] call A3A_fnc_customHint;};
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {
+	["Airstrike", "Vehicle must be closer than 50 meters to the flag."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if ({isPlayer _x} count crew _veh > 0) exitWith {
+	["Airstrike", "In order to sell, vehicle must be empty."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
 _owner = _veh getVariable "ownerX";
 _exit = false;
@@ -16,9 +26,13 @@ if (!isNil "_owner") then
 		};
 	};
 
-if (_exit) exitWith {["Airstrike", "You are not owner of this vehicle and you cannot sell it"] call A3A_fnc_customHint;};
+if (_exit) exitWith {
+	["Airstrike", "You are not owner of this vehicle and you cannot sell it."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
-if (not(_veh isKindOf "Air")) exitWith {["Airstrike", "Only Air Vehicles can be used to increase Airstrike points"] call A3A_fnc_customHint;};
+if (!(_veh isKindOf "Air")) exitWith {
+	["Airstrike", "Only Air Vehicles can be used to increase Airstrike points."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
 _typeX = typeOf _veh;
 
@@ -27,7 +41,9 @@ if (isClass (configfile >> "CfgVehicles" >> _typeX >> "assembleInfo")) then {
 		_exit = true;
 	};
 };
-if (_exit) exitWith {["Airstrike", "Backpack drones cannot be used to increase Airstrike points"] call A3A_fnc_customHint;};
+if (_exit) exitWith {
+	["Airstrike", "Backpack drones cannot be used to increase Airstrike points."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
 _pointsX = 2;
 

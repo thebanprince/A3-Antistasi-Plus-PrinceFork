@@ -64,8 +64,8 @@ class hcDown
 };
 class noSinglplayer
 {
-	title = "Singleplayer detected.";
-	subtitle = "Singleplayer is no longer supported. If you want to play as single player, start mission in LAN server.";
+	title = "No Singleplayer support.";
+	subtitle = "Start LAN server to play as single player.";
 	picture = "b_unknown";
 	pictureColor[] = {1,0.5,0.0,1};
 };

@@ -50,10 +50,6 @@ isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable
 spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
 settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
 
-private _richPresenceFunc = missionNamespace getVariable "DiscordRichPresence_fnc_update";
-isDiscordRichPresenceActive = if (!isNil "_richPresenceFunc") then {true} else {false};
-publicVariable "isDiscordRichPresenceActive";
-
 setTimeMultiplier settingsTimeMultiplier;
 
 [] call A3A_fnc_crateLootParams;
