@@ -99,11 +99,12 @@ if(hasInterface)then{
             };
 
         };
+
+        [["UpdateState", format ["Inspects %1 Arsenal", nameTeamPlayer]]] call SCRT_fnc_misc_updateRichPresence;
     }] call BIS_fnc_addScriptedEventHandler;
 
 	//add close event
     [missionNamespace, "arsenalClosed", {
-
         _type = UINamespace getVariable ["jn_type",""];
 
         if(_type isEqualTo "arsenal")then{
@@ -114,6 +115,8 @@ if(hasInterface)then{
             ["Close"] call jn_fnc_vehicleArsenal;
             [clientOwner] remoteExecCall ["jn_fnc_arsenal_requestClose",2];
         };
+
+        [] call SCRT_fnc_misc_updateRichPresence;
     }] call BIS_fnc_addScriptedEventHandler;
 };
 [2,"JNA init completed",_fileName] call A3A_fnc_log;
