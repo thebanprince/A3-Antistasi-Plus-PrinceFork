@@ -31,6 +31,24 @@ if (!([player] call A3A_fnc_hasRadio)) exitWith {
     ] spawn SCRT_fnc_ui_showMessage;
 };
 
+if (outpostType == "ROADBLOCK" && {tierWar < 3}) exitWith {
+    [
+        "FAIL",
+        "Establish Outpost",  
+        parseText "You need to be at War Level 3 to be able to establish roadblocks.", 
+        15
+    ] spawn SCRT_fnc_ui_showMessage;
+};
+
+if (outpostType in ["AA", "AT"] && {tierWar < 4}) exitWith {
+    [
+        "FAIL",
+        "Establish Outpost",  
+        parseText "You need to be at War Level 3 to be able to establish emplacement.", 
+        15
+    ] spawn SCRT_fnc_ui_showMessage;
+};
+
 ["disbandGarrison", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 ["establishOutpost", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 ["minefieldMap", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
