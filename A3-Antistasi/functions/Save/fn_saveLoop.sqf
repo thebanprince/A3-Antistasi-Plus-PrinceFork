@@ -104,6 +104,16 @@ _vehInGarage = _vehInGarage + vehInGarage;
 	};
 } forEach allUnits;
 
+private _lootCratePrice = [lootCrate] call A3A_fnc_vehiclePrice;
+
+{
+	_resourcesBackground = _resourcesBackground + _lootCratePrice;
+} forEach lootCrates;
+
+if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
+	private _rallyPointCost = [rallyPointRoot] call A3A_fnc_vehiclePrice;
+	_resourcesBackground = _resourcesBackground + round(_rallyPointCost/1.3);
+};
 
 ["resourcesFIA", _resourcesBackground] call A3A_fnc_setStatVariable;
 ["hr", _hrBackground] call A3A_fnc_setStatVariable;
@@ -285,6 +295,6 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 
 saveProfileNamespace;
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
+_saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>"] joinString "";
 ["Persistent Save Completed",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 [2, "Persistent Save Completed", _filename] call A3A_fnc_log;
