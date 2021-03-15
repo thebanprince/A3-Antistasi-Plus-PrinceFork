@@ -1,5 +1,3 @@
-terrainName = toLower worldName;
-
 switch(true) do {
   case (hasAU): {
     [] call SCRT_fnc_template_setAuTemplate;

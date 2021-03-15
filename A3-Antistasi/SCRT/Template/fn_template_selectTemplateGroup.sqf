@@ -5,11 +5,7 @@ temperatemaps = ["enoch", "vt7", "cup_chernarus_a3", "napf"];
 
 terrainName = toLower worldName;
 
-if(teamPlayer == independent) then {
-    [] call SCRT_fnc_template_selectIndepModTemplate;
-} else {
-    [] call SCRT_fnc_template_selectBluforModTemplate;
-};
+[] call SCRT_fnc_template_selectIndepModTemplate;
 
 //deallocating, those variables are no longer needed to be stored in missionNamespace
 aridmaps = nil;
