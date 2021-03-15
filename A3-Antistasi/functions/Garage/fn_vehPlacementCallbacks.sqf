@@ -319,7 +319,7 @@ switch (_callbackTarget) do {
 				_factionMoney = server getVariable "resourcesFIA";
 
 				if (player == theBoss && {vehiclePurchase_cost <= _factionMoney}) then {
-					_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
+					[0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
 				}
 				else {
 					[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
@@ -328,6 +328,9 @@ switch (_callbackTarget) do {
 				
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
 				_purchasedVeh call jn_fnc_logistics_addAction;
+
+				lootCrates pushBack _purchasedVeh;
+				publicVariableServer "lootCrates";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
@@ -354,6 +357,10 @@ switch (_callbackTarget) do {
 			};
 		
 			case CALLBACK_CAN_PLACE_VEH: {
+				if ([player, 50] call A3A_fnc_enemyNearCheck) exitWith {
+					[false, "The surrounding area is occupied by enemy, find different place."];
+				};
+				[true];
 			};
 		
 			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
