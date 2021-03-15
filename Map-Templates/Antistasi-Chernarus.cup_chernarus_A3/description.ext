@@ -20,13 +20,26 @@ overviewPicture = "Pictures\Mission\pic.jpg";
 	#include "HALs\Addons\main\config.hpp"
 #undef HALs_DEF_INIT
 
-class CfgFunctions {
+class CfgFunctions 
+{
     #define HALs_DEF_FUNCTIONS
 		#include "HALs\Addons\main\config.hpp"
 	#undef HALs_DEF_FUNCTIONS
     #include "functions.hpp"
     #include "JeroenArsenal\functions.hpp"
     #include "SCRT\functions.hpp"
+};
+
+class CfgDiscordRichPresence 
+{
+    applicationID="819852407265034260";
+    defaultDetails="";
+    defaultState="";
+    defaultLargeImageKey="altis";
+    defaultLargeImageText="Antistasi Plus - Altis Requiem";
+    defaultSmallImageKey="arma_3_logo";
+    defaultSmallImageText="Arma 3 Custom Scenario";
+    useTimeElapsed=1;
 };
 
 class CfgSounds

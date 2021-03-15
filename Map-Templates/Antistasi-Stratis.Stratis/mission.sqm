@@ -8,7 +8,7 @@ class EditorData
 	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=672;
+		nextID=673;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2591.2732,86.741211,635.88257};
-		dir[]={0.71184176,-0.42869309,-0.55633056};
-		up[]={0.33777365,0.90345019,-0.26398253};
-		aside[]={-0.61578441,1.4901161e-008,-0.78791475};
+		pos[]={3296.302,66.315681,5978.792};
+		dir[]={0.039002024,-0.40500385,-0.91349649};
+		up[]={0.017276112,0.91431314,-0.40463936};
+		aside[]={-0.99910271,-2.1631422e-008,-0.042655908};
 	};
 };
 binarizationWanted=0;
@@ -187,7 +187,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=210;
+		items=211;
 		class Item0
 		{
 			dataType="Marker";
@@ -1877,7 +1877,7 @@ class Mission
 			colorName="ColorGreen";
 			a=15;
 			b=8.5559998;
-			angle=13.744987;
+			angle=13.744986;
 			id=573;
 			atlOffset=15.256001;
 		};
@@ -1891,7 +1891,7 @@ class Mission
 			colorName="ColorGreen";
 			a=13.085;
 			b=8.5559998;
-			angle=13.744987;
+			angle=13.744986;
 			id=576;
 		};
 		class Item139
@@ -4929,16 +4929,16 @@ class Mission
 		class Item208
 		{
 			dataType="Marker";
-			position[]={3211.5598,276.2442,5788.0586};
-			name="milb_2_sam";
+			position[]={3367.0669,276.24399,5910.7065};
+			name="milb_1_sam";
 			markerType="RECTANGLE";
 			type="ellipse";
 			colorName="ColorBrown";
-			a=20.351999;
+			a=84.846245;
 			b=12.158;
-			angle=224.71498;
+			angle=199.73073;
 			id=669;
-			atlOffset=271.3905;
+			atlOffset=240.6666;
 		};
 		class Item209
 		{
@@ -4957,6 +4957,19 @@ class Mission
 			id=671;
 			type="Land_TripodScreen_01_large_black_F";
 			atlOffset=-0.0023880005;
+		};
+		class Item210
+		{
+			dataType="Marker";
+			position[]={1775.293,5.5,5656.4082};
+			name="airp_1_sam";
+			markerType="RECTANGLE";
+			type="ellipse";
+			colorName="ColorBrown";
+			a=59.959;
+			b=42.813999;
+			angle=104.141;
+			id=672;
 		};
 	};
 	class Connections
