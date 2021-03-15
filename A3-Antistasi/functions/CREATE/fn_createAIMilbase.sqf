@@ -43,7 +43,7 @@ _spawnParameter = [_markerX, "Sam"] call A3A_fnc_findSpawnPosition;
 while {_spawnParameter isEqualType []} do {
     {
         if(_x != "") then {
-            private _vehiclePosition = [_spawnParameter select 0, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
+            private _vehiclePosition = [_spawnParameter select 0, 0, 125, 10, 0, 0.7] call BIS_fnc_findSafePos;
             private _rotation = random 360;
 
             private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call bis_fnc_spawnvehicle;

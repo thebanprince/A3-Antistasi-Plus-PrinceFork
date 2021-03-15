@@ -32,6 +32,68 @@ _posTank = _positionsX select {(_x select 2) == "Tank"};
 _posAA = _positionsX select {(_x select 2) == "AA"};
 _posAT = _positionsX select {(_x select 2) == "AT"};
 
+private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
+private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
+private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
+private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOFlatbedTrucks} else {selectRandom vehCSATTrucks};
+private _aaElements = [_radarType, _ciwsType, _samType];
+
+/////////////////////////////
+// SPAWNING AA ELEMENTS
+////////////////////////////
+_spawnParameter = [_markerX, "Sam"] call A3A_fnc_findSpawnPosition;
+while {_spawnParameter isEqualType []} do {
+    {
+        if(_x != "") then {
+            private _vehiclePosition = [_spawnParameter select 0, 0, 125, 10, 0, 0.7] call BIS_fnc_findSafePos;
+            private _rotation = random 360;
+
+            private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call bis_fnc_spawnvehicle;
+            private _aaVehicle = _aaVehicleData select 0;
+            private _aaVehicleCrew = _aaVehicleData select 1;
+            {[_x,_markerX] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
+            [_aaVehicle, _sideX] call A3A_fnc_AIVEHinit;
+            _aaVehicleGroup = _aaVehicleData select 2;
+
+            _soldiers = _soldiers + _aaVehicleCrew;
+            _groups pushBack _aaVehicleGroup;
+            _vehiclesX pushBack _aaVehicle;
+            sleep 1;
+
+            //radar rotation
+            if(_x == _radarType) then {
+                [_aaVehicle] spawn {
+                    params ["_radar"];
+
+                    while {alive _radar} do { 
+                        { 
+                            _radar lookAt (_radar getRelPos [100, _x]); 
+                            sleep 2.45; 
+                        } forEach [120, 240, 0]; 
+                    };
+                }; 
+            };
+
+            //CIWS truck
+            if(_x == _ciwsType) then {
+                private _ciwsTruckData = [_spawnParameter select 0, _rotation, _vehCargoTruck, _sideX] call bis_fnc_spawnvehicle;
+                private _ciwsVehicle = _ciwsTruckData select 0;
+				private _ciwsVehicleCrew = _ciwsTruckData select 1;
+            	{deleteVehicle _x} forEach _ciwsVehicleCrew;
+            	[_ciwsVehicle, _sideX] call A3A_fnc_AIVEHinit;
+				_ciwsVehicleGroup = _ciwsTruckData select 2;
+				deleteGroup _ciwsVehicleGroup;
+            	_vehiclesX pushBack _ciwsVehicle;
+
+                _aaVehicle attachTo [_ciwsVehicle, [0, 0, 1.65]];
+            };
+        };
+    } forEach _aaElements;
+	_spawnParameter = [_markerX, "Sam"] call A3A_fnc_findSpawnPosition;
+	sleep 1;
+};
+
+
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 _max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
 for "_i" from 1 to _max do {
