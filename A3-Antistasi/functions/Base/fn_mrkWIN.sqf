@@ -47,6 +47,10 @@ if (!isNull _playerX) then
 	} forEach allUnits;
 	if (player == _playerX) then
 	{
+		if (isDiscordRichPresenceActive) then {
+			private _locationName = [_markerX] call A3A_fnc_localizar;
+			[["UpdateState", format ["Captures %1", _locationName]]] call SCRT_fnc_misc_updateRichPresence;
+		};
 		_playerX playMove "MountSide";
 		sleep 8;
 		_playerX playMove "";
@@ -74,6 +78,8 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 		};
 	}
 } forEach ([_size,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+
+[] call SCRT_fnc_misc_updateRichPresence;
 
 [2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 [teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];
