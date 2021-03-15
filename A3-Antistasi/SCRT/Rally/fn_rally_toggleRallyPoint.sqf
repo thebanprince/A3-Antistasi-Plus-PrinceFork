@@ -1,6 +1,6 @@
 private _fileName = "loot_createLootCrate";
 
-#define COST 750
+private _cost = [rallyPointRoot] call A3A_fnc_vehiclePrice;
 
 if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
     isRallyPointPlaced = false;
@@ -13,7 +13,7 @@ if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
     rallyProps = nil;
     publicVariable "rallyProps";
 
-    [0, COST/2] remoteExec ["A3A_fnc_resourcesFIA",2];
+    [0, round (_cost/1.3)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
     deleteMarker rallyPointMarker;
     deleteMarker "RallyPointMarker";
@@ -24,12 +24,20 @@ if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
 } else {
     private _resourcesFIA = server getVariable "resourcesFIA";    
 
-    if (_resourcesFIA < COST) exitWith {
-        ["Rally Point", format ["Not enough money to place rally point, need %1 to proceed.", str COST]] call SCRT_fnc_misc_showDeniedActionHint;
+    if (_resourcesFIA < _cost) exitWith {
+        ["Rally Point", format ["Not enough money to place rally point, need %1 to proceed.", str _cost]] call SCRT_fnc_misc_showDeniedActionHint;
     };
 
-    vehiclePurchase_cost = COST;
+    if ([player, 50] call A3A_fnc_enemyNearCheck) exitWith {
+        ["Rally Point", "You cannot establish rally point when enemies are surrounding you."] call SCRT_fnc_misc_showDeniedActionHint;
+    };
+
+    if (player != theBoss) exitWith {
+        ["Rally Point", "Only commander can establish rally points."] call SCRT_fnc_misc_showDeniedActionHint;
+    };
+
+    vehiclePurchase_cost = _cost;
 
     private _extraMessage = format  ["Select rally point position.<br/>Price: %1€<br/>", vehiclePurchase_cost];
-    ["B_RadioBag_01_wdl_F", "CREATERALLYPOINT", _extraMessage, "Rally Point"] call A3A_fnc_vehPlacementBegin;
+    [rallyPointRoot, "CREATERALLYPOINT", _extraMessage, "Rally Point"] call A3A_fnc_vehPlacementBegin;
 };

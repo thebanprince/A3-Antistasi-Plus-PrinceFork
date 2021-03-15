@@ -14,7 +14,7 @@ private _convertPositionToWorldPosition = {
 };
 
 private _radioWorldPosition = [_pos] call _convertPositionToWorldPosition;
-private _rootRadio = ["B_RadioBag_01_wdl_F", _radioWorldPosition] call BIS_fnc_createSimpleObject;
+private _rootRadio = [rallyPointRoot, _radioWorldPosition] call BIS_fnc_createSimpleObject;
 private _rootPos = position _rootRadio;
 private _rootHeight = (_rootPos select 2) - 0.185;
 _rootRadio setPos [_rootPos select 0, _rootPos select 1, _rootHeight];
@@ -50,8 +50,6 @@ rallyPointMarker setMarkerText "Rally Point";
 rallyPointMarker setMarkerColor "colorIndependent";
 rallyPointMarker setMarkerAlpha 1;
 publicVariable "rallyPointMarker";
-
-//TODO: marker 50m
 
 rallyProps append [_rootRadio, _backpack1, _backpack2, _bag, _ammobox];
 publicVariable "rallyProps";

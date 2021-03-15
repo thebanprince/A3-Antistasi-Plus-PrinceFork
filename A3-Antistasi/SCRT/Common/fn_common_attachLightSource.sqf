@@ -7,19 +7,18 @@
 //	Nothing
 //
 // 	How to use: 
-// 	[object, _lightPosition] spawn scrt_fnc_attachLightSource;
+// 	[object, _lightPosition, ] spawn scrt_fnc_attachLightSource;
 //
 
+params ["_object", "_lightPos", ["_luminosity", 0.4]];
 
-_object = _this select 0;
-_lightPos = _this select 1;
-
-_light = createVehicle ["#lightpoint", getPos _object, [], 0, "NONE"];
+_light = "#lightpoint" createVehicleLocal (position _object);
 _light lightAttachObject [_object, _lightPos];
 
-_light setLightBrightness 0.4;
+_light setLightBrightness _luminosity;
 _light setLightAmbient [1.0, 1.0, 1.0];
 _light setLightColor [1.0, 1.0, 1.0];
 
-// waitUntil {sleep 1; !alive _object};
-// deleteVehicle _light;
+
+waitUntil {sleep 5; isNil "_object" || {!alive _object || isNull _object}};
+deleteVehicle _light;

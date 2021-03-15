@@ -16,7 +16,6 @@ class SCRT
     {
         file = "SCRT\Template";
         class template_selectTemplateGroup {};
-        class template_selectBluforModTemplate {};
         class template_selectIndepModTemplate {};
         class template_setVanillaTemplate {};
         class template_setAegisTemplate {};
