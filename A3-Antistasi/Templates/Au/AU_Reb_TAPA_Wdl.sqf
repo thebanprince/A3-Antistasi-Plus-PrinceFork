@@ -7,6 +7,7 @@ SDKFlagTexture = "\ca\data\flag_chdkz_co.paa";
 typePetros = "I_G_Soldier_TL_F";
 
 lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////
 //             UNITS             ///

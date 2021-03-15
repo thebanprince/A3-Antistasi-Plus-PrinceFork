@@ -7,6 +7,7 @@ SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
 typePetros = "I_G_officer_F";
 
 lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////
 //             UNITS             ///

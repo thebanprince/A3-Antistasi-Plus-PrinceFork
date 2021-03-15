@@ -7,6 +7,7 @@ SDKFlagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
 typePetros = "I_C_Soldier_Camo_F";
 
 lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////
 //             UNITS             ///

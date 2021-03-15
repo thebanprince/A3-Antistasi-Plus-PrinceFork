@@ -7,6 +7,7 @@ SDKFlagTexture = "\A3\Data_F\Flags\Flag_Green_CO.paa";
 typePetros = "CUP_B_CDF_Commander_MNT";
 
 lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////
 //             UNITS             ///
