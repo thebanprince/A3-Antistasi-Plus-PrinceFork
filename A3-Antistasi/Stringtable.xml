@@ -6,7 +6,7 @@
         <Original>Load previous personal save?</Original>
         <English>Load previous personal save?</English>
         <French>Charger la sauvegarde précédente?</French>
-        <Russian>загрузить предыдущее персональное сохранение?</Russian>
+        <Russian>Загрузить предыдущее персональное сохранение?</Russian>
         <German>Letzten persönlichen Spielstand laden?</German>
         <Czech>Načíst předchozí osobní relaci?</Czech>
         <Korean>이전 저장 데이터를 로드 하시겠습니까?</Korean>
@@ -681,7 +681,7 @@
         <Original>Antistasi Plus - Altis Requiem</Original>
         <English>Antistasi Plus - Altis Requiem</English>
         <French>Antistasi Plus - Altis Requiem</French>
-        <Russian>Antistasi Plus - Алтийский Реквием</Russian>
+        <Russian>Antistasi Plus - Реквием по Алтису</Russian>
         <German>Antistasi Plus - Altis Requiem</German>
         <Czech>Antistasi Plus - Altis Requiem</Czech>
         <Korean>Antistasi Plus - Altis Requiem</Korean>
@@ -966,14 +966,6 @@
         <English>Antistasi - Liberation of Stratis</English>
         <French>Antistasi - Libération de Stratis</French>
         <Korean>Antistasi - Stratis 해방</Korean>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_text">
-        <Original>Antistasi Plus - Altis Requiem</Original>
-        <English>Antistasi Plus - Altis Requiem</English>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_altisB_mapname_short_text">
-        <Original>Antistasi Plus - Altis Requiem</Original>
-        <English>Antistasi Plus - Altis Requiem</English>
       </Key>
       <Key ID="STR_antistasi_mission_info_stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
