@@ -49,6 +49,8 @@ DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
 DECLARE_SERVER_VAR(maxUnits, 140);
 //Max constructions that players are able to build. Acts on LIFO principle
 DECLARE_SERVER_VAR(maxConstructions, 150);
+//Loot crates collection, used only by server
+DECLARE_SERVER_VAR(lootCrates, []);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
@@ -123,8 +125,6 @@ server setVariable ["resourcesFIA",1000,true];
 ////////////////////////////////////
 //We shouldn't need to sync these.
 [2,"Setting server only variables",_fileName] call A3A_fnc_log;
-
-playerStartingMoney = 100;			// should probably be a parameter
 
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
@@ -794,6 +794,9 @@ if(hasCup || {hasAU}) then {
 
 //lootcrate cost
 server setVariable [lootCrate, 300, true];
+
+//rally point cost
+server setVariable [rallyPointRoot, 1000, true];
 
 ///////////////////////
 //     GARRISONS    ///

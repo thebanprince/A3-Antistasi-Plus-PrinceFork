@@ -285,6 +285,13 @@ class Params
           texts[] =  {"Check for player only", "Check for player squad (Vanilla Antistasi Style)"};
           default = 1;
      };
+     class playerStartingMoney
+     {
+          title = "Initial Player Money";
+          values[] = {0, 100, 200, 500, 1000};
+          texts[] =  {"0", "100", "200", "500","1000"};
+          default = 200;
+     };
 
      class Spacer10
      {

@@ -49,6 +49,7 @@ fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamVa
 isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
 spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
 settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
+playerStartingMoney = "playerStartingMoney" call BIS_fnc_getParamValue; publicVariable "playerStartingMoney";
 
 setTimeMultiplier settingsTimeMultiplier;
 
