@@ -104,7 +104,7 @@ initialRebelEquipment append ["2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "30Rn
 initialRebelEquipment append ["6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","MiniGrenade","SmokeShell"];
 initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk"];
 initialRebelEquipment append ["V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt"];
-initialRebelEquipment append ["Binocular","acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+initialRebelEquipment append ["Binocular","acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol", "Laserbatteries"];
 //Greenfor uniforms
 allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1"];
 //TFAR Unlocks

@@ -106,7 +106,7 @@ initialRebelEquipment append ["rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1R
 initialRebelEquipment append ["rhsgref_mag_rkg3em", "rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr43_mag"];
 initialRebelEquipment append ["B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr"];
 initialRebelEquipment append ["rhsgref_chestrig","rhsgref_chicom","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46"];
-initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular"];
+initialRebelEquipment append ["rhs_acc_2dpZenit","Binocular", "Laserbatteries"];
 //Greenfor uniforms
 allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1"];
 //TFAR Unlocks

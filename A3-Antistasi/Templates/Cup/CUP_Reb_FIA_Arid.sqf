@@ -110,7 +110,7 @@ initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
 
 initialRebelEquipment append ["B_Messenger_Gray_F", "B_AssaultPack_blk"];
 initialRebelEquipment append ["CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_B_ALICE", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket"];
-initialRebelEquipment append ["Binocular", "acc_flashlight"];
+initialRebelEquipment append ["Binocular", "acc_flashlight", "Laserbatteries"];
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};

@@ -110,7 +110,7 @@ initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
 
 initialRebelEquipment append ["B_Messenger_Gray_F"];
 initialRebelEquipment append ["V_BandollierB_oli", "V_Pocketed_wdl_F"];
-initialRebelEquipment append ["Binocular", "acc_flashlight"];
+initialRebelEquipment append ["Binocular", "acc_flashlight", "Laserbatteries"];
 
 //TFAR Unlocks
 if (hasTFAR) then {
