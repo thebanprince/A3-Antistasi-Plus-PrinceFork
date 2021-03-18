@@ -8,6 +8,7 @@ if !(local _unit) exitWith {
 };
 
 if (_unit getVariable ["surrendered", false]) exitWith {};
+_unit setVariable ["surrendered", true, true];
 
 if (typeOf _unit == "Fin_random_F") exitWith {};		// dogs do not run?
 
@@ -38,23 +39,29 @@ if (_grpIdx == -1) then {
 	[_unit] joinSilent (allGroups select _grpIdx);
 };
 
+private _sTime = time + 1;
+waitUntil {(stance _unit) == "STAND" || {time > _sTime}};
+sleep 0.5;
+
 private _weapons = weaponsItems _unit;
 if (count _weapons > 0) then {
-    private _weaponHolder = "WeaponHolderSimulated" createVehicle [0,0,0];
-    _weaponHolder addWeaponWithAttachmentsCargoGlobal [_weapons select 0, 1];
-    _weaponHolder setPos (_unit modelToWorld [0,.2,1.2]);
-    _weaponHolder disableCollisionWith _unit;
-    private _dir = random(360);
-    _weaponHolder setVelocity [1.5 * sin(_dir), 1.5 * cos(_dir), 4];
+	private _weaponHolder = "WeaponHolderSimulated" createVehicle [0,0,0];
+	_weaponHolder addWeaponWithAttachmentsCargoGlobal [_weapons select 0, 1];
+	_weaponHolder setPos (_unit modelToWorld [0,.2,1.2]);
+	_weaponHolder disableCollisionWith _unit;
+	private _dir = random(360);
+	_weaponHolder setVelocity [1.5 * sin(_dir), 1.5 * cos(_dir), 4];
 
-	if (!(_weapons select 1 isEqualTo [])) then {
-		private _weaponHolderStatic = createVehicle ["GroundWeaponHolder", position _unit,[],0,"CAN_COLLIDE"];
+	private _positionAtl = getPosATL _unit;
+
+	if (count _weapons > 1) then {
+		private _weaponHolderStatic = createVehicle ["GroundWeaponHolder", _positionAtl, [], 0, "NONE"];
 		_weaponHolderStatic addWeaponWithAttachmentsCargoGlobal [_weapons select 1, 1];
-		player setPos (position _weaponHolderStatic);
 	};
 
-	if (!(_weapons select 2 isEqualTo [])) then {
-		private _weaponHolderStatic = createVehicle ["GroundWeaponHolder", position _unit,[],0,"CAN_COLLIDE"];
+	if (count _weapons > 2) then {
+		private _weaponHolderStatic = createVehicle ["GroundWeaponHolder", 
+			[(_positionAtl select 0) + random 1, (_positionAtl select 1) + random 1, _positionAtl select 2],[], 0, "NONE"];
 		_weaponHolderStatic addWeaponWithAttachmentsCargoGlobal [_weapons select 2, 1];
 	};
 };
