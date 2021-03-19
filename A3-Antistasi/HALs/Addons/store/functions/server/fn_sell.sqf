@@ -32,6 +32,8 @@ if (_classname isEqualTo "") exitWith {};
 if (isNull _container) exitWith {};
 if (_price < 0) exitWith {};
 
+#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
+
 try {
 	// Fetch current trader
 	private _trader = _unit getVariable ["HALs_store_trader_current", objNull];
@@ -47,6 +49,38 @@ try {
 			throw ["The trader will not buy this item."]
 		};
 	};
+
+	//unlocked items are already cut from sell list, but let's make additional check if players will find some exploit to sell unlocked guns 
+	private _unlockedItems = (
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) +
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOTHROW) +
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK) +
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GOGGLES) +
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_MAP) +
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_GPS) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_RADIO) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_COMPASS) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_WATCH) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMACC) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMBIPOD) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_BINOCULARS) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_CARGOMISC) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_UNIFORM) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_NVGS) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HEADGEAR) + 
+		(jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_VEST)
+	) select {_x select 1 == -1};
+
+	if (_classname in _unlockedItems) then {
+		throw ["The trader is not interested in this item, no deal."]
+	};
+
+	_unlockedItems = nil;
 
     // Check that player has the item
     // Remove items from unit
