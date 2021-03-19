@@ -108,7 +108,7 @@ if(_ciwsType == "") then {
 /////////////////////////////
 // SPAWNING PATROL VEHICLES
 ////////////////////////////
-_selectedVehicle = "";
+_selectedVehicle = nil;
 {
 	if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
 } forEach _heavyVehicles;
@@ -117,18 +117,20 @@ if(isNil _selectedVehicle) then {
 	_selectedVehicle = if (_sideX == Occupants) then { selectRandom vehNATOAPC } else { selectRandom vehCSATAPC };
 };
 
-private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
-private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
-private _patrolVeh = _patrolVehicleData select 0;
-private _patrolVehCrew = crew _patrolVeh;
-private _patrolVehicleGroup = _patrolVehicleData select 2;
-{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
-[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
-_soldiers = _soldiers + _patrolVehCrew;
-_groups pushBack _patrolVehicleGroup;
-_vehiclesX pushBack _patrolVeh;
+if (!isNil "_selectedVehicle") then {
+	private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
+	private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
+	private _patrolVeh = _patrolVehicleData select 0;
+	private _patrolVehCrew = crew _patrolVeh;
+	private _patrolVehicleGroup = _patrolVehicleData select 2;
+	{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
+	[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
+	_soldiers = _soldiers + _patrolVehCrew;
+	_groups pushBack _patrolVehicleGroup;
+	_vehiclesX pushBack _patrolVeh;
 
-[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
+	[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
+};
 
 
 /////////////////////////////

@@ -121,30 +121,29 @@ for "_i" from 1 to _max do {
 };
 
 private _vehiclePool = if (_sideX == Occupants) then { vehNATOAttack } else { vehCSATAttack };
-private _selectedVehicle = "";
+private _selectedVehicle = nil;
 {
 	if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
 } forEach _vehiclePool;
+
 //if nothing is available, then MRAP should be fine as fallback value
-if(isNil _selectedVehicle) then {
-	_selectedVehicle = if (_sideX == Occupants) then { selectRandom vehNATOLightArmed } else { selectRandom vehCSATLightArmed };
+if (!isNil _selectedVehicle) then {
+	private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
+	private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
+	private _patrolVeh = _patrolVehicleData select 0;
+	private _patrolVehCrew = crew _patrolVeh;
+	private _patrolVehicleGroup = _patrolVehicleData select 2;
+	{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
+	[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
+	_soldiers = _soldiers + _patrolVehCrew;
+	_groups pushBack _patrolVehicleGroup;
+	_vehiclesX pushBack _patrolVeh;
+
+	[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
 };
 
 
-private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
-private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
-private _patrolVeh = _patrolVehicleData select 0;
-private _patrolVehCrew = crew _patrolVeh;
-private _patrolVehicleGroup = _patrolVehicleData select 2;
-{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
-[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
-_soldiers = _soldiers + _patrolVehCrew;
-_groups pushBack _patrolVehicleGroup;
-_vehiclesX pushBack _patrolVeh;
-
-[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
-
-if(_frontierX) then {
+if (_frontierX) then {
 	private _helicopterClass = if(_sideX == Occupants) then { selectRandom vehNATOAttackHelis; } else { selectRandom vehCSATAttackHelis; };
 	_heliData = [[_positionX select 0, _positionX select 1, 300], 0, _helicopterClass, _sideX] call bis_fnc_spawnvehicle;
 	_heliVeh = _heliData select 0;
@@ -156,9 +155,7 @@ if(_frontierX) then {
 	_groups pushBack _heliVehicleGroup;
 	_vehiclesX pushBack _heliVeh;
 	[_heliVehicleGroup, _positionX, 650] call bis_fnc_taskPatrol;
-};
 
-if (_frontierX) then {
 	_roads = _positionX nearRoads _size;
 	if (count _roads != 0) then {
 		_groupX = createGroup _sideX;
