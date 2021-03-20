@@ -1,6 +1,6 @@
 params ["_man", "_sightHeight"];
 
-while {alive _man} do { 
+while {sleep 1; alive _man} do { 
     { 
         private _relPos = _man getRelPos [700, _x];
         _man lookAt [_relPos select 0, _relPos select 1, _sightHeight]; 
