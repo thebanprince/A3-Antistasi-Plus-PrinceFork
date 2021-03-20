@@ -66,6 +66,7 @@ class SCRT
         class misc_launcherCamera {};
         class misc_toggleLauncherCamEventHandler {};
         class misc_updateRichPresence {};
+        class misc_getAccentColor {};
     };
 
     class UI
@@ -151,6 +152,8 @@ class SCRT
         class common_reveal {};
         class common_panicFlee {};
         class common_scanHorizon {};
+        class common_callRandomPatrolCA {};
+        class common_fixCupLaunchers {};
     };
 
     class Rally

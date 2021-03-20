@@ -25,7 +25,7 @@ private _count = objNull;
 {
 	_type = _x select 0;
 	_magConfig = configFile >> "CfgMagazines" >> _type;
-	_capacity = getNumber (_magConfig >> "count");
+	_capacity = (getNumber (_magConfig >> "count")) max 1;
 
 	// control unlocking missile launcher magazines
 	// the capacity check is an optimisation to bypass the config check. ~18% perf gain on the loop.
@@ -45,6 +45,10 @@ if (!isNil "_originalWeaponsWithSimilarWeapons" && {count _originalWeaponsWithSi
 [] call SCRT_fnc_trader_removeUnlockedItemsFromStock;
 
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
+
+if (hasCup || {hasAU}) then {
+	[] call SCRT_fnc_common_fixCupLaunchers;
+};
 
 {
 	private _item = _x select 0;
@@ -74,12 +78,9 @@ private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics +
 						[_weaponMagazine] call A3A_fnc_unlockEquipment;
 					};
 				};
-			};
-			
-			
+			};	
 		};
 	};
-
 } forEach _allExceptNVs;
 
 call A3A_fnc_checkRadiosUnlocked;
