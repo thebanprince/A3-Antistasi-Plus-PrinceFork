@@ -47,10 +47,11 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-	sleep 195;
+	sleep 135;
 	if (chemicalCurrent) then {
         chemicalCurrent = false; 
         publicVariable "chemicalCurrent";
     };
-    [[-40, 60], [-40, 60]] remoteExec ["A3A_fnc_prestige",2];
+    
+    [[200, 60], [200, 60]] remoteExec ["A3A_fnc_prestige",2];
 };

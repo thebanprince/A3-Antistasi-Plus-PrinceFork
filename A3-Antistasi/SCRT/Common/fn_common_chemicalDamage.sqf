@@ -1,7 +1,7 @@
 params ["_sourceObject"];
 
 private _affectedEntities = ["Car","Truck","CAManBase","Air", "StaticWeapon"];
-private _timeOut = time + 180;
+private _timeOut = time + 120;
 
 private _affectMan = {
     params ["_man"];
@@ -29,34 +29,32 @@ private _affectMan = {
 };
 
 while {time < _timeOut} do {
-    private _units = nearestObjects [_sourceObject, _affectedEntities, 50];
-    _units = _units - [petros];
+    private _units = nearestObjects [_sourceObject, _affectedEntities, 75];
+    _units = (_units select {local _x && alive _x && !isObjectHidden _x && isDamageAllowed _x }) - [petros];
 
 	{
-	    if (local _x && {alive _x}) then {
-            switch (true) do {
-                case (_x isKindOf "CAManBase"): {
-                   [_x] call _affectMan;
+        switch (true) do {
+            case (_x isKindOf "CAManBase"): {
+                [_x] call _affectMan;
+            };
+
+            case ((_x isKindOf "LandVehicle") || {_x isKindOf "StaticWeapon"}): {
+                if !(_x isKindOf "Tank") then {
+                    private _aliveCrew = (crew _x) select {alive _x};
+                    {
+                        [_x] call _affectMan;
+                    } forEach _aliveCrew;
                 };
+            };
 
-                case ((_x isKindOf "LandVehicle") || {_x isKindOf "StaticWeapon"}): {
-                    if !(_x isKindOf "Tank") then {
-                        private _aliveCrew = (crew _x) select {alive _x};
-                        {
-                            [_x] call _affectMan;
-                        } forEach _aliveCrew;
-                    };
-                };
+            case (_x isKindOf "Air"): {
+                private _altitude = (position _x) select 2;
 
-                case (_x isKindOf "Air"): {
-                    private _altitude = (position _x) select 2;
-
-                    if (_altitude < 20) then {
-                        private _aliveCrew = (crew _x) select {alive _x};
-                        {
-                            [_x] call _affectMan;
-                        } forEach _aliveCrew;
-                    };
+                if (_altitude < 20) then {
+                    private _aliveCrew = (crew _x) select {alive _x};
+                    {
+                        [_x] call _affectMan;
+                    } forEach _aliveCrew;
                 };
             };
         };
