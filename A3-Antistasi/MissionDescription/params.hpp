@@ -238,14 +238,14 @@ class Params
      };
      class timeMultiplier
      {
-          title="Time Multiplier (EXPERIMENTAL)";
+          title="Time Multiplier";
 		values[]={1,6,12,24};
 		texts[]={"1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
 		default = 1;
      };
      class pursuers
      {
-          title = "Enable Pursuers (EXPERIMENTAL)";
+          title = "Enable Random Events (EXPERIMENTAL)";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
           default = 0;
