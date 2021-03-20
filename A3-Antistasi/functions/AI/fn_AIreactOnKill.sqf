@@ -2,14 +2,23 @@ private ["_groupX","_killer","_markerX","_super","_enemy"];
 _groupX = _this select 0;
 _killer = _this select 1;
 
-
 {
 	if (fleeing _x) then {
 		if ([_x] call A3A_fnc_canFight) then {
 			_enemy = _x findNearestEnemy _x;
 			if (!isNull _enemy) then {
 				if ((_x distance _enemy < 50) and (vehicle _x == _x)) then {
-					if ((random 100) < 12) then {
+					private _fleeChance =  if (side _x == Occupants) then {aggressionOccupants/2} else {aggressionInvaders/2};
+
+					if (_fleeChance < 8) then {
+						_fleeChance = 8;
+					} else {
+						if (_fleeChance > 30) then {
+							_fleeChance = 30;
+						};
+					};
+
+					if ((random 100) < _fleeChance) then {
 						[_x] spawn SCRT_fnc_common_panicFlee;
 					} else {
 						[_x] spawn A3A_fnc_surrenderAction;
