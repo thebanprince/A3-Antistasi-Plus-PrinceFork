@@ -52,6 +52,13 @@ jnl_vehicleHardpoints = [
 		[1,		[0,-2.1,-0.81],					[9,10,11,12,13]]
 	]],
 
+//-----------------------AEGIS-------------------------------
+//Zamak Flatbed
+  ["\A3_Aegis\Soft_F_Aegis\Truck_02\Truck_02_flatbed_F.p3d", [
+	  [1,		[0,0,-1],[]],
+		[1,		[0,-2.1,-1],[]]
+	]],
+
 //CSAT Tempest open
 	["\A3\Soft_F_EPC\Truck_03\Truck_03_transport_F.p3d",[
 		[1,	[0.0,-0.9,-0.4],		[1,7,6,9]],
