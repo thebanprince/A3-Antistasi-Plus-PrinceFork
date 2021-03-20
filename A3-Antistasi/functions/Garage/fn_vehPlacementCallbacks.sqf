@@ -324,6 +324,7 @@ switch (_callbackTarget) do {
 				else {
 					[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
 					_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+					playSound "3DEN_notificationDefault";
 				};
 				
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
