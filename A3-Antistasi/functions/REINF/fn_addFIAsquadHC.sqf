@@ -28,6 +28,27 @@ if (activeGREF) then {
 };
 
 if (_exit) exitWith {};
+
+if (_typeGroup == groupsSDKAT && {tierWar < 3}) exitWith {
+	["Recruit Squad", "You need to be at War Level 3 to be able to hire AT Teams."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup == SDKMGStatic && {tierWar < 2}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire MG Squads."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup in [vehSDKAT, staticAAteamPlayer] && {tierWar < 4}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire AT or AA cars."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup == SDKMortar && {tierWar < 5}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire Mortar Teams."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup == groupsSDKSquadSupp && {tierWar < 5}) exitWith {
+	["Recruit Squad", "You need to be at War Level 4 to be able to hire Support squads."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
 _esinf = false;
 _typeVehX = "";
 _costs = 0;
