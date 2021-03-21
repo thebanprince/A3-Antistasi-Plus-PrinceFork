@@ -221,7 +221,6 @@ switch(true) do {
             "FAILED"
         ] call A3A_fnc_taskUpdate;
 
-        [(position _roadE), _sideX] call SCRT_fnc_common_callRandomPatrolCA;
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
