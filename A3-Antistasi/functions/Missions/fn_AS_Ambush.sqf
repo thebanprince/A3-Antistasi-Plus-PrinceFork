@@ -221,11 +221,12 @@ switch(true) do {
             "FAILED"
         ] call A3A_fnc_taskUpdate;
 
+        [(position _roadE), _sideX] call SCRT_fnc_common_callRandomPatrolCA;
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case (!alive _officer): {
-        [3, "Officer died, success, fail.", _filename] call A3A_fnc_log;
+        [3, "Officer died, success.", _filename] call A3A_fnc_log;
         [
             "AS",
             [_rebelTaskText, "Officer Ambush", _missionOrigin],
