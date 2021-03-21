@@ -154,6 +154,7 @@ class SCRT
         class common_scanHorizon {};
         class common_callRandomPatrolCA {};
         class common_fixCupLaunchers {};
+        class common_defeatFactionIfPossible {};
     };
 
     class Rally
