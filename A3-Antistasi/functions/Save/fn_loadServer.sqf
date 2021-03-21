@@ -46,6 +46,9 @@ if (isServer) then {
 	["traderPosition"] call A3A_fnc_getStatVariable;
 	["traderDiscount"] call A3A_fnc_getStatVariable;
 	["pursuersTime"] call A3A_fnc_getStatVariable;
+	["areOccupantsDefeated"] call A3A_fnc_getStatVariable;
+	["areInvadersDefeated"] call A3A_fnc_getStatVariable;
+
 	//===========================================================================
 	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 

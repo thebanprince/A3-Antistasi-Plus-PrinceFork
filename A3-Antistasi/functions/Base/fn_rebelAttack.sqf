@@ -14,7 +14,13 @@
 params [["_side", sideEnemy]];
 
 private _fileName = "rebelAttack";
+
 [2, format ["Starting large attack script for side %1", _side], _fileName, true] call A3A_fnc_log;
+
+if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting attack.", str _side], _fileName, true] call A3A_fnc_log;
+    [99999, _side] remoteExec ["A3A_fnc_timingCA", 2];
+};
 
 private _possibleTargets = markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - ["Synd_HQ","NATO_carrier","CSAT_carrier"] - destroyedSites;
 private _possibleStartBases = airportsX select {([_x,false] call A3A_fnc_airportCanAttack) && (sidesX getVariable [_x,sideUnknown] == _side)};

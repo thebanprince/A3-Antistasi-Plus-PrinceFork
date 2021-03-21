@@ -1,7 +1,6 @@
 private _filename = "fn_patrolCA";
 if (!isServer) exitWith {
 	_this remoteExec ["A3A_fnc_patrolCA", 2];			// fudge until the other calls are fixed up
-//	[1, "Server-only function miscalled", _filename] call A3A_fnc_log;
 };
 
 waitUntil {sleep 1; isNil "requestQRFactive"};
@@ -21,6 +20,11 @@ private _posOrigin = [];
 private _posDest = [];
 
 [2, format ["QRF requested. Target:%1, Source:%2, Type:%3, IsSuper:%4",_target,_source,_typeOfAttack,_super], _filename] call A3A_fnc_log;
+
+if ((_sideX == Occupants && areOccupantsDefeated) || {(_sideX == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting patrolCA.", str _sideX], _fileName, true] call A3A_fnc_log;
+	requestQRFactive = nil;
+};
 
 if ([_target, false] call A3A_fnc_fogCheck < 0.3) exitWith {
 	[2, format ["PatrolCA on %1 cancelled due to heavy fog",_target], _filename] call A3A_fnc_log;

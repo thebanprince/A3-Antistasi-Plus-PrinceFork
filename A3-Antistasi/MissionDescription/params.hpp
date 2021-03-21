@@ -121,7 +121,7 @@ class Params
           title = "Max personal garage slots";
           texts[] = {"Unlimited", "2", "5", "10"};
           values[] = {0,2,5,10};
-          default = 2;
+          default = 5;
      };
      class allowFT
      {
@@ -248,7 +248,7 @@ class Params
           title = "Enable Random Events (EXPERIMENTAL)";
           values[] = {1,0};
           texts[] =  {"Yes","No"};
-          default = 0;
+          default = 1;
      };
      class magRepack 
      {
@@ -291,6 +291,13 @@ class Params
           values[] = {0, 100, 200, 500, 1000};
           texts[] =  {"0", "100", "200", "500","1000"};
           default = 200;
+     };
+     class factionsDefeat
+     {
+          title = "Enemy Factions Defeat (EXPERIMENTAL)";
+          values[] = {1,0};
+          texts[] =  {"Factions can be defeated for good (only by players, AI vs AI can't do that)", "Vanilla style"};
+          default = 1;
      };
 
      class Spacer10

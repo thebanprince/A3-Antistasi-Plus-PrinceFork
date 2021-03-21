@@ -14,6 +14,9 @@ _civilians = [];
 
 diag_log format ["[Antistasi] Launching CSAT Punish Against %1 from %2 (CSATpunish.sqf)", _attackDestination, _attackOrigin];
 
+if (areInvadersDefeated) exitWith {
+    [2, "Invaders were defeated earlier, aborting punishment.", "fn_invaderPunish", true] call A3A_fnc_log;
+};
 _nameDestination = [_attackDestination] call A3A_fnc_localizar;
 [[teamPlayer,civilian,Occupants],"invaderPunish",[format ["%2 is attacking innocent civilians in %1! Defend the city at all costs",_nameDestination,nameInvaders],format ["%1 Punishment",nameInvaders],_attackDestination],getMarkerPos _attackDestination,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 

@@ -59,6 +59,8 @@ private _antennasDeadPositions = [];
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 ["isTraderQuestCompleted", isTraderQuestCompleted] call A3A_fnc_setStatVariable;
+["areOccupantsDefeated", areOccupantsDefeated] call A3A_fnc_setStatVariable;
+["areInvadersDefeated", areInvadersDefeated] call A3A_fnc_setStatVariable;
 ["traderPosition", traderPosition] call A3A_fnc_setStatVariable;
 ["pursuersTime", pursuersTime] call A3A_fnc_setStatVariable;
 

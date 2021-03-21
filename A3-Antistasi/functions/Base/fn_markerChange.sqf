@@ -66,9 +66,6 @@ if (_winner == teamPlayer) then
 {
 	_super = if (_markerX in airportsX or {_markerX in milbases}) then {true} else {false};
 	[_markerX,_looser,"",_super] spawn A3A_fnc_patrolCA;
-	//sleep 15;
-	// Removed for the moment, old broken stuff
-//	[[_markerX],"A3A_fnc_autoGarrison"] call A3A_fnc_scheduler;
 }
 else
 {
@@ -346,7 +343,7 @@ if (_markerX in resourcesX) then
 
 [3, format ["Notification and points done for marker change at %1", _markerX], _fileName] call A3A_fnc_log;
 
-{_nul = [_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
+{[_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 if (_winner == teamPlayer) then
 {
 	[] call A3A_fnc_tierCheck;

@@ -24,7 +24,7 @@ private _specialVarLoads = [
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns", "traderDiscount", "supportPoints","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-	"countCA", "attackCountdownInvaders", "testingTimerIsActive","isTraderQuestCompleted","traderPosition"
+	"countCA", "attackCountdownInvaders", "testingTimerIsActive","isTraderQuestCompleted","traderPosition", "areOccupantsDefeated", "areInvadersDefeated"
 ];
 
 private _varName = _this select 0;
@@ -417,6 +417,25 @@ if (_varName in _specialVarLoads) then {
             traderPosition = _varvalue; publicVariable "traderPosition";
         };
     };
+
+	if(_varname == 'areOccupantsDefeated') then {
+        diag_log format ["Occupants defeated: %1", str _varvalue];
+        areOccupantsDefeated = _varvalue;  
+		publicVariable "areOccupantsDefeated";
+		if (areOccupantsDefeated) then {
+			"NATO_carrier" setMarkerAlpha 0;
+		};
+    };
+
+	if(_varname == 'areInvadersDefeated') then {
+        diag_log format ["Invaders defeated: %1", str _varvalue];
+        areInvadersDefeated = _varvalue;  
+		publicVariable "areInvadersDefeated";
+		if (areInvadersDefeated) then {
+			"CSAT_carrier" setMarkerAlpha 0;
+		};
+    };
+
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];
 };

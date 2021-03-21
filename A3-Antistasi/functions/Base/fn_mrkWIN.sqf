@@ -1,16 +1,15 @@
-private ["_flagX","_pos","_markerX","_positionX","_size","_powerpl","_revealX"];
+params ["_flagX", "_playerX"];
+
 private _filename = "fn_mrkWIN";
+private _revealX = [];
+private _pos = getPos _flagX;
+private _markerX = [markersX,_pos] call BIS_fnc_nearestPosition;
+private _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-//Variable Setup.
-_flagX = _this select 0;
-_playerX = _this select 1;
-_revealX = [];
-_pos = getPos _flagX;
-_markerX = [markersX,_pos] call BIS_fnc_nearestPosition;
+if (_sideX == teamPlayer) exitWith {};
 
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) exitWith {};
-_positionX = getMarkerPos _markerX;
-_size = [_markerX] call A3A_fnc_sizeMarker;
+private _positionX = getMarkerPos _markerX;
+private _size = [_markerX] call A3A_fnc_sizeMarker;
 
 if ((!isNull _playerX) and (captive _playerX)) exitWith {["Capture", "You cannot Capture the Flag while Undercover"] call A3A_fnc_customHint;};
 if ((_markerX in airportsX) and (tierWar < 3)) exitWith {["Capture", "You cannot capture Airports until you reach War Level 3"] call A3A_fnc_customHint;};
@@ -60,8 +59,7 @@ if (!isNull _playerX) then
 	};
 };
 
-if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith
-{
+if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x == teamPlayer)} count allUnits)) exitWith {
 	[3, format ["Markers left to be conquered: %1 ", _revealX], _filename, true] call A3A_fnc_log;
 	[2, format ["Flag capture by %1 abandoned due to outnumbering", str _playerX], _filename, true] call A3A_fnc_log;
 	["Capture", "The enemy still outnumber us, check the map and clear the rest of the area"] call A3A_fnc_customHint;
@@ -83,3 +81,4 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 
 [2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 [teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];
+[_sideX] remoteExecCall ["SCRT_fnc_common_defeatFactionIfPossible", 2];

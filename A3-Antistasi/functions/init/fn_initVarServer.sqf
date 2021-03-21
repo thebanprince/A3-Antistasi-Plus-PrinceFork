@@ -112,6 +112,9 @@ DECLARE_SERVER_VAR(traderDiscount, 0);
 //Latest pursuers spawn time
 DECLARE_SERVER_VAR(pursuersTime, 0);
 
+//Check if occupants and invaders are defeated
+DECLARE_SERVER_VAR(areOccupantsDefeated, false);
+DECLARE_SERVER_VAR(areInvadersDefeated, false);
 
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
