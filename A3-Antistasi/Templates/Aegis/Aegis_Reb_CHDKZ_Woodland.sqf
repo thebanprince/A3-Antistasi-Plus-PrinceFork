@@ -101,7 +101,7 @@ breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_
 initialRebelEquipment append ["hgun_Pistol_01_F", "hgun_C1911_F"];
 initialRebelEquipment append ["sgun_Mp153_classic_F", "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F"];
 initialRebelEquipment append ["10Rnd_9x21_Mag", "7Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug", "4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell"];
-initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
+initialRebelEquipment append ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_AssaultPack_sgg"];
 initialRebelEquipment append ["V_BandollierB_blk","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt"];
 initialRebelEquipment append ["Binocular","acc_flashlight", "acc_flashlight_pistol", "Laserbatteries"];
 //TFAR Unlocks

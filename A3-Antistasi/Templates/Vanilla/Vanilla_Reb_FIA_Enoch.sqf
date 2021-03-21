@@ -98,10 +98,10 @@ breachingExplosivesAPC = [["DemoCharge_Remote_Mag", 1]];
 breachingExplosivesTank = [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]];
 
 //Starting Unlocks
-initialRebelEquipment append ["hgun_Pistol_heavy_02_F","hgun_Pistol_heavy_01_green_F","sgun_HunterShotgun_01_F", "hgun_PDW2000_F"];
+initialRebelEquipment append ["hgun_ACPC2_F","hgun_Pistol_01_F","sgun_HunterShotgun_01_F", "hgun_PDW2000_F", "sgun_HunterShotgun_01_sawedoff_F"];
 initialRebelEquipment append ["30Rnd_9x21_Mag", "30Rnd_9x21_Red_Mag"];
-initialRebelEquipment append ["6Rnd_45ACP_Cylinder","9Rnd_45ACP_Mag","2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug","MiniGrenade","SmokeShell"];
-initialRebelEquipment append ["B_FieldPack_blk","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_oli","B_FieldPack_green_F","B_FieldPack_taiga_F"];
+initialRebelEquipment append ["9Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell", "10Rnd_9x21_Mag"];
+initialRebelEquipment append ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_AssaultPack_sgg"];
 initialRebelEquipment append ["V_BandollierB_blk","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt"];
 initialRebelEquipment append ["Binocular","acc_flashlight", "Laserbatteries"];
 //Greenfor uniforms
