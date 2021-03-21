@@ -3,10 +3,11 @@
 ## 2.0
 ### Additions
 - UI/UX overhaul - new commander menu (O key shortcut), all other menus had been remade on new UI framework
-- Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO principle)
+- Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, player-on-foot-only)
+- New mission types - Shoot Down the Helicopter, Eliminate High-Ranking Officer and Destroy Enemy Tank
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
 - New intel type - Arms Dealer store discount
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
@@ -14,6 +15,8 @@
 - Ability to repair military buildings on rebel-controlled points
 - Ability to sell non-unlocked guns and items at arms dealer store
 - Initial Player Money mission parameter
+- Defeat faction mission parameter - rebels could defeat any enemy faction altogether by capturing their last outpost so they will be no longer active on the field and launch any attack on rebels, enabled by default
+- Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
 
@@ -28,12 +31,12 @@
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1500
 - AI units have a chance to drop their guns and run away instead of surrender when their morale is low
-- Airbases have SAM sites too
 - Multiple "Search for Intel" action fixes - fixed some bugs and exploits (multiple searchs on same squad leader), localized string for action, search process visualization
 - Remade announcement system - much less messages on screen will be overwritten by new information
 - AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
 - AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
 - Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), magazine check to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation), pistols included too
+- Airbases have SAM sites too
 - CIWSes use cargo platforms instead of flatbed trucks
 - CIWSes will scan horizon
 - Singleplayer support is fully turned off
@@ -41,9 +44,12 @@
 - Move Static Weapon action renamed to "Move Static Weapon/Loot Crate" to reflect new functionality
 - Previous vehicle tiers will get a discount when next tier is unlocked (Vehicle Black Market)
 - Players can fast travel to Arms Dealer location
+- Ability to reroll Arms Dealer location (Game tab on map -> Reroll Arms Dealer Task, commander only)
 - Patrol vehicles around military bases and airports will not spawn if side is out of vehicles
 - Laser batteries are available from start
+- Initial rebel loadout weapons, backpacks and chestrigs changes
 - Initial player money on start increased from 100 to 200 
+- "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (Altis) BLUFOR version replaced with INDEP version due to 2.4 template changes
 - (Aegis) Zamak Flatbed logistics support
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (CUP Technicals store) 
@@ -55,7 +61,7 @@
 - Removed Airstrikes title from top status bar
 - Removed tent on rebel HQ (all actions from it moved to new commander UI)
 - Removed duplicated or obsolete code
-- Dropped Taviana support (because of Taviana terrain removal from Steam Workshop due to IP issues)
+- Dropped Taviana support (Taviana IP/Steam Workshop issues)
 
 ## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
