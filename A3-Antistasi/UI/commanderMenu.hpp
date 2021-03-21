@@ -974,7 +974,7 @@ class commanderMenu
 					shadow = 2;
 					colorBackground[] = {0.376, 0.125, 0.043, 1};
 					tooltip = "Rollbacks Arms Dealer's game state and allows to redo task about his whereabouts. Helps in situations when Arms Dealer stuck in some undesired location. Costs 1000€ to prevent exploiting.";
-					action = "[] spawn SCRT_fnc_trader_rerollTrader;";			
+					action = "if (player == theBoss) then {[] spawn SCRT_fnc_trader_rerollTrader;} else {closeDialog 0; closeDialog 0; ['Reroll', 'Only commander can reroll arms dealer task.'] call A3A_fnc_customHint;};";			
 				};
 			};
 		};
