@@ -30,7 +30,7 @@ private _positionsX = roadsX getVariable [_markerX,[]];
 private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
 private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
 private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
-private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOFlatbedTrucks} else {selectRandom vehCSATTrucks};
+private _cargoPlatform =  if (_sideX == Occupants) then {"CargoPlaftorm_01_green_F"} else {"CargoPlaftorm_01_brown_F"};
 private _aaElements = [_radarType, _ciwsType, _samType];
 
 private _heavyVehicles = if (_sideX == Occupants) then { vehNATOAPC + vehNATOTanks + [vehNATOAA] } else { vehCSATAPC + vehCSATTanks  + [vehCSATAA] };
@@ -72,18 +72,15 @@ while {_spawnParameter isEqualType []} do {
                 }; 
             };
 
-            //CIWS truck
+            //CIWS platform
             if(_x == _ciwsType) then {
-                private _ciwsTruckData = [_spawnParameter select 0, _rotation, _vehCargoTruck, _sideX] call bis_fnc_spawnvehicle;
-                private _ciwsVehicle = _ciwsTruckData select 0;
-				private _ciwsVehicleCrew = _ciwsTruckData select 1;
-            	{deleteVehicle _x} forEach _ciwsVehicleCrew;
-            	[_ciwsVehicle, _sideX] call A3A_fnc_AIVEHinit;
-				_ciwsVehicleGroup = _ciwsTruckData select 2;
-				deleteGroup _ciwsVehicleGroup;
-            	_vehiclesX pushBack _ciwsVehicle;
-
-                _aaVehicle attachTo [_ciwsVehicle, [0, 0, 1.65]];
+				private _platform = createVehicle [_cargoPlatform, _spawnParameter select 0];
+            	_props pushBack _platform;
+                _aaVehicle attachTo [_platform, [0, 0, 6.2]];
+				//for some reason, attaching CIWS to something breaks it's animation
+				sleep 0.1;
+				detach _aaVehicle;
+				[_aaVehicle, 300] spawn SCRT_fnc_common_scanHorizon;
             };
         };
     } forEach _aaElements;
@@ -109,13 +106,11 @@ if(_ciwsType == "") then {
 // SPAWNING PATROL VEHICLES
 ////////////////////////////
 _selectedVehicle = nil;
+_heavyVehicles = _heavyVehicles call BIS_fnc_arrayShuffle;
+
 {
 	if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
 } forEach _heavyVehicles;
-//if nothing is available, then APC should be fine as fallback value
-if(isNil _selectedVehicle) then {
-	_selectedVehicle = if (_sideX == Occupants) then { selectRandom vehNATOAPC } else { selectRandom vehCSATAPC };
-};
 
 if (!isNil "_selectedVehicle") then {
 	private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
