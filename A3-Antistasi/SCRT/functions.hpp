@@ -157,6 +157,13 @@ class SCRT
         class common_defeatFactionIfPossible {};
     };
 
+    class Garrison
+    {
+        file = "SCRT\Garrison";
+        class garrison_rollOversizeGarrison {};
+        class garrison_rollOversizeVehicle {};
+    };
+
     class Rally
     {
         file = "SCRT\Rally";
