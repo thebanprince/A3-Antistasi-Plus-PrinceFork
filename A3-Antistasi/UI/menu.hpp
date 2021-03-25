@@ -380,100 +380,100 @@ class radioComm: SimpleMenuBigger
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Fast Travel";
+			text = $STR_antistasi_journal_entry_header_Features_11;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "Teleport your squad or a HC selected squad to a friendly zone depending on several factors";
+			tooltip = $STR_antistasi_dialogs_fast_travel_tooltip;
 			action = "closeDialog 0; [] spawn A3A_fnc_fastTravelRadio;";
 		};
 
 		class l2Button: SimpleButton
 		{
 			idc = 105;
-			text = "Undercover ON";
+			text = $STR_antistasi_dialogs_undercover_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you.";
+			tooltip = $STR_antistasi_dialogs_undercover_tooltip;
 			action = "closeDialog 0; [] spawn A3A_fnc_goUndercover";
 		};
 
 		class l3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Garage Vehicle";
+			text = $STR_antistasi_dialogs_put_garage_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve";
+			tooltip = $STR_antistasi_dialogs_put_garage_tooltip;
 			action = "closeDialog 0; if ([player] call A3A_fnc_isMember) then {createDialog ""garageCheck""} else {nul = [false] call A3A_fnc_garageVehicle};";
 		};
 
 		class l4Button: SimpleButton
 		{
 			idc = -1;
-			text = "AI Management";
+			text = $STR_antistasi_dialogs_ai_management_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Several AI options";
+			tooltip = $STR_antistasi_dialogs_ai_management_tooltip;
 			action = "if (player == leader group player) then {closeDialog 0;nul = createDialog ""aiManagement""} else {[""AI Management"", ""Only group leaders may access to this option""] call A3A_fnc_customHint;};";
 		};
 
 		class l5Button: SimpleButton
 		{
 			idc = -1;
-			text = "Unflip Vehicle";
+			text = $STR_antistasi_dialogs_flip_vehicle_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
-			tooltip = "Unflips the vehicle at cursor/crosshair. Requires 4 people to successfully perform, heavy vehicles requires repair truck in proximity.";
+			tooltip = $STR_antistasi_dialogs_flip_vehicle_tooltip;
 			action = "closeDialog 0; [] call SCRT_fnc_common_unflipVehicle";
 		};
 		
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Player and Money";
+			text = $STR_antistasi_dialogs_players_money_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "Look at some player and interact with him";
+			tooltip = $STR_antistasi_dialogs_players_money_tooltip;
 			action = "closeDialog 0; createDialog 'playerMoney';";
 		};
 
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Construction";
+			text = $STR_antistasi_dialogs_construction_menu_frame_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Construct in the spot where you are a selected building facing this direction.";
+			tooltip = $STR_antistasi_dialogs_construction_tooltip;
 			action = "closeDialog 0; [] call SCRT_fnc_ui_createConstructionMenu;";
 		};
 
 		class r3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Unlock Vehicle";
+			text = $STR_antistasi_dialogs_unlock_vehicle_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Allow other groups to mount this vehicle";
+			tooltip = $STR_antistasi_dialogs_unlock_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_unlockVehicle";
 		};
 
 		class r4Button: SimpleButton
 		{
 			idc = -1;
-			text = "Commander";
+			text = $STR_antistasi_actions_draw3d_commander_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Open commander options";
-			action = "closeDialog 0; nul = createDialog ""commanderComm"";";
+			tooltip = $STR_antistasi_dialogs_commander_tooltip;
+			action = "closeDialog 0; createDialog 'commanderComm';";
 		};
 
 		class r5Button: SimpleButton
 		{
 			idc = -1;
-			text = "Move Static/Loot Crate";
+			text = $STR_antistasi_dialogs_move_veh_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
-			tooltip = "Grants the ability to move static weapon or loot crate you're pointing at.";
+			tooltip = $STR_antistasi_dialogs_move_veh_tooltip;
 			action = "closeDialog 0; [] spawn SCRT_fnc_common_moveStatic;";
 		};
 	};
@@ -539,90 +539,90 @@ class aiManagement: SimpleMenuBigger
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Temp. AI Control";
+			text = $STR_antistasi_dialogs_ai_control_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "Take personal control of the selected squad member or HC squad leader and be able to perform any kind of actions for 60 seconds. Control state will be cancelled if the player or the controlled unit receives any kind of damage";
+			tooltip = $STR_antistasi_dialogs_ai_control_tooltip;
 			action = "closeDialog 0; if ((count groupselectedUnits player > 0) and (count hcSelected player > 0)) exitWith {[""AI Control"", ""You must select from HC or Squad Bars, not both""] call A3A_fnc_customHint;}; if (count groupselectedUnits player == 1) then {nul = [groupselectedUnits player] execVM ""REINF\controlunit.sqf""}; if (count hcSelected player == 1) then {nul = [hcSelected player] execVM ""REINF\controlHCsquad.sqf"";};";
 		};
 
 		class l2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Auto Heal";
+			text = $STR_antistasi_dialogs_auto_heal_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "AI squad mates will heal proactively each other";
+			tooltip = $STR_antistasi_dialogs_auto_heal_tooltip;
 			action = "if (autoHeal) then {autoHeal = false; [""AI Auto Heal"", ""Auto Healing disabled""] call A3A_fnc_customHint;} else {autoHeal = true; [""AI Auto Heal"", ""Auto Heal enabled""] call A3A_fnc_customHint; nul = [] spawn A3A_fnc_autoHealFnc}";
 		};
 
 		class l3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Garrison Units / Squads";
+			text = $STR_antistasi_dialogs_garrison_units_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Adds selected units or squads to a map selected garrison";
+			tooltip = $STR_antistasi_dialogs_garrison_units_tooltip;
 			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\addToGarrison.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\addToGarrison.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
 
 		class l4Button: SimpleButton
 		{
 			idc = -1;
-			text = "Dismiss Units / Squad";
+			text = $STR_antistasi_dialogs_dismiss_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Dimiss selected units or squads, recovering it's cost to the proper resource pool";
+			tooltip = $STR_antistasi_dialogs_dismiss_tooltip;
 			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] execVM ""REINF\dismissPlayerGroup.sqf""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] execVM ""REINF\dismissSquad.sqf""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Dismiss Squad"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
 
 		class l5Button: SimpleButton
 		{
 			idc = -1;
-			text = "Artillery Support Menu";
+			text = $STR_antistasi_dialogs_arty_support_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
-			tooltip = "Opens mortar barrage menu that allows player to set artillery target for immediate strike.";
+			tooltip = $STR_antistasi_dialogs_arty_support_tooltip;
 			action = "closeDialog 0; [] spawn A3A_fnc_artySupport;";
 		};
 		
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Auto Rearm \ Loot";
+			text = $STR_antistasi_dialogs_auto_rearm_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "AI will search for better weapons, vests, helmets etc. If they are in a vehicle, they will just store what they scavenge in the vehicle. If not, they will equip them";
+			tooltip = $STR_antistasi_dialogs_auto_rearm_tooltip;
 			action = "closeDialog 0; if (count groupselectedUnits player == 0) then {nul = (units group player) spawn A3A_fnc_rearmCall} else {nul = (groupselectedUnits player) spawn A3A_fnc_rearmCall};";
 		};
 
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Squad SITREP";
+			text = "SITREP";
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Recover info about a HC squad status";
+			tooltip = $STR_antistasi_dialogs_sitrep_tooltip;
 			action = "[""stats""] call A3A_fnc_vehStats;";
 		};
 
 		class r3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Squad Add Vehicle";
+			text = $STR_antistasi_dialogs_assign_vehicle_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Look at some vehicle and assign it to the selected squad for it's use";
+			tooltip = $STR_antistasi_dialogs_assign_vehicle_tooltip;
 			action = "closeDialog 0;[] call A3A_fnc_addSquadVeh;";
 		};
 
 		class r4Button: SimpleButton
 		{
 			idc = -1;
-			text = "Mount / Dismount";
+			text = $STR_antistasi_dialogs_mount_veh_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Force squad to mount or dismount their assigned vehicle";
+			tooltip = $STR_antistasi_dialogs_mount_veh_tooltip;
 			action = "[""mount""] call A3A_fnc_vehStats";
 		};
 	};
@@ -653,90 +653,90 @@ class commanderComm: SimpleMenuBigger
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Recruit Squad";
+			text = $STR_antistasi_dialogs_recruit_squad_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "Recruit new squads and manage them with the HC Module (CTRL + SPACE)";
+			tooltip = $STR_antistasi_dialogs_add_recruit_squad_tooltip;
 			action = "closeDialog 0;if (player == theBoss) then { [] spawn A3A_fnc_squadRecruit; } else {[""Recruit Squad"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class l2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Place/Remove Rally Point";
+			text = $STR_antistasi_dialogs_rally_point_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Places or removes temporary rally spawn point.";
+			tooltip = $STR_antistasi_dialogs_add_rally_point_tooltip;
 			action = "closeDialog 0; [] call SCRT_fnc_rally_toggleRallyPoint;";
 		};
 
 		class l3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Share Faction Money";
+			text = $STR_antistasi_dialogs_share_faction_money_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Shares faction money with server members.";
+			tooltip = $STR_antistasi_dialogs_share_faction_money_tooltip;
 			action = "closeDialog 0; [] call SCRT_fnc_common_shareFactionMoneyWithMembers";
 		};
 
 		class l4Button: SimpleButton
 		{
 			idc = -1;
-			text = "Resign / Eligible";
+			text = $STR_antistasi_dialogs_resign_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Step down from commander or toggle eligibility";
+			tooltip = $STR_antistasi_dialogs_resign_tooltip;
 			action = "closeDialog 0; [player, cursorTarget] remoteExec ['A3A_fnc_theBossToggleEligibility', 2];";
 		};
 
 		class l5Button: SimpleButton
 		{
 			idc = -1;
-			text = "Open Commander Menu";
+			text = $STR_antistasi_dialogs_open_comm_menu_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
-			tooltip = "Opens commander menu. Also it can be accessed via O key.";
+			tooltip = $STR_antistasi_dialogs_open_comm_menu_tooltip;
 			action = "closeDialog 0; closeDialog 0; [] call SCRT_fnc_ui_toggleCommanderMenu;";
 		};
 		
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Add to Air Support";
+			text = $STR_antistasi_dialogs_open_add_to_air_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			tooltip = "Gain Airstrike points giving this vehicle to the faction Air pool.";
+			tooltip = $STR_antistasi_dialogs_open_add_to_air_tooltip;
 			action = "closeDialog 0; [] call A3A_fnc_addBombRun";
 		};
 
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Clean Garbage";
+			text = $STR_antistasi_dialogs_open_clean_garbage_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			tooltip = "Cleans several things in game. Use with caution as it freezes the mission";
+			tooltip = $STR_antistasi_dialogs_open_clean_garbage_tooltip;
 			action = "if (player == theBoss) then {closedialog 0;[] remoteExec [""A3A_fnc_garbageCleaner"",2]} else {[""Garbage Cleaner"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class r3Button: SimpleButton
 		{
 			idc = -1;
-			text = "Faction Garage";
+			text = $STR_antistasi_dialogs_faction_garage;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			tooltip = "Look at a vehicle and garage it into faction garage (shared among commanders)";
+			tooltip = $STR_antistasi_dialogs_open_faction_garage_tooltip;
 			action = "closeDialog 0; [true] call A3A_fnc_garageVehicle;";
 		};
 
 		class r4Button: SimpleButton
 		{
 			idc = -1;
-			text = "Sell Vehicle";
+			text = $STR_antistasi_dialogs_sell_vehicle_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
-			tooltip = "Look at a vehicle and sell it for money";
+			tooltip = $STR_antistasi_dialogs_sell_vehicle_tooltip;
 			action = "if (player == theBoss) then {closeDialog 0; [] call A3A_fnc_sellVehicle} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles""] call A3A_fnc_customHint;};";
 		};
 	};
@@ -777,7 +777,7 @@ class constructionMenu: SimpleMenuSmall
 		class costsText: SimpleText
 		{
 			idc = 510;
-			text = "Cost";
+			text = "";
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.25;
 			w = "22 * pixelGridNoUIScale * pixelW";	
@@ -787,10 +787,10 @@ class constructionMenu: SimpleMenuSmall
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Build";
+			text = $STR_antistasi_dialogs_build;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
-			tooltip = "Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.";
+			tooltip = $STR_antistasi_dialogs_build_tooltip;
 			action = "[] call SCRT_fnc_ui_prepareConstructionBuild;";
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 		};
@@ -822,7 +822,7 @@ class squadRecruit: SimpleMenuBig
 		class l1Button: SimpleButton
 		{
 			idc = 104;
-			text = "Recruit Inf. Squad";
+			text = $STR_antistasi_dialogs_infantry_squad_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
 			action = "closeDialog 0; [] spawn A3A_fnc_squadOptions;";
@@ -831,7 +831,7 @@ class squadRecruit: SimpleMenuBig
 		class l2Button: SimpleButton
 		{
 			idc = 106;
-			text = "Recruit AT Team";
+			text = $STR_antistasi_dialogs_at_team_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
 			action = "closeDialog 0;[groupsSDKAT] spawn A3A_fnc_addFIAsquadHC";
@@ -840,7 +840,7 @@ class squadRecruit: SimpleMenuBig
 		class l3Button: SimpleButton
 		{
 			idc = 107;
-			text = "Recruit Sniper Team";
+			text = $STR_antistasi_dialogs_sniper_team_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
 			action = "closeDialog 0;[groupsSDKSniper] spawn A3A_fnc_addFIAsquadHC";
@@ -849,7 +849,7 @@ class squadRecruit: SimpleMenuBig
 		class l4Button: SimpleButton
 		{
 			idc = 108;
-			text = "Recruit MG Team";
+			text = $STR_antistasi_dialogs_mg_team_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
 			action = "closeDialog 0;[SDKMGStatic] spawn A3A_fnc_addFIAsquadHC";
@@ -858,7 +858,7 @@ class squadRecruit: SimpleMenuBig
 		class r1Button: SimpleButton
 		{
 			idc = 105;
-			text = "Recruit Inf. Team";
+			text = $STR_antistasi_dialogs_inf_team_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
 			action = "closeDialog 0;[groupsSDKmid] spawn A3A_fnc_addFIAsquadHC";
@@ -867,7 +867,7 @@ class squadRecruit: SimpleMenuBig
 		class r2Button: SimpleButton
 		{
 			idc = 109;
-			text = "Recruit AT Car";
+			text = $STR_antistasi_dialogs_at_car_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
 			action = "closeDialog 0;[vehSDKAT] spawn A3A_fnc_addFIAsquadHC";
@@ -876,7 +876,7 @@ class squadRecruit: SimpleMenuBig
 		class r3Button: SimpleButton
 		{
 			idc = 110;
-			text = "Recruit AA Truck";
+			text = $STR_antistasi_dialogs_aa_car_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
 			action = "closeDialog 0;[staticAAteamPlayer] spawn A3A_fnc_addFIAsquadHC";
@@ -885,7 +885,7 @@ class squadRecruit: SimpleMenuBig
 		class r4Button: SimpleButton
 		{
 			idc = 111;
-			text = "Recruit Mortar Team";
+			text = $STR_antistasi_dialogs_mortar_team_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
 			action = "closeDialog 0;[SDKMortar] spawn A3A_fnc_addFIAsquadHC";
@@ -918,7 +918,7 @@ class squadOptions: SimpleMenuSmall
 		class l1Button: SimpleButton
 		{
 			idc = 104;
-			text = "Normal Squad";
+			text = $STR_antistasi_dialogs_normal_squad_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
 			action = "closeDialog 0; [groupsSDKSquad] spawn A3A_fnc_addFIAsquadHC;";
@@ -927,7 +927,7 @@ class squadOptions: SimpleMenuSmall
 		class l2Button: SimpleButton
 		{
 			idc = 105;
-			text = "Engineer Squad";
+			text = $STR_antistasi_dialogs_engineer_squad_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
 			action = "closeDialog 0; [groupsSDKSquadEng] spawn A3A_fnc_addFIAsquadHC;";
@@ -936,7 +936,7 @@ class squadOptions: SimpleMenuSmall
 		class r1Button: SimpleButton
 		{
 			idc = 106;
-			text = "MG Squad";
+			text = $STR_antistasi_dialogs_mg_squad_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
 			action = "closeDialog 0;[groupsSDKSquadSupp,""MG""] spawn A3A_fnc_addFIAsquadHC";
@@ -945,7 +945,7 @@ class squadOptions: SimpleMenuSmall
 		class r2Button: SimpleButton
 		{
 			idc = 107;
-			text = "Mortar Squad";
+			text = $STR_antistasi_dialogs_mortar_squad_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
 			action = "closeDialog 0; [groupsSDKSquadSupp,""Mortar""] spawn A3A_fnc_addFIAsquadHC;";
@@ -978,40 +978,40 @@ class playerMoney: SimpleMenuSmall
 		class l1Button: SimpleButton
 		{
 			idc = 104;
-			text = "Add Server Member";
+			text = $STR_antistasi_dialogs_add_server_member_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			tooltip = "Use this option to add the player which you are currently looking to the member's list";
+			tooltip = $STR_antistasi_dialogs_add_server_member_tooltip;
 			action = "closeDialog 0; ['add'] call A3A_fnc_memberAdd;";
 		};
 
 		class l2Button: SimpleButton
 		{
 			idc = 105;
-			text = "Remove Server Member";
+			text = $STR_antistasi_dialogs_remove_server_member_title;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
-			tooltip = "Use this option to remove the player which you are currently looking to the member's list";
+			tooltip = $STR_antistasi_dialogs_remove_server_member_tooltip;
 			action = "closeDialog 0; ['remove'] call A3A_fnc_memberAdd;";
 		};
 		
 		class r1Button: SimpleButton
 		{
 			idc = 106;
-			text = "Donate 100 € to player";
+			text = $STR_antistasi_dialogs_donate_player_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
-			tooltip = "Donates your personal money to player you're looking at.";
+			tooltip = $STR_antistasi_dialogs_donate_player_title;
 			action = "[true] call A3A_fnc_donateMoney;";
 		};
 
 		class r2Button: SimpleButton
 		{
 			idc = 308;
-			text = "Donate 100 € to Faction";
+			text = $STR_antistasi_dialogs_donate_player_tooltip;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
-			tooltip = "Donates your personal money to rebel faction. It will increase your prestige among rebels.";
+			tooltip = $STR_antistasi_dialogs_donate_faction_tooltip;
 			action = "[] call A3A_fnc_donateMoney;";
 		};
 	};
@@ -1042,7 +1042,7 @@ class garageCheck: SimpleMenuSmall
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Personal Garage";
+			text = $STR_antistasi_dialogs_personal_garage;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0;[false] call A3A_fnc_garageVehicle;";
@@ -1051,7 +1051,7 @@ class garageCheck: SimpleMenuSmall
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Faction Garage";
+			text = $STR_antistasi_dialogs_faction_garage;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0; [true] call A3A_fnc_garageVehicle;";
@@ -1078,7 +1078,7 @@ class mortarType: SimpleMenuSmall
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = "Select Mortar Ammo";
+			text = $STR_antistasi_dialogs_barrage_strike;
 		};
 
 		class l1Button: SimpleButton
@@ -1093,7 +1093,7 @@ class mortarType: SimpleMenuSmall
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Smoke";
+			text = "SMOKE";
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0; typeAmmunition = SDKMortarSmokeMag;";
@@ -1196,13 +1196,13 @@ class strikeType: SimpleMenuSmall
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = "Select type of strike";
+			text = $STR_antistasi_dialogs_select_strike_type;
 		};
 
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Single Point Strike";
+			text = $STR_antistasi_dialogs_single_point_strike;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0;typeArty = ""NORMAL"";";
@@ -1211,7 +1211,7 @@ class strikeType: SimpleMenuSmall
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Barrage Strike";
+			text = $STR_antistasi_dialogs_barrage_strike;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0; typeArty = ""BARRAGE"";";
@@ -1238,13 +1238,13 @@ class NATOPlayer: SimpleMenuSmall
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = "SpecOp Menu";
+			text = "SpecOps";
 		};
 
 		class l1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Quadbike";
+			text = $STR_antistasi_dialogs_quadbike;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0;[] call A3A_fnc_NATOQuadbike";
@@ -1253,7 +1253,7 @@ class NATOPlayer: SimpleMenuSmall
 		class r1Button: SimpleButton
 		{
 			idc = -1;
-			text = "Fast Travel";
+			text = $STR_antistasi_journal_entry_header_Features_11;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
 			action = "closeDialog 0;[] spawn A3A_fnc_NATOFT";
@@ -1306,7 +1306,7 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		class costsText: SimpleText
 		{
 			idc = 1010;
-			text = "Cost";
+			text = $STR_antistasi_dialogs_price;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.275;
 			w = "22 * pixelGridNoUIScale * pixelW";	
@@ -1316,7 +1316,7 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Purchase";
+			text = $STR_antistasi_dialogs_buy;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
@@ -1370,7 +1370,7 @@ class buyVehicleMenu: SimpleMenuSmall
 		class costsText: SimpleText
 		{
 			idc = 710;
-			text = "Cost";
+			text = $STR_antistasi_dialogs_price;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.275;
 			w = "22 * pixelGridNoUIScale * pixelW";	
@@ -1390,7 +1390,7 @@ class buyVehicleMenu: SimpleMenuSmall
 		class r2Button: SimpleButton
 		{
 			idc = -1;
-			text = "Purchase";
+			text = $STR_antistasi_dialogs_buy;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
