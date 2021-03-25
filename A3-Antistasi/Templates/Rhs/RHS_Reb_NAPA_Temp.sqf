@@ -148,6 +148,11 @@ shop_heli = ["B_Heli_Light_01_dynamicLoadout_F", "RHS_UH1Y_d", "rhsgref_cdf_reg_
 shop_tank = ["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"];
 shop_plane = ["rhs_l39_cdf", "rhs_l159_CDF", "rhsgref_cdf_su25"];
 
+additionalShop_light = [];
+additionalShop_atgmVehicles = [];
+additionalShop_manpadsVehicles = [];
+additionalShop_misc = [];
+
 //military building models (common for all sides)
 smallBunker = "Land_BagBunker_Small_F";
 sandbag = "Land_BagFence_Long_F";

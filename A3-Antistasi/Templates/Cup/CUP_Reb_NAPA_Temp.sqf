@@ -108,9 +108,29 @@ initialRebelEquipment append ["CUP_5x_22_LR_17_HMR_M", "CUP_1Rnd_B_CZ584_74Slug"
 initialRebelEquipment append ["CUP_6Rnd_762x51_R700","CUP_10Rnd_9x19_Saiga9", "6Rnd_GreenSignal_F", "6Rnd_RedSignal_F"];
 initialRebelEquipment append ["SmokeShell", "MiniGrenade", "Chemlight_green"];
 
-initialRebelEquipment append ["B_Messenger_Gray_F", "B_AssaultPack_blk"];
-initialRebelEquipment append ["CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_B_ALICE", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket"];
+initialRebelEquipment append ["B_Messenger_Gray_F", "B_AssaultPack_blk", "CUP_B_ACRScout_m95"];
+initialRebelEquipment append ["CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket"];
 initialRebelEquipment append ["Binocular", "acc_flashlight", "Laserbatteries"];
+
+allRebelUniforms append ["CUP_U_O_Partisan_TTsKO",
+    "CUP_U_O_Partisan_TTsKO_Mixed",
+    "CUP_U_O_Partisan_VSR_Mixed1",
+    "CUP_U_O_Partisan_VSR_Mixed2",
+    "CUP_U_I_GUE_Woodland1",
+    "CUP_U_I_GUE_Flecktarn4",
+    "CUP_U_I_GUE_Flecktarn",
+    "CUP_U_I_GUE_Flecktarn3",
+    "CUP_U_I_GUE_Flecktarn2",
+    "CUP_U_I_Ghillie_Top",
+    "CUP_U_I_GUE_WorkU_02",
+    "CUP_U_I_GUE_WorkU_01",
+    "CUP_U_I_GUE_Anorak_02",
+    "CUP_U_I_GUE_Anorak_03",
+    "CUP_U_I_GUE_Anorak_01",
+    "CUP_U_O_CHDKZ_Lopotev",
+    "CUP_U_O_CHDKZ_Bardak"
+];
+
 //TFAR Unlocks
 if (hasTFAR) then {initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf_anprc155"};
@@ -118,19 +138,23 @@ if (hasTFAR && startWithLongRangeRadio) then {initialRebelEquipment pushBack "tf
 //black market stuff
 //3 tiers except UAV
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["CUP_O_ZSU23_Afghan_SLA", "CUP_B_M163_USA", "CUP_O_2S6_RU"];
-shop_MRAP = ["CUP_I_BTR40_MG_TKG", "CUP_I_BRDM2_TK_Gue", "CUP_I_BRDM2_ATGM_TK_Gue"];
-shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80A_FIA", "CUP_I_LAV25M240_RACS"];
+shop_AA = ["CUP_B_ZSU23_Afghan_CDF", "CUP_B_M163_USA", "CUP_O_2S6_RU"];
+shop_MRAP = ["CUP_I_BRDM2_HQ_NAPA", "CUP_I_BRDM2_NAPA", "CUP_B_RG31_M2_OD_USA"];
+shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80_FIA", "CUP_I_LAV25M240_RACS"];
 shop_track_apc = ["CUP_B_MTLB_pk_FIA", "CUP_I_BMP1_TK_GUE", "CUP_I_BMP2_NAPA"];
 shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_I_Wildcat_Green_AAF", "I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_I_T72_NAPA"];
+shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_B_M60A3_USMC"];
 shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
+
+additionalShop_light = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_M1165_GMV_USMC", "CUP_B_Jackal2_L2A1_FIA"];
+additionalShop_atgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_B_BRDM2_ATGM_CDF"];
+additionalShop_manpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_B_HMMWV_Avenger_USMC", "CUP_O_LR_AA_TKM"];
+additionalShop_misc = ["CUP_B_Hilux_MLRS_BLU_G_F", "CUP_B_Hilux_UB32_BLU_G_F", "CUP_O_BMP2_ZU_TKA"];
+
 
 //technical menu content, CUP exclusive
 techicalAa = "CUP_I_Ural_ZU23_NAPA";
-technicalBtr = "CUP_I_Hilux_btr60_IND_G_F";
 techicalMortar = "CUP_I_Hilux_podnos_IND_G_F";
-technicalJackal = "CUP_B_Jackal2_L2A1_FIA";
 technicalArmoredBtr = "CUP_I_Hilux_armored_BTR60_IND_G_F";
 technicalArmoredAa = "CUP_I_Hilux_armored_zu23_IND_G_F";
 technicalArmoredSpg = "CUP_I_Hilux_armored_SPG9_IND_G_F";
