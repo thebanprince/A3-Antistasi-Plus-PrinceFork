@@ -181,7 +181,12 @@ if(_intelType == "Small") then
 };
 if(_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.125, ACCESS_HELI, 0.125, ACCESS_ARMOR, 0.125, CONVOYS, 0.125, TASK, 0.4, DISCOUNT, 0.1];
+    if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+        _intelContent = TASK;
+    } else {
+        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.125, ACCESS_HELI, 0.125, ACCESS_ARMOR, 0.125, CONVOYS, 0.125, TASK, 0.4, DISCOUNT, 0.1];
+    };
+
     switch (_intelContent) do
     {
         case (ACCESS_AIR):
@@ -275,14 +280,17 @@ if(_intelType == "Medium") then
 };
 if(_intelType == "Large") then
 {
-    if(["AS"] call BIS_fnc_taskExists) then
-    {
-        _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.15, TASK, 0.5, DISCOUNT, 0.15];
-    }
-    else
-    {
-        _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
+    if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+        _intelContent = TASK;
+    } else {
+        if(["AS"] call BIS_fnc_taskExists) then {
+            _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.15, TASK, 0.5, DISCOUNT, 0.15];
+        }
+        else {
+            _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
+        };
     };
+    
     switch (_intelContent) do
     {
         case (TRAITOR):
