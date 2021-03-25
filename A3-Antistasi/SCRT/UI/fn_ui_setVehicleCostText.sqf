@@ -46,10 +46,19 @@ if(_displayId == 90000) then {
         case("PLANE"): {
             _shopLookupArrayIndex = shop_plane find _vehicleClass;
         };
+        case ("LUV"): {
+            _shopLookupArray = additionalShop_light find _vehicleClass;
+        };
+        case ("ATGM"): {
+            _shopLookupArray = additionalShop_atgmVehicles find _vehicleClass;
+        };
+        case ("MANPADS"): {
+            _shopLookupArray = additionalShop_manpadsVehicles find _vehicleClass;
+        };
+        case ("MISC"): {
+            _shopLookupArray = additionalShop_misc find _vehicleClass;
+        };
     };
-
-    // systemChat str _vehicleType;
-    systemChat str _shopLookupArrayIndex;
 
     if (!isNil "_shopLookupArrayIndex" && {_shopLookupArrayIndex != -1}) then {
         switch (true) do {
@@ -66,5 +75,5 @@ if(_displayId == 90000) then {
     };
 };
 
-
-_costTextBox ctrlSetText format ["Cost: %1€", _price];
+private _costLocalized = localize "STR_antistasi_dialogs_price";
+_costTextBox ctrlSetText format ["%1: %2€", _costLocalized, _price];

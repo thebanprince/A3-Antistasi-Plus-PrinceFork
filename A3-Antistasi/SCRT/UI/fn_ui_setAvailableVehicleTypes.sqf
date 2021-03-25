@@ -34,6 +34,18 @@ switch(_vehicleType) do {
     case("PLANE"): {
         _shopLookupArray = shop_plane;
     };
+    case ("LUV"): {
+        _shopLookupArray = additionalShop_light;
+    };
+    case ("ATGM"): {
+        _shopLookupArray = additionalShop_atgmVehicles;
+    };
+    case ("MANPADS"): {
+        _shopLookupArray = additionalShop_manpadsVehicles;
+    };
+    case ("MISC"): {
+        _shopLookupArray = additionalShop_misc;
+    };
     default { 
         [1, format ["Bad Vehicle Type - %1 ", _vehicleType], "fn_ui_setAvailableVehicleTypes"] call A3A_fnc_log;
     };

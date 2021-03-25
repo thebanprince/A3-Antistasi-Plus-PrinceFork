@@ -51,6 +51,18 @@ switch(_vehicleType) do {
     case("PLANE"): {
         _shopLookupArrayIndex = shop_plane find _vehicleClass;
     };
+    case ("LUV"): {
+        _shopLookupArrayIndex = additionalShop_light find _vehicleClass;
+    };
+    case ("ATGM"): {
+        _shopLookupArrayIndex = additionalShop_atgmVehicles find _vehicleClass;
+    };
+    case ("MANPADS"): {
+        _shopLookupArrayIndex = additionalShop_manpadsVehicles find _vehicleClass;
+    };
+    case ("MISC"): {
+        _shopLookupArrayIndex = additionalShop_misc find _vehicleClass;
+    };
     default { 
         [1, format ["Bad Vehicle Type - %1 ", _vehicleType], _fileName] call A3A_fnc_log;
     };

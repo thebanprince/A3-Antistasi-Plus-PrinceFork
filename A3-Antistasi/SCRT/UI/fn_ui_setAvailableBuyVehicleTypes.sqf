@@ -41,17 +41,12 @@ switch(_vehicleType) do {
     };
     case("TECH"): {
         if (tierWar > 2) then {
-            _shopLookupArray append [techicalAa, technicalJackal];
+            _shopLookupArray pushBack techicalAa;
         };
 
         if (tierWar > 4) then {
             _shopLookupArray append [techicalMortar, technicalArmoredBtr, technicalArmoredAa, technicalArmoredSpg, technicalArmoredMg];
         };
-
-        if (tierWar > 5) then {
-            _shopLookupArray pushBack technicalBtr;
-        };
-
     };
     default { 
         [1, format ["Bad Vehicle Type - %1 ", _vehicleType], "fn_ui_setAvailableBuyVehicleTypes"] call A3A_fnc_log;

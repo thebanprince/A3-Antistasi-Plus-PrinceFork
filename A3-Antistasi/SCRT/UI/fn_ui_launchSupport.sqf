@@ -106,9 +106,6 @@ switch (supportType) do {
         bombRuns = bombRuns - 1;
         publicVariable "bombRuns";
     };
-    default {
-        _costTextBox ctrlSetText "Costs 1 Support";
-    };
 };
 
 [] spawn A3A_fnc_statistics;

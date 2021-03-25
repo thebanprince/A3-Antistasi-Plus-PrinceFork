@@ -4,6 +4,8 @@ private _display = findDisplay 80000;
 
 if (str (_display) == "no display") exitWith {};
 
+private _costLocalized = localize "STR_antistasi_dialogs_price";
+
 private _costTextBox = _display displayCtrl 510;
 private _comboBox = _display displayCtrl 505;
 private _index = lbCurSel _comboBox;
@@ -11,19 +13,19 @@ private _buildType = _comboBox lbData _index;
 
 switch (_buildType) do {
     case ("TRENCH"): {
-        _costTextBox ctrlSetText "Cost: 125€";
+        _costTextBox ctrlSetText format ["%1: 125€", _costLocalized];
     };
     case ("OBSTACLE"): {
-        _costTextBox ctrlSetText "Cost: 75€";
+        _costTextBox ctrlSetText format ["%1: 75€", _costLocalized];
     };
     case ("SANDBAG_BUNKER"): {
-        _costTextBox ctrlSetText "Cost: 500€";
+        _costTextBox ctrlSetText format ["%1: 500€", _costLocalized];
     };
     case ("CONCRETE_BUNKER"): {
-        _costTextBox ctrlSetText "Cost: 800€";
+        _costTextBox ctrlSetText format ["%1: 800€", _costLocalized];
     };
     case ("MISC"): {
-        _costTextBox ctrlSetText "Cost: 10€";
+        _costTextBox ctrlSetText format ["%1: 10€", _costLocalized];
     };
     default {
         [2,"Bad build type.", "fn_setBuildTypeCostText"] call A3A_fnc_log;
