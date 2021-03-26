@@ -291,24 +291,7 @@ if (!isNull _antenna) then
 		};
 		_typeUnit = if (_sideX == Occupants) then {
 			if (!_isFIA) then {
-				if(hasTieredUnitConfigs) then {
-					switch (true) do {
-						case (tierWar < 5):
-						{
-							NATOMarksman select 0
-						};
-						case (tierWar < 8 && {tierWar > 4}):
-						{
-							NATOMarksman select 1
-						};
-						case (tierWar > 7):
-						{
-							NATOMarksman select 2
-						};
-					};
-				} else {
-					NATOMarksman select 0
-				};
+				NATOMarksman select 0
 			} else {FIAMarksman}
 		} else {CSATMarksman};
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
