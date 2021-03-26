@@ -617,8 +617,8 @@ player setPos (getMarkerPos respawnTeamPlayer);
 //Can re-enable them if we find the source of the bug.
 enableEnvironment [false, true];
 
-if("magRepack" call BIS_fnc_getParamValue == 1) then {
-	diag_log format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.",servertime];
+if (magRepack) then {
+	INFO(format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.", servertime]);
 	[] execVM "MagRepack\MagRepack_init_sv.sqf";
 };
 

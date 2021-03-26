@@ -1,7 +1,6 @@
 if(!hasInterface) exitWith {};
 
-_3dIconsOptionValue = ["3dIcons", 1] call BIS_fnc_getParamValue;
-if(_3dIconsOptionValue == 0) exitWith {};
+if(!3dIcons) exitWith {};
 
 addMissionEventHandler [
 	"Draw3D",

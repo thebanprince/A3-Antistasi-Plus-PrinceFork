@@ -13,6 +13,7 @@ class A3A
 		class initFuncs {};
 		class initGarrisons {};
 		class initGetMissionPath {};
+		class initParams {};
 		class initSpawnPlaces {};
 
 		class initVar {};
