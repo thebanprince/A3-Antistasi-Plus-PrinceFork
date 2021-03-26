@@ -19,13 +19,14 @@
 - Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
+- (CUP, 3CB Factions, RHS) Additional vehicle categories in Vehicle Black Market
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
 - UI/UX overhaul - new commander menu, all others menus were remade on new UI framework
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
 - Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
-- Artillery triggers aircraft counterattacks too (same as it already works with mortars)
+- Artillery triggers counterattacks too (same as it already works with mortars)
 - Fixed some exploits and bugs in Kill Collaborationist and Destroy Artillery tasks
 - AI Limit option changed from 200 to 300
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
@@ -49,13 +50,20 @@
 - Laser batteries are available from start
 - Initial rebel loadout weapons, backpacks and chestrigs changes
 - Initial player money on start increased from 100 to 200 
+- First document steal or laptop hack in campaign will always have arms dealer task assignment
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (Altis) BLUFOR version replaced with INDEP version due to 2.4 template changes
 - (Aegis) Zamak Flatbed logistics support
+- (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
+- (CUP) Disabled artillery computer for Hiluxes with MLRS and UB-32 payloads
+- (CUP) Added armored unarmed Hilux (War Level 3)
+- (CUP, RHS) Vehicle Black Market - Changed some available vehicles in some categories
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (CUP Technicals store) 
 - (CUP) Bad launcher (_empty, _loaded classname deriatives) will be removed from arsenal on each arsenal tick and ammobox transfer to arsenal
 - (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska
 - (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
+- (CUP) Removed Jackal and BTR-60 from technicals menu (both moved to Vehicle Black Market)
+- (CUP) Hilux with Podnos mortar moved from Technicals menu to Artillery section on Vehicle Black Market
  
 ### Removals
 - Removed Airstrikes title from top status bar
