@@ -155,6 +155,7 @@ class SCRT
         class common_callRandomPatrolCA {};
         class common_fixCupLaunchers {};
         class common_defeatFactionIfPossible {};
+        class common_triggerArtilleryResponseEH {};
     };
 
     class Garrison
