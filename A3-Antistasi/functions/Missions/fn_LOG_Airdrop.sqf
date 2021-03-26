@@ -187,7 +187,6 @@ private _planeVeh = objNull;
 
 
 if(count _smokes > 0) then {
-
     [2, "Smoke detected, spawning airplane.", _fileName, true] call A3A_fnc_log;
     
     private _initialPlanePosition = [
