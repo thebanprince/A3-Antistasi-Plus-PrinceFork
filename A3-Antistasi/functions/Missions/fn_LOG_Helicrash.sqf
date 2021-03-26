@@ -378,7 +378,6 @@ waitUntil {
 };
 
 if(_cargoVehicle distance _box < 50 && {alive _cargoVehicle} && {!isNull (driver _cargoVehicle)}) then {
-
     _allParticipatingUnits = [];
     {
         _allParticipatingUnits append (units _x);
@@ -412,23 +411,6 @@ if(_cargoVehicle distance _box < 50 && {alive _cargoVehicle} && {!isNull (driver
 
     _waypointTimeout = time + 10;
     waitUntil{sleep 1; time > _waypointTimeout };
-
-    //TODO: test if this case occurs often
-    //if bots can't reach waypoint due to pathfinding issues, disembark them by hand
-    // if(count waypoints _cargoVehicleGroup > 0) then {
-    //     for "_i" from count waypoints _cargoVehicleGroup - 1 to 0 step -1 do {
-    //         deleteWaypoint [_cargoVehicleGroup, _i];
-    //     };
-
-    //     commandGetOut (units _cargoVehicleGroup);
-    //     (units _cargoVehicleGroup) allowGetIn false;
-    //     _cargoWp1 = _cargoVehicleGroup addWaypoint [_crashPosition, 1];
-    //     _cargoWp1 setWaypointType "GETOUT";
-    //     _cargoWp1 setWaypointBehaviour "SAFE";
-    //     sleep 30;
-    //     (units _cargoVehicleGroup) allowGetIn true;
-    // };
-
 
     _cargoTimeout = time + 100;
     waitUntil{sleep 1; time > _cargoTimeout };
