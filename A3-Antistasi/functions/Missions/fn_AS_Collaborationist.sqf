@@ -285,8 +285,6 @@ if (dateToNumber date > _dateLimitNum) then {
     [-20,theBoss] call A3A_fnc_playerScoreAdd;
 
     //TODO: call singleAttack
-    [_positionX, Occupants] call SCRT_fnc_common_callRandomPatrolCA;
-
     [10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 } else {
     [
