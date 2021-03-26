@@ -3,8 +3,8 @@ params ["_side", "_garrison", "_marker"];
 
 private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 private _oversizeChance =  _aggression / 2;
-if (_oversizeChance > 25) then {
-	_oversizeChance = 25;
+if (_oversizeChance > 20) then {
+	_oversizeChance = 20;
 };
 
 if ((random 100) < _oversizeChance) then {
