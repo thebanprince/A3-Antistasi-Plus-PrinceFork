@@ -309,6 +309,24 @@ player addEventHandler ["GetInMan", {
 	};
 }];
 
+if (hasCup) then {
+	player addEventHandler ["GetInMan", {
+		params ["_unit", "_role", "_vehicle", "_turret"];
+		private _vehType = typeOf _vehicle;
+		if (_vehType == (additionalShopArtillery select 1) || {_vehType == (additionalShopArtillery select 2)}) then {
+			enableEngineArtillery false;
+		};
+	}];
+
+	player addEventHandler ["GetOutMan", {
+		params ["_unit", "_role", "_vehicle", "_turret"];
+		private _vehType = typeOf _vehicle;
+		if (_vehType == (additionalShopArtillery select 1) || {_vehType == (additionalShopArtillery select 2)}) then {
+			enableEngineArtillery true;
+		};
+	}];
+};
+
 if(isDiscordRichPresenceActive) then {
 	player addEventHandler ["GetInMan", {
 		params ["_unit", "_role", "_vehicle", "_turret"];
