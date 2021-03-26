@@ -265,7 +265,3 @@ if (spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAss
 	[traderScreenX, true] remoteExec ["hideObject", 0, true];
 	[traderScreenX, false] remoteExec ["enableSimulation", 0, true];
 };
-
-
-
-
