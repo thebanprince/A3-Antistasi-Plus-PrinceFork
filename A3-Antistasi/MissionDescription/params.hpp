@@ -294,9 +294,9 @@ class Params
      };
      class factionsDefeat
      {
-          title = "Enemy Factions Defeat (EXPERIMENTAL)";
+          title = "Enemy Factions Defeat";
           values[] = {1,0};
-          texts[] =  {"Factions can be defeated for good (only by players, AI vs AI can't do that)", "Vanilla style"};
+          texts[] =  {"Factions can be defeated for good (only by players)", "Vanilla style"};
           default = 1;
      };
 

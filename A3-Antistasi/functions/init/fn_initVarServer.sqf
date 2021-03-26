@@ -471,10 +471,10 @@ private _templateVariables = [
     "shop_heli",
     "shop_tank",
 	"shop_plane",
-	"additionalShop_light",
-	"additionalShop_atgmVehicles",
-	"additionalShop_manpadsVehicles",
-	"additionalShop_misc",
+	"additionalShopLight",
+	"additionalShopAtgmVehicles",
+	"additionalShopManpadsVehicles",
+	"additionalShopArtillery",
 
 	"smallBunker",
 	"sandbag"
@@ -482,7 +482,7 @@ private _templateVariables = [
 
 //CUP-only technical variables
 if(hasCup || {hasAU}) then {
-	_templateVariables append ["techicalAa", "techicalMortar", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
+	_templateVariables append ["techicalAa", "vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
 {
@@ -784,28 +784,33 @@ server setVariable [vehSDKPlane, 3500, true];
 {server setVariable [_x,8000,true]} forEach shop_wheel_apc;
 {server setVariable [_x,9500,true]} forEach shop_track_apc;
 {server setVariable [_x,25000,true]} forEach shop_heli;
-{server setVariable [_x,20000,true]} forEach shop_tank;
 {server setVariable [_x,35000,true]} forEach shop_plane;
 
-//CUP-only
-{server setVariable [_x,1500,true]} forEach additionalShop_light;
-{server setVariable [_x,5000,true]} forEach additionalShop_atgmVehicles;
-{server setVariable [_x,7500,true]} forEach additionalShop_manpadsVehicles;
+if (!(shop_tank isEqualTo [])) then {
+	server setVariable [(shop_tank select 0), 10500, true];
+	server setVariable [(shop_tank select 1), 15000, true];
+	server setVariable [(shop_tank select 2), 17500, true];
+};
 
-if (!(additionalShop_misc isEqualTo [])) then {
+if (!(additionalShopArtillery isEqualTo [])) then {
 	if (hasCup) then {
-		server setVariable [(additionalShop_misc select 0), 8000, true];
-		server setVariable [(additionalShop_misc select 1), 22500, true];
-		server setVariable [(additionalShop_misc select 2), 25000, true];
+		server setVariable [(additionalShopArtillery select 0), 2000, true];
+		server setVariable [(additionalShopArtillery select 1), 15000, true];
+		server setVariable [(additionalShopArtillery select 2), 20000, true];
 	} else {
 		//TODO: 3CB Factions roster
 	};
 };
 
+//CUP-only
+{server setVariable [_x,1500,true]} forEach additionalShopLight;
+{server setVariable [_x,5000,true]} forEach additionalShopAtgmVehicles;
+{server setVariable [_x,7500,true]} forEach additionalShopManpadsVehicles;
+
 //technicals cost
 if(hasCup || {hasAU}) then {
 	server setVariable [techicalAa, 1500, true];														
-	server setVariable [techicalMortar, 3500, true];
+	server setVariable [vehSDKLightUnarmedArmored, 400, true];
 	server setVariable [technicalArmoredBtr, 3250, true];
 	server setVariable [technicalArmoredAa, 3000, true];
 	server setVariable [technicalArmoredSpg, 3000, true];										
