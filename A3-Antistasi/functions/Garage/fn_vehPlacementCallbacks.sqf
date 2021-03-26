@@ -228,11 +228,11 @@ switch (_callbackTarget) do {
 					else {
 						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
 						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+						playSound "3DEN_notificationDefault";
 					};
 				};
 
 				player reveal _purchasedVeh;
-				playSound "3DEN_notificationDefault";
 			};
 			
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
