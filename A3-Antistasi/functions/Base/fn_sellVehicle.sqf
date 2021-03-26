@@ -50,7 +50,7 @@ else
 	};
 };
 
-if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace."] call A3A_fnc_customHint;};
+if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking at is not suitable for our marketplace."] call A3A_fnc_customHint;};
 
 _costs = round (_costs * (1-damage _veh));
 
