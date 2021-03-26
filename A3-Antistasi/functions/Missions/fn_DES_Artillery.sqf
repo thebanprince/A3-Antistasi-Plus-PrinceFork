@@ -133,6 +133,7 @@ if (([_vx,_vy] findIf {_x > 80 || _x < -80}) != -1) then {
 } forEach nearestTerrainObjects [_artilleryPosition, [], 50, false, true];
 
 _artilleryVeh allowDamage true;
+_artilleryVeh lock 2;
 
 //////////////////////
 //Artillery fake fire
@@ -140,7 +141,13 @@ _artilleryVeh allowDamage true;
 _artilleryVeh addEventHandler ["Fired", {
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
     deleteVehicle _projectile;
-    _unit setVehicleAmmo 1;
+
+    if (!local _unit) then {
+        private _clientId = owner _unit;
+        [_unit, 1] remoteExec ["setVehicleAmmo", _clientId];
+    } else {
+        _unit setVehicleAmmo 1;
+    };
 }];
 
 [_artilleryVeh, _targetPosition, _artilleryShellClass] spawn {
@@ -223,7 +230,7 @@ waitUntil {
 	dateToNumber date > _dateLimitNum || !(alive _artilleryVeh) || _artilleryCrew findIf {alive _x} == -1
 };
 
-switch(true) do {
+switch (true) do {
     case (alive _artilleryVeh && _artilleryCrew findIf {alive _x} != -1): {
         [2, "Artillery will fire at rebel position for some time, fail.", _fileName, true] call A3A_fnc_log;
         [
