@@ -152,7 +152,6 @@ class SCRT
         class common_reveal {};
         class common_panicFlee {};
         class common_scanHorizon {};
-        class common_callRandomPatrolCA {};
         class common_fixCupLaunchers {};
         class common_defeatFactionIfPossible {};
         class common_triggerArtilleryResponseEH {};
