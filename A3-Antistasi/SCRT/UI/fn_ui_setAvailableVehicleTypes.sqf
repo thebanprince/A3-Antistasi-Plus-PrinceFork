@@ -35,16 +35,16 @@ switch(_vehicleType) do {
         _shopLookupArray = shop_plane;
     };
     case ("LUV"): {
-        _shopLookupArray = additionalShop_light;
+        _shopLookupArray = additionalShopLight;
     };
     case ("ATGM"): {
-        _shopLookupArray = additionalShop_atgmVehicles;
+        _shopLookupArray = additionalShopAtgmVehicles;
     };
     case ("MANPADS"): {
-        _shopLookupArray = additionalShop_manpadsVehicles;
+        _shopLookupArray = additionalShopManpadsVehicles;
     };
-    case ("MISC"): {
-        _shopLookupArray = additionalShop_misc;
+    case ("ARTILLERY"): {
+        _shopLookupArray = additionalShopArtillery;
     };
     default { 
         [1, format ["Bad Vehicle Type - %1 ", _vehicleType], "fn_ui_setAvailableVehicleTypes"] call A3A_fnc_log;

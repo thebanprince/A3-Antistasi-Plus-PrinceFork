@@ -41,11 +41,11 @@ switch(_vehicleType) do {
     };
     case("TECH"): {
         if (tierWar > 2) then {
-            _shopLookupArray pushBack techicalAa;
+            _shopLookupArray append [techicalAa, vehSDKLightUnarmedArmored];
         };
 
         if (tierWar > 4) then {
-            _shopLookupArray append [techicalMortar, technicalArmoredBtr, technicalArmoredAa, technicalArmoredSpg, technicalArmoredMg];
+            _shopLookupArray append [technicalArmoredBtr, technicalArmoredAa, technicalArmoredSpg, technicalArmoredMg];
         };
     };
     default { 

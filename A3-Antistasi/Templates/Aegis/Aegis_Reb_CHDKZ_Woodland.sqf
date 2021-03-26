@@ -118,10 +118,10 @@ shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout
 shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
 shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_03_dynamicLoadout_F", "I_E_Plane_Fighter_04_F"];
 
-additionalShop_light = [];
-additionalShop_atgmVehicles = [];
-additionalShop_manpadsVehicles = [];
-additionalShop_misc = [];
+additionalShopLight = [];
+additionalShopAtgmVehicles = [];
+additionalShopManpadsVehicles = [];
+additionalShopArtillery = [];
 
 
 //military building models (common for all sides)

@@ -146,15 +146,14 @@ shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_I_Wildcat_Green_AAF", "I_Heli_light_0
 shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_B_M60A3_USMC"];
 shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
 
-additionalShop_light = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_M1165_GMV_USMC", "CUP_B_Jackal2_L2A1_FIA"];
-additionalShop_atgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_B_BRDM2_ATGM_CDF"];
-additionalShop_manpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_B_HMMWV_Avenger_USMC", "CUP_O_LR_AA_TKM"];
-additionalShop_misc = ["CUP_B_Hilux_MLRS_BLU_G_F", "CUP_B_Hilux_UB32_BLU_G_F", "CUP_O_BMP2_ZU_TKA"];
-
+additionalShopLight = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_Jackal2_L2A1_FIA", "CUP_B_M1165_GMV_USMC"];
+additionalShopAtgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_I_BRDM2_ATGM_NAPA"];
+additionalShopManpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_O_LR_AA_TKM",  "CUP_B_HMMWV_Avenger_USMC"];
+additionalShopArtillery = ["CUP_I_Hilux_podnos_IND_G_F", "CUP_I_Hilux_UB32_IND_G_F", "CUP_I_Hilux_MLRS_IND_G_F"];
 
 //technical menu content, CUP exclusive
 techicalAa = "CUP_I_Ural_ZU23_NAPA";
-techicalMortar = "CUP_I_Hilux_podnos_IND_G_F";
+vehSDKLightUnarmedArmored = "CUP_I_Hilux_armored_unarmed_IND_G_F";
 technicalArmoredBtr = "CUP_I_Hilux_armored_BTR60_IND_G_F";
 technicalArmoredAa = "CUP_I_Hilux_armored_zu23_IND_G_F";
 technicalArmoredSpg = "CUP_I_Hilux_armored_SPG9_IND_G_F";

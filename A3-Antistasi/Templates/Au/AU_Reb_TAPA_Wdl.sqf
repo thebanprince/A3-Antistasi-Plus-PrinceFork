@@ -132,8 +132,8 @@ shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_B_M60A3_TTS_USMC"];
 shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
 
 //technical menu content, CUP exclusive
-techicalAa = "CUP_I_Hilux_zu23_IND_G_F";
-techicalMortar = "CUP_B_Hilux_podnos_BLU_G_F";
+techicalAa = "CUP_I_Ural_ZU23_NAPA";
+vehSDKLightUnarmedArmored = "CUP_I_Hilux_armored_unarmed_IND_G_F";
 technicalArmoredBtr = "CUP_I_Hilux_armored_BTR60_IND_G_F";
 technicalArmoredAa = "CUP_I_Hilux_armored_zu23_IND_G_F";
 technicalArmoredSpg = "CUP_I_Hilux_armored_SPG9_IND_G_F";

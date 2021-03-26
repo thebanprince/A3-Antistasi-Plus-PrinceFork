@@ -47,16 +47,16 @@ if(_displayId == 90000) then {
             _shopLookupArrayIndex = shop_plane find _vehicleClass;
         };
         case ("LUV"): {
-            _shopLookupArray = additionalShop_light find _vehicleClass;
+            _shopLookupArray = additionalShopLight find _vehicleClass;
         };
         case ("ATGM"): {
-            _shopLookupArray = additionalShop_atgmVehicles find _vehicleClass;
+            _shopLookupArray = additionalShopAtgmVehicles find _vehicleClass;
         };
         case ("MANPADS"): {
-            _shopLookupArray = additionalShop_manpadsVehicles find _vehicleClass;
+            _shopLookupArray = additionalShopManpadsVehicles find _vehicleClass;
         };
-        case ("MISC"): {
-            _shopLookupArray = additionalShop_misc find _vehicleClass;
+        case ("ARTILLERY"): {
+            _shopLookupArray = additionalShopArtillery find _vehicleClass;
         };
     };
 

@@ -42,8 +42,8 @@ if (hasCup) then {
     _comboBox lbAdd "MANPADS Carriers";
     _comboBox lbSetData [10, "MANPADS"];
 
-    _comboBox lbAdd "Misc";
-    _comboBox lbSetData [11, "MISC"];
+    _comboBox lbAdd "Artillery";
+    _comboBox lbSetData [11, "ARTILLERY"];
 };
 
 _comboBox lbSetCurSel 0;
