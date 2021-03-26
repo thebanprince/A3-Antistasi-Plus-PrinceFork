@@ -23,17 +23,24 @@ if ((random 100) < _oversizeChance) then {
 
     private _squadPool = nil;
     if (_side == Occupants) then {
-        _squadPool = ([(call SCRT_fnc_unit_getCurrentNATOSquad)] + (call SCRT_fnc_unit_getCurrentGroupNATOMid));  
+        _squadPool = [(call SCRT_fnc_unit_getCurrentNATOSquad)];
+        private _teams = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+        {
+            _squadPool pushBack _x;
+        } forEach _teams;
     }
     else {
         _squadPool = (groupsCSATSquad + groupsCSATmid);
     };
 
     for "_i" from 1 to _squadCount do {
-        _garrison append (selectRandom _squadPool);
+        private _squad = selectRandom _squadPool;
+        {
+            _garrison pushBack _x;
+        } forEach _squad;
     };
 
-    [1, format ["Oversized %1 garrison, number of additional soldiers: %2", str _marker, str _squadCount], "fn_garrison_rollOversizeGarrison", true] call A3A_fnc_log;
+    [1, format ["Oversized %1 garrison, number of additional squads: %2", str _marker, str _squadCount], "fn_garrison_rollOversizeGarrison", true] call A3A_fnc_log;
 };
 
 _garrison
