@@ -441,4 +441,18 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 };
 markersChanging = markersChanging - [_markerX];
 
+//if side somehow manages to capture point after their defeat -
+//for example, attack that was started before last point capture and then succeeded after defeat, 
+//they can revert their defeat
+if (areInvadersDefeated && {_winner == Invaders}) then {
+	areInvadersDefeated = false; 
+    publicVariable "areInvadersDefeated";
+	"CSAT_carrier" setMarkerAlpha 1;
+};
+if (areOccupantsDefeated && {_winner == Occupants}) then {
+	areOccupantsDefeated = false; 
+    publicVariable "areOccupantsDefeated";
+	"NATO_carrier" setMarkerAlpha 1;
+};
+
 [3, format ["Finished marker change at %1", _markerX], _fileName] call A3A_fnc_log;
