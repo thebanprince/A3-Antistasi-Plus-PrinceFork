@@ -18,11 +18,6 @@ if (player != player getVariable ["owner",player]) exitWith {
     ["Rally Point", "You cannot travel to rally point while you are controlling AI."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
-if (!isNil "_punishmentoffenceTotal" && {_punishmentoffenceTotal >= 1}) exitWith {
-    ["Rally Point", "Nope. Not happening."] call SCRT_fnc_misc_showDeniedActionHint;
-};
-
 private _groupX = group player;
 
 if (((units _groupX) findIf {vehicle _x != _x}) != -1) exitWith {

@@ -737,7 +737,7 @@ class commanderComm: SimpleMenuBigger
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
 			tooltip = $STR_antistasi_dialogs_sell_vehicle_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0; [] call A3A_fnc_sellVehicle} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {closeDialog 0; [player,cursorObject] remoteExecCall [""A3A_fnc_sellVehicle"",2]} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles""] call A3A_fnc_customHint;};";
 		};
 	};
 };
@@ -1008,7 +1008,7 @@ class playerMoney: SimpleMenuSmall
 		class r2Button: SimpleButton
 		{
 			idc = 308;
-			text = $STR_antistasi_dialogs_donate_player_tooltip;
+			text = $STR_antistasi_dialogs_donate_faction_title;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
 			tooltip = $STR_antistasi_dialogs_donate_faction_tooltip;

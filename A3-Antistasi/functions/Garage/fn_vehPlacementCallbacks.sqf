@@ -382,8 +382,6 @@ switch (_callbackTarget) do {
 
 				petros sideRadio "SentGenBaseUnlockRespawn";
 
-				[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
-
 				private _announceText = format ["<t size='0.6'><t size='0.6' color='#008000'>Rally point </t> has been established.</t>"];
     			[petros, "support", _announceText] remoteExec ["A3A_fnc_commsMP", 0];
 			};
