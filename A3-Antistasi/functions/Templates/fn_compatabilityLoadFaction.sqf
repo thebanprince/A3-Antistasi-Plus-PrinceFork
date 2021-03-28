@@ -160,9 +160,9 @@ if (_side isEqualTo east) then {
 	vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 
 	vehCSATAPC = _faction getVariable "vehiclesAPCs";
-	vehCSATTank = _faction getVariable "vehiclesTanks" select 0;
+	vehCSATTanks = _faction getVariable "vehiclesTanks";
 	vehCSATAA = _faction getVariable "vehiclesAA" select 0;
-	vehCSATAttack = vehCSATAPC + [vehCSATTank];
+	vehCSATAttack = vehCSATAPC + vehCSATTanks;
 
 	vehCSATBoat = _faction getVariable "vehiclesGunboats" select 0;
 	vehCSATRBoat = _faction getVariable "vehiclesTransportBoats" select 0;
@@ -203,8 +203,9 @@ if (_side isEqualTo east) then {
 	};
 
 	CSATMG = _faction getVariable "staticMGs" select 0;
+	CSATGMG = _faction getVariable "staticMGs" select 1;
 	staticATInvaders = _faction getVariable "staticAT" select 0;
-	staticAAInvaders = _faction getVariable "staticAA" select 0;
+	staticAAInvaders = _faction getVariable "staticAA";
 	CSATMortar = _faction getVariable "staticMortars" select 0;
 
 	MGStaticCSATB = _faction getVariable "baggedMGs" select 0 select 0;
@@ -215,6 +216,10 @@ if (_side isEqualTo east) then {
 	AAStaticCSATB = _faction getVariable "baggedAA" select 0 select 0;
 	MortStaticCSATB = _faction getVariable "baggedMortars" select 0 select 0;
 	supportStaticCSATB3 = _faction getVariable "baggedMortars" select 0 select 1;
+
+	CSATAARadar = _faction getVariable "vehiclesSam" select 0;
+	CSATAASam = _faction getVariable "vehiclesSam" select 1;
+	CSATAACiws = _faction getVariable "vehiclesSam" select 2;
 };
 
 
@@ -351,9 +356,9 @@ if (_side isEqualTo west) then {
 	vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 
 	vehNATOAPC = _faction getVariable "vehiclesAPCs";
-	vehNATOTank = _faction getVariable "vehiclesTanks" select 0;
+	vehNATOTanks = _faction getVariable "vehiclesTanks";
 	vehNATOAA = _faction getVariable "vehiclesAA" select 0;
-	vehNATOAttack = vehNATOAPC + [vehNATOTank];
+	vehNATOAttack = vehNATOAPC + vehNATOTanks;
 
 	vehNATOBoat = _faction getVariable "vehiclesGunboats" select 0;
 	vehNATORBoat = _faction getVariable "vehiclesTransportBoats" select 0;
@@ -397,7 +402,7 @@ if (_side isEqualTo west) then {
 
 	NATOMG = _faction getVariable "staticMGs" select 0;
 	staticATOccupants = _faction getVariable "staticAT" select 0;
-	staticAAOccupants = _faction getVariable "staticAA" select 0;
+	staticAAOccupants = _faction getVariable "staticAA";
 	NATOMortar = _faction getVariable "staticMortars" select 0;
 
 	MGStaticNATOB = _faction getVariable "baggedMGs" select 0 select 0;
@@ -408,6 +413,10 @@ if (_side isEqualTo west) then {
 	AAStaticNATOB = _faction getVariable "baggedAA" select 0 select 0;
 	MortStaticNATOB = _faction getVariable "baggedMortars" select 0 select 0;
 	supportStaticNATOB3 = _faction getVariable "baggedMortars" select 0 select 1;
+
+	NATOAARadar = _faction getVariable "vehiclesSam" select 0;
+	NATOAASam = _faction getVariable "vehiclesSam" select 1;
+	NATOAACiws = _faction getVariable "vehiclesSam" select 2;
 };
 
 if (_side isEqualTo independent) then {
@@ -453,6 +462,7 @@ if (_side isEqualTo independent) then {
 	vehSDKPlane = _faction getVariable "vehiclePlane";
 	vehSDKBoat = _faction getVariable "vehicleBoat";
 	vehSDKRepair = _faction getVariable "vehicleRepair";
+	vehSDKFuel = _faction getVariable "vehicleFuel";
 
 	SDKMGStatic = _faction getVariable "staticMG";
 	staticATteamPlayer = _faction getVariable "staticAT";
@@ -465,6 +475,7 @@ if (_side isEqualTo independent) then {
 	civTruck = _faction getVariable "vehicleCivTruck";
 	civHeli = _faction getVariable "vehicleCivHeli";
 	civBoat = _faction getVariable "vehicleCivBoat";
+	civLooter = _faction getVariable "vehicleCivLooter";
 
 	MGStaticSDKB = _faction getVariable "baggedMGs" select 0 select 0;
 	ATStaticSDKB = _faction getVariable "baggedAT" select 0 select 0;

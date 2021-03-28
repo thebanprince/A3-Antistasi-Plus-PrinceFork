@@ -140,20 +140,17 @@ switch (_callbackTarget) do {
 
 				if (_purchasedVeh isKindOf "Car") then {_purchasedVeh setPlateNumber format ["%1",name player]};
 
-				//Handle Money
-				if (!isMultiplayer) then {
-					[0,(-1 * vehiclePurchase_cost)] spawn A3A_fnc_resourcesFIA;
+				private _factionMoney = server getVariable "resourcesFIA";
+
+				if (player == theBoss && {vehiclePurchase_cost <= _factionMoney}) then {
+					[0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
 				}
 				else {
-					if (player == theBoss) then {
-						_nul = [0,(-1 * vehiclePurchase_cost)] remoteExec ["A3A_fnc_resourcesFIA",2]
-						}
-					else
-						{
-						[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
-						_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
-						};
-					};
+					[-1 * vehiclePurchase_cost] call A3A_fnc_resourcesPlayer;
+					_purchasedVeh setVariable ["ownerX",getPlayerUID player,true];
+					playSound "3DEN_notificationDefault";
+				};
+
 				if (_purchasedVeh isKindOf "StaticWeapon") then {staticsToSave pushBackUnique _purchasedVeh; publicVariable "staticsToSave"};
 
 				player reveal _purchasedVeh;
@@ -328,7 +325,7 @@ switch (_callbackTarget) do {
 				};
 
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
-				_purchasedVeh call jn_fnc_logistics_addAction;
+				[_purchasedVeh] call A3A_fnc_logistics_addLoadAction;
 
 				lootCrates pushBack _purchasedVeh;
 				publicVariableServer "lootCrates";

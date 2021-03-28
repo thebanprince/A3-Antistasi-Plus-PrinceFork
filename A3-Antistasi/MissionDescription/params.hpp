@@ -214,27 +214,6 @@ class Params
         texts[] = {"Default (Sometimes)","Never","Sometimes","Often","Always"};
         default = 9999;
     };
-    class Spacer10
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
-    class EnableLootToCrate
-    {
-        title = "Enable Loot to crate";
-        values[] = {9999, 0, 1};
-        texts[] = {"Default (Enabled)","Disabled", "Enabled"};
-        default = 9999;
-    };
-    class LTCLootUnlocked
-    {
-        title = "Loot to crate: transfers unlocked items";
-        values[] = {9999, 0, 1};
-        texts[] = {"Default (Disabled)", "Disabled", "Enabled"};
-        default = 9999;
-    };
     class Spacer11
     {
         title = "";
@@ -333,7 +312,7 @@ class Params
           texts[] =  {"Default (No)", "Yes", "No"};
           default = 9999;
      };
-     class 3dIcons
+     class playerIcons
      {
           title = "Show 3D icons above players";
           values[] = {9999, 0, 1 };
@@ -360,6 +339,14 @@ class Params
           values[] = {9999, 1, 0};
           texts[] =  {"Default (Factions can be defeated for good (only by players))", "Factions can be defeated for good (only by players)", "Vanilla style"};
           default = 9999;
+     };
+
+     class Spacer307
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
      };
 
     class Kart

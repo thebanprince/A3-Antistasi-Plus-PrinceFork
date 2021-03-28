@@ -53,7 +53,7 @@ if (player == leader _unit) then {
 		};
 		_victim setVariable ["spawner",nil,true];
 	}];
-	if (_unit getVariable "unitType") != SDKUnarmed) then {
+	if ((_unit getVariable "unitType") != SDKUnarmed) then {
 		private _idUnit = selectRandom arrayids;
 		arrayids = arrayids - [_idunit];
 		_unit setIdentity _idUnit;

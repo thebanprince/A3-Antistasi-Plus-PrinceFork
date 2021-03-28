@@ -12,19 +12,6 @@ class SCRT
         class effect_createBurningDebrisEffect {};
 	};
 
-    class Template 
-    {
-        file = "SCRT\Template";
-        class template_selectTemplateGroup {};
-        class template_selectIndepModTemplate {};
-        class template_setVanillaTemplate {};
-        class template_setAegisTemplate {};
-        class template_setRhsTemplate {};
-        class template_setAuTemplate {};
-        class template_setCupTemplate {};
-        class template_set3cbTemplate {};
-    };
-
     class Encounter 
     {
         file = "SCRT\Encounter";
@@ -41,19 +28,6 @@ class SCRT
         class loot_removeActionLoot {};
         class loot_createLootCrate {};
 	};
-
-    class Unit 
-    {
-        file = "SCRT\Unit";
-        class unit_getCurrentGroupNATOSentry {};
-        class unit_getCurrentGroupNATOMid {};
-        class unit_getCurrentGroupNATOSmall {};
-        class unit_getCurrentGroupNATOAA {};
-        class unit_getCurrentGroupNATOAT {};
-        class unit_getCurrentNATOSquad {};
-        class unit_getCurrentFIAPatrol {};
-        class unit_getCurrentFIAMid {};
-    };
 
     class Misc 
     {

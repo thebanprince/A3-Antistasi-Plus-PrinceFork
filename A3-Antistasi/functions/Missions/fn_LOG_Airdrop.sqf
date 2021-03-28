@@ -74,7 +74,7 @@ _infantrySquadArray = nil;
 
 if(_sideX == Occupants) then { 
     _escortClass = if(_difficultX) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom groupsNATOSquad;
 } 
 else { 
     _escortClass = if(_difficultX) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
@@ -107,7 +107,7 @@ private _squad1Position = [
 ] call BIS_fnc_findSafePos;
 
 //spawning airdrop interceptors
-private _escortVehicleData = [_squad1Position, 0, _escortClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [_squad1Position, 0, _escortClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 private _vehCrew = crew _escortVeh;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -117,7 +117,7 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning airdrop interceptor inf
-private _typeGroup = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
 private _groupX = [_squad1Position, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 
@@ -203,7 +203,7 @@ if(count _smokes > 0) then {
     private _height = random [500, 1000, 1300];
     private _direction = [_initialPlanePosition, _positionX] call BIS_fnc_DirTo;
 
-    _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, vehSDKPlane, teamPlayer] call BIS_fnc_spawnVehicle;
+    _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
     _planeVeh = _planeData select 0;
     _planeVeh setPosATL [getPosATL _planeVeh select 0, getPosATL _planeVeh select 1, _height];
     _planeVeh disableAI "TARGET";
@@ -256,7 +256,7 @@ if(alive _planeVeh) then {
     ] call SCRT_fnc_common_airdropCargo;
     _box1 enableRopeAttach true;
     _box1 allowDamage false;
-    _box1 call jn_fnc_logistics_addAction;
+    [_box1] call A3A_fnc_logistics_addLoadAction;
     [_box1, teamPlayer] call A3A_fnc_AIVEHinit;
     
     //at least one dropped box counts as successful airdrop
@@ -269,7 +269,7 @@ if(alive _planeVeh) then {
     ] call SCRT_fnc_common_airdropCargo;
     _box2 enableRopeAttach true;
     _box2 allowDamage false;
-    _box2 call jn_fnc_logistics_addAction;
+    [_box2] call A3A_fnc_logistics_addLoadAction;
     [_box2, teamPlayer] call A3A_fnc_AIVEHinit;
 
     _boxes append [_box1, _box2];

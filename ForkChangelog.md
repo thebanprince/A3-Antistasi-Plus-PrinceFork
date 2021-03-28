@@ -52,7 +52,10 @@
 - Initial player money on start increased from 100 to 200 
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
-- (Altis) BLUFOR version replaced with INDEP version due to 2.4 template changes
+- (2.4 CV) All RHS and CUP templates have been remade from scratch
+- (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
+- (2.4 CV) Replaced Infantry Unit Tiers functionality with Equipment Tiers
+- (Altis, 2.4 CV) BLUFOR version replaced with INDEP version due to 2.4 template changes
 - (Aegis) Zamak Flatbed logistics support
 - (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
 - (CUP) Disabled artillery computer for Hiluxes with MLRS and UB-32 payloads
@@ -70,6 +73,8 @@
 - Removed tent on rebel HQ (all actions from it moved to new commander UI)
 - Removed duplicated or obsolete code
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
+- (2.4 CV) Removed Antistasi Units support
+- (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 
 ## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)

@@ -79,6 +79,27 @@ if (hasTFAR) then {
 
 if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
 [] spawn A3A_fnc_ambientCivs;
+private ["_colourTeamPlayer", "_colorInvaders"];
+_colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
+_colorInvaders = Invaders call BIS_fnc_sideColor;
+_positionX = if (side player isEqualTo teamPlayer) then {position petros} else {getMarkerPos "respawn_west"};
+
+{
+	_x set [3, 0.33]
+} forEach [_colourTeamPlayer, _colorInvaders];
+
+_introShot = [
+	_positionX, // Target position
+	format ["%1",worldName], // SITREP text
+	50, //  altitude
+	50, //  radius
+	90, //  degrees viewing angle
+	0, // clockwise movement
+	[
+		["\a3\ui_f\data\map\markers\Nato\o_inf.paa", _colourTeamPlayer, markerPos "insertMrk", 1, 1, 0, "Insertion Point", 0],
+		["\a3\ui_f\data\map\markers\Nato\o_inf.paa", _colorInvaders, markerPos "towerBaseMrk", 1, 1, 0, "Radio Towers", 0]
+	]
+] spawn BIS_fnc_establishingShot;
 
 disableUserInput false;
 player setVariable ["spawner",true,true];
@@ -285,7 +306,7 @@ player addEventHandler ["GetInMan", {
 	};
 }];
 
-if (hasCup) then {
+if (A3A_hasCup) then {
 	player addEventHandler ["GetInMan", {
 		params ["_unit", "_role", "_vehicle", "_turret"];
 		private _vehType = typeOf _vehicle;
@@ -402,6 +423,8 @@ if !(isPlayer leader group player) then {
 
 [] remoteExec ["A3A_fnc_assignBossIfNone", 2];
 
+waitUntil { scriptDone _introshot };
+
 if (_isJip) then {
 	[2,"Joining In Progress (JIP)",_filename] call A3A_fnc_log;
 
@@ -444,8 +467,6 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[A3A_hasCup,"Aegis","Some factions and units will be replaced by Aegis."],
 		[A3A_hasAegis,"CUP","All factions will be replaced by CUP."],
 		[A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
-		[A3A_has3CBBAF,"3CB BAF","Occupant Faction will be Replaced by British Armed forces."],
-		[A3A_hasFFAA,"FFAA","Occupant faction will be replaced by Spanish Armed Forces"],
 		[A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
 	] select {_x#0};
 
@@ -503,11 +524,6 @@ vehicleBox addAction ["Faction Garage", { [GARAGE_FACTION] spawn A3A_fnc_garage;
 vehicleBox addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {[] call SCRT_fnc_ui_createBuyVehicleMenu}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Buy Loot Crate", {[] call SCRT_fnc_loot_createLootCrate},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)",4];
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-
-if (LootToCrateEnabled) then {
-	vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
-	call A3A_fnc_initLootToCrate;
-};
 
 mapX allowDamage false;
 mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) && (side (group _this) == teamPlayer)", 4];
@@ -586,7 +602,7 @@ player setPos (getMarkerPos respawnTeamPlayer);
 enableEnvironment [false, true];
 
 if (magRepack) then {
-	INFO(format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.", servertime]);
+	[2,format ["%1: [Antistasi] | INFO | Initializing Mag Repack script.", servertime],_fileName] call A3A_fnc_log;
 	[] execVM "MagRepack\MagRepack_init_sv.sqf";
 };
 

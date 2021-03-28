@@ -37,7 +37,7 @@ if ((random 100) < _oversizeChance) then {
             _position = [_markerPosition, 10, _size, 5, 0, 0.7, 0, [], [_markerPosition, _markerPosition]] call BIS_fnc_findSafePos;
         };
 
-        private _vehicleData = [_position, 0, _selectedVehicle, _side] call BIS_fnc_spawnVehicle;
+        private _vehicleData = [_position, 0, _selectedVehicle, _side] call A3A_fnc_spawnVehicle;
         _return = _vehicleData;
 
         [1, format ["Oversized vehicle position: %1, classname: %2", str _position, _selectedVehicle], "fn_garrison_rollOversizeVehicle", true] call A3A_fnc_log;

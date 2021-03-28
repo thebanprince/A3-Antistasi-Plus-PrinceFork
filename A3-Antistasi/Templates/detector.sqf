@@ -12,7 +12,6 @@ Public: No
 //Var initialisation
 private _filename = "detector.sqf";
 A3A_hasRHS = false;
-A3A_hasFFAA = false;
 A3A_has3CBFactions = false;
 A3A_hasIvory = false;
 A3A_hasTCGM = false;
@@ -177,5 +176,5 @@ if((_activeAfrf || _activeUsaf || _activeGref || _activeSaf) && (_activeCupUnits
 };
 
 //No Mods found logging
-if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_has3CBBAF && !A3A_hasCup && !A3A_hasAegis) then {[2,"No Side Replacement Mods Detected.",_fileName] call A3A_fnc_log;};
+if (!A3A_hasRHS && !A3A_hasCup && !A3A_hasAegis) then {[2,"No Side Replacement Mods Detected.",_fileName] call A3A_fnc_log;};
 if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV) then {[2,"No Addon Mods Detected.",_fileName] call A3A_fnc_log;};

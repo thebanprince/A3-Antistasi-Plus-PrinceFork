@@ -80,8 +80,8 @@ _crateContents call A3A_fnc_fillLootCrate;
 //Create boat and initialise crew members
 [3, format ["Spawning patrol boat and crew"], _filename] call A3A_fnc_log;
 private _typeVeh = if (_difficultX) then {if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat}} else {if (_sideX == Occupants) then {vehNATORBoat} else {vehCSATRBoat}};
-private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentNATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {
-		private _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
+private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {selectRandom groupsNATOSquad} else {selectRandom CSATSquad}} else {if (_sideX == Occupants) then {
+		private _squad = ;
 		_squad select 0;
 	} else {
 		groupsCSATmid select 0

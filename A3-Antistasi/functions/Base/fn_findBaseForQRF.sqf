@@ -24,11 +24,6 @@ private _availableAirports = (airportsX + ["CSAT_carrier", "NATO_carrier"]) sele
     {(getMarkerPos _x) distance2D _posDestination < distanceForAirAttack}}
 };
 
-if (A3A_hasIFA && (_threatEvalLand <= 15)) then
-{
-    _availableAirports = _availableAirports select {(getMarkerPos _x distance2D _posDestination < distanceForLandAttack)}
-};
-
 private _outposts = if (_threatEvalLand <= 15) then
 {
     outposts select

@@ -1,10 +1,10 @@
 private _positionOrigin = getMarkerPos supportMarkerOrigin;
 private _flareCount = round random [4,5,7];
 private _soundPool = ["A3\Sounds_F\weapons\Flare_Gun\flaregun_1.wss", "A3\Sounds_F\weapons\Flare_Gun\flaregun_2.wss"];
-private _flaresPool = if(hasAU || {hasCup}) then { 
+private _flaresPool = if(A3A_hasCup) then { 
 	["CUP_F_40mm_Star_White", "CUP_F_40mm_Star_Red"] 
 } else { 
-	if (hasRHS) then {
+	if (A3A_hasRHS) then {
 		["rhsusf_40mm_white", "rhsusf_40mm_green", "rhs_mag_m662_red"]
 	} else {
 		["F_40mm_white", "F_40mm_Red", "F_40mm_Yellow"]

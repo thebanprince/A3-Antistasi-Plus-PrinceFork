@@ -29,8 +29,6 @@ else {
     _chance = 0;
 };
 
-systemChat str _chance;
-
 if (random 100 < _chance) then {
     { if ((side _x == Occupants) or (side _x == Invaders)) then {_x reveal [_artillery,4]}} forEach allUnits;
     if (_artillery distance posHQ < 300) then {
@@ -39,13 +37,7 @@ if (random 100 < _chance) then {
             _LeaderX = leader (gunner _artillery);
             if (!isPlayer _LeaderX) then
             {
-                systemChat "calling HQ attack";
                 [[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2];
-            }
-            else
-            {
-                systemChat "calling HQ attack";
-                if ([_LeaderX] call A3A_fnc_isMember) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
             };
         };
     }
@@ -56,9 +48,7 @@ if (random 100 < _chance) then {
         {
             _base = [_bases,_positionX] call BIS_fnc_nearestPosition;
             _sideX = sidesX getVariable [_base,sideUnknown];
-            //TODO: replace with support or singleAttack cal
-            systemChat "calling patrol attack";
-            [[getPosASL _artillery, _sideX, "Air", false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
+            [_artillery, 1, ["AIRSTRIKE", "MORTAR", "QRF", "CANNON", "CARPETBOMB", "GUNSHIP"], _sideX, 0.1] remoteExec ["A3A_fnc_sendSupport", 2];
         };
     };
 };

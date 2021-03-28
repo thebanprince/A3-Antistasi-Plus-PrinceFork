@@ -39,15 +39,15 @@ A3A_paramTable = [
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
 
     ["allowDLCKart", "Kart", ["server"], false],
-    ["allowDLCMark", "Mark", ["server"], true],
-    ["allowDLCHeli", "Heli", ["server"], true],
-    ["allowDLCExpansion", "Expansion", ["server"], true],
-    ["allowDLCJets", "Jets", ["server"], true],
+    ["allowDLCMark", "Mark", ["server"], false],
+    ["allowDLCHeli", "Heli", ["server"], false],
+    ["allowDLCExpansion", "Expansion", ["server"], false],
+    ["allowDLCJets", "Jets", ["server"], false],
     ["allowDLCOrange", "Orange", ["server"], false],
-    ["allowDLCTanks", "Tanks", ["server"], true],
+    ["allowDLCTanks", "Tanks", ["server"], false],
     ["allowDLCGlobMob", "GlobMob", ["server"], false],
-    ["allowDLCEnoch", "Enoch", ["server"], true],
-    ["allowDLCOfficialMod", "OfficialMod", ["server"], true],
+    ["allowDLCEnoch", "Enoch", ["server"], false],
+    ["allowDLCOfficialMod", "OfficialMod", ["server"], false],
     ["allowDLCAoW", "AoW", ["server"], false],
 
     ["membershipEnabled", "membership", [], true],
@@ -66,7 +66,6 @@ A3A_paramTable = [
     ["unlockedUnlimitedAmmo", "unlockedUnlimitedAmmo", [], 0],			// these three are not bool for some reason
     ["allowUnlockedExplosives", "allowUnlockedExplosives", [], 0],
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 1],
-    ["LootToCrateEnabled", "EnableLootToCrate", [], false],
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
     ["logLevel", "LogLevel", ["override"], 3],
@@ -100,15 +99,15 @@ A3A_paramTable = [
     ["minPlayersRequiredForPVP", "", [], 2],
 
     //Antistasi Plus parameters
-    ["settingsTimeMultiplier", "timeMultiplier", 1],
-    ["playerStartingMoney", "playerStartingMoney", 200],
-    ["factionsDefeat", "factionsDefeat", true],
-    ["spawnTraderOnBase", "traderOnBase", false],
-    ["isPursuersEnabled", "pursuers", false],
-    ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", true],
-    ["isFatalWoundsEnabled", "fatalWounds", false],
-    ["3dIcons", "3dIcons", true],
-    ["magRepack", "magRepack", true]
+    ["settingsTimeMultiplier", "timeMultiplier", [], 1],
+    ["playerStartingMoney", "playerStartingMoney", [], 200],
+    ["factionsDefeat", "factionsDefeat", [], true],
+    ["spawnTraderOnBase", "traderOnBase", [], false],
+    ["isPursuersEnabled", "pursuers", [], false],
+    ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
+    ["isFatalWoundsEnabled", "fatalWounds", [], false],
+    ["playerIcons", "playerIcons", [], true],
+    ["magRepack", "magRepack", [], true]
     // beware of the comma
 ];
 
@@ -118,7 +117,7 @@ A3A_paramTable = [
 {
     _x params ["_varName", "_paramName", "_options", "_default"];
     if (isNil {missionNamespace getVariable _varName} || "override" in _options) then {
-         missionNamespace setVariable [_varName, _default];
+        missionNamespace setVariable [_varName, _default];
     };
 } forEach A3A_paramTable;
 

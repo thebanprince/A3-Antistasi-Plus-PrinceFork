@@ -32,7 +32,7 @@ _comboBox lbSetData [6, "TANK"];
 _comboBox lbAdd "Planes";
 _comboBox lbSetData [7, "PLANE"];
 
-if (hasCup) then {
+if (A3A_hasCup) then {
     _comboBox lbAdd "Light Utility Vehicles";
     _comboBox lbSetData [8, "LUV"];
 

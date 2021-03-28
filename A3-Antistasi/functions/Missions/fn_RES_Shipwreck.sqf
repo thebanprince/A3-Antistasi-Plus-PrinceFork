@@ -125,7 +125,7 @@ private _truckClass = nil;
 
 if(_sideX == Occupants) then { 
 
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom groupsNATOSquad;
     _boatClass = vehNATOBoat;
     _officerClass = NATOOfficer;
     _truckClass = selectRandom vehNATOTrucks;
@@ -154,7 +154,7 @@ private _searchBoatPosition = [
     [_shipPosition, _shipPosition] //default position
 ] call BIS_fnc_findSafePos;
 
-private _boatData = [_searchBoatPosition, 0, _boatClass, _sideX] call bis_fnc_spawnvehicle;
+private _boatData = [_searchBoatPosition, 0, _boatClass, _sideX] call A3A_fnc_spawnVehicle;
 _boatVeh = _boatData select 0;
 [_boatVeh, _sideX] call A3A_fnc_AIVEHinit;
 _boatCrew = _boatData select 1;
@@ -214,7 +214,7 @@ private _truckPosition = [
     [_shorePosition, _shorePosition] //default position
 ] call BIS_fnc_findSafePos;
 
-private _truckData = [_truckPosition, 0, _truckClass, _sideX] call bis_fnc_spawnvehicle;
+private _truckData = [_truckPosition, 0, _truckClass, _sideX] call A3A_fnc_spawnVehicle;
 _truckVeh = _truckData select 0;
 (driver _truckVeh) action ["lightOff", _truckVeh];  
 sleep 0.5;

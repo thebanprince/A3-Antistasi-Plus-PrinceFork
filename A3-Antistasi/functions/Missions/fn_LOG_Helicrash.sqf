@@ -73,7 +73,7 @@ if(_sideX == Occupants) then {
     _boxClass = NATOAmmoBox;
     _cargoTruckClass = selectRandom vehNATOTrucks;
     _escortClass = if(_difficult) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom groupsNATOSquad;
     _specOpsArray = NATOSpecOp;
 } 
 else { 
@@ -83,7 +83,7 @@ else {
     _boxClass = CSATAmmoBox;
     _cargoTruckClass = selectRandom vehCSATTrucks; 
     _escortClass = if(_difficult) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = CSATSquad;
+    _infantrySquadArray = selectRandom groupsCSATSquad;
     _specOpsArray = CSATSpecOp;
 };
 
@@ -215,7 +215,7 @@ _box = _boxClass createVehicle _crashPosition;
 _box allowDamage false;
 _box setVectorDirAndUp [[0,0,-1], [0,1,0]];
 [_box] spawn A3A_fnc_fillLootCrate;
-_box call jn_fnc_logistics_addAction;
+[_box] call A3A_fnc_logistics_addLoadAction;
 
 sleep 3;
 _box allowDamage true;
@@ -255,7 +255,7 @@ private _roadR = _roads select 0;
 sleep 1;
 
 //spawning escort
-private _escortVehicleData = [position _roadE, 0, _escortClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [position _roadE, 0, _escortClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 _escortVeh limitSpeed 50;
 [_escortVeh, "Escort"] spawn A3A_fnc_inmuneConvoy;
@@ -267,7 +267,7 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning escort inf
-private _typeGroup = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 
@@ -284,7 +284,7 @@ _escortWP setWaypointBehaviour "SAFE";
 [3, format ["Placed Group: %1 in Lite Vehicle and set waypoint %2", _typeGroup, _crashPosition], _filename] call A3A_fnc_log;
 
 //creating cargo vehicle
-private _cargoVehicleData = [position _roadR, 0, _cargoTruckClass, _sideX] call bis_fnc_spawnvehicle;
+private _cargoVehicleData = [position _roadR, 0, _cargoTruckClass, _sideX] call A3A_fnc_spawnVehicle;
 private _cargoVehicle = _cargoVehicleData select 0;
 _cargoVehicle limitSpeed 50;
 [_cargoVehicle, _sideX] call A3A_fnc_AIVEHinit;
@@ -332,7 +332,7 @@ _cargoVehicleWp setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _cargoTruckClass, _cargoVehicleCrew, _crashPosition], _filename] call A3A_fnc_log;
 
 //loiter helicopter
-_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 1) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call bis_fnc_spawnvehicle;
+_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 1) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call A3A_fnc_spawnVehicle;
 _searchHeliVeh = _searchHeliData select 0;
 [_searchHeliVeh, _sideX] call A3A_fnc_AIVEHinit;
 _searchHeliCrew = _searchHeliData select 1;
@@ -355,7 +355,7 @@ if(_searchHeliClass == vehNATOPatrolHeli || _searchHeliClass == vehCSATPatrolHel
     [_heliVehicleGroup, 0] setWaypointLoiterType "CIRCLE_L";
 
     //spawning escort inf
-    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom (call SCRT_fnc_unit_getCurrentGroupNATOMid)} else {selectRandom groupsCSATmid};
+    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
     private _heliInfgroupX = [_missionOriginPos, _sideX, _heliInfGroup] call A3A_fnc_spawnGroup;
     {
         _x assignAsCargo _searchHeliVeh; 

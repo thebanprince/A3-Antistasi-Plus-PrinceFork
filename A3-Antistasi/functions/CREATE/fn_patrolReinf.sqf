@@ -14,18 +14,7 @@ if ([_sideX] call A3A_fnc_remUnitCount < _numberX) exitWith {
 };
 
 _land = if (_posOrigin distance _posDestination > distanceForLandAttack) then {false} else {true};
-_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {
-	} else {
-		_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-		selectRandom _squad;
-		}
-	} else {
-		if (_numberX == 4) then {
-			selectRandom groupsCSATmid
-		} else {
-			selectRandom groupsCSATSquad
-		}
-};
+_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {selectRandom groupsNATOmid} else {selectRandom groupsNATOSquad}} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
 _typeVehX = "";
 if (_land) then
 {

@@ -1,6 +1,5 @@
-if(!hasInterface) exitWith {};
-
-if(!3dIcons) exitWith {};
+if (!hasInterface) exitWith {};
+if (!playerIcons) exitWith {};
 
 addMissionEventHandler [
 	"Draw3D",

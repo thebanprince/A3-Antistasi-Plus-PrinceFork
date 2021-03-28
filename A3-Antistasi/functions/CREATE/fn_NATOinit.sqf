@@ -133,7 +133,7 @@ if((_unit skill "aimingSpeed") > _aimingSpeed) then {
 private _hmd = hmd _unit;
 
 if (sunOrMoon < 1) then {
-    if (!hasRHS) then {
+    if (!A3A_hasRHS) then {
         //specops don't have NVGs except leader until war level 4
         if (("SF_" in (_unit getVariable "unitType")) && (_unit != leader (group _unit))) then {
             if (tierWar < 3) then {
@@ -236,7 +236,7 @@ if (sunOrMoon < 1) then {
     };
 }
 else {
-    if (!hasRHS) then {
+    if (!A3A_hasRHS) then {
         if (tierWar < 3) then {
             if (_hmd != "") then {
                 _unit unassignItem _hmd;

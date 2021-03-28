@@ -22,6 +22,7 @@ private _terrainName = toLower worldName;
 //Reb Templates
 switch(true) do{
     case (A3A_has3CBFactions): {
+        systemChat "3cb";
         switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
@@ -66,22 +67,6 @@ switch(true) do{
 };
   //Occ Templates
 switch(true) do{
-    case (A3A_has3CBBAF): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps): {
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using temperate BAF Template", _filename] call A3A_fnc_log;
-            };
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Tropical.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using tropical BAF Template", _filename] call A3A_fnc_log;
-            };
-            default {
-                ["Templates\NewTemplates\3CB\3CB_AI_BAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid BAF Template", _filename] call A3A_fnc_log;
-            };
-        };
-    };
     case (A3A_has3CBFactions): {
         switch(true) do {
             case (_terrainName in _temperateMaps): {
@@ -194,12 +179,6 @@ switch(true) do{
         ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using RHS Civ Template", _filename] call A3A_fnc_log;
     };
-    /* disabled until imtegrated
-    case (A3A_hasIFA): {
-        call compile preProcessFileLineNumbers "Templates\IFA\IFA_Civ.sqf";
-        [2, "Using IFA Civ Template", _filename] call A3A_fnc_log;
-    };
-    */
     default {
         ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using Vanilla Civ Template", _filename] call A3A_fnc_log;
@@ -231,8 +210,5 @@ if (A3A_hasRDS) then {
 call compile preProcessFileLineNumbers "Templates\NewTemplates\Vanilla\Vanilla_Logistics_Nodes.sqf";//Always call vanilla as it initialises the arrays.
 if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\RHS\RHS_Logistics_Nodes.sqf"};
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"};
-if (A3A_has3CBBAF) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBBAF_Logistics_Nodes.sqf"};
-//if (A3A_hasIFA) then {call compile preProcessFileLineNumbers "Templates\IFA\IFA_Logistics_Nodes.sqf"};		//disabled until imtegrated
-//if (A3A_hasFFAA) then {call compile preProcessFileLineNumbers "Templates\FFAA\FFAA_Logistics_Nodes.sqf"};		//disabled until imtegrated
 //if (A3A_hasD3S) then {call compile preProcessFileLineNumbers "Templates\AddonVics\d3s_Logi_Nodes.sqf";};		//disabled until imtegrated
 //if (A3A_hasRDS) then {call compile preProcessFileLineNumbers "Templates\AddonVics\rds_Logi_Nodes.sqf";};		//disabled until imtegrated

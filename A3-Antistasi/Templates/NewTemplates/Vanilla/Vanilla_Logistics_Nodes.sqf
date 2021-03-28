@@ -173,6 +173,8 @@ A3A_logistics_attachmentOffset = [
     ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,                             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate3
     ["B_supplyCrate_F" call A3A_fnc_classNameToModel,                           [0, 0, 0.95],               [1,0,0],                    2],                         //Ammodrop crate
     ["C_Quadbike_01_F" call A3A_fnc_classNameToModel,                           [0, 0, 1.4],                [0,1,0],                    2],                         //Quadbike
+    ["CargoNet_01_box_F" call A3A_fnc_classNameToModel,                         [0,0,0.85],                 [1,0,0],                    1],
+    ["CargoNet_01_barrels_F" call A3A_fnc_classNameToModel,                     [0,0,0.85],	                [1,0,0],				    1],                         //barrels from aidrop mission
 
     //small sized crates                                                      //location                  //rotation                  //size                        //description
     ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box

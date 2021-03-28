@@ -6,7 +6,7 @@ private _angleOrigin = _angle - 180;
 private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
 private _finPosition = [_poisitionDestination, 2500, _angle] call BIS_fnc_relPos;
 
-private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call bis_fnc_spawnvehicle;
+private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 private _plane = _planeData select 0;
 private _planeCrew = _planeData select 1;
 private _groupPlane = _planeData select 2;

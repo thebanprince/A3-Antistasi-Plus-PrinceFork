@@ -487,7 +487,7 @@ private _templateVariables = [
 ];
 
 //CUP-only technical variables
-if(hasCup || {hasAU}) then {
+if(A3A_hasCup) then {
 	_templateVariables append ["techicalAa", "vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
@@ -737,9 +737,6 @@ if (hasACE) then {
 if (A3A_hasRHS) then {
 	[] call A3A_fnc_rhsModCompat;
 };
-if (A3A_hasIFA) then {
-	[] call A3A_fnc_ifaModCompat;
-};
 if (A3A_hasCup) then {
 	[] call A3A_fnc_cupModCompat;
 };
@@ -758,8 +755,8 @@ if (hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","AC
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
 //{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
-{timer setVariable [_x,3,true]} forEach [staticATOccupants,staticAAOccupants];
-{timer setVariable [_x,6,true]} forEach [staticATInvaders,staticAAInvaders];
+{timer setVariable [_x,3,true]} forEach [staticATOccupants] + staticAAOccupants;
+{timer setVariable [_x,6,true]} forEach  [staticATInvaders] + staticAAInvaders;
 {timer setVariable [_x,0,true]} forEach vehNATOAPC;
 {timer setVariable [_x,10,true]} forEach vehCSATAPC;
 {timer setVariable [_x,0,true]} forEach vehNATOTanks;
@@ -814,7 +811,7 @@ if (!(shop_tank isEqualTo [])) then {
 };
 
 if (!(additionalShopArtillery isEqualTo [])) then {
-	if (hasCup) then {
+	if (A3A_hasCup) then {
 		server setVariable [(additionalShopArtillery select 0), 2000, true];
 		server setVariable [(additionalShopArtillery select 1), 15000, true];
 		server setVariable [(additionalShopArtillery select 2), 20000, true];
@@ -829,7 +826,7 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 {server setVariable [_x,7500,true]} forEach additionalShopManpadsVehicles;
 
 //technicals cost
-if(hasCup || {hasAU}) then {
+if(A3A_hasCup) then {
 	server setVariable [techicalAa, 1500, true];
 	server setVariable [vehSDKLightUnarmedArmored, 400, true];
 	server setVariable [technicalArmoredBtr, 3250, true];

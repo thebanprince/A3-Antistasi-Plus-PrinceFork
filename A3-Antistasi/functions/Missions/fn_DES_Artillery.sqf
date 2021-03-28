@@ -32,7 +32,7 @@ if(_sideX == Occupants) then {
     _artilleryShellClass = vehNATOMRLSMags;
     _mgClass = NATOMG;
     _mgCrewClass = staticCrewOccupants;
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom groupsNATOSquad;
 } 
 else { 
     _artilleryClass = vehCSATMRLS;
@@ -63,7 +63,7 @@ exitWith {
 	[_x, true] remoteExec ["hideObject", 0];
 } forEach nearestTerrainObjects [_missionOriginPos, [], 10, false, true];
 
-private _artilleryData = [_missionOriginPos, 0, _artilleryClass, _sideX] call bis_fnc_spawnvehicle;
+private _artilleryData = [_missionOriginPos, 0, _artilleryClass, _sideX] call A3A_fnc_spawnVehicle;
 private _artilleryVeh = _artilleryData select 0;
 _artilleryVeh setDir (random 360);
 _artilleryVeh allowDamage false;

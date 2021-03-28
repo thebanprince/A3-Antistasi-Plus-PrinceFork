@@ -46,7 +46,7 @@ while {_spawnParameter isEqualType []} do {
             private _vehiclePosition = [_spawnParameter select 0, 0, 125, 10, 0, 0.7] call BIS_fnc_findSafePos;
             private _rotation = random 360;
 
-            private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call bis_fnc_spawnvehicle;
+            private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call A3A_fnc_spawnVehicle;
             private _aaVehicle = _aaVehicleData select 0;
             private _aaVehicleCrew = _aaVehicleData select 1;
             {[_x,_markerX] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
@@ -91,7 +91,7 @@ while {_spawnParameter isEqualType []} do {
 if(_ciwsType == "") then {
 	private _aaVehicleType = if(_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 	private _vehiclePosition = [_positionX, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
-	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call bis_fnc_spawnvehicle;
+	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call A3A_fnc_spawnVehicle;
 	private _aaVehicle = _aaVehicleData select 0;
 	private _aaVehicleCrew = _aaVehicleData select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
@@ -114,7 +114,7 @@ _heavyVehicles = _heavyVehicles call BIS_fnc_arrayShuffle;
 
 if (!isNil "_selectedVehicle") then {
 	private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
-	private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
+	private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call A3A_fnc_spawnVehicle;
 	private _patrolVeh = _patrolVehicleData select 0;
 	private _patrolVehCrew = crew _patrolVeh;
 	private _patrolVehicleGroup = _patrolVehicleData select 2;
@@ -189,7 +189,7 @@ else {
 if (_patrol) then {
 	_countX = 0;
 	while {_countX < 4} do {
-		_arraygroups = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSmall} else {groupsCSATsmall};
+		_arraygroups = if (_sideX == Occupants) then {groupsNATOSmall} else {groupsCSATsmall};
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX, _sideX, _typeGroup, false, true] call A3A_fnc_spawnGroup;
@@ -262,12 +262,12 @@ _vehiclesX pushBack _flagX;
 private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
 private _ammoBox1 = _ammoBoxType createVehicle _positionX;
 [_ammoBox1] spawn A3A_fnc_fillLootCrate;
-_ammoBox1 call jn_fnc_logistics_addAction;
+[_ammoBox1] call A3A_fnc_logistics_addLoadAction;
 _vehiclesX pushBack _ammoBox1;
 
 private _ammoBox2 = _ammoBoxType createVehicle _positionX;
 [_ammoBox2] spawn A3A_fnc_fillLootCrate;
-_ammoBox2 call jn_fnc_logistics_addAction;
+[_ammoBox2] call A3A_fnc_logistics_addLoadAction;
 _vehiclesX pushBack _ammoBox2;
 
 if (!_busy) then {

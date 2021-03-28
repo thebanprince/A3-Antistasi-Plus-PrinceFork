@@ -239,7 +239,6 @@ if (side group player == teamPlayer) then
 	[true] spawn A3A_fnc_reinitY;
 	[] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
-	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	}
 else
 	{

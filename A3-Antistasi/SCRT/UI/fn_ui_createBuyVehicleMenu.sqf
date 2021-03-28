@@ -14,7 +14,7 @@ _comboBox lbSetData [0, "CIV"];
 _comboBox lbAdd (localize "STR_antistasi_dialogs_vehicle_purchase_military_text");
 _comboBox lbSetData [1, "MIL"];
 
-if ((hasCup || {hasAU}) && {tierWar > 2}) then {
+if (A3A_hasCup && {tierWar > 2}) then {
     _comboBox lbAdd (localize "STR_trader_technicals_title");
     _comboBox lbSetData [2, "TECH"];
 };

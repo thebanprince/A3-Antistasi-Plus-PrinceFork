@@ -15,9 +15,13 @@ private _resourcesFIA = 0;
 if (player != theBoss) then {
 	_resourcesFIA = player getVariable "moneyX";
 } else {
-	_resourcesFIA = server getVariable "resourcesFIA";
+	private _factionMoney = server getVariable "resourcesFIA";
+	if (vehiclePurchase_cost <= _factionMoney) then {
+		_resourcesFIA = _factionMoney;
+	} else {
+		_resourcesFIA = player getVariable "moneyX";
+	};
 };
-
 
 if (_resourcesFIA < vehiclePurchase_cost) exitWith {["Add Vehicle", format ["You do not have enough money for this vehicle: %1 € required",vehiclePurchase_cost]] call A3A_fnc_customHint;};
 vehiclePurchase_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;

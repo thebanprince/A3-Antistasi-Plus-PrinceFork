@@ -174,7 +174,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 	[_ammoBox] spawn A3A_fnc_fillLootCrate;
 	[_ammoBox] call A3A_fnc_logistics_addLoadAction;
 
-	if ((_markerX in seaports) and !A3A_hasIFA) then {
+	if (_markerX in seaports) then {
 		[_ammoBox] spawn {
 			sleep 1;    //make sure fillLootCrate finished clearing the crate
 			{

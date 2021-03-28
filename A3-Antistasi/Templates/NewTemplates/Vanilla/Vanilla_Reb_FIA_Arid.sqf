@@ -17,6 +17,7 @@
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
+["vehicleFuel", "I_G_Van_01_fuel_F"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
 
 ["vehiclePlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate; 		//this line determines CAS planes -- Example: ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] -- Array, can contain multiple assets
 ["vehicleHeli", "not_supported"] call _fnc_saveToTemplate; 		//this line determines light helis -- Example: ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] -- Array, can contain multiple assets
@@ -25,6 +26,7 @@
 ["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleCivHeli", "C_Heli_Light_01_civil_F"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivLooter", "C_Truck_02_covered_F"] call _fnc_saveToTemplate;
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate; 					//this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
@@ -48,22 +50,45 @@
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
-allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1",
-"U_IG_leader","U_IG_Guerrilla_6_1"];
+allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1"];
 
 private _initialRebelEquipment = [
-"hgun_Pistol_heavy_02_F","hgun_P07_F",
-"SMG_01_F","SMG_02_F",
-"6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell",
-"B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
-"V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr",
-"V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt",
-"Binocular",
-"acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+"hgun_ACPC2_F","hgun_Pistol_01_F","sgun_HunterShotgun_01_F", "hgun_PDW2000_F", "sgun_HunterShotgun_01_sawedoff_F",
+"30Rnd_9x21_Mag", "30Rnd_9x21_Red_Mag",
+"9Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell", "10Rnd_9x21_Mag",
+"B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_AssaultPack_sgg",
+"V_BandollierB_blk","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt",
+"Binocular","acc_flashlight", "Laserbatteries","acc_flashlight_smg_01","acc_flashlight_pistol"];
+
 if (hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
+
+//////////////////////////////////////
+//       Antistasi Plus Stuff       //
+/////////////////////////////////////
+lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
+
+//black market stuff
+shop_UAV = ["I_UAV_01_F"];
+shop_AA = ["I_LT_01_AA_F", "I_LT_01_AA_F", "I_LT_01_AA_F"];
+shop_MRAP = ["I_MRAP_03_hmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_hmg_F"];
+shop_wheel_apc = ["O_APC_Wheeled_02_rcws_v2_F", "B_APC_Wheeled_01_cannon_F", "I_APC_Wheeled_03_cannon_F"];
+shop_track_apc = ["I_APC_tracked_03_cannon_F", "I_APC_tracked_03_cannon_F", "B_APC_Tracked_01_rcws_F"];
+shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "I_Heli_light_03_dynamicLoadout_F"];
+shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
+shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_03_dynamicLoadout_F", "I_Plane_Fighter_04_F"];
+
+additionalShopLight = [];
+additionalShopAtgmVehicles = [];
+additionalShopManpadsVehicles = [];
+additionalShopArtillery = [];
+
+//military building models (common for all sides)
+smallBunker = "Land_BagBunker_Small_F";
+sandbag = "Land_BagFence_Long_F";
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

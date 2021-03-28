@@ -195,8 +195,7 @@ private _fnc_spawnEscortVehicle = {
 			private _typeGroup = selectRandom groupsFIASquad;
 			if (_typeVehEsc == vehFIACar) then
 			{
-				_squad = call SCRT_fnc_unit_getCurrentFIAMid;
-				_typeGroup = selectRandom _squad;
+				_typeGroup = selectRandom groupsFIAMid;
 			};
 			private _groupEsc = [_posOrigin,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh;} forEach units _groupEsc;

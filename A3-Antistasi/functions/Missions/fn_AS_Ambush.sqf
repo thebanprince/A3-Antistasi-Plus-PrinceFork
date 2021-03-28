@@ -71,12 +71,12 @@ if (_sideX == Occupants) then {
     _officerClass = NATOOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else {selectRandom vehNATOTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else { selectRandom vehNATOLightArmed };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom groupsNATOSquad;
 } else { 
     _officerClass = CSATOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else {selectRandom vehCSATTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else { selectRandom vehCSATLightArmed };
-    _infantrySquadArray = CSATSquad;
+    _infantrySquadArray = selectRandom groupsCSATSquad;
 };
 
 if (isNil "_officerClass" || {isNil "_officerVehicleClass"} || {isNil "_escortVehicleClass"} || {isNil "_infantrySquadArray"}) exitWith {
@@ -134,7 +134,7 @@ private _roadR = _roads select 0;
 sleep 1;
 
 //spawning escort
-private _escortVehicleData = [position _roadE, 0, _escortVehicleClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [position _roadE, 0, _escortVehicleClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 _escortVeh limitSpeed 35;
 [_escortVeh, "Officer Convoy"] spawn A3A_fnc_inmuneConvoy;
@@ -156,7 +156,7 @@ private _groupX = [position _roadE, _sideX, _infantrySquadArray] call A3A_fnc_sp
 deleteGroup _groupX;
 
 //officer and his vehicle
-private _officerVehicleData = [position _roadR, 0, _officerVehicleClass, _sideX] call bis_fnc_spawnvehicle;
+private _officerVehicleData = [position _roadR, 0, _officerVehicleClass, _sideX] call A3A_fnc_spawnVehicle;
 private _officerVeh = _officerVehicleData select 0;
 _officerVeh limitSpeed 35;
 [_officerVeh, "Officer Convoy"] spawn A3A_fnc_inmuneConvoy;

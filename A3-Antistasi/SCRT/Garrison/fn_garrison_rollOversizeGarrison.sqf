@@ -23,11 +23,7 @@ if ((random 100) < _oversizeChance) then {
 
     private _squadPool = nil;
     if (_side == Occupants) then {
-        _squadPool = [(call SCRT_fnc_unit_getCurrentNATOSquad)];
-        private _teams = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-        {
-            _squadPool pushBack _x;
-        } forEach _teams;
+        _squadPool = (groupsNATOSquad + groupsNATOmid);
     }
     else {
         _squadPool = (groupsCSATSquad + groupsCSATmid);

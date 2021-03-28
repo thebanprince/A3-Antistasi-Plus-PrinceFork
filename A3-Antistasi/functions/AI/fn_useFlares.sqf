@@ -8,10 +8,10 @@ private _funcName = "fn_useFlares";
 sleep random 5;
 
 _soundPool = ["A3\Sounds_F\weapons\Flare_Gun\flaregun_1.wss", "A3\Sounds_F\weapons\Flare_Gun\flaregun_2.wss"];
-_flaresPool = if(hasAU || {hasCup}) then { 
+_flaresPool = if (A3A_hasCup) then { 
 	["CUP_F_40mm_Star_White", "CUP_F_40mm_Star_Red"] 
 } else { 
-	if (hasRHS) then {
+	if (A3A_hasRhs) then {
 		["rhsusf_40mm_white", "rhsusf_40mm_green", "rhs_mag_m662_red"]
 	} else {
 		["F_40mm_white", "F_40mm_Red", "F_40mm_Yellow"]

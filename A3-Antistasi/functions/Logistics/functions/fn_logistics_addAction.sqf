@@ -20,7 +20,17 @@
 params ["_object", "_action"];
 
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
-private _loadText = format ["Load %1 into nearest vehicle", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
+
+
+private _vehicleName = nil;
+
+if ((typeOf _object) == lootCrate) then {
+    _vehicleName = "Loot Crate";
+} else {
+    _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
+};
+
+private _loadText = format ["Load %1 into nearest vehicle", _vehicleName];
 
 switch (_action) do {
     case "load":{
