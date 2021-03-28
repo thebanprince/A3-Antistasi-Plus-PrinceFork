@@ -21,41 +21,12 @@ if(isNil "serverID") then {
 };
 publicVariable "serverID";
 
-loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
-autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
-tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
-pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
-skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
-minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-memberOnlyMagLimit = "memberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
-allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
-personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
-civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
-memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
-limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
-teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
-helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
-fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
-isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
-spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
-settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
-playerStartingMoney = "playerStartingMoney" call BIS_fnc_getParamValue; publicVariable "playerStartingMoney";
-factionsDefeat = ("factionsDefeat" call BIS_fnc_getParamValue == 1); publicVariable "factionsDefeat";
 
-setTimeMultiplier settingsTimeMultiplier;
-
-[] call A3A_fnc_crateLootParams;
-
+// Read loadLastSave param directly, SP handles this in createDialog_setParams
+if (isMultiplayer) then {
+	//Load server parameters
+	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
+};
 
 // Maintain a profilenamespace array called antistasiSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
@@ -97,19 +68,27 @@ call
 publicVariable "loadLastSave";
 publicVariable "campaignID";
 
+// Now load all other parameters, loading from save if available
+call A3A_fnc_initParams;
+
+setTimeMultiplier settingsTimeMultiplier;
+
+//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+call A3A_fnc_initFuncs;
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
+call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 [2,format ["%1 Antistasi Plus server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
+bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 call A3A_fnc_initFuncs;
 if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
-if (gameMode != 1) then {
+if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
 	if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
@@ -212,6 +191,7 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
+[] spawn A3A_fnc_initSupportCooldowns;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 if(isPursuersEnabled) then {
 	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
@@ -223,7 +203,8 @@ savingServer = false;
 	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
 	while {true} do
 	{
-		uiSleep autoSaveInterval;
+		autoSaveTime = time + autoSaveInterval;
+		waitUntil { sleep 60; time > autoSaveTime; };
 		private _playerCount = count (call A3A_fnc_playableUnits);
 		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
 			[] remoteExecCall ["A3A_fnc_saveLoop", 2];
@@ -249,7 +230,6 @@ savingServer = false;
 		sleep _logPeriod;
 	};
 };
-execvm "functions\init\fn_initSnowFall.sqf";
 [2,"initServer completed",_fileName] call A3A_fnc_log;
 
 

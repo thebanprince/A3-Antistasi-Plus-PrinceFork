@@ -21,7 +21,7 @@ switch _typeX do
     };
     case "vehicle":
     {
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {[] call SCRT_fnc_ui_createBuyVehicleMenu}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]; 
+        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {[] call SCRT_fnc_ui_createBuyVehicleMenu}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
     };
     case "mission":
     {
@@ -70,10 +70,10 @@ switch _typeX do
                 _actionX = _flag addAction [format ["<t>Revive %1</t> <img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];
                 _flag setUserActionText [_actionX,format ["Revive %1",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
             };
-            
+
             _actionX = _flag addAction [format ["<t>Carry %1</t> <img image='\A3\ui_f\data\igui\cfg\actions\take_ca.paa' size='1.6' shadow=2 />",name _flag], A3A_fnc_carry,nil,5,true,false,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (isNull attachedTo _target) and !(_this getVariable [""helping"",false]);",4];
             _flag setUserActionText [_actionX,format ["Carry %1",name _flag],"<t size='2'><img image='\A3\ui_f\data\igui\cfg\actions\take_ca.paa'/></t>"];
-            [_flag] call jn_fnc_logistics_addActionLoad;
+            [_flag] call A3A_fnc_logistics_addLoadAction;
         };
     };
     case "moveS":
@@ -88,6 +88,7 @@ switch _typeX do
             {
                 removeAllActions _flag;
                 if (player == player getVariable ["owner",player]) then {[] call SA_Add_Player_Tow_Actions};
+                call A3A_fnc_initLootToCrate;
             }
             else
             {
@@ -123,10 +124,6 @@ switch _typeX do
     {
         _flag addAction ["Buy Boat", {[vehSDKBoat] spawn A3A_fnc_addFIAVeh},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
     };
-    case "steal":
-    {
-        _flag addAction ["Steal Static", A3A_fnc_stealStatic,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
-    };
     case "garage":
     {
         if (isMultiplayer) then
@@ -145,7 +142,7 @@ switch _typeX do
         _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you"] call A3A_fnc_customHint;} else {[] call SCRT_fnc_ui_createBuyVehicleMenu}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction ["Buy Loot Crate", {[] call SCRT_fnc_loot_createLootCrate},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        
+
         if (isMultiplayer) then
         {
             _flag addAction ["Personal Garage", { [GARAGE_PERSONAL] spawn A3A_fnc_garage; },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
@@ -159,14 +156,14 @@ switch _typeX do
     case "Intel_Small":
     {
         _flag addAction [
-            format ["<t>%1</t> <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa' size='1.6' shadow=2 />", localize "STR_search_intel_text"], 
-            A3A_fnc_searchIntelOnLeader, 
-            nil, 
-            4, 
-            true, 
+            format ["<t>%1</t> <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa' size='1.6' shadow=2 />", localize "STR_search_intel_text"],
+            A3A_fnc_searchIntelOnLeader,
+            nil,
+            4,
+            true,
             false,
-            "", 
-            "([_target] call A3A_fnc_canFight == false) && (_target getVariable ['intelSearchDone', false] != true) && isPlayer _this", 
+            "",
+            "([_target] call A3A_fnc_canFight == false) && (_target getVariable ['intelSearchDone', false] != true) && isPlayer _this",
             4
         ];
     };

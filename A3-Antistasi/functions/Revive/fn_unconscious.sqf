@@ -50,7 +50,7 @@ else {
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 
 		if (_injurer != Invaders) then {
-			[_unit,true] remoteExec ["setCaptive",0,_unit]; 
+			[_unit,true] remoteExec ["setCaptive",0,_unit];
 			_unit setCaptive true
 		};
 	}

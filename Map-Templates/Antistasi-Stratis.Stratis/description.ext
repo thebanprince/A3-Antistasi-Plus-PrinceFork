@@ -5,7 +5,7 @@ OnLoadMission = $STR_antistasi_mission_info_stratis_blurb_text;
 briefingName = $STR_antistasi_mission_info_stratis_mapname_text;
 overviewText = $STR_antistasi_mission_info_stratis_description_text;
 
-class CfgDiscordRichPresence 
+class CfgDiscordRichPresence
 {
     applicationID="819852407265034260";
     defaultDetails="";
@@ -17,7 +17,7 @@ class CfgDiscordRichPresence
     useTimeElapsed=1;
 };
 
-class CfgFunctions 
+class CfgFunctions
 {
     #include "MissionDescription\CfgFunctionsContents.hpp"
 };

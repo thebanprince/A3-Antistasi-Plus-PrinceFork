@@ -1,6 +1,6 @@
 //Define results for small intel
 #define TIME_LEFT       101
-#define ACCESS_CAR      102
+#define DECRYPTION_KEY  102
 #define CONVOY          103
 
 //Define results for medium intel
@@ -54,8 +54,8 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TIME_LEFT, 0.2, ACCESS_CAR, 0.2, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.15];
-    
+    _intelContent = selectRandomWeighted [TIME_LEFT, 0.2, DECRYPTION_KEY, 0.2, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.15];
+
     switch (_intelContent) do
     {
         case (TIME_LEFT):
@@ -79,9 +79,19 @@ if(_intelType == "Small") then
                 _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
             };
         };
-        case (ACCESS_CAR):
+        case (DECRYPTION_KEY):
         {
-            _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_CAR] call A3A_fnc_getVehicleIntel)];
+            if(_side == Occupants) then
+            {
+                occupantsRadioKeys = occupantsRadioKeys + 1;
+                publicVariable "occupantsRadioKeys";
+            }
+            else
+            {
+                invaderRadioKeys = invaderRadioKeys + 1;
+                publicVariable "invaderRadioKeys";
+            };
+            _text = format ["You found a %1 decryption key!<br/>It allows your faction to fully decrypt the next support call.", _sideName];
         };
         case (CONVOY):
         {
@@ -167,11 +177,11 @@ if(_intelType == "Small") then
                 };
             };
         };
-        case (DISCOUNT): 
+        case (DISCOUNT):
         {
             private _discount = traderDiscount + 0.01;
             [_discount] call SCRT_fnc_trader_setTraderDiscount;
-            
+
             private _money = (round (random 5)) * 100;
             [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 
@@ -218,7 +228,7 @@ if(_intelType == "Medium") then
             } forEach _convoyMarkers;
             _text = format ["We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map", _sideName, count _convoyMarkers];
         };
-        case (DISCOUNT): 
+        case (DISCOUNT):
         {
             private _discount = traderDiscount + 0.05;
             [_discount] call SCRT_fnc_trader_setTraderDiscount;
@@ -290,7 +300,7 @@ if(_intelType == "Large") then
             _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
         };
     };
-    
+
     switch (_intelContent) do
     {
         case (TRAITOR):
@@ -355,11 +365,11 @@ if(_intelType == "Large") then
                 };
             };
         };
-        case (DISCOUNT): 
+        case (DISCOUNT):
         {
             private _discount = traderDiscount + 0.05;
             [_discount] call SCRT_fnc_trader_setTraderDiscount;
-            
+
             private _money = (round (random 50)) * 100;
             [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 

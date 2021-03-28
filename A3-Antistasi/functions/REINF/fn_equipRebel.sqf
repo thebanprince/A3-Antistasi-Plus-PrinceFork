@@ -35,14 +35,14 @@ if !(unlockedVests isEqualTo []) then {
 	else { _unit addVest (selectRandom unlockedArmoredVests); };
 };
 
-if !(unlockedBackpacksCargo isEqualTo []) then { 
+if !(unlockedBackpacksCargo isEqualTo []) then {
 	private _backpack = selectRandom unlockedBackpacksCargo;
 	_unit addBackpack _backpack;
 
 	//check for backpacks with zero cargo space
 	if(!(_unit canAddItemToBackpack "FirstAidKit")) then {
 		private _iterations = 0;
-		
+
 		while {_iterations < 10} do {
 			removeBackpack _unit;
 			_backpack = selectRandom unlockedBackpacksCargo;
@@ -61,7 +61,7 @@ private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
 
-private _unitClass = typeOf _unit;
+private _unitClass = _unit getVariable "unitType";
 
 switch (true) do {
 	case (_unitClass in SDKSniper): {
@@ -93,6 +93,8 @@ switch (true) do {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit setUnitTrait ["explosiveSpecialist",true];
 		_unit addItemToBackpack "Toolkit";
+		_unit addItemToBackpack "MineDetector";
+		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 		if (count unlockedAA > 0) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};

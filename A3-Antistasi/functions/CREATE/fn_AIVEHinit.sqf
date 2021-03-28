@@ -2,7 +2,7 @@
 	Installs various damage/smoke/kill/capture logic for vehicles
 	Will set and modify the "originalSide" and "ownerSide" variables on the vehicle indicating side ownership
 	If a rebel enters a vehicle, it will be switched to rebel side and added to vehDespawner
-	
+
 	Params:
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
@@ -92,22 +92,20 @@ if (_typeX in (vehNormal + vehAttack + vehBoats + vehAA)) then {
 			};
 		};
 	}
-	else {
-		if (_veh isKindOf "StaticWeapon") then {
+	else
+	{
+		if (_veh isKindOf "StaticWeapon") then
+		{
+			[_veh] call A3A_fnc_logistics_addLoadAction;
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
-			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then {
-				if (activeGREF and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]} else {[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
+			if ((not (_veh in staticsToSave)) and (side gunner _veh != teamPlayer)) then
+			{
+				if (A3A_hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
 			};
-			if (_typeX == SDKMortar) then {
-				if (!isNull gunner _veh) then {
-					[_veh,"steal"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
-				};
-				_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
+			if (_typeX == SDKMortar) then
+			{
+			    _veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
 			};
-		};
-
-		if (_typeX in (additionalShopArtillery + [vehNATOMRLS, vehCSATMRLS])) then {
-			_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
 		};
 	};
 };
@@ -127,7 +125,7 @@ if (_side == civilian) then
 };
 
 // EH behaviour:
-// GetIn/GetOut/Dammaged: Runs where installed, regardless of locality 
+// GetIn/GetOut/Dammaged: Runs where installed, regardless of locality
 // Local: Runs where installed if target was local before or after the transition
 // HandleDamage/Killed: Runs where installed, only if target is local
 // MPKilled: Runs everywhere, regardless of target locality or install location
@@ -148,6 +146,36 @@ if (_side != teamPlayer) then
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
 	}];
+};
+
+if(_veh isKindOf "Air") then
+{
+    //Start airspace control script if rebel player enters
+    _veh addEventHandler
+    [
+        "GetIn",
+        {
+            params ["_veh", "_role", "_unit"];
+            if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
+            {
+                [_veh] spawn A3A_fnc_airspaceControl;
+            };
+        }
+    ];
+
+
+    _veh addEventHandler
+    [
+        "IncomingMissile",
+        {
+            params ["_target", "_ammo", "_vehicle", "_instigator"];
+            private _group = group driver _target;
+            private _supportTypes = [_group, _vehicle] call A3A_fnc_chooseSupport;
+            _supportTypes = _supportTypes - ["QRF"];
+            private _reveal = [getPos _vehicle, side _group] call A3A_fnc_calculateSupportCallReveal;
+            [_vehicle, 4, _supportTypes, side _group, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
+        }
+    ]
 };
 
 // Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
@@ -176,8 +204,7 @@ _veh addEventHandler ["Dammaged", {
 }];
 
 //add JNL loading to quadbikes
-if(typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {_veh call jn_fnc_logistics_addAction;};
+if(typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;
-

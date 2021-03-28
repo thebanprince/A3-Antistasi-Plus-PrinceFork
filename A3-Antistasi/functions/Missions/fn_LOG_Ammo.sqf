@@ -50,7 +50,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	if (!debug) then {_mrk setMarkerAlphaLocal 0};
-	_typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentNATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry}};
+	_typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {NATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry}};
 	//_cfg = if (_sideX == Occupants) then {cfgNATOInf} else {cfgCSATInf};
 	_groupX = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;
@@ -83,8 +83,6 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		if (_unit getVariable ["spawner",false]) then {
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
 		};
-
-		[getPosASL _vehicle, _owningSide, "", false] spawn A3A_fnc_patrolCA;
 
 		_truckX removeEventHandler ["GetIn", _thisEventHandler];
 	}];

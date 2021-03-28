@@ -65,12 +65,35 @@ garrison setVariable [format ["%1_requested", _markerX], [], true];
 if (_winner == teamPlayer) then
 {
 	_super = if (_markerX in airportsX or {_markerX in milbases}) then {true} else {false};
-	[_markerX,_looser,"",_super] spawn A3A_fnc_patrolCA;
+    if(_positionX distance2D posHQ > distanceMission) then
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            waitUntil
+            {
+                sleep 10;
+                spawner getVariable _marker == 2
+            };
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    }
+    else
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            sleep (random ((15 - tierWar) * 60));
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    };
 }
 else
 {
 	_soldiers = [];
-	{_soldiers pushBack (typeOf _x)} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
+	{_soldiers pushBack (_x getVariable "unitType")} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
 	[_soldiers,_winner,_markerX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
 	//New system =================================================================
@@ -442,15 +465,15 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 markersChanging = markersChanging - [_markerX];
 
 //if side somehow manages to capture point after their defeat -
-//for example, attack that was started before last point capture and then succeeded after defeat, 
+//for example, attack that was started before last point capture and then succeeded after defeat,
 //they can revert their defeat
 if (areInvadersDefeated && {_winner == Invaders}) then {
-	areInvadersDefeated = false; 
+	areInvadersDefeated = false;
     publicVariable "areInvadersDefeated";
 	"CSAT_carrier" setMarkerAlpha 1;
 };
 if (areOccupantsDefeated && {_winner == Occupants}) then {
-	areOccupantsDefeated = false; 
+	areOccupantsDefeated = false;
     publicVariable "areOccupantsDefeated";
 	"NATO_carrier" setMarkerAlpha 1;
 };

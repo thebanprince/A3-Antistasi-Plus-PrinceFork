@@ -35,8 +35,8 @@ _chance = _chance + 20;
 sleep 5;
 
 if ((round (random 100)) < _chance) then {
-    if((typeOf _unit) in squadLeaders) then {
-        if(_unit getVariable ["hasIntel", false]) then {
+    if ((_unit getVariable "unitType") in squadLeaders) then {
+        if (_unit getVariable ["hasIntel", false]) then {
             _unit globalChat localize "STR_interrogation_success_text";
             _unit setVariable ["hasIntel", false, true];
             private _intelText = ["Small", _side] call A3A_fnc_selectIntel;

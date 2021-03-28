@@ -51,7 +51,7 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
 //3CB Factions Detection
 if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {
   //TODO: 3CBF support
-  // A3A_has3CBFactions = true; 
+  // A3A_has3CBFactions = true;
   // [2,"3CB Factions Detected.",_fileName] call A3A_fnc_log;
   [1, "FFAA detected, but it is not yet supported.", _fileName] call A3A_fnc_log;
   ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;

@@ -104,9 +104,8 @@ _mrk setMarkerColorLocal "ColorRed";
 _mrk setMarkerBrushLocal "DiagGrid";
 _mrk setMarkerAlphaLocal 0;
 
-_currentSquad = call SCRT_fnc_unit_getCurrentNATOSquad;
-_typeGroup = if (random 10 < tierWar) then {_currentSquad} else {[policeOfficer,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt]};
-_groupX = [_positionX, Occupants, _currentSquad] call A3A_fnc_spawnGroup;
+_typeGroup = if (random 10 < tierWar) then {NATOSquad} else {[policeOfficer,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt]};
+_groupX = [_positionX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
 sleep 1;
 if (random 10 < 2.5) then
 	{

@@ -114,7 +114,7 @@ if (_patrol) then
 	{
 		_arraygroups = if (_sideX == Occupants) then
 		{
-			if (!_isFIA) then {call SCRT_fnc_unit_getCurrentGroupNATOSmall} else {call SCRT_fnc_unit_getCurrentFIAPatrol};
+			if (!_isFIA) then {groupsNATOsmall} else {groupsFIASmall};
 		}
 		else
 		{
@@ -182,7 +182,9 @@ if (_spawnParameter isEqualType []) then
 {
 	_typeVehX = if (_sideX == Occupants) then
 	{
-		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks + vehNATOFlatbedTrucks} else {[vehFIATruck]};
+		private _types = if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+		_types = _types select { _x in vehCargoTrucks };
+		if (count _types == 0) then { vehNATOCargoTrucks } else { _types };
 	}
 	else
 	{

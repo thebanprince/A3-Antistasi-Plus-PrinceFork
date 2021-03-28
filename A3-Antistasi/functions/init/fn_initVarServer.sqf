@@ -231,11 +231,6 @@ if (hasTFAR) then
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
 			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
-			if (A3A_hasIFA) then
-				{
-				["TF_give_personal_radio_to_regular_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-				["TF_give_microdagr_to_soldier", false, true,"mission"] call CBA_settings_fnc_set;
-				};
 			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
 			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
 			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
@@ -786,13 +781,13 @@ timer setVariable [vehCSATPlaneAA,10,true];
 timer setVariable [vehNATOMRLS,0,true];
 timer setVariable [vehCSATMRLS,5,true];
 
-server setVariable [civCar,350,true];													
-server setVariable [civTruck,700,true];	
+server setVariable [civCar,350,true];
+server setVariable [civTruck,700,true];
 server setVariable [civHeli, 5000,true];
 server setVariable [civBoat,200,true];
 server setVariable [civLooter,1500,true];
 server setVariable [vehSDKBike, 100, true];
-server setVariable [vehSDKLightUnarmed,200,true];										
+server setVariable [vehSDKLightUnarmed,200,true];
 server setVariable [vehSDKTruck,300,true];
 server setVariable [vehSDKLightArmed, 1000, true];
 server setVariable [vehSDKAT, 1500, true];
@@ -835,11 +830,11 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 
 //technicals cost
 if(hasCup || {hasAU}) then {
-	server setVariable [techicalAa, 1500, true];														
+	server setVariable [techicalAa, 1500, true];
 	server setVariable [vehSDKLightUnarmedArmored, 400, true];
 	server setVariable [technicalArmoredBtr, 3250, true];
 	server setVariable [technicalArmoredAa, 3000, true];
-	server setVariable [technicalArmoredSpg, 3000, true];										
+	server setVariable [technicalArmoredSpg, 3000, true];
 	server setVariable [technicalArmoredMg, 2250, true];
 };
 

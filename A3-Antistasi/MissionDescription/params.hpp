@@ -312,7 +312,7 @@ class Params
           texts[] =  {"Default (Yes)","Yes","No"};
           default = 9999;
      };
-     class magRepack 
+     class magRepack
      {
           title = "Enable Mag Repack";
           values[] = {9999, 1, 0};
@@ -692,4 +692,3 @@ class Params
           default = 9999;
      };
 };
-

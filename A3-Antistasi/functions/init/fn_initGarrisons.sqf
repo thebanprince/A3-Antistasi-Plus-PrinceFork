@@ -73,7 +73,7 @@ _fnc_initGarrison =
 				}
 				else
 				{
-	 				_groupsRandom = [call SCRT_fnc_unit_getCurrentNATOSquad];
+	 				_groupsRandom = groupsNATOSquad;
 				};
 			};
 			//Old system, keeping it intact for the moment
@@ -128,6 +128,14 @@ if (gameMode == 1) then
 		case "napf": {
 			_mrkCSAT = ["airport_2", "outpost_5", "outpost_6", "outpost_7", "seaport_1"];
             _controlsCSAT = ["control_44", "control_49", "control_43", "control_53", "control_23", "control_52", "control_46", "control_47", "control_54", "control_50", "control_16", "control_17"];
+		};
+		case "takistan": {
+			_mrkCSAT = ["airport_1", "outpost_5", "outpost_6", "outpost_7", "outpost_8", "resource", "resource_5", "resource_6"];
+			_controlsCSAT = ["control", "control_1", "control_2", "control_5", "control_13", "control_20", "control_21", "control_22", "control_24", "control_25", "control_31"];
+		};
+		case "sara": {
+			_mrkCSAT = ["airport_1", "seaport_6", "outpost_22", "outpost_15", "resource_9", "outpost_19", "outpost_14", "resource_11"];
+			_controlsCSAT = ["control_28", "control_27"];
 		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
@@ -207,7 +215,7 @@ if (debug) then {
 	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Military Base stuff.", servertime];
 };
 
-[milbases, "MilitaryBase"] call _fnc_initGarrison;					
+[milbases, "MilitaryBase"] call _fnc_initGarrison;
 [milbases, "MilitaryBase", [0,0,0]] call A3A_fnc_createGarrison;
 
 //New system, adding cities

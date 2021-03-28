@@ -22,12 +22,12 @@ if (_recruiting) then {
 	private _chance = 0;
 	if (_sideX == Occupants) then {
         _modAggroOcc = [1, 30];
-		if (faction _unit == factionFIA) then { _chance = 60;}
+		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 20;};
 	}
 	else {
         _modAggroInv = [1, 30];
-		if (faction _unit == factionFIA) then { _chance = 60;}
+		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 40;};
 	};
 	if (_interrogated) then { _chance = _chance / 2 };

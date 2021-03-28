@@ -69,23 +69,18 @@ _groupX = grpNull;
 _veh = objNull;
 _groupX1 = grpNull;
 if (_sideX == Invaders) then
+{
+	[_houseX, _difficultX] spawn
 	{
-	_nul = [_houseX] spawn
-		{
-		private ["_houseX"];
-		_houseX = _this select 0;
-		if (_difficultX) then {sleep 300} else {sleep 300 + (random 1800)};
+		params ["_house", "_isDifficult"];
+		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
 		if (["RES"] call BIS_fnc_taskExists) then
-			{
-			_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == Invaders) and ([_x,true] call A3A_fnc_airportCanAttack)};
-			if (count _airportsX > 0) then
-				{
-				_airportX = [_airportsX, position houseX] call BIS_fnc_nearestPosition;
-				[[getPosASL _houseX,_airportX,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
-				};
-			};
+		{
+            private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
+            [getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 		};
-	}
+	};
+}
 else
 	{
 	_posVeh = [];
@@ -127,7 +122,7 @@ else
 	_mrk setMarkerAlphaLocal 0;
 	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
-		_groupX = [getPos _houseX,Occupants, call SCRT_fnc_unit_getCurrentNATOSquad] call A3A_fnc_spawnGroup;
+		_groupX = [getPos _houseX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
 		sleep 1;
 		}
 	else
@@ -214,7 +209,7 @@ if (_sideX == Occupants) then
 	deleteMarkerLocal _mrk;
 	if (!isNull _veh) then { [_veh] spawn A3A_fnc_vehDespawner };
 	if (!isNull _groupX1) then { [_groupX1] spawn A3A_fnc_groupDespawner };
-	[_groupX] spawn A3A_fnc_groupDespawner; 
+	[_groupX] spawn A3A_fnc_groupDespawner;
 };
 
 //sleep (540 + random 1200);

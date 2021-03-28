@@ -1,3 +1,5 @@
+params [["_side", sideEnemy]];
+
 /*  Handles the large attack that also are missions
 
     Execution on: HC or Server
@@ -11,15 +13,9 @@
         Nothing
 */
 
-params [["_side", sideEnemy]];
-
 private _fileName = "rebelAttack";
 [2, format ["Starting large attack script for side %1", _side], _fileName, true] call A3A_fnc_log;
 
-//TODO: disabled as no IFA support
-// if (A3A_hasIFA and (sunOrMoon < 1)) exitWith {
-//     [2, "Aborting attack as IFA has no nightvision (at least thats what I assume)", _fileName, true] call A3A_fnc_log;
-// };
 
 if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
     [2, format ["%1 faction was defeated earlier, aborting attack.", str _side], _fileName, true] call A3A_fnc_log;
@@ -417,7 +413,7 @@ else
 		+ (count allPlayers / 20)
 		+ (tierWar / 5);
 
-    //three waves max
+    //four waves max
     if(_waves > 4) then {
         _waves = 4;
     };

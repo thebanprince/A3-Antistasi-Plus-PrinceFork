@@ -4,6 +4,16 @@ _originX = _this select 0;
 if (isNull _originX) exitWith {};
 _destinationX = _this select 1;
 
+if (isNil {	// Run in unschedule scope.
+	if (_originX getVariable ["A3A_JNA_ammunitionTransfer_busy",false]) then {
+		nil;  // will lead to exit.
+	} else {
+		_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",true];
+		0;  // not nil, will allow script to continue.
+	};
+}) exitWith {};  // Silent exit, likely due to spamming
+
+
 _ammunition= [];
 _items = [];
 _ammunition = magazineCargo _originX;
@@ -49,7 +59,7 @@ if (!isNil "_weaponsItemsCargo") then {
 	};
 };
 
-if (hasCup || {hasAU}) then {
+if (A3A_hasCup) then {
 	_weaponsX = _weaponsX select {
 		(!(["_loaded", _x] call BIS_fnc_inString) && {!(["_used", _x] call BIS_fnc_inString)})
 	};
@@ -75,8 +85,7 @@ _ammunitionFinal = [];
 _ammunitionFinalCount = [];
 if (isNil "_ammunition") then {
 	diag_log format ["Error en transmisión de munición. Tenía esto: %1 y estos containers: %2, el originX era un %3 y el objectX está definido como: %4", magazineCargo _originX, everyContainer _originX,typeOf _originX,_originX];
-}
-else {
+} else {
 	{
 		_weaponX = _x;
 		if ((not(_weaponX in _ammunitionFinal)) and (not(_weaponX in unlockedMagazines))) then {
@@ -144,4 +153,8 @@ if (_destinationX == boxX) then {
 	};
 } else {
 	[petros,"hint","Truck Loaded", "Cargo"] remoteExec ["A3A_fnc_commsMP",driver _destinationX];
+};
+
+if (!isNull _originX) then {
+	_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",false];
 };

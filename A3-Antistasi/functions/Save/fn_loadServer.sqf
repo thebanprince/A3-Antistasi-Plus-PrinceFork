@@ -10,8 +10,6 @@ if (isServer) then {
 	["atpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "atpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
-	["difficultyX"] call A3A_fnc_getStatVariable;
-	["gameMode"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
 	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
@@ -27,9 +25,6 @@ if (isServer) then {
 	["garrison"] call A3A_fnc_getStatVariable;
 	["usesWurzelGarrison"] call A3A_fnc_getStatVariable;
 	["skillFIA"] call A3A_fnc_getStatVariable;
-	["distanceSPWN"] call A3A_fnc_getStatVariable;
-	["civPerc"] call A3A_fnc_getStatVariable;
-	["maxUnits"] call A3A_fnc_getStatVariable;
 	["maxConstructions"] call A3A_fnc_getStatVariable;
 	["membersX"] call A3A_fnc_getStatVariable;
 	["vehInGarage"] call A3A_fnc_getStatVariable;
@@ -92,22 +87,22 @@ if (isServer) then {
 	} forEach (markersX - controlsX);
 
 	if (count watchpostsFIA > 0) then {
-		markersX = markersX + watchpostsFIA; 
+		markersX = markersX + watchpostsFIA;
 		publicVariable "markersX";
 	};
 
 	if (count roadblocksFIA > 0) then {
-		markersX = markersX + roadblocksFIA; 
+		markersX = markersX + roadblocksFIA;
 		publicVariable "markersX";
 	};
 
 	if (count aapostsFIA > 0) then {
-		markersX = markersX + aapostsFIA; 
+		markersX = markersX + aapostsFIA;
 		publicVariable "markersX";
 	};
 
 	if (count atpostsFIA > 0) then {
-		markersX = markersX + atpostsFIA; 
+		markersX = markersX + atpostsFIA;
 		publicVariable "markersX";
 	};
 

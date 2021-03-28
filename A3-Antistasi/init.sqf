@@ -17,4 +17,4 @@ if (!isMultiplayer) then {
 enableSaving [false,false];
 mapX setObjectTexture [0, "Pictures\Mission\whiteboard.jpg"];
 
-Info("Init Started");
+Info("Init Finished");

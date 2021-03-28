@@ -32,7 +32,7 @@ _duration = 5;
 		_width = safeZoneW;
 		_height = ctrltextheight _ctrlText;
 		_pos = [safezoneX, safeZoneY + _offsetY,_width,_height];
-		
+
 		_ctrlText ctrlsetposition _pos;
 		_ctrlText ctrlsetfade 1;
 		_ctrlText ctrlcommit 0;

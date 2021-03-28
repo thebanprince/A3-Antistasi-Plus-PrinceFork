@@ -25,7 +25,7 @@ _nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"]
 [[teamPlayer,civilian],"AS",[format ["We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
 waitUntil  {
-	sleep 5; 
+	sleep 5;
 	_aliveCount = {alive _x} count units _groupX;
 	[2, format ["SpecOps Group Alive: %1", str _aliveCount], "fn_AS_specOP"] call A3A_fnc_log;
 	(dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) or (_aliveCount == 0)
