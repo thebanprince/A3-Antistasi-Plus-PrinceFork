@@ -18,7 +18,6 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];
 private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;
 
 private _destinationName = [_markerX] call A3A_fnc_localizar;
-private _policeTitle = if (factionGEN == "BLU_GEN_F") then { "Gendramerie"} else {"Police"};
 
 ////////////
 //building occupation
@@ -76,7 +75,7 @@ private _buildingPos = position _building;
     [teamPlayer,civilian],
     "AS",
     [
-        format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
+        format ["A police officer terrorizes %1 population. Kill him and people will breathe freely. Do this before %2.", _destinationName,_displayTime],
         "Kill Collaborationist",
         _markerX
     ],
@@ -275,7 +274,7 @@ if (dateToNumber date > _dateLimitNum) then {
     [
         "AS",
         [
-            format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
+            format ["A police officer terrorizes %1 population. Kill him and people will breathe freely. Do this before %2.", _destinationName,_displayTime],
             "Kill Collaborationist",
             _markerX
         ],
@@ -290,7 +289,7 @@ if (dateToNumber date > _dateLimitNum) then {
     [
         "AS",
         [
-            format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
+            format ["A police officer terrorizes %1 population. Kill him and people will breathe freely. Do this before %2.", _destinationName,_displayTime],
             "Kill Collaborationist",
             _markerX
         ],
