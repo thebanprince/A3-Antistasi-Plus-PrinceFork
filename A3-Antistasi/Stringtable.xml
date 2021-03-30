@@ -792,6 +792,14 @@
       <German>Rettungsmissionen</German>
       <Czech>Záchranné mise</Czech>
     </Key>
+    <Key ID="STR_antistasi_dialogs_supply_text">
+      <Original>Supply Missions</Original>
+      <English>Supply Missions</English>
+      <French>Missions d'approvisionnement</French>
+      <Russian>Миссии по снабжению</Russian>
+      <German>Versorgungsmissionen</German>
+      <Czech>Zásobovací mise</Czech>
+    </Key>
     <Key ID="STR_antistasi_dialogs_conquest_text">
       <Original>Conquest Missions</Original>
       <English>Conquest Missions</English>

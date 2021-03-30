@@ -277,7 +277,7 @@ class unitRecruit: SimpleMenuBig
 	};
 };
 
-class missionMenu: SimpleMenuMedium
+class missionMenu: SimpleMenuBig
 {
 	idd = 100;
 	
@@ -305,7 +305,7 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_assassination_text;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class convoyButton: SimpleButton
@@ -314,7 +314,7 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_convoy_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class destroyButton: SimpleButton
@@ -323,7 +323,7 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_destroy_text;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class logButton: SimpleButton
@@ -332,7 +332,7 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_logistics_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class resButton: SimpleButton
@@ -341,7 +341,7 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_rescue_text;
 			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class conButton: SimpleButton
@@ -350,7 +350,16 @@ class missionMenu: SimpleMenuMedium
 			text = $STR_antistasi_dialogs_conquest_text;
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+		};
+
+		class suppButton: SimpleButton
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_supply_text;
+			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
+			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
+			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (!(isPlayer theBoss))) then {[""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 	};
 };
