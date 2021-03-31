@@ -6,7 +6,7 @@ SDKFlag = "Flag_Green_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_Green_CO.paa";
 typePetros = "CUP_I_GUE_Commander";
 
-lootCrate = "Box_NATO_Equip_F";
+lootCrate = "CargoNet_01_box_F";
 rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////

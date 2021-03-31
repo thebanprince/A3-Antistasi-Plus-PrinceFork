@@ -68,7 +68,7 @@ if (hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "t
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 /////////////////////////////////////
-lootCrate = "Box_NATO_Equip_F";
+lootCrate = "CargoNet_01_box_F";
 rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 //black market stuff

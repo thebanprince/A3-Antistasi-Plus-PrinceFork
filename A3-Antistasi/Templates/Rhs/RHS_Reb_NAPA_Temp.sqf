@@ -6,7 +6,7 @@ SDKFlag = "Flag_Syndikat_F";
 SDKFlagTexture = "\A3\Data_F\Flags\Flag_Altis_CO.paa";
 typePetros = "rhsgref_nat_warlord";
 
-lootCrate = "Box_NATO_Equip_F";
+lootCrate = "CargoNet_01_box_F";
 rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 ////////////////////////////////////
