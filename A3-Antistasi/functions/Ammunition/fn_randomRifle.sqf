@@ -25,7 +25,9 @@ if (_rifleFinal in unlockedGrenadeLaunchers && {_rifleFinal in unlockedRifles} )
 	private _config = configFile >> "CfgWeapons" >> _rifleFinal;
 	private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category
 	private _glmag = getArray (_config >> _glmuzzle >> "magazines") select 0;
-	_unit addMagazines [_glmag, 5];
+	if (!isNil "_glmag") then {
+		_unit addMagazines [_glmag, 5];
+	};
 };
 
 [_unit, _rifleFinal, 5, 0] call BIS_fnc_addWeapon;
