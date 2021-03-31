@@ -16,7 +16,7 @@ if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL"] && bombRuns < 1) exit
 	] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "RECON"] && supportPoints < 1) exitWith {
+if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "RECON", "PARADROP"] && supportPoints < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -26,7 +26,7 @@ if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "STATIC_MG_AIRDRO
 };
 
 private _airports = { sidesX getVariable [_x, sideUnknown] == teamPlayer } count airportsX;
-if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON"] && _airports < 1) exitWith {
+if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON", "PARADROP"] && _airports < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -36,7 +36,16 @@ if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "STATI
 };
 
 private _resourcesFIA = server getVariable "resourcesFIA";
-if (supportType in ["STATIC_MG_AIRDROP"] && {_resourcesFIA < 1000}) exitWith {
+if (supportType == "STATIC_MG_AIRDROP" && {_resourcesFIA < 1000}) exitWith {
+    [
+		"FAIL",
+		"Support",  
+		parseText "HQ needs to have at least 1000€ to make this support request.", 
+		30
+	] spawn SCRT_fnc_ui_showMessage;
+};
+
+if (supportType == "PARADROP" && {_resourcesFIA < 500}) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -99,6 +108,11 @@ switch (supportType) do {
         publicVariable "supportPoints";
         [0,-1000] remoteExec ["A3A_fnc_resourcesFIA",2];
     };
+    case ("PARADROP"): {
+        supportPoints = supportPoints - 1;
+        publicVariable "supportPoints";
+        [0,-500] remoteExec ["A3A_fnc_resourcesFIA",2];
+    };
     case ("NAPALM");
     case ("HE");
     case ("CLUSTER");
@@ -120,6 +134,9 @@ switch (true) do {
     };
     case (supportType == "RECON"): {
         [] spawn SCRT_fnc_support_planeReconRun;
+    };
+    case (supportType == "PARADROP"): {
+        [] spawn SCRT_fnc_support_planeParadropRun;
     };
     case (supportType == "VEH_AIRDROP");
     case (supportType == "STATIC_MG_AIRDROP");

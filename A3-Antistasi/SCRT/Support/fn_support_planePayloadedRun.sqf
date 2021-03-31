@@ -26,6 +26,42 @@ _wp1 setWaypointBehaviour "CARELESS";
 
 if ((supportType == "CHEMICAL") && (chemicalCurrent)) then {supportType = "HE"};
 
+private _text = nil;
+
+switch (supportType) do {
+	case ("STATIC_MG_AIRDROP"): {
+		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", "Box_Syndicate_WpsLaunch_F", supportType]];
+		_text = format ["<t size='0.6'>Rebel aircraft drops the <t size='0.6' color='#804000'>HMG</t> near your position.</t>"];
+	};
+	case ("SUPPLY"): {
+		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", "IG_supplyCrate_F", supportType]];
+		_text = format ["<t size='0.6'>Rebel aircraft drops the <t size='0.6' color='#0000ff'>supply crate</t> near your position.</t>"];
+	};
+	case ("VEH_AIRDROP"): {
+		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", vehSDKBike, supportType]];
+		_text = format ["<t size='0.6'>Rebel aircraft drops the <t size='0.6' color='#804000'>light vehicle</t> near your position.</t>"];
+	};
+	case ("NAPALM");
+    case ("HE");
+    case ("CLUSTER");
+    case ("CHEMICAL"): {
+		_text = format ["<t size='0.6'>Rebel aircraft is about to drop some <t size='0.6' color='#e60000'>%1 bombs</t> near your position, take cover.</t>", toLower supportType];
+
+		private _bombCount = if (supportType == "CHEMICAL") then {1} else {4};
+		private _distance = _positionOrigin distance2D _poisitionDestination;
+		private _bombParams = [_plane, supportType, _bombCount, _distance];
+
+		(driver _plane) setVariable ["bombParams", _bombParams, true];
+
+		[_positionOrigin, driver _plane] spawn {
+			params ["_pos", "_pilot"];
+			waitUntil {sleep 0.1; ((_pos distance2D _pilot) < 250) || {isNull (objectParent _pilot)}};
+			if(isNull (objectParent _pilot)) exitWith {};
+			(_pilot getVariable 'bombParams') spawn A3A_fnc_airbomb;
+		};
+	};
+};
+
 _wp2 = group _plane addWaypoint [_poisitionDestination, 1];
 _wp2 setWaypointSpeed "LIMITED";
 _wp2 setWaypointType "MOVE";
@@ -33,30 +69,6 @@ _wp2 setWaypointType "MOVE";
 _wp3 = group _plane addWaypoint [_finPosition, 2];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "FULL";
-
-private _text = nil;
-
-switch (supportType) do {
-	case ("STATIC_MG_AIRDROP"): {
-		_wp2 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", "Box_Syndicate_WpsLaunch_F", supportType]];
-		_text = format ["<t size='0.6'>Rebel aircraft drops <t size='0.6' color='#804000'>HMG</t> near your position.</t>"];
-	};
-	case ("SUPPLY"): {
-		_wp2 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", "IG_supplyCrate_F", supportType]];
-		_text = format ["<t size='0.6'>Rebel aircraft drops <t size='0.6' color='#0000ff'>supply crate</t> near your position.</t>"];
-	};
-	case ("VEH_AIRDROP"): {
-		_wp2 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", vehSDKBike, supportType]];
-		_text = format ["<t size='0.6'>Rebel aircraft drops <t size='0.6' color='#804000'>light vehicle</t> near your position.</t>"];
-	};
-	case ("NAPALM");
-    case ("HE");
-    case ("CLUSTER");
-    case ("CHEMICAL"): {
-		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1'] spawn A3A_fnc_airbomb", supportType]];
-		_text = format ["<t size='0.6'>Rebel aircraft is about to drop some <t size='0.6' color='#e60000'>%1 bombs</t> near your position, take cover.</t>", toLower supportType];
-	};
-};
 
 sleep 50;
 

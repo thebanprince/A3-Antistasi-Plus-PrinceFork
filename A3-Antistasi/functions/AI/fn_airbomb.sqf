@@ -13,8 +13,7 @@ if(_bombRunLength < 100) then {_bombRunLength = 100};
 
 private _ammo = "";
 private _bombOffset = 0;
-switch (_bombType) do
-{
+switch (_bombType) do {
     case ("HE"):
     {
         _ammo = "Bo_Mk82";
@@ -32,7 +31,7 @@ switch (_bombType) do
 	};
 	case ("CHEMICAL"): {
         _ammo = "Land_GarbageBarrel_02_F";
-        _bombOffset = 170;
+        _bombOffset = 50;
     };
 	default
     {
@@ -47,44 +46,24 @@ private _metersPerBomb = _bombRunLength / _bombCount;
 //Decrease it a bit, to avoid scheduling erros
 private _timeBetweenBombs = (_metersPerBomb / _speedInMeters) - 0.05;
 
+systemChat str _timeBetweenBombs;
+systemChat format ["Sleep:%1", str ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters))];
+
+
 sleep ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters));
 if(_bombType == "CHEMICAL") then {
     for "_i" from 1 to _bombCount do {
         sleep _timeBetweenBombs;
         if (alive _pilot) then {
-            private _bombPos = (getPos _pilot) vectorAdd [0, 0, -5];
+            private _bombPos = (getPos _pilot) vectorAdd [0, 0, -6];
             _bomb = _ammo createvehicle _bombPos;
             waituntil {!isnull _bomb};
-            _bomb setDir (getDir _pilot);
-            _bomb setPos [getPos _bomb select 0, getPos _bomb select 1,(getPos _plane select 2 ) - 5]; //prop requires reposition after creating
+            _bomb setDir (getDir (vehicle _pilot));
+            _bomb setPos _bombPos; //prop requires reposition after creating
             _bomb setVectorDirAndUp [[0,0.66,-0.33], [0,0.33,0.66]];
             sleep 0.01;
             _bomb setVelocity [8,0,0];
-            if (_bombType == "NAPALM") then
-            {
-                [_bomb] spawn
-                {
-                    private _bomba = _this select 0;
-                    private _pos = [];
-                    while {!isNull _bomba} do
-                    {
-                        _pos = getPos _bomba;
-                        sleep 0.1;
-                    };
-                    [_pos] remoteExec ["A3A_fnc_napalm",2];
-                };
-            };
-        };
-    };
-} else {
-    for "_i" from 1 to _bombCount do {
-        sleep _timeBetweenBombs;
-        if (alive _pilot) then {
-            private _bombPos = (getPos _pilot) vectorAdd [0, 0, -5];
-            _bomb = _ammo createvehicle _bombPos;
-            waituntil {!isnull _bomb};
-            _bomb setDir (getDir _pilot);
-            _bomb setVelocity [0,0,-50];
+
             [_bomb] spawn {
                 params ["_lBomb"];
 
@@ -109,33 +88,35 @@ if(_bombType == "CHEMICAL") then {
             };
         };
     };
-};
+} else {
+    for "_i" from 1 to _bombCount do {
+        sleep _timeBetweenBombs;
+        if (alive _pilot) then
+        {
+            private _bombPos = (getPos _pilot) vectorAdd [0, 0, -6];
+            if (_bombType == "CLUSTER") then {
+                _bombPos = _bombPos vectorAdd [0,0, -7];
+            };
 
-
-for "_i" from 1 to _bombCount do
-{
-	sleep _timeBetweenBombs;
-	if (alive _pilot) then
-	{
-        private _bombPos = (getPos _pilot) vectorAdd [0, 0, -5];
-		_bomb = _ammo createvehicle _bombPos;
-		waituntil {!isnull _bomb};
-		_bomb setDir (getDir _pilot);
-		_bomb setVelocity [0,0,-50];
-		if (_bombType == "NAPALM") then
-		{
-			[_bomb] spawn
-			{
-                private _bomba = _this select 0;
-                private _pos = [];
-                while {!isNull _bomba} do
+            _bomb = _ammo createvehicle _bombPos;
+            waituntil {!isnull _bomb};
+            _bomb setDir (getDir _pilot);
+            _bomb setVelocity [0,0,-50];
+            if (_bombType == "NAPALM") then
+            {
+                [_bomb] spawn
                 {
-                    _pos = getPos _bomba;
-                    sleep 0.1;
+                    private _bomba = _this select 0;
+                    private _pos = [];
+                    while {!isNull _bomba} do
+                    {
+                        _pos = getPos _bomba;
+                        sleep 0.1;
+                    };
+                    [_pos] remoteExec ["A3A_fnc_napalm",2];
                 };
-                [_pos] remoteExec ["A3A_fnc_napalm",2];
-			};
-		};
-	};
+            };
+        };
+    };
+    //_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position
 };
-//_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position
