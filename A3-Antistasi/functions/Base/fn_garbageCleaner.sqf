@@ -26,6 +26,20 @@ if !(!isNil "chemicalCurrent" && {chemicalCurrent}) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "Land_GarbageBarrel_02_F");
 };
 
+private _rebelPlayers = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+private _lootCrates = (allMissionObjects lootCrate) select { 
+	private _crate = _x;
+	private _isOnHq = (getMarkerPos "Synd_HQ") distance2D _crate < 50;
+	private _isPlayersNear = _rebelPlayers findIf {_crate distance2D _x < 100} != -1;
+	!_isOnHq && !_isPlayersNear
+};
+
+if (!isNil "_lootCrates" && {count _lootCrates > 0}) then {
+	{
+		deleteVehicle _x;
+	} forEach _lootCrates;
+};
+
 _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
 
 {
