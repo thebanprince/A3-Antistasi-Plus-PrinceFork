@@ -50,8 +50,6 @@ DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
 //DECLARE_SERVER_VAR(maxUnits, 140);
 //Max constructions that players are able to build. Acts on LIFO principle
 DECLARE_SERVER_VAR(maxConstructions, 150);
-//Loot crates collection, used only by server
-DECLARE_SERVER_VAR(lootCrates, []);
 
 
 //Disabled DLC according to server parameters
@@ -121,6 +119,8 @@ DECLARE_SERVER_VAR(traderPosition, []);
 DECLARE_SERVER_VAR(traderDiscount, 0);
 //Latest pursuers spawn time
 DECLARE_SERVER_VAR(pursuersTime, 0);
+//Players who attend in parachute jumps
+DECLARE_SERVER_VAR(paradropAttendants, []);
 
 //Check if occupants and invaders are defeated
 DECLARE_SERVER_VAR(areOccupantsDefeated, false);

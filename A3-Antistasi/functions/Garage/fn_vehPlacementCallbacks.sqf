@@ -326,9 +326,6 @@ switch (_callbackTarget) do {
 
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
 				[_purchasedVeh] call A3A_fnc_logistics_addLoadAction;
-
-				lootCrates pushBack _purchasedVeh;
-				publicVariableServer "lootCrates";
 			};
 
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
