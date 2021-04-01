@@ -25,8 +25,6 @@ private _countX = 0;
 
 private _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-private _positionsX = roadsX getVariable [_markerX,[]];
-
 private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
 private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
 private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};

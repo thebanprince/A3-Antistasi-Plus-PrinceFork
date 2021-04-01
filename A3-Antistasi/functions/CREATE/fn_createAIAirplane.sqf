@@ -25,13 +25,6 @@ _nVeh = round (_size/60);
 
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-_positionsX = roadsX getVariable [_markerX,[]];
-_posMG = _positionsX select {(_x select 2) == "MG"};
-_posMort = _positionsX select {(_x select 2) == "Mort"};
-_posTank = _positionsX select {(_x select 2) == "Tank"};
-_posAA = _positionsX select {(_x select 2) == "AA"};
-_posAT = _positionsX select {(_x select 2) == "AT"};
-
 private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
 private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
 private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
@@ -265,84 +258,6 @@ while {_spawnParameter isEqualType []} do
 		_props pushBack _sandbag;
 	} forEach [0, 90, 180, 270];
 };
-
-_typeVehX = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-{
-if (spawner getVariable _markerX != 2) then
-	{
-	_proceed = true;
-	if ((_x select 0) select 2 > 0.5) then
-		{
-		_bld = nearestBuilding (_x select 0);
-		if !(alive _bld) then {_proceed = false};
-		};
-	if (_proceed) then
-		{
-		_veh = _typeVehX createVehicle [0,0,1000];
-		_veh setDir (_x select 1);
-		_veh setPosATL (_x select 0);
-		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
-		_unit moveInGunner _veh;
-		_soldiers pushBack _unit;
-		_vehiclesX pushBack _veh;
-		[_veh, _sideX] call A3A_fnc_AIVEHinit;
-		sleep 1;
-		};
-	};
-} forEach _posMG;
-_typeVehX = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
-{
-if (spawner getVariable _markerX != 2) then
-	{
-	if !([_typeVehX] call A3A_fnc_vehAvailable) exitWith {};
-	_proceed = true;
-	if ((_x select 0) select 2 > 0.5) then
-		{
-		_bld = nearestBuilding (_x select 0);
-		if !(alive _bld) then {_proceed = false};
-		};
-	if (_proceed) then
-		{
-		_veh = _typeVehX createVehicle [0,0,1000];
-		_veh setDir (_x select 1);
-		_veh setPosATL (_x select 0);
-		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
-		_unit moveInGunner _veh;
-		_soldiers pushBack _unit;
-		_vehiclesX pushBack _veh;
-		[_veh, _sideX] call A3A_fnc_AIVEHinit;
-		sleep 1;
-		};
-	};
-} forEach _posAA;
-_typeVehX = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
-{
-if (spawner getVariable _markerX != 2) then
-	{
-	if !([_typeVehX] call A3A_fnc_vehAvailable) exitWith {};
-	_proceed = true;
-	if ((_x select 0) select 2 > 0.5) then
-		{
-		_bld = nearestBuilding (_x select 0);
-		if !(alive _bld) then {_proceed = false};
-		};
-	if (_proceed) then
-		{
-		_veh = _typeVehX createVehicle [0,0,1000];
-		_veh setDir (_x select 1);
-		_veh setPosATL (_x select 0);
-		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
-		_unit moveInGunner _veh;
-		_soldiers pushBack _unit;
-		_vehiclesX pushBack _veh;
-		[_veh, _sideX] call A3A_fnc_AIVEHinit;
-		sleep 1;
-		};
-	};
-} forEach _posAT;
 
 _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
 _groups pushBack (_ret select 0);
