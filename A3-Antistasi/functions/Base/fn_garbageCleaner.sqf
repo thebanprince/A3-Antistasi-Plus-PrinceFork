@@ -31,7 +31,7 @@ private _lootCrates = (allMissionObjects lootCrate) select {
 	private _crate = _x;
 	private _isOnHq = (getMarkerPos "Synd_HQ") distance2D _crate < 50;
 	private _isPlayersNear = _rebelPlayers findIf {_crate distance2D _x < 100} != -1;
-	!_isOnHq && !_isPlayersNear
+	!_isOnHq && !_isPlayersNear && (isNull attachedTo _crate)
 };
 
 if (!isNil "_lootCrates" && {count _lootCrates > 0}) then {
