@@ -9,7 +9,7 @@ menuSliderArray = [
 
 menuSliderCurrent = 0;
 
-((findDisplay 70000) displayCtrl 1050) ctrlSetText "Game Options";
+((findDisplay 70000) displayCtrl 1050) ctrlSetText "Player Menu";
 ctrlSetFocus ((findDisplay 70000) displayCtrl 1151);
 
 {	
@@ -22,6 +22,7 @@ ctrlSetFocus ((findDisplay 70000) displayCtrl 1151);
 
 ["MAIN", 5100, false] call SCRT_fnc_ui_switchButton;
 ["MAIN", 5200, false] call SCRT_fnc_ui_switchButton;
+["MAIN", 5400, false] call SCRT_fnc_ui_switchButton;
 
 private _gameInfoText = format [
     "Antistasi - %2, Version: %1, Antistasi Plus Version: %6, Difficulty: %3, Unlock Weapon Number: %4, Limited Fast Travel: %5", 
@@ -33,5 +34,9 @@ private _gameInfoText = format [
     antistasiPlusVersion
 ];
 ((findDisplay 70000) displayCtrl 2011) ctrlSetText _gameInfoText;
+
+if (player distance2D (getMarkerPos "Synd_HQ") > 50) then {
+    ((findDisplay 70000) displayCtrl 5300) ctrlShow false;
+};
 
 menuComplete = true;

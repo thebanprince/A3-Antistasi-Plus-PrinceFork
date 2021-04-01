@@ -14,4 +14,8 @@ minefieldType = nil;
 outpostCost = nil;
 minefieldCost = nil;
 
+if (!isNil "forbiddenParadropZones") then {
+    {deleteMarkerLocal _x} forEach forbiddenParadropZones;
+};
+
 [] spawn SCRT_fnc_ui_clearSupport;

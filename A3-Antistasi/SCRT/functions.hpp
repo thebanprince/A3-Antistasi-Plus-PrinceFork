@@ -173,6 +173,16 @@ class SCRT
         class support_chemicalBomb {};
         class support_flareBarrage {};
         class support_smokeBarrage {};
+        class support_planeParadropRun {};
+    };
+
+    class Paradrop
+    {
+        file = "SCRT\Paradrop";
+        class paradrop_getPlayersToParadrop {};
+        class paradrop_prepare {};
+        class paradrop_movePlayerToPlane {};
+        class paradrop_jump {};
     };
 
     class Build

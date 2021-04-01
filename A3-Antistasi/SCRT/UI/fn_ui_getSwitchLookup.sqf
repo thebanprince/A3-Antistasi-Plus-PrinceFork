@@ -14,6 +14,11 @@ switch (_table) do {
                 _return pushBack isLauncherCamEnabled;
                 _return pushBack ["ENABLED", "DISABLED"];
             };
+            case 5400: {
+                _return pushBack "isPlayerParadropable";
+                _return pushBack isPlayerParadropable;
+                _return pushBack ["ENABLED", "DISABLED"];
+            };
         };			
     };
     case "LOBBY": {

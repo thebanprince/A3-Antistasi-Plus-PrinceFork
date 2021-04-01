@@ -30,7 +30,31 @@ switch (supportType) do {
     case ("CHEMICAL"): {
         _costTextBox ctrlSetText "Costs 1 Airstrike";
     };
+    case ("PARADROP"): {
+        _costTextBox ctrlSetText "Costs 1 Support and 500€";
+    };
     default {
         _costTextBox ctrlSetText "Costs 1 Support";
+    };
+};
+
+if (supportType == "PARADROP") then {
+    private _markersX = markersX select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+    _markersX = _markersX - controlsX;
+
+    forbiddenParadropZones = [];
+
+    {
+        private _localMarker = createMarkerLocal [format ["%1forbiddenzone", count forbiddenParadropZones], getMarkerPos _x];
+        _localMarker setMarkerShapeLocal "ELLIPSE";
+        _localMarker setMarkerSizeLocal [500,500];
+        _localMarker setMarkerTypeLocal "hd_warning";
+        _localMarker setMarkerColorLocal "ColorRed";
+        _localMarker setMarkerBrushLocal "DiagGrid";
+        forbiddenParadropZones pushBack _localMarker;
+    } forEach _markersX;
+} else { 
+    if (!isNil "forbiddenParadropZones") then {
+        {deleteMarkerLocal _x} forEach forbiddenParadropZones;
     };
 };

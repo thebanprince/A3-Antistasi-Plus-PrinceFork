@@ -2,9 +2,10 @@
 
 ## 2.0
 ### Additions
-- UI/UX overhaul - new commander menu (O key shortcut), all other menus had been remade on new UI framework
+- UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
 - Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
+- New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, player-on-foot-only)
 - New mission types - Shoot Down the Helicopter, Eliminate High-Ranking Officer and Destroy Enemy Tank

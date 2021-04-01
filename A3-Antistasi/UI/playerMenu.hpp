@@ -189,6 +189,46 @@ class playerMenu
 					};		
 				};
 
+				class paradropButton: RscControlsGroupNoScrollbars 
+				{
+					idc = 5400;
+					y = "11 * pixelGridNoUIScale * pixelH";
+					class Controls 
+					{
+						class SwitchPic: switchButtonPic
+						{			
+							idc = 5401;
+							text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\land_ca.paa";
+						};
+						class SwitchTitle: switchButtonTitle
+						{			
+							idc = 5402;	
+							text = "PARADROP";
+						};
+						class SwitchText: switchButtonSelect
+						{			
+							idc = 5403;
+							text = "";
+						};
+						class SwitchButton: switchButton {
+							idc = 5404;
+							action = "['MAIN', 5400, true, 'PARADROP'] call SCRT_fnc_ui_switchButton";
+							tooltip = "Disables/Enable paradrop attendance.";
+						};
+					};		
+				};
+
+				class paradropDescriptionText: TextBaseMT
+				{
+					idc = 6521;			
+					text = "To attend in paradrop, you must be at rebel HQ and turn on switch button above to be able to be transfered to aircraft.";
+					x = "1 * pixelGridNoUIScale * pixelW";
+					y = "14.5 * pixelGridNoUIScale * pixelH";	
+					w = "22 * pixelGridNoUIScale * pixelW";	
+					h = "4 * pixelGridNoUIScale * pixelH";
+					colorText[] = {1,1,1,0.7};
+				};
+
 				class saveGameButton: ButtonBase
 				{		
 					idc = 5300;

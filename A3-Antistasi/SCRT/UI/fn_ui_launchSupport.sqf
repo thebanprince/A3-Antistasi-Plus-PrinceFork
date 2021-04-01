@@ -90,6 +90,46 @@ if (!(supportType in ["SMOKE", "FLARE"]) && {isNil "supportMarkerDestination"}) 
 	] spawn SCRT_fnc_ui_showMessage;
 };
 
+private _exit = false;
+private _exitMessage = "";
+
+if (supportType == "PARADROP") then {
+    if ((getMarkerPos "Synd_HQ") distance2D theBoss > 50) exitWith {
+        _exit = true;
+        _exitMessage = "Commander should be at rebel HQ to be able to launch paradrop plane run.";
+    };
+
+    if ([(getMarkerPos "Synd_HQ"), 300] call A3A_fnc_enemyNearCheck) exitWith {
+        _exit = true;
+        _exitMessage = "You cannot paradrop when enemies are near rebel HQ.";
+    };
+
+    private _attendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
+    if (_attendants isEqualTo []) exitWith {
+        _exit = true;
+        _exitMessage = "No players are ready for jump. Make sure that players pressed PARADROP switch button in Game Options menu (O key or map-on-tripod action).";
+    };
+
+    private _readyPlayers = _attendants select {
+        _x distance2D (getMarkerPos "Synd_HQ") < 50 
+        && vehicle _x == _x && {[_x] call A3A_fnc_canFight} 
+        && !(!(isNil "placingVehicle") && {placingVehicle})
+    };
+    if (isNil "_readyPlayers" || {count _readyPlayers == 0}) exitWith {
+        _exit = true;
+        _exitMessage = "Players who are ready to jump should be alive, on their feet, not doing anything with vehicles and be at the rebel HQ.";
+    };
+};
+
+if (_exit) exitWith {
+    [
+        "FAIL",
+        "Paradrop",  
+        parseText _exitMessage, 
+        30
+    ] spawn SCRT_fnc_ui_showMessage;
+};
+
 switch (supportType) do {
     case ("SUPPLY");
     case ("SMOKE");
@@ -136,6 +176,7 @@ switch (true) do {
         [] spawn SCRT_fnc_support_planeReconRun;
     };
     case (supportType == "PARADROP"): {
+        [] remoteExec  ["SCRT_fnc_paradrop_prepare", 2];
         [] spawn SCRT_fnc_support_planeParadropRun;
     };
     case (supportType == "VEH_AIRDROP");

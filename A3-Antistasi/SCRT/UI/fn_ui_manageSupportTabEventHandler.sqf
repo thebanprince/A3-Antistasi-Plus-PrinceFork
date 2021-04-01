@@ -11,9 +11,25 @@ if(_mode == "ADD") then {
             playSound "readoutClick";
 
             if (isNil "supportMarkerOrigin") then {
-                supportMarkerOrigin = createMarkerLocal ["BRStart", _pos];
-                supportMarkerOrigin setMarkerShapeLocal "ICON";
-                supportMarkerOrigin setMarkerTypeLocal "hd_destroy";
+                if (supportType == "PARADROP") then {
+                    private _nearMarker = [forbiddenParadropZones, _pos] call BIS_fnc_nearestPosition;
+                    if ((getMarkerPos _nearMarker) distance2D _pos < 500) then {
+                        [
+                            "FAIL",
+                            "Paradrop",  
+                            parseText "Too close to enemy marker, choose different location", 
+                            30
+                        ] spawn SCRT_fnc_ui_showMessage;
+                    } else {
+                        supportMarkerOrigin = createMarkerLocal ["BRStart", _pos];
+                        supportMarkerOrigin setMarkerShapeLocal "ICON";
+                        supportMarkerOrigin setMarkerTypeLocal "hd_destroy";
+                    };
+                } else {                   
+                    supportMarkerOrigin = createMarkerLocal ["BRStart", _pos];
+                    supportMarkerOrigin setMarkerShapeLocal "ICON";
+                    supportMarkerOrigin setMarkerTypeLocal "hd_destroy";
+                };
 
                 switch (supportType) do {
                     case ("SUPPLY"): {
@@ -37,6 +53,10 @@ if(_mode == "ADD") then {
                         supportMarkerOrigin setMarkerColorLocal "ColorOrange";
                         supportMarkerOrigin setMarkerTextLocal "Recon Plane Init";
                     };
+                    case ("PARADROP"): {
+                        supportMarkerOrigin setMarkerColorLocal "ColorGrey";
+                        supportMarkerOrigin setMarkerTextLocal "Paradrop Init";
+                    };
                     default {
                         supportMarkerOrigin setMarkerColorLocal "ColorRed";
                         supportMarkerOrigin setMarkerTextLocal "Bomb Run Init";
@@ -44,9 +64,25 @@ if(_mode == "ADD") then {
                 };
             } else {
                 if !(supportType in ["SMOKE", "FLARE"]) then {
-                    supportMarkerDestination = createMarkerLocal ["BRFin", _pos];
-                    supportMarkerDestination setMarkerShapeLocal "ICON";
-                    supportMarkerDestination setMarkerTypeLocal "hd_destroy";
+                    if (supportType == "PARADROP") then {
+                        private _nearMarker = [forbiddenParadropZones, _pos] call BIS_fnc_nearestPosition;
+                        if ((getMarkerPos _nearMarker) distance2D _pos < 500) then {
+                            [
+                                "FAIL",
+                                "Paradrop",  
+                                parseText "Too close to enemy marker, choose different location", 
+                                30
+                            ] spawn SCRT_fnc_ui_showMessage;
+                        } else {
+                            supportMarkerDestination = createMarkerLocal ["BRFin", _pos];
+                            supportMarkerDestination setMarkerShapeLocal "ICON";
+                            supportMarkerDestination setMarkerTypeLocal "hd_destroy";
+                        };
+                    } else {                   
+                        supportMarkerDestination = createMarkerLocal ["BRFin", _pos];
+                        supportMarkerDestination setMarkerShapeLocal "ICON";
+                        supportMarkerDestination setMarkerTypeLocal "hd_destroy";
+                    };
 
                     switch (supportType) do {
                         case ("SUPPLY"): {
@@ -64,6 +100,10 @@ if(_mode == "ADD") then {
                         case ("RECON"): {
                             supportMarkerDestination setMarkerColorLocal "ColorOrange";
                             supportMarkerDestination setMarkerTextLocal "Recon Plane Search Area";
+                        };
+                        case ("PARADROP"): {
+                            supportMarkerDestination setMarkerColorLocal "ColorGrey";
+                            supportMarkerDestination setMarkerTextLocal "Paradrop Exit";
                         };
                         default {
                             supportMarkerDestination setMarkerColorLocal "ColorRed";

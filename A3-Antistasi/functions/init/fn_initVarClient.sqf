@@ -29,4 +29,7 @@ isMenuOpen = false;
 // rocket camera
 isLauncherCamEnabled = false;
 
+//parachute attendance
+isPlayerParadropable = false;
+
 [2,"initVarClient completed",_fileName] call A3A_fnc_log;

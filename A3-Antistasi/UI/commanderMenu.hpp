@@ -721,7 +721,7 @@ class commanderMenu
 					idc = 5040;
 					text = "Civ Limit per Client: 5";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "4.5 * pixelGridNoUIScale * pixelH";	
+					y = "4.25 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					colorText[] = {0.75,0.75,0.75,1};
@@ -734,24 +734,18 @@ class commanderMenu
 				{
 					idc = 5041;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
-					y = "7.5 * pixelGridNoUIScale * pixelH";	
+					y = "7.25 * pixelGridNoUIScale * pixelH";	
 					w = "21.5 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";					
 					onSliderPosChanged = "_value = round (_this select 1); ((findDisplay 60000) displayCtrl 5040) ctrlSetText format ['Civilians per client: %1', _value]; civPerc = _value; publicVariable 'civPerc';";
 				};
 				
-				class envSpacer2: brSpacer 
-				{
-					idc = 5092;					
-					y = "10 * pixelGridNoUIScale * pixelH";	
-				};
-
 				class spawnDistanceLimitTitle: TextBase
 				{
 					idc = 5060;
 					text = "Maximum Spawn Distance: 1100";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "10.5 * pixelGridNoUIScale * pixelH";	
+					y = "9 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					colorText[] = {0.75,0.75,0.75,1};
@@ -764,16 +758,10 @@ class commanderMenu
 				{
 					idc = 5061;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
-					y = "13.5 * pixelGridNoUIScale * pixelH";	
+					y = "11.75 * pixelGridNoUIScale * pixelH";	
 					w = "21.5 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";					
 					onSliderPosChanged = "_value = round (_this select 1); ((findDisplay 60000) displayCtrl 5060) ctrlSetText format ['Maximum Spawn Distance: %1', _value]; distanceSPWN = _value; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN / 2; publicVariable 'distanceSPWN';publicVariable 'distanceSPWN1';publicVariable 'distanceSPWN2';";
-				};
-				
-				class envSpacer3: brSpacer 
-				{
-					idc = 5093;					
-					y = "16 * pixelGridNoUIScale * pixelH";	
 				};
 
 				class aiLimitTitle: TextBase
@@ -781,7 +769,7 @@ class commanderMenu
 					idc = 5080;
 					text = "AI Limit: 100";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "16.5 * pixelGridNoUIScale * pixelH";	
+					y = "13.5 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					colorText[] = {0.75,0.75,0.75,1};
@@ -794,7 +782,7 @@ class commanderMenu
 				{
 					idc = 5081;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
-					y = "19.5 * pixelGridNoUIScale * pixelH";	
+					y = "16.25 * pixelGridNoUIScale * pixelH";	
 					w = "21.5 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";					
 					onSliderPosChanged = "_value = round (_this select 1); ((findDisplay 60000) displayCtrl 5080) ctrlSetText format ['AI Limit: %1', _value]; maxUnits = _value; publicVariable 'maxUnits';";
@@ -803,7 +791,7 @@ class commanderMenu
 				class envSpacer4: brSpacer 
 				{
 					idc = 5094;					
-					y = "22 * pixelGridNoUIScale * pixelH";	
+					y = "18.5 * pixelGridNoUIScale * pixelH";	
 				};
 
 				class clientOptionsDescriptionTitle: TextBase
@@ -811,7 +799,7 @@ class commanderMenu
 					idc = 5020;
 					text = "Client-Side Options";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "22.5 * pixelGridNoUIScale * pixelH";	
+					y = "19 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";
 				};
@@ -821,7 +809,7 @@ class commanderMenu
 					idc = 5021;			
 					text = "Options below are client-side only.";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "24.5 * pixelGridNoUIScale * pixelH";	
+					y = "21 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";
 					colorText[] = {1,1,1,0.7};
@@ -830,7 +818,7 @@ class commanderMenu
 				class musicSwitchButton: RscControlsGroupNoScrollbars 
 				{
 					idc = 5100;
-					y = "26.5 * pixelGridNoUIScale * pixelH";
+					y = "23 * pixelGridNoUIScale * pixelH";
 					class Controls 
 					{
 						class SwitchPic: switchButtonPic
@@ -859,7 +847,7 @@ class commanderMenu
 				class rocketCameraSwitchButton: RscControlsGroupNoScrollbars 
 				{
 					idc = 5200;
-					y = "30 * pixelGridNoUIScale * pixelH";
+					y = "26.5 * pixelGridNoUIScale * pixelH";
 					class Controls 
 					{
 						class SwitchPic: switchButtonPic
@@ -881,6 +869,35 @@ class commanderMenu
 							idc = 5204;
 							action = "['MAIN', 5200, true, 'CAMERA'] call SCRT_fnc_ui_switchButton";
 							tooltip = "Enables/Disables camera that follows any projectile that has been launched from missile/rocket launchers. Client-side. Experimental.";
+						};
+					};		
+				};
+
+				class paradropButton: RscControlsGroupNoScrollbars 
+				{
+					idc = 5400;
+					y = "30 * pixelGridNoUIScale * pixelH";
+					class Controls 
+					{
+						class SwitchPic: switchButtonPic
+						{			
+							idc = 5401;
+							text = "\A3\ui_f\data\igui\cfg\simpleTasks\types\land_ca.paa";
+						};
+						class SwitchTitle: switchButtonTitle
+						{			
+							idc = 5402;	
+							text = "PARADROP";
+						};
+						class SwitchText: switchButtonSelect
+						{			
+							idc = 5403;
+							text = "";
+						};
+						class SwitchButton: switchButton {
+							idc = 5404;
+							action = "['MAIN', 5400, true, 'PARADROP'] call SCRT_fnc_ui_switchButton";
+							tooltip = "To attend in paradrop, you must be at rebel HQ and turn on this switch button to be able to be transfered to aircraft.";
 						};
 					};		
 				};

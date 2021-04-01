@@ -29,6 +29,19 @@ if (_change) then {
             ['REMOVE'] call SCRT_fnc_misc_toggleLauncherCamEventHandler; 
         };
     };
+    if (_action == "PARADROP") exitWith {
+        if (isPlayerParadropable) then {
+            paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
+            paradropAttendants pushBack player;
+            publicVariableServer "paradropAttendants";
+            paradropAttendants = nil;
+        } else {
+            paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
+            private _playerIndex = paradropAttendants deleteAt (paradropAttendants find player);
+            publicVariableServer "paradropAttendants";
+            paradropAttendants = nil;
+        };
+    };
 } else {
     _representation = if(_currentValue) then {_allValues select 0} else {_allValues select 1};
     ctrlSetText [(_idc + 3), _representation];

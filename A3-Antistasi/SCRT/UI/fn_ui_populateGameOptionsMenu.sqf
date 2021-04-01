@@ -23,6 +23,7 @@ ctrlSetFocus ((findDisplay 60000) displayCtrl 1151);
 
 ["MAIN", 5100, false] call SCRT_fnc_ui_switchButton;
 ["MAIN", 5200, false] call SCRT_fnc_ui_switchButton;
+["MAIN", 5400, false] call SCRT_fnc_ui_switchButton;
 
 // civ limit
 sliderSetRange [5041, 1, 150];
