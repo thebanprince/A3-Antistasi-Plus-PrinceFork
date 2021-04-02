@@ -8,7 +8,7 @@
 - New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, player-on-foot-only)
-- New mission types - Shoot Down the Helicopter, Eliminate High-Ranking Officer and Destroy Enemy Tank
+- New mission types - Shoot Down the Helicopter, Eliminate High-Ranking Officer
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
 - New intel type - Arms Dealer store discount
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
@@ -52,6 +52,7 @@
 - Initial rebel loadout weapons, backpacks and chestrigs changes
 - Initial player money on start increased from 100 to 200 
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
+- Returned revive movement delay fix with additional checks and no actions bug mitigation
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (2.4 CV) All RHS and CUP templates have been remade from scratch
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
@@ -74,6 +75,7 @@
 - Removed tent on rebel HQ (all actions from it moved to new commander UI)
 - Removed duplicated or obsolete code
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
+- Disabled Pursuers until full Random Events implementation will happen
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 
