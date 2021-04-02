@@ -12,8 +12,8 @@ Dependencies:
 */
 private _filename = "selector.sqf";
 //Map checker
-private _aridMaps = ["altis", "takistan", "sara"];
-private _tropicalMaps = ["tanoa"];
+private _aridMaps = ["altis"];
+private _tropicalMaps = [];
 private _temperateMaps = ["enoch", "vt7", "cup_chernarus_a3", "napf"];
 //Mod selector
 
@@ -22,7 +22,6 @@ private _terrainName = toLower worldName;
 //Reb Templates
 switch(true) do{
     case (A3A_has3CBFactions): {
-        systemChat "3cb";
         switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
@@ -54,10 +53,6 @@ switch(true) do{
                 ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_enoch.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using enoch FIA Template", _filename] call A3A_fnc_log;
             };
-            case (_terrainName == "tanoa"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_SDK_Tanoa.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using tanoa SDK Template", _filename] call A3A_fnc_log;
-            };
             default {
                 ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using arid FIA Templates", _filename] call A3A_fnc_log;
@@ -66,7 +61,7 @@ switch(true) do{
     };
 };
   //Occ Templates
-switch(true) do{
+switch(true) do {
     case (A3A_has3CBFactions): {
         switch(true) do {
             case (_terrainName in _temperateMaps): {
@@ -104,10 +99,6 @@ switch(true) do{
             case (_terrainName == "enoch"): {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_enoch.sqf", west] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using Tnoch LDF Template", _filename] call A3A_fnc_log;
-            };
-            case (_terrainName == "tanoa"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Tropical.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using tropical NATO Templates", _filename] call A3A_fnc_log;
             };
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
@@ -158,10 +149,6 @@ switch(true) do{
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_enoch.sqf", east] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using enoch CSAT Template", _filename] call A3A_fnc_log;
             };
-            case (_terrainName == "tanoa"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Tropical.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using tanoa CSAT Template", _filename] call A3A_fnc_log;
-            };
             default {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", east] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using arid CSAT Template", _filename] call A3A_fnc_log;
@@ -210,5 +197,3 @@ if (A3A_hasRDS) then {
 call compile preProcessFileLineNumbers "Templates\NewTemplates\Vanilla\Vanilla_Logistics_Nodes.sqf";//Always call vanilla as it initialises the arrays.
 if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\RHS\RHS_Logistics_Nodes.sqf"};
 if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"};
-//if (A3A_hasD3S) then {call compile preProcessFileLineNumbers "Templates\AddonVics\d3s_Logi_Nodes.sqf";};		//disabled until imtegrated
-//if (A3A_hasRDS) then {call compile preProcessFileLineNumbers "Templates\AddonVics\rds_Logi_Nodes.sqf";};		//disabled until imtegrated
