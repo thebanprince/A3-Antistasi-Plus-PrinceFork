@@ -258,15 +258,23 @@ _flagX allowDamage false;
 _vehiclesX pushBack _flagX;
 
 private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
-private _ammoBox1 = _ammoBoxType createVehicle _positionX;
-[_ammoBox1] spawn A3A_fnc_fillLootCrate;
-[_ammoBox1] call A3A_fnc_logistics_addLoadAction;
-_vehiclesX pushBack _ammoBox1;
 
-private _ammoBox2 = _ammoBoxType createVehicle _positionX;
-[_ammoBox2] spawn A3A_fnc_fillLootCrate;
-[_ammoBox2] call A3A_fnc_logistics_addLoadAction;
-_vehiclesX pushBack _ammoBox2;
+// Only create ammoboxes if it's been recharged (see reinforcementsAI)
+private _ammoBox1 = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then {
+	private _ammoBox1 = _ammoBoxType createVehicle _positionX;
+	_ammoBox1 addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
+	[_ammoBox1] spawn A3A_fnc_fillLootCrate;
+	[_ammoBox1] call A3A_fnc_logistics_addLoadAction;
+	_ammoBox1;
+};
+
+private _ammoBox2 = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then {
+	private _ammoBox2 = _ammoBoxType createVehicle _positionX;
+	_ammoBox2 addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
+	[_ammoBox2] spawn A3A_fnc_fillLootCrate;
+	[_ammoBox2] call A3A_fnc_logistics_addLoadAction;
+	_ammoBox2;
+};
 
 if (!_busy) then {
 	for "_i" from 1 to (round (random 2)) do {
@@ -339,3 +347,18 @@ deleteMarker _mrk;
 {
 	deleteVehicle _x;
 } forEach _props;
+
+// If loot crate was stolen, set the cooldown
+if (!isNil "_ammoBox1") then {
+	if ((alive _ammoBox1) and (_ammoBox1 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox1 };
+	if (alive _ammoBox1) then { [_ammoBox1] spawn A3A_fnc_VEHdespawner };
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};
+
+if (!isNil "_ammoBox2") then {
+	if ((alive _ammoBox2) and (_ammoBox2 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox2 };
+	if (alive _ammoBox2) then { [_ammoBox2] spawn A3A_fnc_VEHdespawner };
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};
