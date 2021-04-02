@@ -37,6 +37,8 @@ private _allLoadouts = _faction getVariable "loadouts";
 if (_side isEqualTo east) then {
 	nameInvaders = _faction getVariable "name";
 
+	invaderBaseSoldier = _faction getVariable "baseSoldier";
+
 	//Flag images
 	CSATFlag = _faction getVariable "flag";
 	CSATFlagTexture = _faction getVariable "flagTexture";
@@ -225,6 +227,8 @@ if (_side isEqualTo east) then {
 
 if (_side isEqualTo west) then {
 	nameOccupants = _faction getVariable "name";
+
+	occupantBaseSoldier = _faction getVariable "baseSoldier";
 
 	//Flag images
 	NATOFlag = _faction getVariable "flag";
@@ -421,6 +425,8 @@ if (_side isEqualTo west) then {
 
 if (_side isEqualTo independent) then {
 	nameTeamPlayer = _faction getVariable "name";
+
+	rebelBaseSoldier = _faction getVariable "baseSoldier";
 
 	//Flag images
 	SDKFlag = _faction getVariable "flag";
