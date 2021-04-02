@@ -46,10 +46,6 @@ private _metersPerBomb = _bombRunLength / _bombCount;
 //Decrease it a bit, to avoid scheduling erros
 private _timeBetweenBombs = (_metersPerBomb / _speedInMeters) - 0.05;
 
-systemChat str _timeBetweenBombs;
-systemChat format ["Sleep:%1", str ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters))];
-
-
 sleep ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters));
 if(_bombType == "CHEMICAL") then {
     for "_i" from 1 to _bombCount do {
