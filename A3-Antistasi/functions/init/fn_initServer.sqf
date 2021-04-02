@@ -193,9 +193,11 @@ distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] spawn A3A_fnc_initSupportCooldowns;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
-if(isPursuersEnabled) then {
-	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
-};
+
+//TODO: Disabled until random events full implementation
+// if(areRandomEventsEnabled) then {
+// 	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
+// };
 savingServer = false;
 
 // Autosave loop. Save if there were any players on the server since the last save.

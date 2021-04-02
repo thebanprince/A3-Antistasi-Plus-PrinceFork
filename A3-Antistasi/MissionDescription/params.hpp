@@ -284,13 +284,14 @@ class Params
 		texts[]={"Default(1:1 (Normal))","1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
 		default = 9999;
      };
-     class pursuers
-     {
-          title = "Enable Random Events (EXPERIMENTAL)";
-          values[] = {9999, 1, 0};
-          texts[] =  {"Default (Yes)","Yes","No"};
-          default = 9999;
-     };
+     //TODO: disabled until random events implementation
+     // class randomEvents
+     // {
+     //      title = "Enable Random Events (EXPERIMENTAL)";
+     //      values[] = {9999, 1, 0};
+     //      texts[] =  {"Default (Yes)","Yes","No"};
+     //      default = 9999;
+     // };
      class magRepack
      {
           title = "Enable Mag Repack";

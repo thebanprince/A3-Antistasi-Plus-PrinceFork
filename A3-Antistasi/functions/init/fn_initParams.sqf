@@ -103,7 +103,7 @@ A3A_paramTable = [
     ["playerStartingMoney", "playerStartingMoney", [], 200],
     ["factionsDefeat", "factionsDefeat", [], true],
     ["spawnTraderOnBase", "traderOnBase", [], false],
-    ["isPursuersEnabled", "pursuers", [], false],
+    ["areRandomEventsEnabled", "randomEvents", [], false],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
     ["isFatalWoundsEnabled", "fatalWounds", [], false],
     ["playerIcons", "playerIcons", [], true],

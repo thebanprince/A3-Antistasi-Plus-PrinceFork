@@ -118,7 +118,8 @@ DECLARE_SERVER_VAR(traderPosition, []);
 //Trader discount.
 DECLARE_SERVER_VAR(traderDiscount, 0);
 //Latest pursuers spawn time
-DECLARE_SERVER_VAR(pursuersTime, 0);
+//TODO: Disabled until random events full implementation
+// DECLARE_SERVER_VAR(pursuersTime, 0);
 //Players who attend in parachute jumps
 DECLARE_SERVER_VAR(paradropAttendants, []);
 
