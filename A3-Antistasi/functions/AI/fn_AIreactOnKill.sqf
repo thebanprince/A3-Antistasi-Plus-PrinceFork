@@ -103,8 +103,8 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
         if ([_x] call A3A_fnc_canFight) then
 		{
             //check if there is at least one soldier in squad without NVG
-            _squad = units _groupX;
-            _noNvgIndex = _squad findIf {hmd _x == ""};
+            private _squad = units _group;
+            private _noNvgIndex = _squad findIf {hmd _x == ""};
 
             _enemy = _x findNearestEnemy _x;
             if (!isNull _enemy) then
