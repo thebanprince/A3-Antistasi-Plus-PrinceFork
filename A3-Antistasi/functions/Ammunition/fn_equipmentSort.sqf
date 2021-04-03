@@ -25,6 +25,7 @@
 		case "IND_L_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
 		case "BLU_G_F": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
+		case "CUP_I_NAPA": {if (teamPlayer isEqualTo independent) then {allRebelUniforms pushBack _x};};
 	};
 } forEach allUniforms;
 
