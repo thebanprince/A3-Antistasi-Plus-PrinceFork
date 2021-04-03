@@ -155,24 +155,9 @@ if (time > _bleedOut) exitWith {
 if (alive _unit) then {
 	_unit setUnconscious false;
 	_unit setBleedingRemaining 0;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
-
+	_unit playMoveNow "unconsciousoutprone";
 
 	if (isPlayer _unit) then {
 		[] call SCRT_fnc_misc_updateRichPresence;
-
-		//previous animation has length issues, let's play other animation to regain character controls faster
-		private _animtimeOut = time + 4;
-		waitUntil {time > _animtimeOut};
-		_unit playMoveNow "AmovPpneMstpSrasWrflDnon";
-
-		//mitigation if player has not recieved all his abilities back
-		sleep 15;
-		if (alive _unit && {!(_unit getVariable ["incapacitated",false])}) then {
-			if (lifeState _unit == "incapacitated") then {
-				_unit setUnconscious false
-			};
-			_unit setVariable ["incapacitated",false];
-		};
 	};
 };
