@@ -41,6 +41,9 @@ class SCRT
         class misc_toggleLauncherCamEventHandler {};
         class misc_updateRichPresence {};
         class misc_getAccentColor {};
+        class misc_createBelonging {};
+        class misc_extendPosition {};
+        class misc_isInHouse {};
     };
 
     class UI
