@@ -13,7 +13,6 @@ params ["_squadLeader", "_caller", "_searchAction"];
 [_squadLeader, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _squadLeader];
 
 searchedSquadLeader = _squadLeader;
-spawnedBelongings = [];
 
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
@@ -40,13 +39,25 @@ _caller addEventHandler
         ) then {
             _caller playMoveNow selectRandom medicAnims;
 
-            private _leaderWorldPosition = getPosWorld searchedSquadLeader;
-            private _belongingObject = [
-                selectRandom belongings, 
-                [(_leaderWorldPosition select 0) + (random [0.35, 0.6, 1.5]),( _leaderWorldPosition select 1) + (random [0.35, 0.6, 1.5]), _leaderWorldPosition select 2]
-            ] call BIS_fnc_createSimpleObject;
-            _belongingObject setDir (random 360);
-            spawnedBelongings pushBack _belongingObject;
+            private _belongings = searchedSquadLeader getVariable ["belongings", []];
+
+            if ((count _belongings) < 4) then {
+                private _position = [(getPos searchedSquadLeader), 0.7, (random 360)] call SCRT_fnc_misc_extendPosition;
+
+                if (searchedSquadLeader call SCRT_fnc_misc_isInHouse) then {
+                    private _height = (getPosATL searchedSquadLeader) select 2;
+                    _position = [_position select 0, _position select 1, _height];
+                };
+
+                private _belonging = [
+                    (selectRandom belongings),
+                    _position,
+                    (random 360)
+                ] call SCRT_fnc_misc_createBelonging;
+
+                _belongings pushBack _belonging; 
+                searchedSquadLeader setVariable ["belongings", _belongings];
+            };
         }
         else {
             _caller removeEventHandler ["AnimDone", _thisEventHandler];
@@ -78,7 +89,6 @@ if(_wasCancelled) exitWith
     _caller setVariable ["intelSearchDone", nil];
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
     searchedSquadLeader = nil;
-    spawnedBelongings = nil;
 };
 
 if(random 100 < (40 + tierWar * 3)) then {
@@ -114,8 +124,9 @@ _caller setVariable ["intelFound", nil];
 private _bTimeOut = time + 60;
 waitUntil {sleep 0.5; time > _bTimeOut};
 
+private _belongings = searchedSquadLeader getVariable ["belongings", []];
 {
     deleteVehicle _x;
-} forEach spawnedBelongings;
-spawnedBelongings = nil; 
+} forEach _belongings;
+
 searchedSquadLeader = nil;
