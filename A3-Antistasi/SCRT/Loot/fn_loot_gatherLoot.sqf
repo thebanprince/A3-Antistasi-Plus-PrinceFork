@@ -1,6 +1,6 @@
 /*
 	author: Socrates
-	description: Loots all the bodies near the vehicle.
+	description: Loots all the bodies and crates near the vehicle or loot crate.
 	returns: nothing
 */
 params ["_vehicle"];
