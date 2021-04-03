@@ -425,6 +425,8 @@ if !(isPlayer leader group player) then {
 
 waitUntil { scriptDone _introshot };
 
+cutText ["","BLACK IN", 3];
+
 if (_isJip) then {
 	[2,"Joining In Progress (JIP)",_filename] call A3A_fnc_log;
 
