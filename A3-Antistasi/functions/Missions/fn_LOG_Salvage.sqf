@@ -39,7 +39,7 @@ private _boxType = [NATOEquipmentBox, CSATEquipmentBox] select (_sideX isEqualTo
 _boxType = [_boxType, "Box_NATO_Equip_F"] select isNil "_boxType"; //so we add this so boxtype is not undefined
 
 //Set time limit on mission
-private _timeLimit = if (_difficultX) then {30 * settingsTimeMultiplier} else {60 * settingsTimeMultiplier};
+private _timeLimit = if (_difficultX) then {30} else {60};
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly
@@ -80,13 +80,7 @@ _crateContents call A3A_fnc_fillLootCrate;
 //Create boat and initialise crew members
 [3, format ["Spawning patrol boat and crew"], _filename] call A3A_fnc_log;
 private _typeVeh = if (_difficultX) then {if (_sideX == Occupants) then {vehNATOBoat} else {vehCSATBoat}} else {if (_sideX == Occupants) then {vehNATORBoat} else {vehCSATRBoat}};
-private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {selectRandom groupsNATOSquad} else {selectRandom CSATSquad}} else {if (_sideX == Occupants) then {
-		private _squad = ;
-		_squad select 0;
-	} else {
-		groupsCSATmid select 0
-	}
-};
+private _typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {NATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {groupsNATOmid select 0} else {groupsCSATmid select 0}};
 private _boatSpawnLocation = selectRandom [_mrk1Pos, _mrk2Pos, _mrk3Pos];
 
 private _veh = createVehicle [_typeVeh, _boatSpawnLocation, [], 0, "NONE"];
