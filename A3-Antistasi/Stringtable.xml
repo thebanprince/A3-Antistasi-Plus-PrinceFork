@@ -1854,8 +1854,8 @@
         <Russian>Antistasi Plus - Янтарь</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_napf_blurb_text">
-        <Original>Yellow soil under our boots.</Original>
-        <English>Yellow soil under our boots.</English>
+        <Original>Yellow soil is under our boots.</Original>
+        <English>Yellow soil is under our boots.</English>
         <German>Gelber Boden unter unseren Stiefeln.</German>
         <French>De la terre jaune sous nos bottes.</French>
         <Russian>Желтая почва у нас под ногами.</Russian>
@@ -3924,16 +3924,20 @@
         <Russian>Обыскать тела и грузы</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_successful_loot_text">
-        <Original>Bodies and cargo has been successfully looted.</Original>
-        <English>Bodies and cargo has been successfully looted.</English>
-        <French>Les corps ont été pillés avec succès.</French>
-        <Russian>Тела были успешно разграблены.</Russian>
+        <Original>Scattered loot has been successfully gathered.</Original>
+        <English>Scattered loot has been successfully gathered.</English>
+        <French>Le butin dispersé a été collecté avec succès.</French>
+        <Russian>Добыча вокруга была успешно собрана.</Russian>
+        <Czech>Rozptýlená kořist byla úspěšně shromážděna.</Czech>
+        <German>Verstreute Beute wurde erfolgreich gesammelt.</German>
       </Key>
       <Key ID="STR_antistasi_actions_no_bodies_text">
-        <Original>No bodies and cargo around.</Original>
-        <English>No bodies and cargo around.</English>
-        <French>Aucun corps autour.</French>
-        <Russian>Нет тел и ящиков поблизости.</Russian>
+        <Original>No loot in proximity.</Original>
+        <English>No loot in proximity.</English>
+        <French>Pas de butin à proximité.</French>
+        <Czech>Žádná kořist v blízkosti.</Czech>
+        <Russian>Нет тел, ящиков или иной добычи поблизости.</Russian>
+        <German>Keine Beute in der Nähe.</German>
       </Key>
       <Key ID="STR_antistasi_actions_looter_cooldown_text">
         <Original>The looting ability has been used in the last 15 seconds! Please wait for a bit.</Original>

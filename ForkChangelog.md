@@ -53,6 +53,7 @@
 - Initial player money on start increased from 100 to 200 
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
 - Returned revive movement delay fix with additional checks and no actions bug mitigation
+- Flag on HQ will have specified rebel flag texture
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (2.4 CV) All RHS and CUP templates have been remade from scratch
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
