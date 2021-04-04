@@ -28,7 +28,7 @@ private _baseInputClassesMap = createHashMap;
 
 	private _similarClassnames = _weaponConfigs select { 
 		_weaponConfig = inheritsFrom (configFile >> "CfgWeapons" >> _x);
-		configName _weaponConfig == _cfgName
+		configName _weaponConfig == _cfgName || {(configName _weaponConfig) == _item}
 	};
 
 	// exclude weapons with attached scopes, muzzles, etc - they will appear as dupes in arsenal
@@ -43,7 +43,8 @@ private _baseInputClassesMap = createHashMap;
 	private _originItemFireModes = getArray (configFile >> "CfgWeapons" >> _item >> "modes");
 	private _originItemMuzzles = count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles"));
 	private _originItemOpticSystem = getText(configFile >> "CfgWeapons" >> _item >> "LinkedItems" >> "LinkedItemsOptic" >> "slot");
-	private _originMagazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazines");
+	private _originMagazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazineWell");
+	_originMagazines sort true;
 
 	//exclude weapons with different fire modes and muzzle count because some of them are, you know, totally different weapons
 	_similarClassnames = _similarClassnames select {
@@ -51,7 +52,8 @@ private _baseInputClassesMap = createHashMap;
 		private _weaponFireModes = getArray (configFile >> "CfgWeapons" >> _weapon >> "modes"); //separating weapons with different firing modes
 		private _weaponMuzzles = count (getArray (configfile >> "CfgWeapons" >> _weapon >> "muzzles")); //distincting weapons with underbarrels
 		private _weaponSystem = getText(configFile >> "CfgWeapons" >> _weapon >> "LinkedItems" >> "LinkedItemsOptic" >> "slot"); //separating weapons with different mount systems
-		private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
+		private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazineWell");
+		_weaponMagazines sort true;
 		_originItemFireModes isEqualTo _weaponFireModes && _weaponMuzzles == _originItemMuzzles && _originItemOpticSystem == _weaponSystem && _originMagazines isEqualTo _weaponMagazines
 	};
 
