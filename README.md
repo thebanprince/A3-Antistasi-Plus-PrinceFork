@@ -10,3 +10,4 @@
 - Antistasi Community Edition by Official Antistasi Community
 - Magrepack by Outlawled, R3vo and OOster
 - HALs_Store by HallyG, R3vo and barman75
+- Antistasi Plus fork by Socrates
