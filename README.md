@@ -8,5 +8,5 @@
 ### Credits
 - Original Mission by barbolani
 - Antistasi Community Edition by Official Antistasi Community
-- Magrepack by outlawled
-- HALs_Store by HallyG
+- Magrepack by Outlawled, R3vo and OOster
+- HALs_Store by HallyG, R3vo and barman75
