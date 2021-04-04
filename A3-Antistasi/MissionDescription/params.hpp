@@ -238,9 +238,9 @@ class Params
      class occupantFactionCup
      {
           title="Select Occupant Faction";
-		values[]={0, 1};
-		texts[]={"CDF","EUROFOR"};
-		default = 1;
+		values[]={9999, 0, 1, 2};
+		texts[]={"Default (USAF)", "USAF", "BAF", "CDF"};
+		default = 9999;
      };
      class Spacer62
      {
@@ -259,9 +259,9 @@ class Params
      class occupantFactionRhs
      {
           title="Select Occupant Faction";
-		values[]={0, 1};
-		texts[]={"CDF mixed with NATO","US"};
-		default = 1;
+		values[]={9999, 0, 1};
+		texts[]={"Default (USAF)", "USAF", "CDF"};
+		default = 9999;
      };
      class Spacer72
      {

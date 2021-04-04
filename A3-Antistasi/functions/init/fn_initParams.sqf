@@ -107,7 +107,9 @@ A3A_paramTable = [
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
     ["isFatalWoundsEnabled", "fatalWounds", [], false],
     ["playerIcons", "playerIcons", [], true],
-    ["magRepack", "magRepack", [], true]
+    ["magRepack", "magRepack", [], true],
+    ["rhsOccupantFaction", "occupantFactionRhs", ["server"], 0],
+    ["cupOccupantFaction", "occupantFactionCup", ["server"], 0]
     // beware of the comma
 ];
 
