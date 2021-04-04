@@ -489,7 +489,7 @@ private _templateVariables = [
 
 //CUP-only technical variables
 if(A3A_hasCup) then {
-	_templateVariables append ["techicalAa", "vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
+	_templateVariables append ["technicalAa", "vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
 {
@@ -828,7 +828,7 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 
 //technicals cost
 if(A3A_hasCup) then {
-	server setVariable [techicalAa, 1500, true];
+	server setVariable [technicalAa, 1500, true];
 	server setVariable [vehSDKLightUnarmedArmored, 400, true];
 	server setVariable [technicalArmoredBtr, 3250, true];
 	server setVariable [technicalArmoredAa, 3000, true];
