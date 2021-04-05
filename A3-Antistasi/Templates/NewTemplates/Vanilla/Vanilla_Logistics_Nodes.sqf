@@ -168,8 +168,7 @@ A3A_logistics_attachmentOffset = [
     ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,                        [0,0,0.85],                 [1,0,0],                    2],                         //Vehicle ammo create
     ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test supplybox
     ["Land_FoodSacks_01_cargo_brown_F" call A3A_fnc_classNameToModel,           [0,0,0.85],                 [1,0,0],                    2],                         //New city supplies crate
-    ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate1
-    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate2
+    ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate1                         //Stef test Devin crate2
     ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,                             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate3
     ["B_supplyCrate_F" call A3A_fnc_classNameToModel,                           [0, 0, 0.95],               [1,0,0],                    2],                         //Ammodrop crate
     ["C_Quadbike_01_F" call A3A_fnc_classNameToModel,                           [0, 0, 1.4],                [0,1,0],                    2], 
@@ -177,7 +176,8 @@ A3A_logistics_attachmentOffset = [
 
     //small sized crates                                                      //location                  //rotation                  //size                        //description
     ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box
-    ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,                            [0,0,0.22],                 [0,0,0],                    1],                          //surrender crates
+    ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,                            [0,0,0.22],                 [0,0,0],                    1],    
+    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.35],                 [0,0,0],                    1],                     //loot crate
     ["CargoNet_01_barrels_F" call A3A_fnc_classNameToModel,                     [0,0,-0.5],	                [1,0,0],				    1] //barrels from aidrop mission
 ];
 
