@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0
+## 1.5
 ### Additions
 - UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
 - Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
@@ -8,7 +8,6 @@
 - New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, player-on-foot-only)
-- New mission types - Shoot Down the Helicopter, Eliminate High-Ranking Officer
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
 - New intel type - Arms Dealer store discount
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
@@ -56,8 +55,8 @@
 - Flag on HQ will have specified rebel flag texture
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (2.4 CV) All RHS and CUP templates have been remade from scratch
+- (2.4 CV) Vanilla template has been greatly expanded
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
-- (2.4 CV) Replaced Infantry Unit Tiers functionality with Equipment Tiers
 - (Altis, 2.4 CV) BLUFOR version replaced with INDEP version due to 2.4 template changes
 - (Aegis) Zamak Flatbed logistics support
 - (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
@@ -79,6 +78,7 @@
 - Disabled Pursuers until full Random Events implementation will happen
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
+- (2.4 CV) Removed Infantry Unit Tiers as it is incompatible with new template system
 
 ## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
