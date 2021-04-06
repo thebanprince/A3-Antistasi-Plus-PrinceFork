@@ -38,6 +38,7 @@ if (_side isEqualTo east) then {
 	nameInvaders = _faction getVariable "name";
 
 	invaderBaseSoldier = _faction getVariable "baseSoldier";
+	invaderBaseSoldierMilitia = _faction getVariable "baseSoldierMilitia";
 
 	//Flag images
 	CSATFlag = _faction getVariable "flag";
@@ -229,6 +230,7 @@ if (_side isEqualTo west) then {
 	nameOccupants = _faction getVariable "name";
 
 	occupantBaseSoldier = _faction getVariable "baseSoldier";
+	occupantBaseSoldierMilitia = _faction getVariable "baseSoldierMilitia";
 
 	//Flag images
 	NATOFlag = _faction getVariable "flag";
