@@ -7,7 +7,7 @@ if (str (_display) == "no display") exitWith {};
 private _vehicleTypeComboBox = _display displayCtrl 715;
 private _index = lbCurSel _vehicleTypeComboBox;
 private _vehicleType = _vehicleTypeComboBox lbData _index;
-private _shopLookupArray = nil;
+private _shopLookupArray = [];
 
 switch(_vehicleType) do {
     case("CIV"): {
