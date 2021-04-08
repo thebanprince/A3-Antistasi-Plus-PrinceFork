@@ -23,8 +23,20 @@ private _unitDefinition = customUnitTypes getVariable [_type, []];
 if !(_unitDefinition isEqualTo []) exitWith {
 	_unitDefinition params ["_loadouts", "_traits"];
 	private _unitClass = switch (side _group) do {
-		case west: { occupantBaseSoldier };
-		case east: { invaderBaseSoldier };
+		case west: { 
+			if (["militia", _type] call BIS_fnc_inString) then {
+				occupantBaseSoldierMilitia
+			} else {
+				occupantBaseSoldier
+			};
+		};
+		case east: {
+			if (["militia", _type] call BIS_fnc_inString) then {
+				invaderBaseSoldierMilitia
+			} else {
+				invaderBaseSoldier
+			};
+		};
 		case independent: { rebelBaseSoldier };
 		case civilian: { "C_Man_1" };
 	};
