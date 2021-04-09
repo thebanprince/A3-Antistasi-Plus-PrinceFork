@@ -341,14 +341,7 @@ class Params
           texts[] =  {"Default (Factions can be defeated for good (only by players))", "Factions can be defeated for good (only by players)", "Vanilla style"};
           default = 9999;
      };
-     class allowStaticLoad
-     {
-          title = "Static Weapons as Cargo";
-          values[] = {9999, 1, 0};
-          texts[] =  {"Default (No)", "Yes", "No"};
-          default = 9999;
-     };
-
+     
      class Spacer307
      {
           title = "";

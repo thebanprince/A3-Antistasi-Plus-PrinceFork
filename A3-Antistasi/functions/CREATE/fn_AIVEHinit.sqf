@@ -205,9 +205,6 @@ _veh addEventHandler ["Dammaged", {
 
 //add JNL loading to quadbikes
 if(typeOf _veh in [vehSDKBike,vehNATOBike,vehCSATBike]) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
-if (allowStaticLoad && {_veh isKindOf "StaticWeapon"}) then {
-	[_veh] call A3A_fnc_logistics_addLoadAction;
-};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;
