@@ -147,7 +147,7 @@ addMissionEventHandler ["EachFrame",
 	private _placementPos = [];
 	//Just use the current position, if we're in 'Precision' mode
 	if (inputAction "turbo" > 0) then {
-		private _validPos = _pos findEmptyPosition [0, 0, "Land_BottlePlastic_V1_F"];	
+		private _validPos = _pos findEmptyPosition [0, 1, "Land_BottlePlastic_V1_F"];	
 		if (count _validPos > 0) then {
 			_placementPos = _pos;
 		};
@@ -156,7 +156,7 @@ addMissionEventHandler ["EachFrame",
 		//Helps avoid lots of rapid, potentially large changes in position.
 		if (_pos distance vehPlace_updatedLookPosition < 0.5) then {breakOut "handler";};
 		//Gradually increase the search distance, to try to avoid large jumps in position.
-		for "_maxDist" from 0 to 10 step 5 do {
+		for "_maxDist" from 0 to 16 step 4 do {
 			_placementPos =	_pos findEmptyPosition [0, _maxDist, typeOf vehPlace_previewVeh];
 			if (count _placementPos > 0) exitWith {};
 		};
