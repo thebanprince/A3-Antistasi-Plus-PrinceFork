@@ -103,10 +103,11 @@ if (visiblemap) then {
 	//If it's a new game, we teleport everyone to new HQ, yay!
 	if (_newGame) then {
 		{
-			if ((side _x == teamPlayer) or (side _x == civilian)) then {
+			if ((side _x == teamPlayer) or {side _x == civilian}) then {
 				_x setPos getPos petros;
 			};
 		} forEach (call A3A_fnc_playableUnits);
+		cutText ["","BLACK IN", 5];
 	};
 	openmap [false,false];
 };
