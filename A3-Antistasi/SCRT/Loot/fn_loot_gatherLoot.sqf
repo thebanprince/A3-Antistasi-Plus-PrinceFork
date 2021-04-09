@@ -12,27 +12,17 @@ private _time = serverTime;
 if ((_time - (_vehicle getVariable ["lastLooted", -15])) < 15) exitWith {
 	if (hasInterface) then {
         {
-            localize "STR_antistasi_actions_looter_cooldown_text" remoteExec ["hint", _x];
+            [localize "STR_antistasi_actions_looter_cooldown_text"] remoteExec ["systemChat", _x];
         } forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 	};
 };
 _vehicle setVariable ["lastLooted", _time, true];
 
-_allSupplies = position _vehicle nearSupplies RADIUS;
-_supplies = [];
-
-//getting everything except all kinds of vehicles, alive soldiers and non-surrender boxes
-{
-    if ((_x isKindOf "Man" && alive _x)
-        || (_x isKindOf "LandVehicle")
-        || (_x isKindOf "Air")
-        || (_x isKindOf "Ship")
-        || (_x isKindOf "ReammoBox_F" && !(typeOf _x == "Box_IND_Wps_F"))) then {
-        //skip
-    } else {
-       _supplies pushBack _x;
-    };
-} forEach _allSupplies;
+private _supplies = [];
+_supplies = (position _vehicle nearSupplies RADIUS) select {
+    (_x isKindOf "Man" && !(alive _x)) || 
+    {(typeOf _x) in [CSATSurrenderCrate, NATOSurrenderCrate, "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"]}
+};
 
 if(count _supplies < 1) exitWith {
     {
