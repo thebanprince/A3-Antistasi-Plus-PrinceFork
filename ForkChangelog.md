@@ -19,7 +19,7 @@
 - Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
-- (CUP, 3CB Factions, RHS) Additional vehicle categories in Vehicle Black Market
+- (CUP, RHS) Additional vehicle categories in Vehicle Black Market
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
@@ -53,12 +53,17 @@
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
 - Reworked revive movement delay fix - units will gain their controls back a lot faster, without any delay after initial animation played
 - Flag on HQ will have specified rebel flag texture
+- Infantry Tiers adjustment - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (2.4 CV) All RHS and CUP templates have been remade from scratch
-- (2.4 CV) Vanilla template has been greatly expanded
+- (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
+- (2.4 CV) Faction base soldiers (instead of all being Greek like it is in CV)
 - (Altis, 2.4 CV) BLUFOR version replaced with INDEP version due to 2.4 template changes
 - (Aegis) Zamak Flatbed logistics support
+- (CUP) Static weapons logistics support
+- (CUP) UAZ and some Humvees can load small cargo 
+- (CUP) BRDM-2's can load medium-sized cargo and some static weapons (Metis ATGM and Zu-23 amongst them)
 - (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
 - (CUP) Disabled artillery computer for Hiluxes with MLRS and UB-32 payloads
 - (CUP) Added armored unarmed Hilux (War Level 3)
@@ -78,7 +83,6 @@
 - Disabled Pursuers until full Random Events implementation will happen
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
-- (2.4 CV) Removed Infantry Unit Tiers as it is incompatible with new template system
 
 ## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)

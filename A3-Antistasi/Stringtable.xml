@@ -3918,16 +3918,18 @@
     </Container>
     <Container name="loot_actions">
       <Key ID="STR_antistasi_actions_loot_around_text">
-        <Original>Loot Bodies and Cargo</Original>
-        <English>Loot Bodies and Cargo</English>
+        <Original>Gather Scattered Loot</Original>
+        <English>Gather Scattered Loot</English>
         <French>Butin de corps autour</French>
-        <Russian>Обыскать тела и грузы</Russian>
+        <Russian>Собрать добычу вокруг</Russian>
+        <German>Sammle verstreute Beute</German>
+        <Czech>Shromážděte rozptýlenou kořist</Czech>
       </Key>
       <Key ID="STR_antistasi_actions_successful_loot_text">
         <Original>Scattered loot has been successfully gathered.</Original>
         <English>Scattered loot has been successfully gathered.</English>
         <French>Le butin dispersé a été collecté avec succès.</French>
-        <Russian>Добыча вокруга была успешно собрана.</Russian>
+        <Russian>Добыча вокруг была успешно собрана.</Russian>
         <Czech>Rozptýlená kořist byla úspěšně shromážděna.</Czech>
         <German>Verstreute Beute wurde erfolgreich gesammelt.</German>
       </Key>
