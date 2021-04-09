@@ -167,7 +167,7 @@ A3A_logistics_attachmentOffset = [
     //medium sized crates
     ["Box_NATO_AmmoVeh_F" call A3A_fnc_classNameToModel,                        [0,0,0.85],                 [1,0,0],                    2],                         //Vehicle ammo create
     ["Land_PaperBox_01_open_boxes_F" call A3A_fnc_classNameToModel,             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test supplybox
-    ["Land_FoodSacks_01_cargo_brown_F" call A3A_fnc_classNameToModel,           [0,0,0.85],                 [1,0,0],                    2],                         //New city supplies crate
+    ["Land_FoodSacks_01_cargo_brown_F" call A3A_fnc_classNameToModel,           [0,0,0.6],                 [1,0,0],                    2],                         //New city supplies crate
     ["Land_PlasticCase_01_medium_F" call A3A_fnc_classNameToModel,              [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate1                         //Stef test Devin crate2
     ["Box_IED_Exp_F" call A3A_fnc_classNameToModel,                             [0,0,0.85],                 [1,0,0],                    2],                         //Stef test Devin crate3
     ["B_supplyCrate_F" call A3A_fnc_classNameToModel,                           [0, 0, 0.95],               [1,0,0],                    2],                         //Ammodrop crate
@@ -177,10 +177,9 @@ A3A_logistics_attachmentOffset = [
     //small sized crates                                                      //location                  //rotation                  //size                        //description
     ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box
     ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,                            [0,0,0.22],                 [0,0,0],                    1],    
-    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.35],                 [0,0,0],                    1],                     //loot crate
+    ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.22],                 [0,0,0],                    1],                     //loot crate
     ["CargoNet_01_barrels_F" call A3A_fnc_classNameToModel,                     [0,0,-0.5],	                [1,0,0],				    1] //barrels from aidrop mission
 ];
-
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
 A3A_logistics_coveredVehicles = ["C_Van_02_vehicle_F", "C_Van_02_transport_F", "B_Truck_01_covered_F", "O_Truck_03_covered_F", "I_Truck_02_covered_F"];
 
