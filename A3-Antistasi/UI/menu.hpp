@@ -483,7 +483,7 @@ class radioComm: SimpleMenuBigger
 			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
 			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.7;
 			tooltip = $STR_antistasi_dialogs_move_veh_tooltip;
-			action = "closeDialog 0; [] spawn SCRT_fnc_common_moveStatic;";
+			action = "closeDialog 0; [cursorObject] spawn SCRT_fnc_common_moveStatic;";
 		};
 	};
 };
