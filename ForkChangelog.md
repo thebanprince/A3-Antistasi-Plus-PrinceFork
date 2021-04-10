@@ -53,9 +53,9 @@
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
 - Reworked revive movement delay fix - units will gain their controls back a lot faster, without any delay after initial animation played
 - Flag on HQ will have specified rebel flag texture
-- Infantry Tiers adjustment - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
+- Infantry Tiers improvement - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
-- (2.4 CV) All RHS and CUP templates have been remade from scratch
+- (2.4 CV) All unit templates have been remade from scratch
 - (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
 - (2.4 CV) Faction base soldiers (instead of all being Greek like it is in CV)
