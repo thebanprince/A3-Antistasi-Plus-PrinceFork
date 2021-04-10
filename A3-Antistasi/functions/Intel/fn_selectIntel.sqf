@@ -124,7 +124,7 @@ if(_intelType == "Small") then
             } else {
                 [2, "Rerolling small intel outcome", _fileName] call A3A_fnc_log;
 
-                _rerollIntelContent = selectRandomWeighted [TIME_LEFT, 0.3, ACCESS_CAR, 0.35, CONVOY, 0.35];
+                _rerollIntelContent = selectRandomWeighted [TIME_LEFT, 0.3, DECRYPTION_KEY, 0.35, CONVOY, 0.35];
 
                 switch (_rerollIntelContent) do {
                     case (TIME_LEFT):
@@ -148,9 +148,19 @@ if(_intelType == "Small") then
                             _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
                         };
                     };
-                    case (ACCESS_CAR):
+                    case (DECRYPTION_KEY):
                     {
-                        _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_CAR] call A3A_fnc_getVehicleIntel)];
+                        if(_side == Occupants) then
+                        {
+                            occupantsRadioKeys = occupantsRadioKeys + 1;
+                            publicVariable "occupantsRadioKeys";
+                        }
+                        else
+                        {
+                            invaderRadioKeys = invaderRadioKeys + 1;
+                            publicVariable "invaderRadioKeys";
+                        };
+                        _text = format ["You found a %1 decryption key!<br/>It allows your faction to fully decrypt the next support call.", _sideName];
                     };
                     case (CONVOY):
                     {
