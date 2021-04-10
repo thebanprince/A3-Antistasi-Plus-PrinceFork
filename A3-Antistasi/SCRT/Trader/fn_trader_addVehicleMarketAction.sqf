@@ -10,6 +10,4 @@ _traderX addAction [
 	"",
 	"(isPlayer _this) and (vehicle _this == _this) and (_this == _this getVariable ['owner',objNull])",
 	3
-]; 
-
-_traderX addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 0, false, true, "", "(_this == theBoss)", 4];
+];
