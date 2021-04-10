@@ -35,8 +35,11 @@ if (_type == "SQUAD") then {
     private _aa = nil;
     private _at = nil;
 
-    private _index = 0;
+    private _index = nil;
     switch (true) do {
+        case (tierWar < 5): {
+            _index = 0;
+        };
         case (tierWar < 8 && {tierWar > 4}): {
             _index = 1;
         };
