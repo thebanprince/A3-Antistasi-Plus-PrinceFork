@@ -12,10 +12,7 @@ if ((random 100) < _oversizeChance) then {
     private _vehiclePool = if (_side == Occupants) then { vehNATOAPC + vehNATOLightArmed } else { vehCSATAPC + vehCSATLightArmed };
     _vehiclePool = _vehiclePool call BIS_fnc_arrayShuffle;
 
-    private _selectedVehicle = nil;
-    {
-        if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
-    } forEach _vehiclePool;
+    private _selectedVehicle = selectRandom _vehiclePool;
 
     if (!isNil "_selectedVehicle") then {
         private _road = nil;
@@ -40,7 +37,7 @@ if ((random 100) < _oversizeChance) then {
         private _vehicleData = [_position, 0, _selectedVehicle, _side] call A3A_fnc_spawnVehicle;
         _return = _vehicleData;
 
-        [1, format ["Oversized vehicle position: %1, classname: %2", str _position, _selectedVehicle], "fn_garrison_rollOversizeVehicle", true] call A3A_fnc_log;
+        [3, format ["Oversized vehicle position: %1, classname: %2", str _position, _selectedVehicle], "fn_garrison_rollOversizeVehicle", true] call A3A_fnc_log;
     } else {
         [1, format ["%1 has not enough vehicles, oversized vehicle will be not spawned.", str _side], "fn_garrison_rollOversizeVehicle", true] call A3A_fnc_log;
     };  

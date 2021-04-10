@@ -22,12 +22,9 @@ if ((random 100) < _oversizeChance) then {
     };
 
     private _squadPool = nil;
-    if (_side == Occupants) then {
-        _squadPool = (groupsNATOSquad + groupsNATOmid);
-    }
-    else {
-        _squadPool = (groupsCSATSquad + groupsCSATmid);
-    };
+    private _mid = [_side, "MID"] call SCRT_fnc_unit_getGroupSet;
+    private _squad = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+    _squadPool = _squad + _mid;
 
     for "_i" from 1 to _squadCount do {
         private _squad = selectRandom _squadPool;
