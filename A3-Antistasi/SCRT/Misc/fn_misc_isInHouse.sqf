@@ -1,5 +1,4 @@
-
-//Creadis to killzonekid
+//Credits to killzonekid
 lineIntersectsSurfaces [
     getPosWorld _this, 
     getPosWorld _this vectorAdd [0, 0, 50], 

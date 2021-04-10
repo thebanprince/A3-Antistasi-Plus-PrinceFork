@@ -162,6 +162,13 @@ class SCRT
         class outpost_createAtDistance {};
     }
 
+    class Unit 
+    {
+        file = "SCRT\Unit";
+        class unit_getGroupSet {};
+        class unit_selectInfantryTier {};
+    };
+
     class Quest
     {
         file = "SCRT\Quest";
