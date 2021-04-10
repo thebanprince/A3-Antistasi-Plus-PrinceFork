@@ -35,7 +35,7 @@ if (_escape) exitWith {
 
 (_vehicle call BIS_fnc_getPitchBank) params ["_vx","_vy"];
 if (([_vx,_vy] findIf {_x > 80 || _x < -80}) != -1) then {	
-	0 = [_vehicle] spawn {
+	[_vehicle] spawn {
         params ["_unflippableVehicle"];
         _unflippableVehicle allowDamage false;
         _unflippableVehicle setVectorUp [0,0,1];

@@ -2,6 +2,8 @@ params ["_thingX"];
 
 _thingX setVariable ["objectBeingMoved", true];
 
+[_thingX] remoteExec ["SCRT_fnc_common_removeActionMove", 0, _thingX];
+
 private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
 private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
 _thingX attachTo [_playerX, [0, _spacing, _height]];
@@ -56,3 +58,5 @@ private _actionX = _playerX addAction ["Drop Here", {
 waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _playerX) or !([_playerX] call A3A_fnc_canFight) or (!isPlayer _playerX)};
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
+
+[_thingX] remoteExec ["SCRT_fnc_common_addActionMove", 0, _thingX];

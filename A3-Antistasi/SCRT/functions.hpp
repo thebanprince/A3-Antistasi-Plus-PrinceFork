@@ -132,6 +132,8 @@ class SCRT
         class common_fixCupLaunchers {};
         class common_defeatFactionIfPossible {};
         class common_triggerArtilleryResponseEH {};
+        class common_addActionMove {};
+        class common_removeActionMove {};
     };
 
     class Garrison
