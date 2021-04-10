@@ -255,16 +255,12 @@ private _fnc_flipMarker =
     sleep 10;
     private _squads = _minTroops + round (random _randomTroops);
     private _soldiers = [];
-    for "_i" from 0 to _squads do
-    {
-        if (_side == Occupants) then
-        {
-            _soldiers append (selectRandom (groupsNATOSquad + groupsNATOmid));
-        }
-        else
-        {
-            _soldiers append (selectRandom (groupsCSATSquad + groupsCSATmid));
-        };
+    private _mid = [_side, "MID"] call SCRT_fnc_unit_getGroupSet;
+    private _squad = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+    for "_i" from 0 to _squads do {
+        private _randomSquad = selectRandom (_squad + _mid);
+        _soldiers append _randomSquad;
     };
     [_soldiers,_side,_marker,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 };
