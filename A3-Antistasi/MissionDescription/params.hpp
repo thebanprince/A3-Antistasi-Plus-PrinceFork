@@ -238,8 +238,8 @@ class Params
      class occupantFactionCup
      {
           title="Select Occupant Faction";
-		values[]={9999, 0, 1, 2};
-		texts[]={"Default (USAF)", "USAF", "BAF", "CDF"};
+		values[]={9999, 0, 1};
+		texts[]={"Default (USAF)", "USAF", "BAF"};
 		default = 9999;
      };
      class Spacer62
@@ -259,8 +259,8 @@ class Params
      class occupantFactionRhs
      {
           title="Select Occupant Faction";
-		values[]={9999, 0, 1};
-		texts[]={"Default (USAF)", "USAF", "CDF"};
+		values[]={9999, 0};
+		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
      class Spacer72
