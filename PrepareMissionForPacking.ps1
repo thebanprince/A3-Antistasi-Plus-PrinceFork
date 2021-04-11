@@ -7,6 +7,7 @@ Remove-Item $folderForPreparedMissions -Recurse;
 $missionTemplateFolders = Get-ChildItem -Path ".\Map-Templates" ;
 
 $mainDataPath = Join-Path $root 'A3-Antistasi';
+$compiledDataPath = Join-Path $root 'A3-Antistasi-Compiled\*';
 $stringTablePath = Join-Path $root 'A3-Antistasi\Stringtable.xml';
 
 $stringTable = New-Object -TypeName XML;
@@ -21,5 +22,6 @@ ForEach ($templateFolder in $missionTemplateFolders) {
 	$missionFolderName = $pair[0] + "-" + $formattedVersionId + "-" + "Plus" + "." + $pair[1]; 
 	$destinationPath = $(Join-Path $folderForPreparedMissions.FullName $missionFolderName);
 	Copy-Item -Path $mainDataPath -Destination $destinationPath -Recurse;
+	Copy-Item -Path $compiledDataPath -Destination $destinationPath -Recurse -Force;
 	Copy-Item -Path $(Join-Path $templateFolder.FullName "*") -Destination $destinationPath -Recurse -Force;
 }
