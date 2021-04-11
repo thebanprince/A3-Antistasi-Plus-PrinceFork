@@ -91,12 +91,17 @@ if (_patrol) then
 	{
 		_arraygroups = if (_sideX == Occupants) then
 		{
-			if (!_isFIA) then {groupsNATOsmall} else {groupsFIASmall};
+			if (!_isFIA) then {
+				[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
+			} else {
+				groupsFIASmall
+			};
 		}
 		else
 		{
-			groupsCSATsmall
+			[(groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier), (groupsCSATSniper call SCRT_fnc_unit_selectInfantryTier)]
 		};
+				
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
@@ -119,7 +124,11 @@ if (_patrol) then
 
 if ((_frontierX) and (_markerX in outposts)) then
 {
-	_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+	_typeUnit = if (_sideX==Occupants) then {
+		staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+	} else {
+		staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+	};
 	_typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if(_spawnParameter isEqualType []) then
@@ -238,8 +247,6 @@ else
 				};
 			} forEach _roadscon;
 			_dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
-				//if (!_isFIA) then		_isFIA can only be true if _frontierX (line 167) is false, if unneeded, else case not possible
-			//{
 
 			_groupX = createGroup _sideX;
 			_groups pushBack _groupX;
@@ -253,7 +260,11 @@ else
 			_vehiclesX pushBack _veh;
 			_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
 			_veh setDir _dirVeh + 180;
-			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+			_typeUnit = if (_sideX==Occupants) then {
+				staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+			} else {
+				staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+			};
 			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -262,7 +273,7 @@ else
 		};
 	};
 };
-//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
+
 _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
@@ -301,7 +312,11 @@ if (!isNull _antenna) then
 			_posF = _pos getPos [1,_dir];
 			_posF set [2,24.3];
 		};
-		_typeUnit = if (_sideX == Occupants) then {if (!_isFIA) then {NATOMarksman} else {FIAMarksman}} else {CSATMarksman};
+		_typeUnit = if (_sideX == Occupants) then {
+			if (!_isFIA) then {
+				NATOMarksman call SCRT_fnc_unit_selectInfantryTier
+			} else {FIAMarksman}
+		} else {CSATMarksman};
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
 		_unit setPosATL _posF;
 		_unit forceSpeed 0;

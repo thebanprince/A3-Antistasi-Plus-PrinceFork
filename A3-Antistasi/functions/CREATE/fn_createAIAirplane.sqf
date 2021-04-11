@@ -103,6 +103,7 @@ for "_i" from 1 to _max do {
 		_groups pushBack _groupVeh;
 		_vehiclesX pushBack _veh;
 		sleep 1;
+		[(gunner _veh), 300] spawn SCRT_fnc_common_scanHorizon;
 	}
 	else
 	{
@@ -168,7 +169,11 @@ if (_frontierX) then {
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;
 		_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
-		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+		_typeUnit = if (_sideX==Occupants) then {
+			staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+		};
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -206,7 +211,13 @@ if (_patrol) then
 	_countX = 0;
 	while {_countX < 4} do
 	{
-		_arraygroups = if (_sideX == Occupants) then {groupsNATOsmall} else {groupsCSATsmall};
+		_arraygroups = if (_sideX == Occupants) then {
+			[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
+		}
+		else {
+			[(groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier), (groupsCSATSniper call SCRT_fnc_unit_selectInfantryTier)]
+		};
+		
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
@@ -230,7 +241,11 @@ _countX = 0;
 
 _groupX = createGroup _sideX;
 _groups pushBack _groupX;
-_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+_typeUnit = if (_sideX == Occupants) then {
+	staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+} else {
+	staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+};
 _typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;

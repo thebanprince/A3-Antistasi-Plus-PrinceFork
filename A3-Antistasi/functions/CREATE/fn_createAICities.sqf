@@ -36,7 +36,8 @@ else
 		if (_frontierX) then
 			{
 			_num = _num * 2;
-			_params = [_positionX, Occupants, groupsNATOSentry];
+			private _sentry = groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier;
+			_params = [_positionX, Occupants, _sentry];
 			}
 		else
 			{

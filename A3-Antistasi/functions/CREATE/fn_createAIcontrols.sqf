@@ -78,7 +78,11 @@ if (_isControl) then
 		_veh setDir _dirVeh;
 
 		_groupE = createGroup _sideX;
-		_typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+		_typeUnit = if (_sideX == Occupants) then {
+			staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+		};
 		_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _veh;
 		_soldiers pushBack _unit;
@@ -100,7 +104,8 @@ if (_isControl) then
 		_soldiers pushBack _unit;
 		sleep 1;
 		{ [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
-		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
+		private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+		_typeGroup = selectRandom _mid;
 		_groupX = [_positionX,_sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then {
 				{[_x] join _groupX} forEach units _groupE;

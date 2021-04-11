@@ -59,7 +59,11 @@ if (_frontierX) then
 		_vehiclesX pushBack _veh;
 		_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
 		_veh setDir _dirVeh + 180;
-		_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+		_typeUnit = if (_sideX==Occupants) then {
+			staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+		};
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -114,12 +118,17 @@ if (_patrol) then
 	{
 		_arraygroups = if (_sideX == Occupants) then
 		{
-			if (!_isFIA) then {groupsNATOsmall} else {groupsFIASmall};
+			if (!_isFIA) then {
+				[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
+				} else {
+					groupsFIASmall
+				};
 		}
 		else
 		{
-			groupsCSATsmall
+			[(groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier), (groupsCSATSniper call SCRT_fnc_unit_selectInfantryTier)]
 		};
+
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
