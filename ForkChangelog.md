@@ -19,6 +19,7 @@
 - Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
+- .sqfc bytecode support where possible (up to 50% performance gain)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
 
 ### Changes
@@ -54,6 +55,7 @@
 - Reworked revive movement delay fix - units will gain their controls back a lot faster, without any delay after initial animation played
 - Flag on HQ will have specified rebel flag texture
 - Infantry Tiers improvement - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
+- Vehicles can be unflipped with near friendly AI units too now, not only with players as it was before
 - "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
 - (2.4 CV) All unit templates have been remade from scratch
 - (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
@@ -81,6 +83,7 @@
 - Removed duplicated or obsolete code
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
 - Disabled Pursuers until full Random Events implementation will happen
+- (Altis) removed some outposts to give more varienty in possible start positions
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 

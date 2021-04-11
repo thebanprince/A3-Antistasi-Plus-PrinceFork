@@ -13,8 +13,9 @@ if !(_crew isEqualTo []) exitWith {
     ["Unflip failed", "Vehicle is occupied by someone, clear crew before unflip."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-private _nearFriendlies = count ([25, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
-if (_nearFriendlies < 3) exitWith {
+private _nearFriendlies = (_vehicle nearEntities ["Man", 35]) select {side _x == teamPlayer && {[_x] call A3A_fnc_canFight}};
+private _friendlyCount = count _nearFriendlies;
+if (_friendlyCount < 3) exitWith {
     ["Unflip failed", "Not enough people to unflip vehicle."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
