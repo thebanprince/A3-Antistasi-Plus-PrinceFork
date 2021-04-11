@@ -61,22 +61,24 @@ _officerDestinationMarker setMarkerAlpha 1;
 
 [3, format ["Origin: %1, Destination: %2", str _missionOrigin, str _destinationSite], _filename] call A3A_fnc_log;
 
-
 // selecting classnames
 private _officerClass = nil;
 private _officerVehicleClass = nil;
 private _escortVehicleClass = nil;
 private _infantrySquadArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
 if (_sideX == Occupants) then { 
     _officerClass = NATOOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else {selectRandom vehNATOTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else { selectRandom vehNATOLightArmed };
-    _infantrySquadArray = selectRandom groupsNATOSquad;
+    _infantrySquadArray = selectRandom _squads;
 } else { 
     _officerClass = CSATOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else {selectRandom vehCSATTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else { selectRandom vehCSATLightArmed };
-    _infantrySquadArray = selectRandom groupsCSATSquad;
+    _infantrySquadArray = selectRandom _squads;
 };
 
 if (isNil "_officerClass" || {isNil "_officerVehicleClass"} || {isNil "_escortVehicleClass"} || {isNil "_infantrySquadArray"}) exitWith {

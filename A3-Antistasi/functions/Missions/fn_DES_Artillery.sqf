@@ -25,21 +25,22 @@ private _artilleryClass = nil;
 private _artilleryShellClass = nil;
 private _mgClass = nil;
 private _mgCrewClass = nil;
-private _infantrySquadArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+private _infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _artilleryClass = vehNATOMRLS;
     _artilleryShellClass = vehNATOMRLSMags;
     _mgClass = NATOMG;
-    _mgCrewClass = staticCrewOccupants;
-    _infantrySquadArray = selectRandom groupsNATOSquad;
+    _mgCrewClass = staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier;
 } 
 else { 
     _artilleryClass = vehCSATMRLS;
     _artilleryShellClass = vehCSATMRLSMags;
     _mgClass = CSATGMG;
-    _mgCrewClass = staticCrewInvaders;
-    _infantrySquadArray = CSATSquad;
+    _mgCrewClass = staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier;
 };
 
 if (isNil "_artilleryClass" || {isNil "_artilleryShellClass"} || {isNil "_mgClass"} || {isNil "_infantrySquadArray"} || {isNil "_mgCrewClass"}) 

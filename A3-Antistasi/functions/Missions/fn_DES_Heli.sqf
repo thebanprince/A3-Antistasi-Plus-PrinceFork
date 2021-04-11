@@ -119,7 +119,11 @@ _vehicles pushBack _vehE;
 [3, format ["Crash Location: %1, Lite Vehicle: %2", _posCrash, _typeVeh], _filename] call A3A_fnc_log;
 
 //spawning escort inf
-private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {
+    groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier
+} else {
+    groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier
+};
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {_x assignAsCargo _vehE; _x moveInCargo _vehE; [_x] join _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
 deleteGroup _groupX;
@@ -166,7 +170,11 @@ if (!debug) then {_mrkCrash setMarkerAlphaLocal 0};
 
 //creating guard
 private ["_guard", "_guardWP", "_vehGuard"];
-_typeGroup = if (_sideX == Occupants) then {NATOSquad} else {CSATSquad};
+_typeGroup = if (_sideX == Occupants) then {
+    NATOSquad call SCRT_fnc_unit_selectInfantryTier
+} else {
+    CSATSquad call SCRT_fnc_unit_selectInfantryTier
+};
 //if not patrol heli
 if !(_typeVehH == vehNATOPatrolHeli) then {
     //spawning guard inf

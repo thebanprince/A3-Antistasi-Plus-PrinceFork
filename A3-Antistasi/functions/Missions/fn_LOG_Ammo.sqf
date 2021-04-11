@@ -50,7 +50,19 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	if (!debug) then {_mrk setMarkerAlphaLocal 0};
-	_typeGroup = if (_difficultX) then {if (_sideX == Occupants) then {NATOSquad} else {CSATSquad}} else {if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry}};
+	_typeGroup = if (_difficultX) then {
+		if (_sideX == Occupants) then {
+			NATOSquad call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			CSATSquad call SCRT_fnc_unit_selectInfantryTier
+		};
+	} else {
+		if (_sideX == Occupants) then {
+			groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier
+		};
+	};
 	//_cfg = if (_sideX == Occupants) then {cfgNATOInf} else {cfgCSATInf};
 	_groupX = [_pos,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;

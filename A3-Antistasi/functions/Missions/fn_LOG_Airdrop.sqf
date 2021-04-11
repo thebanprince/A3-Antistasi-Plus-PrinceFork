@@ -69,16 +69,16 @@ waitUntil {
 
 [2, "Setting things in motion...", _fileName, true] call A3A_fnc_log; 
 
-_escortClass = nil;
-_infantrySquadArray = nil;
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+private _escortClass = nil;
+private _infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _escortClass = if(_difficultX) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = selectRandom groupsNATOSquad;
 } 
 else { 
     _escortClass = if(_difficultX) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = CSATSquad;
 };
 
 if (isNil "_escortClass" || {isNil "_infantrySquadArray"}) exitWith {
@@ -117,7 +117,11 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning airdrop interceptor inf
-private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {
+    groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier
+} else {
+    groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier
+};
 private _groupX = [_squad1Position, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 

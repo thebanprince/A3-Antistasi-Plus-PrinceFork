@@ -120,10 +120,10 @@ else
 	_mrk setMarkerColorLocal "ColorRed";
 	_mrk setMarkerBrushLocal "DiagGrid";
 	_mrk setMarkerAlphaLocal 0;
-	if ((random 100 < aggressionOccupants) or (_difficultX)) then
-		{
-		_groupX = [getPos _houseX,Occupants, NATOSquad] call A3A_fnc_spawnGroup;
-		sleep 1;
+	if ((random 100 < aggressionOccupants) or (_difficultX)) then {
+			private _squad = NATOSquad call SCRT_fnc_unit_selectInfantryTier;
+			_groupX = [getPos _houseX,Occupants, _squad] call A3A_fnc_spawnGroup;
+			sleep 1;
 		}
 	else
 		{

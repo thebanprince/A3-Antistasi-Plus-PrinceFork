@@ -63,8 +63,11 @@ _searchHeliClass = nil;
 _cargoTruckClass = nil;
 _boxClass = nil;
 _escortClass = nil;
-_infantrySquadArray = nil;
 _specOpsArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+_infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _pilotClass = NATOPilot;
@@ -73,7 +76,6 @@ if(_sideX == Occupants) then {
     _boxClass = NATOAmmoBox;
     _cargoTruckClass = selectRandom vehNATOTrucks;
     _escortClass = if(_difficult) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = selectRandom groupsNATOSquad;
     _specOpsArray = NATOSpecOp;
 } 
 else { 
@@ -83,7 +85,6 @@ else {
     _boxClass = CSATAmmoBox;
     _cargoTruckClass = selectRandom vehCSATTrucks; 
     _escortClass = if(_difficult) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = selectRandom groupsCSATSquad;
     _specOpsArray = CSATSpecOp;
 };
 
@@ -267,7 +268,7 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning escort inf
-private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier} else {groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier};
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 
@@ -355,7 +356,13 @@ if(_searchHeliClass == vehNATOPatrolHeli || _searchHeliClass == vehCSATPatrolHel
     [_heliVehicleGroup, 0] setWaypointLoiterType "CIRCLE_L";
 
     //spawning escort inf
-    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom groupsNATOmid} else {selectRandom groupsCSATmid};
+    private _heliInfGroup = if (_sideX == Occupants) then {
+        private _mid = [Occupants, "MID"] call SCRT_fnc_unit_getGroupSet;
+        selectRandom _mid;
+    } else {
+        private _mid = [Invaders, "MID"] call SCRT_fnc_unit_getGroupSet;
+        selectRandom _mid;
+    };
     private _heliInfgroupX = [_missionOriginPos, _sideX, _heliInfGroup] call A3A_fnc_spawnGroup;
     {
         _x assignAsCargo _searchHeliVeh; 
