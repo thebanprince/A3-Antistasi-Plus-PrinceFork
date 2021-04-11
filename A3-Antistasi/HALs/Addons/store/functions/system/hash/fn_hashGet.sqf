@@ -12,7 +12,7 @@
 	Example:
 	[] call HALs_store_fnc_hashGet;
 __________________________________________________________________*/
-#include "script_component.hpp"
+#define GET_HASH _a = toArray _k; _d = (count _a); _h = (_a select 0)*(_a select _d-1)+(_d+(_a select ((_d-2)) max 0))
 
 params ["_c", "_k"];
 GET_HASH;
