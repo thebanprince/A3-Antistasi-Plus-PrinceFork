@@ -21,19 +21,19 @@ private _terrainName = toLower worldName;
 
 //Reb Templates
 switch(true) do{
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps);
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate CNM Template", _filename] call A3A_fnc_log;
-            };
-            default {
-                ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid TKM Templates", _filename] call A3A_fnc_log;
-            };
-        };
-    };
+    // case (A3A_has3CBFactions): {
+    //     switch(true) do {
+    //         case (_terrainName in _temperateMaps);
+    //         case (_terrainName in _tropicalMaps): {
+    //             ["Templates\NewTemplates\3CB\3CB_Reb_CNM_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using Temperate CNM Template", _filename] call A3A_fnc_log;
+    //         };
+    //         default {
+    //             ["Templates\NewTemplates\3CB\3CB_Reb_TKM_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using arid TKM Templates", _filename] call A3A_fnc_log;
+    //         };
+    //     };
+    // };
     case (A3A_hasRHS): {
         switch(true) do {
             case (_terrainName in _temperateMaps);
@@ -60,6 +60,12 @@ switch(true) do{
             };
         };
     };
+    case (A3A_hasAegis): {
+        switch(true) do {
+            ["Templates\NewTemplates\Aegis\Aegis_Reb_CHDKZ_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+            [2, "Using Temperate CHDKZ Template", _filename] call A3A_fnc_log;
+        };
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (_terrainName == "enoch"): {
@@ -73,24 +79,24 @@ switch(true) do{
         };
     };
 };
-  //Occ Templates
+//Occ Templates
 switch(true) do {
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate US Marines Template as Placeholder", _filename] call A3A_fnc_log;
-            };
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Coldwar US Template", _filename] call A3A_fnc_log;
-            };
-            default {
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using TKA_West Template", _filename] call A3A_fnc_log;
-            };
-        };
-    };
+    // case (A3A_has3CBFactions): {
+    //     switch(true) do {
+    //         case (_terrainName in _temperateMaps): {
+    //             ["Templates\NewTemplates\RHS\RHS_AI_USAF_Marines_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using Temperate US Marines Template as Placeholder", _filename] call A3A_fnc_log;
+    //         };
+    //         case (_terrainName in _tropicalMaps): {
+    //             ["Templates\NewTemplates\3CB\3CB_AI_CW_US.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using Coldwar US Template", _filename] call A3A_fnc_log;
+    //         };
+    //         default {
+    //             ["Templates\NewTemplates\3CB\3CB_AI_TKA_West.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using TKA_West Template", _filename] call A3A_fnc_log;
+    //         };
+    //     };
+    // };
     case (A3A_hasRHS): {
         switch(true) do {
             case (_terrainName in _temperateMaps);
