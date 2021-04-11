@@ -62,7 +62,7 @@ switch(true) do{
     };
     case (A3A_hasAegis): {
         switch(true) do {
-            ["Templates\NewTemplates\Aegis\Aegis_Reb_CHDKZ_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+            ["Templates\NewTemplates\Aegis\Aegis_Reb_CHDKZ.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
             [2, "Using Temperate CHDKZ Template", _filename] call A3A_fnc_log;
         };
     };
