@@ -14,19 +14,25 @@ if (_cargoSeats < 4) exitWith
 {
 	if (_isMilitia) exitWith { selectRandom groupsFIASmall };
 	if (_veh == vehPoliceCar) exitWith { [policeOfficer, policeGrunt] };
-	if (_sideX == Occupants) then { groupsNATOSentry } else { groupsCSATSentry };
+	if (_sideX == Occupants) then { 
+		groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier;
+	} else { 
+		groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier;
+	};
 };
 
 if (_cargoSeats < 7) exitWith			// fudge for Warrior
 {
 	if (_isMilitia) exitWith { selectRandom groupsFIAMid };
 	if (_veh == vehPoliceCar) exitWith { [policeOfficer, policeGrunt, policeGrunt, policeGrunt] };
-	if (_sideX == Occupants) then { selectRandom groupsNATOmid } else { selectRandom groupsCSATmid };
+	private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+	selectRandom _mid;
 };
 
 private _squad = call {
 	if (_isMilitia) exitWith { selectRandom groupsFIASquad };
-	if (_sideX == Occupants) then { selectRandom groupsNATOSquad } else {selectRandom groupsCSATSquad };
+	private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+	selectRandom _squads;
 };
 if (_cargoSeats == 7) then { _squad deleteAt 7 };
 _squad;

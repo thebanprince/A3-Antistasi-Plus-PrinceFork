@@ -24,4 +24,14 @@ params ["_side", "_vehicle"];
 private _sideIndex = [west, east, independent, civilian] find _side;
 private _typeX = typeOf _vehicle;
 
-A3A_vehClassToCrew getOrDefault [_typeX,[NATOGrunt, CSATGrunt, staticCrewTeamPlayer, "C_Man_1"]] select _sideIndex;
+private _invGrunt = CSATGrunt call SCRT_fnc_unit_selectInfantryTier;
+private _occGrunt = NATOGrunt call SCRT_fnc_unit_selectInfantryTier;
+
+A3A_vehClassToCrew getOrDefault [_typeX,
+    [
+        _occGrunt, 
+        _invGrunt, 
+        staticCrewTeamPlayer, 
+        "C_Man_1"
+    ]
+] select _sideIndex;

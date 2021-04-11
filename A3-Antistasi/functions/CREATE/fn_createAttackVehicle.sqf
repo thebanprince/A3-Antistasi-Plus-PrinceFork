@@ -45,7 +45,11 @@ if (_expectedCargo > 0) then
     {
         if (_typeOfAttack == "Air") then
         {
-            if (_side == Occupants) then {groupsNATOAA} else {groupsCSATAA}
+            if (_side == Occupants) then {
+                groupsNATOAA call SCRT_fnc_unit_selectInfantryTier
+            } else {
+                groupsCSATAA call SCRT_fnc_unit_selectInfantryTier
+            };
         }
         else
         {
