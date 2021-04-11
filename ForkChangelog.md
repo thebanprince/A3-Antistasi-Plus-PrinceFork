@@ -19,7 +19,7 @@
 - Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
-- .sqfc bytecode support where possible (up to 50% performance gain)
+- .sqfc bytecode support where possible (may lead to faster loading times and function execution in some situations)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
 
 ### Changes
