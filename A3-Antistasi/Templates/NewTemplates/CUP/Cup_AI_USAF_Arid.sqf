@@ -277,7 +277,6 @@ _militaryLoadoutData setVariable ["Hvests", ["CUP_V_B_IOTV_OEFCP_Rifleman_Deltoi
 _militaryLoadoutData setVariable ["GLvests", ["CUP_V_B_IOTV_OEFCP_Grenadier_USArmy", "V_PlateCarrierGL_mtp", "CUP_V_JPC_weaponsbelt_mc"]];
 _militaryLoadoutData setVariable ["backpacks", ["B_AssaultPack_mcamo", "B_Carryall_mcamo", "B_Kitbag_rgr", "B_AssaultPack_rgr", "B_Kitbag_mcamo"]];		//this line determines backpacks for military loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
 _militaryLoadoutData setVariable ["helmets", ["CUP_H_USArmy_HelmetACH_OEFCP", "CUP_H_USArmy_HelmetACH_GCOVERED_OEFCP", "CUP_H_USArmy_HelmetACH_ESS_OEFCP", "CUP_H_USArmy_HelmetACH_ESS_Headset_OEFCP", "CUP_H_OpsCore_Covered_MTP_NoHS", "CUP_H_OpsCore_Covered_MCAM"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["binoculars", ["Binocular"]];
 
 _militaryLoadoutData setVariable ["lightATLaunchers", [
 	["CUP_launch_Mk153Mod0", "", "", "CUP_optic_SMAW_Scope", ["CUP_SMAW_HEAA_M", "CUP_SMAW_HEAA_M", "CUP_SMAW_HEDP_M", "CUP_SMAW_Spotting"], [], ""],

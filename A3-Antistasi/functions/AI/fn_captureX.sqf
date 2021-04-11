@@ -57,7 +57,7 @@ else {
 	if (_sideX == Occupants) then {
     	_modAggroOcc = [-3, 30];
 
-		[player, Occupants, _unit] call SCRT_fnc_common_givePrisonerReleasePaycheck;
+		[player, Occupants] call SCRT_fnc_common_givePrisonerReleasePaycheck;
 	}
 	else {
         _modAggroInv = [-3, 30];

@@ -63,7 +63,8 @@ _fnc_initGarrison =
 			_side = sidesX getVariable [_marker, sideUnknown];
 			if(_side != Occupants) then
 			{
-				_groupsRandom = [groupsCSATSquad, groupsFIASquad] select ((_marker in outposts) && (gameMode == 4));
+				private _squads = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+				_groupsRandom = [_squads, groupsFIASquad] select ((_marker in outposts) && (gameMode == 4));
 			}
 			else
 			{
@@ -73,7 +74,8 @@ _fnc_initGarrison =
 				}
 				else
 				{
-	 				_groupsRandom = groupsNATOSquad;
+					private _squads = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+	 				_groupsRandom = _squads;
 				};
 			};
 			//Old system, keeping it intact for the moment

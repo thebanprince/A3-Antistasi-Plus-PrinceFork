@@ -324,6 +324,8 @@ switch (_callbackTarget) do {
 					playSound "3DEN_notificationDefault";
 				};
 
+				_purchasedVeh allowDamage false;
+
 				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
 				[_purchasedVeh] remoteExec ["SCRT_fnc_common_addActionMove", 0, _purchasedVeh];
 				[_purchasedVeh] call A3A_fnc_logistics_addLoadAction;

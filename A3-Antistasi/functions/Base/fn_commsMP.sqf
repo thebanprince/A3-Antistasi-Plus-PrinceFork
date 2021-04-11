@@ -47,6 +47,10 @@ if (_typeX == "tier") then {
 
 	_textX = format ["War Level Changed<br/><br/>Current Level: %1",tierWar];
 
+	if (tierWar in [5,8]) then {
+		_textX = _textX + format ["<br/>Enemy Infantry Equipment has been upgraded."];
+	};
+
 	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
 	incomeRep = false;
 

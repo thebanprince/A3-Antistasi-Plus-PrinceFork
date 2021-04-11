@@ -42,13 +42,14 @@ _reinfPlaces = [];
 	{
 		if (_numReal + 8 <= _numGarr) then
 		{
-
-			if (_sideX == Occupants) then {[selectRandom groupsNATOSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]} else {[selectRandom groupsCSATSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]};
+			private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+			[selectRandom _squads,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			_numberX = 0;
 		}
 		else
 		{
-			if (_sideX == Occupants) then {[selectRandom groupsNATOmid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]} else {[selectRandom groupsCSATmid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2]};
+			private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+			[selectRandom _mid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			_numberX = 4;
 		};
 	};
@@ -83,7 +84,13 @@ _reinfPlaces = [];
 				{
 					if ({(_x distance2D _positionX < (2*distanceSPWN)) or (_x distance2D (getMarkerPos _siteX) < (2*distanceSPWN))} count allPlayers == 0) then
 					{
-						_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {selectRandom groupsNATOmid} else {selectRandom groupsNATOSquad}} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
+						private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+						private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+						_typeGroup = if (_numberX == 4) then {
+							selectRandom _mid
+						} else {
+							selectRandom _squads
+						};
 						[_typeGroup,_sideX,_siteX,2] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
 						//This line send a virtual convoy, execute [] execVM "Convoy\convoyDebug.sqf" as admin to see it

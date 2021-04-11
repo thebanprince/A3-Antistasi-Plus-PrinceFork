@@ -47,6 +47,19 @@ switch(true) do{
             };
         };
     };
+    case (A3A_hasCup): {
+        switch(true) do {
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in _tropicalMaps): {
+                ["Templates\NewTemplates\CUP\CUP_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Temperate Napa Template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\CUP\CUP_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using arid Napa Templates", _filename] call A3A_fnc_log;
+            };
+        };
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (_terrainName == "enoch"): {
@@ -80,9 +93,6 @@ switch(true) do {
     };
     case (A3A_hasRHS): {
         switch(true) do {
-            case (_terrainName == "chernarus_summer");
-                ["Templates\NewTemplates\RHS\RHS_AI_CDF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using CDF Temperate Template", _filename] call A3A_fnc_log;
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
                 ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
@@ -94,11 +104,24 @@ switch(true) do {
             };
         };
     };
+    case (A3A_hasCup): {
+        switch(true) do {
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in _tropicalMaps): {
+                ["Templates\NewTemplates\CUP\CUP_AI_CDF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\CUP\Cup_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
+            };
+        };
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (_terrainName == "enoch"): {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_enoch.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Tnoch LDF Template", _filename] call A3A_fnc_log;
+                [2, "Using Enoch LDF Template", _filename] call A3A_fnc_log;
             };
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
@@ -130,6 +153,21 @@ switch(true) do{
             };
         };
     };
+    // case (A3A_hasCup): {
+    //     // switch(true) do {
+    //         // case (_terrainName in _temperateMaps);
+    //         // case (_terrainName in _tropicalMaps): {
+    //         //     ["Templates\NewTemplates\CUP\CUP_AI_CDF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //         //     [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
+    //         // };
+    //         // default {
+    //             // ["Templates\NewTemplates\CUP\CUP_AI_CDF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //             // [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
+    //         // };
+    //         ["Templates\NewTemplates\CUP\CUP_AI_RAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+    //         [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
+    //     // };
+    // };
     case (A3A_hasRHS): {
         switch(true) do {
             case (_terrainName in _temperateMaps);
@@ -161,6 +199,18 @@ switch(true) do{
     case (A3A_has3CBFactions): {
         ["Templates\NewTemplates\3CB\3CB_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using 3CB Civ Template", _filename] call A3A_fnc_log;
+    };
+    case (A3A_hasCup): {
+        switch (true) do {
+            case (_terrainName in _temperateMaps): {
+                ["Templates\NewTemplates\CUP\Cup_Civ_Temperate.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using CUP Civ Temperate template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\CUP\Cup_Civ_Arid.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using CUP Civ default template", _filename] call A3A_fnc_log;
+            };
+        };
     };
     case (A3A_hasRHS): {
         ["Templates\NewTemplates\RHS\RHS_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
@@ -194,6 +244,8 @@ if (A3A_hasRDS) then {
 
 //Logistics node loading is done here
 [2,"Reading Logistics Node files.",_fileName] call A3A_fnc_log;
-call compile preProcessFileLineNumbers "Templates\NewTemplates\Vanilla\Vanilla_Logistics_Nodes.sqf";//Always call vanilla as it initialises the arrays.
-if (A3A_hasRHS) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\RHS\RHS_Logistics_Nodes.sqf"};
-if (A3A_has3CBFactions) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"};
+call compileScript ["Templates\NewTemplates\Vanilla\Vanilla_Logistics_Nodes.sqf"];//Always call vanilla as it initialises the arrays.
+if (A3A_hasRHS) then {call compileScript ["Templates\NewTemplates\RHS\RHS_Logistics_Nodes.sqf"]};
+if (A3A_has3CBFactions) then {call compileScript ["Templates\NewTemplates\3CB\3CBFactions_Logistics_Nodes.sqf"]};
+if (A3A_hasCup) then {call compileScript ["Templates\NewTemplates\CUP\Cup_Logistics_Nodes.sqf"];};
+if (A3A_hasAegis) then {call compileScript ["Templates\NewTemplates\Aegis\Aegis_Logistics_Nodes.sqf"];};

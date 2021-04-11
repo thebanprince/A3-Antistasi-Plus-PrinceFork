@@ -13,7 +13,11 @@ _vehiclesX = [];
 _soldiers = [];
 
 _groupX = createGroup _sideX;
-_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+_typeUnit = if (_sideX==Occupants) then {
+    staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+} else {
+    staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+};
 
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];

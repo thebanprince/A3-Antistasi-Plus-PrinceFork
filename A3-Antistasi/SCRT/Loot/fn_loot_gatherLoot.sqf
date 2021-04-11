@@ -21,7 +21,7 @@ _vehicle setVariable ["lastLooted", _time, true];
 private _supplies = [];
 _supplies = (position _vehicle nearSupplies RADIUS) select {
     (_x isKindOf "Man" && !(alive _x)) || 
-    {(typeOf _x) in [CSATSurrenderCrate, NATOSurrenderCrate, "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"]}
+    {(typeOf _x) in [CSATSurrenderCrate, NATOSurrenderCrate, "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder", "Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"]}
 };
 
 if(count _supplies < 1) exitWith {

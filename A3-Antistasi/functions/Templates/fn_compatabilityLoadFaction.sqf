@@ -44,7 +44,10 @@ if (_side isEqualTo east) then {
 	CSATFlag = _faction getVariable "flag";
 	CSATFlagTexture = _faction getVariable "flagTexture";
 	flagCSATmrk = _faction getVariable "flagMarkerType";
-	if (isServer) then {"CSAT_carrier" setMarkerText (_faction getVariable "spawnMarkerName")};
+	if (isServer) then {
+		"CSAT_carrier" setMarkerText (_faction getVariable "spawnMarkerName");
+		"CSAT_carrier" setMarkerType flagCSATmrk;
+	};
 
 	//Loot crate
 	CSATAmmoBox = _faction getVariable "ammobox";
@@ -55,12 +58,12 @@ if (_side isEqualTo east) then {
 	CSATPlayerLoadouts = _faction getVariable "pvpLoadouts";
 	vehCSATPVP = _faction getVariable "pvpVehicles";
 
-	CSATGrunt = "loadouts_inv_military_SquadLeader";
+	CSATGrunt = ["loadouts_inv_militia_Rifleman", "loadouts_inv_military_Rifleman", "loadouts_inv_elite_Rifleman"];
 	CSATOfficer = "loadouts_inv_other_Official";
 	CSATBodyG = "loadouts_inv_military_Rifleman";
 	CSATCrew = "loadouts_inv_other_Crew";
-	CSATMarksman = "loadouts_inv_military_Marksman";
-	staticCrewInvaders = "loadouts_inv_military_Rifleman";
+	CSATMarksman = ["loadouts_inv_militia_Marksman", "loadouts_inv_military_Marksman", "loadouts_inv_elite_Marksman"];
+	staticCrewInvaders = CSATGrunt;
 	CSATPilot = "loadouts_inv_other_Pilot";
 
 	if (gameMode == 4) then {
@@ -68,33 +71,54 @@ if (_side isEqualTo east) then {
 		FIAMarksman = "loadouts_inv_militia_Marksman";
 	};
 
-	groupsCSATSentry = ["loadouts_inv_military_Grenadier", "loadouts_inv_military_Rifleman"];
+	groupsCSATSentry = [
+		["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Rifleman"],
+		["loadouts_inv_military_Grenadier", "loadouts_inv_military_Rifleman"],
+		["loadouts_inv_elite_Grenadier", "loadouts_inv_elite_LAT"]
+	];
 	//TODO Change Rifleman to spotter.
-	groupsCSATSniper = ["loadouts_inv_military_Sniper", "loadouts_inv_military_Rifleman"];
+	groupsCSATSniper = [
+		["loadouts_inv_militia_Sniper", "loadouts_inv_militia_Rifleman"],
+		["loadouts_inv_military_Sniper", "loadouts_inv_military_Rifleman"],
+		["loadouts_inv_elite_Sniper", "loadouts_inv_elite_Rifleman"]
+	];
 	//TODO Create lighter Recon loadouts, and add a group of them to here.
 	groupsCSATSmall = [groupsCSATSentry, groupsCSATSniper];
 	//TODO Add ammobearers
 	groupsCSATAA = [
-		"loadouts_inv_military_SquadLeader",
-		"loadouts_inv_military_AA",
-		"loadouts_inv_military_AA"
+		["loadouts_inv_militia_SquadLeader", "loadouts_inv_militia_Rifleman", "loadouts_inv_militia_AA", "loadouts_inv_militia_AA"],
+		["loadouts_inv_military_SquadLeader", "loadouts_inv_military_Rifleman", "loadouts_inv_military_AA", "loadouts_inv_military_AA"],
+		["loadouts_inv_elite_SquadLeader", "loadouts_inv_elite_Rifleman", "loadouts_inv_elite_AA", "loadouts_inv_elite_AA"]
 	];
 	groupsCSATAT = [
-		"loadouts_inv_military_SquadLeader",
-		"loadouts_inv_military_AT",
-		"loadouts_inv_military_AT"
+		["loadouts_inv_militia_SquadLeader", "loadouts_inv_militia_Rifleman", "loadouts_inv_militia_AT", "loadouts_inv_militia_AT"],
+		["loadouts_inv_military_SquadLeader", "loadouts_inv_military_Rifleman", "loadouts_inv_military_AT", "loadouts_inv_military_AT"],
+		["loadouts_inv_elite_SquadLeader", "loadouts_inv_elite_Rifleman", "loadouts_inv_elite_AT", "loadouts_inv_elite_AT"]
 	];
 	private _groupsCSATMediumSquad = [
-		"loadouts_inv_military_SquadLeader",
-		"loadouts_inv_military_MachineGunner",
-		"loadouts_inv_military_Grenadier",
-		"loadouts_inv_military_LAT"
+		["loadouts_inv_militia_SquadLeader","loadouts_inv_militia_MachineGunner","loadouts_inv_militia_Grenadier","loadouts_inv_militia_LAT"],
+		["loadouts_inv_military_SquadLeader","loadouts_inv_military_MachineGunner","loadouts_inv_military_Grenadier","loadouts_inv_military_LAT"],
+		["loadouts_inv_elite_SquadLeader","loadouts_inv_elite_MachineGunner","loadouts_inv_elite_Grenadier","loadouts_inv_elite_LAT"]
 	];
 	groupsCSATmid = [_groupsCSATMediumSquad, groupsCSATAA, groupsCSATAT];
 
-	groupsCSATSquad = [];
+	groupsCSATSquadT1 = [];
 	for "_i" from 1 to 5 do {
-		groupsCSATSquad pushBack [
+		groupsCSATSquadT1 pushBack [
+			"loadouts_inv_militia_SquadLeader",
+			selectRandomWeighted ["loadouts_inv_militia_LAT", 2, "loadouts_inv_militia_MachineGunner", 1],
+			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Grenadier", 1],
+			selectRandomWeighted ["loadouts_inv_militia_MachineGunner", 2, "loadouts_inv_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 4, "loadouts_inv_militia_AT", 1],
+			selectRandomWeighted ["loadouts_inv_militia_AA", 1, "loadouts_inv_militia_Engineer", 4],
+			"loadouts_inv_militia_Rifleman",
+			"loadouts_inv_militia_Medic"
+		];
+	};
+
+	groupsCSATSquadT2 = [];
+	for "_i" from 1 to 5 do {
+		groupsCSATSquadT2 pushBack [
 			"loadouts_inv_military_SquadLeader",
 			selectRandomWeighted ["loadouts_inv_military_LAT", 2, "loadouts_inv_military_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_inv_military_Rifleman", 2, "loadouts_inv_military_Grenadier", 1],
@@ -106,7 +130,21 @@ if (_side isEqualTo east) then {
 		];
 	};
 
-	CSATSquad = groupsCSATSquad select 0;
+	groupsCSATSquadT3 = [];
+	for "_i" from 1 to 5 do {
+		groupsCSATSquadT3 pushBack [
+			"loadouts_inv_elite_SquadLeader",
+			selectRandomWeighted ["loadouts_inv_elite_LAT", 2, "loadouts_inv_elite_MachineGunner", 1],
+			selectRandomWeighted ["loadouts_inv_elite_Rifleman", 2, "loadouts_inv_elite_Grenadier", 1],
+			selectRandomWeighted ["loadouts_inv_elite_MachineGunner", 2, "loadouts_inv_elite_Marksman", 1],
+			selectRandomWeighted ["loadouts_inv_elite_Rifleman", 4, "loadouts_inv_elite_AT", 1],
+			selectRandomWeighted ["loadouts_inv_elite_AA", 1, "loadouts_inv_elite_Engineer", 4],
+			"loadouts_inv_elite_Rifleman",
+			"loadouts_inv_elite_Medic"
+		];
+	};
+
+	CSATSquad = [(groupsCSATSquadT1 select 0), (groupsCSATSquadT2 select 0), (groupsCSATSquadT3 select 0)];
 	CSATSpecOp = [
 		"loadouts_inv_SF_SquadLeader",
 		"loadouts_inv_SF_Rifleman",
@@ -236,7 +274,10 @@ if (_side isEqualTo west) then {
 	NATOFlag = _faction getVariable "flag";
 	NATOFlagTexture = _faction getVariable "flagTexture";
 	flagNATOmrk = _faction getVariable "flagMarkerType";
-	if (isServer) then {"NATO_carrier" setMarkerText (_faction getVariable "spawnMarkerName")};
+	if (isServer) then {
+		"NATO_carrier" setMarkerText (_faction getVariable "spawnMarkerName");
+		"NATO_carrier" setMarkerType flagNATOmrk;
+	};
 
 	//Loot crate
 	NATOAmmobox = _faction getVariable "ammobox";
@@ -247,14 +288,14 @@ if (_side isEqualTo west) then {
 	NATOPlayerLoadouts = _faction getVariable "pvpLoadouts";
 	vehNATOPVP = _faction getVariable "pvpVehicles";
 
-	NATOGrunt = "loadouts_occ_military_Rifleman";
+	NATOGrunt = ["loadouts_occ_militia_Rifleman", "loadouts_occ_military_Rifleman", "loadouts_occ_elite_Rifleman"];
 	NATOOfficer = "loadouts_occ_other_Official";
 	NATOOfficer2 = "loadouts_occ_other_Traitor";
 	NATOBodyG = "loadouts_occ_military_Rifleman";
 	NATOCrew = "loadouts_occ_other_Crew";
 	NATOUnarmed = "loadouts_occ_Unarmed";
-	NATOMarksman = "loadouts_occ_military_Marksman";
-	staticCrewOccupants = "loadouts_occ_military_Rifleman";
+	NATOMarksman = ["loadouts_occ_militia_Marksman", "loadouts_occ_military_Marksman", "loadouts_occ_elite_Marksman"];
+	staticCrewOccupants = NATOGrunt;
 	NATOPilot = "loadouts_occ_other_Pilot";
 
 	if (gameMode != 4) then {
@@ -266,33 +307,53 @@ if (_side isEqualTo west) then {
 	policeGrunt = "loadouts_occ_police_Standard";
 	groupsNATOGen = [policeOfficer, policeGrunt];
 
-	groupsNATOSentry = ["loadouts_occ_military_Grenadier", "loadouts_occ_military_Rifleman"];
+	groupsNATOSentry = [
+		["loadouts_occ_militia_Grenadier", "loadouts_occ_militia_Rifleman"],
+		["loadouts_occ_military_Grenadier", "loadouts_occ_military_Rifleman"],
+		["loadouts_occ_elite_Grenadier", "loadouts_occ_elite_LAT"]
+	];
 	//TODO Change Rifleman to spotter.
-	groupsNATOSniper = ["loadouts_occ_military_Sniper", "loadouts_occ_military_Rifleman"];
-	//TODO Create lighter Recon loadouts, and add a group of them to here.
-	groupsNATOSmall = [groupsNATOSentry, groupsNATOSniper];
+	groupsNATOSniper = [
+		["loadouts_occ_militia_Sniper", "loadouts_occ_militia_Rifleman"],
+		["loadouts_occ_military_Sniper", "loadouts_occ_military_Rifleman"],
+		["loadouts_occ_elite_Sniper", "loadouts_occ_elite_Rifleman"]
+	];
+
 	//TODO Add ammobearers
 	groupsNATOAA = [
-		"loadouts_occ_military_SquadLeader",
-		"loadouts_occ_military_AA",
-		"loadouts_occ_military_AA"
+		["loadouts_occ_militia_SquadLeader", "loadouts_occ_militia_Rifleman", "loadouts_occ_militia_AA", "loadouts_occ_militia_AA"],
+		["loadouts_occ_military_SquadLeader", "loadouts_occ_military_Rifleman", "loadouts_occ_military_AA", "loadouts_occ_military_AA"],
+		["loadouts_occ_elite_SquadLeader", "loadouts_occ_elite_Rifleman", "loadouts_occ_elite_AA", "loadouts_occ_elite_AA"]
 	];
 	groupsNATOAT = [
-		"loadouts_occ_military_SquadLeader",
-		"loadouts_occ_military_AT",
-		"loadouts_occ_military_AT"
+		["loadouts_occ_militia_SquadLeader", "loadouts_occ_militia_Rifleman", "loadouts_occ_militia_AT", "loadouts_occ_militia_AT"],
+		["loadouts_occ_military_SquadLeader", "loadouts_occ_military_Rifleman", "loadouts_occ_military_AT", "loadouts_occ_military_AT"],
+		["loadouts_occ_elite_SquadLeader", "loadouts_occ_elite_Rifleman", "loadouts_occ_elite_AT", "loadouts_occ_elite_AT"]
 	];
 	private _groupsNATOMediumSquad = [
-		"loadouts_occ_military_SquadLeader",
-		"loadouts_occ_military_MachineGunner",
-		"loadouts_occ_military_Grenadier",
-		"loadouts_occ_military_LAT"
+		["loadouts_occ_militia_SquadLeader","loadouts_occ_militia_MachineGunner","loadouts_occ_militia_Grenadier","loadouts_occ_militia_LAT"],
+		["loadouts_occ_military_SquadLeader","loadouts_occ_military_MachineGunner","loadouts_occ_military_Grenadier","loadouts_occ_military_LAT"],
+		["loadouts_occ_elite_SquadLeader","loadouts_occ_elite_MachineGunner","loadouts_occ_elite_Grenadier","loadouts_occ_elite_LAT"]
 	];
 	groupsNATOmid = [_groupsNATOMediumSquad, groupsNATOAA, groupsNATOAT];
 
-	groupsNATOSquad = [];
+	groupsNATOSquadT1 = [];
 	for "_i" from 1 to 5 do {
-		groupsNATOSquad pushBack [
+		groupsNATOSquadT1 pushBack [
+			"loadouts_occ_militia_SquadLeader",
+			selectRandomWeighted ["loadouts_occ_militia_LAT", 2, "loadouts_occ_militia_MachineGunner", 1],
+			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 2, "loadouts_occ_militia_Grenadier", 1],
+			selectRandomWeighted ["loadouts_occ_militia_MachineGunner", 2, "loadouts_occ_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 4, "loadouts_occ_militia_AT", 1],
+			selectRandomWeighted ["loadouts_occ_militia_AA", 1, "loadouts_occ_militia_Engineer", 4],
+			"loadouts_occ_militia_Rifleman",
+			"loadouts_occ_militia_Medic"
+		];
+	};
+
+	groupsNATOSquadT2 = [];
+	for "_i" from 1 to 5 do {
+		groupsNATOSquadT2 pushBack [
 			"loadouts_occ_military_SquadLeader",
 			selectRandomWeighted ["loadouts_occ_military_LAT", 2, "loadouts_occ_military_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_occ_military_Rifleman", 2, "loadouts_occ_military_Grenadier", 1],
@@ -304,7 +365,21 @@ if (_side isEqualTo west) then {
 		];
 	};
 
-	NATOSquad = groupsNATOSquad select 0;
+	groupsNATOSquadT3 = [];
+	for "_i" from 1 to 5 do {
+		groupsNATOSquadT3 pushBack [
+			"loadouts_occ_elite_SquadLeader",
+			selectRandomWeighted ["loadouts_occ_elite_LAT", 2, "loadouts_occ_elite_MachineGunner", 1],
+			selectRandomWeighted ["loadouts_occ_elite_Rifleman", 2, "loadouts_occ_elite_Grenadier", 1],
+			selectRandomWeighted ["loadouts_occ_elite_MachineGunner", 2, "loadouts_occ_elite_Marksman", 1],
+			selectRandomWeighted ["loadouts_occ_elite_Rifleman", 4, "loadouts_occ_elite_AT", 1],
+			selectRandomWeighted ["loadouts_occ_elite_AA", 1, "loadouts_occ_elite_Engineer", 4],
+			"loadouts_occ_military_Rifleman",
+			"loadouts_occ_military_Medic"
+		];
+	};
+
+	NATOSquad = [(groupsNATOSquadT1 select 0), (groupsNATOSquadT1 select 1), (groupsNATOSquadT1 select 2)];
 	NATOSpecOp = [
 		"loadouts_occ_SF_SquadLeader",
 		"loadouts_occ_SF_Rifleman",

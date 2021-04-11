@@ -145,7 +145,7 @@ else {
 };
 
 if (_destinationX == boxX) then {
-	if ((_originX isKindOf "ReammoBox_F") && {_originX != vehicleBox && {_originX != lootCrate}}) then {deleteVehicle _originX};
+	if ((_originX isKindOf "ReammoBox_F") && {_originX != vehicleBox}) then {deleteVehicle _originX};
 	_updated = [] call A3A_fnc_arsenalManage;
 	if (_updated != "") then {
 		_updated = format ["<t size='0.5' color='#C1C0BB'>Arsenal Updated<br/><br/>%1",_updated];
