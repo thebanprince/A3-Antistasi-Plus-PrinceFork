@@ -4,7 +4,7 @@ if(isNil "_thingX" || {isNull _thingX}) exitWith {};
 
 private _playerX = player;
 
-if !(side _playerX == teamPlayer || side _playerX == civilian) exitWith {
+if !(side _playerX == teamPlayer || {side _playerX == civilian}) exitWith {
 	["Move Asset Failed", "Only rebels are allowed to move assets."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 if (!(isNull attachedTo _thingX)) exitWith {
