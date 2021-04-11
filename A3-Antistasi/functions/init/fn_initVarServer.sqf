@@ -349,13 +349,14 @@ private _templateVariables = [
 	"policeGrunt",
 	"groupsNATOSentry",
 	"groupsNATOSniper",
-	"groupsNATOsmall",
 	"groupsNATOAA",
 	"groupsNATOAT",
 	"groupsNATOmid",
 	"NATOSquad",
 	"NATOSpecOp",
-	"groupsNATOSquad",
+	"groupsNATOSquadT1",
+	"groupsNATOSquadT2",
+	"groupsNATOSquadT3",
 	"groupsFIASmall",
 	"groupsFIAMid",
 	"FIASquad",
@@ -428,7 +429,9 @@ private _templateVariables = [
 	"groupsCSATmid",
 	"CSATSquad",
 	"CSATSpecOp",
-	"groupsCSATSquad",
+	"groupsCSATSquadT1",
+	"groupsCSATSquadT2",
+	"groupsCSATSquadT3",
 	"groupsFIASmall",
 	"groupsFIAMid",
 	"FIASquad",
@@ -629,13 +632,30 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 //////////////////////////////////////
 [2,"Identifying unit types",_fileName] call A3A_fnc_log;
 //Identify Squad Leader Units
-private _squadLeaders = (SDKSL + [(NATOSquad select 0),(NATOSpecOp select 0),(CSATSquad select 0),(CSATSpecOp select 0),(FIASquad select 0)]);
+private _squadLeaders = (SDKSL + [
+	((NATOSquad select 0) select 0),
+	((NATOSquad select 1) select 0),
+	((NATOSquad select 2) select 0),
+	((CSATSquad select 0) select 0),
+	((CSATSquad select 1) select 0),
+	((CSATSquad select 2) select 0),
+	(NATOSpecOp select 0),
+	(CSATSpecOp select 0),
+	(FIASquad select 0)
+]);
 DECLARE_SERVER_VAR(squadLeaders, _squadLeaders);
 //Identify Medic Units
 private _medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 DECLARE_SERVER_VAR(medics, _medics);
 //Define Sniper Groups and Units
-private _sniperGroups = [groupsNATOSniper,groupsCSATSniper];
+private _sniperGroups = [
+	(groupsNATOSniper select 0), 
+	(groupsNATOSniper select 1),
+	(groupsNATOSniper select 2),
+	(groupsCSATSniper select 0), 
+	(groupsCSATSniper select 1),
+	(groupsCSATSniper select 2)
+];
 DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 
 //////////////////////////////////////
@@ -837,7 +857,7 @@ if(A3A_hasCup) then {
 };
 
 //lootcrate cost
-server setVariable [lootCrate, 200, true];
+server setVariable [lootCrate, 100, true];
 
 //rally point cost
 server setVariable [rallyPointRoot, 1000, true];
