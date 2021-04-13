@@ -432,10 +432,11 @@ _eliteLoadoutData setVariable ["SMGs", [
 ["SMG_02_F", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]
 ]];
 _eliteLoadoutData setVariable ["machineGuns", [
-["MMG_02_black_F", "", "acc_pointer_IR", "optic_tws_mg", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
+["MMG_02_black_F", "", "acc_pointer_IR", "optic_tws_mg", [], [], "bipod_01_F_blk"],
 ["LMG_Mk200_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Hamr", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_snd"]
 ]];
 _eliteLoadoutData setVariable ["marksmanRifles", [
+["srifle_DMR_02_F", "", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"],
 ["srifle_DMR_03_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
 ["srifle_DMR_03_F", "", "acc_pointer_IR", "optic_tws", [], [], "bipod_01_F_blk"],
 ["srifle_DMR_03_multicam_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_snd"],
