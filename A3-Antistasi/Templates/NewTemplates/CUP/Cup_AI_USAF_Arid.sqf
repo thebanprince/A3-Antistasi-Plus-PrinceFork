@@ -70,7 +70,7 @@
 ["staticMGs", ["I_HMG_02_high_F"]] call _fnc_saveToTemplate; 					//this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
 ["staticAT", ["CUP_B_TOW2_TriPod_US"]] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
 ["staticAA", ["CUP_B_Stinger_AA_pod_Base_USMC"]] call _fnc_saveToTemplate; 					//this line determines static AAs -- Example: ["staticAA", ["B_static_AA_F"]] -- Array, can contain multiple assets
-["staticMortars", ["B_Mortar_01_F"]] call _fnc_saveToTemplate; 				//this line determines static mortars -- Example: ["staticMortars", ["B_Mortar_01_F"]] -- Array, can contain multiple assets
+["staticMortars", ["CUP_B_M252_USMC"]] call _fnc_saveToTemplate; 				//this line determines static mortars -- Example: ["staticMortars", ["B_Mortar_01_F"]] -- Array, can contain multiple assets
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			//this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 		//this line determines smoke-shells for the static mortar - !needs to be compatible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] - ENTER ONLY ONE OPTION
@@ -88,20 +88,19 @@
 //PvP definitions
 ["playerDefaultLoadout", []] call _fnc_saveToTemplate;
 ["pvpLoadouts", [
-		//Team Leader
-		["vanilla_blufor_teamLeader"] call A3A_fnc_getLoadout,
-		//Medic
-		["vanilla_blufor_medic"] call A3A_fnc_getLoadout,
-		//Autorifleman
-		["vanilla_blufor_machineGunner"] call A3A_fnc_getLoadout,
-		//Marksman
-		["vanilla_blufor_marksman"] call A3A_fnc_getLoadout,
-		//Anti-tank Scout
-		["vanilla_blufor_AT"] call A3A_fnc_getLoadout,
-		//AT2
-		["vanilla_blufor_rifleman"] call A3A_fnc_getLoadout
-	]
-] call _fnc_saveToTemplate;
+	//Team Leader
+	["cup_blufor_EUROFOR_teamLeader_temp"] call A3A_fnc_getLoadout,
+	//Medic
+	["cup_blufor_EUROFOR_medic_temp"] call A3A_fnc_getLoadout,
+	//Autorifleman
+	["cup_blufor_EUROFOR_machineGunner_temp"] call A3A_fnc_getLoadout,
+	//Marksman
+	["cup_blufor_EUROFOR_marksman_temp"] call A3A_fnc_getLoadout,
+	//Anti-tank Scout
+	["cup_blufor_EUROFOR_AT_temp"] call A3A_fnc_getLoadout,
+	//AT2
+	["cup_blufor_EUROFOR_AT2_temp"] call A3A_fnc_getLoadout
+]] call _fnc_saveToTemplate;
 
 ["pvpVehicles", ["CUP_B_M1151_M2_USMC", "CUP_B_HMMWV_Transport_USA"]] call _fnc_saveToTemplate;
 
