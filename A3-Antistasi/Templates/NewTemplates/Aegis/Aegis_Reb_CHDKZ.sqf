@@ -85,7 +85,7 @@ if (hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "t
 //////////////////////////////////////
 ["baseSoldier", "I_L_Criminal_SMG_F"] call _fnc_saveToTemplate;
 
-lootCrate = "CargoNet_01_box_F";
+lootCrate = "Box_Syndicate_Ammo_F";
 rallyPointRoot = "B_RadioBag_01_wdl_F";
 
 //black market stuff
