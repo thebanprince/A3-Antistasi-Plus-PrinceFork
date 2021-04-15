@@ -103,7 +103,7 @@
 	]
 ] call _fnc_saveToTemplate;
 
-["pvpVehicles", ["CUP_B_M1151_M2_USMC", "B_LSV_01_unarmed_F"]] call _fnc_saveToTemplate;
+["pvpVehicles", ["CUP_B_M1151_M2_USMC", "CUP_B_HMMWV_Transport_USA"]] call _fnc_saveToTemplate;
 
 
 //////////////////////////

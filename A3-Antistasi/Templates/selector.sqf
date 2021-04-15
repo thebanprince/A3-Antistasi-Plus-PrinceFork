@@ -95,7 +95,7 @@ switch(true) do {
         };
     };
     case (A3A_hasAegis): {
-        ["Templates\NewTemplates\Aegis\Aegis_AI_EUROFOR_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\Aegis\Aegis_AI_EUROFOR.sqf", west] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using Aegis EUROFOR Template", _filename] call A3A_fnc_log;
     };
     default {
@@ -161,6 +161,10 @@ switch(true) do{
                 [2, "Using arid AFRF Template", _filename] call A3A_fnc_log;
             };
         };
+    };
+    case (A3A_hasAegis): {
+        ["Templates\NewTemplates\Aegis\Aegis_AI_AFRF.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using Aegis Russia Template", _filename] call A3A_fnc_log;
     };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
