@@ -14,7 +14,7 @@ switch(_vehicleType) do {
         _shopLookupArray = [civCar, civTruck, civHeli, civBoat];
     };
     case("MIL"): {
-        _shopLookupArray = [vehSDKBike, vehSDKTruck];
+        _shopLookupArray = [vehSDKBike, vehSDKTruck, vehSDKLightUnarmed];
         if (tierWar > 2) then {
             _shopLookupArray append [vehSDKLightArmed, SDKMGStatic];
         };
