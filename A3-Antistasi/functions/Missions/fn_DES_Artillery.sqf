@@ -1,7 +1,7 @@
 //Mission: Destroy Artillery
 if (!isServer and hasInterface) exitWith{};
 
-private _fileName = "fn_AS_Artillery";
+private _fileName = "fn_DES_Artillery";
 [2, "Artillery mission init.", _fileName] call A3A_fnc_log;
 
 private _markerX = _this select 0;
@@ -157,7 +157,7 @@ _artilleryVeh addEventHandler ["Fired", {
         sleep 60;
         _veh doArtilleryFire [_targetPos, _shell, 2];
     };
-    [2, "Exited artillery firing loop...", _fileName, true] call A3A_fnc_log;
+    [2, "Exited artillery firing loop...", "fn_DES_Artillery", true] call A3A_fnc_log;
 };
 
 //////////////////////
