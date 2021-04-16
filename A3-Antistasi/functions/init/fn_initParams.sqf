@@ -61,7 +61,7 @@ A3A_paramTable = [
 
     ["startWithLongRangeRadio", "startWithLongRangeRadio", [], false],
     ["helmetLossChance", "helmetLossChance", [], 33],
-    ["minWeaps", "unlockItem", [], 30],
+    ["minWeaps", "unlockItem", [], 25],
     ["memberOnlyMagLimit", "memberOnlyMagLimit", [], 40],				// dead param
     ["unlockedUnlimitedAmmo", "unlockedUnlimitedAmmo", [], 0],			// these three are not bool for some reason
     ["allowUnlockedExplosives", "allowUnlockedExplosives", [], 0],

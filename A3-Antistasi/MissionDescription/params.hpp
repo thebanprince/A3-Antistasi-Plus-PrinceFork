@@ -113,7 +113,7 @@ class Params
     {
         title = "Number of the same item required to unlock";
         values[] = {9999,25,30,35,40,45,50};
-        texts[] = {"Default (30)","25","30","35","40","45","50"};
+        texts[] = {"Default (25)","25","30","35","40","45","50"};
         default = 9999;
     };
     class memberOnlyMagLimit

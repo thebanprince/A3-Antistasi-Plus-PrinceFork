@@ -477,7 +477,7 @@ _militiaLoadoutData setVariable ["rifles", [
 ["CUP_arifle_AUG_A1", "", "", "", ["CUP_30Rnd_556x45_AUG", "CUP_30Rnd_556x45_AUG", "CUP_30Rnd_TE1_Red_Tracer_556x45_AUG"], [], ""],
 ["CUP_arifle_G36E", "", "", "CUP_optic_G36Optics15x", ["CUP_30Rnd_556x45_G36", "CUP_30Rnd_556x45_G36", "CUP_30Rnd_TE1_Red_Tracer_556x45_G36"], [], ""],
 ["CUP_arifle_AKS74_Early", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], [], ""],
-["CUP_arifle_FNFAL5061_wooden", "", "CUP_acc_Flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["CUP_arifle_FNFAL5061_wooden", "", "CUP_acc_Flashlight", "", ["CUP_10Rnd_762x51_FNFAL_M", "CUP_10Rnd_762x51_FNFAL_M", "CUP_10Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["carbines", [
 ["CUP_arifle_Colt727", "", "CUP_acc_Flashlight", "", ["CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag_Tracer_Red"], [], ""],
