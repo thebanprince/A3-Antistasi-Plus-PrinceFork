@@ -65,6 +65,7 @@ allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
 allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
 allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
 allRebelUniforms deleteAt (allRebelUniforms find "U_BG_GhillieSuit");
+allRebelUniforms deleteAt (allRebelUniforms find "CUP_U_I_Ghillie_Top");
 
 ////////////////////////////////////
 //      Backpacks Sorting        ///
