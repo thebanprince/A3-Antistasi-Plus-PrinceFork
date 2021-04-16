@@ -28,7 +28,7 @@ private _baseInputClassesMap = createHashMap;
 
 	private _similarClassnames = _weaponConfigs select { 
 		_weaponConfig = inheritsFrom (configFile >> "CfgWeapons" >> _x);
-		configName _weaponConfig == _cfgName || {(configName _weaponConfig) == _item}
+		configName _weaponConfig == _cfgName
 	};
 
 	// exclude weapons with attached scopes, muzzles, etc - they will appear as dupes in arsenal
