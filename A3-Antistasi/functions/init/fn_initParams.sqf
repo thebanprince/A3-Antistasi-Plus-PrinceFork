@@ -108,8 +108,8 @@ A3A_paramTable = [
     ["isFatalWoundsEnabled", "fatalWounds", [], false],
     ["playerIcons", "playerIcons", [], true],
     ["magRepack", "magRepack", [], true],
-    ["rhsOccupantFaction", "occupantFactionRhs", ["server"], 0],
-    ["cupOccupantFaction", "occupantFactionCup", ["server"], 0]
+    ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],
+    ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0]
     // beware of the comma
 ];
 
