@@ -10,7 +10,7 @@ _setText ctrlSetBackgroundColor [0,0,0,0];
 
 private _player = player getVariable ["owner",player];		// different, if remote-controlling
 private _ucovertxt = ["Off", "<t color='#1DA81D'>On</t>"] select ((captive _player) and !(_player getVariable ["incapacitated",false]));
-private _rallytxt = ["Off", "<t color='#1DA81D'>On</t>"] select (!isNil "isRallyPointPlaced" && {isRallyPointPlaced});
+private _rallytxt = ["Absent", "<t color='#1DA81D'>Established</t>"] select (!isNil "isRallyPointPlaced" && {isRallyPointPlaced});
 
 if (_player != theBoss) then {
 	private _nameC = if !(isNull theBoss) then {name theBoss} else {"None"};
