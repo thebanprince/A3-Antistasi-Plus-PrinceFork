@@ -10808,7 +10808,7 @@ class cfgHALsStore
 			};
 		};
 
-		class antistasiUnits {
+		class aegisCup {
 			displayName = "Arms Dealer Store";
 			categories[] = {
 			"handgunsAu", 
