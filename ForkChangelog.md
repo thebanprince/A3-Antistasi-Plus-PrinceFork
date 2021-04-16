@@ -16,10 +16,12 @@
 - Ability to sell non-unlocked guns and items at arms dealer store
 - Initial Player Money mission parameter
 - Defeat faction mission parameter - rebels could defeat any enemy faction altogether by capturing their last outpost so they will be no longer active on the field and launch any attack on rebels, enabled by default
-- Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated and better armed
+- Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
-- .sqfc bytecode support where possible (may lead to faster loading times and function execution in some situations)
+- .sqfc bytecode support where possible (may lead to faster loading times and function execution in some circumstances)
+- (CUP) BAF faction mission variant (mission parameters)
+- (CUP) USAF faction mission variant (mission parameters)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
 
 ### Changes
@@ -28,7 +30,7 @@
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
 - Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
 - Artillery triggers counterattacks too (same as it already works with mortars)
-- Fixed some exploits and bugs in Kill Collaborationist and Destroy Artillery tasks
+- Fixed some exploits and bugs in Kill Collaborationist, Rescue Smuggler and Destroy Artillery tasks
 - AI Limit option changed from 200 to 300
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1500
@@ -37,11 +39,10 @@
 - Remade announcement system - much less messages on screen will be overwritten by new information
 - AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
 - AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
-- Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), magazine check to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation), pistols included too
+- Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), pistols included too
 - Airbases have SAM sites too
 - CIWSes use cargo platforms instead of flatbed trucks
-- CIWSes will scan horizon
-- Singleplayer support is fully turned off
+- CIWSes and AA vehicles on airbase will scan horizon
 - Adjusted commander loadCoeff (1.4->1.0)
 - Move Static Weapon action renamed to "Move Static Weapon/Loot Crate" to reflect new functionality
 - Previous vehicle tiers will get a discount when next tier is unlocked (Vehicle Black Market)
@@ -81,9 +82,10 @@
 - Removed Airstrikes title from top status bar
 - Removed tent on rebel HQ (all actions from it moved to new commander UI)
 - Removed duplicated or obsolete code
+- Singleplayer support is fully turned off, use LAN server to play singleplayer
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
 - Disabled Pursuers until full Random Events implementation will happen
-- (Altis) removed some outposts to give more varienty in possible start positions
+- (Altis) removed some outposts to give more variety in possible start positions
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 
