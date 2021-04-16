@@ -86,6 +86,7 @@
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
 - Disabled Pursuers until full Random Events implementation will happen
 - (Altis) removed some outposts to give more variety in possible start positions
+- (Chernarus) removed some outposts and static objects
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 
