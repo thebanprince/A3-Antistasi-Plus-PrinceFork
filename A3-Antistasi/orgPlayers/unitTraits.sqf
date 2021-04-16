@@ -30,7 +30,7 @@ if(roleDescription player == "Default Commander") then
     player setUnitTrait ["loadCoef",1];
     player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
-    _text = "Commander role.<br/><br/>The commander is a lightweight unit with increased camouflage, medical and engineering capabilities";
+    _text = "Commander role.<br/><br/>The commander is a unit with increased camouflage, medical and engineering capabilities with the access to exclusive Commander Menu (O key).";
 }
 else
 {

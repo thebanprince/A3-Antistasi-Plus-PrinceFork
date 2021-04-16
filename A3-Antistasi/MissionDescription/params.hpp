@@ -235,7 +235,7 @@ class Params
           texts[] = {""};
           default = "";
      };
-     class occupantFactionCup
+     class cupOccupantFaction
      {
           title="Select Occupant Faction";
 		values[]={9999, 0, 1};
@@ -256,7 +256,7 @@ class Params
           texts[] = {""};
           default = "";
      };
-     class occupantFactionRhs
+     class rhsOccupantFaction
      {
           title="Select Occupant Faction";
 		values[]={9999, 0};

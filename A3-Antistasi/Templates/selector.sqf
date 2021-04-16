@@ -38,12 +38,12 @@ switch(true) do{
         switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\CUP\CUP_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate Napa Template", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\Cup\Cup_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Temperate NAPA Template", _filename] call A3A_fnc_log;
             };
             default {
                 ["Templates\NewTemplates\CUP\CUP_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid Napa Templates", _filename] call A3A_fnc_log;
+                [2, "Using arid FIA Templates", _filename] call A3A_fnc_log;
             };
         };
     };
@@ -87,12 +87,12 @@ switch(true) do {
                 switch(true) do {
                     case (_terrainName in _temperateMaps);
                     case (_terrainName in _tropicalMaps): {
-                        ["Templates\NewTemplates\Cup\Cup_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                        [2, "Using temperate BAF Template", _filename] call A3A_fnc_log;
+                        ["Templates\NewTemplates\CUP\CUP_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
                     };
                     default {
-                        ["Templates\NewTemplates\Cup\Cup_AI_BAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                        [2, "Using arid BAF Templates", _filename] call A3A_fnc_log;
+                        ["Templates\NewTemplates\CUP\Cup_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
                     };
                 };
             };
@@ -100,12 +100,12 @@ switch(true) do {
                 switch(true) do {
                     case (_terrainName in _temperateMaps);
                     case (_terrainName in _tropicalMaps): {
-                        ["Templates\NewTemplates\CUP\CUP_AI_CDF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                        [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
+                        ["Templates\NewTemplates\Cup\Cup_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using temperate BAF Template", _filename] call A3A_fnc_log;
                     };
                     default {
-                        ["Templates\NewTemplates\CUP\Cup_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                        [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
+                        ["Templates\NewTemplates\Cup\Cup_AI_BAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arid BAF Templates", _filename] call A3A_fnc_log;
                     };
                 };
             };
@@ -198,10 +198,6 @@ switch(true) do{
 };
 //Civ Templates
 switch(true) do{
-    case (A3A_has3CBFactions): {
-        ["Templates\NewTemplates\3CB\3CB_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
-        [2, "Using 3CB Civ Template", _filename] call A3A_fnc_log;
-    };
     case (A3A_hasCup): {
         switch (true) do {
             case (_terrainName in _temperateMaps): {

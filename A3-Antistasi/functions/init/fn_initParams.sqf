@@ -103,7 +103,7 @@ A3A_paramTable = [
     ["playerStartingMoney", "playerStartingMoney", [], 200],
     ["factionsDefeat", "factionsDefeat", [], true],
     ["spawnTraderOnBase", "traderOnBase", [], false],
-    ["areRandomEventsEnabled", "randomEvents", [], false],
+    // ["areRandomEventsEnabled", "randomEvents", [], false],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
     ["isFatalWoundsEnabled", "fatalWounds", [], false],
     ["playerIcons", "playerIcons", [], true],
@@ -180,7 +180,7 @@ if (isMultiplayer) then {
             // disabled for backwards compatibility
             //if (loadLastSave && ("locked" in _options)) exitWith {};
 
-            private _val = [_paramName, 9998] call BIS_fnc_getParamValue;
+            private _val = [_paramName, 9998] call BIS_fnc_getParamValue;         
             if (_val == 9998) exitWith {
                 [1, format ["Param %1 not found", _paramName], _filename] call A3A_fnc_log;
             };
