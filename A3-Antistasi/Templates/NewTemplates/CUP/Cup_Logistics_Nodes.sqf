@@ -8,11 +8,11 @@ A3A_logistics_vehicleHardpoints append [
         [1,         [0,-2.6,-0.52],    [8,9,10,11]  ]
     ]],
 
-    ["\CUP\WheeledVehicles\CUP_WheeledVehicles_Ural\cup_Ural_open.p3d",[
-        [1,         [0,-0.2,-0.55],    [2,3]  ], 
-        [1,         [0,-1,-0.55],      [4,5]  ],
-        [1,         [0,-1.8,-0.55],    [6,7]  ],
-        [1,         [0,-2.6,-0.55],    [8,9,10,11]  ]
+    ["CUP_C_Ural_Open_Civ_03" call A3A_fnc_classNameToModel,[
+        [1,         [0,-0.2,1.5],    [2,3]  ], 
+        [1,         [0,-1,1.5],      [4,5]  ],
+        [1,         [0,-1.8,1.5],    [6,7]  ],
+        [1,         [0,-2.6,1.5],    [8,9,10,11]  ]
     ]],
 
     ["CUP_B_Ural_CDF" call A3A_fnc_classNameToModel,[
