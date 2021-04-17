@@ -107,7 +107,7 @@ if (hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "t
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "I_G_Soldier_F"] call _fnc_saveToTemplate;
+["baseSoldier", "CUP_I_GUE_Soldier_AKS74"] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPointRoot = "B_RadioBag_01_wdl_F";
