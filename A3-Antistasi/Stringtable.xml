@@ -735,12 +735,12 @@
         <Czech>Podívejte se na nějaké vozidlo a přiřaďte jej vybranému týmu pro jeho použití.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mount_veh_title">
-        <Original>Assign Vehicle</Original>
-        <English>Assign Vehicle</English>
-        <French>Attribuer un véhicule</French>
-        <Russian>Придать технику</Russian>
-        <German>Fahrzeug zuweisen</German>
-        <Czech>Přiřadit vozidlo</Czech>
+        <Original>Mount / Dismount Vehicle</Original>
+        <English>Mount / Dismount Vehicle</English>
+        <French>Monter / démonter le véhicule</French>
+        <Russian>Спешиться / Сесть в технику</Russian>
+        <German>Fahrzeug montieren / demontieren </German>
+        <Czech>Nasazení / demontáž vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mount_veh_tooltip">
         <Original>Mount / Dismount</Original>
