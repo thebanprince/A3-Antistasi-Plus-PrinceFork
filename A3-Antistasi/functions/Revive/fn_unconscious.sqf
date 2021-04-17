@@ -155,7 +155,7 @@ if (time > _bleedOut) exitWith {
 if (alive _unit) then {
 	_unit setUnconscious false;
 	_unit setBleedingRemaining 0;
-	_unit playMoveNow "unconsciousoutprone";
+	_unit switchMove "unconsciousoutprone";
 
 	if (isPlayer _unit) then {
 		[] call SCRT_fnc_misc_updateRichPresence;
