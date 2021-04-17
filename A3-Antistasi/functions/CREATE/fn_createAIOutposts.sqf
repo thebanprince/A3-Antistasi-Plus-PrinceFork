@@ -146,7 +146,7 @@ if ((_frontierX) and (_markerX in outposts)) then
 		sleep 1;
 
 		{
-			private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+			private _relativePosition = [_mortarPos, 4, _x] call BIS_Fnc_relPos;
 			private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
 			_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
 			_sandbag setVectorUp surfaceNormal position _sandbag;
