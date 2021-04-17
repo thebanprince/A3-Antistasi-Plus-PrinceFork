@@ -365,7 +365,7 @@ _eliteLoadoutData setVariable ["sidearms", [
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData setVariable ["uniforms", ["CUP_U_C_Policeman_01"]];
-_policeLoadoutData setVariable ["vests", ["CUP_V_CDF_CrewBelt"]];
+_policeLoadoutData setVariable ["vests", ["CUP_V_C_Police_Holster"]];
 _policeLoadoutData setVariable ["helmets", ["CUP_H_C_Policecap_01"]];
 _policeLoadoutData setVariable ["smgs", [
 ["CUP_smg_SA61", "", "", "", ["CUP_20Rnd_B_765x17_Ball_M"], [], ""],
