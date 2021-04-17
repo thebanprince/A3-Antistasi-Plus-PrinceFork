@@ -190,6 +190,9 @@ private _ang = markerDir _markerX;
 _mrk setMarkerDirLocal _ang;
 if (!debug) then {_mrk setMarkerAlphaLocal 0};
 private _garrison = garrison getVariable [_markerX,[]];
+if (count _garrison > 120) then {
+	_garrison resize 120;
+};
 _garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 private _radiusX = count _garrison;

@@ -70,6 +70,9 @@ if (!(_patrolVehicleData isEqualTo [])) then {
 
 _garrison = garrison getVariable [_markerX,[]];
 _garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
+if (count _garrison > 60) then {
+	_garrison resize 60;
+};
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 
 _radiusX = count _garrison;

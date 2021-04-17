@@ -144,7 +144,8 @@ if (sunOrMoon < 1) then {
                 };
             };
         } else {
-            if ("SF_" in (_unit getVariable "unitType")) then {
+            private _unitType = _unit getVariable "unitType";
+            if !("SF_" in _unitType) then {
                 if (tierWar < 3) then {
                     if (_hmd != "") then {
                         _unit unassignItem _hmd;

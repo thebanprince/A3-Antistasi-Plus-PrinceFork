@@ -44,9 +44,6 @@ if (_frontierX) then
 		{if ((position _x) distance _positionX > _dist) then {_roadcon = _x}} forEach _roadscon;
 		_dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
 
-		//if (!_isFIA) then
-		//{
-
 		_groupX = createGroup _sideX;
 		_groups pushBack _groupX;
 		_pos = [getPos _road, 7, _dirveh + 270] call BIS_Fnc_relPos;
@@ -97,6 +94,9 @@ _ang = markerDir _markerX;
 _mrk setMarkerDirLocal _ang;
 if (!debug) then {_mrk setMarkerAlphaLocal 0};
 _garrison = garrison getVariable [_markerX,[]];
+if (count _garrison > 40) then {
+	_garrison resize 40;
+};
 _garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 _radiusX = count _garrison;
