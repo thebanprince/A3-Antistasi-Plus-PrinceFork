@@ -22,14 +22,14 @@ Example:
 
 private _type = typeOf player;
 private _text = "";
-if(roleDescription player == "Default Commander") then
-{
+if(roleDescription player == "Default Commander") then {
     //Same values as teamleader
     player setUnitTrait ["camouflageCoef",0.8];
     player setUnitTrait ["audibleCoef",0.8];
     player setUnitTrait ["loadCoef",1];
     player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
+	player setUnitTrait ["UAVHacker",true];
     _text = "Commander role.<br/><br/>The commander is a unit with increased camouflage, medical and engineering capabilities with the access to exclusive Commander Menu (O key).";
 }
 else
