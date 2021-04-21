@@ -32,7 +32,7 @@
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
 - Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
 - Artillery triggers counterattacks too (same as it already works with mortars)
-- Fixed some exploits and bugs in Kill Collaborationist, Rescue Smuggler and Destroy Artillery tasks
+- Multiple improvements to Kill Collaborationist, Rescue Smugglers and Destroy Artillery tasks
 - AI Limit option changed from 200 to 300
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1500
