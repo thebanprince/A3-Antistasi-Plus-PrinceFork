@@ -110,6 +110,19 @@ if (_typeX in (vehNormal + vehAttack + vehBoats + vehAA)) then {
 	};
 };
 
+if (!(additionalShopArtillery isEqualTo [])) then {
+	private _model = _typeX call A3A_fnc_classNameToModel;
+
+	if (_model in [
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"
+	]) then {
+		_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
+	};
+};
+
 if (_side == civilian) then
 {
 	_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_this select 0))) then {0;} else {(_this select 2);};}];
