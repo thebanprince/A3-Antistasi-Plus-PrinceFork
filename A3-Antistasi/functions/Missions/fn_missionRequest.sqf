@@ -238,9 +238,26 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
+
 			private _shipwreckRoll = random 100;
-			if(_shipwreckRoll < 15) then {
-				[[_site],"A3A_fnc_RES_Shipwreck"] remoteExec ["A3A_fnc_scheduler",2];
+			if(_shipwreckRoll < 20) then {
+				private _shorePosition = [
+					(getMarkerPos _site),
+					0,
+					1500,
+					0,
+					0,
+					1,
+					1,
+					[],
+					[[0,0,0], [0,0,0]]
+				] call BIS_fnc_findSafePos;
+
+				if (!(_shorePosition isEqualTo [0,0,0])) then {
+					[[_site],"A3A_fnc_RES_Shipwreck"] remoteExec ["A3A_fnc_scheduler",2];
+				} else {
+					[[_site],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2];
+				};
 			} else {
 				if (_site in citiesX) then {
 					[[_site],"A3A_fnc_RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2]
