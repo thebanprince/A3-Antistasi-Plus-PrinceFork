@@ -46,6 +46,10 @@ if(!isServer) exitWith
 
 if(_side == teamPlayer) exitWith {};
 
+if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting support.", str _side], _fileName, true] call A3A_fnc_log;
+};
+
 waitUntil {sleep 0.1; !supportCallInProgress};
 supportCallInProgress = true;
 
