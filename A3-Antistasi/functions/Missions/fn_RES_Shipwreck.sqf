@@ -24,61 +24,71 @@ private _positionX = getMarkerPos _markerX;
 private _shorePosition = [
     _positionX, //center
     0, //minimal distance
-    10000, //maximumDistance
-    10, //object distance
+    1500, //maximumDistance
+    0, //object distance
     0, //water mode
     1, //maximum terrain gradient
     1, //shore mode
     [], //blacklist positions
-    [_positionX, _positionX] //default position
+    [[0,0,0], [0,0,0]] //default position
 ] call BIS_fnc_findSafePos;
 
-_shoreMarker = createMarker ["ShoreMarker", _shorePosition];
-_shoreMarker setMarkerSize [200, 200];
-_shoreMarker setMarkerColor "ColorUNKNOWN";
-_shoreMarker setMarkerShape "RECTANGLE";
-_shoreMarker setMarkerAlpha 0;
+if (_shorePosition isEqualTo [0,0,0]) exitWith {
+    ["RES"] remoteExecCall ["A3A_fnc_missionRequest",2];
+	[1, "Problems with shore positions, rerequesting new rescue mission.", _filename] call A3A_fnc_log;
+};
 
-private _dummy = createVehicle ["C_man_1", _shorePosition, [], 0 , "NONE"];
+_shoreMarker = createMarkerLocal ["ShoreMarker", _shorePosition];
+_shoreMarker setMarkerSizeLocal [200, 200];
+_shoreMarker setMarkerColorLocal "ColorUNKNOWN";
+_shoreMarker setMarkerShapeLocal "RECTANGLE";
+_shoreMarker setMarkerAlphaLocal 0;
 
 private _shipPosition = [
     _shorePosition,
-    0,
-    5000,
+    100,
+    500,
     0,
     2,
     1,
     0,
     [],
-    [_shorePosition, _shorePosition]
+    [[0,0,0], [0,0,0]]
 ] call BIS_fnc_findSafePos;
 private _ship = "C_Boat_Civil_04_F" createVehicle _shipPosition;
-_dummy setDir ([_dummy, _ship] call BIS_fnc_dirTo);
-sleep 0.2;
+private _outOfBounds = _shipPosition findIf { (_x < 0) || {_x > worldSize}} != -1;
 
-private _radiusX = 250;
+if (!(surfaceIsWater _shipPosition) || _outOfBounds) then {
+    private _iterations = 0;
+    private _radiusX = 250;
+    while {_iterations < 50} do {
+        _shipPosition = [
+            _shorePosition,
+            100,
+            _radiusX,
+            0,
+            2,
+            1,
+            0,
+            [],
+            [[0,0,0], [0,0,0]]
+        ] call BIS_fnc_findSafePos;
 
-while {true} do {
-    _shipPosition = [
-        _shorePosition,
-        0,
-        _radiusX,
-        0,
-        2,
-        1,
-        0,
-        [],
-        [_shorePosition, _shorePosition]
-    ] call BIS_fnc_findSafePos;
+        _ship setPos _shipPosition;
+        _outOfBounds = (position _ship) findIf { (_x < 0) || {_x > worldSize}} != -1;
 
-    _ship setPos _shipPosition;
-    _visibility = [objNull, "VIEW"] checkVisibility [eyePos _dummy, position _ship];
-
-    if(_visibility > 0.3 && surfaceIsWater _shipPosition) exitWith {};
-    _radiusX = _radiusX + 100;
+        if(surfaceIsWater _shipPosition && !(_outOfBounds)) exitWith {};
+        _radiusX = _radiusX + 100;
+        _iterations = _iterations + 1;
+    };
 };
 
-deleteVehicle _dummy;
+if (_shipPosition isEqualTo [0,0,0]) exitWith {
+    [1, "Problems with ship positions, rerequesting new rescue mission.", _filename] call A3A_fnc_log;
+    deleteVehicle _ship;
+    ["RES"] remoteExecCall ["A3A_fnc_missionRequest",2];
+};
+
 
 //////////////////////
 //Objects and AI spawn
@@ -106,13 +116,10 @@ for "_i" from 0 to _smugglerCount do {
 	_unit allowFleeing 0;
 	removeAllWeapons _unit;
 	removeAllAssignedItems _unit;
-	sleep 1;
 	_POWS pushBack _unit;
 	[_unit,"prisonerX"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
 	[_unit] call A3A_fnc_reDress;
 };
-
-sleep 5;
 
 {
     _x allowDamage true;
@@ -123,15 +130,16 @@ private _boatClass = nil;
 private _officerClass = nil;
 private _truckClass = nil;
 
-if(_sideX == Occupants) then { 
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
 
-    _infantrySquadArray = selectRandom groupsNATOSquad;
+if(_sideX == Occupants) then { 
+    _infantrySquadArray = selectRandom _squads;
     _boatClass = vehNATOBoat;
     _officerClass = NATOOfficer;
     _truckClass = selectRandom vehNATOTrucks;
 } 
 else { 
-    _infantrySquadArray = CSATSquad;
+    _infantrySquadArray = selectRandom _squads;
     _boatClass = vehCSATBoat;
     _truckClass = selectRandom vehCSATTrucks; 
     _officerClass = CSATOfficer;
@@ -298,15 +306,8 @@ publicVariable "missionsX";
 waitUntil {
     sleep 5;
     private _players = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
-    private _isInArea = false;
-    {
-        if(_x inArea _shoreMarker) exitWith {
-            _isInArea = true;
-        };
-    } forEach _players;
-    _isInArea or (dateToNumber date > _dateLimitNum)
+    (_players findIf {_x inArea _shoreMarker} != -1) || {dateToNumber date > _dateLimitNum}
 };
-
 
 [2, "Rebels in area, setting things in motion...", _fileName, true] call A3A_fnc_log; 
 
@@ -503,6 +504,7 @@ _nul = [1200,"RES"] spawn A3A_fnc_deleteTask;
 } forEach _effects + _props;
 
 deleteMarker _shoreMarker;
+deleteMarker "ShoreMarker";
 
 {
     [_x] spawn A3A_fnc_vehDespawner
