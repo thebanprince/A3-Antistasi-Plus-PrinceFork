@@ -841,7 +841,6 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 	};
 };
 
-//CUP-only
 {server setVariable [_x,1500,true]} forEach additionalShopLight;
 {server setVariable [_x,5000,true]} forEach additionalShopAtgmVehicles;
 {server setVariable [_x,7500,true]} forEach additionalShopManpadsVehicles;

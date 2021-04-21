@@ -32,18 +32,29 @@ _comboBox lbSetData [6, "TANK"];
 _comboBox lbAdd "Planes";
 _comboBox lbSetData [7, "PLANE"];
 
-if (A3A_hasCup) then {
+private _i = 8;
+
+if (!isNil "additionalShopLight" && {!(additionalShopLight isEqualTo [])}) then {
     _comboBox lbAdd "Light Utility Vehicles";
-    _comboBox lbSetData [8, "LUV"];
+    _comboBox lbSetData [_i, "LUV"];
+    _i = _i + 1;
+};
 
+if (!isNil "additionalShopAtgmVehicles" && {!(additionalShopAtgmVehicles isEqualTo [])}) then {
     _comboBox lbAdd "ATGM Carriers";
-    _comboBox lbSetData [9, "ATGM"];
+    _comboBox lbSetData [_i, "ATGM"];
+    _i = _i + 1;
+};
 
+if (!isNil "additionalShopManpadsVehicles" && {!(additionalShopManpadsVehicles isEqualTo [])}) then {
     _comboBox lbAdd "MANPADS Carriers";
-    _comboBox lbSetData [10, "MANPADS"];
+    _comboBox lbSetData [_i, "MANPADS"];
+    _i = _i + 1;
+};
 
+if (!isNil "additionalShopArtillery" && {!(additionalShopArtillery isEqualTo [])}) then {
     _comboBox lbAdd "Artillery";
-    _comboBox lbSetData [11, "ARTILLERY"];
+    _comboBox lbSetData [_i, "ARTILLERY"];
 };
 
 _comboBox lbSetCurSel 0;

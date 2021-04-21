@@ -2045,7 +2045,7 @@ switch _mode do {
 			default {0};
 		};
 
-		_maximumLoad = getnumber (configfile >> "CfgVehicles" >> _supply >> "maximumLoad");
+		_maximumLoad = 1 max getNumber (configFile >> "CfgVehicles" >> _supply >> "maximumLoad");
 
 		_ctrlLoadCargo = _display displayctrl IDC_RSCDISPLAYARSENAL_LOADCARGO;
 		_load = _maximumLoad * (1 - progressposition _ctrlLoadCargo);

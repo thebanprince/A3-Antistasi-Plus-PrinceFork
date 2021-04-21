@@ -121,7 +121,6 @@ additionalShopLight = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_Jackal2_L2A1_FIA", "CUP_
 additionalShopAtgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_I_BRDM2_ATGM_NAPA"];
 additionalShopManpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_O_LR_AA_TKM",  "CUP_B_HMMWV_Avenger_USMC"];
 additionalShopArtillery = ["CUP_I_Hilux_podnos_IND_G_F", "CUP_I_Hilux_UB32_IND_G_F", "CUP_I_Hilux_MLRS_IND_G_F"];
-additionalShopStatic = [];
 
 //technical menu content, CUP exclusive
 technicalAa = "CUP_I_Hilux_zu23_IND_G_F";

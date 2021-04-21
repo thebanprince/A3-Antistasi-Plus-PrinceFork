@@ -2,21 +2,22 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "NAPA"] call _fnc_saveToTemplate; 						//this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", "FIA"] call _fnc_saveToTemplate; 						//this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate; 						//this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", "\A3\Data_F\Flags\Flag_Altis_CO.paa"] call _fnc_saveToTemplate; 				//this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
+["flagTexture", "\A3\Data_F\Flags\flag_FIA_CO.paa"] call _fnc_saveToTemplate; 				//this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
 ["flagMarkerType", ""] call _fnc_saveToTemplate; 			//this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate; 			//this line determines basic vehicles, the lightest kind available. -- Example: ["vehiclesBasic", ["B_Quadbike_01_F"]] -- Array, can contain multiple assets
 ["vehicleLightUnarmed", "rhsgref_cdf_reg_uaz_open"] call _fnc_saveToTemplate; 		//this line determines light and unarmed vehicles. -- Example: ["vehiclesLightUnarmed", ["B_MRAP_01_F"]] -- Array, can contain multiple assets
 ["vehicleLightArmed", "rhsgref_nat_uaz_dshkm"] call _fnc_saveToTemplate; 		//this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
-["vehicleTruck", "rhsgref_cdf_zil131"] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
+["vehicleTruck", "rhssaf_army_ural_open"] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAT", "rhsgref_nat_uaz_spg9"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 ["vehicleAA", "rhsgref_nat_ural_Zu23"] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F","B_Truck_01_covered_F"]] -- Array, can contain multiple assets
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
 ["vehicleRepair", "rhsgref_cdf_gaz66_repair"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
+["vehicleFuel", "rhssaf_army_ural_fuel"] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
 
 ["vehiclePlane", "RHS_AN2"] call _fnc_saveToTemplate; 		//this line determines CAS planes -- Example: ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] -- Array, can contain multiple assets
 ["vehicleHeli", "not_supported"] call _fnc_saveToTemplate; 		//this line determines light helis -- Example: ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] -- Array, can contain multiple assets
@@ -25,6 +26,7 @@
 ["vehicleCivTruck", "RHS_Ural_Open_Civ_03"] call _fnc_saveToTemplate;
 ["vehicleCivHeli", "RHS_Mi8t_civilian"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivLooter", "rhsgref_tla_g_kraz255b1_cargo_open"] call _fnc_saveToTemplate;
 
 ["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate; 					//this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
 ["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
@@ -57,16 +59,47 @@ allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2
 "rhs_insurgent_uniform_2","rhs_insurgent_uniform_3","rhs_insurgent_uniform_4","rhs_insurgent_uniform_5"];
 
 private _initialRebelEquipment = [
+"rhs_weap_m3a1", "rhs_weap_m38", "rhs_weap_m1garand_sa43",
 "rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k",
-"rhs_weap_rpg75",
-"rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag","rhs_mag_rdg2_black","rhs_grenade_m15_mag",
-"B_FieldPack_blk","B_FieldPack_cbr","B_FieldPack_green_F","B_FieldPack_khk","B_FieldPack_oli",
-"rhsgref_chestrig","rhsgref_chicom","rhs_vydra_3m","rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","rhsgref_alice_webbing",
-"rhs_acc_2dpZenit","Binocular"];
+"rhs_weap_panzerfaust60",
+"rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k","rhs_grenade_mkii_mag","rhs_grenade_mki_mag",
+"rhsgref_mag_rkg3em", "rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr43_mag",
+"rhsgref_30rnd_1143x23_M1911B_SMG", "rhsgref_30rnd_1143x23_M1T_SMG", 
+"rhsgref_5Rnd_762x54_m38", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle", "rhsgref_8Rnd_762x63_M2B_M1rifle",
+"rhs_sidor",
+"V_BandollierB_blk", "V_BandollierB_rgr", "V_BandollierB_oli", "V_Rangemaster_belt", "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
+"rhs_acc_2dpZenit","Binocular","Laserbatteries"];
 if (hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
+
+//////////////////////////////////////
+//       Antistasi Plus Stuff       //
+//////////////////////////////////////
+["baseSoldier", "I_G_Soldier_F"] call _fnc_saveToTemplate;
+
+lootCrate = "Box_Syndicate_Ammo_F";
+rallyPointRoot = "B_RadioBag_01_wdl_F";
+
+//black market stuff
+shop_UAV = ["rhs_pchela1t_vvs"];
+shop_AA = ["rhsgref_cdf_zsu234", "rhsgref_cdf_zsu234", "I_LT_01_AA_F"];
+shop_MRAP = ["rhsgref_BRDM2UM_ins_g", "rhsgref_BRDM2_ins_g", "rhsusf_M1117_O"];
+shop_wheel_apc = ["rhsgref_ins_g_btr60", "rhsgref_nat_btr70", "rhs_btr80a_vmf"];
+shop_track_apc = ["rhsgref_hidf_m113a3_m2", "rhsgref_cdf_bmd1k", "rhsgref_cdf_bmp2e"];
+shop_heli = ["rhs_uh1h_hidf_gunship", "I_E_Heli_light_03_dynamicLoadout_F", "RHS_Mi8MTV3_vdv"];
+shop_tank = ["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"];
+shop_plane = ["RHSGREF_A29B_HIDF", "rhs_l39_cdf", "rhs_l159_CDF"];
+
+additionalShopLight = ["rhssaf_m1151_olive_pkm", "rhssaf_m1025_olive_m2", "rhs_tigr_sts_vmf"];
+additionalShopAtgmVehicles = ["rhsusf_m1045_w", "rhsusf_m1045_w", "rhsgref_BRDM2_ATGM"];
+additionalShopManpadsVehicles = [];
+additionalShopArtillery = [];
+
+//military building models (common for all sides)
+smallBunker = "Land_BagBunker_Small_F";
+sandbag = "Land_BagFence_Long_F";
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
