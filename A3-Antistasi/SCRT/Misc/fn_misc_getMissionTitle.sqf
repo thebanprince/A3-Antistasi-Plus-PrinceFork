@@ -25,6 +25,10 @@ switch (toLower worldName) do {
 	{
 		_title = localize "STR_antistasi_mission_info_napf_mapname_text";
 	};
+	case "abramia":
+	{
+		_title = localize "STR_antistasi_mission_info_abramia_mapname_text";
+	};
 	default
 	{
 	    _title = "Antistasi";

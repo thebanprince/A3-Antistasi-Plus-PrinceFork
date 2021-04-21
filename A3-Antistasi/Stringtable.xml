@@ -1749,22 +1749,20 @@
         <Chinesesimp>商业与战争...</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
-        <Original>Antistasi Livonia</Original>
-        <English>Antistasi Livonia</English>
-        <German>Antistasi Livonia</German>
-        <Czech>Antistasi Livonia</Czech>
-        <Korean>Antistasi Livonia</Korean>
-        <Russian>Antistasi Ливония</Russian>
+        <Original>Antistasi Plus - Horizon Scan</Original>
+        <English>Antistasi Plus - Horizon Scan</English>
+        <French>Antistasi Plus - Analyse d'horizon</French>
+        <German>Antistasi Plus -  Horizontscan</German>
+        <Czech>Antistasi Plus - Horizon Scan</Czech>
+        <Russian>Antistasi Plus - Ливония</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_text">
-        <Original>Antistasi - The Baltic Revolution</Original>
-        <English>Antistasi - The Baltic Revolution</English>
-        <French>Antistasi - La Révolution Baltique</French>
-        <Russian>Antistasi - Балтийская Революция</Russian>
-        <German>Antistasi - The Baltic Revolution</German>
-        <Czech>Antistasi - Baltská Revoluce</Czech>
-        <Korean>Antistasi - 발틱 혁명</Korean>
-        <Chinesesimp>Antistasi - 波罗的海革命</Chinesesimp>
+        <Original>Antistasi Plus - Horizon Scan</Original>
+        <English>Antistasi Plus - Horizon Scan</English>
+        <French>Antistasi Plus - Analyse d'horizon</French>
+        <Russian>Antistasi Plus - Сканирование Горизонта</Russian>
+        <German>Antistasi Plus - Horizontscan</German>
+        <Czech>Antistasi Plus - Horizon Scan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -1777,14 +1775,12 @@
         <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_blurb_text">
-        <Original>Stuck between two fronts.</Original>
-        <English>Stuck between two fronts.</English>
-        <French>Pris entre deux feux.</French>
-        <Russian>Между двух фронтов.</Russian>
-        <German>Gefangen zwischen zwei Fronten.</German>
-        <Czech>Uvízl mezi dvěma frontami.</Czech>
-        <Korean>두 전선 사이에 갇히다.</Korean>
-        <Chinesesimp>卡在两条战线之间.</Chinesesimp>
+        <Original>"...it's just wide-open field."</Original>
+        <English>"...it's just wide-open field."</English>
+        <French>"... c'est juste un champ grand ouvert."</French>
+        <Russian>"... это просто окрытое поле."</Russian>
+        <German>"... es ist nur ein weites Feld."</German>
+        <Czech>"... je to jen široce otevřené pole."</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_virolahti_mapname_short_text">
         <Original>Antistasi Virolahti</Original>
@@ -1848,7 +1844,7 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_napf_mapname_short_text">
         <Original>Antistasi Plus - Amber Ins.</Original>
-        <English>Antistasi Plus -  Amber Ins.</English>
+        <English>Antistasi Plus - Amber Ins.</English>
         <French>Antistasi Plus - Insur. ambre</French>
         <German>Antistasi Plus - Bernst. Aufstand</German>
         <Russian>Antistasi Plus - Янтарь</Russian>
@@ -1859,6 +1855,27 @@
         <German>Gelber Boden unter unseren Stiefeln.</German>
         <French>De la terre jaune sous nos bottes.</French>
         <Russian>Желтая почва у нас под ногами.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_abramia_mapname_text">
+        <Original>Antistasi Plus - White Mountains</Original>
+        <English>Antistasi Plus - White Mountains</English>
+        <French>Antistasi Plus - Montagnes Blanches</French>
+        <German>Antistasi Plus - Weiße Berge</German>
+        <Russian>Antistasi Plus - Белые Горы</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_abramia_mapname_short_text">
+        <Original>Antistasi Plus - White Mountains</Original>
+        <English>Antistasi Plus - White Mountains</English>
+        <French>Antistasi Plus - Montagnes Blanches</French>
+        <German>Antistasi Plus - Weiße Berge</German>
+        <Russian>Antistasi Plus - Белые Горы</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_abramia_blurb_text">
+        <Original>Extreme elevation changes ahead.</Original>
+        <English>Extreme elevation changes ahead.</English>
+        <German>Extreme Höhenunterschiede voraus.</German>
+        <French>Des changements d'altitude extrêmes à venir.</French>
+        <Russian>Впереди резкие перепады высот.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_vt7_mapname_text">
         <Original>Antistasi - Highway 7</Original>

@@ -280,7 +280,6 @@ class A3A
 		class squadOptions {};
 		class squadRecruit {};
 		class unit_recruit {};
-		class HQGameOptions {};
 		class createDialog_setParams {};
 	};
 

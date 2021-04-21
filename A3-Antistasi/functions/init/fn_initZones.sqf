@@ -102,7 +102,7 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
-	//TODO: NAPF, cherno 2020 config
+	//TODO: NAPF, cherno 2020, Abramia, Panthera configs
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
@@ -110,7 +110,7 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
 
 "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
+!((configName _x) in [""fakeTown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	_nameX = configName _x;
@@ -227,7 +227,7 @@ switch (toLower worldName) do {
 	};
 	case "enoch": {
 		_posAntennas =
-		[[3830.61,1827.19,0], [5007.39,2131.27,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],
+		[[3830.61,1827.19,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],
 		[1408.43,8675.08,-1.00183], [8894.99,2049.1,0.00387573], [2382.53,11479.5,3.05176e-005], [6293.86,9910.17,-7.62939e-006],
 		[3585.76,11540.7,-0.000236511], [7906.11,9917.2,0.0120544], [7776.88,10082.3,0.0262146], [7866.34,10102.5,3.05176e-005],
 		[6908.45,11119.5,-2.40052], [9257.02,10282.7,0.0631027], [10610.4,10890.6,0.166985], [11172.6,11424.1,-2.82624]];
@@ -268,6 +268,13 @@ switch (toLower worldName) do {
 	{
 		_posAntennas = [[15116.9,12587,0], [18100.3,2555.68,0],[8966.71,3432.88,0], [15684.9,19837.4,0],[4974.47,9258.15,0],[10978.2,16960.1,0],[8171.18,14687,0]];
 		_posBank = [[8558.25,16204.7,0], [14515,13873.3,0],[6378.62,10606,0],[2418.86,7766.25,0]];
+		_blackListPos = [];
+	    antennas = [];
+	};
+	case "abramia": 
+	{
+		_posAntennas = [[9864.87,9258.16,0],[4871.03,8738.64,0],[267.693,9236.51,0],[8953.05,1544.56,0]];
+		_posBank = [[7036.69,1171.7,0],[3564.86,3190.53,0],[9405.56,9271.83,0],[1981.93,7714.16,0],[6127.85,3387.11,0]];
 		_blackListPos = [];
 	    antennas = [];
 	};

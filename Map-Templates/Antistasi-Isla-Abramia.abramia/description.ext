@@ -1,8 +1,8 @@
 #include "MissionDescription\master.hpp"
 
-OnLoadName = $STR_antistasi_mission_info_napf_mapname_short_text;
-OnLoadMission = $STR_antistasi_mission_info_napf_blurb_text;
-briefingName = $STR_antistasi_mission_info_napf_mapname_text;
+OnLoadName = $STR_antistasi_mission_info_abramia_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_abramia_blurb_text;
+briefingName = $STR_antistasi_mission_info_abramia_mapname_text;
 overviewText = $STR_antistasi_mission_info_altis_description_text;
 
 class CfgDiscordRichPresence 
@@ -10,8 +10,8 @@ class CfgDiscordRichPresence
     applicationID="819852407265034260";
     defaultDetails="";
     defaultState="";
-    defaultLargeImageKey="napf";
-    defaultLargeImageText="Antistasi Plus - Harvest Blue";
+    defaultLargeImageKey="abramia";
+    defaultLargeImageText="Antistasi Plus - White Mountains";
     defaultSmallImageKey="arma_3_logo";
     defaultSmallImageText="Arma 3 Custom Scenario";
     useTimeElapsed=1;
@@ -39,8 +39,8 @@ class CfgDebriefing
 	class End1
 	{
 		title = "V I C T O R Y";
-		subtitle = "Napf is Ours!";
-		description = "The population of Napf loves you!<br/>The brave rebel soldiers have proven their valour, and Petros, Napf's new Prime Minister, could at last to have a nice holiday. A well deserved rest for everyone involved.";
+		subtitle = "Abramia is Ours!";
+		description = "The population of Abramia loves you!<br/>The brave rebel soldiers have proven their valour, and Petros, Abramia's new Prime Minister, could at last to have a nice holiday. A well deserved rest for everyone involved.";
 		picture = "n_inf";
 		pictureColor[] = {0.0,0.5,0.0,1};
 	};
@@ -48,15 +48,15 @@ class CfgDebriefing
     {
         title = "Petros is Dead";
         subtitle = "Petros is Dead";
-        description = "Congratulations! Petros is Dead. Now with Syndikat without a leader, you may think about joining them, and free Napf";
+        description = "Congratulations! Petros is Dead. Now with rebels without a leader, you may think about joining them, and free Abramia";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };
     class destroyedSites
     {
-        title = "Napf is Destroyed";
-        subtitle = "Napf got Destroyed by CSAT";
-        description = "One third of the population in Napf has been murdered by CSAT.<br/>Napf no longer exists, nobody wants to live here.";
+        title = "Abramia is Destroyed";
+        subtitle = "Abramia got Destroyed by CSAT";
+        description = "One third of the population in Abramia has been murdered by OPFOR.<br/>Abramia no longer exists, nobody wants to live here.";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

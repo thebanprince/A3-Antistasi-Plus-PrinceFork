@@ -2,6 +2,8 @@
 
 ## 1.5
 ### Additions
+- Livonia support
+- Panthera support
 - UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
 - Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
@@ -57,7 +59,8 @@
 - Flag on HQ will have specified rebel flag texture
 - Infantry Tiers improvement - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
 - Vehicles can be unflipped with near friendly AI units too now, not only with players as it was before
-- "Number of the same item required to unlock" parameter new values - minimum(25), default(30), max - (50)
+- "Number of the same item required to unlock" parameter new values
+- Default commander can hack UAVs
 - (2.4 CV) All unit templates have been remade from scratch
 - (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
 - (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
