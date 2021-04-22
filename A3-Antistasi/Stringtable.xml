@@ -1877,6 +1877,30 @@
         <French>Des changements d'altitude extrêmes à venir.</French>
         <Russian>Впереди резкие перепады высот.</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_panthera_mapname_text">
+        <Original>Antistasi Plus - Waterways</Original>
+        <English>Antistasi Plus - Waterways</English>
+        <French>Antistasi Plus - Voies navigables</French>
+        <German>Antistasi Plus - Wasserstraßen</German>
+        <Russian>Antistasi Plus - Водные пути</Russian>
+        <Czech>Antistasi Plus - Vodní cesty</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_panthera_mapname_short_text">
+        <Original>Antistasi Plus - Waterways</Original>
+        <English>Antistasi Plus - Waterways</English>
+        <French>Antistasi Plus - Voies navigables</French>
+        <German>Antistasi Plus - Wasserstraßen</German>
+        <Russian>Antistasi Plus - Водные пути</Russian>
+        <Czech>Antistasi Plus - Vodní cesty</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_panthera_blurb_text">
+        <Original>Rivers and mountains.</Original>
+        <English>Rivers and mountains.</English>
+        <German>Flüsse und Berge.</German>
+        <French>Rivières et montagnes.</French>
+        <Czech>Řeky a hory.</Czech>
+        <Russian>Реки и горы.</Russian>
+      </Key>
       <Key ID="STR_antistasi_mission_info_vt7_mapname_text">
         <Original>Antistasi - Highway 7</Original>
         <English>Antistasi - Highway 7</English>
