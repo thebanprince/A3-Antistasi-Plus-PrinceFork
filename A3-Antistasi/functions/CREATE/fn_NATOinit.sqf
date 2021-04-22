@@ -136,7 +136,7 @@ if (sunOrMoon < 1) then {
     if (!A3A_hasRHS) then {
         //specops don't have NVGs except leader until war level 4
         if (("SF_" in (_unit getVariable "unitType")) && (_unit != leader (group _unit))) then {
-            if (tierWar < 3) then {
+            if (tierWar < 4) then {
                 if (_hmd != "" && {_unit != leader (group _unit)}) then {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
@@ -146,7 +146,7 @@ if (sunOrMoon < 1) then {
         } else {
             private _unitType = _unit getVariable "unitType";
             if !("SF_" in _unitType) then {
-                if (tierWar < 3) then {
+                if (tierWar < 4) then {
                     if (_hmd != "") then {
                         _unit unassignItem _hmd;
                         _unit removeItem _hmd;
@@ -167,7 +167,7 @@ if (sunOrMoon < 1) then {
     else {
         private _arr = (allNVGs arrayIntersect (items _unit));
         if (!(_arr isEqualTo []) or (_hmd != "")) then {
-            if ((random 5 > tierWar) and (!haveNV)) then {
+            if (tierWar < 4) then {
                 if (_hmd == "") then {
                     _hmd = _arr select 0;
                     _unit removeItem _hmd;
@@ -177,9 +177,8 @@ if (sunOrMoon < 1) then {
                     _unit removeItem _hmd;
                 };
                 _hmd = "";
-            }
-            else {
-                if(tierWar < 3) then {
+            } else {
+                if ((random 5 > tierWar) and (!haveNV)) then {
                     if (_hmd == "") then {
                         _hmd = _arr select 0;
                         _unit removeItem _hmd;
@@ -189,9 +188,22 @@ if (sunOrMoon < 1) then {
                         _unit removeItem _hmd;
                     };
                     _hmd = "";
-                } else {
-                    _unit assignItem _hmd;
-                };
+                }
+                else {
+                    if(tierWar < 3) then {
+                        if (_hmd == "") then {
+                            _hmd = _arr select 0;
+                            _unit removeItem _hmd;
+                        }
+                        else {
+                            _unit unassignItem _hmd;
+                            _unit removeItem _hmd;
+                        };
+                        _hmd = "";
+                    } else {
+                        _unit assignItem _hmd;
+                    };
+                };  
             };
         };
     };
@@ -244,7 +256,8 @@ else {
                 _unit removeItem _hmd;
             };
         } else {
-            if !("SF_" in (_unit getVariable "unitType")) then{
+            private _unitType = _unit getVariable "unitType";
+            if !("SF_" in _unitType) then{
                 if (_hmd != "") then {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
@@ -253,10 +266,12 @@ else {
         };
     }
     else {
-        private _arr = (allNVGs arrayIntersect (items _unit));
-        if (count _arr > 0) then {
-            _hmd = _arr select 0;
-            _unit removeItem _hmd;
+        private _unitType = _unit getVariable "unitType";
+        if !("SF_" in _unitType) then{
+            if (_hmd != "") then {
+                _unit unassignItem _hmd;
+                _unit removeItem _hmd;
+            };
         };
     };
 };
