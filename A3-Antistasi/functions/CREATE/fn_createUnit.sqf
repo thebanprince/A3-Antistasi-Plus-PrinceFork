@@ -24,14 +24,14 @@ if !(_unitDefinition isEqualTo []) exitWith {
 	_unitDefinition params ["_loadouts", "_traits"];
 	private _unitClass = switch (side _group) do {
 		case west: { 
-			if (["militia", _type] call BIS_fnc_inString) then {
+			if ("militia" in _type) then {
 				occupantBaseSoldierMilitia
 			} else {
 				occupantBaseSoldier
 			};
 		};
 		case east: {
-			if (["militia", _type] call BIS_fnc_inString) then {
+			if ("militia" in _type) then {
 				invaderBaseSoldierMilitia
 			} else {
 				invaderBaseSoldier
