@@ -189,13 +189,19 @@ if(_intelType == "Small") then
         };
         case (DISCOUNT):
         {
-            private _discount = traderDiscount + 0.01;
-            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.01;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
 
-            private _money = (round (random 5)) * 100;
-            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 
-            _text = format ["We some found information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+            };
         };
     };
 };
@@ -240,13 +246,19 @@ if(_intelType == "Medium") then
         };
         case (DISCOUNT):
         {
-            private _discount = traderDiscount + 0.05;
-            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.05;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
 
-            private _money = (round (random 50)) * 100;
-            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 
-            _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+            };
         };
         case (TASK):
         {
@@ -377,13 +389,19 @@ if(_intelType == "Large") then
         };
         case (DISCOUNT):
         {
-            private _discount = traderDiscount + 0.05;
-            [_discount] call SCRT_fnc_trader_setTraderDiscount;
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.1;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
 
-            private _money = (round (random 50)) * 100;
-            [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 
-            _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+            };
         };
     };
 };
