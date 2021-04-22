@@ -80,7 +80,6 @@ switch(true) do {
                         [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
                     };
                     default {
-                        systemChat str "using arid";
                         ["Templates\NewTemplates\RHS\RHS_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
                         [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
                     };
