@@ -30,15 +30,12 @@ if(roleDescription player == "Default Commander") then {
     player setUnitTrait ["medic", true];
 	player setUnitTrait ["engineer", true];
 	player setUnitTrait ["UAVHacker",true];
-    _text = "Commander role.<br/><br/>The commander is a unit with increased camouflage, medical and engineering capabilities with the access to exclusive Commander Menu (O key).";
+    _text = "Commander role.<br/><br/>The commander is a unit with increased camouflage, medical, UAV hacking and engineering capabilities with the access to exclusive Commander Menu (O key).";
 }
 else
 {
     switch (_type) do
     {
-    	//case "I_C_Soldier_Para_7_F": {player setUnitTrait ["UAVHacker",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
-    	//case "I_C_Soldier_Para_8_F": {player setUnitTrait ["engineer",true]; player setUnitTrait ["explosiveSpecialist",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
-    	//case "I_C_Soldier_Para_3_F": {player setUnitTrait ["medic",true]}; //opted as we use units which automatically have the trait - 8th January 2020, Bob Murphy
     	case typePetros: {player setUnitTrait ["UAVHacker",true]};
     	//cases for greenfor missions
     	case "I_G_medic_F":  {_text = "Medic role.<br/><br/>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration"}; //reintroduced - 8th January 2020, Bob Murphy
@@ -84,7 +81,5 @@ if (isDiscordRichPresenceActive) then {
 	};
 };
 
-if (isMultiPlayer) then {
-	sleep 5;
-	["Unit Traits", format ["You have selected %1",_text]] call A3A_fnc_customHint;
-};
+sleep 5;
+["Unit Traits", format ["You have selected %1",_text]] call A3A_fnc_customHint;

@@ -9328,6 +9328,10 @@ class cfgHALsStore
 			ITEM(rhs_weap_pkp, 1900, RIFLE_STOCK);
 			
 			ITEM(rhs_weap_m240G, 2000, RIFLE_STOCK);
+
+			ITEM(rhs_weap_rpk74m, 800, RIFLE_STOCK);
+			
+			ITEM(rhs_weap_rpk74m_npz, 900, RIFLE_STOCK);
 		};
 
 		class smgRhs 

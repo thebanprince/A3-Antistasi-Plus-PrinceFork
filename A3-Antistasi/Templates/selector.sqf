@@ -29,7 +29,7 @@ switch(true) do{
                 [2, "Using Temperate Napa Template", _filename] call A3A_fnc_log;
             };
             default {
-                ["Templates\NewTemplates\RHS\RHS_Reb_NAPA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using arid Napa Templates", _filename] call A3A_fnc_log;
             };
         };
@@ -69,16 +69,36 @@ switch(true) do{
 //Occ Templates
 switch(true) do {
     case (A3A_hasRHS): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps);
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using temperate USAF Template", _filename] call A3A_fnc_log;
+
+        switch(rhsOccupantFaction) do {
+            case (0): { //USAF
+                switch(true) do {
+                    case (_terrainName in _temperateMaps);
+                    case (_terrainName in _tropicalMaps): {
+                        systemChat str "using temp";
+                        ["Templates\NewTemplates\RHS\RHS_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
+                    };
+                    default {
+                        systemChat str "using arid";
+                        ["Templates\NewTemplates\RHS\RHS_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
+                    };
+                };
             };
-            default {
-                ["Templates\NewTemplates\RHS\RHS_AI_USAF_Army_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
-            };
+            // case (1): { //USMC
+            //     switch(true) do {
+            //         case (_terrainName in _temperateMaps);
+            //         case (_terrainName in _tropicalMaps): {
+            //             ["Templates\NewTemplates\Cup\Cup_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+            //             [2, "Using temperate BAF Template", _filename] call A3A_fnc_log;
+            //         };
+            //         default {
+            //             ["Templates\NewTemplates\Cup\Cup_AI_BAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+            //             [2, "Using arid BAF Templates", _filename] call A3A_fnc_log;
+            //         };
+            //     };
+            // };
         };
     };
     case (A3A_hasCup): {
@@ -135,22 +155,22 @@ switch(true) do {
 };
 //Inv Templates
 switch(true) do{
-    case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps): {
-                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using RHS AFRF as Placeholder Template", _filename] call A3A_fnc_log;
-            };
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Coldwar Soviets Template", _filename] call A3A_fnc_log;
-            };
-            default {
-                ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using TKA_East Template", _filename] call A3A_fnc_log;
-            };
-        };
-    };
+    // case (A3A_has3CBFactions): {
+    //     switch(true) do {
+    //         case (_terrainName in _temperateMaps): {
+    //             ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using RHS AFRF as Placeholder Template", _filename] call A3A_fnc_log;
+    //         };
+    //         case (_terrainName in _tropicalMaps): {
+    //             ["Templates\NewTemplates\3CB\3CB_AI_CW_SOV.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using Coldwar Soviets Template", _filename] call A3A_fnc_log;
+    //         };
+    //         default {
+    //             ["Templates\NewTemplates\3CB\3CB_AI_TKA_East.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+    //             [2, "Using TKA_East Template", _filename] call A3A_fnc_log;
+    //         };
+    //     };
+    // };
     case (A3A_hasCup): {
         switch(true) do {
             case (_terrainName in _temperateMaps);
