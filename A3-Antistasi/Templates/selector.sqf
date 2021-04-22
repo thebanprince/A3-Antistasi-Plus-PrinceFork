@@ -54,10 +54,11 @@ switch(true) do{
         };
     };
     default {
-        switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (_terrainName == "enoch"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_enoch.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using enoch FIA Template", _filename] call A3A_fnc_log;
+        switch(true) do {
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in _tropicalMaps): {
+                ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using temperate FIA Template", _filename] call A3A_fnc_log;
             };
             default {
                 ["Templates\NewTemplates\Vanilla\Vanilla_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
@@ -69,7 +70,6 @@ switch(true) do{
 //Occ Templates
 switch(true) do {
     case (A3A_hasRHS): {
-
         switch(rhsOccupantFaction) do {
             case (0): { //USAF
                 switch(true) do {
@@ -135,11 +135,7 @@ switch(true) do {
         [2, "Using Aegis EUROFOR Template", _filename] call A3A_fnc_log;
     };
     default {
-        switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (_terrainName == "enoch"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_LDF_enoch.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Enoch LDF Template", _filename] call A3A_fnc_log;
-            };
+        switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_NATO_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
@@ -202,9 +198,10 @@ switch(true) do{
     };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
-            case (_terrainName == "enoch"): {
-                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_enoch.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using enoch CSAT Template", _filename] call A3A_fnc_log;
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in _tropicalMaps): {
+                ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using temperate CSAT Template", _filename] call A3A_fnc_log;
             };
             default {
                 ["Templates\NewTemplates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", east] call A3A_fnc_compatabilityLoadFaction;

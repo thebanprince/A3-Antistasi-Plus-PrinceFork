@@ -386,8 +386,8 @@ _militiaLoadoutData setVariable ["machineGuns", [
 ["LMG_Mk200_F", "", "acc_flashlight", "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_snd"]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [
-["srifle_DMR_06_camo_F", "", "acc_flashlight", "optic_MRCO", [], [], ""],
-["srifle_DMR_06_olive_F", "", "acc_flashlight", "optic_MRCO", [], [], ""]
+["srifle_DMR_06_camo_F", "", "acc_flashlight", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""],
+["srifle_DMR_06_olive_F", "", "acc_flashlight", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],

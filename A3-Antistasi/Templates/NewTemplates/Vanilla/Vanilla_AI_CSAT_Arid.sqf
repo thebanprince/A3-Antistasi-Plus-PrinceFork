@@ -87,8 +87,21 @@
 
 //PvP definitions
 ["playerDefaultLoadout", []] call _fnc_saveToTemplate;
-["pvpLoadouts", []] call _fnc_saveToTemplate;
-["pvpVehicles", []] call _fnc_saveToTemplate;
+["pvpLoadouts", [
+	//Team Leader
+	["vanilla_opfor_teamLeader_altis"] call A3A_fnc_getLoadout,
+	//Medic
+	["vanilla_opfor_medic_altis"] call A3A_fnc_getLoadout,
+	//Autorifleman
+	["vanilla_opfor_machineGunner_altis"] call A3A_fnc_getLoadout,
+	//Marksman
+	["vanilla_opfor_marksman_altis"] call A3A_fnc_getLoadout,
+	//Anti-tank Scout
+	["vanilla_opfor_AT_altis"] call A3A_fnc_getLoadout,
+	//AT2
+	["vanilla_opfor_AT2_altis"] call A3A_fnc_getLoadout
+]] call _fnc_saveToTemplate;
+["pvpVehicles", ["O_MRAP_02_F","O_MRAP_02_hmg_F"]] call _fnc_saveToTemplate;
 
 
 //////////////////////////
