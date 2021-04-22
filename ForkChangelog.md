@@ -25,6 +25,7 @@
 - (CUP) BAF faction mission variant (mission parameters)
 - (CUP) USAF faction mission variant (mission parameters)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
+- (RHS) Added RPK-74M into Arms Dealer Store stock
 
 ### Changes
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
@@ -57,9 +58,10 @@
 - First document steal or laptop hack in campaign will always have arms dealer task assignment
 - Reworked revive movement delay fix - units will gain their controls back a lot faster, without any delay after initial animation played
 - Flag on HQ will have specified rebel flag texture
-- Infantry Tiers improvement - T1 is militia (War Level 1-3) T2 is regular army (War Level 4-7), Elite is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
-- Vehicles can be unflipped with near friendly AI units too now, not only with players as it was before
+- Infantry Tiers improvements - T1 is militia (War Level 1-4), T2 is regular army (War Level 5-7), elite armed forces is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
+- Vehicles can be unflipped with near friendly AI units too now (not only with players as it was before)
 - "Number of the same item required to unlock" parameter new values
+- Fixed "maximumLoad" arsenal bug
 - Default commander can hack UAVs
 - (2.4 CV) All unit templates have been remade from scratch
 - (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
@@ -83,7 +85,7 @@
  
 ### Removals
 - Removed Airstrikes title from top status bar
-- Removed tent on rebel HQ (all actions from it moved to new commander UI)
+- Removed tent on rebel HQ (all actions from it were moved to new commander UI)
 - Removed duplicated or obsolete code
 - Singleplayer support is fully turned off, use LAN server to play singleplayer
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
