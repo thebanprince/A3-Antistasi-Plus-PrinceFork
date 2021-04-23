@@ -4,8 +4,7 @@ params ["_marker"];
 *****/
 
 _spawns = spawner getVariable [format ["%1_spawns", _marker], [[],[],[],[]]];
-if(_spawns isEqualTo [[],[],[],[]]) exitWith
-{
+if(_spawns isEqualTo [[],[],[],[],[]]) exitWith {
   diag_log format ["Marker %1 has no spawn places defined!", _marker];
 };
 
