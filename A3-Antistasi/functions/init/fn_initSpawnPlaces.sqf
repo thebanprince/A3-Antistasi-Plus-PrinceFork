@@ -52,26 +52,31 @@ if(count _vehicleMarker == 0) then
   diag_log format ["InitSpawnPlaces: Could not find any vehicle places on %1!", _marker];
 };
 
-private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_markerX"];
+private ["_markerSize", "_distance", "_buildings", "_hangars", "_garages", "_helipads", "_markerX"];
 
 _markerSize = markerSize _marker;
 _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
 
-_buildings = nearestObjects [getMarkerPos _marker, ["Helipad_Base_F", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
+//TODO: fix garage row "Land_GarageRow_01_large_F"
+_buildings = nearestObjects [getMarkerPos _marker, ["Land_Hangar_2", "Land_i_Shed_Ind_F","land_bunker_garage","Helipad_Base_F", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
 
 _hangars = [];
 _helipads = [];
+_garages = [];
 
 {
-  if((getPos _x) inArea _marker) then
-  {
-    if(_x isKindOf "Helipad_Base_F") then
-    {
-      _helipads pushBack _x;
-    }
-    else
-    {
-      _hangars pushBack _x;
+  if((getPos _x) inArea _marker) then {
+    private _type = typeOf _x;
+    switch (true) do {
+      case (_x isKindOf "Helipad_Base_F"): {
+        _helipads pushBack _x;
+      };
+      case (_type in ["Land_Hangar_2","land_bunker_garage","Land_i_Shed_Ind_F"]): {
+        _garages pushBack _x;
+      };
+      default {
+        _hangars pushBack _x;
+      };
     };
   };
 } forEach _buildings;
@@ -104,7 +109,7 @@ _helipads = [];
 } forEach _hangarMarker;
 //All additional hangar and helipads found
 
-private ["_vehicleSpawns", "_size", "_length", "_width", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
+private ["_vehicleSpawns", "_size", "_length", "_width", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_vehSpawns", "_mortarSpawns", "_spawns"];
 
 _vehicleSpawns = [];
 {
@@ -194,6 +199,32 @@ _planeSpawns = [];
     _planeSpawns pushBack [[_pos, _dir], false];
 } forEach _hangars;
 
+{
+    _pos = getPos _x;
+    _dir = direction _x;
+
+    if(_x isKindOf "land_bunker_garage") then {
+      _pos = _pos vectorAdd [2, -6, 0];
+    };
+
+    // if (_x isKindOf "Land_GarageRow_01_large_F") then {
+    //   _pos = _pos vectorAdd [8, -3.5, 0.3];
+    //   _dir = _dir - 180;
+    // };
+
+    if (_x isKindOf "Land_i_Shed_Ind_F") then {
+      _pos = _pos vectorAdd [-3,0, 0.3];
+      _dir = _dir - 90;
+    };
+
+    if (_x isKindOf "Land_Hangar_2") then {
+      _pos = _pos vectorAdd [0,6, 0.3];
+      _dir = _dir - 180;
+    };
+
+    _vehicleSpawns pushBack [[_pos, _dir], false];
+} forEach _garages;
+
 _mortarSpawns = [];
 {
   _pos = getMarkerPos _x;
@@ -209,8 +240,6 @@ _samSpawns = [];
 } forEach _samMarker;
 
 _spawns = [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns, _samSpawns];
-
-//diag_log format ["%1 set to %2", _marker, _spawns];
 
 //Saving the spawn places
 spawner setVariable [format ["%1_spawns", _marker], _spawns, true];

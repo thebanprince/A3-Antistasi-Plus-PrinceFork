@@ -21,7 +21,9 @@
 - Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
+- Some vehicle  boxes/hangars have a chance to spawn empty heavy vehicle inside it (only on military bases and airports)
 - .sqfc bytecode support where possible (may lead to faster loading times and function execution in some circumstances)
+- (Chernarus 2020) New outposts and other points of interest on North-East of map
 - (CUP) BAF faction mission variant (mission parameters)
 - (CUP) USAF faction mission variant (mission parameters)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
@@ -91,7 +93,7 @@
 - Dropped Taviana support (Taviana IP/Steam Workshop issues)
 - Disabled Pursuers until full Random Events implementation will happen
 - (Altis) removed some outposts to give more variety in possible start positions
-- (Chernarus) removed some outposts and static objects
+- (Chernarus 2020) removed some outposts and static objects to make some overpopulated with objects areas less populated
 - (2.4 CV) Removed Antistasi Units support
 - (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
 

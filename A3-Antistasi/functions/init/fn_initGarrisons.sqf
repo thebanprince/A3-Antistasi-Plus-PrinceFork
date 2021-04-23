@@ -124,8 +124,8 @@ if (gameMode == 1) then
 			_mrkCSAT = ["outpost_3"];
 		};
 		case "cup_chernarus_a3": {
-			_mrkCSAT = ["airport_3","outpost_24","outpost_20", "outpost_23", "outpost_22", "outpost_20"];
-            _controlsCSAT = ["control_143", "control_149", "control_147"];
+			_mrkCSAT = ["airport_3","outpost_24","outpost_20", "outpost_23", "outpost_20","seaport_5"];
+            _controlsCSAT = ["control_143", "control_144", "control_145", "control_149", "control_147","control_169", "control_165", "control_138", "control_137", "control_158"];
 		};
 		case "napf": {
 			_mrkCSAT = ["airport_2", "outpost_5", "outpost_6", "outpost_7", "seaport_1"];
