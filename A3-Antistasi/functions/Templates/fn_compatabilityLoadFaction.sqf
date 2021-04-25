@@ -529,6 +529,7 @@ if (_side isEqualTo independent) then {
 	groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
 	groupsSDKSniper = [SDKSniper,SDKSniper];
 	groupsSDKSentry = [SDKGL,SDKMil];
+	groupsSDKCrew = [[staticCrewTeamPlayer,staticCrewTeamPlayer], [staticCrewTeamPlayer,staticCrewTeamPlayer], SDKEng];
 
 	//Rebel Unit Tiers (for costs)
 	sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;

@@ -55,4 +55,10 @@ if (str (_display) != "no display") then
 	_costHR = 2;
 	_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
+
+	_ChildControl = _display displayCtrl 112;
+	_costs = 0;
+	_costHR = 0;
+	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKCrew;
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 };

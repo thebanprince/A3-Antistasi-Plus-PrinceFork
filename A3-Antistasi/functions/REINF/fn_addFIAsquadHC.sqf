@@ -107,6 +107,7 @@ if (_esinf) then {
 		if (_typeGroup isEqualTo groupsSDKmid) then {_format = "Tm-"};
 		if (_typeGroup isEqualTo groupsSDKAT) then {_format = "AT-"};
 		if (_typeGroup isEqualTo groupsSDKSniper) then {_format = "Snpr-"};
+		if (_typeGroup isEqualTo groupsSDKCrew) then {_format = "Crew-"};
 		if (_typeGroup isEqualTo groupsSDKSentry) then {_format = "Stry-"};
 		if (_withBackpck == "MG") then {
 			((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal supportStaticsSDKB2;

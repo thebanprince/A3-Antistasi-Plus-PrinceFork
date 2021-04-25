@@ -432,6 +432,14 @@
         <German>Rekrutieren Sie das MG-Team</German>
         <Czech>Nábor týmu MG</Czech>
       </Key>
+      <Key ID="STR_antistasi_dialogs_veh_crew_title">
+        <Original>Recruit Vehicle Crew</Original>
+        <English>Recruit Vehicle Crew</English>
+        <French>Recruter l'équipage du véh.</French>
+        <Russian>Набрать экипаж машины</Russian>
+        <German>Fahrzeugbesatzung rekrutieren</German>
+        <Czech>Nábor posádky vozidla</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_inf_team_title">
         <Original>Recruit Inf. Team</Original>
         <English>Recruit Inf. Team</English>

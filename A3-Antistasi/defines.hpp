@@ -1087,19 +1087,19 @@ class SimpleMenuBig : SimpleMenu
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
-			h = (((safezoneW / safezoneH) min 1.85) / 1.85);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.492103 * safezoneH;
 		};
 
 		class titleBackground: BOX
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
 			h = 0.02 * safezoneH;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
@@ -1114,19 +1114,19 @@ class SimpleMenuBigger : SimpleMenu
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
-			h = (((safezoneW / safezoneH) min 1.5) / 1.5);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.5751155 * safezoneH;
 		};
 
 		class titleBackground: BOX
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
 			h = 0.02 * safezoneH;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
@@ -1141,59 +1141,31 @@ class SimpleMenuSmall : SimpleMenu
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
-			h = (((safezoneW / safezoneH) min 3.6) / 3.6);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
+			h = 0.20 * safezoneH;
 		};
 
 		class titleBackground: BOX
 		{
 			idc = -1;
 			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
+			x = 0.244979 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.445038 * safezoneW;
 			h = 0.02 * safezoneH;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};
 	};
 };
-
-class SimpleMenuMedium : SimpleMenu
-{
-	class ControlsBackground
-	{
-		class background: BOX
-		{
-			idc = -1;
-			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
-			h = (((safezoneW / safezoneH) min 2.3) / 2.3);
-		};
-
-		class titleBackground: BOX
-		{
-			idc = -1;
-			text = "";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-			w = ((safezoneW / safezoneH) min 1.2);
-			h = 0.02 * safezoneH;
-			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
-		};
-	};
-};
-
 
 class SimpleTitle: RscTextSingle
 {
 	colorText[] = {1,1,1,1};
-	x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2);
-	y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
-	w = ((safezoneW / safezoneH) min 1.2) / 2;
+	x = 0.244979 * safezoneW + safezoneX;
+	y = 0.223941 * safezoneH + safezoneY;
+	w = 0.445038 * safezoneW;
 	h = 0.02 * safezoneH;
 	shadow = 2;
 	sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.2) * 0.5";
