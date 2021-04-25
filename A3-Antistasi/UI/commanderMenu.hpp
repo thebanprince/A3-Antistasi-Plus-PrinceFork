@@ -477,7 +477,7 @@ class commanderMenu
 					idc = 3107;
 					text = $STR_antistasi_dialogs_hq_button_move_headquarters_text;
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "34.5 * pixelGridNoUIScale * pixelH";
+					y = "safezoneH - (26 * pixelGridNoUIScale * pixelH)";
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
@@ -913,7 +913,7 @@ class commanderMenu
 					idc = 5300;
 					text = "PERSISTENT SAVE";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "34.5 * pixelGridNoUIScale * pixelH";
+					y = "safezoneH - (26 * pixelGridNoUIScale * pixelH)";
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
@@ -983,7 +983,7 @@ class commanderMenu
 					idc = 6014;
 					text = "Redo Arms Dealer Task";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "34.5 * pixelGridNoUIScale * pixelH";
+					y = "safezoneH - (26 * pixelGridNoUIScale * pixelH)";
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "3 * pixelGridNoUIScale * pixelH";
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
