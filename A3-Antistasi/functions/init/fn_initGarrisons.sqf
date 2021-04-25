@@ -124,16 +124,20 @@ if (gameMode == 1) then
 			_mrkCSAT = ["outpost_3"];
 		};
 		case "cup_chernarus_a3": {
-			_mrkCSAT = ["airport_3","outpost_24","outpost_20", "outpost_23", "outpost_20","seaport_5"];
+			_mrkCSAT = ["airport_3","outpost_24","outpost_20", "outpost_23", "outpost_20","seaport_5","control_143", "control_144", "control_145", "control_149", "control_147","control_169", "control_165", "control_138", "control_137", "control_158"];
             _controlsCSAT = ["control_143", "control_144", "control_145", "control_149", "control_147","control_169", "control_165", "control_138", "control_137", "control_158"];
 		};
 		case "napf": {
-			_mrkCSAT = ["airport_2", "outpost_5", "outpost_6", "outpost_7", "seaport_1"];
+			_mrkCSAT = ["airport_2", "outpost_5", "outpost_6", "outpost_7", "seaport_1","control_44", "control_49", "control_43", "control_53", "control_23", "control_52", "control_46", "control_47", "control_54", "control_50", "control_16", "control_17"];
             _controlsCSAT = ["control_44", "control_49", "control_43", "control_53", "control_23", "control_52", "control_46", "control_47", "control_54", "control_50", "control_16", "control_17"];
 		};
 		case "abramia": {
 			_mrkCSAT = ["airport_2", "outpost_5", "outpost_7", "factory_4", "outpost_8", "resource_2", "resource_4", "seaport_3", "airport_3"];
             _controlsCSAT = ["control_43", "control_39", "control_40", "control_41", "control_44", "control_45", "control_46", "control_36", "control_37", "control_42"];
+		};
+		case "panthera3": {
+			_mrkCSAT = ["airport_4", "outpost_9", "outpost_10", "outpost_12", "control_64", "control_63", "control_50", "control_65"];
+            _controlsCSAT = ["control_64", "control_63", "control_50", "control_65"];
 		};
 		case "takistan": {
 			_mrkCSAT = ["airport_1", "outpost_5", "outpost_6", "outpost_7", "outpost_8", "resource", "resource_5", "resource_6"];

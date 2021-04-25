@@ -75,7 +75,6 @@ switch(true) do {
                 switch(true) do {
                     case (_terrainName in _temperateMaps);
                     case (_terrainName in _tropicalMaps): {
-                        systemChat str "using temp";
                         ["Templates\NewTemplates\RHS\RHS_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
                         [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
                     };

@@ -1,7 +1,7 @@
 #include "MissionDescription\master.hpp"
 
 OnLoadName = $STR_antistasi_mission_info_panthera_mapname_short_text;
-OnLoadMission = $STR_antistasi_mission_info_panthera_mapname_text;
+OnLoadMission = $STR_antistasi_mission_info_panthera_blurb_text;
 briefingName = $STR_antistasi_mission_info_panthera_mapname_text;
 overviewText = $STR_antistasi_mission_info_altis_description_text;
 
