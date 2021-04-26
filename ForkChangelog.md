@@ -22,6 +22,7 @@
 - Rocket Camera (Game Options)
 - Tune weather and fog options (Environment tab in commander menu)
 - Some vehicle  boxes/hangars have a chance to spawn empty heavy vehicle inside it (only on military bases and airports)
+- Ability to hire vehicle crew squads
 - .sqfc bytecode support where possible (may lead to faster loading times and function execution in some circumstances)
 - (Chernarus 2020) New outposts and other points of interest on North-East of map
 - (CUP) BAF faction mission variant (mission parameters)

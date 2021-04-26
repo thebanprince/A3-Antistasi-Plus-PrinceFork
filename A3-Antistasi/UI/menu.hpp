@@ -901,8 +901,8 @@ class squadOptions: SimpleMenuSmall
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_normal_squad_title;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			action = "closeDialog 0; [groupsSDKSquad] spawn A3A_fnc_addFIAsquadHC;";
 		};
 
@@ -910,8 +910,8 @@ class squadOptions: SimpleMenuSmall
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_engineer_squad_title;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			action = "closeDialog 0; [groupsSDKSquadEng] spawn A3A_fnc_addFIAsquadHC;";
 		};
 		
@@ -919,8 +919,8 @@ class squadOptions: SimpleMenuSmall
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_mg_squad_title;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			action = "closeDialog 0;[groupsSDKSquadSupp,""MG""] spawn A3A_fnc_addFIAsquadHC";
 		};
 
@@ -928,8 +928,8 @@ class squadOptions: SimpleMenuSmall
 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_mortar_squad_title;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			action = "closeDialog 0; [groupsSDKSquadSupp,""Mortar""] spawn A3A_fnc_addFIAsquadHC;";
 		};
 	};
@@ -961,8 +961,8 @@ class playerMoney: SimpleMenuSmall
 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_add_server_member_title;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_add_server_member_tooltip;
 			action = "closeDialog 0; ['add'] call A3A_fnc_memberAdd;";
 		};
@@ -971,8 +971,8 @@ class playerMoney: SimpleMenuSmall
 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_remove_server_member_title;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_remove_server_member_tooltip;
 			action = "closeDialog 0; ['remove'] call A3A_fnc_memberAdd;";
 		};
@@ -981,8 +981,8 @@ class playerMoney: SimpleMenuSmall
 		{
 			idc = 106;
 			text = $STR_antistasi_dialogs_donate_player_title;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.075;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_donate_player_title;
 			action = "[true] call A3A_fnc_donateMoney;";
 		};
@@ -991,8 +991,8 @@ class playerMoney: SimpleMenuSmall
 		{
 			idc = 308;
 			text = $STR_antistasi_dialogs_donate_faction_title;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.225;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_donate_faction_tooltip;
 			action = "[] call A3A_fnc_donateMoney;";
 		};
@@ -1025,8 +1025,8 @@ class garageCheck: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_personal_garage;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0;[false] call A3A_fnc_garageVehicle;";
 		};
 		
@@ -1034,8 +1034,8 @@ class garageCheck: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_faction_garage;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0; [true] call A3A_fnc_garageVehicle;";
 		};
 	};
@@ -1067,8 +1067,8 @@ class mortarType: SimpleMenuSmall
 		{
 			idc = -1;
 			text = "HE";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0; typeAmmunition = SDKMortarHEMag;";
 		};
 		
@@ -1076,8 +1076,8 @@ class mortarType: SimpleMenuSmall
 		{
 			idc = -1;
 			text = "SMOKE";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0; typeAmmunition = SDKMortarSmokeMag;";
 		};
 	};
@@ -1099,8 +1099,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 104;
 			text = "1";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.29 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 1;";
 		};
 
@@ -1108,8 +1108,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 106;
 			text = "3";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.388 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 3;";
 		};
 
@@ -1117,8 +1117,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 107;
 			text = "5";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.486 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 5;";
 		};
 
@@ -1126,8 +1126,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 108;
 			text = "7";
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.584 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 7;";
 		};
 		
@@ -1135,8 +1135,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 105;
 			text = "2";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.1;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.29 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 2;";
 		};
 
@@ -1144,8 +1144,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 109;
 			text = "4";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.25;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.388 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 4;";
 		};
 
@@ -1153,8 +1153,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 110;
 			text = "6";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.4;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.486 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 6;";
 		};
 
@@ -1162,8 +1162,8 @@ class roundsNumber: SimpleMenuBig
 		{
 			idc = 111;
 			text = "8";
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) + 0.55;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.584 * safezoneH + safezoneY;
 			action = "closeDialog 0;roundsX = 8;";
 		};
 	};
@@ -1185,8 +1185,8 @@ class strikeType: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_single_point_strike;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0;typeArty = ""NORMAL"";";
 		};
 		
@@ -1194,8 +1194,8 @@ class strikeType: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_barrage_strike;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0; typeArty = ""BARRAGE"";";
 		};
 	};
@@ -1227,8 +1227,8 @@ class NATOPlayer: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_quadbike;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0;[] call A3A_fnc_NATOQuadbike";
 		};
 		
@@ -1236,8 +1236,8 @@ class NATOPlayer: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_journal_entry_header_Features_11;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.15;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			action = "closeDialog 0;[] spawn A3A_fnc_NATOFT";
 		};
 	};
@@ -1268,8 +1268,8 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		class vehicleTypeComboBox: SimpleComboBox
 		{
 			idc = 1015;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.075;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
 			onLBSelChanged = "[] call SCRT_fnc_ui_setAvailableVehicleTypes;";
@@ -1278,8 +1278,8 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		class vehicleComboBox: SimpleComboBox
 		{
 			idc = 1005;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
 			onLBSelChanged = "[90000] call SCRT_fnc_ui_setVehicleCostText;";
@@ -1289,8 +1289,8 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		{
 			idc = 1010;
 			text = $STR_antistasi_dialogs_price;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.275;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.388 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";	
 			h = "1.5 * pixelGridNoUIScale * pixelH";
 		};
@@ -1299,8 +1299,8 @@ class vehicleBlackMarketMenu: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_buy;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "[] call SCRT_fnc_trader_buyBlackMarketVehicle;";
 		};
@@ -1332,8 +1332,8 @@ class buyVehicleMenu: SimpleMenuSmall
 		class vehicleTypeComboBox: SimpleComboBox
 		{
 			idc = 715;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.075;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
 			onLBSelChanged = "[] call SCRT_fnc_ui_setAvailableBuyVehicleTypes;";
@@ -1342,8 +1342,8 @@ class buyVehicleMenu: SimpleMenuSmall
 		class vehicleComboBox: SimpleComboBox
 		{
 			idc = 705;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";
 			h = "2 * pixelGridNoUIScale * pixelH";
 			onLBSelChanged = "[110000] call SCRT_fnc_ui_setVehicleCostText;";
@@ -1353,8 +1353,8 @@ class buyVehicleMenu: SimpleMenuSmall
 		{
 			idc = 710;
 			text = $STR_antistasi_dialogs_price;
-			x = (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2) / 2;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.275;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.388 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";	
 			h = "1.5 * pixelGridNoUIScale * pixelH";
 		};
@@ -1363,8 +1363,8 @@ class buyVehicleMenu: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_buy_vehicle_note_text;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.075;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";	
 			h = "3 * pixelGridNoUIScale * pixelH";
 		};
@@ -1373,8 +1373,8 @@ class buyVehicleMenu: SimpleMenuSmall
 		{
 			idc = -1;
 			text = $STR_antistasi_dialogs_buy;
-			x = safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2)) + 0.0525;
-			y = (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2) / 2 + 0.2;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.346 * safezoneH + safezoneY;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",0.9};
 			action = "[] call SCRT_fnc_ui_buyBuyVehicle;";
 		};
