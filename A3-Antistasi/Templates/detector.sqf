@@ -167,7 +167,11 @@ if(_activeCupUnits && _activeCupWeapons && _activeCupVehicles) then {
   };
 };
 
-//TODO: RHS + 3CBF support
+if (A3A_has3CBFactions && (!_activeAfrf || !_activeUsaf || !_activeGref || !_activeSaf)) then {
+  [1, "3CB Factions should be used together with all RHS mods - AFRF, USAF, GREF and SAF. Enable those mods to proceed.", _fileName] call A3A_fnc_log;
+	["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+
 if((_activeAfrf || _activeUsaf || _activeGref || _activeSaf) && (_activeCupUnits || _activeCupWeapons || _activeCupVehicles)) then {
 	[1, "CUP Units/Vehicles/Weapons and RHS simultaneously are not supported and leads to inconsistent and buggy experience. Choose either RHS or CUP modset to proceed.", _fileName] call A3A_fnc_log;
 	["modUnautorized",false,1,false,false] call BIS_fnc_endMission;

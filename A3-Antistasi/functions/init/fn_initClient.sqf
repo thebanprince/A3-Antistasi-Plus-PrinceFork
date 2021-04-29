@@ -482,7 +482,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 		[A3A_hasRHS,"RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF &amp; SAF)."],
 		[A3A_hasAegis,"Aegis","Some factions and units will be replaced by Aegis (Opposing Force &amp; Police &amp; Atlas)."],
 		[A3A_hasCup,"CUP","All factions will be replaced by CUP."],
-		[A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
+		[A3A_has3CBFactions,"3CB Factions","RHS Factions will be expanded by 3CB Factions."],
 		[A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
 	] select {_x#0};
 

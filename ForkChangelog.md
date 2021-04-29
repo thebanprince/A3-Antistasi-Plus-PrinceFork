@@ -4,6 +4,7 @@
 ### Additions
 - Livonia support
 - Panthera support
+- 3CB Factions support as RHS+ (expands RHS factions with new vehicles and units, replaces vanilla civilians and their cars with 3CB Faction ones)
 - UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
 - Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
