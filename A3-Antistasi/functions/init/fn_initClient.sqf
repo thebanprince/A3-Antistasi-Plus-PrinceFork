@@ -306,18 +306,13 @@ player addEventHandler ["GetInMan", {
 	};
 }];
 
-if (A3A_hasCup) then {
+if (A3A_hasCup || {A3A_has3CBFactions}) then {
 	player addEventHandler ["GetInMan", {
 		params ["_unit", "_role", "_vehicle", "_turret"];
 		private _vehType = typeOf _vehicle;
 		private _model = _vehType call A3A_fnc_classNameToModel;
 
-		if (_model in [
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"
-		]) then {
+		if (_model in noArtilleryComputerVehicles) then {
 			enableEngineArtillery false;
 		};
 	}];
@@ -327,12 +322,7 @@ if (A3A_hasCup) then {
 		private _vehType = typeOf _vehicle;
 		private _model = _vehType call A3A_fnc_classNameToModel;
 
-		if (_model in [
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
-			"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"
-		]) then {
+		if (_model in noArtilleryComputerVehicles) then {
 			enableEngineArtillery true;
 		};
 	}];

@@ -113,12 +113,7 @@ if (_typeX in (vehNormal + vehAttack + vehBoats + vehAA)) then {
 if (!(additionalShopArtillery isEqualTo [])) then {
 	private _model = _typeX call A3A_fnc_classNameToModel;
 
-	if (_model in [
-		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
-		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
-		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
-		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"
-	]) then {
+	if (_model in noArtilleryComputerVehicles) then {
 		_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
 	};
 };

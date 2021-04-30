@@ -191,6 +191,25 @@ belongings = ["Land_Document_01_F",
 	"Land_CanOpener_F"
 ];
 
+noArtilleryComputerVehicles = [];
+
+if (A3A_has3CBFactions) then {
+	noArtilleryComputerVehicles append [
+		"\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux_rocket.p3d", 
+		"\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux_rocket_arty.p3d",
+		"\rhsafrf\addons\rhs_bmd\rhs_bmd1rock.p3d"
+	];
+};
+
+if (A3A_hasCup) then {
+	noArtilleryComputerVehicles append [
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"
+	];
+};
+
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
 ////////////////////////////////////
