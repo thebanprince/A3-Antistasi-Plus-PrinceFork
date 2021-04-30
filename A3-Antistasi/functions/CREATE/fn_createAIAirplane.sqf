@@ -87,8 +87,6 @@ while {_spawnParameter isEqualType []} do {
 _typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 _max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
 for "_i" from 1 to _max do {
-	//_pos = [_positionX, 50, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
-	//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
 	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 
 	if (_spawnParameter isEqualType []) then

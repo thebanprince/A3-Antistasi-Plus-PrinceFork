@@ -493,7 +493,7 @@ private _templateVariables = [
 
 //CUP-only technical variables
 if(A3A_hasCup) then {
-	_templateVariables append ["technicalAa", "vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
+	_templateVariables append ["vehSDKLightUnarmedArmored", "technicalArmoredBtr", "technicalArmoredAa", "technicalArmoredSpg", "technicalArmoredMg"];
 };
 
 {
@@ -848,12 +848,15 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 
 //technicals cost
 if(A3A_hasCup) then {
-	server setVariable [technicalAa, 1500, true];
 	server setVariable [vehSDKLightUnarmedArmored, 400, true];
 	server setVariable [technicalArmoredBtr, 3250, true];
 	server setVariable [technicalArmoredAa, 3000, true];
 	server setVariable [technicalArmoredSpg, 3000, true];
 	server setVariable [technicalArmoredMg, 2250, true];
+};
+
+if(A3A_has3CBFactions || {A3A_hasCup}) then {
+	server setVariable [vehSDKAA, 1500, true];
 };
 
 //lootcrate cost
