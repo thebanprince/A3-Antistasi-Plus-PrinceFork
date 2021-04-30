@@ -21,6 +21,9 @@ switch(_vehicleType) do {
 
         if (tierWar > 3) then {
             _shopLookupArray append [vehSDKAT, staticATteamPlayer, staticAAteamPlayer];
+            if (A3A_hasCup || A3A_hasRhs || A3A_has3CBFactions) then {
+                _shopLookupArray pushBack vehSDKAA;
+            };
         };
 
         if (tierWar > 4) then {
@@ -41,7 +44,7 @@ switch(_vehicleType) do {
     };
     case("TECH"): {
         if (tierWar > 2) then {
-            _shopLookupArray append [technicalAa, vehSDKLightUnarmedArmored];
+            _shopLookupArray pushBack vehSDKLightUnarmedArmored;
         };
 
         if (tierWar > 4) then {
