@@ -25,7 +25,7 @@ switch(true) do{
         switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using Temperate Napa Template", _filename] call A3A_fnc_log;
             };
             default {

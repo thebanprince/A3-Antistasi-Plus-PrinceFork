@@ -4,7 +4,7 @@
 ### Additions
 - Livonia support
 - Panthera support
-- 3CB Factions support as RHS+ (expands RHS factions with new vehicles and units, replaces vanilla civilians and their cars with 3CB Faction ones)
+- 3CB Factions support as RHS+ - expands Occupants/Invader factions with new vehicles and units, replaces vanilla civilians and their cars with 3CB Faction ones, adds weapons from 3CB Factions to Arms Dealer store, expands starting arsenal with SMLE and Sterling SMG
 - UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
 - Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
@@ -29,9 +29,10 @@
 - (CUP) BAF faction mission variant (mission parameters)
 - (CUP) USAF faction mission variant (mission parameters)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
-- (RHS) Added RPK-74M into Arms Dealer Store stock
+- (RHS) Added RPK-74M, AKMs, MG42, FIM-92 Stinger and 9K38 Igla into Arms Dealer Store stock
 
 ### Changes
+- Merge with 2.4.1 Community Version
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
 - UI/UX overhaul - new commander menu, all others menus were remade on new UI framework
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
@@ -67,17 +68,17 @@
 - "Number of the same item required to unlock" parameter new values
 - Fixed "maximumLoad" arsenal bug
 - Default commander can hack UAVs
-- (2.4 CV) All unit templates have been remade from scratch
-- (2.4 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
-- (2.4 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
-- (2.4 CV) Faction base soldiers (instead of all being Greek like it is in CV)
-- (Altis, 2.4 CV) BLUFOR version replaced with INDEP version due to 2.4 template changes
+- (2.4.1 CV) All unit templates have been remade
+- (2.4.1 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
+- (2.4.1 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
+- (2.4.1 CV) Faction base soldiers (instead of all being Greek like it is in CV)
+- (Altis, 2.4.1 CV) BLUFOR version replaced with INDEP version due to 2.4.1 template changes
 - (Aegis) Zamak Flatbed logistics support
 - (CUP) Static weapons logistics support
 - (CUP) UAZ and some Humvees can load small cargo 
 - (CUP) BRDM-2's can load medium-sized cargo and some static weapons (Metis ATGM and Zu-23 amongst them)
 - (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
-- (CUP) Disabled artillery computer for Hiluxes with MLRS and UB-32 payloads
+- (CUP, 3CB Factions) Disabled artillery computer for Hiluxes with MLRS and Rocket payloads
 - (CUP) Added armored unarmed Hilux (War Level 3)
 - (CUP, RHS) Vehicle Black Market - Changed some available vehicles in some categories
 - (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (CUP Technicals store) 
@@ -96,8 +97,8 @@
 - Disabled Pursuers until full Random Events implementation will happen
 - (Altis) removed some outposts to give more variety in possible start positions
 - (Chernarus 2020) removed some outposts and static objects to make some overpopulated with objects areas less populated
-- (2.4 CV) Removed Antistasi Units support
-- (2.4 CV) Disabled LootToCrate from Community Version (2.4) as it conflicts with Antistasi Plus's loot system
+- (2.4.1 CV) Removed Antistasi Units support
+- (2.4.1 CV) Disabled LootToCrate from Community Version (2.4.1) as it conflicts with Antistasi Plus's loot system
 
 ## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)

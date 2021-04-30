@@ -38,21 +38,17 @@ private _activeAfrf = false;
 private _activeUsaf = false;
 private _activeSaf = false;
 
-
-//Actual Detection
-//IFA Detection
-//Deactivated for now, as IFA is having some IP problems (08.05.2020 european format)
-if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
-    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
-};
-
 //3CB Factions Detection
 if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {
   A3A_has3CBFactions = true;
   [2,"3CB Factions Detected.",_fileName] call A3A_fnc_log;
-  [1, "FFAA detected, but it is not yet supported.", _fileName] call A3A_fnc_log;
-  ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+
+//Actual Detection
+//IFA Detection
+if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
+    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
 //FFAA Detection

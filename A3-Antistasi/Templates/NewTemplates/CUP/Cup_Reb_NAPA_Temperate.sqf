@@ -128,7 +128,6 @@ additionalShopManpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_O_LR_AA_TKM",  "CUP_B_
 additionalShopArtillery = ["CUP_I_Hilux_podnos_IND_G_F", "CUP_I_Hilux_UB32_IND_G_F", "CUP_I_Hilux_MLRS_IND_G_F"];
 
 //technical menu content, CUP exclusive
-technicalAa = "CUP_I_Ural_ZU23_NAPA";
 vehSDKLightUnarmedArmored = "CUP_I_Hilux_armored_unarmed_IND_G_F";
 technicalArmoredBtr = "CUP_I_Hilux_armored_BTR60_IND_G_F";
 technicalArmoredAa = "CUP_I_Hilux_armored_zu23_IND_G_F";
