@@ -450,8 +450,8 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch a
 _militiaLoadoutData setVariable ["uniforms", ["CUP_U_B_CDF_FST_1", "CUP_U_B_CDF_FST_2"]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["vests", ["CUP_V_O_SLA_Flak_Vest03", "CUP_V_O_SLA_Flak_Vest01", "CUP_V_O_SLA_Flak_Vest02"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_rgr", "B_FieldPack_khk"]];		//this line determines backpacks for militia loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["helmets", ["CUP_H_SLA_Helmet_OD_worn", "CUP_H_RUS_SSH68_cover_berezka", "CUP_H_RUS_SSH68_olive", "CUP_H_CDF_OfficerCap_FST", "CUP_H_CDF_OfficerCap_MNT"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["ATLaunchers", ["CUP_launch_RPG18"]];  
+_militiaLoadoutData setVariable ["helmets", ["CUP_H_SLA_Helmet_OD_worn", "CUP_H_RUS_SSH68_cover_berezka", "CUP_H_RUS_SSH68_olive", "CUP_H_CDF_OfficerCap_FST"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["ATLaunchers", ["CUP_launch_RPG18"]];  
 _militiaLoadoutData setVariable ["lightATLaunchers", [
 	["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_PG7V_M", "CUP_OG7_M"], [], ""],
 	["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_PG7V_M", "CUP_PG7VL_M"], [], ""],
@@ -474,6 +474,8 @@ _militiaLoadoutData setVariable ["rifles", [
 ]];
 _militiaLoadoutData setVariable ["carbines", [
 ["CUP_arifle_Colt727", "", "CUP_acc_Flashlight", "", ["CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+["CUP_arifle_OTS14_GROZA_762_Grip", "", "", "", ["30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], [], ""],
+["CUP_arifle_OTS14_GROZA_762", "", "", "", ["30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], [], ""],
 ["CUP_SKS", "", "", "", [], [], ""],
 ["CUP_arifle_AKS74U", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], [], ""]
 ]];
@@ -482,12 +484,15 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_M16A1GL", "", "", "", ["CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag_Tracer_Red"], ["CUP_1Rnd_HE_M203", "CUP_1Rnd_HE_M203", "CUP_1Rnd_Smoke_M203", "CUP_1Rnd_StarCluster_White_M203"], ""],
 ["CUP_arifle_AK74_GL", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
 ["CUP_arifle_AKS74_GL_Early", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
-["CUP_arifle_AKS74_GL", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""]
+["CUP_arifle_AKS74_GL", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
+["CUP_arifle_OTS14_GROZA_762_GL", "", "", "", ["30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""]
 ]];
 _militiaLoadoutData setVariable ["SMGs", [
 ["CUP_smg_M3A1_blk", "CUP_muzzle_snds_M3A1_blk", "", "", ["CUP_30Rnd_45ACP_M3A1_BLK_M", "CUP_30Rnd_45ACP_Red_Tracer_M3A1_BLK_M"], [], ""],
 ["CUP_smg_M3A1_blk", "", "", "", ["CUP_30Rnd_45ACP_M3A1_BLK_M", "CUP_30Rnd_45ACP_Red_Tracer_M3A1_BLK_M"], [], ""],
-["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""]
+["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""],
+["CUP_arifle_OTS14_GROZA", "", "", "", [], [], ""],
+["CUP_arifle_OTS14_GROZA_Grip", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData setVariable ["machineGuns", [
 ["CUP_lmg_M60", "", "", "", ["CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M", "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""],

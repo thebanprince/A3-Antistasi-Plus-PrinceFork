@@ -186,9 +186,9 @@ _loadoutData setVariable ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _sfLoadoutData setVariable ["uniforms", ["U_O_V_Soldier_Viper_F"]];
-_sfLoadoutData setVariable ["ViperBP", ["B_ViperLightHarness_ghex_F", "B_ViperHarness_ghex_F"]];			//this line determines backpacks for special forces -- Example: ["B_AssaultPack_mcamo","B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_sfLoadoutData setVariable ["helmets", ["H_HelmetCrew_O_ghex_F"]];				//this line determines helmets for special forces -- Example: ["H_HelmetB_camo","H_HelmetB_desert"] -- Array, can contain multiple assets
-_sfLoadoutData setVariable ["NVGs", ["O_NVGoggles_ghex_F"]];
+_sfLoadoutData setVariable ["backpacks", ["B_ViperLightHarness_ghex_F", "B_ViperHarness_ghex_F"]];			//this line determines backpacks for special forces -- Example: ["B_AssaultPack_mcamo","B_Kitbag_mcamo"] -- Array, can contain multiple assets
+_sfLoadoutData setVariable ["helmets", ["H_HelmetO_ViperSP_ghex_F"]];				//this line determines helmets for special forces -- Example: ["H_HelmetB_camo","H_HelmetB_desert"] -- Array, can contain multiple assets
+_sfLoadoutData setVariable ["NVGs", []];
 _sfLoadoutData setVariable ["binoculars", ["Laserdesignator_02_ghex_F"]];
 _sfLoadoutData setVariable ["missileATLaunchers", [
 ["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
