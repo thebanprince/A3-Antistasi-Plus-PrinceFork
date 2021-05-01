@@ -20,6 +20,7 @@ A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasCup = false;
 A3A_hasAegis = false;
+A3A_hasAu = false;
 
 //RHS submods
 private _activeAegis = false;
@@ -37,6 +38,14 @@ private _activeGref = false;
 private _activeAfrf = false;
 private _activeUsaf = false;
 private _activeSaf = false;
+
+//Antistasi Units submods
+private _activeAew = false;
+
+if (isClass (configFile >> "CfgFactionClasses" >> "MYR_B_F")) then {
+  _activeAew = true;
+  [2,"After East Wind Detected.",_fileName] call A3A_fnc_log;
+};
 
 //3CB Factions Detection
 if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {
@@ -161,6 +170,14 @@ if(_activeCupUnits && _activeCupWeapons && _activeCupVehicles) then {
     [1, "One of CUP mods detected, but not all of them. Ensure that CUP Vehicles, CUP Units and CUP Weapons mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
   };
+};
+
+if(_activeAew && {(!_activeCupUnits || !_activeCupWeapons || !_activeCupVehicles || !_activeAegis || !_activeAtlas || !_activeAtlasOpfor || !_activePolice)}) then {
+    [1, "One of Antistasi Units collection mod detected, but not all of them. Ensure that CUP Vehicles, CUP Units, CUP Weapons, Aegis, Atlas, Atlas - Opposing Forces, Police and After East Wind mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+};
+
+if(_activeAew && {_activeCupUnits && _activeCupWeapons && _activeCupVehicles && _activeAegis && _activeAtlas && _activeAtlasOpfor && _activePolice}) then {
+  A3A_hasAu = true;
 };
 
 if (A3A_has3CBFactions && (!_activeAfrf || !_activeUsaf || !_activeGref || !_activeSaf)) then {

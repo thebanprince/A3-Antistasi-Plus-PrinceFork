@@ -2042,7 +2042,7 @@ switch _mode do {
 			case IDC_RSCDISPLAYARSENAL_TAB_BACKPACK: {
 				backpack _center
 			};
-			default {0};
+			default {""};
 		};
 
 		_maximumLoad = 1 max getNumber (configFile >> "CfgVehicles" >> _supply >> "maximumLoad");

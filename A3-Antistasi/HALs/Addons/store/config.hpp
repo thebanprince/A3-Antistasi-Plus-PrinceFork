@@ -11529,7 +11529,7 @@ class cfgHALsStore
 			};
 		};
 
-		class aegisCup {
+		class au {
 			displayName = "Arms Dealer Store";
 			categories[] = {
 			"handgunsAu", 

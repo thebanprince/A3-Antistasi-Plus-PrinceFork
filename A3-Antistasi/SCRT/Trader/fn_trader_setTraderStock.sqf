@@ -14,6 +14,10 @@ diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Choosing t
 diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Trader: %2", servertime, str _traderX];
 
 switch (true) do {
+    case (A3A_hasAu): {
+        diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Initializing Antistasi Units trader.", servertime];
+        [_traderX, "au"] call HALs_store_fnc_addTrader;
+    };
     case (A3A_has3CBFactions): {
         diag_log format ["%1: [Antistasi] | INFO | fn_trader_setTraderStock | Using 3CBF trader stock.", servertime];
         [_traderX, "3cbf"] call HALs_store_fnc_addTrader;

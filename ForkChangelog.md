@@ -10,7 +10,7 @@
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
 - New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
-- Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, player-on-foot-only)
+- Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, units-on-foot-only)
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
 - New intel type - Arms Dealer store discount
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
@@ -25,11 +25,13 @@
 - Some vehicle  boxes/hangars have a chance to spawn empty heavy vehicle inside it (only on military bases and airports)
 - Ability to hire vehicle crew squads
 - .sqfc bytecode support where possible (may lead to faster loading times and function execution in some circumstances)
+- (Antistasi Units) Cherno 2035 unit template (needs Aegis, Atlas, Atlas- Opposing Forces, Police, CUP Weapons, CUP Vehicles, CUP Units and After East Wind mods to proceed)
 - (Chernarus 2020) New outposts and other points of interest on North-East of map
 - (CUP) BAF faction mission variant (mission parameters)
 - (CUP) USAF faction mission variant (mission parameters)
 - (CUP, RHS) Additional vehicle categories in Vehicle Black Market
 - (RHS) Added RPK-74M, AKMs, MG42, FIM-92 Stinger and 9K38 Igla into Arms Dealer Store stock
+- (RHS, CUP, 3CBF) Ability to buy AA car through vehicle box on HQ
 
 ### Changes
 - Merge with 2.4.1 Community Version
@@ -47,7 +49,7 @@
 - Remade announcement system - much less messages on screen will be overwritten by new information
 - AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
 - AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
-- Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), pistols included too
+- Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), bugfixes, pistols inclusion
 - Airbases have SAM sites too
 - CIWSes use cargo platforms instead of flatbed trucks
 - CIWSes and AA vehicles on airbase will scan horizon
