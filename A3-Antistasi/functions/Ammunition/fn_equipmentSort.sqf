@@ -16,9 +16,6 @@
 		//RHS
 		case "rhsgref_faction_nationalist": {if (nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
 		case "rhsgref_faction_hidf": {if (nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
-		//3CB These dont actually work, added TKM manually in Template, CCM Uniforms are the same as the Civilian ones.
-		//case "UK3CB_CCM_I": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//case "UK3CB_TKM_B": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 		//Tanoa/ApexDLC
 		case "IND_C_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//Contact DLC Looters
