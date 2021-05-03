@@ -14,7 +14,6 @@ params ["_group", "_supportTypes", "_target"];
     Returns:
         Nothing
 */
-
 private _fileName = "callForSupport";
 private _groupLeader = leader _group;
 
