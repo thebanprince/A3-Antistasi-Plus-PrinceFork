@@ -1,6 +1,6 @@
 params ["_sideX"];
 
-private _sites = outposts + Seaports + airportsX + milbases;
+private _sites = outposts + seaports + airportsX + milbases;
 _sites = _sites select {sidesX getVariable [_x,sideUnknown] == _sideX};
 
 private _potentials = [];

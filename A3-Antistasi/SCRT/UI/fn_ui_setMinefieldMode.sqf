@@ -13,8 +13,7 @@ if ((_resourcesFIA < _moneyCost) or (_hrFIA < _hrCost)) exitWith {
         15
     ] spawn SCRT_fnc_ui_showMessage;
 };
-
-if (["Mines"] call BIS_fnc_taskExists) exitWith {
+if ("Mines" in A3A_activeTasks) exitWith {
 	[
         "FAIL",
         "Minefield",  

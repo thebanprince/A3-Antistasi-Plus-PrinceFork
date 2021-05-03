@@ -53,5 +53,6 @@ if (isServer) then {
         publicVariable "chemicalCurrent";
     };
     
-    [[200, 60], [200, 60]] remoteExec ["A3A_fnc_prestige",2];
+    [Occupants, 200, 60] remoteExec ["A3A_fnc_addAggression",2];
+    [Invaders, 200, 60] remoteExec ["A3A_fnc_addAggression",2];
 };

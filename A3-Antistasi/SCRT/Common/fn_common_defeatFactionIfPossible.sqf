@@ -4,7 +4,7 @@ if (!factionsDefeat) exitWith {};
 if (areInvadersDefeated && {_sideX == Invaders}) exitWith {};
 if (areOccupantsDefeated && {_sideX == Occupants}) exitWith {};
 
-private _remainingBases = { sidesX getVariable [_x, sideUnknown] == _sideX } count airportsX + milbases + outposts + Seaports + factories + resourcesX;
+private _remainingBases = { sidesX getVariable [_x, sideUnknown] == _sideX } count airportsX + milbases + outposts + seaports + factories + resourcesX;
 
 if (_remainingBases < 2) then {
     if (_sideX == Invaders) then {

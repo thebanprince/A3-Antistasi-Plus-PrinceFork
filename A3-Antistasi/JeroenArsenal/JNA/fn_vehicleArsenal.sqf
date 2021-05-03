@@ -327,20 +327,6 @@ switch _mode do {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ColorTabs":{
 		_display = _this select 0;
-		{
-			_ctrlTab = _display displayctrl (IDC_RSCDISPLAYARSENAL_TAB + _forEachIndex);
-
-			_color = if(_x isEqualTo [])then{
-				[1,1,1,1];
-			}else{
-				[1,0.3,0.3,1];
-			};
-			_ctrlTab ctrlSetTextColor _color;
-			_ctrlTab ctrlSetActiveColor _color;
-			_ctrlTab ctrlSetTextColorSecondary _color;
-			_ctrlTab ctrlSetBackgroundColor _color;
-			_ctrlTab ctrlSetForegroundColor _color;
-		} forEach jnva_loadout;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////

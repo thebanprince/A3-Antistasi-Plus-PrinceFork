@@ -61,7 +61,7 @@ if(isServer)then{
 
 //player
 if(hasInterface)then{
-    [2,"JNA loading player data",_fileName] call A3A_fnc_log;
+   [2,"JNA loading player data",_fileName] call A3A_fnc_log;
 
     //add arsenal button
     _object addaction [

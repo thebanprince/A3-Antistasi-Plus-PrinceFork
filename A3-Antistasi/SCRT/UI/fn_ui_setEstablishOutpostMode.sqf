@@ -13,7 +13,7 @@ if ((_resourcesFIA < _moneyCost) or (_hrFIA < _hrCost)) exitWith {
     ] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (["outpostTask"] call BIS_fnc_taskExists) exitWith {
+if ("outpostTask" in A3A_activeTasks) exitWith {
     [
         "FAIL",
         "Establish Outpost",  

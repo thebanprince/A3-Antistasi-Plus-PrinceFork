@@ -15,8 +15,10 @@ _marker setMarkerShape "ICON";
 private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
+private _taskId = "outpostTask" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,["We are sending a team to establish a AT emplacement. Use HC to send the team to their destination","Post \ AT Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-[[teamPlayer,civilian],"outpostTask",["We are sending a team to establish a AT emplacement. Use HC to send the team to their destination","Post \ AT Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 _formatX = [];
 {
     if (random 20 <= skillFIA) then {
@@ -64,7 +66,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	markersX = markersX + [_marker];
 	publicVariable "markersX";
 	spawner setVariable [_marker,2,true];
-	["outpostTask",["We are sending a team to establish a AT Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_position,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	[_taskId, "outpostTask", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	_nul = [-5,5,_position] remoteExec ["A3A_fnc_citySupportChange",2];
 	_marker setMarkerType "n_armor";
 	_marker setMarkerColor colorTeamPlayer;
@@ -75,7 +77,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
     } forEach groupsSDKAT;
     garrison setVariable [_marker,_garrison,true];
 } else {
-    ["outpostTask",["We are sending a team to establish a Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_position,"FAILED"] call A3A_fnc_taskUpdate;
+    [_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;
     sleep 3;
     deleteMarker _marker;
 };
@@ -88,4 +90,4 @@ deleteVehicle _truckX;
 deleteGroup _groupX;
 sleep 15;
 
-_nul = [0,"outpostTask"] spawn A3A_fnc_deleteTask;
+[_taskId, "outpostTask", 0] spawn A3A_fnc_taskDelete;
