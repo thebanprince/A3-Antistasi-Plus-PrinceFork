@@ -428,7 +428,7 @@ else
         else
         {
             [_side, _attackTarget, 4, 3] spawn _fnc_flipMarker;
-            [3600, _side] call A3A_fnc_timingCA;
+            [5400, _side] call A3A_fnc_timingCA;
         };
     }
     else

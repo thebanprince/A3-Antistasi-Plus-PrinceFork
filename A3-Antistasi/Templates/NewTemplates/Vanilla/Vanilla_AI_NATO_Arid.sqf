@@ -61,7 +61,7 @@
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate; 				//this line determines portable UAVs -- Example: ["uavsPortable", ["B_UAV_01_F"]] -- Array, can contain multiple assets
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["I_C_Offroad_02_AT_F", "I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate; //this line determines lightly armed militia vehicles -- Example: ["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] -- Array, can contain multiple assets
+["vehiclesMilitiaLightArmed", ["I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate; //this line determines lightly armed militia vehicles -- Example: ["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] -- Array, can contain multiple assets
 ["vehiclesMilitiaTrucks", ["I_Truck_02_covered_F", "I_Truck_02_transport_F"]] call _fnc_saveToTemplate; 	//this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
 ["vehiclesMilitiaCars", ["I_C_Offroad_02_unarmed_F"]] call _fnc_saveToTemplate; 		//this line determines militia cars (unarmed) -- Example: ["vehiclesMilitiaCars", ["	B_G_Offroad_01_F"]] -- Array, can contain multiple assets
 
@@ -386,8 +386,8 @@ _militiaLoadoutData setVariable ["machineGuns", [
 ["LMG_Mk200_F", "", "acc_flashlight", "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_snd"]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [
-["srifle_DMR_06_camo_F", "", "acc_flashlight", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""],
-["srifle_DMR_06_olive_F", "", "acc_flashlight", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""]
+["srifle_DMR_06_camo_F", "", "", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""],
+["srifle_DMR_06_olive_F", "", "", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
