@@ -79,45 +79,45 @@ addMissionEventHandler ["EachFrame",
 	{
 	scopeName "handler";
 	private _shouldExitHandler = false;
-	if (vehPlace_actionToAttempt != VEHPLACE_NO_ACTION) then 
+	if (vehPlace_actionToAttempt != VEHPLACE_NO_ACTION) then
 		{
-		switch(vehPlace_actionToAttempt) do 
+		switch(vehPlace_actionToAttempt) do
 			{
-			case VEHPLACE_ACTION_PLACE: 
+			case VEHPLACE_ACTION_PLACE:
 				{
 					[] spawn A3A_fnc_attemptPlaceVehicle;
 					_shouldExitHandler = true;
 				};
-			case VEHPLACE_ACTION_EXIT: 
+			case VEHPLACE_ACTION_EXIT:
 				{
 					[] spawn A3A_fnc_handleVehPlacementCancelled;
 					_shouldExitHandler = true;
 				};
-			case VEHPLACE_ACTION_RELOAD: 
+			case VEHPLACE_ACTION_RELOAD:
 				{
 					if (isNil "vehPlace_nextVehType") exitWith {diag_log "[Antistasi] Warning: Attempting to refresh placed vehicle, but no new type set.";};
 					private _typeX = vehPlace_nextVehType;
 					if !(_typeX isEqualType "") exitWith {};
-					
+
 					hideObject vehPlace_previewVeh;
-					deleteVehicle vehPlace_previewVeh;				
+					deleteVehicle vehPlace_previewVeh;
 					vehPlace_previewVeh = createSimpleObject [_typeX, [0,0,1000], true];
 					vehPlace_previewVeh allowDamage false;
 					vehPlace_previewVeh enableSimulation false;
 					[_typeX] call A3A_fnc_displayVehiclePlacementMessage;
 				};
-			case VEHPLACE_ACTION_ROT_LEFT: 
+			case VEHPLACE_ACTION_ROT_LEFT:
 				{
 					vehPlace_previewVeh setDir (getDir vehPlace_previewVeh + 1);
 				};
-			case VEHPLACE_ACTION_ROT_RIGHT: 
+			case VEHPLACE_ACTION_ROT_RIGHT:
 				{
 					vehPlace_previewVeh setDir (getDir vehPlace_previewVeh - 1);
 				};
 			};
 			vehPlace_actionToAttempt = VEHPLACE_NO_ACTION;
 		};
-	
+
 	//If we're not already exiting, then check if we need to cancel anyway
 	if (!_shouldExitHandler) then {
 		private _shouldCancelArray = [vehPlace_callbackTarget, CALLBACK_SHOULD_CANCEL_PLACEMENT, [vehPlace_previewVeh]] call A3A_fnc_vehPlacementCallbacks;
@@ -127,11 +127,11 @@ addMissionEventHandler ["EachFrame",
 			_shouldExitHandler = true;
 		};
 	};
-	
+
 	if (_shouldExitHandler) exitWith {
 		removeMissionEventHandler ["EachFrame", _thisEventHandler];
 	};
-	
+
 	if (isNull vehPlace_previewVeh) exitWith {};
 	// Get point on /terrain/ the player is looking at
 	_ins = lineIntersectsSurfaces [
@@ -147,7 +147,7 @@ addMissionEventHandler ["EachFrame",
 	private _placementPos = [];
 	//Just use the current position, if we're in 'Precision' mode
 	if (inputAction "turbo" > 0) then {
-		private _validPos = _pos findEmptyPosition [0, 1, "Land_BottlePlastic_V1_F"];	
+		private _validPos = _pos findEmptyPosition [0, 1, "Land_BottlePlastic_V1_F"];
 		if (count _validPos > 0) then {
 			_placementPos = _pos;
 		};
@@ -163,13 +163,13 @@ addMissionEventHandler ["EachFrame",
 	};
 	// Make it vanish if we can't find an empty position
 	if (count (_placementPos) == 0) exitWith {vehPlace_previewVeh setPosASL [0,0,0]};
-	
+
 	// Check if the current location is valid - hide the vehicle if not
 	private _isValidLocationArray = [vehPlace_callbackTarget, CALLBACK_VEH_IS_VALID_LOCATION, [_placementPos, getDir vehPlace_previewVeh, typeOf vehPlace_previewVeh]] call A3A_fnc_vehPlacementCallbacks;
 	if (!(_isValidLocationArray select 0)) exitWith {
 		vehPlace_previewVeh setPosASL [0,0,0];
 	};
-	
+
 	// If vehicle is a boat, make sure it spawns at sea level?
 
 	_water = surfaceIsWater _placementPos;

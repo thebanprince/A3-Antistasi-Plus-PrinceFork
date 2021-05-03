@@ -17,8 +17,6 @@ _num = round (_num / 100);
 diag_log format ["[Antistasi] Spawning City Patrol in %1 (createAICities.sqf)", _markerX];
 
 _dataX = server getVariable _markerX;
-//_prestigeOPFOR = _dataX select 3;
-//_prestigeBLUFOR = _dataX select 4;
 _prestigeOPFOR = _dataX select 2;
 _prestigeBLUFOR = _dataX select 3;
 _esAAF = true;

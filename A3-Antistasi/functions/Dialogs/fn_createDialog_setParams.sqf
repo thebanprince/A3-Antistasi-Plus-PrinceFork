@@ -34,7 +34,7 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 			server setVariable ["hr",25,true];
 			server setVariable ["resourcesFIA",5000,true];
 			vehInGarage = [vehSDKTruck,vehSDKTruck,SDKMortar,SDKMGStatic,staticAAteamPlayer];
-			if !(hasTFAR) then
+			if !(A3A_hasTFAR || A3A_hasTFARBeta) then
 				{
 				["ItemRadio"] call A3A_fnc_unlockEquipment;
 				haveRadio = true;
@@ -54,4 +54,3 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 	waitUntil {!dialog};
 	if (isNil "gamemode") then {gamemode = 1};
 };
-
