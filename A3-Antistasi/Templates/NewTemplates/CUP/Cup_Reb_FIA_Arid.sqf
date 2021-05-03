@@ -117,7 +117,7 @@ shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80_FIA", "CUP_I_LAV25M240_RACS"];
 shop_track_apc = ["CUP_B_MTLB_pk_FIA", "CUP_I_BMP1_TK_GUE", "CUP_I_BMP2_NAPA"];
 shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_B_AW159_HIL", "I_Heli_light_03_dynamicLoadout_F"];
 shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_B_M60A3_USMC"];
-shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_I_AV8B_DYN_AAF"];
+shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_B_Su25_Dyn_CDF"];
 
 additionalShopLight = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_Jackal2_L2A1_FIA", "CUP_B_M1165_GMV_USMC"];
 additionalShopAtgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_I_BRDM2_ATGM_NAPA"];
