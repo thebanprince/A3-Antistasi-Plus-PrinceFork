@@ -288,7 +288,7 @@ private _templateVariables = [
 	"groupsSDKSquadEng",
 	"groupsSDKSquadSupp",
 	"groupsSDKSniper",
-	"groupSDKCrew",
+	"groupsSDKCrew",
 	"groupsSDKSentry",
 	"sdkTier1",
 	"sdkTier2",
