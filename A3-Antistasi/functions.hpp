@@ -33,6 +33,7 @@ class A3A
     class Base
     {
         class addActionBreachVehicle {};
+        class addAggression {};
         class addHC {};
         class addTimeForIdle {};
         class aggressionUpdateLoop {};
@@ -88,7 +89,6 @@ class A3A
 		class playableUnits {};
 		class getSideRadioTowerInfluence {};
 		class powerReorg {};
-		class prestige {};
 		class radioCheck {};
 		class rebuildAssets {};
 		class rebuildRadioTower {};
@@ -283,6 +283,11 @@ class A3A
 		class createDialog_setParams {};
 	};
 
+    class EventHandler
+    {
+        class addArtilleryTrailEH {};
+    };
+
     class Garage
     {
         class addToPersonalGarage {};
@@ -415,7 +420,6 @@ class A3A
         class attackHQ {};
         class CON_Outpost {};
         class convoy {};
-        class deleteTask {};
         class DES_Antenna {};
         class DES_Heli {};
         class DES_Vehicle {};
@@ -432,6 +436,8 @@ class A3A
         class RES_Refugees {};
         class RES_Shipwreck {};
         class ENC_Trader {};
+        class taskDelete {};
+        class taskSetState {};
         class taskUpdate {};
         class underAttack {};
     };
@@ -679,9 +685,11 @@ class A3A
         class dateToTimeString {};
         class deleteNamespace {};
         class getAdmin {};
+        class localLog {};
         class log {};
         class setPos {};
-        class systemTime_format_G {};
+        class systemTime_format_S {};
+        class vehicleTextureSync {};
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };
