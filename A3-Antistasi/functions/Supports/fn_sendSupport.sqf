@@ -50,7 +50,7 @@ if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areIn
     [2, format ["%1 faction was defeated earlier, aborting support.", str _side], _fileName, true] call A3A_fnc_log;
 };
 
-waitUntil {sleep 0.1; !supportCallInProgress};
+waitUntil {sleep 0.1; !isNil "supportCallInProgress" && {!supportCallInProgress}};
 supportCallInProgress = true;
 
 //Calculate deprecision on position

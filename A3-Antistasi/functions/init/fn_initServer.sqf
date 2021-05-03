@@ -189,8 +189,8 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 [2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
+[] call A3A_fnc_initSupportCooldowns;
 [] spawn A3A_fnc_aggressionUpdateLoop;
-[] spawn A3A_fnc_initSupportCooldowns;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 
 //TODO: Disabled until random events full implementation
