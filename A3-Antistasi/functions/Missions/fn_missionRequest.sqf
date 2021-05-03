@@ -225,7 +225,7 @@ switch (_type) do {
 				[petros,"hint","Support Missions require Cities closer than 4Km from your HQ.", "Missions"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
-			[3, format ["City weights: %1", _weightedMarkers], _filename] call A3A_fnc_log;
+			[3, format ["City weights: %1", _weightedMarkers], "missionRequest"] call A3A_fnc_log;
 			private _site = selectRandomWeighted _weightedMarkers;
 			[[_site],"A3A_fnc_LOG_Supplies"] remoteExec ["A3A_fnc_scheduler",2];
 		};
@@ -313,7 +313,7 @@ switch (_type) do {
 	};
 
 	default {
-		[1, format ["%1 is not an accepted task type", _type], _filename] call A3A_fnc_log;
+		[1, format ["%1 is not an accepted task type", _type], "missionRequest"] call A3A_fnc_log;
 	};
 };
 
