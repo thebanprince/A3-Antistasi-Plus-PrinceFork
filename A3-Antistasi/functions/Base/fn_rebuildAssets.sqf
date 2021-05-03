@@ -16,8 +16,8 @@ if (_siteX in outposts) then {
 if (_leave) exitWith {
 	[
 		"FAIL",
-		"Rebuild Assets",  
-		parseText "Selected site does not have a destroyed Radio Tower or miltiary assets.", 
+		"Rebuild Assets",
+		parseText "Selected site does not have a destroyed Radio Tower or miltiary assets.",
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };
@@ -27,13 +27,14 @@ if (isNull _antennaDead) then {
 
 	[
 		"SUCCESS",
-		"Rebuild Assets",  
-		parseText format ["%1 rebuilt.", _name], 
+		"Rebuild Assets",
+		parseText format ["%1 rebuilt.", _name],
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 
 	[0, 10, _position] remoteExec ["A3A_fnc_citySupportChange",2];
-	[[10, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
+    [Occupants, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
+    [Invaders, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
 
 	private _militaryBuildings = nearestObjects [_position, listMilBld, 500,  true];
 

@@ -18,7 +18,7 @@ switch (true) do {
 		};
 	};
 	case (_key == KEY_END): {
-		if (!hasACEhearing) then {
+		if (!A3A_hasACEhearing) then {
 			if (soundVolume <= 0.5) then {
 				0.5 fadeSound 1;
 				["Ear Plugs", "You've taken out your ear plugs.", true] call A3A_fnc_customHint;

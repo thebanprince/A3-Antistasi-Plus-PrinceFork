@@ -10,7 +10,6 @@
     Returns:
         Nothing
 */
-
 while {true} do
 {
     sleep 60;
@@ -36,7 +35,7 @@ while {true} do
 
     prestigeIsChanging = false;
     [] call A3A_fnc_calculateAggression;
-    
+
     if(gameMode != 4) then
     {
         //Update attack countdown for occupants and execute attack if needed

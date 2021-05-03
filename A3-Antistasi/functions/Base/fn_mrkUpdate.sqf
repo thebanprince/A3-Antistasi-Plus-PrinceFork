@@ -25,7 +25,11 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then {
 			_textX = format ["Factory%1",_textX];
 		};
 		case(_markerX in seaports): {
-			_textX = format ["Sea Port%1",_textX]
+			if (toLower worldName isEqualTo "enoch") then {
+				_textX = format ["River Port%1",_textX];
+			} else {
+				_textX = format ["Sea Port%1",_textX];
+			};
 		};
 		case(_markerX in milbases): {
 			_textX = format ["%2 Military Base%1",_textX,nameTeamPlayer];
@@ -85,7 +89,11 @@ else {
 			_mrkD setMarkerText "Factory";
 		};
 		case(_markerX in seaports): {
-			_mrkD setMarkerText "Sea Port";
+			if (toLower worldName isEqualTo "enoch") then {
+				_mrkD setMarkerText "River Port";
+			} else {
+				_mrkD setMarkerText "Sea Port";
+			};
 		};
 		default {};
 	};

@@ -57,7 +57,7 @@ _moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_sta
 } forEach belongings;
 
 
-if (hasACE) then {
+if (A3A_hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
 	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_01");			//MBT turret wrecks
