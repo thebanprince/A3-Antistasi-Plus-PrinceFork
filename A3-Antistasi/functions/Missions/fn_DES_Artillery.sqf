@@ -165,10 +165,11 @@ _artilleryVeh addEventHandler ["Fired", {
 /////////////////////
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 private _taskText = format ["Artillery is firing at our positions from %1. We must destroy it. Do this before %2, or they will destroy something valuable.", _nameDest, _displayTime];
+private _taskId = "DES" + str A3A_taskCount;
 
 [
     [teamPlayer,civilian],
-    "DES",
+    _taskId,
     [
         _taskText,
         "Destroy Artillery",
@@ -181,8 +182,7 @@ private _taskText = format ["Artillery is firing at our positions from %1. We mu
     "destroy",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["DES","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //////////////
 //Infantry and MG
@@ -234,12 +234,7 @@ waitUntil {
 switch (true) do {
     case (alive _artilleryVeh && _artilleryCrew findIf {alive _x} != -1): {
         [2, "Artillery will fire at rebel position for some time, fail.", _fileName, true] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-15,theBoss] call A3A_fnc_playerScoreAdd;
 
@@ -251,12 +246,7 @@ switch (true) do {
     };
     case (!(alive _artilleryVeh) || _artilleryCrew findIf {alive _x} == -1): {
         [2, "Artillery is destroyed, success.", _fileName, true] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
         [0, 400] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
@@ -265,18 +255,13 @@ switch (true) do {
     };
     default {
         [3, "Unexpected behaviour, cancelling mission.", _filename] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 sleep 30;
 
-_nul = [1200,"DES"] spawn A3A_fnc_deleteTask;
+[_taskId, "DES", 1200] spawn A3A_fnc_taskDelete;
 
 _artilleryVeh removeAllEventHandlers "Fired";
 

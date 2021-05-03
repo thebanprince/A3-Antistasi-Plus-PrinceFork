@@ -83,21 +83,15 @@ allDLCMods = ["kart", "mark", "heli", "expansion", "jets", "orange", "tank", "gl
 A3A_loadedTemplateInfoXML = [];
 
 //Mod detection is done locally to each client, in case some clients have different modsets for some reason.
-//Systems Mods
-hasACE = false;
-hasACEHearing = false;
-hasACEMedical = false;
-//Radio Mods
-hasACRE = false;
-hasTFAR = false;
-
 //Radio Detection
-hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
-hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");
+A3A_hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
+A3A_hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");
+A3A_hasTFARBeta = isClass (configFile >> "CfgPatches" >> "tfar_static_radios");
+if (A3A_hasTFARBeta) then {A3A_hasTFAR = false};
 //ACE Detection
-hasACE = (!isNil "ace_common_fnc_isModLoaded");
-hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
-hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
+A3A_hasACE = (!isNil "ace_common_fnc_isModLoaded");
+A3A_hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
+A3A_hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
 //Content Mods (Units, Vehicles, Weapons, Clothes etc.)
 //These are handled by a script in the Templates folder to keep integrators away from critical code.
 call compile preProcessFileLineNumbers "Templates\detector.sqf";
@@ -195,7 +189,7 @@ noArtilleryComputerVehicles = [];
 
 if (A3A_has3CBFactions) then {
 	noArtilleryComputerVehicles append [
-		"\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux_rocket.p3d", 
+		"\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux_rocket.p3d",
 		"\UK3CB_Factions\addons\UK3CB_Factions_Vehicles\wheeled\UK3CB_Factions_Vehicles_hilux\uk3cb_hilux_rocket_arty.p3d",
 		"\rhsafrf\addons\rhs_bmd\rhs_bmd1rock.p3d"
 	];
@@ -203,7 +197,7 @@ if (A3A_has3CBFactions) then {
 
 if (A3A_hasCup) then {
 	noArtilleryComputerVehicles append [
-		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32", 
+		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_UB32",
 		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_MLRS",
 		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_MLRS",
 		"\CUP\WheeledVehicles\CUP_WheeledVehicles_Hilux\hiluxV2_armored_UB32"

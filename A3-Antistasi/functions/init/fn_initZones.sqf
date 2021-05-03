@@ -109,7 +109,7 @@ switch (toLower worldName) do {
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
 
-private _cityConfigs = if ((toLower worldName) == "panthera3") then { 
+private _cityConfigs = if ((toLower worldName) == "panthera3") then {
 	"(getText (_x >> ""type"") in [""NameLocal"", ""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 	!(getText (_x >> ""Name"") isEqualTo """") &&
 	!((configName _x) in ['idrsko','ladra','cesnjica','koprivnik','goreljek','jereka','ribcevlaz','starfuz','sredvas','bitnje','cezsoca','logmangart','strmec','belca','dovje','kocna','bdobrava','skooma','suzid','sseloo','zirovnica','vrba','obrne','gorje','ribno','lesce','lancovo','selca','kneza','Pikia','baca','sela','podljubinj', 'volce','dolje','bolhowo','ditchwood','rontushospital','ramons','bazovica','villasimona','fortieste','rubinaisland','savagia',""Mork"", ""trenta"", ""Kleinfort"", ""Freckle"", ""dino10"", ""dino11"", ""dino12"", ""dino13"", ""dino3"", ""dino5"", ""dino7""])"
@@ -128,7 +128,6 @@ _cityConfigs apply {
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
 	_pos = getArray (_x >> "position");
 	_size = [_size, 400] select (_size < 400);
-	_roads = [];
 	_numCiv = 0;
 
 	if (_hardcodedPop) then
@@ -144,15 +143,12 @@ _cityConfigs apply {
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 	};
 
-	_numVeh = round (_numCiv / 3);
-	_nroads = count _roads;
-	if(_nroads > 0) then
-	{
-		//Fixed issue with a town on tembledan having no roads
-		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-		_pos = _nearRoadsFinalSorted select 0;
+	_roads = nearestTerrainObjects [_pos, ["MAIN ROAD", "ROAD", "TRACK"], _size, true, true];
+	if (count _roads > 0) then {
+		// Move marker position to the nearest road, if any
+		_pos = _roads select 0;
 	};
-	if (_nroads < _numVeh) then {_numVeh = _nroads};
+	_numVeh = (count _roads) min (_numCiv / 3);
 
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
@@ -280,14 +276,14 @@ switch (toLower worldName) do {
 		_blackListPos = [];
 	    antennas = [];
 	};
-	case "abramia": 
+	case "abramia":
 	{
 		_posAntennas = [[9864.87,9258.16,0],[4871.03,8738.64,0],[267.693,9236.51,0],[8953.05,1544.56,0]];
 		_posBank = [[7036.69,1171.7,0],[3564.86,3190.53,0],[9405.56,9271.83,0],[1981.93,7714.16,0],[6127.85,3387.11,0]];
 		_blackListPos = [];
 	    antennas = [];
 	};
-	case "panthera3": 
+	case "panthera3":
 	{
 		_posAntennas = [[8247.17,8508.42,0],[1279.23,7194.89,0],[355.621,3020.95,0],[1260.02,1607.94,0],[4786.39,6836.08,0],[4193.22,3819.86,0],[6536.41,2014.64,0],[6906.09,770.765,0],[6237.4,4675.6,0]];
 		_posBank = [[1126.75,5762.61,0],[1247.99,6384.2,0],[188.976,1507.52,0],[161.512,1692.07,0],[159.84,1706.39,0],[197.559,1512.86,0],[2687.69,1548.56,0],[7257.44,5873.08,0]];

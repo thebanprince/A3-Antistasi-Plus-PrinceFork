@@ -189,15 +189,17 @@ private _taskMarker = createMarker [format ["LOG%1", random 100],_crashPositionM
 _taskMarker setMarkerShape "ICON";
 
 //creating Task
+private _taskId = "LOG" + str A3A_taskCount;
 private _rebelTaskText = format [
     "%1 helicopter with some valueable cargo has been shot down in %2. Bring helicopter's cargo to the HQ before enemy's rescue team. We must get it before %3.", 
     _sideName, 
     _destinationName,
     _displayTime
 ];
+
 [
     [teamPlayer,civilian],
-    "LOG",
+    _taskId,
     [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
     _crashPositionMarker,
     false,
@@ -206,9 +208,7 @@ private _rebelTaskText = format [
     "heli",
     true
 ] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["LOG", "CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
 //spawning box
@@ -521,35 +521,17 @@ switch(true) do {
     case(_box distance _deliverySite < 50 || dateToNumber date > _dateLimitNum): {
         [3, "Box has been recovered by enemy, mission falied.", _filename] call A3A_fnc_log;
 
-        //враг победил
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case(!alive _box): {
-        //нейтральный исход
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "CANCELED"] call A3A_fnc_taskSetState;
         [-300, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     };
     case(_box distance (getMarkerPos respawnTeamPlayer) < 25): {
-        //успех
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
@@ -569,8 +551,7 @@ switch(true) do {
 } forEach _effects;
 
 
-
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 
 deleteMarker _taskMarker;
 

@@ -315,10 +315,9 @@ if(_intelType == "Large") then
     if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
         _intelContent = TASK;
     } else {
-        if(["AS"] call BIS_fnc_taskExists) then {
+        if ("AS" in A3A_activeTasks) then {
             _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.15, TASK, 0.5, DISCOUNT, 0.15];
-        }
-        else {
+        } else {
             _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
         };
     };
@@ -356,7 +355,7 @@ if(_intelType == "Large") then
 
                 private _rerollIntelContent = "";
 
-                if(["AS"] call BIS_fnc_taskExists) then {
+                if("AS" in A3A_activeTasks) then {
                     _rerollIntelContent = selectRandomWeighted [TRAITOR, 0.3, WEAPON, 0.3, MONEY, 0.4];
                 }
                 else {

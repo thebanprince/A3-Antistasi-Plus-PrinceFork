@@ -5,7 +5,6 @@ if (!isServer and hasInterface) exitWith {};
 params ["_markerX"];
 
 [2, format ["Creating Salvage mission"], _filename] call A3A_fnc_log;
-
 private _positionX = getMarkerPos _markerX;
 
 
@@ -49,9 +48,9 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 private _title = "Salvage supplies";
 private _text = format ["A supply shipment was sunk outside of %1. Go there and recover the supplies before %2. You will need to get a hold of a boat with a winch to recover the shipment, check beaches for civilian boats you can commandeer.", _nameDest, _displayTime];
-[[teamPlayer, civilian], "LOG",[ _text, _title, [_mrk1, _mrk2, _mrk3]], _positionX, false, 0, true, "rearm", true] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
+private _taskId = "LOG" + str A3A_taskCount;
+[[teamPlayer, civilian], _taskId, [ _text, _title, [_mrk1, _mrk2, _mrk3]], _positionX, false, 0, true, "rearm", true] call BIS_fnc_taskCreate;
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //salvageRope action
 [] remoteExec ["A3A_fnc_SalvageRope", 0, true];
@@ -123,7 +122,6 @@ _vehCrewGroup addVehicle _veh;
 };
 
 //Disable simulation if we *really* want to
-
 [3, format ["Waiting for salvage mission end"], _filename] call A3A_fnc_log;
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_box distance2D posHQ) < 100)};
 
@@ -136,19 +134,19 @@ if (dateToNumber date > _dateLimitNum) then {
 private _bonus = if (_difficultX) then {2} else {1};
 
 if (_timeout && alive _box) then {
-	["LOG",[ _text, _title,[_mrk1, _mrk2, _mrk3]],_positionX,"FAILED","rearm"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	[2, format ["Mission Failed"], _filename] call A3A_fnc_log;
+    [2, format ["Mission Failed"], _filename] call A3A_fnc_log;
 	deleteVehicle _box;
 } else {
-	["LOG",[ _text, _title,[_mrk1, _mrk2, _mrk3]],_positionX,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
+	[_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	{ [30 * _bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-	[2, format ["Mission Succeeded"], _filename] call A3A_fnc_log;
+    [2, format ["Mission Succeeded"], _filename] call A3A_fnc_log;
 };
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 [3, format ["set delete task timer"], _filename] call A3A_fnc_log;
 
 deleteMarker _mrk1;

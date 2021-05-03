@@ -37,11 +37,14 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 
+private _taskId = "LOG" + str A3A_taskCount;
+private _taskText = format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime];
+
 [
     [teamPlayer,civilian],
-    "LOG",
+    _taskId,
     [
-        format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
+        _taskText,
         "Catch Airdrop",
         _markerX
     ],
@@ -52,8 +55,7 @@ private _nameDest = [_markerX] call A3A_fnc_localizar;
     "plane",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["LOG","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 waitUntil {
     sleep 5;
@@ -336,66 +338,26 @@ switch(true) do {
         } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
         [20, theBoss] call A3A_fnc_playerScoreAdd;
 
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "SUCCEEDED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
     };
     case (dateToNumber date > _dateLimitNum): {
         [2, "Fail, mission Expired.", _fileName, true] call A3A_fnc_log;
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     }; 
     //if plane crashed before, then mission failed, but it's not our fault
     case (!(_airDropHappened)): {
         [2, "Fail, plane was shot down.", _fileName, true] call A3A_fnc_log;
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
     };
     default {
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at position %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 sleep 30;
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 
 {
     deleteVehicle _x;

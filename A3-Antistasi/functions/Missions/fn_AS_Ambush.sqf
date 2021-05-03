@@ -103,10 +103,11 @@ private _rebelTaskText = format [
     _departingDisplayTime,
     _displayTime
 ];
+private _taskId = "AS" + str A3A_taskCount;
 
 [
     [teamPlayer,civilian],
-    "AS",
+    _taskId,
     [_rebelTaskText, "Ambush Officer", _missionOrigin],
     _missionOrigin,
     false,
@@ -115,9 +116,7 @@ private _rebelTaskText = format [
     "car",
     true
 ] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["AS", "CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ////////////////
 //convoy spawn//
@@ -216,24 +215,14 @@ switch(true) do {
     case (_officer inArea _destinationSite || dateToNumber date > _dateLimitNum): {
         [3, "Officer Reached destination or time is out, fail.", _filename] call A3A_fnc_log;
 
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case (!alive _officer): {
         [3, "Officer died, success.", _filename] call A3A_fnc_log;
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         { [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
@@ -241,19 +230,14 @@ switch(true) do {
     };
     default {
         [3, "Unexpected behaviour, cancelling mission.", _filename] call A3A_fnc_log;
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "AS", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 
 sleep 30;
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;
 
 deleteMarker _officerDestinationMarker;
 

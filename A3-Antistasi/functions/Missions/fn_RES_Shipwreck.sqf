@@ -284,12 +284,14 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber b
 private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 private _nameDest = [_markerX] call A3A_fnc_localizar;
+private _taskId = "RES" + str A3A_taskCount;
+private _taskText = format ["A smuggler's ship has been crashed %1. We must rescue survivors before %2. Bring them to HQ.", _nameDest, _displayTime];
 
 [
     [teamPlayer,civilian],
-    "RES",
+    _taskId,
     [
-        format ["A smuggler's ship has been crashed %1. We must rescue survivors before %2. Bring them to HQ.", _nameDest, _displayTime],
+        _taskText,
         "Rescue Smugglers",
         _markerX
     ],
@@ -300,8 +302,7 @@ private _nameDest = [_markerX] call A3A_fnc_localizar;
     "boat",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["RES","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 waitUntil {
     sleep 5;
@@ -409,17 +410,7 @@ waitUntil {
 _bonus = if (_difficultX) then {2} else {1};
 
 if ({alive _x} count _POWs == 0) then {
-	[
-        "RES",
-        [
-            format ["A smuggler's ship has been crashed near %1. We must rescue survivors before %2. Bring them to HQ.", _nameDest, _displayTime],
-            "Rescue Smugglers",
-            _markerX
-        ],
-        _shorePosition,
-        "FAILED",
-        "boat"
-    ] call A3A_fnc_taskUpdate;
+	[_taskId, "RES", "FAILED"] call A3A_fnc_taskSetState;
 	{
         [_x,false] remoteExec ["setCaptive",0,_x]; 
         _x setCaptive false;
@@ -427,17 +418,7 @@ if ({alive _x} count _POWs == 0) then {
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 } else {
 	sleep 5;
-    [
-        "RES",
-        [
-            format ["A smuggler's ship has been crashed near %1. We must rescue survivors before %2. Bring them to HQ.", _nameDest, _displayTime],
-            "Rescue Smugglers",
-            _markerX
-        ],
-        _shorePosition,
-        "SUCCEEDED",
-        "boat"
-    ] call A3A_fnc_taskUpdate;
+    [_taskId, "RES", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
     private _rebels = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 
@@ -445,7 +426,9 @@ if ({alive _x} count _POWs == 0) then {
 	_resourcesFIA = 100 * _countX * _bonus;
 	[_countX, _resourcesFIA] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[0, 10 *_bonus, _positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-	[[-(_countX * 1.5), 90], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+
+    private _aggroValue = -(_countX * 1.5);
+    [_sideX, _aggroValue, 90] remoteExec ["A3A_fnc_addAggression",2];
 
 	{ 
         [_countX*10, _x] call A3A_fnc_playerScoreAdd;
@@ -497,7 +480,7 @@ deleteGroup _grpPOW;
     boxX addItemCargoGlobal [_x,1]
 } forEach _items;
 
-_nul = [1200,"RES"] spawn A3A_fnc_deleteTask;
+[_taskId, "RES", 1200] spawn A3A_fnc_taskDelete;
 
 {
     deleteVehicle _x;

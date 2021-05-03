@@ -97,7 +97,7 @@ private _controlsCSAT = [];
 
 if (debug) then
 {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting Control Marks for Worldname: %2  .", servertime, worldName];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting Control Marks for Worldname: %2  .", servertime, worldName];
 };
 
 if (gameMode == 1) then
@@ -152,7 +152,7 @@ if (gameMode == 1) then
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
 
 	if (debug) then {
-		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkCSAT: %2.", servertime, _mrkCSAT];
+        diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkCSAT: %2.", servertime, _mrkCSAT];
 		diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | _mrkNATO: %2.", servertime, _mrkNATO];
 	};
 }
@@ -177,7 +177,11 @@ else
 [_mrkCSAT, resourcesX, "loc_rock", "Resources"] call _fnc_initMarker;
 [_mrkCSAT, factories, "u_installation", "Factory"] call _fnc_initMarker;
 [_mrkCSAT, outposts, "loc_bunker", "%1 Outpost", true] call _fnc_initMarker;
-[_mrkCSAT, seaports, "b_naval", "Sea Port"] call _fnc_initMarker;
+if (toLower worldName isEqualTo "enoch") then {
+	[_mrkCSAT, seaports, "b_naval", "River Port"] call _fnc_initMarker;
+} else {
+	[_mrkCSAT, seaports, "b_naval", "Sea Port"] call _fnc_initMarker;
+};
 [_mrkCSAT, milbases, "b_hq", "%1 Military Base", true] call _fnc_initMarker;
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
@@ -187,35 +191,35 @@ if (isServer) then {"NATO_carrier" setMarkertype flagNATOmrk};
 if (isServer) then {"CSAT_carrier" setMarkertype flagCSATmrk};
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Airbase stuff.", servertime];
 };
 
 [airportsX, "Airport"] call _fnc_initGarrison;					//Old system
 [airportsX, "Airport", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.", servertime];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Resource stuff.", servertime];
 };
 
 [resourcesX, "Resource"] call _fnc_initGarrison;			//Old system
 [resourcesX, "Other", [0,0,0]] call A3A_fnc_createGarrison;	//New system
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Factory stuff.", servertime];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Factory stuff.", servertime];
 };
 
 [factories, "Factory"] call _fnc_initGarrison;
 [factories, "Other", [0,0,0]] call A3A_fnc_createGarrison;
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Outpost stuff.", servertime];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Outpost stuff.", servertime];
 };
 
 [outposts, "Outpost"] call _fnc_initGarrison;
 [outposts, "Outpost", [1,1,0]] call A3A_fnc_createGarrison;
 
 if (debug) then {
-	diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Seaport stuff.", servertime];
+    diag_log format ["%1: [Antistasi] | DEBUG | initGarrisons.sqf | Setting up Seaport stuff.", servertime];
 };
 
 [seaports, "Seaport"] call _fnc_initGarrison;
