@@ -3,6 +3,8 @@ if (isServer) then {
 	diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 	petros allowdamage false;
 
+	A3A_saveVersion = 0;
+	["version"] call A3A_fnc_getStatVariable;
 	["savedPlayers"] call A3A_fnc_getStatVariable;
 	["watchpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "watchpostsFIA";
 	["roadblocksFIA"] call A3A_fnc_getStatVariable; publicVariable "roadblocksFIA";
@@ -138,7 +140,7 @@ if (isServer) then {
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new
 		diag_log "No WurzelGarrison found, creating new!";
-		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;
+		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 		[resourcesX, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 		[factories, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;
 		[outposts, "Outpost", [1,1,0]] spawn A3A_fnc_createGarrison;
@@ -214,7 +216,11 @@ if (isServer) then {
 			_dmrk = createMarker [format ["Dum%1",_x], _pos];
 			_dmrk setMarkerShape "ICON";
 			_dmrk setMarkerType "b_naval";
-			_dmrk setMarkerText "Sea Port";
+			if (toLower worldName isEqualTo "enoch") then {
+				_dmrk setMarkerText "River Port";
+			} else {
+				_dmrk setMarkerText "Sea Port";
+			};
 			[_x] call A3A_fnc_mrkUpdate;
 			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
 				_nul = [_x] call A3A_fnc_createControls;

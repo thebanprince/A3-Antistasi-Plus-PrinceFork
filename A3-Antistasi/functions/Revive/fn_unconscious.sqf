@@ -75,7 +75,7 @@ if (_isPlayer) then {
 	[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 
 	if (isDiscordRichPresenceActive) then {
-		private _possibleMarkers = outposts + airportsX + resourcesX + factories + Seaports + milbases + ["NATO_carrier", "CSAT_carrier"];
+		private _possibleMarkers = outposts + airportsX + resourcesX + factories + seaports + milbases + ["NATO_carrier", "CSAT_carrier"];
 		private _nearestMarker = [_possibleMarkers, player] call BIS_fnc_nearestPosition;
 		private _locationName = [_nearestMarker] call A3A_fnc_localizar;
 

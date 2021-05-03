@@ -65,6 +65,7 @@ if (_side isEqualTo east) then {
 	CSATMarksman = ["loadouts_inv_militia_Marksman", "loadouts_inv_military_Marksman", "loadouts_inv_elite_Marksman"];
 	staticCrewInvaders = CSATGrunt;
 	CSATPilot = "loadouts_inv_other_Pilot";
+	CSATUnarmed = "loadouts_inv_other_Unarmed";
 
 	if (gameMode == 4) then {
 		FIARifleman = "loadouts_inv_militia_Rifleman";
@@ -248,6 +249,7 @@ if (_side isEqualTo east) then {
 	staticATInvaders = _faction getVariable "staticAT" select 0;
 	staticAAInvaders = _faction getVariable "staticAA";
 	CSATMortar = _faction getVariable "staticMortars" select 0;
+	CSATmortarMagazineHE = _faction getVariable "mortarMagazineHE";
 
 	MGStaticCSATB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.
@@ -293,7 +295,7 @@ if (_side isEqualTo west) then {
 	NATOOfficer2 = "loadouts_occ_other_Traitor";
 	NATOBodyG = "loadouts_occ_military_Rifleman";
 	NATOCrew = "loadouts_occ_other_Crew";
-	NATOUnarmed = "loadouts_occ_Unarmed";
+	NATOUnarmed = "loadouts_occ_other_Unarmed";
 	NATOMarksman = ["loadouts_occ_militia_Marksman", "loadouts_occ_military_Marksman", "loadouts_occ_elite_Marksman"];
 	staticCrewOccupants = NATOGrunt;
 	NATOPilot = "loadouts_occ_other_Pilot";
@@ -485,6 +487,7 @@ if (_side isEqualTo west) then {
 	staticATOccupants = _faction getVariable "staticAT" select 0;
 	staticAAOccupants = _faction getVariable "staticAA";
 	NATOMortar = _faction getVariable "staticMortars" select 0;
+	NATOmortarMagazineHE = _faction getVariable "mortarMagazineHE";
 
 	MGStaticNATOB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.
