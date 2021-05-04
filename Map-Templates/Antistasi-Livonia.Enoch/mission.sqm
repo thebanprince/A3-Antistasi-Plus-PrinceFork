@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=588;
+		nextID=612;
 	};
 	class Camera
 	{
 		pos[]={2058.9941,325.3728,2344.1477};
-		dir[]={0.74228364,-0.56363642,0.36243254};
-		up[]={0.5064972,0.82601315,0.2473058};
-		aside[]={0.43876454,3.6694109e-007,-0.89861757};
+		dir[]={0.65692252,-0.74940503,0.082928948};
+		up[]={0.74351168,0.66209978,0.093859687};
+		aside[]={0.12524582,4.7881622e-007,-0.99214065};
 	};
 };
 binarizationWanted=0;
@@ -37,9 +37,7 @@ addons[]=
 	"A3_Structures_F_Ind_Cargo",
 	"A3_Modules_F",
 	"A3_Weapons_F_Ammoboxes",
-	"A3_Aegis_Supplies_F_Aegis_Ammoboxes",
 	"A3_Characters_F",
-	"A3_Aegis_Characters_F_Aegis",
 	"A3_Structures_F_Mil_Flags",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Props_F_Enoch_Civilian_InfoBoards",
@@ -69,7 +67,6 @@ addons[]=
 	"A3_Weapons_F",
 	"A3_Ui_F_Exp",
 	"A3_Characters_F_Exp",
-	"A3_Aegis_Characters_F_Aegis_Uniforms",
 	"A3_Structures_F_Exp_Military_Flags",
 	"A3_Props_F_Enoch_Military_Camps",
 	"A3_Structures_F_Exp_Industrial_Port",
@@ -79,7 +76,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=19;
+		items=17;
 		class Item0
 		{
 			className="A3_Structures_F_Ind";
@@ -103,110 +100,96 @@ class AddonsMetaData
 		};
 		class Item3
 		{
-			className="A3_Aegis_Supplies_F_Aegis";
-			name="Arma 3 Aegis - Ammoboxes and Supplies";
-			author="AveryTheKitty";
-			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
-		};
-		class Item4
-		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
-		{
-			className="A3_Aegis_Characters_F_Aegis";
-			name="Arma 3 Aegis - Characters and Clothing";
-			author="AveryTheKitty";
-			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
-		};
-		class Item6
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item5
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item6
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item7
 		{
 			className="A3_Structures_F_Enoch_Military";
 			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item8
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item9
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item10
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item11
 		{
 			className="A3_Supplies_F_Heli";
 			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item12
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item13
 		{
 			className="A3_Ui_F_Exp";
 			name="Arma 3 Apex - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item14
 		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item15
 		{
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item16
 		{
 			className="A3_Structures_F_Exp_Industrial";
 			name="Arma 3 Apex - Industrial Structures";
@@ -286,7 +269,7 @@ class Mission
 			};
 			id=80;
 			type="Land_CargoBox_V1_F";
-			atlOffset=3.0517578e-005;
+			atlOffset=-0.0031433105;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -396,6 +379,7 @@ class Mission
 			};
 			id=89;
 			type="IG_supplyCrate_F";
+			atlOffset=-0.0043334961;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -701,6 +685,7 @@ class Mission
 			};
 			id=173;
 			type="Land_MapBoard_Enoch_F";
+			atlOffset=-0.0034179688;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -14599,7 +14584,7 @@ class Mission
 				};
 			};
 			id=3185;
-			atlOffset=-47.645172;
+			atlOffset=76.35817;
 		};
 		class Item670
 		{
@@ -14658,7 +14643,7 @@ class Mission
 					colorName="ColorRed";
 					a=103.03985;
 					b=141.19038;
-					angle=6.1559987;
+					angle=6.1559982;
 					id=67;
 					atlOffset=3.8200073;
 				};
@@ -14939,7 +14924,7 @@ class Mission
 					colorName="ColorGreen";
 					a=17.457001;
 					b=7.158;
-					angle=271.6069;
+					angle=271.60687;
 					id=3220;
 				};
 				class Item25
@@ -15254,7 +15239,7 @@ class Mission
 				};
 			};
 			id=3187;
-			atlOffset=25.448265;
+			atlOffset=25.372448;
 		};
 		class Item672
 		{
@@ -16763,6 +16748,7 @@ class Mission
 					};
 					id=3249;
 					type="I_G_Soldier_TL_F";
+					atlOffset=-3.0517578e-005;
 				};
 				class Item4
 				{
@@ -16826,7 +16812,6 @@ class Mission
 					};
 					id=3252;
 					type="I_G_Soldier_F";
-					atlOffset=3.0517578e-005;
 				};
 				class Item7
 				{
@@ -16870,6 +16855,7 @@ class Mission
 					};
 					id=3254;
 					type="I_G_Soldier_F";
+					atlOffset=3.0517578e-005;
 				};
 				class Item9
 				{
@@ -16933,6 +16919,7 @@ class Mission
 					};
 					id=3257;
 					type="I_G_Soldier_F";
+					atlOffset=-3.0517578e-005;
 				};
 				class Item12
 				{
@@ -17039,6 +17026,7 @@ class Mission
 					};
 					id=3262;
 					type="I_G_Soldier_AR_F";
+					atlOffset=-3.0517578e-005;
 				};
 				class Item17
 				{
@@ -17483,6 +17471,7 @@ class Mission
 					};
 					id=3283;
 					type="I_G_engineer_F";
+					atlOffset=-3.0517578e-005;
 				};
 			};
 			class Attributes
@@ -18977,6 +18966,7 @@ class Mission
 			};
 			id=3329;
 			type="Land_TripodScreen_01_large_black_F";
+			atlOffset=-0.0077209473;
 		};
 		class Item722
 		{
@@ -19033,7 +19023,7 @@ class Mission
 			colorName="ColorGreen";
 			a=22.889915;
 			b=7.5275383;
-			angle=0.12283694;
+			angle=0.12283693;
 			id=3362;
 			atlOffset=174.69;
 		};
@@ -19363,7 +19353,7 @@ class Mission
 			colorName="ColorBlue";
 			a=57.173878;
 			b=38.616196;
-			angle=358.03683;
+			angle=358.0368;
 			id=3424;
 		};
 		class Item747

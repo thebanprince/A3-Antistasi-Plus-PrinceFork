@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=298;
+		nextID=304;
 	};
 	class Camera
 	{
-		pos[]={200.68094,107.84896,3729.1572};
-		dir[]={0.495572,-0.79489952,0.3500787};
-		up[]={0.64924526,0.6067422,0.45863554};
-		aside[]={0.57697535,5.2864198e-007,-0.81676865};
+		pos[]={212.00208,125.98496,3736.8586};
+		dir[]={0.69908369,-0.61099911,0.37147248};
+		up[]={0.53956389,0.79162711,0.28670865};
+		aside[]={0.46924475,3.0687079e-007,-0.88308549};
 	};
 };
 binarizationWanted=0;
@@ -35,15 +35,12 @@ sourceName="Antistasi-Chernarus-2-4-1-Plus";
 addons[]=
 {
 	"A3_Characters_F_Exp",
-	"A3_Aegis_Characters_F_Aegis",
 	"A3_Weapons_F",
 	"A3_Characters_F",
-	"A3_Aegis_Characters_F_Aegis_Uniforms",
 	"A3_Structures_F_Exp_Military_Flags",
 	"A3_Structures_F_Mil_Flags",
 	"A3_Structures_F_EPC_Civ_InfoBoards",
 	"A3_Weapons_F_Ammoboxes",
-	"A3_Aegis_Supplies_F_Aegis_Ammoboxes",
 	"A3_Ui_F",
 	"A3_Structures_F_Argo_Military_Domes",
 	"A3_Structures_F_Mil_Cargo",
@@ -77,7 +74,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=23;
+		items=21;
 		class Item0
 		{
 			className="A3_Characters_F_Exp";
@@ -87,150 +84,136 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="A3_Aegis_Characters_F_Aegis";
-			name="Arma 3 Aegis - Characters and Clothing";
-			author="AveryTheKitty";
-			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
-		};
-		class Item2
-		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Structures_F_Exp";
 			name="Arma 3 Apex - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
-		{
-			className="A3_Aegis_Supplies_F_Aegis";
-			name="Arma 3 Aegis - Ammoboxes and Supplies";
-			author="AveryTheKitty";
-			url="https://steamcommunity.com/sharedfiles/filedetails/?id=949252631";
-		};
-		class Item8
+		class Item6
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item7
 		{
 			className="A3_Structures_F_Argo";
 			name="Arma 3 Malden - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item8
 		{
 			className="A3_Structures_F_Enoch_Military";
 			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item9
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item10
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item11
 		{
 			className="A3_Ui_F_Exp";
 			name="Arma 3 Apex - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item12
 		{
 			className="A3_Structures_F_Wrecks";
 			name="Arma 3 - Vehicle Wrecks";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item13
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item14
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item15
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item16
 		{
 			className="CUP_Editor_A2_Roads_Config";
 			name="CUP_Editor_A2_Roads_Config";
 		};
-		class Item19
+		class Item17
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
+		class Item18
 		{
 			className="A3_Structures_F_Tank";
 			name="Arma 3 Tank - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item21
+		class Item19
 		{
 			className="A3_Structures_F_Enoch_Civilian";
 			name="Arma 3 Contact Platform - Civilian Buildings";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item22
+		class Item20
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
@@ -1950,6 +1933,7 @@ class Mission
 							};
 							id=152;
 							type="I_G_Soldier_TL_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item4
 						{
@@ -1971,6 +1955,7 @@ class Mission
 							};
 							id=153;
 							type="I_G_Soldier_TL_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item5
 						{
@@ -2034,6 +2019,7 @@ class Mission
 							};
 							id=156;
 							type="I_G_Soldier_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item8
 						{
@@ -2076,7 +2062,6 @@ class Mission
 							};
 							id=158;
 							type="I_G_Soldier_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item10
 						{
@@ -2098,6 +2083,7 @@ class Mission
 							};
 							id=159;
 							type="I_G_Soldier_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item11
 						{
@@ -2119,7 +2105,6 @@ class Mission
 							};
 							id=160;
 							type="I_G_Soldier_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item12
 						{
@@ -2183,6 +2168,7 @@ class Mission
 							};
 							id=163;
 							type="I_G_Soldier_AR_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item15
 						{
@@ -2204,6 +2190,7 @@ class Mission
 							};
 							id=164;
 							type="I_G_Soldier_AR_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item16
 						{
@@ -2225,7 +2212,6 @@ class Mission
 							};
 							id=165;
 							type="I_G_Soldier_AR_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item17
 						{
@@ -2247,7 +2233,6 @@ class Mission
 							};
 							id=166;
 							type="I_G_Soldier_AR_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item18
 						{
@@ -2269,6 +2254,7 @@ class Mission
 							};
 							id=167;
 							type="I_G_Soldier_AR_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item19
 						{
@@ -2290,7 +2276,7 @@ class Mission
 							};
 							id=168;
 							type="I_G_Soldier_AR_F";
-							atlOffset=-7.6293945e-006;
+							atlOffset=-1.5258789e-005;
 						};
 						class Item20
 						{
@@ -2312,7 +2298,6 @@ class Mission
 							};
 							id=169;
 							type="I_G_Soldier_GL_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item21
 						{
@@ -2334,6 +2319,7 @@ class Mission
 							};
 							id=170;
 							type="I_G_Soldier_GL_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item22
 						{
@@ -2355,6 +2341,7 @@ class Mission
 							};
 							id=171;
 							type="I_G_Soldier_GL_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item23
 						{
@@ -2418,7 +2405,7 @@ class Mission
 							};
 							id=174;
 							type="I_G_Soldier_GL_F";
-							atlOffset=-7.6293945e-006;
+							atlOffset=-1.5258789e-005;
 						};
 						class Item26
 						{
@@ -2440,7 +2427,6 @@ class Mission
 							};
 							id=175;
 							type="I_G_medic_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item27
 						{
@@ -2462,6 +2448,7 @@ class Mission
 							};
 							id=176;
 							type="I_G_medic_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item28
 						{
@@ -2483,7 +2470,6 @@ class Mission
 							};
 							id=177;
 							type="I_G_medic_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item29
 						{
@@ -2526,6 +2512,7 @@ class Mission
 							};
 							id=179;
 							type="I_G_medic_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item31
 						{
@@ -2568,7 +2555,6 @@ class Mission
 							};
 							id=181;
 							type="I_G_engineer_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item33
 						{
@@ -2590,6 +2576,7 @@ class Mission
 							};
 							id=182;
 							type="I_G_engineer_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item34
 						{
@@ -2611,7 +2598,6 @@ class Mission
 							};
 							id=183;
 							type="I_G_engineer_F";
-							atlOffset=7.6293945e-006;
 						};
 						class Item35
 						{
@@ -2633,6 +2619,7 @@ class Mission
 							};
 							id=184;
 							type="I_G_engineer_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item36
 						{
@@ -2654,6 +2641,7 @@ class Mission
 							};
 							id=185;
 							type="I_G_engineer_F";
+							atlOffset=-7.6293945e-006;
 						};
 						class Item37
 						{
@@ -2675,6 +2663,7 @@ class Mission
 							};
 							id=186;
 							type="I_G_engineer_F";
+							atlOffset=-7.6293945e-006;
 						};
 					};
 					class Attributes
@@ -3402,7 +3391,7 @@ class Mission
 					colorName="ColorGreen";
 					a=12.096237;
 					b=35.463699;
-					angle=112.16561;
+					angle=112.1656;
 					id=2270;
 					atlOffset=90.213501;
 				};
@@ -3519,7 +3508,7 @@ class Mission
 					type="rectangle";
 					a=271.37149;
 					b=385.45847;
-					angle=110.14738;
+					angle=110.14737;
 					id=2271;
 					atlOffset=-0.0004119873;
 				};
@@ -4794,7 +4783,7 @@ class Mission
 			colorName="ColorOrange";
 			a=113.86819;
 			b=111.22241;
-			angle=78.47998;
+			angle=78.479973;
 			id=767;
 			atlOffset=160.44244;
 		};
@@ -4955,7 +4944,7 @@ class Mission
 			type="rectangle";
 			a=152.10516;
 			b=79.783615;
-			angle=225.38416;
+			angle=225.38414;
 			id=779;
 			atlOffset=342.92496;
 		};
@@ -4981,7 +4970,7 @@ class Mission
 			type="rectangle";
 			a=2.4692736;
 			b=7.1611071;
-			angle=28.44735;
+			angle=28.447348;
 			id=781;
 			atlOffset=363.74734;
 		};
@@ -5950,7 +5939,7 @@ class Mission
 			type="rectangle";
 			a=65.135544;
 			b=93.678162;
-			angle=112.9136;
+			angle=112.91359;
 			id=893;
 			atlOffset=390.15213;
 		};
@@ -7467,7 +7456,7 @@ class Mission
 			type="rectangle";
 			a=108.10789;
 			b=105.04192;
-			angle=112.91357;
+			angle=112.91356;
 			id=1069;
 			atlOffset=390.49387;
 		};
@@ -9290,7 +9279,7 @@ class Mission
 			type="rectangle";
 			a=71.197952;
 			b=73.972336;
-			angle=112.91357;
+			angle=112.91356;
 			id=1225;
 			atlOffset=392.63538;
 		};
@@ -10346,7 +10335,7 @@ class Mission
 			type="rectangle";
 			a=79.201134;
 			b=69.618027;
-			angle=113.82825;
+			angle=113.82824;
 			id=1408;
 		};
 		class Item436
@@ -10594,7 +10583,7 @@ class Mission
 			colorName="ColorBlue";
 			a=65.166733;
 			b=62.053619;
-			angle=13.555229;
+			angle=13.555228;
 			id=1429;
 			atlOffset=167.55511;
 		};
@@ -15718,7 +15707,7 @@ class Mission
 			type="rectangle";
 			a=4.6742363;
 			b=20.263161;
-			angle=111.25419;
+			angle=111.25418;
 			id=2364;
 			atlOffset=0.58267212;
 		};
