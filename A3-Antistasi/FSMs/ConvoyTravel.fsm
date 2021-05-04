@@ -28,7 +28,7 @@ link11[] = {7,1};
 link12[] = {8,1};
 link13[] = {10,11};
 globals[] = {0.000000,0,0,0,0,640,480,1,52,6316128,1,-539.552429,231.053772,136.200928,-476.403259,1112,884,1};
-window[] = {2,-1,-1,-1,-1,837,78,1518,78,3,1130};
+window[] = {2,-1,-1,-32000,-32000,951,192,1632,192,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -136,10 +136,12 @@ class FSM
                          "private _nextPos = _route # _currentNode;" \n
                          "" \n
                          "//Move all of the groups, as we don't know who is in command." \n
-                         "{" \n
-                         "	private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" \n
-                         "	_x setCurrentWaypoint _nextWaypoint;" \n
-                         "} forEach (_splitCrew # 0);" \n
+                         "if (!isNil ""_nextPos"" && {(count _nextPos) == 3}) then {" \n
+                         "		{" \n
+                         "			private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" \n
+                         "			_x setCurrentWaypoint _nextWaypoint;" \n
+                         "		} forEach (_splitCrew # 0);" \n
+                         "};" \n
                          "" \n
                          "// to make sure that vehicles don't get stuck forever and never despawn" \n
                          "private _timeout = time + (_vehicle distance2d _nextPos);"/*%FSM</STATEINIT""">*/;
