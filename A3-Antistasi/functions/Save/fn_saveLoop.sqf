@@ -60,7 +60,6 @@ private _antennasDeadPositions = [];
 ["skillFIA", skillFIA] call A3A_fnc_setStatVariable;
 ["destroyedSites", destroyedSites] call A3A_fnc_setStatVariable;
 ["distanceSPWN", distanceSPWN] call A3A_fnc_setStatVariable;		// backwards compatibility
-["civPerc", civPerc] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["chopForest", chopForest] call A3A_fnc_setStatVariable;
 ["maxUnits", maxUnits] call A3A_fnc_setStatVariable;
 ["maxConstructions", maxConstructions] call A3A_fnc_setStatVariable;

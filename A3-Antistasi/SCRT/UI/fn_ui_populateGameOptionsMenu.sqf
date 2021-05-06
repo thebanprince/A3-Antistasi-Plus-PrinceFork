@@ -25,18 +25,17 @@ ctrlSetFocus ((findDisplay 60000) displayCtrl 1151);
 ["MAIN", 5200, false] call SCRT_fnc_ui_switchButton;
 ["MAIN", 5400, false] call SCRT_fnc_ui_switchButton;
 
-// civ limit
-sliderSetRange [5041, 1, 150];
-sliderSetPosition [5041, civPerc];
-((findDisplay 60000) displayCtrl 5040) ctrlSetText format ["Civ Limit per Client: %1", civPerc];
-
+// Max constructions limit
+sliderSetRange [5041, 1, 300];
+sliderSetPosition [5041, maxConstructions];
+((findDisplay 60000) displayCtrl 5040) ctrlSetText format ["Maximum Persistent Constuctions: %1", maxConstructions];
 // max spawn distance
 sliderSetRange [5061, 600, 2000];
 sliderSetPosition [5061, distanceSPWN];
 ((findDisplay 60000) displayCtrl 5060) ctrlSetText format ["Maximum Spawn Distance: %1", distanceSPWN];
 
 // AI Limiter
-sliderSetRange [5081, 80, 300];
+sliderSetRange [5081, 80, 250];
 sliderSetPosition [5081, maxUnits];
 ((findDisplay 60000) displayCtrl 5080) ctrlSetText format ["AI Limit: %1", maxUnits];
 

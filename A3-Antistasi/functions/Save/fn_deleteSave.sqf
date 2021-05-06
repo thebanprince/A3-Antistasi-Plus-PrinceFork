@@ -29,7 +29,7 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 	profileNameSpace setVariable [_x + _postfix, nil];
 
 } forEach ["countCA", "gameMode", "difficultyX", "bombRuns", "supportPoints", "smallCAmrk", "membersX", "antennas",
-	"mrkSDK", "mrkCSAT", "posHQ", "dateX", "skillFIA", "destroyedSites", "distanceSPWN", "civPerc",
+	"mrkSDK", "mrkCSAT", "posHQ", "dateX", "skillFIA", "destroyedSites", "distanceSPWN",
 	"chopForest", "maxUnits", "maxConstructions", "nextTick", "weather", "destroyedBuildings", "aggressionOccupants",
 	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "constructionsX", "jna_datalist",
 	"prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",

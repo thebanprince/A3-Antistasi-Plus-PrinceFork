@@ -1,6 +1,4 @@
-private ["_unit","_enemiesX"];
-
-_unit = _this select 0;
+private _unit = _this;
 
 _unit setSkill 0;
 _unit forceAddUniform (selectRandom allCivilianUniforms);

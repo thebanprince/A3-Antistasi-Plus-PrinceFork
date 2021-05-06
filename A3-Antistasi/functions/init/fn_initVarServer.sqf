@@ -40,16 +40,10 @@ DECLARE_SERVER_VAR(cleantime, 3600);
 //DECLARE_SERVER_VAR(distanceSPWN, 1000);
 DECLARE_SERVER_VAR(distanceSPWN1, distanceSPWN*1.3);
 DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
-//Quantity of Civs to spawn in (most likely per client - Bob Murphy 26.01.2020)
-//DECLARE_SERVER_VAR(civPerc, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
-//Max units we aim to spawn in. It's not very strictly adhered to.
-//DECLARE_SERVER_VAR(maxUnits, 140);
-//Max constructions that players are able to build. Acts on LIFO principle
-DECLARE_SERVER_VAR(maxConstructions, 150);
 
 
 //Disabled DLC according to server parameters

@@ -715,11 +715,11 @@ class commanderMenu
 					idc = 5090;					
 					y = "4 * pixelGridNoUIScale * pixelH";	
 				};
-
-				class civLimitTitle: TextBase
+				
+				class maxConstructionsTitle: TextBase
 				{
 					idc = 5040;
-					text = "Civ Limit per Client: 5";
+					text = "Maximum Persistent Constructions: 150";
 					x = "1 * pixelGridNoUIScale * pixelW";
 					y = "4.25 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
@@ -727,17 +727,17 @@ class commanderMenu
 					colorText[] = {0.75,0.75,0.75,1};
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
 					font = "PuristaMedium";
-					tooltip = "Allows you to set how many civilians per client will spawn. Affects performance.";
+					tooltip = "Allows you to set how many persistent (saveable) constructions will be allowed. Affects performance, Last In-First Out principle.";
 				};
 
-				class civLimitSlider: SliderBase
+				class maxConstructionsSlider: SliderBase
 				{
 					idc = 5041;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
 					y = "7.25 * pixelGridNoUIScale * pixelH";	
 					w = "21.5 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";					
-					onSliderPosChanged = "_value = round (_this select 1); ((findDisplay 60000) displayCtrl 5040) ctrlSetText format ['Civilians per client: %1', _value]; civPerc = _value; publicVariable 'civPerc';";
+					onSliderPosChanged = "_value = round (_this select 1); ((findDisplay 60000) displayCtrl 5040) ctrlSetText format ['Maximum Persistent Constructions: %1', _value]; maxConstructions = _value; publicVariable 'maxConstructions';";
 				};
 				
 				class spawnDistanceLimitTitle: TextBase

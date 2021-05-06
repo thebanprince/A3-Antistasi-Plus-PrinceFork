@@ -94,7 +94,6 @@ A3A_paramTable = [
 
     // Not visible parameters yet, but otherwise handled the same way
     ["distanceSPWN", "", ["oldsave"], 1000],
-    ["civPerc", "", ["oldsave"], 5],
     ["maxUnits", "", ["oldsave"], 140],
     ["minPlayersRequiredForPVP", "", [], 2],
 

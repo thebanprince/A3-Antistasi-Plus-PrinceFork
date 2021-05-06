@@ -6,11 +6,12 @@
 - Panthera support
 - 3CB Factions support as RHS+ - expands Occupants/Invader factions with new vehicles and units, replaces vanilla civilians and their cars with 3CB Faction ones, adds weapons from 3CB Factions to Arms Dealer store, expands starting arsenal with SMLE and Sterling SMG
 - UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
-- Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (150 structures max at this moment, LIFO)
+- Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (has built-in tuneable construction cap, LIFO principle)
 - New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
 - New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
 - Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, units-on-foot-only)
+- Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
 - New intel type - Arms Dealer store discount
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
@@ -36,12 +37,13 @@
 ### Changes
 - Merge with 2.4.1 Community Version
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
-- UI/UX overhaul - new commander menu, all others menus were remade on new UI framework
+- UI/UX overhaul - new commander menu, all others menus were modified with the new UI framework usage
+- Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
 - Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
 - Artillery triggers counterattacks too (same as it already works with mortars)
 - Multiple improvements to Kill Collaborationist, Rescue Smugglers and Destroy Artillery tasks
-- AI Limit option changed from 200 to 300
+- AI Limit option maximum changed from 200 to 250
 - Moved Artillery Support menu from Shift+Y to AI Management submenu
 - Increased Loot Truck price from 1000 to 1500
 - AI units have a chance to drop their guns and run away instead of surrender when their morale is low

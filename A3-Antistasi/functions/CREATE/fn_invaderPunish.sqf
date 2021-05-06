@@ -127,7 +127,7 @@ for "_i" from 0 to _numCiv do {
 		if (!surfaceIsWater _pos) exitWith {};
 	};
 	_civ = [_groupCivil, _typeUnit,_pos, [],0,"NONE"] call A3A_fnc_createUnit;
-	[_civ] call A3A_fnc_civInit;
+	_civ call A3A_fnc_civInit;
 	_rnd = random 100; 
   	if (_rnd < 75) then { 
 			[_civ, selectRandom (unlockedsniperrifles + unlockedshotguns + Unlockedrifles + unlockedsmgs), 5, 0] call BIS_fnc_addWeapon;  
