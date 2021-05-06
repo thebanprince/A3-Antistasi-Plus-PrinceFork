@@ -100,7 +100,6 @@ A3A_paramTable = [
     //Antistasi Plus parameters
     ["settingsTimeMultiplier", "timeMultiplier", [], 1],
     ["playerStartingMoney", "playerStartingMoney", [], 200],
-    ["isCivilianPresenceEnabled", "civilianPresence", [], true],
     ["factionsDefeat", "factionsDefeat", [], true],
     ["spawnTraderOnBase", "traderOnBase", [], false],
     // ["areRandomEventsEnabled", "randomEvents", [], false],

@@ -334,13 +334,6 @@ class Params
           texts[] =  {"Default (200)", "0", "100", "200", "500","1000"};
           default = 9999;
      };
-     class civilianPresence
-     {
-          title = "Civilian Presence Modules";
-          values[] = {9999, 1, 0};
-          texts[] =  {"Default (Enabled)", "Enabled", "Disabled (no footmobile civilians)"};
-          default = 9999;
-     };
      class factionsDefeat
      {
           title = "Enemy Factions Defeat (EXPERIMENTAL)";
