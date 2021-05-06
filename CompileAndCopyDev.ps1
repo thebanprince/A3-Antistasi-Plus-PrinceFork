@@ -6,7 +6,6 @@ $devFolderItem = Get-ChildItem -Path ".\Map-Templates\Antistasi-Stratis.Stratis"
 $devFolder = $devFolderItem.parent;
 
 $mainDataPath = Join-Path $root 'A3-Antistasi';
-$compiledDataPath = Join-Path $root 'A3-Antistasi-Compiled\*';
 $stringTablePath = Join-Path $root 'A3-Antistasi\Stringtable.xml';
 
 $stringTable = New-Object -TypeName XML;
@@ -23,5 +22,4 @@ $destinationPath = $(Join-Path $buildFolder $missionFolderName);
 Remove-Item $destinationPath -Recurse -ErrorAction Ignore;
 
 Copy-Item -Path $mainDataPath -Destination $destinationPath -Recurse;
-Copy-Item -Path $compiledDataPath -Destination $destinationPath -Recurse -Force;
 Copy-Item -Path $(Join-Path $devFolder.FullName "*") -Destination $destinationPath -Recurse -Force;
