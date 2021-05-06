@@ -102,7 +102,7 @@ if (count _mrkMar > 0) then {
 
 private _civPresenceModules = [];
 
-if (civilianPresence && {spawner getVariable _markerX != 2}) then {
+if (spawner getVariable _markerX != 2) then {
 	_civPresenceModules = _positionX nearEntities ["ModuleCivilianPresence_F", 500];
 	if (!(_civPresenceModules isEqualTo [])) then {
 		[2, format ["Activating Civ Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
