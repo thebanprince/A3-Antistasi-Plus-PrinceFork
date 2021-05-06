@@ -78,7 +78,6 @@ if (A3A_hasTFAR || A3A_hasTFARBeta) then {
 [] call SCRT_fnc_common_set3dIcons;
 
 if (!isNil "placementDone") then {_isJip = true};//workaround for BIS fail on JIP detection
-[] spawn A3A_fnc_ambientCivs;
 private ["_colourTeamPlayer", "_colorInvaders"];
 _colourTeamPlayer = teamPlayer call BIS_fnc_sideColor;
 _colorInvaders = Invaders call BIS_fnc_sideColor;

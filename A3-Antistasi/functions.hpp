@@ -206,7 +206,6 @@ class A3A
         class AAFroadPatrol {};
         class airportCanAttack {};
         class AIVEHinit {};
-        class ambientCivs {};
         class calculateMarkerArea {};
         class cargoSeats {};
         class CIVinit {};
