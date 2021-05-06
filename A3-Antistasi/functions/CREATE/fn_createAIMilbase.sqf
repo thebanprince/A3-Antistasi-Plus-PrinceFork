@@ -28,7 +28,7 @@ private _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
 private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
 private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
-private _cargoPlatform =  if (_sideX == Occupants) then {"CargoPlaftorm_01_green_F"} else {"CargoPlaftorm_01_brown_F"};
+private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOCargoTrucks} else {selectRandom vehCSATTrucks};
 private _aaElements = [_radarType, _ciwsType, _samType];
 
 private _heavyVehicles = if (_sideX == Occupants) then { vehNATOAPC + vehNATOTanks + [vehNATOAA] } else { vehCSATAPC + vehCSATTanks  + [vehCSATAA] };
@@ -70,15 +70,18 @@ while {_spawnParameter isEqualType []} do {
                 }; 
             };
 
-            //CIWS platform
+            ///CIWS truck
             if(_x == _ciwsType) then {
-				private _platform = createVehicle [_cargoPlatform, _spawnParameter select 0];
-            	_props pushBack _platform;
-                _aaVehicle attachTo [_platform, [0, 0, 6.2]];
-				//for some reason, attaching CIWS to something breaks it's animation
-				sleep 0.1;
-				detach _aaVehicle;
-				[_aaVehicle, 300] spawn SCRT_fnc_common_scanHorizon;
+                private _ciwsTruckData = [_spawnParameter select 0, _rotation, _vehCargoTruck, _sideX] call A3A_fnc_spawnVehicle;
+                private _ciwsVehicle = _ciwsTruckData select 0;
+				private _ciwsVehicleCrew = _ciwsTruckData select 1;
+            	{deleteVehicle _x} forEach _ciwsVehicleCrew;
+            	[_ciwsVehicle, _sideX] call A3A_fnc_AIVEHinit;
+				_ciwsVehicleGroup = _ciwsTruckData select 2;
+				deleteGroup _ciwsVehicleGroup;
+            	_vehiclesX pushBack _ciwsVehicle;
+
+                _aaVehicle attachTo [_ciwsVehicle, [0, 0, 1.65]];
             };
         };
     } forEach _aaElements;

@@ -53,7 +53,6 @@
 - AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
 - Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), bugfixes, pistols inclusion
 - Airbases have SAM sites too
-- CIWSes use cargo platforms instead of flatbed trucks
 - CIWSes and AA vehicles on airbase will scan horizon
 - Adjusted commander loadCoeff (1.4->1.0)
 - Move Static Weapon action renamed to "Move Static Weapon/Loot Crate" to reflect new functionality
