@@ -34,6 +34,7 @@ class SCRT
         file = "SCRT\Misc";
         class misc_getMissionTitle {};
         class misc_getWorldName {};
+        class misc_getWorldPlaces {};
         class misc_showDeniedActionHint {};
         class misc_orbitingCamera {};
         class misc_followCamera {};
@@ -201,5 +202,11 @@ class SCRT
     {
         file = "SCRT\Build";
         class build_prepareAndStartConstruction {};
-    }
+    };
+
+    class Civilian 
+    {
+        file = "SCRT\Civilian";
+        class civilian_createCivilianPresence {};
+    };
 };

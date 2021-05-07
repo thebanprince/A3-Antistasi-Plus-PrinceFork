@@ -99,17 +99,8 @@ if (count _mrkMar > 0) then {
 	};
 };
 
-
-private _civPresenceModules = [];
-
 if (spawner getVariable _markerX != 2) then {
-	_civPresenceModules = _positionX nearEntities ["ModuleCivilianPresence_F", 500];
-	if (!(_civPresenceModules isEqualTo [])) then {
-		[2, format ["Activating Civ Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
-		{
-			_x setVariable ["isActive", true]; 
-		} forEach _civPresenceModules;
-	};
+	_markerX call SCRT_fnc_civilian_createCivilianPresence; 
 };
 
 if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
@@ -170,12 +161,14 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {deleteGroup _x} forEach _groups;
 
-if (!(_civPresenceModules isEqualTo [])) then {
-	[1, format ["Deactivating Civ Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
-	{
-		_x setVariable ["isActive", false]; 
-	} forEach _civPresenceModules;
-};
+[1, format ["Removing Civ Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
+private _cities = ["NameCityCapital","NameCity"] call SCRT_fnc_misc_getWorldPlaces;
+private _isCity = _cities findIf {(_x select 1) distance2D _positionX <= 250} == 0;
+private _size = if (_isCity) then {550} else {300}; 
+private _presenceModules = nearestObjects [_positionX, ["ModuleCivilianPresenceSafeSpot_F", "ModuleCivilianPresenceUnit_F", "ModuleCivilianPresence_F"], _size, true];
+{
+	deleteVehicle _x;
+} forEach _presenceModules;
 
 {
 	// delete all parked vehicles that haven't been stolen
@@ -188,3 +181,9 @@ if (!(_civPresenceModules isEqualTo [])) then {
 // Chuck all the civ vehicle patrols into the despawners
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groupsPatrol;
 { [_x] spawn A3A_fnc_VEHdespawner } forEach _vehPatrol;
+
+sleep 60;
+private _remainingAgents = agents select {private _agent = agent _x; _agent isKindOf "CAManBase" && {_agent inArea [_positionX,_size,_size,0,true,-1]}};
+{
+	deleteVehicle (agent _x);
+} forEach _remainingAgents;
