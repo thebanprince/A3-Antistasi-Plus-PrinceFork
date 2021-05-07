@@ -188,7 +188,6 @@ for "_i" from 0 to _spawnPointCount do {
 ];
 
 presenceMain setVariable ["#area",_area];
-presenceMain setVariable ["#debug",true];
 presenceMain setVariable ["#useagents",true];
 presenceMain setVariable ["#usepanicmode",true];
 presenceMain setVariable ["#unitcount",_population];
