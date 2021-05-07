@@ -100,7 +100,7 @@
 - Disabled Pursuers until full Random Events implementation will happen
 - (Altis) removed some outposts to give more variety in possible start positions
 - (Chernarus 2020) removed some outposts and static objects to make some overpopulated with objects areas less populated
-- (2.4.1 CV) Removed Antistasi Units support
+- (2.4.1 CV) Removed Antistasi Units Mod support
 - (2.4.1 CV) Disabled LootToCrate from Community Version (2.4.1) as it conflicts with Antistasi Plus's loot system
 
 ## 1.4.2
