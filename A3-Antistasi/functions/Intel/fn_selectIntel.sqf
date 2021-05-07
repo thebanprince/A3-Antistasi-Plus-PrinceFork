@@ -9,6 +9,7 @@
 #define ACCESS_HELI     202
 #define CONVOYS         203
 #define COUNTER_ATTACK  204
+#define CONVOY_ROUTE    205
 
 //Define results for large intel
 #define WEAPON          300
@@ -210,7 +211,7 @@ if(_intelType == "Medium") then
     if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
         _intelContent = TASK;
     } else {
-        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.125, ACCESS_HELI, 0.125, ACCESS_ARMOR, 0.125, CONVOYS, 0.125, TASK, 0.4, DISCOUNT, 0.1];
+        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, CONVOY_ROUTE, 0.2, DISCOUNT, 0.2];
     };
 
     switch (_intelContent) do
@@ -248,7 +249,7 @@ if(_intelType == "Medium") then
         {
             if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
                 [] call SCRT_fnc_quest_rollTask;
-                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
                 _text = format ["We found some valuable information about important events on the %1.", _worldName];
             } else {
                 private _discount = traderDiscount + 0.05;
@@ -260,6 +261,27 @@ if(_intelType == "Medium") then
                 _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
             };
         };
+        case (CONVOY_ROUTE):
+        {
+            if (!("CONVOY" in A3A_activeTasks) && !bigAttackInProgress) then
+			{
+                private _potentials = (outposts + milbases + airportsX + resourcesX + factories);
+	            _potentials = _potentials select { sidesX getVariable [_x, sideUnknown] != teamPlayer };
+                private _site = [_potentials, petros] call BIS_fnc_nearestPosition;
+				private _base = [_site] call A3A_fnc_findBasesForConvoy;
+                private _fromName = [_base] call A3A_fnc_localizar;
+                private _toName = [_site] call A3A_fnc_localizar;
+                _text = format ["We found some information about possible convoy route from %1 to %2. We can prepare an ambush on it.", _fromName, _toName];
+                if (_base != "") then {
+					[[_site,_base, true],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
+				};
+			} else {
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
+                _text = format ["We found some outdated information about possible convoy routes on %1. We sold it on a black market for miniscule amount of money.", _worldName];
+                private _money = (round (random 10)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];    
+            };
+        };
         case (TASK):
         {
             _isTaskCreated = [] call SCRT_fnc_quest_rollTask;
@@ -269,7 +291,7 @@ if(_intelType == "Medium") then
             } else {
                 [2, "Rerolling medium intel outcome", _fileName] call A3A_fnc_log;
 
-                private _rerollIntelContent = selectRandomWeighted [ACCESS_AIR, 0.25, ACCESS_HELI, 0.25, ACCESS_ARMOR, 0.25, CONVOYS, 0.25, COUNTER_ATTACK, 0];
+                private _rerollIntelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.2, ACCESS_ARMOR, 0.2, CONVOYS, 0.2, CONVOY_ROUTE, 0.2, COUNTER_ATTACK, 0];
 
                 switch (_rerollIntelContent) do {
                     case (ACCESS_AIR):

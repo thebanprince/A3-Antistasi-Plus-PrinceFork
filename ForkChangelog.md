@@ -13,7 +13,7 @@
 - Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, units-on-foot-only)
 - Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
 - Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
-- New intel type - Arms Dealer store discount
+- New intel types - Arms Dealer Store Discount and Convoy Route reveal (marks next convoy route on map for ambush)
 - Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
 - New action on surrended enemy - reveal near enemies position for 30 sec
 - Ability to repair military buildings on rebel-controlled points

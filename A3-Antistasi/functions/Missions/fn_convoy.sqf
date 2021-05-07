@@ -1,6 +1,6 @@
 //Mission: Capture/destroy the convoy
 if (!isServer and hasInterface) exitWith {};
-params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""]];
+params ["_mrkDest", "_mrkOrigin", ["_visible", false]];
 
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
@@ -42,9 +42,13 @@ else
 	};
 };
 
-if (_convoyType == "") then { _convoyType = selectRandom _convoyTypes };
+private _convoyType = selectRandom _convoyTypes;
 
-private _timeLimit = if (_difficult) then {0} else { (round random 5)+5 }; // 0 or 5-10 minute limit - there's already good a chance for 0 seconds, why have a double chance (0-10)?
+private _timeLimit = if (_difficult) then {0} else { (round random 5)+5 };
+if (_visible) then {
+	_timeLimit = (round random 5) + 5; 
+};
+
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber back to date array so that time formats correctly when put through the function
@@ -112,8 +116,6 @@ private _taskId = "CONVOY" + str A3A_taskCount;
 [[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-sleep (_timeLimit * 60);
-
 // Setup spawn data
 
 private _posOrig = [];
@@ -133,11 +135,31 @@ else
 _posOrig = navGrid select ([_posOrig] call A3A_fnc_getNearestNavPoint) select 0;
 
 private _route = [_posOrig, _posDest] call A3A_fnc_findPath;
+
+private _markers = [];
+if (_visible) then {
+	private _markerColor = if (_sideX == Occupants) then {"ColorBLUFOR"} else {"ColorOPFOR"};
+	
+	{ 
+		private _node = _x; 
+		private _waypointPosition = _node select 0;  
+		private _marker = createMarker [format ["%1convoyNode%2", random 10000, random 10000], _waypointPosition]; 
+		_marker setMarkerType "hd_dot"; 
+		_marker setMarkerSize [1, 1]; 
+		_marker setMarkerText ""; 
+		_marker setMarkerColor _markerColor; 
+		_marker setMarkerAlpha 1; 
+		_markers pushBack _marker;
+	} forEach _route;
+};
+
 _route = [_route] call A3A_fnc_trimPath;
 if (_route isEqualTo []) then
 {
 	_route = [_posOrig, _posDest];
 };
+
+sleep (_timeLimit * 60);
 
 private _vecdir = (_route select 0) vectorFromTo (_route select 1);
 private _dir = (_route select 0) getDir (_route select 1);
@@ -492,3 +514,7 @@ private _groups = [];
 { if (alive _x) then {_groups pushBackUnique (group _x)} } forEach _soldiers;
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groups;
 { [_x] spawn A3A_fnc_VEHdespawner } forEach _vehiclesX;
+
+{
+    deleteMarker _x;
+} forEach _markers;
