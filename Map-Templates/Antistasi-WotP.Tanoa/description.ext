@@ -4,6 +4,8 @@ OnLoadName = $STR_antistasi_mission_info_tanoa_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_tanoa_blurb_text;
 briefingName = $STR_antistasi_mission_info_tanoa_mapname_text;
 overviewText = $STR_antistasi_mission_info_tanoa_description_text;
+loadScreen = "Pictures\Mission\pic.jpg";
+overviewPicture = "Pictures\Mission\pic.jpg";
 
 class CfgFunctions
 {
