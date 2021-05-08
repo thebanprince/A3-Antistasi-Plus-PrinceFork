@@ -488,7 +488,14 @@ private _templateVariables = [
 	"additionalShopArtillery",
 
 	"smallBunker",
-	"sandbag"
+	"sandbag",
+	"lootCrate",
+	"rallyPointRoot",
+	"occupantBaseSoldierMilitia",
+	"occupantBaseSoldier",
+	"invaderBaseSoldierMilitia",
+	"invaderBaseSoldier",
+	"rebelBaseSoldier"
 ];
 
 //CUP-only technical variables

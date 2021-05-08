@@ -445,7 +445,7 @@ A3A_customHintEnable = true; // Was false in initVarCommon to allow debug progre
 
 if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  // Local Host || Commander || Dedicated Admin
 	private _modsAndLoadText = [
-		[A3A_hasTFAR || A3A_hasTFARBeta,"TFAR","Players will use TFAR radios. Unconscious players' radios will be muted."],
+		[A3A_hasTFAR || A3A_hasTFARBeta,"TFAR","Players will use TFAR radios."],
 		[A3A_hasACRE,"ACRE","Players will use ACRE radios. Unconscious players' radios will be muted."],
 		[A3A_hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
 		[A3A_hasACEMedical,"ACE 3 Medical","Default revive system will be disabled"],
