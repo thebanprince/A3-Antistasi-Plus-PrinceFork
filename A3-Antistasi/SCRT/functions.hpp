@@ -208,5 +208,6 @@ class SCRT
     {
         file = "SCRT\Civilian";
         class civilian_createCivilianPresence {};
+        class civilian_removeCivilianPresence {};
     };
 };

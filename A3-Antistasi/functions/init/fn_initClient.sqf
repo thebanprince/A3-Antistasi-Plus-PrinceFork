@@ -15,6 +15,7 @@ scriptName "initClient.sqf";
 private _richPresenceFunc = missionNamespace getVariable "DiscordRichPresence_fnc_update";
 private _isEnglish = ((localize "STR_antistasi_dialogs_generic_button_yes_text") == "Yes");
 isDiscordRichPresenceActive = if (isNil "_richPresenceFunc" || {!_isEnglish}) then {false} else {true};
+[2,format ["Discord Rich Presence: %1", str isDiscordRichPresenceActive],_fileName] call A3A_fnc_log;
 
 call A3A_fnc_installSchrodingersBuildingFix;
 

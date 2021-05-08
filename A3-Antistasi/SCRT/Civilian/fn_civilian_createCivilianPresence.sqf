@@ -1,47 +1,52 @@
-#define SIZE 250
-
 private _fileName = "fn_civilian_createCivilianPresence";
 
 [2, format ["Starting creating Civilian Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
 
 private _marker = _this;
 private _position = getMarkerPos _marker;
-private _area = [_position,SIZE,SIZE,0,true,-1];
+
+[2, format ["Central position: %1", str _position], _fileName] call A3A_fnc_log;
 
 private _moduleGroup = createGroup sideLogic;
 
 private _cities = ["NameCityCapital","NameCity"] call SCRT_fnc_misc_getWorldPlaces;
-private _isCity  = _cities findIf {(_x select 1) distance2D _position <= SIZE} == 0;
+private _isCity  = _cities findIf {(_x select 1) distance2D _position <= 250} == 0;
 
 private _population = 0;
 private _spawnPointCount = 0;
 private _coverCount = 0;
 private _waypointCount = 0;
+private _size = 0;
 
 if (_isCity) then {
     _spawnPointCount = round (random [5,6,8]);
     _coverCount = round (random [5,7,8]);
     _waypointCount = round (random [5,7,8]);
     _population = 20;
+    _size = 500;
 } else {
     _spawnPointCount = round (random [3,4,6]);
     _coverCount = round (random [2,4,6]);
     _waypointCount = round (random [3,4,6]);
     _population = 10;
+    _size = 250;
 };
+
+private _area = [_position,_size,_size,0,true,-1];
+[2, format ["Area: %1", str _area], _fileName] call A3A_fnc_log;
 
 [2, format ["Population: %1, spawns: %2, covers: %3, waypoints: %4", str _population, str _spawnPointCount, str _coverCount, str _waypointCount], _fileName] call A3A_fnc_log;
 
 private _generateWaypoints = {
     params ["_capacity", "_useBuildings", "_terminal", "_type"];
 
-    private _miniRadius = if (_terminal) then {SIZE - 50} else {0};
+    private _miniRadius = if (_terminal) then {_size - 25} else {0};
 
     for "_i" from 0 to _waypointCount do {
         private _waypointPosition = [
             _position,
             _miniRadius,
-            SIZE,
+            _size,
             0,
             0,
             0.8,
@@ -55,7 +60,7 @@ private _generateWaypoints = {
                 _waypointPosition = [
                     _position,
                     _miniRadius, //minimal distance
-                    SIZE, //maximumDistance
+                    _size, //maximumDistance
                     0,
                     0,
                     0.8,
@@ -111,7 +116,7 @@ private _generateWaypoints = {
 
 private _generateCovers = {
     private _buildings = [];
-    _buildings = (_position nearObjects ["House", SIZE]) select {_x inArea _area};
+    _buildings = (_position nearObjects ["House", _size]) select {_x inArea _area};
 
     if (_buildings isEqualTo []) exitWith {false};
 
@@ -147,7 +152,7 @@ for "_i" from 0 to _spawnPointCount do {
     private _waypointPosition = [
         _position,
         0,
-        SIZE,
+        _size,
         0,
         0,
         0.8,
@@ -161,7 +166,7 @@ for "_i" from 0 to _spawnPointCount do {
             _waypointPosition = [
                 _position,
                 0,
-                SIZE,
+                _size,
                 5,
                 0,
                 0.8,
