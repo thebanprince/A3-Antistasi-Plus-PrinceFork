@@ -60,6 +60,7 @@ if (_typeX == "tier") then {
 if (_typeX == "support") then {
 	[_textX, [safeZoneX + (0.65 * safeZoneW), (0.2 * safeZoneW)], 0.65, 8, 0, 0, 147] spawn BIS_fnc_dynamicText;
 	playSound "3DEN_notificationDefault";
+	[] spawn A3A_fnc_statistics;
 };
 
 if (_typeX == "announce") then {
