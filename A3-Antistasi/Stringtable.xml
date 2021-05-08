@@ -184,7 +184,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_move_veh_tooltip">
         <Original>Moves static weapon or loot crate you're pointing at.</Original>
-        <English>Déplace l'arme statique ou la caisse de butin que vous pointez.</English>
+        <English>Moves static weapon or loot crate you're pointing at.</English>
         <French>Déplace l'arme statique ou la caisse de butin que vous pointez.</French>
         <Russian>Двигает орудие на станке или ящик, на который направлен взгляд.</Russian>
         <German>Bewegt statische Waffen oder Beutekisten, auf die Sie zeigen.</German>
