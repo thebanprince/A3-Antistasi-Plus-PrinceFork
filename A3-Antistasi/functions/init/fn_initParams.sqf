@@ -95,6 +95,7 @@ A3A_paramTable = [
     // Not visible parameters yet, but otherwise handled the same way
     ["distanceSPWN", "", ["oldsave"], 1000],
     ["maxUnits", "", ["oldsave"], 140],
+    ["maxConstructions", "", ["oldsave"], 150],
     ["minPlayersRequiredForPVP", "", [], 2],
 
     //Antistasi Plus parameters
