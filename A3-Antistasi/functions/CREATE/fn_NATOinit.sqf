@@ -18,8 +18,13 @@ if ((isNil "_unit") || (isNull _unit)) exitWith
     [1, format ["Bad init parameter: %1", _this], _fileName] call A3A_fnc_log;
 };
 
-private _type = typeOf _unit;
+private _type = _unit getVariable "unitType";
 private _side = side (group _unit);
+
+if (isNil "_type") then {
+    [1, format ["Unit does not have a type assigned: %1, vehicle: %2", typeOf _unit, typeOf vehicle _unit], _fileName] call A3A_fnc_log;
+    _type = typeOf _unit;
+};
 
 if (_type == "Fin_random_F") exitWith {};
 
@@ -27,14 +32,14 @@ if (_type == "Fin_random_F") exitWith {};
 _unit addEventHandler ["HandleDamage", A3A_fnc_handleDamageAAF];
 _unit addEventHandler ["killed", A3A_fnc_occupantInvaderUnitKilledEH];
 
-if !(isNil "_isSpawner") then 
+if !(isNil "_isSpawner") then
 {
-    if (_isSpawner) then { _unit setVariable ["spawner",true,true] };	
+    if (_isSpawner) then { _unit setVariable ["spawner",true,true] };
 }
 else
 {
     private _veh = objectParent _unit;
-    if (_marker != "") exitWith 
+    if (_marker != "") exitWith
     {
         // Persistent garrison units are never spawners.
 	    _unit setVariable ["markerX",_marker,true];
@@ -76,11 +81,11 @@ private _aimingSpeed = _unit skill "aimingSpeed";
 
 //Calculates the skill of the given unit
 private _skill = (0.15 + (0.02 * difficultyCoef) + (0.01 * tierWar)) * skillMult;
-if (faction _unit isEqualTo factionFIA) then
+if ("militia_" in (_unit getVariable "unitType")) then
 {
     _skill = _skill min (0.2 * skillMult);
 };
-if (faction _unit isEqualTo factionGEN) then {
+if ("police" in (_unit getVariable "unitType")) then {
     _skill = _skill min (0.12 * skillMult);
     private _rifleFinal = primaryWeapon _unit;
     private _magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
@@ -104,13 +109,13 @@ if (_type in squadLeaders) then
 {
     _unit setskill ["courage",_skill + 0.2];
     _unit setskill ["commanding",_skill + 0.2];
-    private _hasIntel = ((random 100) < 40);
+    private _hasIntel = ((random 100) < 80);
     _unit setVariable ["hasIntel", _hasIntel, true];
     _unit setVariable ["side", _side, true];
     [_unit, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _unit];
 };
 
-//Prevents units from being eagle-eyed god-like terminators, 
+//Prevents units from being eagle-eyed god-like terminators,
 //basically caps their aiming capabilities no more than it specified on server difficulty settings
 if((_unit skill "aimingAccuracy") > _accuracy) then {
     _unit setSkill ["aimingAccuracy", _accuracy];
@@ -128,19 +133,20 @@ if((_unit skill "aimingSpeed") > _aimingSpeed) then {
 private _hmd = hmd _unit;
 
 if (sunOrMoon < 1) then {
-    if (!hasRHS) then {
+    if (!A3A_hasRHS) then {
         //specops don't have NVGs except leader until war level 4
-        if(((faction _unit == factionMaleOccupants) || (faction _unit == factionMaleInvaders)) && (_unit != leader (group _unit))) then {
-            if (tierWar < 3) then {
+        if (("SF_" in (_unit getVariable "unitType")) && (_unit != leader (group _unit))) then {
+            if (tierWar < 4) then {
                 if (_hmd != "" && {_unit != leader (group _unit)}) then {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
                     _hmd = "";
                 };
-            }; 
+            };
         } else {
-            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then {
-                if (tierWar < 3) then {
+            private _unitType = _unit getVariable "unitType";
+            if !("SF_" in _unitType) then {
+                if (tierWar < 4) then {
                     if (_hmd != "") then {
                         _unit unassignItem _hmd;
                         _unit removeItem _hmd;
@@ -154,14 +160,14 @@ if (sunOrMoon < 1) then {
                             _hmd = "";
                         };
                     };
-                }; 
+                };
             };
         };
     }
     else {
         private _arr = (allNVGs arrayIntersect (items _unit));
         if (!(_arr isEqualTo []) or (_hmd != "")) then {
-            if ((random 5 > tierWar) and (!haveNV)) then {
+            if (tierWar < 4) then {
                 if (_hmd == "") then {
                     _hmd = _arr select 0;
                     _unit removeItem _hmd;
@@ -171,9 +177,8 @@ if (sunOrMoon < 1) then {
                     _unit removeItem _hmd;
                 };
                 _hmd = "";
-            }
-            else {
-                if(tierWar < 3) then {
+            } else {
+                if ((random 5 > tierWar) and (!haveNV)) then {
                     if (_hmd == "") then {
                         _hmd = _arr select 0;
                         _unit removeItem _hmd;
@@ -183,9 +188,22 @@ if (sunOrMoon < 1) then {
                         _unit removeItem _hmd;
                     };
                     _hmd = "";
-                } else {
-                    _unit assignItem _hmd;
-                };
+                }
+                else {
+                    if(tierWar < 3) then {
+                        if (_hmd == "") then {
+                            _hmd = _arr select 0;
+                            _unit removeItem _hmd;
+                        }
+                        else {
+                            _unit unassignItem _hmd;
+                            _unit removeItem _hmd;
+                        };
+                        _hmd = "";
+                    } else {
+                        _unit assignItem _hmd;
+                    };
+                };  
             };
         };
     };
@@ -231,14 +249,15 @@ if (sunOrMoon < 1) then {
     };
 }
 else {
-    if (!hasRHS) then {
+    if (!A3A_hasRHS) then {
         if (tierWar < 3) then {
             if (_hmd != "") then {
                 _unit unassignItem _hmd;
                 _unit removeItem _hmd;
             };
         } else {
-            if ((faction _unit != factionMaleOccupants) and (faction _unit != factionMaleInvaders)) then {
+            private _unitType = _unit getVariable "unitType";
+            if !("SF_" in _unitType) then{
                 if (_hmd != "") then {
                     _unit unassignItem _hmd;
                     _unit removeItem _hmd;
@@ -247,10 +266,12 @@ else {
         };
     }
     else {
-        private _arr = (allNVGs arrayIntersect (items _unit));
-        if (count _arr > 0) then {
-            _hmd = _arr select 0;
-            _unit removeItem _hmd;
+        private _unitType = _unit getVariable "unitType";
+        if !("SF_" in _unitType) then{
+            if (_hmd != "") then {
+                _unit unassignItem _hmd;
+                _unit removeItem _hmd;
+            };
         };
     };
 };

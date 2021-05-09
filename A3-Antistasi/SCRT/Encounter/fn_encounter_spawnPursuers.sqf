@@ -32,7 +32,7 @@ if (isNil "_attackHeliClass" ||
 };
 
 private _spawnPosition = [_missionOriginPosition, 0, 500, 0, 0, 0.6] call BIS_fnc_findSafePos;
-private _attackHeliData = [[(_spawnPosition select 0), (_spawnPosition select 1), 300 + random 500], 0, _attackHeliClass, _sideX] call bis_fnc_spawnvehicle;
+private _attackHeliData = [[(_spawnPosition select 0), (_spawnPosition select 1), 300 + random 500], 0, _attackHeliClass, _sideX] call A3A_fnc_spawnVehicle;
 private _attackHeliVeh = _attackHeliData select 0;
 [_attackHeliVeh, _sideX] call A3A_fnc_AIVEHinit;
 private _attackHeliCrew = _attackHeliData select 1;

@@ -1,56 +1,72 @@
-private ["_veh", "_costs","_typeX"];
-_veh = cursortarget;
+/*
+Author: Barbolani, Wurzel, Jaj22, Michael Phillips, Caleb Serafin
+Attempts to sell the vehicle the player is looking at.
+Vehicle cannot be sold if owned by another player.
 
-if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking to any vehicle"] call A3A_fnc_customHint;};
+Arguments:
+    <OBJECT> Player who is trying to sell a vehicle.
+    <OBJECT> cursorObject of the player.
 
-if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag"] call A3A_fnc_customHint;};
+Return Value:
+<NIL> nil
 
-if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell, vehicle must be empty."] call A3A_fnc_customHint;};
+Scope: Server/HC, All calls need to be executed on one machine, using an HC is also possible.
+Environment: Unscheduled, is used to sell vehicles, execution cannot be stacked and exploited.
+Public: No
+Dependencies:
+<STRING> ownerX found on vehicles, contains UID of player who bought it.
+<ARRAY> Template vehicle arrays, see costs = call {}.
 
-_owner = _veh getVariable "ownerX";
-_exit = false;
-if (!isNil "_owner") then
-	{
-	if (_owner isEqualType "") then
-		{
-		if (getPlayerUID player != _owner) then {_exit = true};
-		};
-	};
+Example:
+// From a button control:
+action = "if (player == theBoss) then {closeDialog 0; nul = [player,cursorObject] remoteExecCall [""A3A_fnc_sellVehicle"",2]} else {[""Sell Vehicle"", ""Only the Commander can sell vehicles""] call A3A_fnc_customHint;};";
 
-if (_exit) exitWith {["Sell Vehicle", "You are not owner of this vehicle and you cannot sell it"] call A3A_fnc_customHint;};
-
-_typeX = typeOf _veh;
-_costs = 0;
-
-if (_typeX in vehFIA) then
-{
-	_costs = round (([_typeX] call A3A_fnc_vehiclePrice)/2)
-}
-else
-{
-	switch (true) do {
-		case (_typeX in arrayCivVeh || _typeX == vehPoliceCar): {
-			_costs = 250;
-		};
-		case ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks) or (_typeX in vehNATOCargoTrucks) or (_typeX in vehNATOFlatbedTrucks)): {
-			_costs = 350;
-		};
-		case (_typeX in vehAPCs): {
-			_costs = 2500;
-		};
-		case (_typeX isKindOf "Plane"): {
-			_costs = 5000;
-		};
-		case ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)): {
-			_costs = 7500;
-		};
-		case (_typeX in vehTransportAir): {
-			_costs = 5000;
-		};
-	};
+// Testing spam:
+for "_i" from 1 to 1000 do {
+    [player,cursorObject] remoteExecCall ["A3A_fnc_sellVehicle",2];
 };
 
-if (_costs == 0) exitWith {["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace."] call A3A_fnc_customHint;};
+*/
+params [
+    ["_player",objNull,[objNull]],
+    ["_veh",objNull,[objNull]]
+];
+private _filename = "fn_sellVehicle";
+
+if (isNull _player) exitWith {[1,"_player is null.",_filename] call A3A_fnc_log;};
+if (isNull _veh) exitWith {["Sell Vehicle", "You are not looking at a vehicle."] remoteExecCall ["A3A_fnc_customHint",_player];};
+
+if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {["Sell Vehicle", "Vehicle sale already in progress."] remoteExecCall ["A3A_fnc_customHint",_player];};
+_veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
+
+if (_veh distance getMarkerPos respawnTeamPlayer > 50) exitWith {["Sell Vehicle", "Vehicle must be closer than 50 meters to the flag marker."] remoteExecCall ["A3A_fnc_customHint",_player];};
+
+if ({isPlayer _x} count crew _veh > 0) exitWith {["Sell Vehicle", "In order to sell the vehicle, it must be empty."] remoteExecCall ["A3A_fnc_customHint",_player];};
+
+_owner = _veh getVariable ["ownerX",""];
+if !(_owner isEqualTo "" || {getPlayerUID _player isEqualTo _owner}) exitWith {  // Vehicle cannot be sold if owned by another player.
+    _veh setVariable ["A3A_sellVehicle_inProgress",false,false];
+    ["Sell Vehicle", "You are not the owner of this vehicle. Therefore, you cannot sell it."] remoteExecCall ["A3A_fnc_customHint",_player];
+};
+
+private _typeX = typeOf _veh;
+private _costs = call {
+    if (_veh isKindOf "StaticWeapon") exitWith {400};			// in case rebel static is same as enemy statics
+    if (_typeX == vehPoliceCar) exitWith {250};
+    if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };
+    if ((_typeX in arrayCivVeh) or (_typeX in civBoats) or (_typeX in [civBoat,civCar,civTruck])) exitWith {150};
+    if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) exitWith {500};
+    if (_typeX in [vehCSATPatrolHeli, vehNATOPatrolHeli, civHeli]) exitWith {3000};
+    if ((_typeX in vehAPCs) || (_typeX in vehTransportAir) || (_typeX in vehUAVs)) exitWith {2500};
+    if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) exitWith {6500};
+    if (_typeX in [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA]) exitWith {7500};
+    0;
+};
+
+if (_costs == 0) exitWith {
+    _veh setVariable ["A3A_sellVehicle_inProgress",false,false];
+    ["Sell Vehicle", "The vehicle you are looking is not suitable in our marketplace."] remoteExecCall ["A3A_fnc_customHint",_player];
+};
 
 _costs = round (_costs * (1-damage _veh));
 
@@ -63,4 +79,5 @@ if (_veh in reportedVehs) then {reportedVehs = reportedVehs - [_veh]; publicVari
 
 if (_veh isKindOf "StaticWeapon") then {deleteVehicle _veh};
 
-["Sell Vehicle", "Vehicle Sold"] call A3A_fnc_customHint;
+["Sell Vehicle", "Vehicle Sold."] remoteExecCall ["A3A_fnc_customHint",_player];
+nil;

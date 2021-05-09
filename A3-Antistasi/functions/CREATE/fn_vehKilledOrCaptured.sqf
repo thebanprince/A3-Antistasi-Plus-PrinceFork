@@ -35,13 +35,10 @@ if (_side == Occupants or _side == Invaders) then
 		if (_type isKindOf "StaticWeapon") exitWith {1};
 		2;		// trucks, light attack, boats, UAV etc
 	};
-	
+
+    [_side, _value, 45] remoteExec ["A3A_fnc_addAggression", 2];
 	if (_side == Occupants) then {
 		[-_value/3, _value/3, position _veh] remoteExec ["A3A_fnc_citySupportChange", 2];
-		[[_value, 45], [0, 0]] remoteExec ["A3A_fnc_prestige", 2];
-	}
-	else {
-		[[0, 0], [_value, 45]] remoteExec ["A3A_fnc_prestige", 2];
 	};
 };
 

@@ -47,7 +47,7 @@ if (debug) then {
 //And weirdly, == is not case sensitive.
 //this comments has not an information about the code
 
-(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas + islands) apply {_x setMarkerAlpha 0};
+(seaMarkers + seaSpawn + seaAttackSpawn + spawnPoints + detectionAreas) apply {_x setMarkerAlpha 0};
 defaultControlIndex = (count controlsX) - 1;
 watchpostsFIA = [];
 roadblocksFIA = [];
@@ -102,41 +102,33 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
-	//TODO: taviana, NAPF, cherno 2020 config
+	//TODO: NAPF, cherno 2020, Abramia, Panthera configs
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
-"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
-!(getText (_x >> ""Name"") isEqualTo """") &&
-!((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
-configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
+private _cityConfigs = if ((toLower worldName) == "panthera3") then {
+	"(getText (_x >> ""type"") in [""NameLocal"", ""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+	!(getText (_x >> ""Name"") isEqualTo """") &&
+	!((configName _x) in ['idrsko','ladra','cesnjica','koprivnik','goreljek','jereka','ribcevlaz','starfuz','sredvas','bitnje','cezsoca','logmangart','strmec','belca','dovje','kocna','bdobrava','skooma','suzid','sseloo','zirovnica','vrba','obrne','gorje','ribno','lesce','lancovo','selca','kneza','Pikia','baca','sela','podljubinj', 'volce','dolje','bolhowo','ditchwood','rontushospital','ramons','bazovica','villasimona','fortieste','rubinaisland','savagia',""Mork"", ""trenta"", ""Kleinfort"", ""Freckle"", ""dino10"", ""dino11"", ""dino12"", ""dino13"", ""dino3"", ""dino5"", ""dino7""])"
+	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+} else {
+	"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+	!(getText (_x >> ""Name"") isEqualTo """") &&
+	!((configName _x) in [""fakeTown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
+	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+};
+
+_cityConfigs apply {
 	_nameX = configName _x;
 	_sizeX = getNumber (_x >> "radiusA");
 	_sizeY = getNumber (_x >> "radiusB");
 	_size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
 	_pos = getArray (_x >> "position");
-	_size = [_size, 400] select (_size < 400);		// Different from generateRoadsDB. Maybe not good.
-	_roads = [];
+	_size = [_size, 400] select (_size < 400);
 	_numCiv = 0;
-
-	_roads = roadsX getVariable [_nameX, []];
-	if (count _roads == 0) then
-	{
-		[2, format ["No roads found for marker %1, generating...", _nameX], _fileName] call A3A_fnc_log;
-		_roadsProv = _pos nearRoads _size;
-		_roadsProv apply
-		{
-			_roadcon = roadsConnectedto _x;
-			if (count _roadcon == 2) then
-			{
-				_roads pushBack (getPosATL _x);
-			};
-		};
-		roadsX setVariable [_nameX, _roads, true];
-	};
 
 	if (_hardcodedPop) then
 	{
@@ -151,15 +143,12 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
 	};
 
-	_numVeh = round (_numCiv / 3);
-	_nroads = count _roads;
-	if(_nroads > 0) then
-	{
-		//Fixed issue with a town on tembledan having no roads
-		_nearRoadsFinalSorted = [_roads, [], { _pos distance _x }, "ASCEND"] call BIS_fnc_sortBy;
-		_pos = _nearRoadsFinalSorted select 0;
+	_roads = nearestTerrainObjects [_pos, ["MAIN ROAD", "ROAD", "TRACK"], _size, true, true];
+	if (count _roads > 0) then {
+		// Move marker position to the nearest road, if any
+		_pos = _roads select 0;
 	};
-	if (_nroads < _numVeh) then {_numVeh = _nroads};
+	_numVeh = (count _roads) min (_numCiv / 3);
 
 	_mrk = createmarker [format ["%1", _nameX], _pos];
 	_mrk setMarkerSize [_size, _size];
@@ -178,11 +167,11 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	sidesX setVariable [_mrk, Occupants, true];
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
 	server setVariable [_nameX, _info, true];
-};	//find in congigs faster then find location in 25000 radius
-if (debug) then {
-diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
 };
 
+if (debug) then {
+	diag_log format ["%1: [Antistasi] | DEBUG | initZones | Roads built in %2.",servertime,worldname];
+};
 
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];
@@ -243,7 +232,7 @@ switch (toLower worldName) do {
 	};
 	case "enoch": {
 		_posAntennas =
-		[[3830.61,1827.19,0], [5007.39,2131.27,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],
+		[[3830.61,1827.19,0], [1583.47,7162.08,0.000152588], [3146.07,7024.41,0.00133514],
 		[1408.43,8675.08,-1.00183], [8894.99,2049.1,0.00387573], [2382.53,11479.5,3.05176e-005], [6293.86,9910.17,-7.62939e-006],
 		[3585.76,11540.7,-0.000236511], [7906.11,9917.2,0.0120544], [7776.88,10082.3,0.0262146], [7866.34,10102.5,3.05176e-005],
 		[6908.45,11119.5,-2.40052], [9257.02,10282.7,0.0631027], [10610.4,10890.6,0.166985], [11172.6,11424.1,-2.82624]];
@@ -257,15 +246,25 @@ switch (toLower worldName) do {
 		_blackListPos = [];
 		antennas = [];
 	};
-	case "taviana": {
-	    _posAntennas = [[2125.54,7056.53,0],[13270.3,7026.68,0],[22507.8,19886.3,0],[10385.4,18230.1,-0.000144958],[1057.86,18179.6,0.341925],[8381.83,10848.1,0],[7713.27,9080.84,0],[6902.18,8357.42,0],[3764.54,17179.6,0],[9146.62,14856,0],[11146.5,15750.3,0],[9574,4720.8,0],[16310.4,10091.3,0],[17227.3,8238.31,0],[15627.1,5517.46,0],[13994.7,12354.9,0],[14799.2,18632,0],[11333.4,941.792,0]];
-	    _posBank = [[5033.44,17475.4,0],[7801.44,4305.77,0],[14850.1,9391.44,0],[11808,15824.6,0],[9202.28,8109.23,0]];
-		_blackListPos = [];
-	    antennas = [];
+	case "takistan": {
+		_posAntennas =
+		[[4014.64,3089.66,0.150604], [5249.37,3709.48,-0.353882], [3126.7,8223.88,-0.649429], [8547.92,3897.03,-0.56073], [5578.24,9072.21,-0.842239], [2239.98,12630.7,-0.575844]];
+		_blacklistPos = [];
+		antennas = [];
+	};
+	case "sara": {
+		_posAntennas =
+		[[3142.96,2739.15,0.18647], [8514.74,7996.98,0.0240936], [11464.1,6307.43,-0.0322723], [11885.1,6210.11,-15.4125],
+		[9617.11,9829.03,0], [10214.7,9348.09,0.0702515], [9738.74,9966.7,-0.226944], [10415.5,9761.01,-0.0189056],
+		[12621.4,7490.31,0.1297], [12560.1,8362.11,-0.157566], [13328.6,9055.83,0.350442], [4940.89,15457.6,-0.18277],
+		[12327.2,15031.4,0], [14788,12762.9,-15.4287], [11068.1,16903.5,-0.0132771], [13964.6,15752.9,-15.429],
+		[17263.3,14160.1,-0.1]];
+		_blackListPos = [1, 3, 4, 5, 9, 11, 13, 16, 17];
+		antennas = [];
 	};
 	case "cup_chernarus_a3":
 	{
-		_posAntennas = [[7175.2,3018.23,0],[1275.49,6215.75,0],[3688.6,5958.29,0],[13326.2,3256.85,0],[514.324,11082.6,0],[1418.55,14495.1,0],[11445.2,7565.58,0],[13326.4,3257.08,0],[8138.89,9286.22,0],[6874.77,11458.9,0],[11560.7,11313.6,0],[12936.5,12763.4,0]];
+		_posAntennas = [[9822.91,10314.4,0],[3707.2,14751.2,0],[7175.2,3018.23,0],[1275.49,6215.75,0],[3688.6,5958.29,0],[13326.2,3256.85,0],[514.324,11082.6,0],[11445.2,7565.58,0],[13326.4,3257.08,0],[6874.77,11458.9,0],[11560.7,11313.6,0],[12936.5,12763.4,0]];
 		_posBank = [[6831.07,2433.6,0],[12127.5,9093.7,0],[2832.72,5240.6,0],[10396.5,2266.98,0]];
 		_blackListPos = [];
 	    antennas = [];
@@ -274,6 +273,20 @@ switch (toLower worldName) do {
 	{
 		_posAntennas = [[15116.9,12587,0], [18100.3,2555.68,0],[8966.71,3432.88,0], [15684.9,19837.4,0],[4974.47,9258.15,0],[10978.2,16960.1,0],[8171.18,14687,0]];
 		_posBank = [[8558.25,16204.7,0], [14515,13873.3,0],[6378.62,10606,0],[2418.86,7766.25,0]];
+		_blackListPos = [];
+	    antennas = [];
+	};
+	case "abramia":
+	{
+		_posAntennas = [[9864.87,9258.16,0],[4871.03,8738.64,0],[267.693,9236.51,0],[8953.05,1544.56,0]];
+		_posBank = [[7036.69,1171.7,0],[3564.86,3190.53,0],[9405.56,9271.83,0],[1981.93,7714.16,0],[6127.85,3387.11,0]];
+		_blackListPos = [];
+	    antennas = [];
+	};
+	case "panthera3":
+	{
+		_posAntennas = [[8247.17,8508.42,0],[1279.23,7194.89,0],[355.621,3020.95,0],[1260.02,1607.94,0],[4786.39,6836.08,0],[4193.22,3819.86,0],[6536.41,2014.64,0],[6906.09,770.765,0],[6237.4,4675.6,0]];
+		_posBank = [[1126.75,5762.61,0],[1247.99,6384.2,0],[188.976,1507.52,0],[161.512,1692.07,0],[159.84,1706.39,0],[197.559,1512.86,0],[2687.69,1548.56,0],[7257.44,5873.08,0]];
 		_blackListPos = [];
 	    antennas = [];
 	};
@@ -420,8 +433,6 @@ publicVariable "seaSpawn";
 publicVariable "seaAttackSpawn";
 publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
-publicVariable "islands";
-publicVariable "roadsMrk";
 
 if (isMultiplayer) then {
 	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]

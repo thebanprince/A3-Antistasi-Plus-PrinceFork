@@ -1,50 +1,42 @@
-#include "defines.hpp"
-#include "dialogs.hpp"
+#include "MissionDescription\master.hpp"
 
-author = $STR_antistasi_credits_generic_author_text;
 OnLoadName = $STR_antistasi_mission_info_altis_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_altis_blurb_text;
-loadScreen = "Pictures\Mission\pic.jpg";
 briefingName = $STR_antistasi_mission_info_altis_mapname_text;
 overviewText = $STR_antistasi_mission_info_altis_description_text;
+loadScreen = "Pictures\Mission\pic.jpg";
 overviewPicture = "Pictures\Mission\pic.jpg";
 
-#include "MissionDescription\debug.hpp"
-#include "MissionDescription\gameSettings.hpp"
+class CfgDiscordRichPresence
+{
+    applicationID="819852407265034260";
+    defaultDetails="";
+    defaultState="";
+    defaultLargeImageKey="altis";
+    defaultLargeImageText="Antistasi Plus - Altis Requiem";
+    defaultSmallImageKey="arma_3_logo";
+    defaultSmallImageText="Arma 3 Custom Scenario";
+    useTimeElapsed=1;
+};
 
-#include "MagRepack\MagRepack_config.hpp"
+class CfgFunctions
+{
+    #include "MissionDescription\CfgFunctionsContents.hpp"
+};
 
-#define HALs_DEF_INIT
-	#include "HALs\Addons\main\config.hpp"
-#undef HALs_DEF_INIT
-
-class CfgFunctions {
-    #define HALs_DEF_FUNCTIONS
-		#include "HALs\Addons\main\config.hpp"
-	#undef HALs_DEF_FUNCTIONS
-    #include "functions.hpp"
-    #include "JeroenArsenal\functions.hpp"
-    #include "SCRT\functions.hpp"
+class CfgNotifications
+{
+    #include "MissionDescription\CfgNotificationsContents.hpp"
 };
 
 class CfgSounds
 {
-    class fire
-    {
-        name="fire";
-        sound[]={"Music\fire.ogg",db+12,1.0};
-        titles[]={};
-    };
+    #include "MissionDescription\CfgSoundsContents.hpp"
 };
-
-#include "MissionDescription\params.hpp"
-
-#include "MissionDescription\CfgIdentities.hpp"
 
 class CfgDebriefing
 {
-	#include "MissionDescription\endMission.hpp"
-
+	#include "MissionDescription\CfgDebriefingContents.hpp"
 	class End1
 	{
 		title = "V I C T O R Y";

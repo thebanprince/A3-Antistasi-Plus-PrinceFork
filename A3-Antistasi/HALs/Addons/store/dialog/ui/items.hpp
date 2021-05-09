@@ -60,15 +60,15 @@ class ItemCheckboxCompatible: RscItemCheckboxGreen {
 	tooltip = "$STR_HALS_STORE_CHECKBOX_COMPATIBLE";
 };
 
-// class ItemCheckboxSell: RscItemCheckboxGreen {
-// 	idc = IDC_CHECKBOX + 3;
-// 	x = GRID_X(SPACE_W2 + COMBO_W + SPACE_W*4 + BAR_W*3);
-// 	y = CURRENT_Y;
-// 	w = GRID_X(BAR_W);
-// 	h = GRID_Y(BAR_H);
-// 	onCheckedChanged = "['button', ['change', _this]] call HALs_store_fnc_main; ['listbox', ['update', []]] call HALs_store_fnc_main;";
-// 	tooltip = "$STR_HALS_STORE_CHECKBOX_SELLFILTER";
-// };
+class ItemCheckboxSell: RscItemCheckboxGreen {
+	idc = IDC_CHECKBOX + 3;
+	x = GRID_X(SPACE_W2 + COMBO_W + SPACE_W*4 + BAR_W*3);
+	y = CURRENT_Y;
+	w = GRID_X(BAR_W);
+	h = GRID_Y(BAR_H);
+	onCheckedChanged = "['button', ['change', _this]] call HALs_store_fnc_main; ['listbox', ['update', []]] call HALs_store_fnc_main;";
+	tooltip = "$STR_HALS_STORE_CHECKBOX_SELLFILTER";
+};
 
 class ItemListbox: RscItemListBox {
 	idc = IDC_LISTBOX;

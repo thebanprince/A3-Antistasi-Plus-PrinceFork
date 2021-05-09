@@ -25,12 +25,10 @@ private _countX = 0;
 
 private _sideX = sidesX getVariable [_markerX,sideUnknown];
 
-private _positionsX = roadsX getVariable [_markerX,[]];
-
 private _radarType = if (_sideX == Occupants) then {NATOAARadar} else {CSATAARadar};
 private _ciwsType = if (_sideX == Occupants) then {NATOAACiws} else {CSATAACiws};
 private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
-private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOFlatbedTrucks} else {selectRandom vehCSATTrucks};
+private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOCargoTrucks} else {selectRandom vehCSATTrucks};
 private _aaElements = [_radarType, _ciwsType, _samType];
 
 private _heavyVehicles = if (_sideX == Occupants) then { vehNATOAPC + vehNATOTanks + [vehNATOAA] } else { vehCSATAPC + vehCSATTanks  + [vehCSATAA] };
@@ -43,10 +41,10 @@ _spawnParameter = [_markerX, "Sam"] call A3A_fnc_findSpawnPosition;
 while {_spawnParameter isEqualType []} do {
     {
         if(_x != "") then {
-            private _vehiclePosition = [_spawnParameter select 0, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
+            private _vehiclePosition = [_spawnParameter select 0, 0, 125, 10, 0, 0.7] call BIS_fnc_findSafePos;
             private _rotation = random 360;
 
-            private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call bis_fnc_spawnvehicle;
+            private _aaVehicleData = [_vehiclePosition, _rotation, _x, _sideX] call A3A_fnc_spawnVehicle;
             private _aaVehicle = _aaVehicleData select 0;
             private _aaVehicleCrew = _aaVehicleData select 1;
             {[_x,_markerX] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
@@ -72,9 +70,9 @@ while {_spawnParameter isEqualType []} do {
                 }; 
             };
 
-            //CIWS truck
+            ///CIWS truck
             if(_x == _ciwsType) then {
-                private _ciwsTruckData = [_spawnParameter select 0, _rotation, _vehCargoTruck, _sideX] call bis_fnc_spawnvehicle;
+                private _ciwsTruckData = [_spawnParameter select 0, _rotation, _vehCargoTruck, _sideX] call A3A_fnc_spawnVehicle;
                 private _ciwsVehicle = _ciwsTruckData select 0;
 				private _ciwsVehicleCrew = _ciwsTruckData select 1;
             	{deleteVehicle _x} forEach _ciwsVehicleCrew;
@@ -94,7 +92,7 @@ while {_spawnParameter isEqualType []} do {
 if(_ciwsType == "") then {
 	private _aaVehicleType = if(_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 	private _vehiclePosition = [_positionX, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
-	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call bis_fnc_spawnvehicle;
+	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call A3A_fnc_spawnVehicle;
 	private _aaVehicle = _aaVehicleData select 0;
 	private _aaVehicleCrew = _aaVehicleData select 1;
 	{[_x] call A3A_fnc_NATOinit} forEach _aaVehicleCrew;
@@ -108,27 +106,40 @@ if(_ciwsType == "") then {
 /////////////////////////////
 // SPAWNING PATROL VEHICLES
 ////////////////////////////
-_selectedVehicle = "";
-{
-	if([_x] call A3A_fnc_vehAvailable) exitWith {_selectedVehicle = _x};
-} forEach _heavyVehicles;
-//if nothing is available, then APC should be fine as fallback value
-if(isNil _selectedVehicle) then {
-	_selectedVehicle = if (_sideX == Occupants) then { selectRandom vehNATOAPC } else { selectRandom vehCSATAPC };
+private _selectedVehicle = selectRandom _heavyVehicles;
+
+if (!isNil "_selectedVehicle") then {
+	private _road = nil;
+    private _radiusX = 5;
+
+	while {true} do {
+		_road = _positionX nearRoads _radiusX;
+		if (count _road > 0) exitWith {};
+		if (_radiusX > 700) exitWith {};
+		_radiusX = _radiusX + 10;
+	};
+
+	private _position = nil;
+	if (!isNil "_road") then {
+		private _roadcon = roadsConnectedto (_road select 0);
+		private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+		_position = getPos (_road select 0);
+	} else {
+		_position = [_positionX, 10, _size, 5, 0, 0.7, 0, [], [_positionX, _positionX]] call BIS_fnc_findSafePos;
+	};
+
+	private _patrolVehicleData = [_position, 0, _selectedVehicle, _sideX] call A3A_fnc_spawnVehicle;
+	private _patrolVeh = _patrolVehicleData select 0;
+	private _patrolVehCrew = crew _patrolVeh;
+	private _patrolVehicleGroup = _patrolVehicleData select 2;
+	{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
+	[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
+	_soldiers = _soldiers + _patrolVehCrew;
+	_groups pushBack _patrolVehicleGroup;
+	_vehiclesX pushBack _patrolVeh;
+
+	[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
 };
-
-private _patrolPos = [_positionX, 20, _size, 5, 0, 0.5, 0, [], [_positionX, _positionX]] call BIS_Fnc_findSafePos;
-private _patrolVehicleData = [_patrolPos, 0, _selectedVehicle, _sideX] call bis_fnc_spawnvehicle;
-private _patrolVeh = _patrolVehicleData select 0;
-private _patrolVehCrew = crew _patrolVeh;
-private _patrolVehicleGroup = _patrolVehicleData select 2;
-{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
-[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
-_soldiers = _soldiers + _patrolVehCrew;
-_groups pushBack _patrolVehicleGroup;
-_vehiclesX pushBack _patrolVeh;
-
-[_patrolVehicleGroup, _positionX, 450] call bis_fnc_taskPatrol;
 
 
 /////////////////////////////
@@ -156,7 +167,11 @@ if (_frontierX) then {
 		_vehiclesX pushBack _veh;
 		_veh setDir _dirVeh + 180;
 		_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
-		private _typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+		private _typeUnit = if (_sideX==Occupants) then {
+			staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+		} else {
+			staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+		};
 		private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -178,6 +193,10 @@ private _ang = markerDir _markerX;
 _mrk setMarkerDirLocal _ang;
 if (!debug) then {_mrk setMarkerAlphaLocal 0};
 private _garrison = garrison getVariable [_markerX,[]];
+if (count _garrison > 120) then {
+	_garrison resize 120;
+};
+_garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 private _radiusX = count _garrison;
 private _patrol = true;
@@ -191,7 +210,13 @@ else {
 if (_patrol) then {
 	_countX = 0;
 	while {_countX < 4} do {
-		_arraygroups = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSmall} else {groupsCSATsmall};
+		_arraygroups = if (_sideX == Occupants) then {
+			[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
+		}
+		else {
+			[(groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier), (groupsCSATSniper call SCRT_fnc_unit_selectInfantryTier)]
+		};
+		
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX, _sideX, _typeGroup, false, true] call A3A_fnc_spawnGroup;
@@ -213,7 +238,11 @@ _countX = 0;
 
 private _groupX = createGroup _sideX;
 _groups pushBack _groupX;
-private _typeUnit = if (_sideX == Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+private _typeUnit = if (_sideX == Occupants) then {
+	staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+} else {
+	staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+};
 private _typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
@@ -234,7 +263,7 @@ while {_spawnParameter isEqualType []} do
 	sleep 1;
 
 	{
-		private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+		private _relativePosition = [_mortarPos, 4, _x] call BIS_Fnc_relPos;
 		private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
 		_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
 		_sandbag setVectorUp surfaceNormal position _sandbag;
@@ -262,15 +291,23 @@ _flagX allowDamage false;
 _vehiclesX pushBack _flagX;
 
 private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
-private _ammoBox1 = _ammoBoxType createVehicle _positionX;
-[_ammoBox1] spawn A3A_fnc_fillLootCrate;
-_ammoBox1 call jn_fnc_logistics_addAction;
-_vehiclesX pushBack _ammoBox1;
 
-private _ammoBox2 = _ammoBoxType createVehicle _positionX;
-[_ammoBox2] spawn A3A_fnc_fillLootCrate;
-_ammoBox2 call jn_fnc_logistics_addAction;
-_vehiclesX pushBack _ammoBox2;
+// Only create ammoboxes if it's been recharged (see reinforcementsAI)
+private _ammoBox1 = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then {
+	private _ammoBox1 = _ammoBoxType createVehicle _positionX;
+	_ammoBox1 addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
+	[_ammoBox1] spawn A3A_fnc_fillLootCrate;
+	[_ammoBox1] call A3A_fnc_logistics_addLoadAction;
+	_ammoBox1;
+};
+
+private _ammoBox2 = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then {
+	private _ammoBox2 = _ammoBoxType createVehicle _positionX;
+	_ammoBox2 addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
+	[_ammoBox2] spawn A3A_fnc_fillLootCrate;
+	[_ammoBox2] call A3A_fnc_logistics_addLoadAction;
+	_ammoBox2;
+};
 
 if (!_busy) then {
 	for "_i" from 1 to (round (random 2)) do {
@@ -343,3 +380,18 @@ deleteMarker _mrk;
 {
 	deleteVehicle _x;
 } forEach _props;
+
+// If loot crate was stolen, set the cooldown
+if (!isNil "_ammoBox1") then {
+	if ((alive _ammoBox1) and (_ammoBox1 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox1 };
+	if (alive _ammoBox1) then { [_ammoBox1] spawn A3A_fnc_VEHdespawner };
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};
+
+if (!isNil "_ammoBox2") then {
+	if ((alive _ammoBox2) and (_ammoBox2 distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox2 };
+	if (alive _ammoBox2) then { [_ammoBox2] spawn A3A_fnc_VEHdespawner };
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};

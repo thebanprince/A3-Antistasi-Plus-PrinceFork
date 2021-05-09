@@ -14,12 +14,12 @@ params ["_vehicle", "_preference", "_side"];
 if(_preference == "Empty") exitWith {[]};
 
 //If tank, select AT team
-if(_vehicle in vehNATOTanks) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAT};
+if(_vehicle in vehNATOTanks) exitWith {groupsNATOAT};
 if(_vehicle in vehCSATTanks) exitWith {groupsCSATAT};
 
 //If AA-tank, select AA team
-if(_vehicle == vehNATOAA) exitWith {call SCRT_fnc_unit_getCurrentGroupNATOAA};
-if(_vehicle == vehCSATAA) exitWith {groupsCSATAA};
+if(_vehicle == vehNATOAA) exitWith {groupsNATOAA call SCRT_fnc_unit_selectInfantryTier};
+if(_vehicle == vehCSATAA) exitWith {groupsCSATAA call SCRT_fnc_unit_selectInfantryTier};
 
 _result = "";
 //If no vehicle return preference
@@ -56,18 +56,12 @@ else
 _group = [];
 if(_result != "EMPTY") then
 {
-  if(_side == Occupants) then
-  {
-    _group = if(_result == "SQUAD") then {
-      call SCRT_fnc_unit_getCurrentNATOSquad
-      } else {
-        _squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-        selectRandom _squad;
-    };
-  }
-  else
-  {
-    _group = if(_result == "SQUAD") then {selectRandom groupsCSATSquad} else {selectRandom groupsCSATmid};
+  _group = if(_result == "SQUAD") then {
+    private _squads = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+    selectRandom _squads;
+  } else {
+    private _mid = [_side, "MID"] call SCRT_fnc_unit_getGroupSet;
+    selectRandom _mid;
   };
 };
 

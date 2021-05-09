@@ -21,15 +21,16 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 _holdTime = if(_difficultX) then {4} else {2};
 _taskDescription = format ["%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I have placed a crate with supplies near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.",_nameDest,_displayTime, _holdTime];
 
-[[teamPlayer,civilian],"LOG",[_taskDescription,"City Supplies",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["LOG","CREATED"]; publicVariable "missionsX";
-_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
+private _taskId = "SUPP" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,[_taskDescription,"City Supplies",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
+[_taskId, "SUPP", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //Creating the box
+_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
 _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
-_truckX call jn_fnc_logistics_addAction;
+[_truckX] call A3A_fnc_logistics_addLoadAction;
 _truckX addAction ["Delivery infos",
 	{
 		_text = format ["Deliver this box to %1, unload it to start distributing to people",(_this select 0) getVariable "destinationX"]; //This need a rework
@@ -52,14 +53,13 @@ waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _p
 _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 	{
-	["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
+	[_taskId, "SUPP", "FAILED"] call A3A_fnc_taskSetState;
 	[5*_bonus,-5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
 	_countX = 120*_bonus;//120
-	[[_positionX,Occupants,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 	["TaskFailed", ["", format ["%2 deploying supplies in %1",_nameDest,nameTeamPlayer]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (captive _friendX) then
@@ -95,22 +95,21 @@ else
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
 			[petros,"hint","Supplies Delivered", "Logistics Mission"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-			["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"SUCCEEDED","Heal"] call A3A_fnc_taskUpdate;
+			[_taskId, "SUPP", "SUCCEEDED"] call A3A_fnc_taskSetState;
 			{ [35 * _bonus, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 			[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-			if (!isMultiplayer) then {_bonus = _bonus + ((20-skillFIA)*0.1)};
-			[-1*(20-skillFIA),15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
+			[-15*_bonus,15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
             [
                 3,
                 "Rebels won a supply mission",
                 "aggroEvent",
                 true
             ] call A3A_fnc_log;
-			[[-25, 90], [-10, 60]] remoteExec ["A3A_fnc_prestige",2];
+			[Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			}
 		else
 			{
-			["LOG",[_taskDescription,"City Supplies",_markerX],_positionX,"FAILED","Heal"] call A3A_fnc_taskUpdate;
+			[_taskId, "SUPP", "FAILED"] call A3A_fnc_taskSetState;
 			[5*_bonus,-5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 			[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			};
@@ -121,4 +120,4 @@ deleteVehicle _truckX;
 _emptybox = "Land_Pallet_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

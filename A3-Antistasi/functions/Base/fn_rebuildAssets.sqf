@@ -1,69 +1,52 @@
 
-_resourcesFIA = server getVariable "resourcesFIA";
+params ["_site", "_position"];
 
-if (_resourcesFIA < 5000) exitWith {["Rebuild Assets", "You do not have enough money to rebuild any Asset. You need 5.000 €"] call A3A_fnc_customHint;};
+private _leave = false;
+private _antennaDead = objNull;
 
-_destroyedSites = destroyedSites - citiesX;
-
-if (!visibleMap) then {openMap true};
-positionTel = [];
-["Rebuild Assets", "Click on the zone you want to rebuild."] call A3A_fnc_customHint;
-
-onMapSingleClick "positionTel = _pos;";
-
-waitUntil {sleep 1; (count positionTel > 0) or (not visiblemap)};
-onMapSingleClick "";
-
-if (!visibleMap) exitWith {};
-
-_positionTel = positionTel;
-
-_siteX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
-
-if (getMarkerPos _siteX distance _positionTel > 50) exitWith {["Rebuild Assets", "You must click near a map marker"] call A3A_fnc_customHint;};
-
-if ((not(_siteX in _destroyedSites)) and (!(_siteX in outposts))) exitWith {["Rebuild Assets", "You cannot rebuild that"] call A3A_fnc_customHint;};
-
-_leave = false;
-_antennaDead = objNull;
-_textX = "That Outpost does not have a destroyed Radio Tower";
-if (_siteX in outposts) then
-	{
+if (_siteX in outposts) then {
 	_antennasDead = antennasDead select {_x inArea _siteX};
-	if (count _antennasDead > 0) then
-		{
-		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then
-			{
-			_leave = true;
-			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",nameTeamPlayer];
-			}
-		else
-			{
-			_antennaDead = _antennasDead select 0;
-			};
-		}
-	else
-		{
-		_leave = true
-		};
+	if (count _antennasDead > 0) then {
+		_antennaDead = _antennasDead select 0;
+	} else {
+		_leave = true;
 	};
+};
 
-if (_leave) exitWith {["Rebuild Assets", format ["%1",_textX]] call A3A_fnc_customHint;};
+if (_leave) exitWith {
+	[
+		"FAIL",
+		"Rebuild Assets",
+		parseText "Selected site does not have a destroyed Radio Tower or miltiary assets.",
+		30
+	] spawn SCRT_fnc_ui_showMessage;
+};
 
-if (isNull _antennaDead) then
+if (isNull _antennaDead) then {
+	private _name = [_site] call A3A_fnc_localizar;
+
+	[
+		"SUCCESS",
+		"Rebuild Assets",
+		parseText format ["%1 rebuilt.", _name],
+		30
+	] spawn SCRT_fnc_ui_showMessage;
+
+	[0, 10, _position] remoteExec ["A3A_fnc_citySupportChange",2];
+    [Occupants, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
+    [Invaders, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
+
+	private _militaryBuildings = nearestObjects [_position, listMilBld, 500,  true];
+
 	{
-	_nameX = [_siteX] call A3A_fnc_localizar;
+		[_x] remoteExec ["A3A_fnc_repairRuinedBuilding", 2];
+	} forEach _militaryBuildings;
 
-	["Rebuild Assets", format ["%1 Rebuilt"]] call A3A_fnc_customHint;
-
-	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
-	[[10, 30], [10, 30]] remoteExec ["A3A_fnc_prestige",2];
-	destroyedSites = destroyedSites - [_siteX];
+	destroyedSites = destroyedSites - [_site];
 	publicVariable "destroyedSites";
-	}
-else
-	{
-	["Rebuild Assets", "Radio Tower rebuilt"] call A3A_fnc_customHint;
+} else {
+	["Rebuild Assets", "Radio Tower rebuilt."] call A3A_fnc_customHint;
 	[_antennaDead] remoteExec ["A3A_fnc_rebuildRadioTower", 2];
-	};
+};
+
 [0,-5000] remoteExec ["A3A_fnc_resourcesFIA",2];

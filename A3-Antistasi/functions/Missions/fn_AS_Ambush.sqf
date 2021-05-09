@@ -61,22 +61,24 @@ _officerDestinationMarker setMarkerAlpha 1;
 
 [3, format ["Origin: %1, Destination: %2", str _missionOrigin, str _destinationSite], _filename] call A3A_fnc_log;
 
-
 // selecting classnames
 private _officerClass = nil;
 private _officerVehicleClass = nil;
 private _escortVehicleClass = nil;
 private _infantrySquadArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
 if (_sideX == Occupants) then { 
     _officerClass = NATOOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else {selectRandom vehNATOTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehNATOAPC } else { selectRandom vehNATOLightArmed };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _infantrySquadArray = selectRandom _squads;
 } else { 
     _officerClass = CSATOfficer;
     _escortVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else {selectRandom vehCSATTrucks};
     _officerVehicleClass = if(_difficult) then { selectRandom vehCSATAPC } else { selectRandom vehCSATLightArmed };
-    _infantrySquadArray = CSATSquad;
+    _infantrySquadArray = selectRandom _squads;
 };
 
 if (isNil "_officerClass" || {isNil "_officerVehicleClass"} || {isNil "_escortVehicleClass"} || {isNil "_infantrySquadArray"}) exitWith {
@@ -101,10 +103,11 @@ private _rebelTaskText = format [
     _departingDisplayTime,
     _displayTime
 ];
+private _taskId = "AS" + str A3A_taskCount;
 
 [
     [teamPlayer,civilian],
-    "AS",
+    _taskId,
     [_rebelTaskText, "Ambush Officer", _missionOrigin],
     _missionOrigin,
     false,
@@ -113,9 +116,7 @@ private _rebelTaskText = format [
     "car",
     true
 ] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["AS", "CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ////////////////
 //convoy spawn//
@@ -134,7 +135,7 @@ private _roadR = _roads select 0;
 sleep 1;
 
 //spawning escort
-private _escortVehicleData = [position _roadE, 0, _escortVehicleClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [position _roadE, 0, _escortVehicleClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 _escortVeh limitSpeed 35;
 [_escortVeh, "Officer Convoy"] spawn A3A_fnc_inmuneConvoy;
@@ -156,7 +157,7 @@ private _groupX = [position _roadE, _sideX, _infantrySquadArray] call A3A_fnc_sp
 deleteGroup _groupX;
 
 //officer and his vehicle
-private _officerVehicleData = [position _roadR, 0, _officerVehicleClass, _sideX] call bis_fnc_spawnvehicle;
+private _officerVehicleData = [position _roadR, 0, _officerVehicleClass, _sideX] call A3A_fnc_spawnVehicle;
 private _officerVeh = _officerVehicleData select 0;
 _officerVeh limitSpeed 35;
 [_officerVeh, "Officer Convoy"] spawn A3A_fnc_inmuneConvoy;
@@ -214,24 +215,14 @@ switch(true) do {
     case (_officer inArea _destinationSite || dateToNumber date > _dateLimitNum): {
         [3, "Officer Reached destination or time is out, fail.", _filename] call A3A_fnc_log;
 
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case (!alive _officer): {
-        [3, "Officer died, success, fail.", _filename] call A3A_fnc_log;
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [3, "Officer died, success.", _filename] call A3A_fnc_log;
+        [_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         { [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
@@ -239,19 +230,14 @@ switch(true) do {
     };
     default {
         [3, "Unexpected behaviour, cancelling mission.", _filename] call A3A_fnc_log;
-        [
-            "AS",
-            [_rebelTaskText, "Officer Ambush", _missionOrigin],
-            _missionOriginPos,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "AS", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 
 sleep 30;
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;
 
 deleteMarker _officerDestinationMarker;
 

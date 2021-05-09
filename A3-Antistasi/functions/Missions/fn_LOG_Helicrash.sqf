@@ -63,8 +63,11 @@ _searchHeliClass = nil;
 _cargoTruckClass = nil;
 _boxClass = nil;
 _escortClass = nil;
-_infantrySquadArray = nil;
 _specOpsArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+_infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _pilotClass = NATOPilot;
@@ -73,7 +76,6 @@ if(_sideX == Occupants) then {
     _boxClass = NATOAmmoBox;
     _cargoTruckClass = selectRandom vehNATOTrucks;
     _escortClass = if(_difficult) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
     _specOpsArray = NATOSpecOp;
 } 
 else { 
@@ -83,7 +85,6 @@ else {
     _boxClass = CSATAmmoBox;
     _cargoTruckClass = selectRandom vehCSATTrucks; 
     _escortClass = if(_difficult) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = CSATSquad;
     _specOpsArray = CSATSpecOp;
 };
 
@@ -188,15 +189,17 @@ private _taskMarker = createMarker [format ["LOG%1", random 100],_crashPositionM
 _taskMarker setMarkerShape "ICON";
 
 //creating Task
+private _taskId = "LOG" + str A3A_taskCount;
 private _rebelTaskText = format [
     "%1 helicopter with some valueable cargo has been shot down in %2. Bring helicopter's cargo to the HQ before enemy's rescue team. We must get it before %3.", 
     _sideName, 
     _destinationName,
     _displayTime
 ];
+
 [
     [teamPlayer,civilian],
-    "LOG",
+    _taskId,
     [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
     _crashPositionMarker,
     false,
@@ -205,9 +208,7 @@ private _rebelTaskText = format [
     "heli",
     true
 ] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["LOG", "CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
 //spawning box
@@ -215,7 +216,7 @@ _box = _boxClass createVehicle _crashPosition;
 _box allowDamage false;
 _box setVectorDirAndUp [[0,0,-1], [0,1,0]];
 [_box] spawn A3A_fnc_fillLootCrate;
-_box call jn_fnc_logistics_addAction;
+[_box] call A3A_fnc_logistics_addLoadAction;
 
 sleep 3;
 _box allowDamage true;
@@ -255,7 +256,7 @@ private _roadR = _roads select 0;
 sleep 1;
 
 //spawning escort
-private _escortVehicleData = [position _roadE, 0, _escortClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [position _roadE, 0, _escortClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 _escortVeh limitSpeed 50;
 [_escortVeh, "Escort"] spawn A3A_fnc_inmuneConvoy;
@@ -267,7 +268,7 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning escort inf
-private _typeGroup = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier} else {groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier};
 private _groupX = [_missionOriginPos, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 
@@ -284,7 +285,7 @@ _escortWP setWaypointBehaviour "SAFE";
 [3, format ["Placed Group: %1 in Lite Vehicle and set waypoint %2", _typeGroup, _crashPosition], _filename] call A3A_fnc_log;
 
 //creating cargo vehicle
-private _cargoVehicleData = [position _roadR, 0, _cargoTruckClass, _sideX] call bis_fnc_spawnvehicle;
+private _cargoVehicleData = [position _roadR, 0, _cargoTruckClass, _sideX] call A3A_fnc_spawnVehicle;
 private _cargoVehicle = _cargoVehicleData select 0;
 _cargoVehicle limitSpeed 50;
 [_cargoVehicle, _sideX] call A3A_fnc_AIVEHinit;
@@ -332,7 +333,7 @@ _cargoVehicleWp setWaypointBehaviour "SAFE";
 [3, format ["Transport Vehicle: %1, Crew: %2, Waypoint: %3", _cargoTruckClass, _cargoVehicleCrew, _crashPosition], _filename] call A3A_fnc_log;
 
 //loiter helicopter
-_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 1) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call bis_fnc_spawnvehicle;
+_searchHeliData = [[(_crashPosition select 0) + random 100, (_crashPosition select 1) + random 100, 300 + random 500], 0, _searchHeliClass, _sideX] call A3A_fnc_spawnVehicle;
 _searchHeliVeh = _searchHeliData select 0;
 [_searchHeliVeh, _sideX] call A3A_fnc_AIVEHinit;
 _searchHeliCrew = _searchHeliData select 1;
@@ -355,7 +356,13 @@ if(_searchHeliClass == vehNATOPatrolHeli || _searchHeliClass == vehCSATPatrolHel
     [_heliVehicleGroup, 0] setWaypointLoiterType "CIRCLE_L";
 
     //spawning escort inf
-    private _heliInfGroup = if (_sideX == Occupants) then {selectRandom (call SCRT_fnc_unit_getCurrentGroupNATOMid)} else {selectRandom groupsCSATmid};
+    private _heliInfGroup = if (_sideX == Occupants) then {
+        private _mid = [Occupants, "MID"] call SCRT_fnc_unit_getGroupSet;
+        selectRandom _mid;
+    } else {
+        private _mid = [Invaders, "MID"] call SCRT_fnc_unit_getGroupSet;
+        selectRandom _mid;
+    };
     private _heliInfgroupX = [_missionOriginPos, _sideX, _heliInfGroup] call A3A_fnc_spawnGroup;
     {
         _x assignAsCargo _searchHeliVeh; 
@@ -378,7 +385,6 @@ waitUntil {
 };
 
 if(_cargoVehicle distance _box < 50 && {alive _cargoVehicle} && {!isNull (driver _cargoVehicle)}) then {
-
     _allParticipatingUnits = [];
     {
         _allParticipatingUnits append (units _x);
@@ -412,23 +418,6 @@ if(_cargoVehicle distance _box < 50 && {alive _cargoVehicle} && {!isNull (driver
 
     _waypointTimeout = time + 10;
     waitUntil{sleep 1; time > _waypointTimeout };
-
-    //TODO: test if this case occurs often
-    //if bots can't reach waypoint due to pathfinding issues, disembark them by hand
-    // if(count waypoints _cargoVehicleGroup > 0) then {
-    //     for "_i" from count waypoints _cargoVehicleGroup - 1 to 0 step -1 do {
-    //         deleteWaypoint [_cargoVehicleGroup, _i];
-    //     };
-
-    //     commandGetOut (units _cargoVehicleGroup);
-    //     (units _cargoVehicleGroup) allowGetIn false;
-    //     _cargoWp1 = _cargoVehicleGroup addWaypoint [_crashPosition, 1];
-    //     _cargoWp1 setWaypointType "GETOUT";
-    //     _cargoWp1 setWaypointBehaviour "SAFE";
-    //     sleep 30;
-    //     (units _cargoVehicleGroup) allowGetIn true;
-    // };
-
 
     _cargoTimeout = time + 100;
     waitUntil{sleep 1; time > _cargoTimeout };
@@ -532,35 +521,17 @@ switch(true) do {
     case(_box distance _deliverySite < 50 || dateToNumber date > _dateLimitNum): {
         [3, "Box has been recovered by enemy, mission falied.", _filename] call A3A_fnc_log;
 
-        //враг победил
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
 
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     };
     case(!alive _box): {
-        //нейтральный исход
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "CANCELED"] call A3A_fnc_taskSetState;
         [-300, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     };
     case(_box distance (getMarkerPos respawnTeamPlayer) < 25): {
-        //успех
-        [
-            "LOG",
-            [_rebelTaskText, "Helicopter Crash Site", _missionOrigin],
-            _missionOriginPos,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
         [0, 600] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
@@ -580,8 +551,7 @@ switch(true) do {
 } forEach _effects;
 
 
-
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 
 deleteMarker _taskMarker;
 

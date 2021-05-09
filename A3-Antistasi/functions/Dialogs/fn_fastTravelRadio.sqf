@@ -4,6 +4,10 @@ private _distanceX = 250;
 
 _markersX = markersX + [respawnTeamPlayer];
 
+if (!isNil "traderMarker") then {
+	_markersX = _markersX + [traderMarker];
+};
+
 _esHC = false;
 if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached"] call A3A_fnc_customHint;};
 if (count hcSelected player > 1) exitWith {["Fast Travel", "You can select one group only to Fast Travel"] call A3A_fnc_customHint;};
@@ -18,8 +22,7 @@ if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel
 
 if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI"] call A3A_fnc_customHint;};
 
-private _punishmentoffenceTotal = [getPlayerUID player, [ ["offenceTotal",0] ]] call A3A_fnc_punishment_dataGet select 0;
-if (!isNil "_punishmentoffenceTotal" && {_punishmentoffenceTotal >= 1}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
+if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
 
 private _isEnemiesNearby = false;
 
@@ -70,16 +73,22 @@ onMapSingleClick "";
 
 _positionTel = positionTel;
 
-if (count _positionTel > 0) then
-	{
+if (count _positionTel > 0) then {
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
-	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call A3A_fnc_customHint;};
-	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone"] call A3A_fnc_customHint; openMap [false,false]};
 
-	if ([getMarkerPos _base,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call A3A_fnc_customHint; openMap [false,false]};
+	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {
+		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call A3A_fnc_customHint;
+	};
 
-	if (_positionTel distance getMarkerPos _base < 50) then
-		{
+	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {
+		["Fast Travel", "You cannot Fast Travel to an enemy controlled zone"] call A3A_fnc_customHint; openMap [false,false];
+	};
+
+	if ([getMarkerPos _base,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {
+		["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call A3A_fnc_customHint; openMap [false,false]
+	};
+
+	if (_positionTel distance getMarkerPos _base < 50) then {
 		_positionX = [getMarkerPos _base, 10, random 360] call BIS_Fnc_relPos;
 		_distanceX = round (((position _boss) distance _positionX)/200);
 		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _distanceX;};

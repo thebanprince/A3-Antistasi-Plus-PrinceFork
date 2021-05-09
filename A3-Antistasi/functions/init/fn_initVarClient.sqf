@@ -22,10 +22,14 @@ autoHeal = false;
 //Are players know about that IDAP pays for released prisoners
 isPowPaycheckAnnounced = false;
 
-//Are players know about new vehicle in store
-isMarketUpgradeAnnounced = false;
+isSupportAnnounced = false;
 
-isMarketUpgradeMessageShown = false;
-isIdapPowMessageShown = false;
+isMenuOpen = false;
+
+// rocket camera
+isLauncherCamEnabled = false;
+
+//parachute attendance
+isPlayerParadropable = false;
 
 [2,"initVarClient completed",_fileName] call A3A_fnc_log;

@@ -115,7 +115,7 @@ do {
 								};
 							};
 						};
-						if (hasACE) then {
+						if (A3A_hasACE) then {
 							if (((position _player nearObjects["DemoCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) then {
 								_changeX = "SpotBombTruck";
 							};
@@ -151,8 +151,6 @@ do {
 		if (_changeX == "") then {
 			if ((_typeX != civHeli) and(!(_typeX in civBoats))) then {
 				_base = [_secureBases, _player] call BIS_fnc_nearestPosition;
-				//_size = [_base] call A3A_fnc_sizeMarker;
-				//Following lines are for the detection of players in the detectionAreas
 				_onDetectionMarker = (detectionAreas findIf {
 					_player inArea _x
 				} != -1);
@@ -192,16 +190,13 @@ do {
 				};
 			}
 			else {
-				if (_typeX == civHeli) then {
-					_base = [airportsX, _player] call BIS_fnc_nearestPosition;
-					_size = [_base] call A3A_fnc_sizeMarker;
-					if ((_player distance2d getMarkerPos _base < _size * 3) and((sidesX getVariable[_base, sideUnknown] == Occupants) or(sidesX getVariable[_base, sideUnknown] == Invaders))) exitWith {
-						_changeX = "NoFly";
-					};
-					_base = [outposts + seaports, _player] call BIS_fnc_nearestPosition;
-					if ((_player distance getMarkerPos _base < 100) and((sidesX getVariable[_base, sideUnknown] == Occupants) or(sidesX getVariable[_base, sideUnknown] == Invaders))) exitWith {
-						_changeX = "distanceX";
-					};
+				if (_typeX == civHeli) then
+                {
+                    if(_veh getVariable ["NoFlyZoneDetected", ""] != "") then
+                    {
+                        _changeX = "NoFly";
+                    };
+
 				};
 			};
 		};
@@ -228,9 +223,7 @@ if (vehicle _player != _player) then {
 switch _changeX do {
 	case "Reported":{
 			["Undercover", "You have been reported or spotted by the enemy"] call A3A_fnc_customHint;
-			//_compromised = _player getVariable "compromised";
 			if (vehicle _player != _player) then {
-				//_player setVariable ["compromised",[_compromised select 0,vehicle _player]];
 				reportedVehs pushBackUnique(vehicle _player);
 				publicVariable "reportedVehs";
 			}
@@ -284,10 +277,13 @@ switch _changeX do {
 			};
 		};
 	case "NoFly":{
-			["Undercover", "You have gotten too close to an enemy Airbase no-fly zone"] call A3A_fnc_customHint;
+            private _veh = vehicle _player;
+            private _detectedBy = _veh getVariable "NoFlyZoneDetected";
+			["Undercover", format ["You have violated the airspace of %1", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
 			//_compromised = _player getVariable "compromised";
-			reportedVehs pushBackUnique(vehicle _player);
+			reportedVehs pushBackUnique _veh;
 			publicVariable "reportedVehs";
+            _veh setVariable ["NoFlyZoneDetected", nil, true];
 		};
 	case "Control":{
 			["Undercover", "The Installation Garrison has recognised you"] call A3A_fnc_customHint;

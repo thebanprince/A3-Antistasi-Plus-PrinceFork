@@ -3,6 +3,8 @@ if (isServer) then {
 	diag_log format ["%1: [Antistasi] | INFO | Starting Persistent Load.",servertime];
 	petros allowdamage false;
 
+	A3A_saveVersion = 0;
+	["version"] call A3A_fnc_getStatVariable;
 	["savedPlayers"] call A3A_fnc_getStatVariable;
 	["watchpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "watchpostsFIA";
 	["roadblocksFIA"] call A3A_fnc_getStatVariable; publicVariable "roadblocksFIA";
@@ -10,8 +12,6 @@ if (isServer) then {
 	["atpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "atpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
-	["difficultyX"] call A3A_fnc_getStatVariable;
-	["gameMode"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
 	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
@@ -27,9 +27,7 @@ if (isServer) then {
 	["garrison"] call A3A_fnc_getStatVariable;
 	["usesWurzelGarrison"] call A3A_fnc_getStatVariable;
 	["skillFIA"] call A3A_fnc_getStatVariable;
-	["distanceSPWN"] call A3A_fnc_getStatVariable;
-	["civPerc"] call A3A_fnc_getStatVariable;
-	["maxUnits"] call A3A_fnc_getStatVariable;
+	["maxConstructions"] call A3A_fnc_getStatVariable;
 	["membersX"] call A3A_fnc_getStatVariable;
 	["vehInGarage"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
@@ -38,11 +36,17 @@ if (isServer) then {
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;
+	["supportPoints"] call A3A_fnc_getStatVariable;
 	waitUntil {!isNil "arsenalInit"};
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	["isTraderQuestCompleted"] call A3A_fnc_getStatVariable;
 	["traderPosition"] call A3A_fnc_getStatVariable;
-	["pursuersTime"] call A3A_fnc_getStatVariable;
+	["traderDiscount"] call A3A_fnc_getStatVariable;
+	//TODO: Disabled until random events full implementation
+	// ["pursuersTime"] call A3A_fnc_getStatVariable;
+	["areOccupantsDefeated"] call A3A_fnc_getStatVariable;
+	["areInvadersDefeated"] call A3A_fnc_getStatVariable;
+
 	//===========================================================================
 	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
@@ -86,22 +90,22 @@ if (isServer) then {
 	} forEach (markersX - controlsX);
 
 	if (count watchpostsFIA > 0) then {
-		markersX = markersX + watchpostsFIA; 
+		markersX = markersX + watchpostsFIA;
 		publicVariable "markersX";
 	};
 
 	if (count roadblocksFIA > 0) then {
-		markersX = markersX + roadblocksFIA; 
+		markersX = markersX + roadblocksFIA;
 		publicVariable "markersX";
 	};
 
 	if (count aapostsFIA > 0) then {
-		markersX = markersX + aapostsFIA; 
+		markersX = markersX + aapostsFIA;
 		publicVariable "markersX";
 	};
 
 	if (count atpostsFIA > 0) then {
-		markersX = markersX + atpostsFIA; 
+		markersX = markersX + atpostsFIA;
 		publicVariable "markersX";
 	};
 
@@ -122,6 +126,7 @@ if (isServer) then {
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;
+	["constructionsX"] call A3A_fnc_getStatVariable;
 
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
@@ -135,7 +140,7 @@ if (isServer) then {
 	if (isNil "usesWurzelGarrison") then {
 		//Create the garrison new
 		diag_log "No WurzelGarrison found, creating new!";
-		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;
+		[airportsX, "Airport", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 		[resourcesX, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;	//New system
 		[factories, "Other", [0,0,0]] spawn A3A_fnc_createGarrison;
 		[outposts, "Outpost", [1,1,0]] spawn A3A_fnc_createGarrison;
@@ -211,7 +216,11 @@ if (isServer) then {
 			_dmrk = createMarker [format ["Dum%1",_x], _pos];
 			_dmrk setMarkerShape "ICON";
 			_dmrk setMarkerType "b_naval";
-			_dmrk setMarkerText "Sea Port";
+			if (toLower worldName isEqualTo "enoch") then {
+				_dmrk setMarkerText "River Port";
+			} else {
+				_dmrk setMarkerText "Sea Port";
+			};
 			[_x] call A3A_fnc_mrkUpdate;
 			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
 				_nul = [_x] call A3A_fnc_createControls;

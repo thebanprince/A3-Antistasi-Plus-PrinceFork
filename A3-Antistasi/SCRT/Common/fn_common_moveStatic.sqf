@@ -1,15 +1,10 @@
-private ["_thingX","_playerX"];
-
-private _thingX = cursorObject;
-private _playerX = player;
+params ["_thingX"];
 
 if(isNil "_thingX" || {isNull _thingX}) exitWith {};
 
-if(!(_thingX isKindOf "StaticWeapon")) exitWith {
-	["Move Asset Failed", "Only static weapons can be moved."] call SCRT_fnc_misc_showDeniedActionHint;
-};
+private _playerX = player;
 
-if !(side _playerX == teamPlayer || side _playerX == civilian) exitWith {
+if !(side _playerX == teamPlayer || {side _playerX == civilian}) exitWith {
 	["Move Asset Failed", "Only rebels are allowed to move assets."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 if (!(isNull attachedTo _thingX)) exitWith {
@@ -22,8 +17,16 @@ if ({!(isNull _x)} count (attachedObjects _playerX) != 0) exitWith {
 	["Move Asset Failed", "You have other things attached, you cannot move this."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-if !((crew _vehicle) isEqualTo []) exitWith {
+if((typeOf _thingX) == lootCrate) exitWith {
+	[_thingX] call SCRT_fnc_common_moveObject;
+};
+
+if !((crew _thingX) isEqualTo []) exitWith {
 	["Move Asset Failed", "Vehicle is occupied by someone, clear crew before moving it."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if(!(_thingX isKindOf "StaticWeapon")) exitWith {
+	["Move Asset Failed", "Only static weapons or loot crates can be moved."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 _thingX setVariable ["objectBeingMoved", true];
@@ -90,7 +93,6 @@ private _size = [_markerX] call A3A_fnc_sizeMarker;
 private _positionX = getMarkerPos _markerX;
 
 if (_playerX distance2D _positionX < _size) then {
-	// [_thingX, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
     if (!(_thingX in staticsToSave)) then {
         staticsToSave pushBack _thingX;
         publicVariable "staticsToSave";

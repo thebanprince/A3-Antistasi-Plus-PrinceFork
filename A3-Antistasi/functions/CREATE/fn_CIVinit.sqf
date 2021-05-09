@@ -1,6 +1,4 @@
-private ["_unit","_enemiesX"];
-
-_unit = _this select 0;
+private _unit = _this;
 
 _unit setSkill 0;
 _unit forceAddUniform (selectRandom allCivilianUniforms);
@@ -51,28 +49,28 @@ _EHkilledIdx = _unit addEventHandler
 		{
 			if (isPlayer _killer) then
 			{
-				if (typeOf _victim == "C_man_w_worker_F") then {_killer addRating 1000};
+				if (_victim getVariable "unitType" == "C_man_w_worker_F") then {_killer addRating 1000};
 				[-10,_killer] call A3A_fnc_playerScoreAdd;
 			};
 			_multiplier = 1;
-			if (typeOf _victim == "C_journalist_F") then {_multiplier = 3};
+			if ((_victim getVariable "unitType") == "C_journalist_F") then {_multiplier = 3};
 			//Must be group, in case they're undercover.
 			if (side group _killer == teamPlayer) then
 			{
-                [
+				[
                     3,
                     "Rebels killed a civilian",
                     "aggroEvent",
                     true
                 ] call A3A_fnc_log;
-				[[10 * _multiplier, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+				[Occupants, 10 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
 				[1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 			}
 			else
 			{
 				if (side group _killer == Occupants) then
 				{
-					[[-5 * _multiplier, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
+					[Occupants, -5 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
 					[0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
 				}
 				else

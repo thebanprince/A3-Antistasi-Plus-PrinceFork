@@ -1,7 +1,7 @@
 //Mission: Destroy Artillery
 if (!isServer and hasInterface) exitWith{};
 
-private _fileName = "fn_AS_Artillery";
+private _fileName = "fn_DES_Artillery";
 [2, "Artillery mission init.", _fileName] call A3A_fnc_log;
 
 private _markerX = _this select 0;
@@ -25,21 +25,22 @@ private _artilleryClass = nil;
 private _artilleryShellClass = nil;
 private _mgClass = nil;
 private _mgCrewClass = nil;
-private _infantrySquadArray = nil;
+
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+private _infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _artilleryClass = vehNATOMRLS;
     _artilleryShellClass = vehNATOMRLSMags;
     _mgClass = NATOMG;
-    _mgCrewClass = staticCrewOccupants;
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
+    _mgCrewClass = staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier;
 } 
 else { 
     _artilleryClass = vehCSATMRLS;
     _artilleryShellClass = vehCSATMRLSMags;
     _mgClass = CSATGMG;
-    _mgCrewClass = staticCrewInvaders;
-    _infantrySquadArray = CSATSquad;
+    _mgCrewClass = staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier;
 };
 
 if (isNil "_artilleryClass" || {isNil "_artilleryShellClass"} || {isNil "_mgClass"} || {isNil "_infantrySquadArray"} || {isNil "_mgCrewClass"}) 
@@ -63,7 +64,7 @@ exitWith {
 	[_x, true] remoteExec ["hideObject", 0];
 } forEach nearestTerrainObjects [_missionOriginPos, [], 10, false, true];
 
-private _artilleryData = [_missionOriginPos, 0, _artilleryClass, _sideX] call bis_fnc_spawnvehicle;
+private _artilleryData = [_missionOriginPos, 0, _artilleryClass, _sideX] call A3A_fnc_spawnVehicle;
 private _artilleryVeh = _artilleryData select 0;
 _artilleryVeh setDir (random 360);
 _artilleryVeh allowDamage false;
@@ -133,6 +134,7 @@ if (([_vx,_vy] findIf {_x > 80 || _x < -80}) != -1) then {
 } forEach nearestTerrainObjects [_artilleryPosition, [], 50, false, true];
 
 _artilleryVeh allowDamage true;
+_artilleryVeh lock 2;
 
 //////////////////////
 //Artillery fake fire
@@ -140,7 +142,13 @@ _artilleryVeh allowDamage true;
 _artilleryVeh addEventHandler ["Fired", {
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
     deleteVehicle _projectile;
-    _unit setVehicleAmmo 1;
+
+    if (!local _unit) then {
+        private _clientId = owner _unit;
+        [_unit, 1] remoteExec ["setVehicleAmmo", _clientId];
+    } else {
+        _unit setVehicleAmmo 1;
+    };
 }];
 
 [_artilleryVeh, _targetPosition, _artilleryShellClass] spawn {
@@ -149,7 +157,7 @@ _artilleryVeh addEventHandler ["Fired", {
         sleep 60;
         _veh doArtilleryFire [_targetPos, _shell, 2];
     };
-    [2, "Exited artillery firing loop...", _fileName, true] call A3A_fnc_log;
+    [2, "Exited artillery firing loop...", "fn_DES_Artillery", true] call A3A_fnc_log;
 };
 
 //////////////////////
@@ -157,10 +165,11 @@ _artilleryVeh addEventHandler ["Fired", {
 /////////////////////
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 private _taskText = format ["Artillery is firing at our positions from %1. We must destroy it. Do this before %2, or they will destroy something valuable.", _nameDest, _displayTime];
+private _taskId = "DES" + str A3A_taskCount;
 
 [
     [teamPlayer,civilian],
-    "DES",
+    _taskId,
     [
         _taskText,
         "Destroy Artillery",
@@ -173,8 +182,7 @@ private _taskText = format ["Artillery is firing at our positions from %1. We mu
     "destroy",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["DES","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //////////////
 //Infantry and MG
@@ -223,15 +231,10 @@ waitUntil {
 	dateToNumber date > _dateLimitNum || !(alive _artilleryVeh) || _artilleryCrew findIf {alive _x} == -1
 };
 
-switch(true) do {
+switch (true) do {
     case (alive _artilleryVeh && _artilleryCrew findIf {alive _x} != -1): {
         [2, "Artillery will fire at rebel position for some time, fail.", _fileName, true] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "FAILED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
         [-900, _sideX] remoteExec ["A3A_fnc_timingCA",2];
         [-15,theBoss] call A3A_fnc_playerScoreAdd;
 
@@ -243,12 +246,7 @@ switch(true) do {
     };
     case (!(alive _artilleryVeh) || _artilleryCrew findIf {alive _x} == -1): {
         [2, "Artillery is destroyed, success.", _fileName, true] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "SUCCEEDED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
         [0, 400] remoteExec ["A3A_fnc_resourcesFIA",2];
         [1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
@@ -257,18 +255,13 @@ switch(true) do {
     };
     default {
         [3, "Unexpected behaviour, cancelling mission.", _filename] call A3A_fnc_log;
-        [
-            "DES",
-            [_taskText, "Destroy Artillery", _markerX],
-            _artilleryPosition,
-            "CANCELED"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "DES", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 sleep 30;
 
-_nul = [1200,"DES"] spawn A3A_fnc_deleteTask;
+[_taskId, "DES", 1200] spawn A3A_fnc_taskDelete;
 
 _artilleryVeh removeAllEventHandlers "Fired";
 

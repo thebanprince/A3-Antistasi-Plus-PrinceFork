@@ -11,7 +11,7 @@ private _victimGroup = group _victim;
 private _victimSide = side (group _victim);
 [_victim] spawn A3A_fnc_postmortem;
 
-if (hasACE) then
+if (A3A_hasACE) then
 {
 	if ((isNull _killer) || (_killer == _victim)) then
 	{
@@ -56,24 +56,12 @@ if (side (group _killer) == teamPlayer) then
 		if (_victimSide == Occupants) then
 		{
 			[0,-2,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-			[[20, 30], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-		}
-		else
-		{
-			[[0, 0], [20, 30]] remoteExec ["A3A_fnc_prestige",2];
 		};
 	}
 	else
 	{
 		[-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-		if (_victimSide == Occupants) then
-		{
-			[[0.5, 45], [0, 0]] remoteExec ["A3A_fnc_prestige",2];
-		}
-		else
-		{
-			[[0, 0], [0.5, 45]] remoteExec ["A3A_fnc_prestige",2];
-		};
+        [_victimSide, 0.5, 45] remoteExec ["A3A_fnc_addAggression", 2];
 	};
 }
 else
@@ -100,7 +88,7 @@ if (_victimLocation != "") then
 {
 	if (sidesX getVariable [_victimLocation,sideUnknown] == _victimSide) then
 	{
-		[typeOf _victim,_victimSide,_victimLocation,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+		[_victim getVariable "unitType",_victimSide,_victimLocation,-1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 		if (_victimWasGarrison) then
         {
             [_victimLocation,_victimSide] remoteExec ["A3A_fnc_zoneCheck",2]

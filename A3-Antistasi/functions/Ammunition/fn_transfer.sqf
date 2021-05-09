@@ -19,43 +19,7 @@ _weaponsX = weaponCargo _boxX;
 _ammunition = magazineCargo _boxX;
 _items = itemCargo _boxX;
 _backpcks = [];
-/*
-if (count weaponsItemsCargo _truckX > 0) then
-	{
-	{
-	_weaponsX pushBack ([(_x select 0)] call BIS_fnc_baseWeapon);
-	for "_i" from 1 to (count _x) - 1 do
-		{
-		_thingX = _x select _i;
-		if (_thingX isEqualType "") then
-			{
-			if (_thingX != "") then {_items pushBack _thingX};
-			}
-		else
-			{
-			if ((_thingX select 0) isEqualType []) then {_ammunition pushBack (_thingX select 0)};
-			}
-		};
-	} forEach weaponsItemsCargo _boxX;
-	};
 
-if (count backpackCargo _boxX > 0) then
-	{
-	{
-	_backpcks pushBack (_x call A3A_fnc_basicBackpack);
-	} forEach backpackCargo _boxX;
-	};
-_containers = everyContainer _boxX;
-if (count _containers > 0) then
-	{
-	for "_i" from 0 to (count _containers - 1) do
-		{
-		_weaponsX = _weaponsX + weaponCargo ((_containers select _i) select 1);
-		_ammunition = _ammunition + magazineCargo ((_containers select _i) select 1);
-		_items = _items + itemCargo ((_containers select _i) select 1);
-		};
-	};
-*/
 _todo = _weaponsX + _ammunition + _items + _backpcks;
 _countX = count _todo;
 
@@ -69,7 +33,7 @@ if (_countX > 0) then
 	{
 	if (_boxX == boxX) then
 		{
-		if (["DEF_HQ"] call BIS_fnc_taskExists) then {_countX = round (_countX / 10)} else {_countX = round (_countX / 100)};
+		if ("DEF_HQ" in A3A_activeTasks) then {_countX = round (_countX / 10)} else {_countX = round (_countX / 100)};
 		}
 	else
 		{

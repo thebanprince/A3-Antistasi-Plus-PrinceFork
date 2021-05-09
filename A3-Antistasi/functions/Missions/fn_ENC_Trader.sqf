@@ -54,9 +54,11 @@ publicVariable "traderX";
 
 _worldName = [] call SCRT_fnc_misc_getWorldName;
 
+private _taskId = "ENC" + str A3A_taskCount;
+
 [
     [teamPlayer,civilian],
-    "ENC_TRADER",
+    _taskId,
     [format ["Whether %1 wanted it or not, an arms dealer has arrived on %2. So let's get to buy some weapons and gear from him, one by one. %3. From what i can gather he trades his goods from a hideout in the forest outside of major cities. He's well hidden, but with the right team, we can punch through those trees, find this man out and establish contact with black market.",nameOccupants,_worldName,name traderX, nameOccupants],
     "Find the Arms Dealer",_markerX],
     _traderPosition,
@@ -66,9 +68,7 @@ _worldName = [] call SCRT_fnc_misc_getWorldName;
     "meet",
     true
 ] call BIS_fnc_taskCreate;
-
-missionsX pushBack ["ENC_TRADER","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "ENC", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 private _trigger = createTrigger ["EmptyDetector", _traderPosition];
 _trigger setTriggerArea [30, 30, 0, false];
@@ -82,22 +82,13 @@ waitUntil {
         if(side _x == teamPlayer && {_x inArea _trigger}) exitWith { _conditionMet = true };
     } forEach (call BIS_fnc_listPlayers);
 
-    if(_conditionMet) exitWith { true };
-
-    false
+    _conditionMet
 };
 
-[
-    "ENC_TRADER",
-    [format ["Whether %1 wanted it or not, an arms dealer has arrived on %2. So let's get to buy some weapons and gear from him, one by one. %3. From what i can gather he trades his goods from a hideout in the forest outside of major cities. He's well hidden, but with the right team, we can punch through those trees, find this man out and establish contact with black market.",nameOccupants,_worldName, name traderX, nameOccupants],
-    "Find the Arms Dealer",_markerX],
-    traderX,
-    "SUCCEEDED"
-] call A3A_fnc_taskUpdate;
+[_taskId, "ENC", "SUCCEEDED"] call A3A_fnc_taskSetState;
 
-
-{ [20, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
-[10, theBoss] call A3A_fnc_playerScoreAdd;
+{ [35, _x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+[20, theBoss] call A3A_fnc_playerScoreAdd;
 
 traderPosition = _traderPosition;
 publicVariable "traderPosition";
@@ -105,4 +96,4 @@ publicVariable "traderPosition";
 isTraderQuestCompleted = true; 
 publicVariable "isTraderQuestCompleted";
 
-_nul = [1200,"ENC_TRADER"] spawn A3A_fnc_deleteTask;
+[_taskId, "ENC", 5] spawn A3A_fnc_taskDelete;

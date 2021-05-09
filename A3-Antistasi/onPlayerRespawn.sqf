@@ -69,7 +69,7 @@ if (side group player == teamPlayer) then
 
 
 	// don't reinit revive because damage handlers are respawn-persistent
-	//if (!hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
+	//if (!A3A_hasACEMedical) then {[_newUnit] call A3A_fnc_initRevive};
 	disableUserInput false;
 	//_newUnit enableSimulation true;
 	if (_oldUnit == theBoss) then
@@ -86,11 +86,9 @@ if (side group player == teamPlayer) then
 	//Give them a map, in case they're commander and need to replace petros.
 	_newUnit linkItem "ItemMap";
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
-	player addEventHandler ["FIRED",
-		{
+	player addEventHandler ["FIRED", {
 		_player = _this select 0;
-		if (captive _player) then
-			{
+		if (captive _player) then {
 			if ({if (((side _x == Occupants) or (side _x == Invaders)) and (_x distance player < 300)) exitWith {1}} count allUnits > 0) then
 				{
 				[_player,false] remoteExec ["setCaptive",0,_player];
@@ -114,9 +112,13 @@ if (side group player == teamPlayer) then
 						};
 					};
 				};
-			}
+			};
 		}
-		];
+	];
+
+	if (isLauncherCamEnabled) then {
+		["ADD"] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+	};
 
 	player addEventHandler ["InventoryOpened",
 		{
@@ -235,7 +237,7 @@ if (side group player == teamPlayer) then
 			}
 		];
 	[true] spawn A3A_fnc_reinitY;
-	[player] execVM "OrgPlayers\unitTraits.sqf";
+	[] execVM "OrgPlayers\unitTraits.sqf";
 	[] spawn A3A_fnc_statistics;
 	}
 else
@@ -243,5 +245,5 @@ else
 	_oldUnit setVariable ["spawner",nil,true];
 	_newUnit setVariable ["spawner",true,true];
 	[player] call A3A_fnc_dress;
-	if (hasACE) then {[] call A3A_fnc_ACEpvpReDress};
+	if (A3A_hasACE) then {[] call A3A_fnc_ACEpvpReDress};
 	};

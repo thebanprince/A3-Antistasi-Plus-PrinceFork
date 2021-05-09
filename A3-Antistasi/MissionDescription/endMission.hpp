@@ -62,3 +62,10 @@ class hcDown
 	picture = "b_unknown";
 	pictureColor[] = {0.0,0.5,0.0,1};
 };
+class noSinglplayer
+{
+	title = "No Singleplayer support.";
+	subtitle = "Start LAN server to play as single player.";
+	picture = "b_unknown";
+	pictureColor[] = {1,0.5,0.0,1};
+};

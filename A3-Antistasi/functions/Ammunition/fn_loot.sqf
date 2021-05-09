@@ -3,10 +3,15 @@
 //////////////////
 lootBasicItem append allMaps + allToolkits + allWatches + allCompasses + allMedikits + allFirstAidKits;
 
+/////////////////
+//    NVG'S   ///
+/////////////////
+lootNVG append allNVGs;
+
 /////////////////////
 // Assigned Items ///
 /////////////////////
-lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + allNVGs + allGadgets;
+lootItem append allUAVTerminals + allMineDetectors + allGPS + allRadios + allLaserDesignators + allBinoculars + allLaserBatteries + lootNVG + allGadgets;
 
 ////////////////////
 //    Weapons    ///
@@ -64,7 +69,7 @@ switch (teamPlayer) do {
      case independent: {_lootDeviceBag append rebelBackpackDevice};
      default {_lootDeviceBag append occupantBackpackDevice};
 };
-lootDevice append _lootDeviceBag;
+lootDevice append _lootDeviceBag + allBackpacksRadio;
 
 ////////////////////////////////////
 //      REBEL STARTING ITEMS     ///

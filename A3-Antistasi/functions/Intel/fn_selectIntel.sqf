@@ -1,7 +1,6 @@
 //Define results for small intel
-#define TROOPS          100
 #define TIME_LEFT       101
-#define ACCESS_CAR      102
+#define DECRYPTION_KEY  102
 #define CONVOY          103
 
 //Define results for medium intel
@@ -10,14 +9,16 @@
 #define ACCESS_HELI     202
 #define CONVOYS         203
 #define COUNTER_ATTACK  204
+#define CONVOY_ROUTE    205
 
 //Define results for large intel
 #define WEAPON          300
 #define TRAITOR         301
 #define MONEY           302
 
-//Define results for any intel
+//Define results for (mostly) any intel
 #define TASK          500
+#define DISCOUNT      501
 
 params ["_intelType", "_side"];
 
@@ -54,14 +55,10 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.25, ACCESS_CAR, 0.25, CONVOY, 0.25, TASK, 0.25];
+    _intelContent = selectRandomWeighted [TIME_LEFT, 0.2, DECRYPTION_KEY, 0.2, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.15];
+
     switch (_intelContent) do
     {
-        case (TROOPS):
-        {
-            //Case not yet implemented as system is not usable right now
-            //This can be added when the new garrison system is active
-        };
         case (TIME_LEFT):
         {
             private _nextAttack = 0;
@@ -83,9 +80,19 @@ if(_intelType == "Small") then
                 _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
             };
         };
-        case (ACCESS_CAR):
+        case (DECRYPTION_KEY):
         {
-            _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_CAR] call A3A_fnc_getVehicleIntel)];
+            if(_side == Occupants) then
+            {
+                occupantsRadioKeys = occupantsRadioKeys + 1;
+                publicVariable "occupantsRadioKeys";
+            }
+            else
+            {
+                invaderRadioKeys = invaderRadioKeys + 1;
+                publicVariable "invaderRadioKeys";
+            };
+            _text = format ["You found a %1 decryption key!<br/>It allows your faction to fully decrypt the next support call.", _sideName];
         };
         case (CONVOY):
         {
@@ -118,14 +125,9 @@ if(_intelType == "Small") then
             } else {
                 [2, "Rerolling small intel outcome", _fileName] call A3A_fnc_log;
 
-                _rerollIntelContent = selectRandomWeighted [TROOPS, 0, TIME_LEFT, 0.3, ACCESS_CAR, 0.35, CONVOY, 0.35];
+                _rerollIntelContent = selectRandomWeighted [TIME_LEFT, 0.3, DECRYPTION_KEY, 0.35, CONVOY, 0.35];
 
                 switch (_rerollIntelContent) do {
-                    case (TROOPS):
-                    {
-                        //Case not yet implemented as system is not usable right now
-                        //This can be added when the new garrison system is active
-                    };
                     case (TIME_LEFT):
                     {
                         private _nextAttack = 0;
@@ -147,9 +149,19 @@ if(_intelType == "Small") then
                             _text = format ["%1 attack expected in %2 minutes", _sideName, round (_nextAttack / 60)];
                         };
                     };
-                    case (ACCESS_CAR):
+                    case (DECRYPTION_KEY):
                     {
-                        _text = format ["%1 currently has access to<br/>%2", _sideName, ([_side, ACCESS_CAR] call A3A_fnc_getVehicleIntel)];
+                        if(_side == Occupants) then
+                        {
+                            occupantsRadioKeys = occupantsRadioKeys + 1;
+                            publicVariable "occupantsRadioKeys";
+                        }
+                        else
+                        {
+                            invaderRadioKeys = invaderRadioKeys + 1;
+                            publicVariable "invaderRadioKeys";
+                        };
+                        _text = format ["You found a %1 decryption key!<br/>It allows your faction to fully decrypt the next support call.", _sideName];
                     };
                     case (CONVOY):
                     {
@@ -176,11 +188,32 @@ if(_intelType == "Small") then
                 };
             };
         };
+        case (DISCOUNT):
+        {
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.01;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
+
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+            };
+        };
     };
 };
 if(_intelType == "Medium") then
 {
-    _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, COUNTER_ATTACK, 0, TASK, 0.4];
+    if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+        _intelContent = TASK;
+    } else {
+        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, CONVOY_ROUTE, 0.2, DISCOUNT, 0.2];
+    };
+
     switch (_intelContent) do
     {
         case (ACCESS_AIR):
@@ -212,9 +245,42 @@ if(_intelType == "Medium") then
             } forEach _convoyMarkers;
             _text = format ["We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map", _sideName, count _convoyMarkers];
         };
-        case (COUNTER_ATTACK):
+        case (DISCOUNT):
         {
-            //Not yet implemented, needs a rework of the attack script
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.05;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
+
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
+            };
+        };
+        case (CONVOY_ROUTE):
+        {
+            if (!("CONVOY" in A3A_activeTasks) && !bigAttackInProgress) then
+			{
+                private _potentials = (outposts + milbases + airportsX + resourcesX + factories);
+	            _potentials = _potentials select { sidesX getVariable [_x, sideUnknown] != teamPlayer };
+                private _site = [_potentials, petros] call BIS_fnc_nearestPosition;
+				private _base = [_site] call A3A_fnc_findBasesForConvoy;
+                private _fromName = [_base] call A3A_fnc_localizar;
+                private _toName = [_site] call A3A_fnc_localizar;
+                _text = format ["We found some information about possible convoy route from %1 to %2. We can prepare an ambush on it.", _fromName, _toName];
+                if (_base != "") then {
+					[[_site,_base, true],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
+				};
+			} else {
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
+                _text = format ["We found some outdated information about possible convoy routes on %1. We sold it on a black market for miniscule amount of money.", _worldName];
+                private _money = (round (random 10)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];    
+            };
         };
         case (TASK):
         {
@@ -225,7 +291,7 @@ if(_intelType == "Medium") then
             } else {
                 [2, "Rerolling medium intel outcome", _fileName] call A3A_fnc_log;
 
-                private _rerollIntelContent = selectRandomWeighted [ACCESS_AIR, 0.25, ACCESS_HELI, 0.25, ACCESS_ARMOR, 0.25, CONVOYS, 0.25, COUNTER_ATTACK, 0];
+                private _rerollIntelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.2, ACCESS_ARMOR, 0.2, CONVOYS, 0.2, CONVOY_ROUTE, 0.2, COUNTER_ATTACK, 0];
 
                 switch (_rerollIntelContent) do {
                     case (ACCESS_AIR):
@@ -268,14 +334,16 @@ if(_intelType == "Medium") then
 };
 if(_intelType == "Large") then
 {
-    if(["AS"] call BIS_fnc_taskExists) then
-    {
-        _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.2, TASK, 0.6];
-    }
-    else
-    {
-        _intelContent = selectRandomWeighted [WEAPON, 0.15, MONEY, 0.25, TASK, 0.6];
+    if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+        _intelContent = TASK;
+    } else {
+        if ("AS" in A3A_activeTasks) then {
+            _intelContent = selectRandomWeighted [TRAITOR, 0.1, WEAPON, 0.1, MONEY, 0.15, TASK, 0.5, DISCOUNT, 0.15];
+        } else {
+            _intelContent = selectRandomWeighted [WEAPON, 0.1, MONEY, 0.25, TASK, 0.5, DISCOUNT, 0.15];
+        };
     };
+
     switch (_intelContent) do
     {
         case (TRAITOR):
@@ -309,7 +377,7 @@ if(_intelType == "Large") then
 
                 private _rerollIntelContent = "";
 
-                if(["AS"] call BIS_fnc_taskExists) then {
+                if("AS" in A3A_activeTasks) then {
                     _rerollIntelContent = selectRandomWeighted [TRAITOR, 0.3, WEAPON, 0.3, MONEY, 0.4];
                 }
                 else {
@@ -338,6 +406,22 @@ if(_intelType == "Large") then
                         [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
                     };
                 };
+            };
+        };
+        case (DISCOUNT):
+        {
+            if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
+                [] call SCRT_fnc_quest_rollTask;
+                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _text = format ["We found some valuable information about important events on the %1.", _worldName];
+            } else {
+                private _discount = traderDiscount + 0.1;
+                [_discount] call SCRT_fnc_trader_setTraderDiscount;
+
+                private _money = (round (random 50)) * 100;
+                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
+
+                _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
             };
         };
     };

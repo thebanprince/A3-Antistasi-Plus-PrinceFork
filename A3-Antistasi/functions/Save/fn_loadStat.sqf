@@ -18,13 +18,15 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","constructionsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
-	"prestigeBLUFOR","resourcesFIA","skillFIA","distanceSPWN","civPerc","maxUnits","destroyedSites",
+	"prestigeBLUFOR","resourcesFIA","skillFIA", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","difficultyX","gameMode","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-	"countCA", "attackCountdownInvaders", "testingTimerIsActive","isTraderQuestCompleted","traderPosition"
+	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
+	"countCA", "attackCountdownInvaders", "testingTimerIsActive",
+	"traderDiscount", "supportPoints", "isTraderQuestCompleted", "traderPosition", "areOccupantsDefeated", "areInvadersDefeated",
+	"version"
 ];
 
 private _varName = _this select 0;
@@ -32,29 +34,19 @@ private _varValue = _this select 1;
 if (isNil '_varValue') exitWith {};
 
 if (_varName in _specialVarLoads) then {
+	if (_varName == 'version') then {
+		_s = _varValue splitString ".";
+		if (count _s < 2) exitWith {
+			diag_log format ["Bad version string: %1", _varValue];
+		};
+		A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
+	};
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
 	//Keep this for backwards compatiblity
 	if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-	if (_varName == 'difficultyX') then {
-		if !(isMultiplayer) then {
-			skillMult = _varValue;
-			if (skillMult == 1) then {minWeaps = 15};
-			if (skillMult == 3) then {minWeaps = 40};
-		};
-	};
-	if(_varName == 'gameMode') then {
-		if !(isMultiplayer) then {
-			gameMode = _varValue;
-			if (gameMode != 1) then {
-				Occupants setFriend [Invaders,1];
-				Invaders setFriend [Occupants,1];
-				if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
-				if (gameMode == 4) then {"NATO_carrier" setMarkerAlpha 0};
-			};
-		};
-	};
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
+	if (_varName == 'supportPoints') then {supportPoints = _varValue; publicVariable "supportPoints"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
 	if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
 	if (_varName == 'smallCAmrk') then {};		// Ignore. These are not persistent.
@@ -69,8 +61,8 @@ if (_varName in _specialVarLoads) then {
 	if (_varName == 'chopForest') then {chopForest = _varValue; publicVariable "chopForest"};
 	if (_varName == 'jna_dataList') then {jna_dataList = +_varValue};
 	//Keeping these for older saves
-	if (_varName == 'prestigeNATO') then {[[_varValue, 120], [0, 0]] call A3A_fnc_prestige};
-	if (_varName == 'prestigeCSAT') then {[[0, 0], [_varValue, 120]] call A3A_fnc_prestige};
+	if (_varName == 'prestigeNATO') then {[Occupants, _varValue, 120] call A3A_fnc_addAggression};
+	if (_varName == 'prestigeCSAT') then {[Invaders, _varValue, 120] call A3A_fnc_addAggression};
 	if (_varName == 'aggressionOccupants') then
 	{
 		aggressionLevelOccupants = _varValue select 0;
@@ -102,9 +94,7 @@ if (_varName in _specialVarLoads) then {
 			server setVariable [_x,_costs,true];
 		} forEach soldiersSDK;
 	};
-	if (_varName == 'distanceSPWN') then {distanceSPWN = _varValue; distanceSPWN1 = distanceSPWN * 1.3; distanceSPWN2 = distanceSPWN /2; publicVariable "distanceSPWN";publicVariable "distanceSPWN1";publicVariable "distanceSPWN2"};
-	if (_varName == 'civPerc') then {civPerc = _varValue; if (civPerc < 1) then {civPerc = 35}; publicVariable "civPerc"};
-	if (_varName == 'maxUnits') then {maxUnits=_varValue; publicVariable "maxUnits"};
+	if (_varName == 'maxConstructions') then {maxConstructions=_varValue; publicVariable "maxConstructions"};
 	if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
 	if (_varName == 'destroyedBuildings') then {
 		{
@@ -147,7 +137,10 @@ if (_varName in _specialVarLoads) then {
 		};
 	};
 	if (_varName == 'garrison') then {
-		{garrison setVariable [[_x select 0] call _translateMarker,_x select 1,true]} forEach _varvalue;
+		{
+			garrison setVariable [[_x select 0] call _translateMarker, _x select 1, true];
+			if (count _x > 2) then { garrison setVariable [(_x select 0) + "_lootCD", _x select 2, true] };
+		} forEach _varvalue;
 	};
 	if (_varName == 'wurzelGarrison') then {
 		{
@@ -306,16 +299,15 @@ if (_varName in _specialVarLoads) then {
 		if (count _varValue == 3) then {
 			[] spawn A3A_fnc_buildHQ;
 		} else {
-			fireX setPos (_varValue select 1);
-			boxX setDir ((_varValue select 2) select 0);
-			boxX setPos ((_varValue select 2) select 1);
-			mapX setDir ((_varValue select 3) select 0);
-			mapX setPos ((_varValue select 3) select 1);
-			flagX setPos (_varValue select 4);
-			vehicleBox setDir ((_varValue select 5) select 0);
-			vehicleBox setPos ((_varValue select 5) select 1);
-			traderScreenX setDir ((_varValue select 6) select 0);
-			traderScreenX setPos ((_varValue select 6) select 1);
+			boxX setDir ((_varValue select 1) select 0);
+			boxX setPos ((_varValue select 1) select 1);
+			mapX setDir ((_varValue select 2) select 0);
+			mapX setPos ((_varValue select 2) select 1);
+			flagX setPos (_varValue select 3);
+			vehicleBox setDir ((_varValue select 4) select 0);
+			vehicleBox setPos ((_varValue select 4) select 1);
+			traderScreenX setDir ((_varValue select 5) select 0);
+			traderScreenX setPos ((_varValue select 5) select 1);
 		};
 		{_x setPos _posHQ} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	};
@@ -325,7 +317,7 @@ if (_varName in _specialVarLoads) then {
 			_posVeh = _varvalue select _i select 1;
 			_xVectorUp = _varvalue select _i select 2;
 			_xVectorDir = _varvalue select _i select 3;
-			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"NONE"];
+			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
 			// This is only here to handle old save states. Could be removed after a few version itterations. -Hazey
 			if ((_varvalue select _i select 2) isEqualType 0) then { // We have to check number because old save state might still be using getDir. -Hazey
 				_dirVeh = _varvalue select _i select 2;
@@ -333,7 +325,7 @@ if (_varName in _specialVarLoads) then {
 				_veh setVectorUp surfaceNormal (_posVeh);
 				_veh setPosATL _posVeh;
 			} else {
-				_veh setPosATL _posVeh;
+				if (A3A_saveVersion >= 20401) then { _veh setPosWorld _posVeh } else { _veh setPosATL _posVeh };
 				_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
 			};
 			[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -345,6 +337,19 @@ if (_varName in _specialVarLoads) then {
 			};
 		};
 		publicVariable "staticsToSave";
+	};
+	if (_varname == 'constructionsX') then {
+		for "_i" from 0 to (count _varvalue) - 1 do {
+			_typeVehX = _varvalue select _i select 0;
+			_posVeh = _varvalue select _i select 1;
+			_xVectorUp = _varvalue select _i select 2;
+			_xVectorDir = _varvalue select _i select 3;
+			private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
+			_veh setPosWorld _posVeh;
+			_veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
+			constructionsToSave pushBack _veh;
+		};
+		publicVariable "constructionsToSave";
 	};
 	if (_varname == 'tasks') then {
 		{
@@ -379,15 +384,39 @@ if (_varName in _specialVarLoads) then {
         isTraderQuestCompleted = _varvalue;  publicVariable "isTraderQuestCompleted";
     };
 
-    if(_varname == 'traderPosition') then {
-        diag_log format ["Trader Position: %1", str _varvalue];
+	if(_varName == 'traderDiscount') then {
+		if(_varValue > 0) then {
+			[_varValue] call SCRT_fnc_trader_setTraderDiscount;
+		};
+		traderDiscount = _varValue;
+		publicVariable "traderDiscount";
+	};
 
+    if(_varname == 'traderPosition') then {
         if(count _varvalue > 0) then {
             traderX = [_varvalue] call SCRT_fnc_trader_createTrader; publicVariable "traderX";
             [traderX] call SCRT_fnc_trader_setTraderStock;
             [traderX] remoteExecCall ["SCRT_fnc_trader_addVehicleMarketAction", 0, true];
             traderPosition = _varvalue; publicVariable "traderPosition";
         };
+    };
+
+	if(_varname == 'areOccupantsDefeated') then {
+        diag_log format ["Occupants defeated: %1", str _varvalue];
+        areOccupantsDefeated = _varvalue;
+		publicVariable "areOccupantsDefeated";
+		if (areOccupantsDefeated) then {
+			"NATO_carrier" setMarkerAlpha 0;
+		};
+    };
+
+	if(_varname == 'areInvadersDefeated') then {
+        diag_log format ["Invaders defeated: %1", str _varvalue];
+        areInvadersDefeated = _varvalue;
+		publicVariable "areInvadersDefeated";
+		if (areInvadersDefeated) then {
+			"CSAT_carrier" setMarkerAlpha 0;
+		};
     };
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];

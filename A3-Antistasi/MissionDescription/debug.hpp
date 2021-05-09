@@ -1,2 +1,5 @@
 allowFunctionsLog = 1;
-enableDebugConsole[] = {"76561197981991967","76561198011383725","76561198304402577","76561198075487693","76561198105754435","76561198000461190"};
+enableDebugConsole[] = {
+    "76561197993477748" //Socrates
+};
+allowFunctionsRecompile = 1;

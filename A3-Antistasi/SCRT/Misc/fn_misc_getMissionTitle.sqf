@@ -17,10 +17,6 @@ switch (toLower worldName) do {
 	{
 	    _title = localize "STR_antistasi_mission_info_vt7_mapname_text";
 	};
-	case "taviana":
-	{
-	    _title = localize "STR_antistasi_mission_info_taviana_mapname_text";
-	};
 	case "cup_chernarus_a3":
 	{
 		_title = localize "STR_antistasi_mission_info_chernarus2020_mapname_text";
@@ -28,6 +24,14 @@ switch (toLower worldName) do {
 	case "napf":
 	{
 		_title = localize "STR_antistasi_mission_info_napf_mapname_text";
+	};
+	case "abramia":
+	{
+		_title = localize "STR_antistasi_mission_info_abramia_mapname_text";
+	};
+	case "panthera3":
+	{
+		_title = localize "STR_antistasi_mission_info_panthera_mapname_text";
 	};
 	default
 	{

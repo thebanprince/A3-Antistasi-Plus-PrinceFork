@@ -52,8 +52,29 @@ _mrk setMarkerBrushLocal "DiagGrid";
 _ang = markerDir _markerX;
 _mrk setMarkerDirLocal _ang;
 if (!debug) then {_mrk setMarkerAlphaLocal 0};
+
+private _patrolVehicleData = [_sideX, _positionX, _size] call SCRT_fnc_garrison_rollOversizeVehicle;
+if (!(_patrolVehicleData isEqualTo [])) then {
+	private _patrolVeh = _patrolVehicleData select 0;
+	private _patrolVehCrew = crew _patrolVeh;
+	private _patrolVehicleGroup = _patrolVehicleData select 2;
+	{[_x] call A3A_fnc_NATOinit} forEach _patrolVehCrew;
+	[_patrolVeh, _sideX] call A3A_fnc_AIVEHinit;
+
+	_soldiers = _soldiers + _patrolVehCrew;
+	_groups pushBack _patrolVehicleGroup;
+	_vehiclesX pushBack _patrolVeh;
+
+	[_patrolVehicleGroup, _positionX, (_size + 50)] call bis_fnc_taskPatrol;
+};
+
 _garrison = garrison getVariable [_markerX,[]];
+_garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
+if (count _garrison > 60) then {
+	_garrison resize 60;
+};
 _garrison = _garrison call A3A_fnc_garrisonReorg;
+
 _radiusX = count _garrison;
 private _patrol = true;
 //If one is missing, there are no patrols??
@@ -73,12 +94,17 @@ if (_patrol) then
 	{
 		_arraygroups = if (_sideX == Occupants) then
 		{
-			if (!_isFIA) then {call SCRT_fnc_unit_getCurrentGroupNATOSmall} else {call SCRT_fnc_unit_getCurrentFIAPatrol};
+			if (!_isFIA) then {
+				[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
+			} else {
+				groupsFIASmall
+			};
 		}
 		else
 		{
-			groupsCSATsmall
+			[(groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier), (groupsCSATSniper call SCRT_fnc_unit_selectInfantryTier)]
 		};
+				
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - sniperGroups};
 		_typeGroup = selectRandom _arraygroups;
 		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
@@ -101,7 +127,11 @@ if (_patrol) then
 
 if ((_frontierX) and (_markerX in outposts)) then
 {
-	_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+	_typeUnit = if (_sideX==Occupants) then {
+		staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+	} else {
+		staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+	};
 	_typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if(_spawnParameter isEqualType []) then
@@ -118,9 +148,8 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_vehiclesX pushBack _veh;
 		sleep 1;
 
-		
 		{
-			private _relativePosition = [_mortarPos, 3, _x] call BIS_Fnc_relPos;
+			private _relativePosition = [_mortarPos, 4, _x] call BIS_Fnc_relPos;
 			private _sandbag = createVehicle ["Land_BagFence_Round_F", _relativePosition, [], 0, "CAN_COLLIDE"];
 			_sandbag setDir ([_sandbag, _mortarPos] call BIS_fnc_dirTo);
 			_sandbag setVectorUp surfaceNormal position _sandbag;
@@ -147,11 +176,26 @@ _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
 
-private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
-private _ammoBox = _ammoBoxType createVehicle _positionX;
-[_ammoBox] spawn A3A_fnc_fillLootCrate;
-_ammoBox call jn_fnc_logistics_addAction;
-_vehiclesX pushBack _ammoBox;
+// Only create ammoBox if it's been recharged (see reinforcementsAI)
+private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
+{
+	private _ammoBoxType = if (_sideX == Occupants) then {NATOAmmoBox} else {CSATAmmoBox};
+	private _ammoBox = _ammoBoxType createVehicle _positionX;
+	// Otherwise when destroyed, ammoboxes sink 100m underground and are never cleared up
+	_ammoBox addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
+	[_ammoBox] spawn A3A_fnc_fillLootCrate;
+	[_ammoBox] call A3A_fnc_logistics_addLoadAction;
+
+	if (_markerX in seaports) then {
+		[_ammoBox] spawn {
+			sleep 1;    //make sure fillLootCrate finished clearing the crate
+			{
+				_this#0 addItemCargoGlobal [_x, round random [2,6,8]];
+			} forEach diveGear;
+		};
+	};
+	_ammoBox;
+};
 
 _roads = _positionX nearRoads _size;
 
@@ -164,7 +208,7 @@ if (_markerX in seaports) then
 		if(count _mrkMar > 0) then
 		{
 			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
-			_vehicle=[_pos, 0,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+			_vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 			_veh = _vehicle select 0;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_vehCrew = _vehicle select 1;
@@ -180,10 +224,6 @@ if (_markerX in seaports) then
 			diag_log format ["createAIOutposts: Could not find seaSpawn marker on %1!", _markerX];
 		};
 	};
-	sleep 1;    //make sure fillLootCrate finished clearing the crate
-	{
-		 _ammoBox addItemCargoGlobal [_x, round random [2,6,8]];
-	} forEach diveGear;
 }
 else
 {
@@ -210,8 +250,6 @@ else
 				};
 			} forEach _roadscon;
 			_dirveh = [_roadcon, _road] call BIS_fnc_DirTo;
-				//if (!_isFIA) then		_isFIA can only be true if _frontierX (line 167) is false, if unneeded, else case not possible
-			//{
 
 			_groupX = createGroup _sideX;
 			_groups pushBack _groupX;
@@ -225,7 +263,11 @@ else
 			_vehiclesX pushBack _veh;
 			_veh setPos [(_pos select 0) - 1, (_pos select 1) - 1, _pos select 2];
 			_veh setDir _dirVeh + 180;
-			_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+			_typeUnit = if (_sideX==Occupants) then {
+				staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+			} else {
+				staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+			};
 			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -234,13 +276,15 @@ else
 		};
 	};
 };
-//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
+
 _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
 	_typeVehX = if (_sideX == Occupants) then
 	{
-		if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks + vehNATOFlatbedTrucks} else {[vehFIATruck]};
+		private _types = if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {[vehFIATruck]};
+		_types = _types select { _x in vehCargoTrucks };
+		if (count _types == 0) then { vehNATOCargoTrucks } else { _types };
 	}
 	else
 	{
@@ -273,24 +317,7 @@ if (!isNull _antenna) then
 		};
 		_typeUnit = if (_sideX == Occupants) then {
 			if (!_isFIA) then {
-				if(hasTieredUnitConfigs) then {
-					switch (true) do {
-						case (tierWar < 5):
-						{
-							NATOMarksman select 0
-						};
-						case (tierWar < 8 && {tierWar > 4}):
-						{
-							NATOMarksman select 1
-						};
-						case (tierWar > 7):
-						{
-							NATOMarksman select 2
-						};
-					};
-				} else {
-					NATOMarksman select 0
-				};
+				NATOMarksman call SCRT_fnc_unit_selectInfantryTier
 			} else {FIAMarksman}
 		} else {CSATMarksman};
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
@@ -363,3 +390,11 @@ deleteMarker _mrk;
 {
 	deleteVehicle _x;
 } forEach _props;
+
+// If loot crate was stolen, set the cooldown
+if (!isNil "_ammoBox") then {
+	if ((alive _ammoBox) and (_ammoBox distance2d _positionX < 100)) exitWith { deleteVehicle _ammoBox };
+	if (alive _ammoBox) then { [_ammoBox] spawn A3A_fnc_VEHdespawner };
+	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
+	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
+};

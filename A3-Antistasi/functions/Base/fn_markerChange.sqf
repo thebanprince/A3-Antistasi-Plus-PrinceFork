@@ -65,15 +65,35 @@ garrison setVariable [format ["%1_requested", _markerX], [], true];
 if (_winner == teamPlayer) then
 {
 	_super = if (_markerX in airportsX or {_markerX in milbases}) then {true} else {false};
-	[_markerX,_looser,"",_super] spawn A3A_fnc_patrolCA;
-	//sleep 15;
-	// Removed for the moment, old broken stuff
-//	[[_markerX],"A3A_fnc_autoGarrison"] call A3A_fnc_scheduler;
+    if(_positionX distance2D posHQ > distanceMission) then
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            waitUntil
+            {
+                sleep 10;
+                spawner getVariable _marker == 2
+            };
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    }
+    else
+    {
+        [_markerX, _looser, _super] spawn
+        {
+            params ["_marker", "_loser", "_super"];
+            sleep (random ((15 - tierWar) * 60));
+            if(sidesX getVariable [_marker, sideUnknown] == _loser) exitWith {};
+            [[_marker, _loser, _super], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+        };
+    };
 }
 else
 {
 	_soldiers = [];
-	{_soldiers pushBack (typeOf _x)} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
+	{_soldiers pushBack (_x getVariable "unitType")} forEach (allUnits select {(_x distance _positionX < (_size*3)) and (_x getVariable ["spawner",false]) and (side group _x == _winner) and (vehicle _x == _x) and (alive _x)});
 	[_soldiers,_winner,_markerX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
 	//New system =================================================================
@@ -346,7 +366,7 @@ if (_markerX in resourcesX) then
 
 [3, format ["Notification and points done for marker change at %1", _markerX], _fileName] call A3A_fnc_log;
 
-{_nul = [_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
+{[_markerX,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 if (_winner == teamPlayer) then
 {
 	[] call A3A_fnc_tierCheck;
@@ -374,7 +394,8 @@ if (_winner == teamPlayer) then
 		//[_flagX,"garage"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		if (_markerX in seaports) then {[_flagX,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX]};
 	};
-	[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
+    ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+    ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 	waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({((side group _x) in [_looser,_other]) and (_x getVariable ["spawner",false]) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits > 3*({(side _x == teamPlayer) and ([_x,_markerX] call A3A_fnc_canConquer)} count allUnits))};
 	if (spawner getVariable _markerX != 2) then
 	{
@@ -412,8 +433,9 @@ else
 	};
 	if (_looser == teamPlayer) then
 		{
-		[_prestigeOccupants,_prestigeInvaders] spawn A3A_fnc_prestige;
-		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !(["DEF_HQ"] call BIS_fnc_taskExists) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
+        ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
+        ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
+		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !("DEF_HQ" in A3A_activeTasks) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
 		};
 	};
 if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
@@ -443,5 +465,19 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 	};
 };
 markersChanging = markersChanging - [_markerX];
+
+//if side somehow manages to capture point after their defeat -
+//for example, attack that was started before last point capture and then succeeded after defeat,
+//they can revert their defeat
+if (areInvadersDefeated && {_winner == Invaders}) then {
+	areInvadersDefeated = false;
+    publicVariable "areInvadersDefeated";
+	"CSAT_carrier" setMarkerAlpha 1;
+};
+if (areOccupantsDefeated && {_winner == Occupants}) then {
+	areOccupantsDefeated = false;
+    publicVariable "areOccupantsDefeated";
+	"NATO_carrier" setMarkerAlpha 1;
+};
 
 [3, format ["Finished marker change at %1", _markerX], _fileName] call A3A_fnc_log;

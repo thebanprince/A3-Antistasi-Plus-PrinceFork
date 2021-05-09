@@ -422,7 +422,6 @@ switch _mode do {
 		diag_log ["_beingChanged",_beingChanged];
 		diag_log ["_locked",_locked];
 
-		if(!isMultiplayer)exitWith{};
 		if(_beingChanged isEqualTo "" || _beingChanged isEqualTo (name player))then{
 
 			if(_locked isEqualTo (getPlayerUID player))then{
@@ -1462,16 +1461,14 @@ switch _mode do {
 
 
 					//update lock button
-					if(isMultiplayer)then{
-						_ctrlButtonLock = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
-						_ctrlButtonLock ctrlEnable true;
-						if (_locked isEqualTo "") then{
-							_ctrlButtonLock ctrlSetText "Lock Vehicle";
-							_ctrlButtonLock ctrlSetTooltip "Locks vehicle so others cant use it";
-						}else{
-							_ctrlButtonLock ctrlSetText "Unlock Vehicle";
-							_ctrlButtonLock ctrlSetTooltip "Unlocks vehicle so others can use it";
-						};
+					_ctrlButtonLock = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONINTERFACE;
+					_ctrlButtonLock ctrlEnable true;
+					if (_locked isEqualTo "") then{
+						_ctrlButtonLock ctrlSetText "Lock Vehicle";
+						_ctrlButtonLock ctrlSetTooltip "Locks vehicle so others cant use it";
+					}else{
+						_ctrlButtonLock ctrlSetText "Unlock Vehicle";
+						_ctrlButtonLock ctrlSetTooltip "Unlocks vehicle so others can use it";
 					};
 
 					//show right icons and list

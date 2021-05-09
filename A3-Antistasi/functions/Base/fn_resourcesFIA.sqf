@@ -35,7 +35,7 @@ switch (true) do {
 	};
 	case (_resourcesFIA != 5): {
 		_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>Money: %4%2 €",_hr,_resourcesFIA,_hrSim,_resourcesFIASim,nameTeamPlayer];
-	};		
+	};
 };
 
 if (_textX != "") then {

@@ -1,13 +1,12 @@
 private ["_display","_childControl"];
-_nul = createDialog "unit_recruit";
+createDialog "unitRecruit";
 
 sleep 1;
 disableSerialization;
 
-_display = findDisplay 100;
+private _display = findDisplay 100;
 
-if (str (_display) != "no display") then
-{
+if (str (_display) != "no display") then {
 	_ChildControl = _display displayCtrl 104;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable (SDKMil select 0)];
 	_ChildControl = _display displayCtrl 105;

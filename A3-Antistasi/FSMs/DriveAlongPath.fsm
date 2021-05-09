@@ -1,12 +1,12 @@
 /*%FSM<COMPILE "scriptedFSM.cfg, DriveAlongPath">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
+item0[] = {"Start",0,250,-258.071289,-342.907776,-168.071396,-292.907776,0.000000,"Start"};
 item1[] = {"_",-1,250,-162.790146,-180.814117,-73.255249,-177.907150,0.000000,""};
 item2[] = {"End_and_Rejoin",1,250,121.673431,-203.263062,211.673462,-153.263077,0.000000,"End and Rejoin"};
 item3[] = {"HasArrived",4,218,-87.535736,-114.861282,2.464264,-64.861282,10.000000,"HasArrived"};
 item4[] = {"Abort",4,218,-87.177856,-219.679779,2.822144,-169.679764,100.000000,"Abort"};
-item5[] = {"Head_to__Next_Po",2,250,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
+item5[] = {"Head_to__Next_Po",2,4346,-256.894318,-166.599014,-166.894302,-116.599007,0.000000,"Head to " \n "Next Pos"};
 item6[] = {"True",8,218,-257.487732,-253.817780,-167.487717,-203.817780,0.000000,"True"};
 item7[] = {"At_Next_Pos",4,218,-256.300751,-66.920471,-166.300781,-16.920471,5.000000,"At Next Pos"};
 item8[] = {"Fucked_Waypoint",4,218,-398.105469,-164.819061,-308.105469,-114.819061,0.000000,"Fucked" \n "Waypoint"};
@@ -40,8 +40,8 @@ link10[] = {7,5};
 link11[] = {8,5};
 link12[] = {9,2};
 link13[] = {11,10};
-globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-511.636810,203.138428,114.009247,-454.211395,1112,884,1};
-window[] = {2,-1,-1,-32000,-32000,915,156,1596,156,3,1130};
+globals[] = {0.000000,0,0,0,0,640,480,1,36,6316128,1,-511.636810,203.138428,114.009247,-454.211395,1108,1204,1};
+window[] = {2,-1,-1,-1,-1,951,192,1632,192,3,1130};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -126,19 +126,12 @@ class FSM
                          "private _nextPos = _route # _currentNode;" \n
                          "" \n
                          "//Move all of the groups, as we don't know who is in command." \n
-                         "{" \n
-                         "	//while {count waypoints _x > 0} do {" \n
-                         "	//	deleteWaypoint (waypoints _x select 0);" \n
-                         "	//};" \n
-                         "" \n
-                         "	//_x addWaypoint [getPosASL _vehicle, -1];" \n
-                         "	private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" \n
-                         "" \n
-                         "" \n
-                         "	_x setCurrentWaypoint _nextWaypoint;" \n
-                         "" \n
-                         "	//_x move _nextPos;" \n
-                         "} forEach (_splitCrew # 0);"/*%FSM</STATEINIT""">*/;
+                         "if (!isNil ""_nextPos"" && {(count _nextPos) == 3}) then {" \n
+                         "		{" \n
+                         "			private _nextWaypoint = _x addWaypoint [AGLToASL _nextPos, -1];" \n
+                         "			_x setCurrentWaypoint _nextWaypoint;" \n
+                         "		} forEach (_splitCrew # 0);" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {

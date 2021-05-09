@@ -15,14 +15,15 @@ _result = false;
 
 //Tanks are always combined with an AT team
 if(_vehicle == "LAND_TANK") exitWith {
-  _currentNATOATGroup = call SCRT_fnc_unit_getCurrentGroupNATOAT;
+  _currentNATOATGroup = groupsNATOAT;
   (_group == _currentNATOATGroup || {_group == groupsCSATAT})
 };
 
 //AA is always combined with an AA team
 if(_vehicle == "LAND_AIR") exitWith {
-  _currentNATOAAGroup = call SCRT_fnc_unit_getCurrentGroupNATOAA;
-  (_group == _currentNATOAAGroup || {_group == groupsCSATAA})
+  private _currentOccAAGroup = groupsNATOAA call SCRT_fnc_unit_selectInfantryTier;
+  private _currentInvAAGroup = groupsCSATAA call SCRT_fnc_unit_selectInfantryTier;
+  (_group == _currentOccAAGroup || {_group == _currentInvAAGroup})
 };
 
 //Check group size to determine

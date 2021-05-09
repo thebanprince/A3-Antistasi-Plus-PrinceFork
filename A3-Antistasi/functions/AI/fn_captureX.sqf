@@ -9,8 +9,7 @@ if (!alive _unit) exitWith {};
 private _sideX = side (group _unit);
 private _interrogated = _unit getVariable ["interrogated", false];
 
-private _modAggroOcc = [0, 0];
-private _modAggroInv = [0, 0];
+private _modAggro = [0, 0];
 private _modHR = false;
 private _response = "";
 private _fleeSide = _sideX;
@@ -20,20 +19,21 @@ if (_recruiting) then {
 	_playerX globalChat localize "STR_recruit_text";
 
 	private _chance = 0;
-	if (_sideX == Occupants) then {
-        _modAggroOcc = [1, 30];
-		if (faction _unit == factionFIA) then { _chance = 60;}
+	if (_sideX == Occupants) then
+    {
+		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 20;};
 	}
-	else {
-        _modAggroInv = [1, 30];
-		if (faction _unit == factionFIA) then { _chance = 60;}
+	else
+    {
+		if ("militia_" in (_unit getVariable "unitType")) then { _chance = 60;}
 		else { _chance = 40;};
 	};
 	if (_interrogated) then { _chance = _chance / 2 };
 
 	if (random 100 < _chance) then
     {
+		_modAggro = [1, 30];
 		_response = localize "STR_recruit_success_text";
 		_modHR = true;
 		_fleeSide = teamPlayer;
@@ -41,8 +41,7 @@ if (_recruiting) then {
 	else
     {
 		_response =  localize "STR_screw_fail_text";
-		_modAggroOcc = [0, 0];
-		_modAggroInv = [0, 0];
+		_modAggro = [0, 0];
 	};
 }
 else {
@@ -53,15 +52,9 @@ else {
 		localize "STR_release_response_three_text"
 	];
 
+    _modAggro = [-3, 30];
 
-	if (_sideX == Occupants) then {
-    	_modAggroOcc = [-3, 30];
-
-		[player, Occupants, _unit] call SCRT_fnc_common_givePrisonerReleasePaycheck;
-	}
-	else {
-        _modAggroInv = [-3, 30];
-	};
+	[player, _sideX] call SCRT_fnc_common_givePrisonerReleasePaycheck;
 };
 
 
@@ -74,7 +67,7 @@ private _group = group _unit;		// Group should be surrender-specific now
 sleep 100;
 if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
 {
-	[_modAggroOcc,_modAggroInv] remoteExec ["A3A_fnc_prestige",2];
+	([_sideX] + _modAggro) remoteExec ["A3A_fnc_addAggression",2];
 	if (_modHR) then { [1,0] remoteExec ["A3A_fnc_resourcesFIA",2] };
 };
 

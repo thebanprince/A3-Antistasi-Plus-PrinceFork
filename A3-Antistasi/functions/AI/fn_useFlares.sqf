@@ -8,10 +8,10 @@ private _funcName = "fn_useFlares";
 sleep random 5;
 
 _soundPool = ["A3\Sounds_F\weapons\Flare_Gun\flaregun_1.wss", "A3\Sounds_F\weapons\Flare_Gun\flaregun_2.wss"];
-_flaresPool = if(hasAU || {hasCup}) then { 
+_flaresPool = if (A3A_hasCup) then { 
 	["CUP_F_40mm_Star_White", "CUP_F_40mm_Star_Red"] 
 } else { 
-	if (hasRHS) then {
+	if (A3A_hasRhs) then {
 		["rhsusf_40mm_white", "rhsusf_40mm_green", "rhs_mag_m662_red"]
 	} else {
 		["F_40mm_white", "F_40mm_Red", "F_40mm_Yellow"]
@@ -44,5 +44,3 @@ _flare = _flareModel createVehicle _initialFlarePosition;
 _flare setVelocity [-10+random 20, -10+random 20, -5];
 
 playSound3D [(selectRandom _soundPool), _unit, false,  getPosASL _unit, 1.5, 1, 450, 0];
-
-[2, format ["Flare Vehicle: %1, Flare starting position: %2", typeOf _flare, str _initialFlarePosition], _funcName] call A3A_fnc_log;

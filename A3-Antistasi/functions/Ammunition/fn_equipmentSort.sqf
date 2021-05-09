@@ -16,15 +16,13 @@
 		//RHS
 		case "rhsgref_faction_nationalist": {if (nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
 		case "rhsgref_faction_hidf": {if (nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
-		//3CB These dont actually work, added TKM manually in Template, CCM Uniforms are the same as the Civilian ones.
-		//case "UK3CB_CCM_I": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//case "UK3CB_TKM_B": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
 		//Tanoa/ApexDLC
 		case "IND_C_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//Contact DLC Looters
 		case "IND_L_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
 		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
 		case "BLU_G_F": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
+		case "CUP_I_NAPA": {if (teamPlayer isEqualTo independent) then {allRebelUniforms pushBack _x};};
 	};
 } forEach allUniforms;
 
@@ -64,6 +62,7 @@ allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
 allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
 allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
 allRebelUniforms deleteAt (allRebelUniforms find "U_BG_GhillieSuit");
+allRebelUniforms deleteAt (allRebelUniforms find "CUP_U_I_Ghillie_Top");
 
 ////////////////////////////////////
 //      Backpacks Sorting        ///
@@ -136,3 +135,33 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+
+////////////////
+//   Radios   //
+////////////////
+If (A3A_hasTFAR || A3A_hasTFARBeta) then {
+private _encryptRebel = if (teamPlayer == west) then { ["tf_west_radio_code"] } else { ["tf_guer_radio_code", "tf_independent_radio_code"] };
+allRadios = allRadios select {
+    private _encrypt = getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode");
+    (_encrypt in _encryptRebel);
+};
+
+private _encrypthostile = if (teamPlayer == west) then { ["tf_guer_radio_code", "tf_independent_radio_code", "tf_east_radio_code"] } else { ["tf_west_radio_code", "tf_east_radio_code"] };
+private _allHostileRadio = [];
+{
+    private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
+  	if (_encrypt in _encryptRebel) then {allBackpacksRadio pushBack _x};
+    if (_encrypt in _encrypthostile) then {_allHostileRadio pushBack _x};
+} forEach allBackpacksEmpty;
+
+//Removes Radios from allBackpacksEmpty
+allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpacksRadio;
+};
+/////////////////
+// UAVTerminal //
+/////////////////
+private _encryptRebel = if (teamPlayer == west) then { 1 } else { 2 };
+allUAVTerminals = allUAVTerminals select {
+    private _encrypt = getNumber  (configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "side");
+    (_encrypt isEqualTo "") or (_encrypt isEqualTo _encryptRebel);
+};

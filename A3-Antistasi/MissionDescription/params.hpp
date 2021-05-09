@@ -1,184 +1,226 @@
+// Real defaults are set in functions/init/fn_initParams.sqf and should match the descriptions below
+// 9999 is a special value that causes that parameter to be loaded from the last save, if any
+// 9998 is a reserved value and should not be used
+
 class Params
 {
-     class loadSave
-     {
-          title = "Load last Persistent Save";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class gameMode
-     {
-          title = "Game Mode - Do NOT change this mid mission";
-          values[] = {1,2,3};
-          texts[] = {"Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov"};
-          default = 1;
-     };
-     class autoSave
-     {
-          title = "Enable Autosave (every X minutes)";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class autoSaveInterval
-     {
-          title = "Time between autosaves (in minutes)";
-          values[] = {600,1200,1800,3600,5400};
-          texts[] = {"10","20","30","60","90"};
-          default = 3600;
-     };
-     class membership
-     {
-          title = "Enable Server Membership";
-          texts[] = {"Yes","No"};
-          values[] = {1,0};
-          default = 1;
-     };
-     class switchComm
-     {
-          title = "Enable Commander Switch (highest ranked player)";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class tkPunish
-     {
-          title = "Enable Teamkill Punish";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class mRadius
-     {
-          title = "Max distance from HQ for tasks";
-          values[] = {2000,4000,6000,8000,10000,12000};
-          default = 2000;
-     };
-     class allowPvP
-     {
-          title = "Allow PvP Slots";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class pMarkers
-     {
-          title = "Allow Friendly Player Markers";
-          values[] = {1,0};
-          texts[] = {"Yes","No"};
-          default = 1;
-     };
-     class AISkill
-     {
-          title = "Mission Difficulty";
-          values[] = {1,2,3};
-          texts[] = {"Easy","Normal","Hard"};
-          default = 2;
-     };
-     class unlockItem
-     {
-          title = "Number of the same item required to unlock";
-          values[] = {15,20,25,30,45};
-          default = 20;
-     };
-     class memberOnlyMagLimit
-     {
-          title = "Number of magazines needed for guests to be able to use them";
-          values[] = {10,20,30,40,50,60};
-          default = 30;
-     };
-     class civTraffic
-     {
-          title = "Rate of Civ Traffic";
-          values[] = {0,1,2,4,};
-          texts[] = {"None","Low","Medium","High"};
-          default = 2;
-     };
-     class memberSlots
-     {
-          title = "Percentage of Reserved Slots for Members";
-          values[] = {0,20,40,60,80,100};
-          texts[] = {"None","20%","40%","60%","80%","All"};
-          default = 20;
-     };
-     class memberDistance
-     {
-          title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
-          values[] = {4000,5000,6000,7000,8000,16000};
-          texts[] = {"4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
-          default = 5000;
-     };
-	 class allowMembersFactionGarageAccess
-     {
-          title = "Allow members to access the faction garage";
-          texts[] = {"Yes", "No"};
-          values[] = {1,0};
-          default = 1;
-     };
-     class personalGarageMax
-     {
-          title = "Max personal garage slots";
-          texts[] = {"Unlimited", "2", "5", "10"};
-          values[] = {0,2,5,10};
-          default = 2;
-     };
-     class allowFT
-     {
-          title = "Fast Travel Targets Allowed";
-          values[] = {0,1};
-          texts[] = {"Any friendly position","Only Airports & HQ"};
-          default = 0;
-     };
-     class napalmEnabled
-     {
-          title = "Enable Napalm Bombing for AI";
-          values[] = {0,1};
-          texts[] = {"No","Yes"};
-          default = 1;
-     };
-     class teamSwitchDelay
-     {
-          title = "Delay After Leaving Before a Player Can Join Another Team";
-          values[] = {0, 900, 1800, 3600};
-          texts[] = {"No delay","15 minutes","30 minutes","60 minutes"};
-          default = 3600;
-     };
-     class unlockedUnlimitedAmmo
-     {
-          title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class allowGuidedLaunchers
-     {
-          title = "Should Guided Launchers become unlocked?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class allowUnlockedExplosives
-     {
-          title = "Should Explosives become unlocked?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class startWithLongRangeRadio
-     {
-          title = "[TFAR] Start with Long Range Radio?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class helmetLossChance
-     {
-          title = "Chance of helmet loss on headshots";
-          values[] = {0,33,66,100};
-          texts[] = {"Never","Sometimes","Often","Always"};
-          default = 33;
-     };
+    class howTo0
+    {
+        title = "HOW TO USE ANTISTASI PARAMETERS";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class howTo1
+    {
+        title = "Default values will attempt to load from the save. If not found, the value in brackets will be used instead";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class howTo2
+    {
+        title = "Setting any other value will override that parameter with the chosen value";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class howToSpacer
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class loadSave
+    {
+        title = "Load last Persistent Save";
+        values[] = {1,0};
+        texts[] = {"Yes","No"};
+        default = 1;
+    };
+    class gameMode
+    {
+        title = "Game Mode - Do NOT change this mid mission";
+        values[] = {9999,1,2,3};
+        texts[] = {"Default (Reb vs Gov vs Inv)","Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov"};
+        default = 9999;
+    };
+    class autoSave
+    {
+        title = "Enable Autosave (every X minutes)";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class autoSaveInterval
+    {
+        title = "Time between autosaves (in minutes)";
+        values[] = {9999,600,1200,1800,3600,5400};
+        texts[] = {"Default (60)","10","20","30","60","90"};
+        default = 9999;
+    };
+    class membership
+    {
+        title = "Enable Server Membership";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class switchComm
+    {
+        title = "Enable Commander Switch (highest ranked player)";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class tkPunish
+    {
+        title = "Enable Teamkill Punish";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class mRadius
+    {
+        title = "Max distance from HQ for tasks";
+        values[] = {9999,2000,4000,6000,8000,10000,12000};
+        texts[] = {"Default (4000)","2000","4000","6000","8000","10000","12000"};
+        default = 9999;
+    };
+    class allowPvP
+    {
+        title = "Allow PvP Slots";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class pMarkers
+    {
+        title = "Allow Friendly Player Markers";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class AISkill
+    {
+        title = "Mission Difficulty";
+        values[] = {9999,1,2,3};
+        texts[] = {"Default (Normal)","Easy","Normal","Hard"};
+        default = 9999;
+    };
+    class unlockItem
+    {
+        title = "Number of the same item required to unlock";
+        values[] = {9999,25,30,35,40,45,50};
+        texts[] = {"Default (25)","25","30","35","40","45","50"};
+        default = 9999;
+    };
+    class memberOnlyMagLimit
+    {
+        title = "Number of magazines needed for guests to be able to use them";
+        values[] = {9999,10,20,30,40,50,60};
+        texts[] = {"Default (40)","10","20","30","40","50","60"};
+        default = 9999;
+    };
+    class civTraffic
+    {
+        title = "Rate of Civ Traffic";
+        values[] = {9999,0,1,2,4,};
+        texts[] = {"Default (Medium)","None","Low","Medium","High"};
+        default = 9999;
+    };
+    class memberSlots
+    {
+        title = "Percentage of Reserved Slots for Members";
+        values[] = {9999,0,20,40,60,80,100};
+        texts[] = {"Default (20%)","None","20%","40%","60%","80%","All"};
+        default = 9999;
+    };
+    class memberDistance
+    {
+        title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
+        values[] = {9999,4000,5000,6000,7000,8000,16000};
+        texts[] = {"Default (5km)","4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
+        default = 9999;
+    };
+    class allowMembersFactionGarageAccess
+    {
+        title = "Allow members to access the faction garage";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class personalGarageMax
+    {
+        title = "Max personal garage slots";
+        values[] = {9999,0,2,5,10};
+        texts[] = {"Default (2)","Unlimited","2","5","10"};
+        default = 9999;
+    };
+    class allowFT
+    {
+        title = "Fast Travel Targets Allowed";
+        values[] = {9999,0,1};
+        texts[] = {"Default (Airports & HQ)","Any friendly position","Only Airports & HQ"};
+        default = 9999;
+    };
+    class napalmEnabled
+    {
+        title = "Enable Napalm Bombing for AI";
+        values[] = {9999,0,1};
+        texts[] = {"Default (No)","No","Yes"};
+        default = 9999;
+    };
+    class teamSwitchDelay
+    {
+        title = "Delay After Leaving Before a Player Can Join Another Team";
+        values[] = {9999, 0, 900, 1800, 3600};
+        texts[] = {"Default (60 mins)","No delay","15 minutes","30 minutes","60 minutes"};
+        default = 9999;
+    };
+    class unlockedUnlimitedAmmo
+    {
+        title = "Do Unlocked Weapons Automatically Unlock Their Standard Magazine?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class allowGuidedLaunchers
+    {
+        title = "Should Guided Launchers become unlocked?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class allowUnlockedExplosives
+    {
+        title = "Should Explosives become unlocked?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class startWithLongRangeRadio
+    {
+        title = "[TFAR] Start with Long Range Radio?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (Yes)","Yes","No"};
+        default = 9999;
+    };
+    class helmetLossChance
+    {
+        title = "Chance of helmet loss on headshots";
+        values[] = {9999,0,33,66,100};
+        texts[] = {"Default (Sometimes)","Never","Sometimes","Often","Always"};
+        default = 9999;
+    };
+    class Spacer11
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
      class Spacer60
      {
           title = "";
@@ -193,12 +235,12 @@ class Params
           texts[] = {""};
           default = "";
      };
-     class occupantFactionCup
+     class cupOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={0, 1};
-		texts[]={"CDF","EUROFOR"};
-		default = 1;
+		values[]={9999, 0, 1};
+		texts[]={"Default (USAF)", "USAF", "BAF"};
+		default = 9999;
      };
      class Spacer62
      {
@@ -214,12 +256,12 @@ class Params
           texts[] = {""};
           default = "";
      };
-     class occupantFactionRhs
+     class rhsOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={0, 1};
-		texts[]={"CDF mixed with NATO","US"};
-		default = 1;
+		values[]={9999, 0};
+		texts[]={"Default (USAF)", "USAF"};
+		default = 9999;
      };
      class Spacer72
      {
@@ -228,7 +270,6 @@ class Params
           texts[] = {""};
           default = "";
      };
-     
      class Spacer51
      {
           title = "ANTISTASI PLUS SETTINGS";
@@ -238,152 +279,203 @@ class Params
      };
      class timeMultiplier
      {
-          title="Time Multiplier (EXPERIMENTAL)";
-		values[]={1,6,12,24};
-		texts[]={"1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
-		default = 1;
+          title="Time Multiplier";
+		values[]={9999, 1, 6, 12, 24};
+		texts[]={"Default(1:1 (Normal))","1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
+		default = 9999;
      };
-     class pursuers
-     {
-          title = "Enable Pursuers (EXPERIMENTAL)";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class magRepack 
+     //TODO: disabled until random events implementation
+     // class randomEvents
+     // {
+     //      title = "Enable Random Events (EXPERIMENTAL)";
+     //      values[] = {9999, 1, 0};
+     //      texts[] =  {"Default (Yes)","Yes","No"};
+     //      default = 9999;
+     // };
+     class magRepack
      {
           title = "Enable Mag Repack";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (Yes)", "Yes", "No"};
+          default = 9999;
      };
      class traderOnBase
      {
           title = "Arms Dealer Store on HQ (WORKS ONLY IF ARMS DEALER IS NOT FOUND YET)";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (No)", "Yes", "No"};
+          default = 9999;
      };
      class fatalWounds
      {
           title = "Enable Fatal Wounds";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (No)", "Yes", "No"};
+          default = 9999;
      };
-     class 3dIcons
+     class playerIcons
      {
           title = "Show 3D icons above players";
-          values[] = { 0, 1 };
-          texts[] =  {"Don't show", "Only on unconscious players"};
-          default = 1;
+          values[] = {9999, 0, 1 };
+          texts[] =  {"Default (Only on unconscious players)", "Don't show", "Only on unconscious players"};
+          default = 9999;
      };
      class fastTravelEnemyCheck
      {
           title = "Fast Travel Enemies Check";
-          values[] = {1,0};
-          texts[] =  {"Check for player only", "Check for player squad (Vanilla Antistasi Style)"};
-          default = 1;
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (Check for player only)", "Check for player only", "Check for player squad (Vanilla Antistasi Style)"};
+          default = 9999;
+     };
+     class playerStartingMoney
+     {
+          title = "Initial Player Money";
+          values[] = {9999, 0, 100, 200, 500, 1000};
+          texts[] =  {"Default (200)", "0", "100", "200", "500","1000"};
+          default = 9999;
+     };
+     class factionsDefeat
+     {
+          title = "Enemy Factions Defeat (EXPERIMENTAL)";
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (Factions can be defeated for good (only by players))", "Factions can be defeated for good (only by players)", "Disable"};
+          default = 9999;
+     };
+     
+     class Spacer307
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
      };
 
-     class Spacer10
+    class Kart
+    {
+        title = "Allow Items and Vehicles from Karts DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Mark
+    {
+        title = "Allow Items and Vehicles from Marksman DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Heli
+    {
+        title = "Allow Items and Vehicles from Heli DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Expansion
+    {
+        title = "Allow Items and Vehicles from Apex DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Jets
+    {
+        title = "Allow Items and Vehicles from Jets DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Orange
+    {
+        title = "Allow Items and Vehicles from Laws of War DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Tanks
+    {
+        title = "Allow Items and Vehicles from Tanks DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class GlobMob
+    {
+        title = "Allow Items and Vehicles from Global Mobilization DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Enoch
+    {
+        title = "Allow Items and Vehicles from Contact DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class OfficialMod
+    {
+        title = "Allow ADR-97 DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class AoW
+    {
+        title = "Allow Art of War DLC?";
+        values[] = {9999,1,0};
+        texts[] =  {"Default (No)","Yes","No"};
+        default = 9999;
+    };
+    class Spacer0
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class AdvancedParams
+    {
+        title = "ADVANCED USERS ONLY";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+     class LogLevel
      {
-          title = "";
-          values[] = {""};
-          texts[] = {""};
-          default = "";
+        title = "Logging Level (Amount of detail in .rpt file)";
+        values[] = {9999,1,2,3};
+        texts[] = {"Default (Debug)", "Error", "Info", "Debug"};
+        default = 9999;
      };
-     class Kart
-     {
-          title = "Allow Items and Vehicles from Karts DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class Mark
-     {
-          title = "Allow Items and Vehicles from Marksman DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class Heli
-     {
-          title = "Allow Items and Vehicles from Heli DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class Expansion
-     {
-          title = "Allow Items and Vehicles from Apex DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class Jets
-     {
-          title = "Allow Items and Vehicles from Jets DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class Orange
-     {
-          title = "Allow Items and Vehicles from Laws of War DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class Tanks
-     {
-          title = "Allow Items and Vehicles from Tanks DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class GlobMob
-     {
-          title = "Allow Items and Vehicles from Global Mobilization DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 0;
-     };
-     class Enoch
-     {
-          title = "Allow Items and Vehicles from Contact DLC?";
-          values[] = {1,0};
-          texts[] =  {"Yes","No"};
-          default = 1;
-     };
-     class Spacer0
-     {
-          title = "";
-          values[] = {""};
-          texts[] = {""};
-          default = "";
-     };
-     class AdvancedParams
-     {
-          title = "ADVANCED USERS ONLY";
-          values[] = {""};
-          texts[] = {""};
-          default = "";
-     };
-	class LogLevel
-	{
-		title = "Logging Level (Amount of detail in .rpt file)";
-		values[] = {1,2,3};
-		texts[] = {"Error", "Info", "Debug"};
-		default = 3;
-	};
      class SystemChatLogMessages
-	{
-		title = "Post Log Messages to systemChat (Debug)";
-		values[] = {1,0};
-		texts[] = {"Yes", "No"};
-		default = 0;
-	};
+     {
+          title = "Post Log Messages to systemChat (Debug)";
+          values[] = {9999, 1, 0};
+          texts[] = {"Default (No)", "Yes", "No"};
+          default = 9999;
+     };
+     class SupportOptions
+     {
+          title = "SUPPORT OPTIONS";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class allowUnfairSupports
+     {
+          title = "[Experimental - Use at own risk] Allow unfair supports to be used by the enemy";
+          values[] = {9999, 0, 1};
+          texts[] = {"Default (Not Allowed)", "Not allowed", "Allowed"};
+          default = 9999;
+     }
+     class allowFuturisticSupports
+     {
+          title = "[Experimental - Use at own risk](Requires unfair supports) Allow futuristic supports to be used by the enemy";
+          values[] = {9999, 0, 1};
+          texts[] = {"Default (Not Allowed)", "Not allowed", "Allowed"};
+          default = 9999;
+     }
      class CrateOptions
      {
           title = "LOOT CRATE OPTIONS";
@@ -391,33 +483,33 @@ class Params
           texts[] = {""};
           default = "";
      };
-	 class truelyRandomCrates
-	 {
-		  title = "[Experimental] Truely Random Crates: Remove all balance checks from Crates";
-		  values[] = {0, 1};
-		  texts[] = {"False", "True"};
-		  default = 0;
-	 };
-	 class cratePlayerScaling
-	 {
-		title = "Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)";
-		values[] = {0, 1};
-		texts[] = {"False", "True"};
-		default = 1;
-	 };
+     class truelyRandomCrates
+     {
+          title = "[Experimental] Truely Random Crates: Remove all balance checks from Crates";
+          values[] = {9999, 0, 1};
+          texts[] = {"Default (False)", "False", "True"};
+          default = 9999;
+     };
+     class cratePlayerScaling
+     {
+          title = "Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)";
+          values[] = {9999, 0, 1};
+          texts[] = {"Default (True)", "False", "True"};
+          default = 9999;
+     };
      class crateWepTypeMax
      {
           title = "Maximum Weapon Types in Crates";
-          values[] = {0,2,4,6,8,12,16};
-          texts[] = {"1","3","5","7","9","13","17"};
-          default = 3;
+          values[] = {9999,0,2,4,6,8,12,16};
+          texts[] = {"Default (9)","1","3","5","7","9","13","17"};
+          default = 9999;
      };
      class crateWepNumMax
      {
           title = "Maximum Weapon Quantity in Crates";
-          values[] = {0,1,3,5,8,10,15};
-          texts[] = {"None","1","3","5","8","10","15"};
-          default = 10;
+          values[] = {9999,0,1,3,5,8,10,15};
+          texts[] = {"Default (8)","None","1","3","5","8","10","15"};
+          default = 9999;
      };
      class Spacer1
      {
@@ -429,16 +521,16 @@ class Params
      class crateItemTypeMax
      {
           title = "Maximum Item Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 4;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (5)","1","3","5","10"};
+          default = 9999;
      };
      class crateItemNumMax
      {
           title = "Maximum Item Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 5;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (5)","None","1","3","5","10","15"};
+          default = 9999;
      };
      class Spacer2
      {
@@ -450,16 +542,16 @@ class Params
      class crateAmmoTypeMax
      {
           title = "Maximum Ammo Types in Crates";
-          values[] = {0,2,4,6,9,14,19};
-          texts[] = {"1","3","5","7","10","15","20"};
-          default = 6;
+          values[] = {9999,0,2,4,6,9,14,19};
+          texts[] = {"Default (7)","1","3","5","7","10","15","20"};
+          default = 9999;
      };
      class crateAmmoNumMax
      {
           title = "Maximum Ammo Quantity in Crates";
-          values[] = {0,1,3,5,10,15,20,25,30};
-          texts[] = {"None","1","3","5","10","15","20","25","30"};
-          default = 20;
+          values[] = {9999,0,1,3,5,10,15,20,25,30};
+          texts[] = {"Default (20)","None","1","3","5","10","15","20","25","30"};
+          default = 9999;
      };
      class Spacer3
      {
@@ -471,16 +563,16 @@ class Params
      class crateExplosiveTypeMax
      {
           title = "Maximum Explosive Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 2;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (3)","1","3","5","10"};
+          default = 9999;
      };
      class crateExplosiveNumMax
      {
           title = "Maximum Explosive Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 5;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (5)","None","1","3","5","10","15"};
+          default = 9999;
      };
      class Spacer4
      {
@@ -492,16 +584,16 @@ class Params
      class crateAttachmentTypeMax
      {
           title = "Maximum Attachment Types in Crates";
-          values[] = {0,2,4,6,9,12,15,19};
-          texts[] = {"1","3","5","7","10","13","16","20"};
-          default = 6;
+          values[] = {9999,0,2,4,6,9,14,19};
+          texts[] = {"Default (7)","1","3","5","7","10","15","20"};
+          default = 9999;
      };
      class crateAttachmentNumMax
      {
           title = "Maximum Attachment Quantity in Crates";
-          values[] = {0,1,3,5,7,10,15,20,30};
-          texts[] = {"None","1","3","5","7","10","15","20","30"};
-          default = 15;
+          values[] = {9999,0,1,3,5,10,15,20,25,30};
+          texts[] = {"Default (15)","None","1","3","5","10","15","20","25","30"};
+          default = 9999;
      };
      class Spacer5
      {
@@ -513,16 +605,16 @@ class Params
      class crateBackpackTypeMax
      {
           title = "Maximum Backpack Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 0;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (0)","1","3","5","10"};
+          default = 9999;
      };
      class crateBackpackNumMax
      {
           title = "Maximum Backpack Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 3;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (3)","None","1","3","5","10","15"};
+          default = 9999;
      };
      class Spacer6
      {
@@ -534,16 +626,16 @@ class Params
      class crateVestTypeMax
      {
           title = "Maximum Vest Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 0;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (0)","1","3","5","10"};
+          default = 9999;
      };
      class crateVestNumMax
      {
           title = "Maximum Vest Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 0;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (3)","None","1","3","5","10","15"};
+          default = 9999;
      };
      class Spacer7
      {
@@ -555,16 +647,16 @@ class Params
      class crateHelmetTypeMax
      {
           title = "Maximum Helmet Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 0;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (0)","1","3","5","10"};
+          default = 9999;
      };
      class crateHelmetNumMax
      {
           title = "Maximum Helmet Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 0;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (0)","None","1","3","5","10","15"};
+          default = 9999;
      };
      class Spacer8
      {
@@ -576,15 +668,15 @@ class Params
      class crateDeviceTypeMax
      {
           title = "Maximum Device Backpack Types in Crates";
-          values[] = {0,2,4,9};
-          texts[] = {"1","3","5","10"};
-          default = 2;
+          values[] = {9999,0,2,4,9};
+          texts[] = {"Default (3)","1","3","5","10"};
+          default = 9999;
      };
      class crateDeviceNumMax
      {
           title = "Maximum Device Backpack Quantity in Crates";
-          values[] = {0,1,3,5,10,15};
-          texts[] = {"None","1","3","5","10","15"};
-          default = 3;
+          values[] = {9999,0,1,3,5,10,15};
+          texts[] = {"Default (3)","None","1","3","5","10","15"};
+          default = 9999;
      };
 };

@@ -50,7 +50,7 @@ else {
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 
 		if (_injurer != Invaders) then {
-			[_unit,true] remoteExec ["setCaptive",0,_unit]; 
+			[_unit,true] remoteExec ["setCaptive",0,_unit];
 			_unit setCaptive true
 		};
 	}
@@ -72,8 +72,18 @@ _unit setFatigue 1;
 sleep 2;
 if (_isPlayer) then {
 	group _unit setCombatMode "YELLOW";
-	if (isMultiplayer) then {
-		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
+	[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
+
+	if (isDiscordRichPresenceActive) then {
+		private _possibleMarkers = outposts + airportsX + resourcesX + factories + seaports + milbases + ["NATO_carrier", "CSAT_carrier"];
+		private _nearestMarker = [_possibleMarkers, player] call BIS_fnc_nearestPosition;
+		private _locationName = [_nearestMarker] call A3A_fnc_localizar;
+
+		if(player distance2D (getMarkerPos _nearestMarker) < 300) then {
+			[["UpdateState", format ["Lays unconscious at the %1", _locationName]]] call SCRT_fnc_misc_updateRichPresence;
+		} else {
+			[["UpdateState", "Lays unconscious in the middle of nowhere"]] call SCRT_fnc_misc_updateRichPresence;
+		};
 	};
 };
 
@@ -141,8 +151,13 @@ if (time > _bleedOut) exitWith {
 		_unit setDamage 1;
 	};
 };
+
 if (alive _unit) then {
 	_unit setUnconscious false;
 	_unit setBleedingRemaining 0;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	_unit switchMove "unconsciousoutprone";
+
+	if (isPlayer _unit) then {
+		[] call SCRT_fnc_misc_updateRichPresence;
+	};
 };

@@ -106,7 +106,7 @@ if(_type == "patrol") then
   //TODO rework the origin selection!!
   _threatEvalLand = [_destinationPos, _side] call A3A_fnc_landThreatEval;
 	_airportsX = airportsX select {(sidesX getVariable [_x,sideUnknown] == _side) and ([_x,true] call A3A_fnc_airportCanAttack) and (getMarkerPos _x distance2D _destinationPos < distanceForAirAttack)};
-	_outposts = if (_threatEvalLand <= 15) then {outposts select {(sidesX getVariable [_x,sideUnknown] == _side) and ([_destinationPos, getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _destinationPos < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
+	_outposts = if (_threatEvalLand <= 15) then {outposts select {(sidesX getVariable [_x,sideUnknown] == _side) and ([_destinationPos, getMarkerPos _x] call A3A_fnc_arePositionsConnected) and (getMarkerPos _x distance _destinationPos < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
 	_airportsX = _airportsX + _outposts;
   if (_isMarker) then
 	{
@@ -141,7 +141,7 @@ if(_type == "patrol") then
     (
       (_threatEvalLand <= 15) &&
       {(_originPos distance _destinationPos < distanceForLandAttack) &&
-      {([_originPos, _destinationPos] call A3A_fnc_isTheSameIsland)}}
+      {([_originPos, _destinationPos] call A3A_fnc_arePositionsConnected)}}
     );
     if(_isLand) then
     {
@@ -364,16 +364,6 @@ if(_type == "convoy") then
       if ((_destination in airportsX) or (_destination in outposts) or (_destination in milbases)) then
       {
       	_typeConvoy = ["Ammunition","Armor"];
-        /* Reinforcement convoys will be standard not a special mission
-      	if (_destination in outposts) then
-        {
-          //That doesn't make sense, or am I wrong? Can someone double check this logic?
-          if (((count (garrison getVariable [_destination, []]))/2) >= [_destinationX] call A3A_fnc_garrisonSize) then
-          {
-            _typeConvoy pushBack "Reinforcements";
-          };
-        };
-        */
       }
       else
       {
@@ -481,11 +471,6 @@ if(_type == "convoy") then
       };
       if(!_abort) then
       {
-        //Deactivated, cause you can't win this mission currently
-        [[teamPlayer,civilian],"CONVOY",[_text,_taskTitle,_destination], _destinationPos,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-        [[_side],"CONVOY1",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_destination],_destinationPos,false,0,true,"run",true] call BIS_fnc_taskCreate;
-        missionsX pushBack ["CONVOY","CREATED"]; publicVariable "missionsX";
-
         sleep (_timeLimit * 60);
         _crewUnits = if(_side == Occupants) then {NATOCrew} else {CSATCrew};
 

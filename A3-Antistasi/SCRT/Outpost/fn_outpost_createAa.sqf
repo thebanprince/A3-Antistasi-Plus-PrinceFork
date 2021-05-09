@@ -1,28 +1,11 @@
-private _position = _this select 0;
+params ["_position"];
 
-//calculating cost and manipulating rebel resources
-private _costs = 1300; 
-private _hr = 1; //static gunner
-private _typeGroup = [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];
-private _typeVeh = vehSDKLightUnarmed;
+private _moneyCost = outpostCost select 0;
+private _hrCost = outpostCost select 1;
 
-
-{
-    _costs = _costs + (server getVariable (_x select 0)); 
-    _hr = _hr +1;
-} forEach _typeGroup;
-
-private _resourcesFIA = server getVariable "resourcesFIA";
-private _hrFIA = server getVariable "hr";
-
-if ((_resourcesFIA < _costs) or (_hrFIA < _hr)) exitWith {
-    ["AA Emplacement", format ["You have no resources to build this AA Emplacement <br/><br/> %1 HR and %2 € needed",_hr,_costs]] call SCRT_fnc_misc_showDeniedActionHint;
-};
-
-[-_hr,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
+[-_hrCost,-_moneyCost] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 private _textX = format ["%1 AA Emplacement", nameTeamPlayer];
-private _tsk = "";
 
 private _marker = createMarker [format ["FIAAApost%1", random 1000], _position];
 _marker setMarkerShape "ICON";
@@ -31,8 +14,10 @@ _marker setMarkerShape "ICON";
 private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
+private _taskId = "outpostTask" + str A3A_taskCount;
+[[teamPlayer,civilian],_taskId,["We are sending a team to establish a AA emplacement. Use HC to send the team to their destination","Post \ AA Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-[[teamPlayer,civilian],"outpostTask",["We are sending a team to establish a AA emplacement. Use HC to send the team to their destination","Post \ AA Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 _formatX = [];
 {
     if (random 20 <= skillFIA) then {
@@ -40,13 +25,13 @@ _formatX = [];
     } else {
         _formatX pushBack (_x select 0)
     };
-} forEach _typeGroup;
+} forEach [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 _groupX setGroupId ["Emplacement Crew"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
-_truckX = _typeVeh createVehicle _pos;
+_truckX = vehSDKLightUnarmed createVehicle _pos;
 _groupX addVehicle _truckX;
 {
     [_x] call A3A_fnc_FIAinit
@@ -55,9 +40,16 @@ leader _groupX setBehaviour "SAFE";
 (units _groupX) orderGetIn true;
 theBoss hcSetGroup [_groupX];
 
-waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
+outpostCost = nil;
+["REMOVE"] call SCRT_fnc_ui_establishOutpostEventHandler;
+ctrlSetFocus ((findDisplay 60000) displayCtrl 2700);
+sleep 0.01;
+closeDialog 0;
+closeDialog 0;
 
-if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) then {
+waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
+
+if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then {
 	if (isPlayer leader _groupX) then {
 		_owner = (leader _groupX) getVariable ["owner",leader _groupX];
 		(leader _groupX) remoteExec ["removeAllActions",leader _groupX];
@@ -73,22 +65,18 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	markersX = markersX + [_marker];
 	publicVariable "markersX";
 	spawner setVariable [_marker,2,true];
-	["outpostTask",["We are sending a team to establish a AA Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_positionTel,"SUCCEEDED"] call A3A_fnc_taskUpdate;
-	_nul = [-5,5,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
+	[_taskId, "outpostTask", "SUCCEEDED"] call A3A_fnc_taskSetState;
+	_nul = [-5,5,_position] remoteExec ["A3A_fnc_citySupportChange",2];
 	_marker setMarkerType "n_recon";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [staticCrewTeamPlayer];
+    _garrison = [(SDKMil select 0)];
     {
-        if (random 20 <= skillFIA) then {
-            _garrison pushBack (_x select 1)
-        } else {
-            _garrison pushBack (_x select 0)
-        };
-    } forEach _typeGroup;
+    	_garrison pushBack (_x select 0);
+    } forEach [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];
     garrison setVariable [_marker,_garrison,true];
 } else {
-    ["outpostTask",["We are sending a team to establish a Emplacement. Use HC to send the team to their destination","Post \ Emplacement Deploy",_marker],_positionTel,"FAILED"] call A3A_fnc_taskUpdate;
+   	[_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;
     sleep 3;
     deleteMarker _marker;
 };
@@ -101,4 +89,4 @@ deleteVehicle _truckX;
 deleteGroup _groupX;
 sleep 15;
 
-_nul = [0,"outpostTask"] spawn A3A_fnc_deleteTask;
+[_taskId, "outpostTask", 0] spawn A3A_fnc_taskDelete;

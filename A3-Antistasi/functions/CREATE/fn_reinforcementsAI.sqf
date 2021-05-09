@@ -42,22 +42,14 @@ _reinfPlaces = [];
 	{
 		if (_numReal + 8 <= _numGarr) then
 		{
-
-			if (_sideX == Occupants) then {
-				[call SCRT_fnc_unit_getCurrentNATOSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
-			} else {
-				[selectRandom groupsCSATSquad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
-			};
+			private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+			[selectRandom _squads,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			_numberX = 0;
 		}
 		else
 		{
-			if (_sideX == Occupants) then {
-				_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-				[selectRandom _squad,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
-				} else {
-					[selectRandom groupsCSATmid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
-				};
+			private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+			[selectRandom _mid,_sideX,_airportX,0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			_numberX = 4;
 		};
 	};
@@ -92,14 +84,13 @@ _reinfPlaces = [];
 				{
 					if ({(_x distance2D _positionX < (2*distanceSPWN)) or (_x distance2D (getMarkerPos _siteX) < (2*distanceSPWN))} count allPlayers == 0) then
 					{
-						_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {
-							_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-							selectRandom _squad;
-							} else {
-								call SCRT_fnc_unit_getCurrentNATOSquad
-							}
-						} else {if (_numberX == 4) then {selectRandom groupsCSATmid} else {selectRandom groupsCSATSquad}};
-							
+						private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+						private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+						_typeGroup = if (_numberX == 4) then {
+							selectRandom _mid
+						} else {
+							selectRandom _squads
+						};
 						[_typeGroup,_sideX,_siteX,2] remoteExec ["A3A_fnc_garrisonUpdate",2];
 
 						//This line send a virtual convoy, execute [] execVM "Convoy\convoyDebug.sqf" as admin to see it
@@ -120,6 +111,18 @@ _reinfPlaces = [];
 } forEach _airportsX;
 
 if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFroadPatrol};
+
+
+// Reduce loot crate cooldown if garrison is complete
+{
+	call {
+		private _lootCD = garrison getVariable [_x + "_lootCD", 0];
+		if (_lootCD == 0) exitWith {};							// don't update unless changed
+		private _realSize = count (garrison getVariable [_x, []]);
+		if (_realSize < [_x] call A3A_fnc_garrisonSize) exitWith {};
+		garrison setVariable [_x + "_lootCD", 0 max (_lootCD - 10), true];
+	};
+} forEach (airportsX + outposts + seaports);
 
 
 {

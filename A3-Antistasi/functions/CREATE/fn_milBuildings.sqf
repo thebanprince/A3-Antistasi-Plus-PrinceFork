@@ -13,7 +13,11 @@ _vehiclesX = [];
 _soldiers = [];
 
 _groupX = createGroup _sideX;
-_typeUnit = if (_sideX==Occupants) then {staticCrewOccupants} else {staticCrewInvaders};
+_typeUnit = if (_sideX==Occupants) then {
+    staticCrewOccupants call SCRT_fnc_unit_selectInfantryTier
+} else {
+    staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
+};
 
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];
@@ -37,8 +41,7 @@ if(tierWar > 7 && {random 11 > tierWar}) then {
 
 private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
 private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
-while {_spawnParameter isEqualType [] && {_count > 0}} do
-{
+while {_spawnParameter isEqualType [] && {_count > 0}} do {
     _typeVehX = selectRandom _helicopterTypes;
     _veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
     _veh setDir (_spawnParameter select 1);
@@ -47,6 +50,28 @@ while {_spawnParameter isEqualType [] && {_count > 0}} do
     _count = _count - 1;
 };
 
+private _heavyMarkers = airportsX + milbases;
+if (_markerX in _heavyMarkers) then {
+    private _vehicleTypes = if (_sideX == Occupants) then { vehNATOAPC } else { vehCSATAPC };
+    if (tierWar > 5) then {
+        if (_sideX == Occupants) then {
+            _vehicleTypes append vehNATOTanks;
+        } else {
+            _vehicleTypes append vehCSATTanks;
+        };
+    };
+
+    private _spawnVehParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+    private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
+    while {_spawnVehParameter isEqualType [] && {_count > 0}} do {
+        _typeVehX = selectRandom _vehicleTypes;
+        _veh = createVehicle [_typeVehX, (_spawnVehParameter select 0), [],0, "CAN_COLLIDE"];
+        _veh setDir (_spawnVehParameter select 1);
+        _vehiclesX pushBack _veh;
+        _spawnVehParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+        _count = _count - 1;
+    };
+};
 
 private _fnc_spawnStatic = {
     params ["_type", "_pos", "_dir"];

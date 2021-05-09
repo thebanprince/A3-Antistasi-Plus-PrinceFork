@@ -9,7 +9,6 @@ isSystemChatPostingAllowed = ("SystemChatLogMessages" call BIS_fnc_getParamValue
 boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
-fireX allowDamage false;
 mapX allowDamage false;
 traderScreenX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
@@ -22,75 +21,12 @@ if(isNil "serverID") then {
 };
 publicVariable "serverID";
 
+
+// Read loadLastSave param directly, SP handles this in createDialog_setParams
 if (isMultiplayer) then {
 	//Load server parameters
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	gameMode = "gameMode" call BIS_fnc_getParamValue; publicVariable "gameMode";
-	autoSave = if ("autoSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	autoSaveInterval = "autoSaveInterval" call BIS_fnc_getParamValue;
-	membershipEnabled = if ("membership" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	switchCom = if ("switchComm" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	tkPunish = if ("tkPunish" call BIS_fnc_getParamValue == 1) then {true} else {false};
-	distanceMission = "mRadius" call BIS_fnc_getParamValue; publicVariable "distanceMission";
-	pvpEnabled = if ("allowPvP" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "pvpEnabled";
-	skillMult = "AISkill" call BIS_fnc_getParamValue; publicVariable "skillMult";
-	minWeaps = "unlockItem" call BIS_fnc_getParamValue; publicVariable "minWeaps";
-	memberOnlyMagLimit = "memberOnlyMagLimit" call BIS_fnc_getParamValue; publicVariable "memberOnlyMagLimit";
-	allowMembersFactionGarageAccess = "allowMembersFactionGarageAccess" call BIS_fnc_getParamValue == 1; publicVariable "allowMembersFactionGarageAccess";
-	personalGarageMax = "personalGarageMax" call BIS_fnc_getParamValue; publicVariable "personalGarageMax";
-	civTraffic = "civTraffic" call BIS_fnc_getParamValue; publicVariable "civTraffic";
-	memberDistance = "memberDistance" call BIS_fnc_getParamValue; publicVariable "memberDistance";
-	limitedFT = if ("allowFT" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "limitedFT";
-	napalmEnabled = if ("napalmEnabled" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "napalmEnabled";
-	startWithLongRangeRadio = if ("startWithLongRangeRadio" call BIS_fnc_getParamValue == 1) then {true} else {false}; publicVariable "startWithLongRangeRadio";
-	teamSwitchDelay = "teamSwitchDelay" call BIS_fnc_getParamValue;
-	playerMarkersEnabled = ("pMarkers" call BIS_fnc_getParamValue == 1); publicVariable "playerMarkersEnabled";
-	minPlayersRequiredforPVP = "minPlayersRequiredforPVP" call BIS_fnc_getParamValue; publicVariable "minPlayersRequiredforPVP";
-	helmetLossChance = "helmetLossChance" call BIS_fnc_getParamValue; publicVariable "helmetLossChance";
-	isFatalWoundsEnabled = ("fatalWounds" call BIS_fnc_getParamValue == 1); publicVariable "isFatalWoundsEnabled";
-	fastTravelIndividualEnemyCheck = ("fastTravelEnemyCheck" call BIS_fnc_getParamValue == 1); publicVariable "fastTravelIndividualEnemyCheck";
-	isPursuersEnabled = ("pursuers" call BIS_fnc_getParamValue == 1); publicVariable "isPursuersEnabled";
-	spawnTraderOnBase = ("traderOnBase" call BIS_fnc_getParamValue == 1); publicVariable "spawnTraderOnBase";
-	settingsTimeMultiplier = "timeMultiplier" call BIS_fnc_getParamValue; publicVariable "settingsTimeMultiplier";
-} else {
-	[2, "Setting Singleplayer Params", _fileName] call A3A_fnc_log;
-	//These should be set in the set parameters dialog.
-	//This is just a fallback so we don't break
-	loadLastSave = if (isNil "loadLastSave") then {[1, "No loadLastSave setting", _fileName] call A3A_fnc_log; true} else {loadLastSave};
-	gameMode = if (isNil "gameMode") then {[1, "No gameMode setting", _fileName] call A3A_fnc_log; 1} else {gameMode};
-	autoSave = false;
-	autoSaveInterval = 3600;
-	membershipEnabled = false;
-	switchCom = false;
-	tkPunish = false;
-	distanceMission = 4000;
-	pvpEnabled = false;
-	skillMult = if (isNil "skillMult") then {2} else {skillMult};
-	//Acceptable to default this one.
-	minWeaps = if (isNil "minWeaps") then {25} else {minWeaps};
-	memberOnlyMagLimit = 0;
-	allowMembersFactionGarageAccess = true;
-	personalGarageMax = 2;
-	civTraffic = 1;
-	memberDistance = 10;
-	limitedFT = false;
-	napalmEnabled = false;
-	teamSwitchDelay = 0;
-	playerMarkersEnabled = true;
-	minPlayersRequiredforPVP = 2;
-	helmetLossChance = 33;
-    startWithLongRangeRadio = false;
-	isFatalWoundsEnabled = false;
-	fastTravelIndividualEnemyCheck = false;
-	isPursuersEnabled = true;
-	spawnTraderOnBase = false;
-	settingsTimeMultiplier = 1;
 };
-
-setTimeMultiplier settingsTimeMultiplier;
-
-[] call A3A_fnc_crateLootParams;
-
 
 // Maintain a profilenamespace array called antistasiSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
@@ -132,19 +68,26 @@ call
 publicVariable "loadLastSave";
 publicVariable "campaignID";
 
+// Now load all other parameters, loading from save if available
+call A3A_fnc_initParams;
+
+setTimeMultiplier settingsTimeMultiplier;
+
+//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+call A3A_fnc_initFuncs;
 
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
+call A3A_fnc_logistics_initNodes;
 
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 [2,format ["%1 Antistasi Plus server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-bookedSlots = floor ((("memberSlots" call BIS_fnc_getParamValue)/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-call A3A_fnc_initFuncs;
-if (hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
+bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
+if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
-if (gameMode != 1) then {
+if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
 	if (gameMode == 3) then {"CSAT_carrier" setMarkerAlpha 0};
@@ -246,11 +189,14 @@ waitUntil {sleep 1;!(isNil "placementDone")};
 [2, "HQ Placed, continuing init", _fileName] call A3A_fnc_log;
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
+[] call A3A_fnc_initSupportCooldowns;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
-if(isPursuersEnabled) then {
-	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
-};
+
+//TODO: Disabled until random events full implementation
+// if(areRandomEventsEnabled) then {
+// 	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
+// };
 savingServer = false;
 
 // Autosave loop. Save if there were any players on the server since the last save.
@@ -258,7 +204,8 @@ savingServer = false;
 	private _lastPlayerCount = count (call A3A_fnc_playableUnits);
 	while {true} do
 	{
-		uiSleep autoSaveInterval;
+		autoSaveTime = time + autoSaveInterval;
+		waitUntil { sleep 60; time > autoSaveTime; };
 		private _playerCount = count (call A3A_fnc_playableUnits);
 		if (autoSave && (_playerCount > 0 || _lastPlayerCount > 0)) then {
 			[] remoteExecCall ["A3A_fnc_saveLoop", 2];
@@ -284,14 +231,13 @@ savingServer = false;
 		sleep _logPeriod;
 	};
 };
-execvm "functions\init\fn_initSnowFall.sqf";
 [2,"initServer completed",_fileName] call A3A_fnc_log;
 
 
 waitUntil{sleep 1;!(isNil "initVar")};
 
 //trader functionality on HQ
-if(spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
+if (spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
 	[3, "Spawning trader screen on base.", _fileName] call A3A_fnc_log;
 	isTraderQuestAssigned = true;
 	[] call SCRT_fnc_trader_createTraderTerminal;
@@ -300,7 +246,3 @@ if(spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssi
 	[traderScreenX, true] remoteExec ["hideObject", 0, true];
 	[traderScreenX, false] remoteExec ["enableSimulation", 0, true];
 };
-
-
-
-

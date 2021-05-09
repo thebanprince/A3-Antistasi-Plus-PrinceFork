@@ -1,6 +1,109 @@
-## Changelog
+# Changelog
 
-### 1.4.2
+## 1.5
+### Additions
+- Livonia support
+- Panthera support
+- 3CB Factions support as RHS+ - expands Occupants/Invader factions with new vehicles and units, replaces vanilla civilians and their cars with 3CB Faction ones, adds weapons from 3CB Factions to Arms Dealer store, expands starting arsenal with SMLE and Sterling SMG
+- UI/UX overhaul - new commander and ordinary player menu (O key shortcut), all other menus had been remade on new UI framework
+- Construction overhaul: persistent save for everything players build, revamped UI/UX, much more options to build (has built-in tuneable construction cap, LIFO principle)
+- New commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
+- New special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location, costs 1 support point and 500 euros, players must turn on ability to be moved into aircraft in Game Options menu (O key or map-on-tripod object on base))
+- Support points for non-offensive commander abilities (capped at 3 max, requires War Level 3 to start gaining them)
+- Rally Point - temporary fast travel point that commander could establish (Y->Commander->Place Rally Point, use flagpole on HQ to travel on it, removal refunds 75% of it's cost, units-on-foot-only)
+- Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
+- Discord Rich Presence (automatically turns on when client activates Discord Rich Presence mod from Steam Workshop, updates discord user pop-up window with game situation messages, works only when game language is English due to DRP encoding issues)
+- New intel types - Arms Dealer Store Discount and Convoy Route reveal (marks next convoy route on map for ambush)
+- Ability to buy civilian plane, repair and fuel trucks (military section in vehicle crate, unlocks at 3 factories (repair truck), 3 resources (fuel truck) or airport (civ plane))
+- New action on surrended enemy - reveal near enemies position for 30 sec
+- Ability to repair military buildings on rebel-controlled points
+- Ability to sell non-unlocked guns and items at arms dealer store
+- Initial Player Money mission parameter
+- Defeat faction mission parameter - rebels could defeat any enemy faction altogether by capturing their last outpost so they will be no longer active on the field and launch any attack on rebels, enabled by default
+- Chance for oversized garrison - if aggro is high, there is a chance that garrison will be more populated
+- Rocket Camera (Game Options)
+- Tune weather and fog options (Environment tab in commander menu)
+- Some vehicle  boxes/hangars have a chance to spawn empty heavy vehicle inside it (only on military bases and airports)
+- Ability to hire vehicle crew squads
+- .sqfc bytecode support where possible (may lead to faster loading times and function execution in some circumstances)
+- (Antistasi Units) Cherno 2035 unit template (needs Aegis, Atlas, Atlas- Opposing Forces, Police, CUP Weapons, CUP Vehicles, CUP Units and After East Wind mods to proceed)
+- (Chernarus 2020) New outposts and other points of interest on North-East of map
+- (CUP) BAF faction mission variant (mission parameters)
+- (CUP) USAF faction mission variant (mission parameters)
+- (CUP, RHS) Additional vehicle categories in Vehicle Black Market
+- (RHS) Added RPK-74M, AKMs, MG42, FIM-92 Stinger and 9K38 Igla into Arms Dealer Store stock
+- (RHS, CUP, 3CBF) Ability to buy AA car through vehicle box on HQ
+
+### Changes
+- Merge with 2.4.1 Community Version
+- Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
+- UI/UX overhaul - new commander menu, all others menus were modified with the new UI framework usage
+- Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
+- Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
+- Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
+- Artillery triggers counterattacks too (same as it already works with mortars)
+- Multiple improvements to Kill Collaborationist, Rescue Smugglers and Destroy Artillery tasks
+- AI Limit option maximum changed from 200 to 250
+- Moved Artillery Support menu from Shift+Y to AI Management submenu
+- Increased Loot Truck price from 1000 to 1500
+- AI units have a chance to drop their guns and run away instead of surrender when their morale is low
+- Multiple "Search for Intel" action fixes - fixed some bugs and exploits (multiple searchs on same squad leader), localized string for action, search process visualization
+- Remade announcement system - much less messages on screen will be overwritten by new information
+- AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
+- AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
+- Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), bugfixes, pistols inclusion
+- Airbases have SAM sites too
+- CIWSes and AA vehicles on airbase will scan horizon
+- Adjusted commander loadCoeff (1.4->1.0)
+- Move Static Weapon action renamed to "Move Static Weapon/Loot Crate" to reflect new functionality
+- Previous vehicle tiers will get a discount when next tier is unlocked (Vehicle Black Market)
+- Players can fast travel to Arms Dealer location
+- Ability to reroll Arms Dealer location (Game tab on map -> Reroll Arms Dealer Task, commander only)
+- Patrol vehicles around military bases and airports will not spawn if side is out of vehicles
+- Laser batteries are available from start
+- Initial rebel loadout weapons, backpacks and chestrigs changes
+- Initial player money on start increased from 100 to 200 
+- First document steal or laptop hack in campaign will always have arms dealer task assignment
+- Reworked revive movement delay fix - units will gain their controls back a lot faster, without any delay after initial animation played
+- Flag on HQ will have specified rebel flag texture
+- Infantry Tiers improvements - T1 is militia (War Level 1-4), T2 is regular army (War Level 5-7), elite armed forces is T3 (War Level 8-10), Invaders got new treatment too, each tier has it's own set of weapons and equipment
+- Vehicles can be unflipped with near friendly AI units too now (not only with players as it was before)
+- "Number of the same item required to unlock" parameter new values
+- Fixed "maximumLoad" arsenal bug
+- Default commander can hack UAVs
+- (2.4.1 CV) All unit templates have been remade
+- (2.4.1 CV) Vanilla template has been greatly expanded, militia faction changed to AAF
+- (2.4.1 CV - Napf, Chernarus 2020) New navgrid/pathfinding system
+- (2.4.1 CV) Faction base soldiers (instead of all being Greek like it is in CV)
+- (Altis, 2.4.1 CV) BLUFOR version replaced with INDEP version due to 2.4.1 template changes
+- (Aegis) Zamak Flatbed logistics support
+- (CUP) Static weapons logistics support
+- (CUP) UAZ and some Humvees can load small cargo 
+- (CUP) BRDM-2's can load medium-sized cargo and some static weapons (Metis ATGM and Zu-23 amongst them)
+- (CUP) Hilux with MLRS and UB-32 are back (Artillery section on Vehicle Black Market)
+- (CUP, 3CB Factions) Disabled artillery computer for Hiluxes with MLRS and Rocket payloads
+- (CUP) Added armored unarmed Hilux (War Level 3)
+- (CUP, RHS) Vehicle Black Market - Changed some available vehicles in some categories
+- (CUP) Hilux ZU-23 replaced with Ural ZU-23 on eastern european maps (CUP Technicals store) 
+- (CUP) Bad launcher (_empty, _loaded classname deriatives) will be removed from arsenal on each arsenal tick and ammobox transfer to arsenal
+- (CUP) Changed Vehicle Black Market AA lineup - ZSU-23 Afghanski, M163 VADS, Tunguska
+- (CUP) Technicals menu merged with general "Buy Vehicle" action menu on vehicle box
+- (CUP) Removed Jackal and BTR-60 from technicals menu (both moved to Vehicle Black Market)
+- (CUP) Hilux with Podnos mortar moved from Technicals menu to Artillery section on Vehicle Black Market
+ 
+### Removals
+- Removed Airstrikes title from top status bar
+- Removed tent on rebel HQ (all actions from it were moved to new commander UI)
+- Removed duplicated or obsolete code
+- Singleplayer support is fully turned off, use LAN server to play singleplayer
+- Dropped Taviana support (Taviana IP/Steam Workshop issues)
+- Disabled Pursuers until full Random Events implementation will happen
+- (Altis) removed some outposts to give more variety in possible start positions
+- (Chernarus 2020) removed some outposts and static objects to make some overpopulated with objects areas less populated
+- (2.4.1 CV) Removed Antistasi Units Mod support
+- (2.4.1 CV) Disabled LootToCrate from Community Version (2.4.1) as it conflicts with Antistasi Plus's loot system
+
+## 1.4.2
 - Added Assign as Loot Vehicle commander action (Y menu, ability to give autoloot capabilities to any wheeled or tracked vehicle)
 - Fixed wrong money reward for completing Ambush Officer and Destroy Artillery tasks
 - Slightly lowered prices for vehicles in Vehicles Market
@@ -9,7 +112,8 @@
 - Fixed another bug that contributed to neverending rebel attack bug
 - Fixed trader terminal JIP issue
 
-### 1.4.1
+
+## 1.4.1
 - Upgrade to 2.3.2 Community Version
 - Increased base attack timings (3600 seconds -> 5400 seconds for base value, 600 seconds->900 seconds for subsequent additions)
 - Mag Repack mission parameter
@@ -37,7 +141,7 @@
 - Removed ability to move Arms Dealer Store to rebel HQ (never worked properly)
 - Removed unused code (leads to slight mission file size reduction)
 
-### 1.4
+## 1.4
 - New mission types: Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers
 - Establish roadblock, watchpost, AA Emplacement or AT Emplacement action (Y menu, commander section)
 - Share Faction Money action (Y menu, commander section)
@@ -79,15 +183,15 @@
 - (Taviana) Misson file size reduction, slightly lowered loading times
 - (Taviana) Additional Police stations in cities to expand possible Kill Collaborationist sites
 
-### 1.0.3
+## 1.0.3
 - Aegis mod detection fix
 - Added AUR 90 series in the arms dealer's store (Aegis)
 - Fixed AA placement on Control Tower
 
-### 1.0.2
+## 1.0.2
 - Fixed neverending BLUFOR/OPFOR attacks
 
-### 1.0.1
+## 1.0.1
 - Fixed hangar explosion on spawn (Taviana)
 - Misson size reduction, slightly lowered loading times (Taviana)
 - Weapon prices little tuning 
@@ -96,7 +200,7 @@
 - A few new control markers
 - Tuned excessive logging on BLUFOR squad spawn (less spam to .rpt)
   
-### 1.0
+## 1.0
 - Upgrade to 2.3.1 Community Version 
 - Full Arma 3 Atlas, Arma 3 Aegis, Arma 3 Atlas - Opposing Forces, Arma 3 - Police support (unit roster, PVP loadouts, vehicle market, arms dealer store, tiered unit configs)
 - Full CUP Vehicles, CUP Weapons, CUP Units support (unit roster, PVP loadouts, vehicle market, arms dealer store, technicals store, tiered unit configs)
@@ -129,7 +233,7 @@
 - Removed Infantry Unit Tiers setting (the feature is still there but can't be turned off)
 - Removed True Viking mod support (Antistasi Units template)
 
-### 0.6
+## 0.6
 - New mission type: Salvage Helicrash
 - Reenabled Destroy Vehicle/Helicopter mission along with some fixes and changes to this mission from unreleased community version
 - Ability to buy military aircraft at black market
@@ -158,7 +262,7 @@
 - Livonia military buildings support (mostly for future Antistasi Plus ports)
 - UI tweaks
 
-### 0.4.4
+## 0.4.4
 - Fixed serialization of trader quest completion parameter on dedicated servers and HCs
 - Fixed incorrect trader creation function call on dedicated servers and HCs
 - Fixed Bug with gearless and weaponless helicopter troops
@@ -168,7 +272,7 @@
 - Moved initial HQ placement to Taviana Zoo (safest place on island)
 - little roadwreck purge on Taviana's south part
 
-### 0.4.3
+## 0.4.3
 - Fixed wrong classname on one entry at arms dealer store for Antistasi Units weapons pool
 - "Clear Forest" action on arms dealer's laptop now properly works on dedicated server
 - Fixed inability to place black market vehicle in some cases on dedicated server
@@ -186,13 +290,13 @@
 - The Great Roadwreck Purge
 - HallyG store framework 1.5.0 update
 
-### 0.4.1
+## 0.4.1
 - Fixed wrong text on vehicle market entries
 - "Clear Forest" action on arms dealer's laptop
 - Fixed inability to buy vehicles on vehicle market
 
 
-### 0.4
+## 0.4
 - Updgrade to stable release of 2.3 Antistasi Community Version
 - New Find the Arms Dealer task type (can be obtained via intel search/interrogation)
 - Arms Dealer with the ability to directly sell weapons, magazines, items etc
@@ -204,12 +308,12 @@
 - Additional control zones, 2 new outposts
 
 
-### 0.2.1
+## 0.2.1
 - Fixed bug with CHDKZ flagpole
 - Added Infantry Units Tiers setting 
 
 
-### 0.2
+## 0.2
 - Upgrade to 2.3 (still unstable) Antistasi Community Version
 - Fixed bug with commander squads spawn
 - Fixed bug with not working Fatal Wounds mission parameter
@@ -226,7 +330,7 @@
 - Infantry unit tiers enabled for RHS
 - Starting equipment adjustment for RHS template
 
-### 0.1
+## 0.1
 - Taviana support
 - Special truck with ability to autoloot bodies around the truck to reduce tediousness of looting enemy (can be bought on Civilian section)
 - Integrated Mag Repack script (menu can be accessed via Ctrl+R hotkey)

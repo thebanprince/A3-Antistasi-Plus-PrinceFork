@@ -14,6 +14,8 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
+private _taskString = format ["We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime];
+private _taskId = "AS" + str A3A_taskCount;
 
 
 _specOps = if(_sideX == Occupants) then { NATOSpecOp } else { CSATSpecOp };
@@ -22,10 +24,10 @@ _nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"]
 [2, format ["SpecOps Group Array: %1, Group: %2", str _specOps, str _groupX], "fn_AS_specOP"] call A3A_fnc_log;
 
 
-[[teamPlayer,civilian],"AS",[format ["We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
-missionsX pushBack ["AS","CREATED"]; publicVariable "missionsX";
+[[teamPlayer,civilian],_taskId,[_taskString,"SpecOps",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 waitUntil  {
-	sleep 5; 
+	sleep 5;
 	_aliveCount = {alive _x} count units _groupX;
 	[2, format ["SpecOps Group Alive: %1", str _aliveCount], "fn_AS_specOP"] call A3A_fnc_log;
 	(dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) or (_aliveCount == 0)
@@ -33,7 +35,7 @@ waitUntil  {
 
 if (dateToNumber date > _dateLimitNum) then
 	{
-	["AS",[format ["We have spotted a %3 SpecOp team patrolling around an %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime],"SpecOps",_markerX],_positionX,"FAILED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
 		[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -49,7 +51,7 @@ if (dateToNumber date > _dateLimitNum) then
 	}
 else
 	{
-	["AS",[format ["We have spotted a %3 SpecOp team patrolling around an %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.",_nameDest,_displayTime,_naming],"SpecOps",_markerX],_positionX,"SUCCEEDED"] call A3A_fnc_taskUpdate;
+	[_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then {
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
@@ -65,13 +67,8 @@ else
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 	};
 
-	if (_sideX == Occupants) then {
-        [[10, 60], [0, 0]] remoteExec ["A3A_fnc_prestige",2]
-    }
-    else {
-        [[0, 0], [10, 60]] remoteExec ["A3A_fnc_prestige",2]
-    };
+	[_sideX, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
 	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 };
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;

@@ -37,11 +37,14 @@ private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_markerX] call A3A_fnc_localizar;
 
+private _taskId = "LOG" + str A3A_taskCount;
+private _taskText = format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime];
+
 [
     [teamPlayer,civilian],
-    "LOG",
+    _taskId,
     [
-        format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
+        _taskText,
         "Catch Airdrop",
         _markerX
     ],
@@ -52,8 +55,7 @@ private _nameDest = [_markerX] call A3A_fnc_localizar;
     "plane",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["LOG","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 waitUntil {
     sleep 5;
@@ -69,16 +71,16 @@ waitUntil {
 
 [2, "Setting things in motion...", _fileName, true] call A3A_fnc_log; 
 
-_escortClass = nil;
-_infantrySquadArray = nil;
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+
+private _escortClass = nil;
+private _infantrySquadArray = selectRandom _squads;
 
 if(_sideX == Occupants) then { 
     _escortClass = if(_difficultX) then { selectRandom vehNATOAPC; } else { selectRandom vehNATOLightArmed; };
-    _infantrySquadArray = (call SCRT_fnc_unit_getCurrentNATOSquad);
 } 
 else { 
     _escortClass = if(_difficultX) then { selectRandom vehCSATAPC; } else { selectRandom vehCSATLightArmed; };
-    _infantrySquadArray = CSATSquad;
 };
 
 if (isNil "_escortClass" || {isNil "_infantrySquadArray"}) exitWith {
@@ -107,7 +109,7 @@ private _squad1Position = [
 ] call BIS_fnc_findSafePos;
 
 //spawning airdrop interceptors
-private _escortVehicleData = [_squad1Position, 0, _escortClass, _sideX] call bis_fnc_spawnvehicle;
+private _escortVehicleData = [_squad1Position, 0, _escortClass, _sideX] call A3A_fnc_spawnVehicle;
 private _escortVeh = _escortVehicleData select 0;
 private _vehCrew = crew _escortVeh;
 {[_x] call A3A_fnc_NATOinit} forEach _vehCrew;
@@ -117,7 +119,11 @@ _groups pushBack _escortVehicleGroup;
 _vehicles pushBack _escortVeh;
 
 //spawning airdrop interceptor inf
-private _typeGroup = if (_sideX == Occupants) then {call SCRT_fnc_unit_getCurrentGroupNATOSentry} else {groupsCSATSentry};
+private _typeGroup = if (_sideX == Occupants) then {
+    groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier
+} else {
+    groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier
+};
 private _groupX = [_squad1Position, _sideX, _typeGroup] call A3A_fnc_spawnGroup;
 {
     _x assignAsCargo _escortVeh; 
@@ -187,7 +193,6 @@ private _planeVeh = objNull;
 
 
 if(count _smokes > 0) then {
-
     [2, "Smoke detected, spawning airplane.", _fileName, true] call A3A_fnc_log;
     
     private _initialPlanePosition = [
@@ -204,7 +209,7 @@ if(count _smokes > 0) then {
     private _height = random [500, 1000, 1300];
     private _direction = [_initialPlanePosition, _positionX] call BIS_fnc_DirTo;
 
-    _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, vehSDKPlane, teamPlayer] call BIS_fnc_spawnVehicle;
+    _planeData = [[_initialPlanePosition select 0, _initialPlanePosition select 1, _height], _direction, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
     _planeVeh = _planeData select 0;
     _planeVeh setPosATL [getPosATL _planeVeh select 0, getPosATL _planeVeh select 1, _height];
     _planeVeh disableAI "TARGET";
@@ -257,7 +262,7 @@ if(alive _planeVeh) then {
     ] call SCRT_fnc_common_airdropCargo;
     _box1 enableRopeAttach true;
     _box1 allowDamage false;
-    _box1 call jn_fnc_logistics_addAction;
+    [_box1] call A3A_fnc_logistics_addLoadAction;
     [_box1, teamPlayer] call A3A_fnc_AIVEHinit;
     
     //at least one dropped box counts as successful airdrop
@@ -270,7 +275,7 @@ if(alive _planeVeh) then {
     ] call SCRT_fnc_common_airdropCargo;
     _box2 enableRopeAttach true;
     _box2 allowDamage false;
-    _box2 call jn_fnc_logistics_addAction;
+    [_box2] call A3A_fnc_logistics_addLoadAction;
     [_box2, teamPlayer] call A3A_fnc_AIVEHinit;
 
     _boxes append [_box1, _box2];
@@ -333,66 +338,26 @@ switch(true) do {
         } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
         [20, theBoss] call A3A_fnc_playerScoreAdd;
 
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "SUCCEEDED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
     };
     case (dateToNumber date > _dateLimitNum): {
         [2, "Fail, mission Expired.", _fileName, true] call A3A_fnc_log;
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
         [-10,theBoss] call A3A_fnc_playerScoreAdd;
     }; 
     //if plane crashed before, then mission failed, but it's not our fault
     case (!(_airDropHappened)): {
         [2, "Fail, plane was shot down.", _fileName, true] call A3A_fnc_log;
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
     };
     default {
-        [
-            "LOG",
-            [
-                format ["Our plane will drop some cargo at position %1. Go there and throw any smoke grenade on ground, the pilot will notice the signal. Bring cargo to HQ. Do this before %2.", _nameDest, _displayTime],
-                "Catch Airdrop",
-                _markerX
-            ],
-            _markerX,
-            "FAILED",
-            "plane"
-        ] call A3A_fnc_taskUpdate;
+        [_taskId, "LOG", "CANCELED"] call A3A_fnc_taskSetState;
     };
 };
 
 sleep 30;
 
-_nul = [1200,"LOG"] spawn A3A_fnc_deleteTask;
+[_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;
 
 {
     deleteVehicle _x;

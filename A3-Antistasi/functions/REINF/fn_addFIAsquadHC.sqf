@@ -4,7 +4,7 @@ if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has acces
 
 if (markerAlpha respawnTeamPlayer == 0) exitWith {["Recruit Squad", "You cannot recruit a new squad while you are moving your HQ"] call A3A_fnc_customHint;};
 
-if (!([player] call A3A_fnc_hasRadio)) exitWith {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads"] call A3A_fnc_customHint;};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {["Recruit Squad", "You need a radio in your inventory or radioman in your squad to be able to give orders to other squads"] call A3A_fnc_customHint;};
 
 private _enemyNear = false;
 
@@ -21,13 +21,34 @@ if (_typeGroup isEqualType "") then {
 	if (_typeGroup == "not_supported") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset"] call A3A_fnc_customHint;};
 };
 
-if (activeGREF) then {
+if (A3A_hasRHS) then {
 	if (_typeGroup isEqualType objNull) then {
 		if (_typeGroup == staticATteamPlayer) then {["Recruit Squad", "AT Trucks are disabled in RHS - GREF"] call A3A_fnc_customHint; _exit = true};
 	};
 };
 
 if (_exit) exitWith {};
+
+if (_typeGroup isEqualTo groupsSDKAT && {tierWar < 3}) exitWith {
+	["Recruit Squad", "You need to be at War Level 3 to be able to hire AT Teams."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup isEqualTo SDKMGStatic && {tierWar < 2}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire MG Squads."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup in [vehSDKAT, staticAAteamPlayer] && {tierWar < 4}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire AT or AA cars."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup isEqualTo SDKMortar && {tierWar < 5}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire Mortar Teams."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
+if (_typeGroup isEqualTo groupsSDKSquadSupp && {tierWar < 5}) exitWith {
+	["Recruit Squad", "You need to be at War Level 4 to be able to hire Support squads."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
 _esinf = false;
 _typeVehX = "";
 _costs = 0;
@@ -86,6 +107,7 @@ if (_esinf) then {
 		if (_typeGroup isEqualTo groupsSDKmid) then {_format = "Tm-"};
 		if (_typeGroup isEqualTo groupsSDKAT) then {_format = "AT-"};
 		if (_typeGroup isEqualTo groupsSDKSniper) then {_format = "Snpr-"};
+		if (_typeGroup isEqualTo groupsSDKCrew) then {_format = "Crew-"};
 		if (_typeGroup isEqualTo groupsSDKSentry) then {_format = "Stry-"};
 		if (_withBackpck == "MG") then {
 			((units _groupX) select ((count (units _groupX)) - 2)) addBackpackGlobal supportStaticsSDKB2;
@@ -118,7 +140,7 @@ if (_esinf) then {
 
 	if (_typeGroup == staticAAteamPlayer) then
 	{
-		private _vehType = if (activeGREF) then {"rhsgref_ins_g_ural_Zu23"} else {vehSDKTruck};
+		private _vehType = if (vehSDKAA != "not_supported") then {vehSDKAA} else {vehSDKTruck};
 		_truckX = createVehicle [_vehType, _pos, [], 0, "NONE"];
 		_truckX setDir _roadDirection;
 
@@ -128,7 +150,7 @@ if (_esinf) then {
 		_driver moveInDriver _truckX;
 		_driver assignAsDriver _truckX;
 
-		if (!activeGREF) then
+		if (vehSDKAA == "not_supported") then
 		{
 			private _lpos = _pos vectorAdd [0,0,1000];
 			private _launcher = createVehicle [staticAAteamPlayer, _lpos, [], 0, "CAN_COLLIDE"];
@@ -137,14 +159,12 @@ if (_esinf) then {
 			_gunner moveInGunner _launcher;
 			_gunner assignAsGunner _launcher;
 //			[_launcher] call A3A_fnc_AIVEHinit;			// don't need separate despawn/killed handlers
-		}
-		else {
+		} else {
 			_gunner moveInGunner _truckX;
 			_gunner assignAsGunner _truckX;
 		};
-	}
-	else {
-		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call bis_fnc_spawnvehicle;
+	} else {
+		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call A3A_fnc_spawnVehicle;
 		_truckX = _veh select 0;
 		_groupX = _veh select 2;
 	};
@@ -178,7 +198,7 @@ if (count _formatX == 2) then {
 _costs = [_typeVehX] call A3A_fnc_vehiclePrice;
 if (_costs > server getVariable "resourcesFIA") exitWith {};
 
-createDialog "veh_query";
+createDialog "vehQuery";
 
 sleep 1;
 disableSerialization;

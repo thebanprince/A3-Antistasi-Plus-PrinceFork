@@ -13,15 +13,11 @@ params ["_weapons"];
 
 if(_weapons isEqualTo [] || {count _weapons < 1}) exitWith {};
 
-private _weaponConfigs = "getNumber(_x >> 'scope') isEqualTo 2 && {getNumber(_x >> 'type') in [1,4,4096]}" configClasses(configFile >> "CfgWeapons") apply { configName _x };
+private _weaponConfigs = "getNumber(_x >> 'scope') isEqualTo 2 && {getNumber(_x >> 'type') in [1,2,4,4096]}" configClasses(configFile >> "CfgWeapons") apply { configName _x };
+private _blacklistedClasses = ["Rifle_Base_F", "Rifle_Long_Base_F", "Rifle_Short_Base_F", "Pistol_Base_F", "Launcher_Base_F"];
 
-//these should be in sync!
-private _possibleClassesMapKeys = [];
-private _possibleClassesMapValues = [];
-
-//these should be in sync!
-_baseInputClassNames = [];
-_baseInputClassQuantity = [];
+private _possibleClassesMap = createHashMap;
+private _baseInputClassesMap = createHashMap;
 
 //get base classes and it's quantity
 {
@@ -31,75 +27,81 @@ _baseInputClassQuantity = [];
 	_baseConfig = inheritsFrom (configFile >> "CfgWeapons" >> _item);
 	_cfgName = configName _baseConfig;
 
-	private _similarClassnames = _weaponConfigs select { 
-		_weaponConfig = inheritsFrom (configFile >> "CfgWeapons" >> _x);
-		configName _weaponConfig == _cfgName
-	};
+	if !(_cfgName in _blacklistedClasses) then {
+		private _similarClassnames = _weaponConfigs select { 
+			_weaponConfig = inheritsFrom (configFile >> "CfgWeapons" >> _x);
+			configName _weaponConfig == _cfgName
+		};
 
-	// exclude weapons with attached scopes, muzzles, etc - they're appears as dupes in arsenal
-	_similarClassnames = _similarClassnames select {
-		private _linkedOptics = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsOptic" >> "item");
-		private _linkedMuzzle = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsMuzzle" >> "item" );        	
-		private	_linkedAccs = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsAcc" >> "item");
-		private	_linkedUnderbarrel = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsUnder" >> "item");
-		_linkedOptics == "" && _linkedMuzzle == "" && _linkedAccs == "" && _linkedUnderbarrel == ""
-	};
+		// exclude weapons with attached scopes, muzzles, etc - they will appear as dupes in arsenal
+		_similarClassnames = _similarClassnames select {
+			private _linkedOptics = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsOptic" >> "item");
+			private _linkedMuzzle = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsMuzzle" >> "item" );        	
+			private	_linkedAccs = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsAcc" >> "item");
+			private	_linkedUnderbarrel = getText(configFile >> "CfgWeapons" >> _x >> "LinkedItems" >> "LinkedItemsUnder" >> "item");
+			_linkedOptics == "" && _linkedMuzzle == "" && _linkedAccs == "" && _linkedUnderbarrel == ""
+		};
 
-	private _originItemFireModes = getArray (configFile >> "CfgWeapons" >> _item >> "modes");
-	private _originItemMuzzles = count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles"));
-	private _originItemOpticSystem = getText(configFile >> "CfgWeapons" >> _item >> "LinkedItems" >> "LinkedItemsOptic" >> "slot");
+		private _originItemFireModes = getArray (configFile >> "CfgWeapons" >> _item >> "modes");
+		private _originItemMuzzles = count (getArray (configfile >> "CfgWeapons" >> _item >> "muzzles"));
+		private _originItemOpticSystem = getText(configFile >> "CfgWeapons" >> _item >> "LinkedItems" >> "LinkedItemsOptic" >> "slot");
+		private _originMagazines = getArray (configFile >> "CfgWeapons" >> _item >> "magazineWell");
+		_originMagazines sort true;
 
-	//exclude weapons with different fire modes and muzzle count because some of them are, you know, totally different weapons
-	_similarClassnames = _similarClassnames select {
-		private _weapon = _x;
-		private _weaponFireModes = getArray (configFile >> "CfgWeapons" >> _weapon >> "modes");
-		private _weaponMuzzles = count (getArray (configfile >> "CfgWeapons" >> _weapon >> "muzzles"));
-		private _weaponSystem = getText(configFile >> "CfgWeapons" >> _weapon >> "LinkedItems" >> "LinkedItemsOptic" >> "slot");
-		_originItemFireModes isEqualTo _weaponFireModes && _weaponMuzzles == _originItemMuzzles && _originItemOpticSystem == _weaponSystem
-	};
+		//exclude weapons with different fire modes and muzzle count because some of them are, you know, totally different weapons
+		_similarClassnames = _similarClassnames select {
+			private _weapon = _x;
+			private _weaponFireModes = getArray (configFile >> "CfgWeapons" >> _weapon >> "modes"); //separating weapons with different firing modes
+			private _weaponMuzzles = count (getArray (configfile >> "CfgWeapons" >> _weapon >> "muzzles")); //distincting weapons with underbarrels
+			private _weaponSystem = getText(configFile >> "CfgWeapons" >> _weapon >> "LinkedItems" >> "LinkedItemsOptic" >> "slot"); //separating weapons with different mount systems
+			private _weaponMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazineWell");
+			_weaponMagazines sort true;
+			_originItemFireModes isEqualTo _weaponFireModes && _weaponMuzzles == _originItemMuzzles && _originItemOpticSystem == _weaponSystem && _originMagazines isEqualTo _weaponMagazines
+		};
 
-	_possibleClassesMapKeys pushBack _cfgName;
-	_possibleClassesMapValues pushBack _similarClassnames;
+		[
+            3,
+            format ["Weapon: %1, Base Config: %2, Final similar weapons: %3", str _item, _cfgName, str _similarClassnames],
+            "fn_arsenal_getSimilarWeapons",
+            true
+        ] call A3A_fnc_log;
 
+		_possibleClassesMap set [_cfgName, _similarClassnames];
 
-	private _baseConfigIndex = _baseInputClassNames find _cfgName;
+		private _baseConfigQuantity = _baseInputClassesMap get _cfgName;
 
-	if(_baseConfigIndex != -1) then {
-		_previousValue = _baseInputClassQuantity select _baseConfigIndex;
-		_baseInputClassQuantity set [_baseConfigIndex, _previousValue + _quantity];
-	} else {
-		_baseInputClassNames pushBack _cfgName;
-		_baseInputClassQuantity pushBack _quantity;
+		if (!isNil "_baseConfigQuantity") then {
+			_baseInputClassesMap set [_cfgName, (_baseConfigQuantity + _quantity)];
+		} else {
+			_baseInputClassesMap set [_cfgName, _quantity];
+		};
 	};
 } forEach _weapons;
 
 //no longer needed, let's free them
 _weaponConfigs = nil;
 
-//merge base classes and quantity into one array
-_mergedBaseClasses = [];
+private _moreThanMinWeaponsArray = [];
 {
-	_arrayItem = [_x, _baseInputClassQuantity select _forEachIndex];
-	_mergedBaseClasses pushBack _arrayItem;
-} forEach _baseInputClassNames;
+	if (_y >= minWeaps) then {
+		_moreThanMinWeaponsArray pushBack _x;
+	};
+} forEach _baseInputClassesMap;
 
-private _moreThanMinWeapons = _mergedBaseClasses select {_x select 1 >= minWeaps};
 private _result = [];
 
-//if some array exceeds minimum weapons threshold - grab every class that has same parent and make it pending to infinite on next arsenal tick
-if(count _moreThanMinWeapons > 0) then {
+//if some weapon exceeds minimum weapons threshold - grab every class that has same parent and make it pending to infinite on next arsenal tick
+if (count _moreThanMinWeaponsArray > 0) then {
 	{
-		private _baseItem = _x select 0;
-		private _index = _possibleClassesMapKeys find _baseItem;
+		private _baseItem = _x;
+		private _similarClassnames = _possibleClassesMap get _baseItem;
 
-		if(_index != -1) then {
-			private _similarClassnames = _possibleClassesMapValues select _index;
-
+		if (!isNil "_similarClassnames") then {
 			{
 				_result pushBack [_x, minWeaps + 1];
 			} forEach _similarClassnames;
 		};
-	} forEach _moreThanMinWeapons;
+	} forEach _moreThanMinWeaponsArray;
 };
 
 //remove duplicates

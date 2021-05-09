@@ -18,13 +18,19 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];
 private _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;
 
 private _destinationName = [_markerX] call A3A_fnc_localizar;
-private _policeTitle = if (factionGEN == "BLU_GEN_F") then { "Gendramerie"} else {"Police"};
 
 ////////////
 //building occupation
 ////////////
-_appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
-_appropriateBuildings = _appropriateBuildings select {alive _x};
+private _sites = outposts + airportsX + resourcesX + factories + seaports + milbases;
+private _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
+
+//we need only intact buildings that are not under some marker
+_appropriateBuildings = _appropriateBuildings select {
+    private _buildingPos = position _x;
+    alive _x && {_sites findIf {_buildingPos inArea _x} == -1}
+};
+
 if(count _appropriateBuildings < 1) exitWith {
     [1, "Can't find suitable house for mission, resetting mission request.", _fileName] call A3A_fnc_log;
     ["AS"] remoteExecCall ["A3A_fnc_missionRequest",2];
@@ -65,11 +71,15 @@ private _buildingPos = position _building;
 ////////////
 //Tasks
 ////////////
+private _text = format ["A police officer terrorizes %1 population. Kill him and people will breathe freely. Do this before %2.", _destinationName,_displayTime];
+private _taskId = "AS" + str A3A_taskCount;
+
+
 [
     [teamPlayer,civilian],
-    "AS",
+    _taskId,
     [
-        format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
+        _text,
         "Kill Collaborationist",
         _markerX
     ],
@@ -80,8 +90,7 @@ private _buildingPos = position _building;
     "attack",
     true
 ] call BIS_fnc_taskCreate;
-missionsX pushBack ["AS","CREATED"]; 
-publicVariable "missionsX";
+[_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
 ////////////
@@ -111,9 +120,10 @@ for "_i" from 0 to _powCount do {
 	[_unit] call A3A_fnc_reDress;
     [_unit] spawn {
         params ["_prisoner"];
-        waitUntil { sleep 0.5; !(captive _prisoner) || {!(alive _prisoner)}};
+        waitUntil { sleep 0.5; !captive _prisoner || {!alive _prisoner}};
 
-        if (alive _prisoner && {!(captive _prisoner)}) then {
+        if (alive _prisoner && {!captive _prisoner}) then {
+            sleep 2;
             [_prisoner,"sideChat","I'm free, thank you!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
             private _fakeGroup = createGroup [teamPlayer, true];
             [_prisoner] joinSilent _fakeGroup;
@@ -264,29 +274,13 @@ waitUntil  {
 };
 
 if (dateToNumber date > _dateLimitNum) then {
-    [
-        "AS",
-        [
-            format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
-            "Kill Collaborationist",
-            _markerX
-        ],
-        _positionX,
-        "FAILED"
-    ] call A3A_fnc_taskUpdate;
+    [_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
     [-20,theBoss] call A3A_fnc_playerScoreAdd;
+
+    //TODO: call singleAttack
     [10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 } else {
-    [
-        "AS",
-        [
-            format ["A %1 officer terrorizes %2 population. Kill him and people will breathe freely. Do this before %3.",_policeTitle, _destinationName,_displayTime],
-            "Kill Collaborationist",
-            _markerX
-        ],
-        _positionX,
-        "SUCCEEDED"
-    ] call A3A_fnc_taskUpdate;
+    [_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
     { [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
     [10,theBoss] call A3A_fnc_playerScoreAdd;
     [0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
@@ -295,7 +289,7 @@ if (dateToNumber date > _dateLimitNum) then {
 
 sleep 30;
 
-_nul = [1200,"AS"] spawn A3A_fnc_deleteTask;
+[_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;
 
 {[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
 {[_x] spawn A3A_fnc_groupDespawner} forEach _groups;

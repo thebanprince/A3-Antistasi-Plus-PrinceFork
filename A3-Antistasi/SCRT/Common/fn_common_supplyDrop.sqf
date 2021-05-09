@@ -1,27 +1,48 @@
+params ["_plane", "_payload", "_supportType"];
+
 private _filename = "fn_common_supplyDrop";
 [3, format ["Executing on: %1", clientOwner], _filename, true] call A3A_fnc_log;
-private _plane = vehicle (_this select 0);
+private _planeVehicle = vehicle _plane;
 
 sleep random 5;
 
-[3, format ["Dropping supply crate at %1 (near %2)", getPos _plane, text nearestLocation [getPos _plane, "NameCity"]], _filename, true] call A3A_fnc_log;
-if (alive _plane) then {
-    private _supplyDrop = createVehicle ["IG_supplyCrate_F", [getPos _plane select 0,getPos _plane select 1,(getPos _plane select 2)- 5], [], 0, "NONE"];
+[3, format ["Dropping cargo at %1 (near %2)", getPos _planeVehicle, text nearestLocation [getPos _planeVehicle, "NameCity"]], _filename, true] call A3A_fnc_log;
+if (alive _planeVehicle) then {
+
+    private _supplyDrop = createVehicle [_payload, [getPos _planeVehicle select 0, getPos _planeVehicle select 1, (getPos _planeVehicle select 2)- 5], [], 0, "NONE"];
     waituntil {!isnull _supplyDrop};
     sleep 1.5;
 
-    [_supplyDrop] call SCRT_fnc_common_fillSupplyDrop;
+    private _paraPos = nil;
+
+    switch(_supportType) do {
+        case ("STATIC_MG_AIRDROP"): {
+            clearItemCargoGlobal _supplyDrop;
+            clearMagazineCargoGlobal _supplyDrop;
+            clearWeaponCargoGlobal _supplyDrop;
+            clearBackpackCargoGlobal _supplyDrop;
+            _supplyDrop addBackpackCargoGlobal [MGStaticSDKB, 1];
+            _supplyDrop addBackpackCargoGlobal [supportStaticsSDKB2, 1];
+            _paraPos = [0, 0, -0.2];
+        };
+        case ("VEH_AIRDROP"): {
+            _paraPos = [0, 0, -0.1];
+        };
+        default {
+            [_supplyDrop] call SCRT_fnc_common_fillSupplyDrop;
+            _paraPos = [0, 0, -0.6];
+        };
+    };
 
     private _para = createVehicle ["B_parachute_02_F", [0,0,0], [], 0, "FLY"];
     _para setDir getDir _supplyDrop;
     _para setPos getPos _supplyDrop;
-    _supplyDrop attachTo [_para, [0, 0, -0.6]];
+    _supplyDrop attachTo [_para, _paraPos];
 
     [_supplyDrop, _para] spawn {
         params ["_obj","_para"];
 
         private _smokeShellVariants = ["SmokeShellRed", "SmokeShellGreen", "SmokeShellYellow", "SmokeShellPurple", "SmokeShellBlue", "SmokeShellOrange"];
-
 
         waitUntil {
             sleep 0.01;

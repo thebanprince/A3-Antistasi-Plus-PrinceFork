@@ -1,12 +1,23 @@
-if (player != theBoss) exitWith {["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;};
+if (player != theBoss) exitWith {
+	["Move HQ", "Only our Commander has access to this function"] call A3A_fnc_customHint;
+};
 
-if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;};
+private _hqPosition = getMarkerPos "Synd_HQ";
 
-if !(isNull attachedTo petros) exitWith {["Move HQ", "Put Petros down before you move the HQ!"] call A3A_fnc_customHint;};
+if (theBoss distance2D _hqPosition > 50) exitWith {
+	["Move HQ", "Commander needs to be at HQ site to move it."] call A3A_fnc_customHint;
+};
+
+if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) exitWith {
+	["Move HQ", "You must first empty your Ammobox in order to move the HQ"] call A3A_fnc_customHint;
+};
+
+if !(isNull attachedTo petros) exitWith {
+	["Move HQ", "Put Petros down before you move the HQ!"] call A3A_fnc_customHint;
+};
 
 
 [petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
-//removeAllActions petros;
 private _groupPetros = group petros;
 [petros] join theBoss;
 deleteGroup _groupPetros;
@@ -14,8 +25,6 @@ deleteGroup _groupPetros;
 petros setBehaviour "AWARE";
 petros enableAI "MOVE";
 petros enableAI "AUTOTARGET";
-
-fireX inflame false;
 
 [respawnTeamPlayer, 0, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
 [respawnTeamPlayer, 0, civilian] call A3A_fnc_setMarkerAlphaForSide;
@@ -38,11 +47,12 @@ if (count _garrison > 0) then
 			{
 			if (!alive _x) then
 				{
-				if (typeOf _x in soldiersSDK) then
+				private _unitType = _x getVariable "unitType";
+				if (_unitType in soldiersSDK) then
 					{
-					if (typeOf _x == staticCrewTeamPlayer) then {_costs = _costs - ([SDKMortar] call A3A_fnc_vehiclePrice)};
+					if (_unitType == staticCrewTeamPlayer) then {_costs = _costs - ([SDKMortar] call A3A_fnc_vehiclePrice)};
 					_hr = _hr - 1;
-					_costs = _costs - (server getVariable (typeOf _x));
+					_costs = _costs - (server getVariable (_unitType));
 					};
 				};
 			if (typeOf (vehicle _x) == SDKMortar) then {deleteVehicle vehicle _x};

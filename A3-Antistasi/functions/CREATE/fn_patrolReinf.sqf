@@ -14,17 +14,12 @@ if ([_sideX] call A3A_fnc_remUnitCount < _numberX) exitWith {
 };
 
 _land = if (_posOrigin distance _posDestination > distanceForLandAttack) then {false} else {true};
-_typeGroup = if (_sideX == Occupants) then {if (_numberX == 4) then {
-	} else {
-		_squad = call SCRT_fnc_unit_getCurrentGroupNATOMid;
-		selectRandom _squad;
-		}
-	} else {
-		if (_numberX == 4) then {
-			selectRandom groupsCSATmid
-		} else {
-			selectRandom groupsCSATSquad
-		}
+private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
+private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
+_typeGroup = if (_numberX == 4) then {
+	selectRandom _mid
+} else {
+	selectRandom _squads
 };
 _typeVehX = "";
 if (_land) then
@@ -100,7 +95,7 @@ else
 	};
 	if (count _pos == 0) then {_pos = _posOrigin};
 
-	_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call bis_fnc_spawnvehicle;
+	_vehicle=[_pos, _ang + 90,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 	_veh = _vehicle select 0;
 	_vehCrew = _vehicle select 1;
 	_groupVeh = _vehicle select 2;
@@ -148,7 +143,7 @@ else
 		}
 		else
 		{
-			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_airdrop;
+			[_veh,_groupX,_posDestination,_mrkOrigin,true] spawn A3A_fnc_paradrop;
 		};
 	};
 };
@@ -162,7 +157,7 @@ private _timeout = time + (if (_land) then { _dist / 3 + 300 } else { _dist / 15
 
 // termination conditions:
 // - everyone dead or timeout exceeded
-// - group leader out of vehicle and within 50m of target 
+// - group leader out of vehicle and within 50m of target
 waituntil {
 	sleep 10;
 	private _leader = leader _groupX;

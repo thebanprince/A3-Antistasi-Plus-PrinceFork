@@ -42,6 +42,8 @@ switch (_mode) do {
 		
 		(_display displayCtrl IDC_TITLE) ctrlSetText (_trader getVariable ["HALs_store_name", "Store"]);
 
+		[["UpdateState", "Trades in Arms Dealer store"]] call SCRT_fnc_misc_updateRichPresence;
+
 		["onInit"] call HALs_store_fnc_main;
 	};
 
@@ -55,6 +57,8 @@ switch (_mode) do {
 		HALs_store_vehicles = nil;
 		HALs_store_blur ppEffectAdjust [0];
 		HALs_store_blur ppEffectCommit 0.3;
+
+		[] call SCRT_fnc_misc_updateRichPresence;
 	};
 
 	case ("onInit"): {
@@ -147,8 +151,7 @@ switch (_mode) do {
 				private _ctrlList = CTRL(IDC_LISTBOX); lbClear _ctrlList;
 				private _checkAvaliable = CTRL(IDC_CHECKBOX + 1);
 				private _checkCompatible = CTRL(IDC_CHECKBOX + 2);
-				//private _sell = cbChecked CTRL(IDC_CHECKBOX + 3);
-				private _sell = false;
+				private _sell = cbChecked CTRL(IDC_CHECKBOX + 3);
 				
 				private _category = CTRL(IDC_COMBO_CATEGORY) getVariable "data";
 				private _items = [HALs_store_category_items, _category, []] call HALs_store_fnc_hashGetOrDefault;
@@ -191,7 +194,7 @@ switch (_mode) do {
 						_stock = {_x isEqualTo _className || _x isEqualTo _parent} count _sellableItems;
 				
 						if (_price isEqualTo 0) then {_price = [HALs_store_item_price, _parent, 0] call HALs_store_fnc_hashGetOrDefault};
-						_priceAdjusted = _price * _sellFactor;
+						_priceAdjusted = round (_price * _sellFactor);
 					} else {
 						_stock = [_trader, _classname] call HALs_store_fnc_getTraderStock;
 					};
@@ -460,8 +463,7 @@ switch (_mode) do {
 						private _stock = (_ctrlList getVariable "data") param [1, 0];
 						private _money = [player] call HALs_money_fnc_getFunds;
 						private _sale = (_trader getVariable ["HALs_store_trader_sale", 0]) min 1 max 0;
-						//private _sell = cbChecked CTRL(IDC_CHECKBOX + 3);
-						private _sell = false;
+						private _sell = cbChecked CTRL(IDC_CHECKBOX + 3);
 						_price = _price * ([1, HALs_store_sellFactor min 1 max 0] select _sell);
 						_total = _amount * _price * ([1 - _sale, 1] select _sell);
 
@@ -540,9 +542,8 @@ switch (_mode) do {
 							[_config >> "descriptionShort", ""] call HALs_fnc_getConfigValue
 						] select {_x != ""} param [0, ""]); // Description
 
-						//_sell = cbChecked CTRL(IDC_CHECKBOX + 3);
-						_sell = false;
 
+						_sell = cbChecked CTRL(IDC_CHECKBOX + 3);
 						_stockText = format [
 							"<t shadow='2' font ='PuristaMedium' color='%1'>%2</t>%3",
 							["#DD2626", "#A0DF3B"] select (_stock > 0),
@@ -604,7 +605,7 @@ switch (_mode) do {
 		_currentLoad = [_container] call HALs_store_fnc_getCargoMass;
 		_maxLoad = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _container >> "maximumLoad");
 	
-		if (_classname isEqualTo "") exitWith {
+		if (_classname isEqualTo "" || cbChecked CTRL(IDC_CHECKBOX + 3)) exitWith {
 			_bar progressSetPosition (_currentLoad / _maxLoad);
 			_barNew progressSetPosition 0;
 		};
@@ -623,11 +624,18 @@ switch (_mode) do {
 			{_load = _load + ((_x select 0) call HALs_store_fnc_getItemMass) * (_x select 1)} forEach _arrayCargo;
 		};
 
-		_colour = [[0.9, 0, 0, 0.6], [0, 0.9, 0, 0.6]] select (_container canAdd [_classname, _amount]);
-		_bar ctrlSetTextColor [0.9, 0.9, 0.9, 0.9];
-		_bar progressSetPosition (_currentLoad / _maxLoad);
-		_barNew progressSetPosition linearConversion [0, _maxLoad, _currentLoad + (_load * _amount), 0, 1, true];
-		_barNew ctrlSetTextColor _colour;
+		if (cbChecked CTRL(IDC_CHECKBOX + 3)) then {
+			//_barNew progressSetPosition (_currentLoad / _maxLoad);
+			//_barNew ctrlSetTextColor [0.9, 0.9, 0.9, 0.9];
+			//_bar progressSetPosition linearConversion [0, _maxLoad, _currentLoad + (_load * _amount * -1), 0, 1, true];
+			//_bar ctrlSetTextColor [0, 0.9, 0, 0.6];
+		} else {
+			_colour = [[0.9, 0, 0, 0.6], [0, 0.9, 0, 0.6]] select (_container canAdd [_classname, _amount]);
+			_bar ctrlSetTextColor [0.9, 0.9, 0.9, 0.9];
+			_bar progressSetPosition (_currentLoad / _maxLoad);
+			_barNew progressSetPosition linearConversion [0, _maxLoad, _currentLoad + (_load * _amount), 0, 1, true];
+			_barNew ctrlSetTextColor _colour;
+		};
 	};
 
 	case "progressStats": {

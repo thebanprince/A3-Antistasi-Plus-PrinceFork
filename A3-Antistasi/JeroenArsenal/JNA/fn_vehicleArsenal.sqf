@@ -114,6 +114,16 @@
 
 disableserialization;
 
+// Calculate the minimum number of an item needed before non-members can take it
+private _minItemsMember = {
+	params ["_index", "_item"];					// Arsenal tab index, item classname
+	private _min = jna_minItemMember select _index;
+	if (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG || _index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL) then {
+		_min = _min * getNumber (configfile >> "CfgMagazines" >> _item >> "count");
+	};
+	_min;
+};
+
 _mode = [_this,0,"Open",[displaynull,""]] call bis_fnc_param;
 _this = [_this,1,[]] call bis_fnc_param;
 
@@ -317,20 +327,6 @@ switch _mode do {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "ColorTabs":{
 		_display = _this select 0;
-		{
-			_ctrlTab = _display displayctrl (IDC_RSCDISPLAYARSENAL_TAB + _forEachIndex);
-
-			_color = if(_x isEqualTo [])then{
-				[1,1,1,1];
-			}else{
-				[1,0.3,0.3,1];
-			};
-			_ctrlTab ctrlSetTextColor _color;
-			_ctrlTab ctrlSetActiveColor _color;
-			_ctrlTab ctrlSetTextColorSecondary _color;
-			_ctrlTab ctrlSetBackgroundColor _color;
-			_ctrlTab ctrlSetForegroundColor _color;
-		} forEach jnva_loadout;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -543,6 +539,7 @@ switch _mode do {
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
+	// This function isn't used here. Colouring is done by updateItemGui in fn_arsenal
 	case "SelectItemRight": {
 		_display = _this select 0;
 		_ctrlList = _this select 1;
@@ -558,18 +555,20 @@ switch _mode do {
 		_load = _maximumLoad * (1 - progressposition _ctrlLoadCargo);
 
 
-
 		//-- Disable too heavy items
-		_min = jna_minItemMember select _index;
 		_rows = lnbsize _ctrlList select 0;
 		_columns = lnbsize _ctrlList select 1;
 		_colorWarning = ["IGUI","WARNING_RGB"] call bis_fnc_displayColorGet;
 		_columns = count lnbGetColumnsPosition _ctrlList;
+
 		for "_r" from 0 to (_rows - 1) do {
 			_dataStr = _ctrlList lnbData [_r,0];
 			_data = call compile _dataStr;
+			_item = _data select 0;
 			_amount = _data select 1;
 			_grayout = false;
+
+			_min = [_index, _item] call _minItemsMember;
 			if ((_amount <= _min) AND (_amount != -1) AND (_amount !=0) AND !([player] call A3A_fnc_isMember)) then{_grayout = true};
 
 			_isIncompatible = _ctrlList lnbvalue [_r,1];
@@ -648,8 +647,8 @@ switch _mode do {
 
 			if (_add > 0) then {//add
 
-				//members only
-				_min = jna_minItemMember select _index;
+				//non-member limits
+				_min = [_index, _item] call _minItemsMember;
 				if((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) exitWith{
 					['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
 				};

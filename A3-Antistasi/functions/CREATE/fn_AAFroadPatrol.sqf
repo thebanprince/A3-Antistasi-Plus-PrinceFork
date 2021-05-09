@@ -45,7 +45,7 @@ if (sidesX getVariable [_base,sideUnknown] == Occupants) then {
 			} else {
 				selectRandom vehNATOLight
 			};
-			
+
 			if (_typeCar == vehNATOPatrolHeli) then {_typePatrol = "AIR"};
 		}
 		else {
@@ -69,7 +69,7 @@ else {
 		} else {
 			selectRandom vehCSATLight
 		};
-			
+
 		if (_typeCar == vehCSATPatrolHeli) then {_typePatrol = "AIR"};
 	};
 };
@@ -117,7 +117,7 @@ if (_typePatrol != "AIR") then {
 	};
 };
 
-_vehicle=[_posBase, 0,_typeCar, _sideX] call bis_fnc_spawnvehicle;
+_vehicle=[_posBase, 0,_typeCar, _sideX] call A3A_fnc_spawnVehicle;
 _veh = _vehicle select 0;
 [_veh, _sideX] call A3A_fnc_AIVEHinit;
 [_veh,"Patrol"] spawn A3A_fnc_inmuneConvoy;
@@ -133,15 +133,16 @@ _vehiclesX = _vehiclesX + [_veh];
 if (_typeCar in vehNATOLightUnarmed) then
 	{
 	sleep 1;
-	_sentry = call SCRT_fnc_unit_getCurrentGroupNATOSentry;
-	_groupX = [_posbase, _sideX, _sentry] call A3A_fnc_spawnGroup;
-	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x] call A3A_fnc_NATOinit} forEach units _groupX;
+	private _sentry = groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier;
+	_groupX = [_posbase, _sideX,  _sentry] call A3A_fnc_spawnGroup;
+	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
 if (_typeCar in vehCSATLightUnarmed) then
 	{
 	sleep 1;
-	_groupX = [_posbase, _sideX, groupsCSATSentry] call A3A_fnc_spawnGroup;
+	private _sentry = groupsCSATSentry call SCRT_fnc_unit_selectInfantryTier;
+	_groupX = [_posbase, _sideX, _sentry] call A3A_fnc_spawnGroup;
 	{_x assignAsCargo _veh;_x moveInCargo _veh; _soldiers pushBack _x; [_x] joinSilent _groupVeh; [_x,"",false] call A3A_fnc_NATOinit} forEach units _groupX;
 	deleteGroup _groupX;
 	};
@@ -185,7 +186,7 @@ while {alive _veh} do
 		};
 	};
 
-{ 
+{
 	private _wp = _x addWaypoint [getMarkerPos _base, 50];
 	_wp setWaypointType "MOVE";
 	_x setCurrentWaypoint _wp;

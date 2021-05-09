@@ -1,7 +1,14 @@
 private _fileName = "trader_removeUnlockedWeaponsFromStock";
 
-private _trader = if (!isNil "traderX") then { traderX } else { nil };
-_trader = if (isNil "_trader" && spawnTraderOnBase) then { traderScreenX } else { nil };
+private _trader = if (spawnTraderOnBase) then {
+    traderScreenX
+} else {
+    if (!isNil "traderX") then {
+        traderX
+    } else { 
+        nil 
+    };
+};
 
 if (isNil "_trader") exitWith {
     [3, "Trader is not spawned yet.", _fileName] call A3A_fnc_log;
