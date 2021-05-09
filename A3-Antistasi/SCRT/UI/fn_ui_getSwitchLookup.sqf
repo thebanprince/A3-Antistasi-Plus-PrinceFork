@@ -21,8 +21,5 @@ switch (_table) do {
             };
         };			
     };
-    case "LOBBY": {
-        
-    };
 };
 _return

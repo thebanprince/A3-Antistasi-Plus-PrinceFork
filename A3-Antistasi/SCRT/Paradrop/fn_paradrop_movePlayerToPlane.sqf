@@ -76,4 +76,4 @@ waitUntil {sleep 0.001; isNil "paradropPlane" || {vehicle player != paradropPlan
 
 if (!([player] call A3A_fnc_canFight) || {isNil "paradropPlane"}) exitWith {};
 
-[player] call SCRT_fnc_paradrop_jump;
+player call SCRT_fnc_paradrop_jump;

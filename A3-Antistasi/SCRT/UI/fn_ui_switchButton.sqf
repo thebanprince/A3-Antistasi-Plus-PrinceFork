@@ -31,15 +31,24 @@ if (_change) then {
     };
     if (_action == "PARADROP") exitWith {
         if (isPlayerParadropable) then {
-            paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
-            paradropAttendants pushBack player;
-            publicVariableServer "paradropAttendants";
-            paradropAttendants = nil;
+            [] spawn {
+                private _paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
+                private _uid = getPlayerUID player;
+                _paradropAttendants pushBackUnique _uid;
+                [missionNamespace, "paradropAttendants", _paradropAttendants] call BIS_fnc_setServerVariable;
+            };
         } else {
-            paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
-            private _playerIndex = paradropAttendants deleteAt (paradropAttendants find player);
-            publicVariableServer "paradropAttendants";
-            paradropAttendants = nil;
+            [] spawn {
+                private _paradropAttendants = [missionNamespace, "paradropAttendants", []] call BIS_fnc_getServerVariable;
+                private _uid = getPlayerUID player;
+
+                private _playerIndex = _paradropAttendants find _uid;
+                
+                if (_playerIndex != -1) then {
+                    _paradropAttendants deleteAt _playerIndex;
+                    [missionNamespace, "paradropAttendants", _paradropAttendants] call BIS_fnc_setServerVariable;
+                };
+            };
         };
     };
 } else {

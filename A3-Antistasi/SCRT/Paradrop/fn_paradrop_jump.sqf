@@ -1,4 +1,4 @@
-params ["_jumper"];
+private _jumper = _this;
 
 private _fnc_reattachPackHolderOnChute = {
     params ["_unit", "_packHolder"];
@@ -17,14 +17,13 @@ private _fnc_reattachPackHolderOnChute = {
 };
 
 cutText ["","BLACK IN",2];
-moveOut _jumper;
 
 private _backpackClass = backpack _jumper;
 private _packHolder = nil;
 private _backPackitems = nil;
 if (!isNil "_backpackClass") then {
     _backPackitems = backpackItems _jumper;
-    _packHolder = createVehicle ["WeaponHolderSimulated", [0,0,0], [], 0, "CAN_COLLIDE"];
+    _packHolder = createVehicle ["GroundWeaponHolder", [0,0,0], [], 0, "CAN_COLLIDE"];
     _packHolder addBackpackCargoGlobal [_backpackClass, 1];
     _packHolder attachTo [_jumper, [-0.12,-0.02,-.74], "pelvis"]; 
 	_packHolder setVectorDirAndUp [[0,-1,-0.05],[0,0,-1]];

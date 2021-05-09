@@ -13,7 +13,7 @@ if (hasInterface) then {
     _gasEffect setParticleCircle [0, [0, 0, 0]]; 
     _gasEffect setParticleRandom [0, [0.5, 0.5, 0], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0]; 
     _gasEffect setParticleParams [ 
-        ["\Ca\Data\ParticleEffects\FireAndSmokeAnim\SmokeAnim.p3d", 8, 3, 1],  
+        ["\A3\Data_F\ParticleEffects\Universal\Universal", 16, 9, 1],  
         "",  
         "Billboard",  
         1,  

@@ -36,7 +36,7 @@ _wp3 = group paradropPlane addWaypoint [_finPosition, 2];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed "FULL";
 
-publicVariable "paradropPlane"; //clients should know about plane to be moved into it
+publicVariable "paradropPlane";
 
 private _timeOut = time + 600;
 waitUntil { sleep 2; (currentWaypoint group paradropPlane == 4) or (time > _timeOut) or !(canMove paradropPlane) };
