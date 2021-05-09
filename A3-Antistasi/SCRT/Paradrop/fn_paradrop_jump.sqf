@@ -21,7 +21,7 @@ cutText ["","BLACK IN",2];
 private _backpackClass = backpack _jumper;
 private _packHolder = nil;
 private _backPackitems = nil;
-if (!isNil "_backpackClass") then {
+if (_backpackClass != "") then {
     _backPackitems = backpackItems _jumper;
     _packHolder = createVehicle ["GroundWeaponHolder", [0,0,0], [], 0, "CAN_COLLIDE"];
     _packHolder addBackpackCargoGlobal [_backpackClass, 1];
