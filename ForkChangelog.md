@@ -37,8 +37,6 @@
 ### Changes
 - Merge with 2.4.1 Community Version
 - Overhauled rebel progression - buying some vehicles at vehicle box, establishing outposts or hiring some squad types are bound to war level and/or captured points 
-- UI/UX overhaul - new commander menu, all others menus were modified with the new UI framework usage
-- Civilian Presence Module - Antistasi's ambient footmobile civilians were replaced with the vanilla Civilian Presence Module (no more cilivians in the middle of nowhere, more performance as civilians will use Agent behaviour instead of Unit, civilians will panic and try to find cover in the middle of the firefight) 
 - Assign As Loot Vehicle replaced with Create Loot Crate action (use flagpole on outpost or vehicle box on HQ) due to design inconsistencies
 - Disbanding outposts now refunds correct HR and money value (100% HR and 75% money)
 - Artillery triggers counterattacks too (same as it already works with mortars)
