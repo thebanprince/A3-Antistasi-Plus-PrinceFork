@@ -1366,7 +1366,7 @@ class buyVehicleMenu: SimpleMenuSmall
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.262 * safezoneH + safezoneY;
 			w = "22 * pixelGridNoUIScale * pixelW";	
-			h = "3 * pixelGridNoUIScale * pixelH";
+			h = "4.5 * pixelGridNoUIScale * pixelH";
 		};
 
 		class r2Button: SimpleButton
