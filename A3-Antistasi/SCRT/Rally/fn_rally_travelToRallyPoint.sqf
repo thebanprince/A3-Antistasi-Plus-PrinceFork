@@ -20,9 +20,6 @@ if (player != player getVariable ["owner",player]) exitWith {
 
 private _groupX = group player;
 
-if (((units _groupX) findIf {vehicle _x != _x}) != -1) exitWith {
-    ["Rally Point", "You cannot travel to rally point while having vehicles in your squad."] call SCRT_fnc_misc_showDeniedActionHint;
-};
 
 private _rallyPoint = rallyProps select 0;
 private _rallyPosition = position _rallyPoint;
