@@ -200,6 +200,7 @@ _sfLoadoutData setVariable ["missileATLaunchers", [
 _sfLoadoutData setVariable ["AALaunchers", [
 	["launch_B_Titan_olive_F", "", "CUP_acc_LLM_od", "", ["Titan_AA"], [], ""]
 ]];
+_sfLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_sage_F"]];
 
 _sfLoadoutData setVariable ["rifles", [
 ["GL_XM25_F", "", "", "", ["5Rnd_25x40mm_HE", "5Rnd_25x40mm_HE", "5Rnd_25x40mm_airburst"], [], ""],
@@ -296,6 +297,7 @@ _militaryLoadoutData setVariable ["lightATLaunchers", [
 _militaryLoadoutData setVariable ["AALaunchers", [
 	["CUP_launch_FIM92Stinger", "", "", "", ["CUP_Stinger_M"], [], ""]
 ]];
+_militaryLoadoutData setVariable ["longRangeRadios", ["CUP_B_Motherlode_Radio_MTP", "CUP_B_Predator_Radio_MTP"]];
 
 _militaryLoadoutData setVariable ["rifles", [
 ["CUP_arifle_FNFAL5061_wooden_railed", "", "CUP_acc_LLM01_L", "CUP_optic_ACOG", ["CUP_20Rnd_762x51_FNFAL_M", "CUP_20Rnd_762x51_FNFAL_M", "CUP_20Rnd_TE1_Red_Tracer_762x51_FNFAL_M"], [], ""],
@@ -367,6 +369,8 @@ _eliteLoadoutData setVariable ["missileATLaunchers", [
 _eliteLoadoutData setVariable ["AALaunchers", [
 	["launch_B_Titan_olive_F", "", "CUP_acc_LLM_od", "", ["Titan_AA"], [], ""]
 ]];
+_eliteLoadoutData setVariable ["longRangeRadios", ["CUP_B_Motherlode_Radio_MTP", "CUP_B_Predator_Radio_MTP"]];
+//"B_RadioBag_01_green_F", "B_RadioBag_01_sage_F" 
 
 _eliteLoadoutData setVariable ["rifles", [
 ["arifle_SA80_blk_F", "", "CUP_acc_LLM_black", "CUP_optic_AIMM_MICROT1_BLK", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], [], ""],
@@ -425,7 +429,7 @@ _militiaLoadoutData setVariable ["Hvests", ["CUP_V_O_SLA_Flak_Vest03", "CUP_V_O_
 _militiaLoadoutData setVariable ["GLvests", ["CUP_V_O_SLA_Flak_Vest03", "CUP_V_O_SLA_Flak_Vest01", "CUP_V_O_SLA_Flak_Vest02"]];
 _militiaLoadoutData setVariable ["backpacks", ["B_FieldPack_oli", "CUP_B_HikingPack_Civ"]];		//this line determines backpacks for militia loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
 _militiaLoadoutData setVariable ["helmets", ["CUP_H_SLA_Helmet_OD_worn", "CUP_H_SLA_Helmet_OD_worn", "H_PASGT_basic_green_F", "H_Bandanna_khk", "CUP_H_CDF_OfficerCap_FST"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["ATLaunchers", ["CUP_launch_RPG18", "CUP_launch_HCPF3", "CUP_launch_BF3"]];  
+_militiaLoadoutData setVariable ["ATLaunchers", ["CUP_launch_RPG18", "CUP_launch_HCPF3", "CUP_launch_BF3"]];  
 _militiaLoadoutData setVariable ["lightATLaunchers", [
 	["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_PG7V_M", "CUP_OG7_M"], [], ""],
 	["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_PG7V_M", "CUP_PG7VL_M"], [], ""],
@@ -434,6 +438,7 @@ _militiaLoadoutData setVariable ["lightATLaunchers", [
 _militiaLoadoutData setVariable ["AALaunchers", [
 	["CUP_launch_9K32Strela", "", "", "", ["CUP_Strela_2_M"], [], ""]
 ]];
+_militiaLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_green_F"]];
 
 _militiaLoadoutData setVariable ["rifles", [
 ["CUP_arifle_Sa58P", "", "CUP_acc_Flashlight", "", ["CUP_30Rnd_Sa58_M", "CUP_30Rnd_Sa58_M", "CUP_30Rnd_Sa58_M_TracerG"], [], ""],
@@ -533,6 +538,31 @@ private _riflemanTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
+
+	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
+	["primary", 6] call _fnc_addMagazines;
+
+	["sidearms"] call _fnc_setHandgun;
+	["handgun", 2] call _fnc_addMagazines;
+
+	["items_medical_standard"] call _fnc_addItemSet;
+	["items_rifleman_extras"] call _fnc_addItemSet;
+	["items_miscEssentials"] call _fnc_addItemSet;
+	["antiInfantryGrenades", 2] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
+
+	["maps"] call _fnc_addMap;
+	["watches"] call _fnc_addWatch;
+	["compasses"] call _fnc_addCompass;
+	["radios"] call _fnc_addRadio;
+	["NVGs"] call _fnc_addNVGs;
+};
+
+private _radiomanTemplate = {
+	["helmets"] call _fnc_setHelmet;
+	["vests"] call _fnc_setVest;
+	["uniforms"] call _fnc_setUniform;
+	["longRangeRadios"] call _fnc_setBackpack;
 
 	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
@@ -906,6 +936,7 @@ private _prefix = "SF";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -935,6 +966,7 @@ private _prefix = "military";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -956,6 +988,7 @@ private _prefix = "elite";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -988,6 +1021,7 @@ private _prefix = "militia";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],

@@ -158,7 +158,7 @@ _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["Hvests", []];
 _loadoutData setVariable ["GLvests", []];
 _loadoutData setVariable ["backpacks", []];
-_loadoutData setVariable ["longRangeRadios", []];
+_loadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_digi_F"]];
 _loadoutData setVariable ["helmets", []];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
@@ -197,7 +197,7 @@ _sfLoadoutData setVariable ["Hvests", ["V_PlateCarrierH_CTRG"]];
 _sfLoadoutData setVariable ["backpacks", ["B_Kitbag_cbr", "B_Carryall_mcamo", "B_Carryall_cbr", "B_AssaultPack_cbr"]];			//this line determines backpacks for special forces -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
 _sfLoadoutData setVariable ["helmets", ["H_HelmetSpecB_blk", "H_HelmetSpecB", "H_Booniehat_mcamo", "H_Watchcap_khk"]];				//this line determines helmets for special forces -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
 _sfLoadoutData setVariable ["binoculars", ["Laserdesignator"]];
-
+_sfLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_mtp_F"]];
 
 _sfLoadoutData setVariable ["rifles", [
 ["arifle_SPAR_02_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
@@ -284,6 +284,7 @@ _militaryLoadoutData setVariable ["helmets", ["H_HelmetB_camo", "H_HelmetB", "H_
 _militaryLoadoutData setVariable ["missileATLaunchers", [
 	["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]]; 
+_militaryLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_mtp_F"]];
 
 _militaryLoadoutData setVariable ["rifles", [
 ["arifle_MX_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""],
@@ -394,6 +395,7 @@ _militiaLoadoutData setVariable ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_lrps", [], [], ""]
 ]];
 _militiaLoadoutData setVariable ["sidearms", ["hgun_ACPC2_F"]];
+_militiaLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_digi_F"]];
 
 /////////////////////////////////
 //    Elite Loadout Data    //
@@ -410,6 +412,7 @@ _eliteLoadoutData setVariable ["ATLaunchers", ["launch_NLAW_F"]]; 				//this lin
 _eliteLoadoutData setVariable ["missileATLaunchers", [
 	["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]]; 
+_eliteLoadoutData setVariable ["longRangeRadios", ["B_RadioBag_01_mtp_F"]];
 
 _eliteLoadoutData setVariable ["rifles", [
 ["arifle_SPAR_02_blk_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
@@ -517,6 +520,31 @@ private _riflemanTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
+
+	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
+	["primary", 6] call _fnc_addMagazines;
+
+	["sidearms"] call _fnc_setHandgun;
+	["handgun", 2] call _fnc_addMagazines;
+
+	["items_medical_standard"] call _fnc_addItemSet;
+	["items_rifleman_extras"] call _fnc_addItemSet;
+	["items_miscEssentials"] call _fnc_addItemSet;
+	["antiInfantryGrenades", 2] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
+
+	["maps"] call _fnc_addMap;
+	["watches"] call _fnc_addWatch;
+	["compasses"] call _fnc_addCompass;
+	["radios"] call _fnc_addRadio;
+	["NVGs"] call _fnc_addNVGs;
+};
+
+private _radiomanTemplate = {
+	["helmets"] call _fnc_setHelmet;
+	["vests"] call _fnc_setVest;
+	["uniforms"] call _fnc_setUniform;
+	["longRangeRadios"] call _fnc_setBackpack;
 
 	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
@@ -890,6 +918,7 @@ private _prefix = "SF";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -919,6 +948,7 @@ private _prefix = "military";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -940,6 +970,7 @@ private _prefix = "elite";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -972,6 +1003,7 @@ private _prefix = "militia";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],

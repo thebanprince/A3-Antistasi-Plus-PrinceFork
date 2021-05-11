@@ -156,7 +156,7 @@ _loadoutData setVariable ["Medbackpacks", ["rhs_medic_bag"]];
 _loadoutData setVariable ["Atbackpacks", ["rhs_rpg_empty"]];
 _loadoutData setVariable ["AAbackpacks", ["B_Carryall_oli"]];
 _loadoutData setVariable ["Engbackpacks", ["rhs_assault_umbts_engineer_empty"]];
-_loadoutData setVariable ["longRangeRadios", []];
+_loadoutData setVariable ["longRangeRadios", ["rhs_r148"]];
 _loadoutData setVariable ["helmets", []];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
@@ -539,6 +539,31 @@ private _riflemanTemplate = {
 	["NVGs"] call _fnc_addNVGs;
 };
 
+private _radiomanTemplate = {
+	["helmets"] call _fnc_setHelmet;
+	["vests"] call _fnc_setVest;
+	["uniforms"] call _fnc_setUniform;
+	["longRangeRadios"] call _fnc_setBackpack;
+
+	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
+	["primary", 6] call _fnc_addMagazines;
+
+	["sidearms"] call _fnc_setHandgun;
+	["handgun", 2] call _fnc_addMagazines;
+
+	["items_medical_standard"] call _fnc_addItemSet;
+	["items_rifleman_extras"] call _fnc_addItemSet;
+	["items_miscEssentials"] call _fnc_addItemSet;
+	["antiInfantryGrenades", 2] call _fnc_addItem;
+	["smokeGrenades", 2] call _fnc_addItem;
+
+	["maps"] call _fnc_addMap;
+	["watches"] call _fnc_addWatch;
+	["compasses"] call _fnc_addCompass;
+	["radios"] call _fnc_addRadio;
+	["NVGs"] call _fnc_addNVGs;
+};
+
 private _medicTemplate = {
 	["helmets"] call _fnc_setHelmet;
 	[["Medvests", "vests"] call _fnc_fallback] call _fnc_setVest;
@@ -896,6 +921,7 @@ private _prefix = "SF";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -925,6 +951,7 @@ private _prefix = "military";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -957,6 +984,7 @@ private _prefix = "militia";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
@@ -978,6 +1006,7 @@ private _prefix = "elite";
 private _unitTypes = [
 	["SquadLeader", _squadLeaderTemplate],
 	["Rifleman", _riflemanTemplate],
+	["Radioman", _radiomanTemplate],
 	["Medic", _medicTemplate, [["medic", true]]],
 	["Engineer", _engineerTemplate, [["engineer", true]]],
 	["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
