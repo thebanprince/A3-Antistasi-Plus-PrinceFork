@@ -129,6 +129,7 @@ class A3A
         class autoLoot {};
         class autoRearm {};
         class callForSupport {};
+        class callForSupportInfantry {};
         class canConquer {};
         class canFight {};
         class captureX {};
