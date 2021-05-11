@@ -33,7 +33,7 @@ A3A_paramTable = [
     ["personalGarageMax", "personalGarageMax", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
-    ["napalmEnabled", "napalmEnabled", [], true],
+    ["napalmEnabled", "napalmEnabled", [], false],
     ["playerMarkersEnabled", "pMarkers", [], true],
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
