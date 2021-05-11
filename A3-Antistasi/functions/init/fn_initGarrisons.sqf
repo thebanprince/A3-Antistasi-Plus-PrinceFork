@@ -147,6 +147,10 @@ if (gameMode == 1) then
 			_mrkCSAT = ["airport_1", "seaport_6", "outpost_22", "outpost_15", "resource_9", "outpost_19", "outpost_14", "resource_11"];
 			_controlsCSAT = ["control_28", "control_27"];
 		};
+		case "taviana": {
+		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
+            _controlsCSAT = ["control", "control_1", "control_2"];
+		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];

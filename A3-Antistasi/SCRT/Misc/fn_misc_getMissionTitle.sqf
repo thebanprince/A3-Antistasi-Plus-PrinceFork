@@ -33,6 +33,10 @@ switch (toLower worldName) do {
 	{
 		_title = localize "STR_antistasi_mission_info_panthera_mapname_text";
 	};
+	case "taviana":
+	{
+	    _title = localize "STR_antistasi_mission_info_taviana_mapname_text";
+	};
 	default
 	{
 	    _title = "Antistasi";
