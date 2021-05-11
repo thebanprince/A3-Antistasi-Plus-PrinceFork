@@ -9,7 +9,7 @@
 */
 
 private _filename = "fn_AIVEHinit";
-params ["_veh", "_side"];
+params ["_veh", "_side", ["_excludeTrails", false]];
 if (isNil "_veh") exitWith {};
 
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
@@ -135,7 +135,7 @@ if (_side == civilian) then
 	}];
 };
 
-if(_typeX in vehMRLS + additionalShopArtillery + [CSATMortar, NATOMortar, SDKMortar]) then
+if(!_excludeTrails && {_typeX in vehMRLS + additionalShopArtillery + [CSATMortar, NATOMortar, SDKMortar]}) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
 };

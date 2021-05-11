@@ -68,7 +68,7 @@ private _artilleryData = [_missionOriginPos, 0, _artilleryClass, _sideX] call A3
 private _artilleryVeh = _artilleryData select 0;
 _artilleryVeh setDir (random 360);
 _artilleryVeh allowDamage false;
-[_artilleryVeh, _sideX] call A3A_fnc_AIVEHinit;
+[_artilleryVeh, _sideX, true] call A3A_fnc_AIVEHinit;
 private _artilleryCrew = _artilleryData select 1;
 {[_x] call A3A_fnc_NATOinit} forEach _artilleryCrew;
 private _artilleryGroup = _artilleryData select 2;
