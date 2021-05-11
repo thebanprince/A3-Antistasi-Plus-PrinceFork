@@ -1,10 +1,10 @@
 private _positionOrigin = getMarkerPos supportMarkerOrigin;
-private _poisitionDestination = getMarkerPos supportMarkerDestination;
-private _angle = [_positionOrigin, _poisitionDestination] call BIS_fnc_dirTo;
+private _positionDestination = getMarkerPos supportMarkerDestination;
+private _angle = [_positionOrigin, _positionDestination] call BIS_fnc_dirTo;
 private _angleOrigin = _angle - 180;
 
 private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
-private _finPosition = [_poisitionDestination, 2500, _angle] call BIS_fnc_relPos;
+private _finPosition = [_positionDestination, 2500, _angle] call BIS_fnc_relPos;
 
 private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 private _plane = _planeData select 0;
@@ -27,7 +27,7 @@ _wp1 setWaypointBehaviour "CARELESS";
 private _relativePositions = [];
 
 {
-    private _relativePosition = [_poisitionDestination, 300, _x] call BIS_fnc_relPos;
+    private _relativePosition = [_positionDestination, 300, _x] call BIS_fnc_relPos;
     _relativePositions pushBack _relativePosition;
 } forEach [0, 180];
 
@@ -38,7 +38,7 @@ private _relativePositions = [];
     _wp setWaypointType "MOVE";
 
     if(_index == 1) then {
-        _wp setWaypointStatements ["true", format ["if !(local this) exitWith {}; [%1, %2, %3] spawn SCRT_fnc_common_recon", _poisitionDestination, 350, 180]];
+        _wp setWaypointStatements ["true", format ["if !(local this) exitWith {}; [%1, %2, %3] spawn SCRT_fnc_common_recon", _positionDestination, 350, 180]];
     };
 } forEach _relativePositions;
 
