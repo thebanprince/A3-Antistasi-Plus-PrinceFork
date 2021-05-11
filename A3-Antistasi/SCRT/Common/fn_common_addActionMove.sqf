@@ -16,7 +16,7 @@ if(!isnil "_actionId") then {
 
 //add action
 _actionId = _vehicle addAction [
-    "Move this asset", 
+    "Carry Loot Crate", 
     SCRT_fnc_common_moveStatic,
     nil,
     0,
