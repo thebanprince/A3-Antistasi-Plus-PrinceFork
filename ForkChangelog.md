@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.5.1
+### Additions
+- New radioman infantry type - populates full 8-man squads, calls for support when needed (instead of any squad leader, as it was before), players have the ability to cancel the support by shotting him before he makes support call
+- Taviana support is back
+- (TFAR Beta) Default SW and LR frequencies on mission start
+
+### Changes
+- Carry Loot Crate fix
+- Disabled smoke trails for non-existent artillery shells from Destroy Artillery mission
+- Fixed label size in Buy Vehicle menu
+- Fixed inability to travel to rally point when someone in your squad is inside vehicle
+- Fixed War Level typo in Buy Squad message
+- Fixed multiple sound spam on Reveal Enemies interrogation action
+- Increased Reveal radius for Reveal Enemies interrogation action (50->100 meters)
+- Napalm for AI will be off by default
+- Randomized bomb type for enemy aircraft support action to reduce napalm spam
+- Squad call for support cooldown increase (5 minutes -> 20 minutes)
+- Time to call for support increase (~15 seconds -> ~30 seconds for non-infantry, ~15 seconds -> ~45 seconds for infantry)
+- Implemented chance for AI units throwing smoke grenade on danger instead of throwing it all the time
+- (Antistasi Units) No disposable launchers fix
+
+### Removals
+- Removed smoke in radius from landing helicopters and other vehicles that have no built-in smoke launchers
+
 ## 1.5
 ### Additions
 - Livonia support
