@@ -1,5 +1,7 @@
 params ["_thingX"];
 
+private _playerX = player;
+
 _thingX setVariable ["objectBeingMoved", true];
 
 [_thingX] remoteExec ["SCRT_fnc_common_removeActionMove", 0, _thingX];
@@ -26,25 +28,10 @@ private _fnc_placeObject = {
 		_playerX removeAction _dropObjectActionIndex;
 	};
 
-	// Can't find a case where this is ever true, but we'll make sure
-	if (local _thingX) then {
-		if (isNull group _thingX) then { [_thingX, 2] remoteExec ["setOwner", 2] }
-		else { [group _thingX, 2] remoteExec ["setGroupOwner", 2] };
-	};
 
-	// Some objects never lose (and even regain) their velocity when detached, becoming lethal
-	// On a DS, object locality changes when detached, so we have to remoteexec
-	[_thingX, [0,0,0]] remoteExec ["setVelocity", _thingX];
 
 	// Without this, non-unit objects often hang in mid-air
 	[_thingX, surfaceNormal position _thingX] remoteExec ["setVectorUp", _thingX];
-
-	// Place on closest surface
-	private _pos = getPosASL _thingX;
-	private _intersects = lineIntersectsSurfaces [_pos, _pos vectorAdd [0,0,-100], _thingX];
-	if (count _intersects > 0) then {
-		_thingX setPosASL (_intersects select 0 select 0);
-	};
 
 	_thingX setVariable ["objectBeingMoved", false];
 };
@@ -55,8 +42,12 @@ private _actionX = _playerX addAction ["Drop Here", {
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
 }, [_thingX, _fnc_placeObject],0,false,true,"",""];
 
+_playerX forceWalk true;
+
 waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _playerX) or !([_playerX] call A3A_fnc_canFight) or (!isPlayer _playerX)};
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
 
 [_thingX] remoteExec ["SCRT_fnc_common_addActionMove", 0, _thingX];
+
+_playerX forceWalk false;
