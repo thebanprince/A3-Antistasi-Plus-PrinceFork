@@ -1,4 +1,4 @@
-private ["_unit","_medicX","_timeOut","_cured","_isPlayer","_smoked","_enemy","_coverX","_dummyGrp","_dummy"];
+private ["_unit","_medicX","_timeOut","_cured","_isPlayer","_enemy","_coverX","_dummyGrp","_dummy"];
 _unit = _this select 0;
 if !(isNull (_unit getVariable ["helped",objNull])) exitWith {};
 _medicX = _this select 1;
@@ -9,7 +9,6 @@ _medicX setVariable ["helping",true];
 _medicX setVariable ["maneuvering",true];
 _cured = false;
 _isPlayer = if ({isPlayer _x} count units group _unit >0) then {true} else {false};
-_smoked = false;
 
 if (_medicX != _unit) then
 	{
@@ -31,7 +30,9 @@ if (_medicX != _unit) then
 		};
 	if (hasInterface) then {if (player == _unit) then {["Medical", format ["%1 is on the way to help you",name _medicX]] call A3A_fnc_customHint;}};
 	_enemy = _medicX findNearestEnemy _unit;
-	_smoked = [_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
+	if ((random 100) < 60) then {
+		[_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
+	};
 	_medicX stop false;
 	_medicX forceSpeed -1;
 	_timeOut = time + 60;
@@ -146,7 +147,6 @@ if (_medicX != _unit) then
 			else
 				{
 				_medicX stop true;
-				//if (!_smoked) then {[_medicX,_unit] call A3A_fnc_chargeWithSmoke};
 				_unit stop true;
 				_cured = [_unit,_medicX] call A3A_fnc_actionRevive;
 				if (_cured) then
@@ -164,7 +164,6 @@ if (_medicX != _unit) then
 		else
 			{
 			_medicX stop true;
-			//if (!_smoked) then {[_medicX,_unit] call A3A_fnc_chargeWithSmoke};
 			_unit stop true;
 			if (_unit getVariable ["incapacitated",false]) then {_cured = [_unit,_medicX] call A3A_fnc_actionRevive} else {_medicX action ["HealSoldier",_unit]; _cured = true};
 			if (_cured) then
@@ -189,7 +188,9 @@ if (_medicX != _unit) then
 	}
 else
 	{
-	[_medicX,_medicX] call A3A_fnc_chargeWithSmoke;
+	if ((random 100) < 60) then {
+		[_medicX,_medicX] call A3A_fnc_chargeWithSmoke;
+	};
 	if ([_medicX] call A3A_fnc_canFight) then
 		{
 		_medicX action ["HealSoldierSelf",_medicX];

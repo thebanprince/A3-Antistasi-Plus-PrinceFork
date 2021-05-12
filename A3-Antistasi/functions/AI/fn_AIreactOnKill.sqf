@@ -49,11 +49,11 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
         //Call the support on the unit or its vehicle
         if(isNull _enemyVehicle) then
         {
-            [_group, _supportTypes, _killer] spawn A3A_fnc_callForSupport;
+            [_group, _supportTypes, _killer] spawn A3A_fnc_callForSupportInfantry;
         }
         else
         {
-            [_group, _supportTypes, _enemyVehicle] spawn A3A_fnc_callForSupport;
+            [_group, _supportTypes, _enemyVehicle] spawn A3A_fnc_callForSupportInfantry;
         };
     };
 };
@@ -92,7 +92,9 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
                     }
                     else
                     {
-                        [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke
+                        if ((random 100) < 40) then {
+                            [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke
+                        };
                     };
 				};
 			};
@@ -116,13 +118,17 @@ if(_group getVariable ["canCallSupportAt", -1] < dateToNumber date) then
                 else {
                     //ordinary soldier will throw smoke
                     if (sunOrMoon == 1) then {
-                        [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
+                        if ((random 100) < 40) then {
+                            [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
+                        };
                     } else {
                         //soldier with underbarrel launcher will launch flare if there is someone in his squad without NVG goggles, else smoke
                         if (_noNvgIndex != -1 && count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2) then {
                             [_x,_enemy] spawn A3A_fnc_useFlares;
                         } else {
-                            [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
+                            if ((random 100) < 40) then {
+                                [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
+                            };
                         };
 					};
 				};

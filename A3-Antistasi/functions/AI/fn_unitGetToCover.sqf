@@ -18,11 +18,9 @@ _unit forceSpeed -1;
 {_unit disableAI _x} forEach ["AUTOTARGET","FSM","TARGET","SUPPRESSION","AUTOCOMBAT","WEAPONAIM","COVER","CHECKVISIBLE"];
 _unit setUnitPos "MIDDLE";
 _unit setCombatMode "BLUE";
-//_unit setBehaviour "CARELESS";
 _unit doMove _coverX;
 
-[_unit,_coverX] spawn
-	{
+[_unit,_coverX] spawn {
 	private ["_unit","_coverX","_timeOut"];
 	_unit = _this select 0;
 	_coverX = _this select 1;
@@ -41,8 +39,7 @@ _unit doMove _coverX;
 		};
 	{_unit enableAI _x} forEach ["AUTOTARGET","FSM","TARGET","SUPPRESSION","AUTOCOMBAT","WEAPONAIM","COVER","CHECKVISIBLE"];
 	_unit setCombatMode "YELLOW";
-	//_unit setBehaviour "COMBAT";
 	_unit forceSpeed -1;
 	_unit stop false;
 	_unit setUnitPos "AUTO";
-	};
+};

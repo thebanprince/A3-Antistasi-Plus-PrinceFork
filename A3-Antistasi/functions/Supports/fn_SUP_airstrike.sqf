@@ -52,21 +52,15 @@ if(isNil "napalmEnabled") then
     napalmEnabled = false;
 };
 
-private _bombType = if (napalmEnabled) then {"NAPALM"} else {"CLUSTER"};
-{
-    if (vehicle _x isKindOf "Tank") then
-    {
-        _bombType = "HE";
-    }
-    else
-    {
-        if (vehicle _x != _x) then
-        {
-            if !(vehicle _x isKindOf "StaticWeapon") then {_bombType = "CLUSTER"};
-        };
-    };
-    if (_bombType == "HE") exitWith {};
-} forEach _enemies;
+private _bombPool = if (napalmEnabled) then {["NAPALM", "CLUSTER", "HE"]} else {["CLUSTER", "HE"]};
+private _bombType = selectRandom _bombPool;
+
+
+private _isTank = _enemies findIf {vehicle _x isKindOf "Tank"} != -1;
+
+if (_isTank) then {
+    _bombType = "HE";
+};
 
 [2, format ["Airstrike will be carried out with bombType %1", _bombType], _fileName] call A3A_fnc_log;
 

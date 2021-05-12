@@ -26,7 +26,7 @@ if((_group getVariable ["canCallSupportAt", -1]) > (dateToNumber date)) exitWith
 
 //Block the group from calling support again
 private _date = date;
-_date set [4, (_date select 4) + 5];
+_date set [4, (_date select 4) + 20];
 private _dateNumber = dateToNumber _date;
 _group setVariable ["canCallSupportAt", _dateNumber, true];
 
@@ -44,8 +44,8 @@ private _oldSkill = skill _groupLeader;
 _groupLeader setSkill (_oldSkill - 0.2);
 
 //Wait for the call to happen
-private _timeToCallSupport = 10 + random 5;
-sleep _timeToCallSupport;
+private _timeToCallSupport = time + 15 + random 15;
+waitUntil {time > _timeToCallSupport};
 
 //Reset leader skill
 _groupLeader setSkill _oldSkill;

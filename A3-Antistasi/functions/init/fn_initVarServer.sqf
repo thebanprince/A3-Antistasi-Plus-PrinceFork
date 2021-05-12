@@ -655,6 +655,16 @@ private _squadLeaders = (SDKSL + [
 	(FIASquad select 0)
 ]);
 DECLARE_SERVER_VAR(squadLeaders, _squadLeaders);
+//Identify radio-capable units
+private _radioMen = [
+	"loadouts_occ_militia_Radioman",
+	"loadouts_occ_military_Radioman",
+	"loadouts_occ_elite_Radioman",
+	"loadouts_inv_militia_Radioman",
+	"loadouts_inv_military_Radioman",
+	"loadouts_inv_elite_Radioman"
+];
+DECLARE_SERVER_VAR(radioMen, _radioMen);
 //Identify Medic Units
 private _medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
 DECLARE_SERVER_VAR(medics, _medics);

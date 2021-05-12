@@ -4,7 +4,7 @@
 ### Additions
 - New radioman infantry type - populates full 8-man squads, calls for support when needed (instead of any squad leader, as it was before), players have the ability to cancel the support by shotting him before he makes support call
 - Taviana support is back
-- (TFAR Beta) Default SW and LR frequencies on mission start
+- (TFAR Beta) Force same SW and LR frequencies for side
 
 ### Changes
 - Carry Loot Crate fix

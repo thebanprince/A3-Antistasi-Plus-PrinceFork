@@ -14,17 +14,19 @@ params ["_group", "_supportTypes", "_target"];
     Returns:
         Nothing
 */
-private _fileName = "callForSupport";
+private _fileName = "callForSupportInfantry";
 
 if(side _group == teamPlayer) exitWith {
-    [1, format ["Rebel group %1 managed to call callForSupport, not allowed for rebel groups", _group], _fileName] call A3A_fnc_log;
+    [1, format ["Rebel group %1 managed to call support, not allowed for rebel groups", _group], _fileName] call A3A_fnc_log;
 };
 
 private _radiomanIndex = (units _group) findIf {(_x getVariable "unitType") in radioMen};
 
 if (_radiomanIndex == -1) exitWith {
-    [1, format [" %1 Group has no capability to call support, no radiomen in squad", _group], _fileName] call A3A_fnc_log;
+    [3, format [" %1 Group has no capability to call support, no radiomen in squad", _group], _fileName] call A3A_fnc_log;
 };
+
+[3, format [" %1 Group has radioman, trying to call support...", _group], _fileName] call A3A_fnc_log;
 
 private _radioMan = (units _group) select _radiomanIndex;
 
