@@ -22,7 +22,7 @@ _chance = _chance + 10;
 sleep 5;
 
 if ((round (random 100)) < _chance) then {
-    [position _unit, 50, 30, true] spawn SCRT_fnc_common_recon;
+    [(position _unit), 100, 30, true] spawn SCRT_fnc_common_recon;
 } else {
 	_unit globalChat localize "STR_recruit_fail_text";
 };
