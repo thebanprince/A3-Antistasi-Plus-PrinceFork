@@ -97,9 +97,9 @@ if (_side isEqualTo east) then {
 		["loadouts_inv_elite_SquadLeader", "loadouts_inv_elite_Rifleman", "loadouts_inv_elite_AT", "loadouts_inv_elite_AT"]
 	];
 	private _groupsCSATMediumSquad = [
-		["loadouts_inv_militia_SquadLeader","loadouts_inv_militia_MachineGunner","loadouts_inv_militia_Grenadier","loadouts_inv_militia_LAT"],
-		["loadouts_inv_military_SquadLeader","loadouts_inv_military_MachineGunner","loadouts_inv_military_Grenadier","loadouts_inv_military_LAT"],
-		["loadouts_inv_elite_SquadLeader","loadouts_inv_elite_MachineGunner","loadouts_inv_elite_Grenadier","loadouts_inv_elite_LAT"]
+		["loadouts_inv_militia_SquadLeader","loadouts_inv_militia_MachineGunner","loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Radioman", "loadouts_inv_militia_LAT"],
+		["loadouts_inv_military_SquadLeader","loadouts_inv_military_MachineGunner","loadouts_inv_military_Grenadier", "loadouts_inv_military_Radioman", "loadouts_inv_military_LAT"],
+		["loadouts_inv_elite_SquadLeader","loadouts_inv_elite_MachineGunner","loadouts_inv_elite_Grenadier","loadouts_inv_elite_Radioman", "loadouts_inv_elite_LAT"]
 	];
 	groupsCSATmid = [_groupsCSATMediumSquad, groupsCSATAA, groupsCSATAT];
 
@@ -334,9 +334,9 @@ if (_side isEqualTo west) then {
 		["loadouts_occ_elite_SquadLeader", "loadouts_occ_elite_Rifleman", "loadouts_occ_elite_AT", "loadouts_occ_elite_AT"]
 	];
 	private _groupsNATOMediumSquad = [
-		["loadouts_occ_militia_SquadLeader","loadouts_occ_militia_MachineGunner","loadouts_occ_militia_Grenadier","loadouts_occ_militia_LAT"],
-		["loadouts_occ_military_SquadLeader","loadouts_occ_military_MachineGunner","loadouts_occ_military_Grenadier","loadouts_occ_military_LAT"],
-		["loadouts_occ_elite_SquadLeader","loadouts_occ_elite_MachineGunner","loadouts_occ_elite_Grenadier","loadouts_occ_elite_LAT"]
+		["loadouts_occ_militia_SquadLeader","loadouts_occ_militia_MachineGunner","loadouts_occ_militia_Grenadier","loadouts_occ_militia_Radioman","loadouts_occ_militia_LAT"],
+		["loadouts_occ_military_SquadLeader","loadouts_occ_military_MachineGunner","loadouts_occ_military_Grenadier","loadouts_occ_military_Radioman","loadouts_occ_military_LAT"],
+		["loadouts_occ_elite_SquadLeader","loadouts_occ_elite_MachineGunner","loadouts_occ_elite_Grenadier","loadouts_occ_elite_Radioman","loadouts_occ_elite_LAT"]
 	];
 	groupsNATOmid = [_groupsNATOMediumSquad, groupsNATOAA, groupsNATOAT];
 
@@ -377,8 +377,8 @@ if (_side isEqualTo west) then {
 			selectRandomWeighted ["loadouts_occ_elite_MachineGunner", 2, "loadouts_occ_elite_Marksman", 1],
 			selectRandomWeighted ["loadouts_occ_elite_Rifleman", 4, "loadouts_occ_elite_AT", 1],
 			selectRandomWeighted ["loadouts_occ_elite_AA", 1, "loadouts_occ_elite_Engineer", 4],
-			"loadouts_occ_military_Radioman",
-			"loadouts_occ_military_Medic"
+			"loadouts_occ_elite_Radioman",
+			"loadouts_occ_elite_Medic"
 		];
 	};
 
