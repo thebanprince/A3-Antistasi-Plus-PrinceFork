@@ -35,8 +35,8 @@ if (!isNil "_units" && {count _units > 0}) then {
 };
 
 {
-    [petros, "support", _revealText] remoteExec ["A3A_fnc_commsMP", 0];
-} forEach ([1000, _position, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+    [petros, "support", _revealText] remoteExec ["A3A_fnc_commsMP", _x];
+} forEach ([500, _position, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 
 waitUntil {sleep 1; time > _timeOut};
 
