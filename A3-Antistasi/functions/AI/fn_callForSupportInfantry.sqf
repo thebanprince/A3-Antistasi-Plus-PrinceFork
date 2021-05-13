@@ -55,16 +55,29 @@ _radioMan setVariable ["timeToCall", _timeToCallSupport];
 _radioMan setVariable ["callSuccess",false];
 _radioMan playMoveNow "Acts_SupportTeam_Front_ToKneelLoop";
 
+_radioMan spawn {
+    sleep random 3;
+    playSound3D [(selectRandom radioSoundsIn), _this, false, getPosASL _this, 3, 1, 30];
+};
+
 _radioMan addEventHandler ["AnimDone", {
     private _supportCaller = _this select 0;
     if (([_supportCaller] call A3A_fnc_canFight) && (time <= (_supportCaller getVariable ["timeToCall",time])) && (_supportCaller == vehicle _supportCaller)) then {
+        _supportCaller spawn {
+            sleep random 3;
+            playSound3D [(selectRandom radioSoundsMid), _this, false, getPosASL _this, 3, 1, 30];
+        };
         _supportCaller playMoveNow "Acts_SupportTeam_Front_KneelLoop";
     }
     else {
-        _supportCaller playMoveNow "Acts_SupportTeam_Front_FromKneelLoop";
         _supportCaller removeEventHandler ["AnimDone",_thisEventHandler];
         _supportCaller setVariable ["callAnimsDone",true];
         if (([_supportCaller] call A3A_fnc_canFight) && (_supportCaller == vehicle _supportCaller)) then {
+            _supportCaller playMoveNow "Acts_SupportTeam_Front_FromKneelLoop";
+            _supportCaller spawn {
+                sleep random 3;
+                playSound3D [(selectRandom radioSoundsOut), _this, false, getPosASL _this, 3, 1, 30];
+            };
             _supportCaller setVariable ["callSuccess",true];
         };
     };
