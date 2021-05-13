@@ -46,23 +46,44 @@ if !([_radioMan] call A3A_fnc_canFight) exitWith {};
     _fileName
 ] call A3A_fnc_log;
 
-private _oldSkill = skill _radioMan;
-_radioMan setSkill (_oldSkill - 0.2);
-
 private _timeToCallSupport = time + 30 + random 30;
-waitUntil {time > _timeToCallSupport};
 
-_radioMan setSkill _oldSkill;
+{_radioMan disableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 
-if([_radioMan] call A3A_fnc_canFight) then
-{
+_radioMan setVariable ["callAnimsDone",false];
+_radioMan setVariable ["timeToCall", _timeToCallSupport];
+_radioMan setVariable ["callSuccess",false];
+_radioMan playMoveNow "Acts_SupportTeam_Front_ToKneelLoop";
+
+_radioMan addEventHandler ["AnimDone", {
+    private _supportCaller = _this select 0;
+    if (([_supportCaller] call A3A_fnc_canFight) && (time <= (_supportCaller getVariable ["timeToCall",time])) && (_supportCaller == vehicle _supportCaller)) then {
+        _supportCaller playMoveNow "Acts_SupportTeam_Front_KneelLoop";
+    }
+    else {
+        _supportCaller playMoveNow "Acts_SupportTeam_Front_FromKneelLoop";
+        _supportCaller removeEventHandler ["AnimDone",_thisEventHandler];
+        _supportCaller setVariable ["callAnimsDone",true];
+        if (([_supportCaller] call A3A_fnc_canFight) && (_supportCaller == vehicle _supportCaller)) then {
+            _supportCaller setVariable ["callSuccess",true];
+        };
+    };
+}];
+
+waitUntil {sleep 0.5; (_radioMan getVariable ["callAnimsDone",true])};
+
+_radioMan setVariable ["radioAnimsDone",nil];
+_radioMan setVariable ["timeToCall", nil];
+
+{_radioMan enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
+
+if(_radioMan getVariable ["callSuccess",true]) then {
     private _revealed = [getPos _radioMan, side _group] call A3A_fnc_calculateSupportCallReveal;
     //Starting the support
     [3, format ["%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed], _fileName] call A3A_fnc_log;
     [_target, _group knowsAbout _target, _supportTypes, side _group, _revealed] remoteExec ["A3A_fnc_sendSupport", 2];
 }
-else
-{
+else {
     [3, format ["%1 got no help as the radioman is dead or down", _group], _fileName] call A3A_fnc_log;
     _group setVariable ["canCallSupportAt", -1, true];
 };

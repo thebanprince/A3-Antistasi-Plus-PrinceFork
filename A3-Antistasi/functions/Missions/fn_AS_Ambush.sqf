@@ -185,6 +185,8 @@ _officer moveInCargo _officerVeh;
 [3, "Waiting for starting convoy movement...", _filename] call A3A_fnc_log;
 waitUntil {
 	sleep 1;
+    private _position = position _officer;
+    [3, format ["Officer Position: %1", str _position], _filename] call A3A_fnc_log;
 	dateToNumber date > _dateLimitNum || {dateToNumber date > _departingDateLimitNum} || !(alive _officer)
 };
 
