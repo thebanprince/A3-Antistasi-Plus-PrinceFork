@@ -2,7 +2,7 @@
 
 ## 1.5.1
 ### Additions
-- New radioman infantry type - populates full 8-man squads, calls for support when needed (instead of any squad leader, as it was before), players have the ability to cancel the support by shotting him before he makes support call
+- New radioman infantry type - populates some infantry squads, calls for support when needed (instead of any squad leader, as it was before), players have the ability to cancel support by shotting radioman before he makes support call
 - Taviana support is back
 - (TFAR Beta) Force same SW and LR frequencies for side
 
