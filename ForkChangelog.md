@@ -17,6 +17,7 @@
 - Napalm for AI will be off by default
 - Randomized bomb type for enemy aircraft support action to reduce napalm spam
 - Squad call for support cooldown increase (5 minutes -> 20 minutes)
+- Cops will use only predefined weapons instead of all SMGs included in game
 - Time to call for support increase (~15 seconds -> ~30 seconds for non-infantry, ~15 seconds -> ~45 seconds for infantry)
 - Implemented chance for AI units throwing smoke grenade on danger instead of throwing it all the time
 - (Antistasi Units) No disposable launchers fix

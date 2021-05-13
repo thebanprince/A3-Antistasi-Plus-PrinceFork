@@ -87,20 +87,6 @@ if ("militia_" in (_unit getVariable "unitType")) then
 };
 if ("police" in (_unit getVariable "unitType")) then {
     _skill = _skill min (0.12 * skillMult);
-    private _rifleFinal = primaryWeapon _unit;
-    private _magazines = getArray (configFile / "CfgWeapons" / _rifleFinal / "magazines");
-    {
-        _unit removeMagazines _x;			// Broken, doesn't remove mags globally. Pain to fix.
-    } forEach _magazines;
-    _unit removeWeaponGlobal (_rifleFinal);
-
-    if (tierWar < 5) then {
-        [_unit, (selectRandom allSMGs), 6, 0] call BIS_fnc_addWeapon;
-    }
-    else {
-        [_unit, (selectRandom allRifles), 6, 0] call BIS_fnc_addWeapon;
-    };
-    _unit selectWeapon (primaryWeapon _unit);
 };
 _unit setSkill _skill;
 
