@@ -12,7 +12,7 @@ private _road = objNull;
 
 
 if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
-    _garrison = [staticCrewTeamPlayer];
+    _garrison = [(SDKMil select 0)];
     {
         if (random 20 <= skillFIA) then {
             _garrison pushBack (_x select 1)
@@ -48,23 +48,29 @@ _props pushBack _barricade2;
 	_x setVectorUp surfaceNormal position _x;
 } forEach _props;
 
-if (staticCrewTeamPlayer in _garrison) then {
+if ((SDKMil select 0) in _garrison) then {
     _veh = vehSDKLightArmed createVehicle getPos (_road select 0);
     _veh setDir _dirveh + 90;
     _veh lock 3;
     [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-    sleep 1;
 };
 
 _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
+private _groupXUnits = units _groupX;
+
 {
     [_x,_markerX] spawn A3A_fnc_FIAinitBases; 
-    if (typeOf _x == staticCrewTeamPlayer) then {
-        _x moveInGunner _veh;
-        sleep 2;
-        _x lookAt (_x getRelPos [100, _dirveh]); 
-    };
-} forEach units _groupX;
+} forEach _groupXUnits;
+
+private _crewManIndex = _groupXUnits findIf {(_x getVariable "unitType") == "loadouts_rebel_militia_Rifleman"};
+if (_crewManIndex != -1) then {
+    private _crewMan = _groupXUnits select _crewManIndex;
+    _crewMan moveInGunner _veh;
+    sleep 2;
+    _crewMan lookAt (_crewMan getRelPos [100, _dirveh]); 
+};
+
+
 
 waitUntil {
 	sleep 1; 

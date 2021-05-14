@@ -70,7 +70,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	_marker setMarkerType "n_recon";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [(SDKMil select 0)];
+    _garrison = ["loadouts_rebel_militia_Rifleman"];
     {
     	_garrison pushBack (_x select 0);
     } forEach [SDKSL,SDKMG,SDKGL,SDKMil,SDKMil];

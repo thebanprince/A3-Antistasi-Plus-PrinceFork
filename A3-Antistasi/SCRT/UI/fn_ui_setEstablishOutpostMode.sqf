@@ -44,7 +44,7 @@ if (outpostType in ["AA", "AT"] && {tierWar < 4}) exitWith {
     [
         "FAIL",
         "Establish Outpost",  
-        parseText "You need to be at War Level 3 to be able to establish emplacement.", 
+        parseText "You need to be at War Level 4 to be able to establish emplacement.", 
         15
     ] spawn SCRT_fnc_ui_showMessage;
 };

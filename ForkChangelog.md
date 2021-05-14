@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2
+### Changes
+- Carry static weapon fix (dedicated server fix)
+- Establish AA/AT Emplacement War Level typo fix
+- Rebel outposts no static weapon/vehicle gunner slot occupation fix
+
 ## 1.5.1
 ### Additions
 - New radioman infantry type - populates some infantry squads, calls for support when needed (instead of any squad leader, as it was before), players have the ability to cancel support by shotting radioman before he makes support call
