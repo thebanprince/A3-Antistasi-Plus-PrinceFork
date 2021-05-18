@@ -199,8 +199,8 @@ player addEventHandler ["FiredMan", {
 	};
 }];
 
-if (isLauncherCamEnabled) then {
-	["ADD"] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+if (isProjectileCamEnabled) then {
+	["ADD"] call SCRT_fnc_misc_toggleProjectileCamEventHandler;
 };
 
 player addEventHandler ["InventoryOpened", {
@@ -285,7 +285,7 @@ player addEventHandler ["GetInMan", {
 	_unit = _this select 0;
 	_veh = _this select 2;
 	_exit = false;
-	if !([player] call A3A_fnc_isMember) then {
+	if !(player call A3A_fnc_isMember) then {
 		_owner = _veh getVariable "ownerX";
 		if (!isNil "_owner") then {
 			if (_owner isEqualType "") then {
@@ -396,7 +396,7 @@ call A3A_fnc_initUndercover;
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
 if (membershipEnabled) then {
-	if !([player] call A3A_fnc_isMember) then {
+	if !(player call A3A_fnc_isMember) then {
 		private _isMember = false;
 		if (isServer) then {
 			_isMember = true;
@@ -410,10 +410,6 @@ if (membershipEnabled) then {
 			membersX pushBack (getPlayerUID player);
 			publicVariable "membersX";
 		} else {
-			_nonMembers = {(side group _x == teamPlayer) and !([_x] call A3A_fnc_isMember)} count (call A3A_fnc_playableUnits);
-			if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
-			if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
-
 			["General Info", "Welcome Guest<br/><br/>You have joined this server as guest"] call A3A_fnc_customHint;
 		};
 	};
@@ -553,7 +549,7 @@ mapX addAction [
 ];
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"];
-[] execVM "OrgPlayers\unitTraits.sqf";
+[] call SCRT_fnc_common_setUnitTraits;
 
 // only add petros actions if he's static
 if (petros == leader group petros) then {

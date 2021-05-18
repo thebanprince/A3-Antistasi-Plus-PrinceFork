@@ -56,7 +56,7 @@ private _generateWaypoints = {
         ] call BIS_fnc_findSafePos;
 
         if (!(_waypointPosition inArea _area)) then {
-            while (true) do {
+            while {true} do {
                 _waypointPosition = [
                     _position,
                     _miniRadius, //minimal distance
@@ -162,7 +162,7 @@ for "_i" from 0 to _spawnPointCount do {
     ] call BIS_fnc_findSafePos;
 
     if (!(_waypointPosition inArea _area)) then {
-        while (true) do {
+        while {true} do {
             _waypointPosition = [
                 _position,
                 0,

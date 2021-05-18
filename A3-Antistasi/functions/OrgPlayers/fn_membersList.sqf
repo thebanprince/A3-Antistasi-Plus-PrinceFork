@@ -5,7 +5,7 @@ if (membershipEnabled) then {
 	{
 		_playerX = _x getVariable ["owner",objNull];
 		if (!isNull _playerX) then {
-			if ([_playerX] call A3A_fnc_isMember) then {
+			if (_playerX call A3A_fnc_isMember) then {
 				_membersText = format ["%1%2, ", _membersText, name _playerX]
 			} else {
 				_countN = _countN + 1

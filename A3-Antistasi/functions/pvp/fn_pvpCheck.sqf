@@ -17,7 +17,7 @@ switch (true) do {
 		[2,"Player kicked as PvP slots are disabled",_filename] call A3A_fnc_log;
 	};
 
-	case (!([_unit] call A3A_fnc_isMember)): {
+	case (!(_unit call A3A_fnc_isMember)): {
 		["pvpMem",false,1,false,false] call BIS_fnc_endMission;
 		[2,"PvP player kicked because they are not a member.",_filename] call A3A_fnc_log;
 	};

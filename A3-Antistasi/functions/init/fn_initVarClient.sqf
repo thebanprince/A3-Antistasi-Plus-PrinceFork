@@ -27,7 +27,7 @@ isSupportAnnounced = false;
 isMenuOpen = false;
 
 // rocket camera
-isLauncherCamEnabled = false;
+isProjectileCamEnabled = false;
 
 //parachute attendance
 isPlayerParadropable = false;

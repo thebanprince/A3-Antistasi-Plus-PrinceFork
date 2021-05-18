@@ -1404,7 +1404,7 @@ switch _mode do {
 		// Except in the vehicle arsenal, where this function is used for the right items too
 		_grayout = false;
 		_min = [_index, _item] call _minItemsMember;
-		if ((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) then{_grayout = true};
+		if ((_amount <= _min) AND (_amount != -1) AND !(player call A3A_fnc_isMember)) then{_grayout = true};
 
 		_color = [1,1,1,1];
 		if(_grayout)then{
@@ -1594,7 +1594,7 @@ switch _mode do {
 
 		//check if weapon is unlocked
 		private _min = [_index, _item] call _minItemsMember;
-		if ((_amount <= _min) AND (_amount != -1) AND (_item !="") AND !([player] call A3A_fnc_isMember) AND !_type) exitWith{
+		if ((_amount <= _min) AND (_amount != -1) AND (_item !="") AND !(player call A3A_fnc_isMember) AND !_type) exitWith{
 			['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
 
 			//reset _cursel
@@ -2065,7 +2065,7 @@ switch _mode do {
 			_grayout = false;
 
 			_min = [_index, _item] call _minItemsMember;
-			if ((_amount <= _min) AND (_amount != -1) AND (_amount !=0) AND !([player] call A3A_fnc_isMember)) then{_grayout = true};
+			if ((_amount <= _min) AND (_amount != -1) AND (_amount !=0) AND !(player call A3A_fnc_isMember)) then{_grayout = true};
 
 			_isIncompatible = _ctrlList lnbvalue [_r,1];
 			_mass = _ctrlList lbvalue (_r * _columns);
@@ -2122,7 +2122,7 @@ switch _mode do {
 
 			if (_add > 0) then {//add
 				_min = [_index, _item] call _minItemsMember;
-				if((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) exitWith{
+				if((_amount <= _min) AND (_amount != -1) AND !(player call A3A_fnc_isMember)) exitWith{
 					['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
 				};
 				if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL])then{//magazines are handeld by bullet count

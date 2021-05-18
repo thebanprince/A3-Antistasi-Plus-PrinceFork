@@ -60,18 +60,19 @@ private _groups = [];
 private _landPosBlacklist = [];
 private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 if (sidesX getVariable [_markerDestination, sideUnknown] != teamPlayer) then {_aggression = 100 - _aggression};
-private _vehicleCount = if(_side == Occupants) then
-{
+
+private _divisor = [48, 32, 16] select (skillMult - 1);
+
+private _vehicleCount = if(_side == Occupants) then {
     1
-    + (_aggression/16)
-    + ([0, 2] select _super)
+    + (_aggression/_divisor)
+    + ([0, 3] select _super)
     + ([-0.5, 0, 0.5] select (skillMult - 1))
 }
-else
-{
+else {
     1
-    + (_aggression/16)
-    + ([0, 3] select _super)
+    + (_aggression/_divisor)
+    + ([0, 4] select _super)
     + ([0, 0.5, 1.5] select (skillMult - 1))
 };
 _vehicleCount = (round (_vehicleCount)) max 1;

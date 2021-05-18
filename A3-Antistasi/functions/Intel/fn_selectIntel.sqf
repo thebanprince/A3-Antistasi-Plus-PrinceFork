@@ -55,7 +55,7 @@ else
 
 if(_intelType == "Small") then
 {
-    _intelContent = selectRandomWeighted [TIME_LEFT, 0.2, DECRYPTION_KEY, 0.2, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.15];
+    _intelContent = selectRandomWeighted [TIME_LEFT, 0.25, DECRYPTION_KEY, 0.25, CONVOY, 0.2, TASK, 0.25, DISCOUNT, 0.05];
 
     switch (_intelContent) do
     {
@@ -198,9 +198,6 @@ if(_intelType == "Small") then
                 private _discount = traderDiscount + 0.01;
                 [_discount] call SCRT_fnc_trader_setTraderDiscount;
 
-                private _money = (round (random 50)) * 100;
-                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
-
                 _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
             };
         };
@@ -211,7 +208,7 @@ if(_intelType == "Medium") then
     if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
         _intelContent = TASK;
     } else {
-        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.15, ACCESS_HELI, 0.15, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, CONVOY_ROUTE, 0.2, DISCOUNT, 0.2];
+        _intelContent = selectRandomWeighted [ACCESS_AIR, 0.2, ACCESS_HELI, 0.2, ACCESS_ARMOR, 0.15, CONVOYS, 0.15, CONVOY_ROUTE, 0.2, DISCOUNT, 0.1];
     };
 
     switch (_intelContent) do
@@ -254,9 +251,6 @@ if(_intelType == "Medium") then
             } else {
                 private _discount = traderDiscount + 0.05;
                 [_discount] call SCRT_fnc_trader_setTraderDiscount;
-
-                private _money = (round (random 50)) * 100;
-                [0, _money] remoteExec ["A3A_fnc_resourcesFIA",2];
 
                 _text = format ["We found some information about undiscovered hidden smuggler routes and gave them to Arms Dealer. In return, he payed us for information and gave us a %1 percent discount for any weapon in his Arms Dealer store.", _discount * 100];
             };

@@ -5,7 +5,7 @@ _pool = false;
 if (_this select 0 || !isMultiplayer) then {_pool = true};
 
 if (side player != teamPlayer) exitWith {["Garage", "Only rebels can add vehicles to the garage."] call A3A_fnc_customHint;};
-if (!([player] call A3A_fnc_isMember)) exitWith {["Garage", "Only server members have the garage feature enabled"] call A3A_fnc_customHint;};
+if (!(player call A3A_fnc_isMember)) exitWith {["Garage", "Only server members have the garage feature enabled"] call A3A_fnc_customHint;};
 
 _veh = cursorTarget;
 

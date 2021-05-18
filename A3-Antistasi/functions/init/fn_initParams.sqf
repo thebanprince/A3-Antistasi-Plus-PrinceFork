@@ -55,8 +55,6 @@ A3A_paramTable = [
     ["tkpunish", "tkPunish", [], true],
     ["pvpEnabled", "allowPvP", [], true],
     ["allowMembersFactionGarageAccess", "allowMembersFactionGarageAccess", [], true],
-    ["memberDistance", "memberDistance", [], 5000],
-    ["memberSlots", "memberSlots", ["server"], 20],
     ["teamSwitchDelay", "teamSwitchDelay", ["server"], 3600],
 
     ["startWithLongRangeRadio", "startWithLongRangeRadio", [], false],

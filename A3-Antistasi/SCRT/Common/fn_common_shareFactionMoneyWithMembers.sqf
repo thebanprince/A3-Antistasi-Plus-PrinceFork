@@ -9,10 +9,15 @@ if(_resourcesFIA < 10) exitWith {
     ] remoteExecCall ["A3A_fnc_customHint", theBoss];
 };
 
+
 private _affectedPlayers = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
-_affectedPlayers = _affectedPlayers select { 
-    private _uid = getPlayerUID _x;
-    _uid in membersX
+
+if (membershipEnabled) then {
+    _affectedPlayers = _affectedPlayers select { 
+        private _uid = getPlayerUID _x;
+        private _isMember = _x call A3A_fnc_isMember;
+       _isMember
+    };
 };
 
 private _playersCount = count _affectedPlayers;

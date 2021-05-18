@@ -129,6 +129,7 @@ while {true} do
 	server setVariable ["resourcesFIA", _resAdd + (server getVariable "resourcesFIA"), true];
 
 	bombRuns = bombRuns + 0.25 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX);
+
 	publicVariable "bombRuns";
 
 	if(tierWar > 2) then {
@@ -138,6 +139,8 @@ while {true} do
     if(supportPoints > 3) then {
         supportPoints = 3;
     };
+
+	publicVariable "supportPoints";
 
 	private _textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €", _hrAdd, _resAdd];
 	private _textArsenal = [] call A3A_fnc_arsenalManage;

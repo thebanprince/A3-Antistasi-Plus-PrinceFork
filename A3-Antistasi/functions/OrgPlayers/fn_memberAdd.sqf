@@ -8,8 +8,8 @@ _target = cursortarget;
 
 if (!isPlayer _target) exitWith {["Membership", "You are not pointing to anyone"] call A3A_fnc_customHint;};
 _uid = getPlayerUID _target;
-if ((_this select 0 == "add") and ([_target] call A3A_fnc_isMember)) exitWith {["Membership", "The player is already a member of this server"] call A3A_fnc_customHint;};
-if ((_this select 0 == "remove") and  !([_target] call A3A_fnc_isMember)) exitWith {["Membership", "The player is not a member of this server"] call A3A_fnc_customHint;};
+if ((_this select 0 == "add") and (_target call A3A_fnc_isMember)) exitWith {["Membership", "The player is already a member of this server"] call A3A_fnc_customHint;};
+if ((_this select 0 == "remove") and  !(_target call A3A_fnc_isMember)) exitWith {["Membership", "The player is not a member of this server"] call A3A_fnc_customHint;};
 
 if (_this select 0 == "add") then
 	{

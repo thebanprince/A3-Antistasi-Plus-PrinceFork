@@ -33,8 +33,8 @@ switch (true) do {
 		[] call SCRT_fnc_ui_toggleCommanderMenu;
 	};
 	case (_key == KEY_TAB): {
-		if (!(isNil "isRocketLaunched") && {isRocketLaunched}) then {
-			isRocketInterruped = true;
+		if (!(isNil "isProjectileLaunched") && {isProjectileLaunched}) then {
+			isProjectileInterrupted = true;
 		};
 	};
 };

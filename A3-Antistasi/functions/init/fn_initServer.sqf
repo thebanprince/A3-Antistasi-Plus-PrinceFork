@@ -83,7 +83,6 @@ call A3A_fnc_logistics_initNodes;
 savingServer = true;
 [2,format ["%1 server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_credits_generic_version_text"],_fileName] call A3A_fnc_log;
 [2,format ["%1 Antistasi Plus server version: %2", ["SP","MP"] select isMultiplayer, localize "STR_antistasi_plus_credits_generic_version_text"],_fileName] call A3A_fnc_log;
-bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
@@ -122,7 +121,7 @@ if (loadLastSave) then {
 	};
 	theBoss = objNull;
 	{
-		if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {
+		if ((_x call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {
 			theBoss = _x;
 		};
 	} forEach playableUnits;
@@ -134,7 +133,7 @@ else {
 	if (!isNil "as_fnc_getExternalMemberListUIDs") then {
 		{membersX pushBackUnique _x} forEach (call as_fnc_getExternalMemberListUIDs);
 			{
-				if (([_x] call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {theBoss = _x};
+				if ((_x call A3A_fnc_isMember) and (side _x == teamPlayer)) exitWith {theBoss = _x};
 			} forEach playableUnits;
 	}
 	else {

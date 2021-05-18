@@ -174,7 +174,7 @@ class playerMenu
 						class SwitchTitle: switchButtonTitle
 						{			
 							idc = 5202;	
-							text = "ROCKET CAMERA";
+							text = "PROJECTILE CAMERA";
 						};
 						class SwitchText: switchButtonSelect
 						{			
@@ -184,7 +184,7 @@ class playerMenu
 						class SwitchButton: switchButton {
 							idc = 5204;
 							action = "['MAIN', 5200, true, 'CAMERA'] call SCRT_fnc_ui_switchButton";
-							tooltip = "Enables/Disables camera that follows any projectile that has been launched from missile/rocket launchers. Client-side. Experimental.";
+							tooltip = "Enables/Disables camera that follows any projectile that has been launched from missile/rocket launchers or weapon with high magnification scope (more than 8x). Use Tab key to exit camera. Experimental.";
 						};
 					};		
 				};

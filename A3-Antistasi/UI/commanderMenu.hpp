@@ -743,7 +743,7 @@ class commanderMenu
 				class spawnDistanceLimitTitle: TextBase
 				{
 					idc = 5060;
-					text = "Maximum Spawn Distance: 1100";
+					text = "Maximum Spawn Distance: 1000";
 					x = "1 * pixelGridNoUIScale * pixelW";
 					y = "9 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
@@ -858,7 +858,7 @@ class commanderMenu
 						class SwitchTitle: switchButtonTitle
 						{			
 							idc = 5202;	
-							text = "ROCKET CAMERA";
+							text = "PROJECTILE CAMERA";
 						};
 						class SwitchText: switchButtonSelect
 						{			
@@ -868,7 +868,7 @@ class commanderMenu
 						class SwitchButton: switchButton {
 							idc = 5204;
 							action = "['MAIN', 5200, true, 'CAMERA'] call SCRT_fnc_ui_switchButton";
-							tooltip = "Enables/Disables camera that follows any projectile that has been launched from missile/rocket launchers. Client-side. Experimental.";
+							tooltip = "Enables/Disables camera that follows any projectile that has been launched from missile/rocket launchers or weapon with high magnification scope (more than 8x). Use Tab key to exit camera. Experimental.";
 						};
 					};		
 				};

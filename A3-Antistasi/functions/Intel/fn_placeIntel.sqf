@@ -68,14 +68,6 @@ _desk setVelocity [0, 0, -1];
 sleep 5;
 _desk enableSimulation false;
 
-//Money on desk
-_moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
-
-_randomPos = [(random 0.2) + 0.2, (random 0.2) - 0.2, 0]; 
-_objects1 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
-_randomPos = [(random 0.2) + 0.2, (random 0.2) - 0.2, 0]; 
-_objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
-
 private _intelType = "";
 if(_isLarge) then
 {

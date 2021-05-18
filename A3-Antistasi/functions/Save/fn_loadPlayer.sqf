@@ -19,7 +19,7 @@ if (!isNil "_loadout") then { _unit setUnitLoadout _loadout };
 private _score = 0;
 private _rank = "PRIVATE";
 
-if ([_unit] call A3A_fnc_isMember) then
+if (_unit call A3A_fnc_isMember) then
 {
 	private _saveScore = [_playerId, "scorePlayer"] call A3A_fnc_retrievePlayerStat;
 	if (!isNil "_saveScore" && { _saveScore isEqualType 0 }) then {_score = _saveScore};

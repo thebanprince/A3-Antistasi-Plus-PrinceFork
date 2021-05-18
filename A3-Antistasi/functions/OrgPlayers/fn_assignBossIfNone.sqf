@@ -6,7 +6,7 @@ if (!isNil "theBoss" && {!isNull theBoss && (theBoss getVariable ["eligible", fa
 	[3, format ["Not attempting to assign new boss - player %1 is the boss", theBoss],_filename] call A3A_fnc_log;
 };
 
-private _members = (call A3A_fnc_playableUnits) select { [_x] call A3A_fnc_isMember };
+private _members = (call A3A_fnc_playableUnits) select { _x call A3A_fnc_isMember };
 [3, format ["Attempting to assign new boss, checking %1 members for next Boss.", count _members],_filename] call A3A_fnc_log;
 
 private _nextBoss = objNull;
