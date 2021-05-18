@@ -16,7 +16,8 @@ if (theBoss distance2D _hqMarkerPos < 50) then {
 } else {
 	menuSliderArray = [
 		["SUPPORT", 1140],
-		["MANAGE GARRISONS", 2000]
+		["MANAGE GARRISONS", 2000],
+		["GAME OPTIONS", 5000]
 	];
 
 	[
@@ -167,6 +168,10 @@ private _fiaTrainingText = format ["FIA Skill Level: %1", skillFIA];
 //hiding reroll button if conditions are not met
 if (spawnTraderOnBase || {!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))}) then {
 	((findDisplay 60000) displayCtrl 6014) ctrlShow false;
+};
+
+if (player distance2D _hqMarkerPos > 50) then {
+    ((findDisplay 60000) displayCtrl 5300) ctrlShow false;
 };
 
 menuComplete = true;

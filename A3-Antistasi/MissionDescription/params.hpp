@@ -130,20 +130,6 @@ class Params
         texts[] = {"Default (Medium)","None","Low","Medium","High"};
         default = 9999;
     };
-    class memberSlots
-    {
-        title = "Percentage of Reserved Slots for Members";
-        values[] = {9999,0,20,40,60,80,100};
-        texts[] = {"Default (20%)","None","20%","40%","60%","80%","All"};
-        default = 9999;
-    };
-    class memberDistance
-    {
-        title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
-        values[] = {9999,4000,5000,6000,7000,8000,16000};
-        texts[] = {"Default (5km)","4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
-        default = 9999;
-    };
     class allowMembersFactionGarageAccess
     {
         title = "Allow members to access the faction garage";

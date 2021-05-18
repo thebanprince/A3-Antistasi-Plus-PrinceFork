@@ -38,8 +38,8 @@ class SCRT
         class misc_showDeniedActionHint {};
         class misc_orbitingCamera {};
         class misc_followCamera {};
-        class misc_launcherCamera {};
-        class misc_toggleLauncherCamEventHandler {};
+        class misc_projectileCamera {};
+        class misc_toggleProjectileCamEventHandler {};
         class misc_updateRichPresence {};
         class misc_getAccentColor {};
         class misc_createBelonging {};

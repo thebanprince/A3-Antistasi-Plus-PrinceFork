@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.5.3
+### Changes
+- Rocket Camera became Projectile Camera - can follow any projectile that launched from rifle with high magnified scope (use TAB to cancel camera following), launcher functionality remains
+- Airbases will have appropriate flag marker instead of default FIA one
+- Arms Dealer garbage cleaner removal fix
+- Share Faction Money no members fix
+- Fixed support points locality issue (increments on resource check wasn't broadcasted through network)
+- Reduced probability of rolling arms dealer discount intel type and removed money reward from it
+- Tied aggro-dependent number of vehicles attacking player in single attack to difficulty settings
+- Reduced number of vehicles participating in single attack in Easy and Normal difficulties
+- (Livonia, CUP) Fixed unintended CUP Terrains dependency
+- (CUP templates) Right PSO-1 scope for SVD
+
+### Removals
+- Removed chance to spawn money on tables on military outposts
+- Removed force walk on carrying loot crate
+- Removed member distance and member reserved slots parameters with tied functionality
+- Removed unnecessary .sqfc files
+
 ## 1.5.2
 ### Changes
 - Carry static weapon fix (dedicated server fix)

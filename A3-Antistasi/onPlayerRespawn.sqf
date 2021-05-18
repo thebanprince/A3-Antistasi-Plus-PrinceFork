@@ -116,8 +116,8 @@ if (side group player == teamPlayer) then
 		}
 	];
 
-	if (isLauncherCamEnabled) then {
-		["ADD"] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+	if (isProjectileCamEnabled) then {
+		["ADD"] call SCRT_fnc_misc_toggleProjectileCamEventHandler;
 	};
 
 	player addEventHandler ["InventoryOpened",
@@ -237,7 +237,7 @@ if (side group player == teamPlayer) then
 			}
 		];
 	[true] spawn A3A_fnc_reinitY;
-	[] execVM "OrgPlayers\unitTraits.sqf";
+	[] call SCRT_fnc_common_setUnitTraits;
 	[] spawn A3A_fnc_statistics;
 	}
 else

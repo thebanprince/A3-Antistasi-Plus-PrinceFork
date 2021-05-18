@@ -42,12 +42,8 @@ private _actionX = _playerX addAction ["Drop Here", {
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
 }, [_thingX, _fnc_placeObject],0,false,true,"",""];
 
-_playerX forceWalk true;
-
 waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _playerX) or !([_playerX] call A3A_fnc_canFight) or (!isPlayer _playerX)};
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
 
 [_thingX] remoteExec ["SCRT_fnc_common_addActionMove", 0, _thingX];
-
-_playerX forceWalk false;

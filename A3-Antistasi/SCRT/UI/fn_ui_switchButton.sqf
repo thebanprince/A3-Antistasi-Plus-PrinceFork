@@ -23,10 +23,10 @@ if (_change) then {
     if (_action == "NONE") exitWith {};
     if (_action == "MUSIC") exitWith {execVM "musica.sqf"};
     if (_action == "CAMERA") exitWith {
-        if(isLauncherCamEnabled) then {
-            ['ADD'] call SCRT_fnc_misc_toggleLauncherCamEventHandler;
+        if(isProjectileCamEnabled) then {
+            ['ADD'] call SCRT_fnc_misc_toggleProjectileCamEventHandler;
         } else {
-            ['REMOVE'] call SCRT_fnc_misc_toggleLauncherCamEventHandler; 
+            ['REMOVE'] call SCRT_fnc_misc_toggleProjectileCamEventHandler; 
         };
     };
     if (_action == "PARADROP") exitWith {

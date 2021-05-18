@@ -10,8 +10,8 @@ switch (_table) do {
                 _return pushBack ["ENABLED", "DISABLED"];
             };
             case 5200: {
-                _return pushBack "isLauncherCamEnabled";
-                _return pushBack isLauncherCamEnabled;
+                _return pushBack "isProjectileCamEnabled";
+                _return pushBack isProjectileCamEnabled;
                 _return pushBack ["ENABLED", "DISABLED"];
             };
             case 5400: {

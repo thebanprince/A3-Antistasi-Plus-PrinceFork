@@ -7,14 +7,6 @@ class modUnautorized
 	picture = "b_unknown";
 	pictureColor[] = {0.0,0.5,0.0,1};
 };
-class memberSlots
-{
-	title = "Reserved Slot";
-	subtitle = "This slot is reserved";
-	description = "Sorry, the server is nearly full and the remaining slots have been reserved for Server Members. To become a member, please contact the server admin or clan.";
-	picture = "b_unknown";
-	pictureColor[] = {0.0,0.5,0.0,1};
-};
 class noPvP
 {
 	title = "PvP Disabled";
