@@ -1,8 +1,7 @@
 /*
-Author: Barbolani
-Maintainer: DoomMetal, MeltedPixel, Bob-Murphy, Wurzel0701
+Author: Barbolani, DoomMetal, MeltedPixel, Bob-Murphy, Wurzel0701, Socrates
     Sets the units traits (camouflage, medic, engineer) for the selected role of the player
-    THIS FILE DEPENDS ON ONLY THE DEFAULT COMMANDER HAVING A ROLE DESCRIPTION!
+    THIS FUNCTION DEPENDS ON ONLY THE DEFAULT COMMANDER HAVING A ROLE DESCRIPTION!
 
 Arguments:
     <NULL>
@@ -17,17 +16,17 @@ Dependencies:
     <NULL>
 
 Example:
-    [] execVM "OrgPlayers\unitTraits.sqf";
+    [] call SCRT_fnc_common_setUnitTraits;
 */
 
 private _type = typeOf player;
 private _text = "";
 if(roleDescription player == "Default Commander") then {
-    //Same values as teamleader
     player setUnitTrait ["camouflageCoef",0.8];
     player setUnitTrait ["audibleCoef",0.8];
     player setUnitTrait ["loadCoef",1];
     player setUnitTrait ["medic", true];
+    player setUnitTrait ["explosiveSpecialist", true];
 	player setUnitTrait ["engineer", true];
 	player setUnitTrait ["UAVHacker",true];
     _text = "Commander role.<br/><br/>The commander is a unit with increased camouflage, medical, UAV hacking and engineering capabilities with the access to exclusive Commander Menu (O key).";
@@ -44,13 +43,6 @@ else
     	case "I_G_Soldier_GL_F": {player setUnitTrait ["camouflageCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Grenadier role.<br/><br/>Grenadiers have a slight bonus on carry capacity, but are easy to spot"}; //reintroduced - 8th January 2020, Bob Murphy
     	case "I_G_Soldier_AR_F": {player setUnitTrait ["audibleCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Autorifleman role.<br/><br/>Autoriflemen have a slight bonus on carry capacity, but make too much noise when they move"}; //reintroduced - 8th January 2020, Bob Murphy
     	case "I_G_engineer_F":  {_text = "Engineer role.<br/><br/>Engineers do not have any bonus or penalties, but have the ability to use Repair Kits for vehicle repair"}; //reintroduced - 8th January 2020, Bob Murphy
-    	//cases for blufor missions - added - 8th January 2020, Bob Murphy
-    	case "B_G_medic_F":  {_text = "Medic role.<br/><br/>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration"}; //added - 8th January 2020, Bob Murphy
-    	case "B_G_Soldier_TL_F": {player setUnitTrait ["camouflageCoef",0.8]; player setUnitTrait ["audibleCoef",0.8]; player setUnitTrait ["loadCoef",1.4]; _text = "Teamleader role.<br/><br/>Teamleader are more lightweight units with increased camouflage capabilities"}; //added - 8th January 2020, Bob Murphy
-    	case "B_G_Soldier_F":  {player setUnitTrait ["audibleCoef",0.8]; player setUnitTrait ["loadCoef",1.2]; player setUnitTrait ["UAVHacker",true]; _text = "Rifleman role.<br/><br/>Riflemen are more suitable to silent sneak and can hack drones but have less carrying capacity"}; //added - 8th January 2020, Bob Murphy
-    	case "B_G_Soldier_GL_F": {player setUnitTrait ["camouflageCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Grenadier role.<br/><br/>Grenadiers have a slight bonus on carry capacity, but are easy to spot"}; //added - 8th January 2020, Bob Murphy
-    	case "B_G_Soldier_AR_F": {player setUnitTrait ["audibleCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Autorifleman role.<br/><br/>Autoriflemen have a slight bonus on carry capacity, but make too much noise when they move"}; //added - 8th January 2020, Bob Murphy
-    	case "B_G_engineer_F":  {_text = "Engineer role.<br/><br/>Engineers do not have any bonus or penalties, but have the ability to use Repair Kits for vehicle repair"}; //added - 8th January 2020, Bob Murphy
     	//cases for pvp green - added - 9th January 2020, Bob Murphy
     	case "I_medic_F":  {_text = "Medic role.<br/><br/>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration"}; //added - 9th January 2020, Bob Murphy
     	case "I_Soldier_TL_F": {player setUnitTrait ["camouflageCoef",0.8]; player setUnitTrait ["audibleCoef",0.8]; player setUnitTrait ["loadCoef",1.4]; _text = "Teamleader role.<br/><br/>Teamleader are more lightweight units with increased camouflage capabilities"}; //added - 9th January 2020, Bob Murphy
@@ -81,5 +73,4 @@ if (isDiscordRichPresenceActive) then {
 	};
 };
 
-sleep 5;
 ["Unit Traits", format ["You have selected %1",_text]] call A3A_fnc_customHint;

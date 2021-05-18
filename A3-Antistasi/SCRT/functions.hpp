@@ -135,6 +135,7 @@ class SCRT
         class common_triggerArtilleryResponseEH {};
         class common_addActionMove {};
         class common_removeActionMove {};
+        class common_setUnitTraits {};
     };
 
     class Garrison
