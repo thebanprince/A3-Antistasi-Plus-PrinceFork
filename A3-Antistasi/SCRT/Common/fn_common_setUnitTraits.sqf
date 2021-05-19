@@ -16,7 +16,7 @@ Dependencies:
     <NULL>
 
 Example:
-    [] call SCRT_fnc_common_setUnitTraits;
+    [] spawn SCRT_fnc_common_setUnitTraits;
 */
 
 private _type = typeOf player;

@@ -549,7 +549,7 @@ mapX addAction [
 ];
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"];
-[] call SCRT_fnc_common_setUnitTraits;
+[] spawn SCRT_fnc_common_setUnitTraits;
 
 // only add petros actions if he's static
 if (petros == leader group petros) then {

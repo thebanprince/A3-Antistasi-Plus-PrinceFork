@@ -237,7 +237,7 @@ if (side group player == teamPlayer) then
 			}
 		];
 	[true] spawn A3A_fnc_reinitY;
-	[] call SCRT_fnc_common_setUnitTraits;
+	[] spawn SCRT_fnc_common_setUnitTraits;
 	[] spawn A3A_fnc_statistics;
 	}
 else
