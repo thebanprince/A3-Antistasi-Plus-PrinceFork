@@ -264,6 +264,7 @@ private _templateVariables = [
 	"nameTeamPlayer",
 	"SDKFlag",
 	"SDKFlagTexture",
+	"flagSDKmrk",
 	"typePetros",
 	"staticCrewTeamPlayer",
 	"SDKUnarmed",
@@ -516,7 +517,7 @@ if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDK
 [2,"Sanity-checking templates",_fileName] call A3A_fnc_log;
 
 // modify these appropriately when adding new template vars
-private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
+private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "flagSDKmrk", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
 private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "CSATmortarMagazineHE"];
 
 private _missingVars = [];

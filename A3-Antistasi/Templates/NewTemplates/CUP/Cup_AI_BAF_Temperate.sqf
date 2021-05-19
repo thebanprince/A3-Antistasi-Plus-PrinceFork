@@ -429,7 +429,7 @@ _militiaLoadoutData setVariable ["machineGuns", [
 ["CUP_lmg_UK59", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [
-["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""],
+["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""],
 ["CUP_SKS_rail", "", "", "optic_MRCO", ["CUP_10Rnd_762x39_SKS_M"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["sniperRifles", [

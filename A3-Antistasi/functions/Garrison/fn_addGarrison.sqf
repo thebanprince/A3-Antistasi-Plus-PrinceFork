@@ -18,10 +18,6 @@ private _garrison = [_marker] call A3A_fnc_getGarrison;
 private _requested = [_marker] call A3A_fnc_getRequested;
 private _nonReinfUnits = [["", [], []]];
 
-//_random = random 1000;
-//diag_log format ["AddGarrison %1: Before alive is %2", _random, _garrison];
-//diag_log format ["AddGarrison %1: Before dead is %2", _random, _requested];
-
 {
   //Selecting the data
   private _vehicle = _x select 0;
@@ -100,6 +96,7 @@ private _nonReinfUnits = [["", [], []]];
   {
     {
       private _cargoUnit = _x;
+      systemChat str _cargoUnit;
       if(_cargoUnit == NATOCrew || _cargoUnit == CSATCrew) then
       {
         //Unit is crew member, check crew section

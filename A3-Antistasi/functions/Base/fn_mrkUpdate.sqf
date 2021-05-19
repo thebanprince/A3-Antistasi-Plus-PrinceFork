@@ -11,7 +11,7 @@ if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then {
 		case(_markerX in airportsX): {
 			_textX = format ["%2 Airbase%1",_textX,nameTeamPlayer];
 			[_mrkD,format ["%1 Airbase",nameTeamPlayer]] remoteExec ["setMarkerTextLocal",[Occupants,Invaders],true];
-			if (markerType _mrkD != "flag_FIA") then {_mrkD setMarkerType "flag_FIA"};
+			if (markerType _mrkD != flagSDKmrk) then {_mrkD setMarkerType flagSDKmrk};
 			_mrkD setMarkerColor "Default";
 		};
 		case(_markerX in outposts): {

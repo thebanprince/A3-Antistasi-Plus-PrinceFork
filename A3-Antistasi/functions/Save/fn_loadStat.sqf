@@ -23,8 +23,7 @@ private _specialVarLoads = [
 	"prestigeBLUFOR","resourcesFIA","skillFIA", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-	"countCA", "attackCountdownInvaders", "testingTimerIsActive",
+	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "attackCountdownInvaders", "testingTimerIsActive",
 	"traderDiscount", "supportPoints", "isTraderQuestCompleted", "traderPosition", "areOccupantsDefeated", "areInvadersDefeated",
 	"version"
 ];
@@ -43,8 +42,6 @@ if (_varName in _specialVarLoads) then {
 	};
 	if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-	//Keep this for backwards compatiblity
-	if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
 	if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
 	if (_varName == 'supportPoints') then {supportPoints = _varValue; publicVariable "supportPoints"};
 	if (_varName == 'nextTick') then {nextTick = time + _varValue};
