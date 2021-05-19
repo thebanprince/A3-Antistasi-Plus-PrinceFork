@@ -76,7 +76,8 @@ publicVariable "traderObjects";
 [_traderTent, [0, 0, 1]] remoteExec ["SCRT_fnc_common_attachLightSource", 0, _traderTent];
 
 //trader itself
-_traderX = createAgent ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];
+private _traderGroup = createGroup civilian;
+_traderX = _traderGroup createUnit ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];
 _traderX allowDamage false;
 _traderX setUnitPos "UP";
 _traderX setSpeaker "NoVoice";
