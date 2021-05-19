@@ -1,6 +1,9 @@
 # Changelog
 
 ## 1.5.3
+### Additions
+- Ability to use Fast Travel system with rally point (in adddition to "Travel To Rally Point" action on HQ flagpole)
+
 ### Changes
 - Rocket Camera became Projectile Camera - can follow any projectile that launched from rifle with high magnified scope (use TAB to cancel camera following), launcher functionality remains
 - Airbases will have appropriate flag marker instead of default FIA one

@@ -49,6 +49,7 @@ rallyPointMarker setMarkerSize [1, 1];
 rallyPointMarker setMarkerText "Rally Point";
 rallyPointMarker setMarkerColor "colorIndependent";
 rallyPointMarker setMarkerAlpha 1;
+sidesX setVariable [rallyPointMarker,teamPlayer,true];
 publicVariable "rallyPointMarker";
 
 rallyProps append [_rootRadio, _backpack1, _backpack2, _bag, _ammobox];

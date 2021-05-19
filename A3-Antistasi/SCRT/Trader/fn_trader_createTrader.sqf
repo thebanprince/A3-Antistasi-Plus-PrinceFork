@@ -19,12 +19,15 @@ traderMarker setMarkerSize [1, 1];
 traderMarker setMarkerText "Arms Dealer";
 traderMarker setMarkerColor "ColorUNKNOWN";
 traderMarker setMarkerAlpha 1;
+sidesX setVariable [traderMarker,teamPlayer,true];
+publicVariable "traderMarker";
 
 traderVehicleMarker = createMarker ["TraderVehicleMarker", _position];
 traderVehicleMarker setMarkerSize [25, 25];
 traderVehicleMarker setMarkerColor "ColorUNKNOWN";
 traderVehicleMarker setMarkerShape "RECTANGLE";
 traderVehicleMarker setMarkerAlpha 0;
+sidesX setVariable [traderVehicleMarker,teamPlayer,true];
 publicVariable "traderVehicleMarker";
 
 //clear point
@@ -77,10 +80,7 @@ _traderX = createAgent ["C_Nikos", _position, [], 0, "CAN_COLLIDE"];
 _traderX allowDamage false;
 _traderX setUnitPos "UP";
 _traderX setSpeaker "NoVoice";
-_traderX disableAI "CHECKVISIBLE";
-_traderX disableAI "MOVE";
-_traderX disableAI "COVER";
-_traderX disableAI "SUPPRESSION";
+{_traderX disableAI _x} forEach ["CHECKVISIBLE", "MOVE", "COVER", "SUPPRESSION", "FSM"];
 _traderX setDir -30;
 
 _traderX

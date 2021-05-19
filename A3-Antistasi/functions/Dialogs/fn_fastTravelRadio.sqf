@@ -24,6 +24,30 @@ if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "Yo
 
 if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
 
+positionTel = [];
+
+if (_esHC) then {hcShowBar false};
+["Fast Travel", "Click on the zone you want to travel"] call A3A_fnc_customHint;
+if (!visibleMap) then {openMap true};
+onMapSingleClick "positionTel = _pos;";
+
+waitUntil {sleep 1; (count positionTel > 0) or (not visiblemap)};
+onMapSingleClick "";
+
+private _positionTel = positionTel;
+private _earlyEscape = false;
+
+if (count _positionTel > 0) then {
+	private _base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
+	if (!isNil "rallyPointMarker" && {_base == rallyPointMarker}) then {
+		[] spawn SCRT_fnc_rally_travelToRallyPoint;
+		openMap false;
+		_earlyEscape = true;
+	};
+};
+
+if (_earlyEscape) exitWith {};
+
 private _isEnemiesNearby = false;
 
 if(fastTravelIndividualEnemyCheck) then {
@@ -60,18 +84,6 @@ if(fastTravelIndividualEnemyCheck) then {
 if (_checkX) exitWith {
 	["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or you (your group) is in a boat"] call A3A_fnc_customHint;
 };
-
-positionTel = [];
-
-if (_esHC) then {hcShowBar false};
-["Fast Travel", "Click on the zone you want to travel"] call A3A_fnc_customHint;
-if (!visibleMap) then {openMap true};
-onMapSingleClick "positionTel = _pos;";
-
-waitUntil {sleep 1; (count positionTel > 0) or (not visiblemap)};
-onMapSingleClick "";
-
-_positionTel = positionTel;
 
 if (count _positionTel > 0) then {
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
