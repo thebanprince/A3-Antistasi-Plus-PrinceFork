@@ -28,6 +28,16 @@ if (alive _planeVehicle) then {
         case ("VEH_AIRDROP"): {
             _paraPos = [0, 0, -0.1];
         };
+        case ("LOOTCRATE_AIRDROP"): {
+            clearItemCargoGlobal _supplyDrop;
+            clearMagazineCargoGlobal _supplyDrop;
+            clearWeaponCargoGlobal _supplyDrop;
+            clearBackpackCargoGlobal _supplyDrop;
+            [_supplyDrop] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _supplyDrop];
+			[_supplyDrop] remoteExec ["SCRT_fnc_common_addActionMove", 0, _supplyDrop];
+			[_supplyDrop] call A3A_fnc_logistics_addLoadAction;
+            _paraPos = [0, 0, -0.2];
+        };
         default {
             [_supplyDrop] call SCRT_fnc_common_fillSupplyDrop;
             _paraPos = [0, 0, -0.6];

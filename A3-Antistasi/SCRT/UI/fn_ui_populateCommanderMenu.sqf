@@ -50,42 +50,46 @@ lbAdd [1750, "Light Vehicle Airdrop"];
 lbSetData [1750, 2, "VEH_AIRDROP"];
 lbSetTooltip [1750, 2, "Plane flies over and drops two-seated light vehicle to the specified position."];
 
+lbAdd [1750, "Loot Crate Airdrop"];
+lbSetData [1750, 3, "LOOTCRATE_AIRDROP"];
+lbSetTooltip [1750, 3, "Plane flies over and drops loot crate to the specified position."];
+
 lbAdd [1750, "HMG Airdrop"];
-lbSetData [1750, 3, "STATIC_MG_AIRDROP"];
-lbSetTooltip [1750, 3, "Plane flies over and drops crate with HMG to the specified position."];
+lbSetData [1750, 4, "STATIC_MG_AIRDROP"];
+lbSetTooltip [1750, 4, "Plane flies over and drops crate with HMG to the specified position."];
 
 lbAdd [1750, "Recon Plane Run"];
-lbSetData [1750, 4, "RECON"];
-lbSetTooltip [1750, 4, "Reconnaissance plane flies over and marks enemy positions at the specified location."];
+lbSetData [1750, 5, "RECON"];
+lbSetTooltip [1750, 5, "Reconnaissance plane flies over and marks enemy positions at the specified location."];
 
 lbAdd [1750, "Supply Crate Airdrop"];
-lbSetData [1750, 5, "SUPPLY"];
-lbSetTooltip [1750, 5, "Plane flies over and drops crate with ammunition and medical supplies to the specified position."];
+lbSetData [1750, 6, "SUPPLY"];
+lbSetTooltip [1750, 6, "Plane flies over and drops crate with ammunition and medical supplies to the specified position."];
 
 lbAdd [1750, "HE Bomb Airstrike"];
-lbSetData [1750, 6, "HE"];
-lbSetTooltip [1750, 6, "Plane flies over and drops HE bombs at the specified location."];
+lbSetData [1750, 7, "HE"];
+lbSetTooltip [1750, 7, "Plane flies over and drops HE bombs at the specified location."];
 
 lbAdd [1750, "Cluster Bomb Airstrike"];
-lbSetData [1750, 7, "CLUSTER"];
-lbSetTooltip [1750, 7, "Plane flies over and drops Cluster bombs at the specified location."];
+lbSetData [1750, 8, "CLUSTER"];
+lbSetTooltip [1750, 8, "Plane flies over and drops Cluster bombs at the specified location."];
 
 lbAdd [1750, "Chemical Airstrike"];
-lbSetData [1750, 8, "CHEMICAL"];
-lbSetTooltip [1750, 8, "Plane flies over and drops barrel with hazardous chemicals at the specified location. Violates Geneva Protocol."];
+lbSetData [1750, 9, "CHEMICAL"];
+lbSetTooltip [1750, 9, "Plane flies over and drops barrel with hazardous chemicals at the specified location. Violates Geneva Protocol."];
 
 if (napalmEnabled) then { 
 	lbAdd [1750, "Napalm Airstrike"];
-	lbSetData [1750, 9, "NAPALM"];
-	lbSetTooltip [1750, 9, "Plane flies over and covers specified area with napalm."];
+	lbSetData [1750, 10, "NAPALM"];
+	lbSetTooltip [1750, 10, "Plane flies over and covers specified area with napalm."];
 
+	lbAdd [1750, "Paradrop"];
+	lbSetData [1750, 11, "PARADROP"];
+	lbSetTooltip [1750, 11, "Plane flies over and drops players with parachutes at the specified location. Players must turn on paradrop attendance in game settings and be at rebel HQ to be successfully paradropped. If there are less seats in plane than players, it will choose them randomly."];
+} else {
 	lbAdd [1750, "Paradrop"];
 	lbSetData [1750, 10, "PARADROP"];
 	lbSetTooltip [1750, 10, "Plane flies over and drops players with parachutes at the specified location. Players must turn on paradrop attendance in game settings and be at rebel HQ to be successfully paradropped. If there are less seats in plane than players, it will choose them randomly."];
-} else {
-	lbAdd [1750, "Paradrop"];
-	lbSetData [1750, 9, "PARADROP"];
-	lbSetTooltip [1750, 9, "Plane flies over and drops players with parachutes at the specified location. Players must turn on paradrop attendance in game settings and be at rebel HQ to be successfully paradropped. If there are less seats in plane than players, it will choose them randomly."];
 };
 
 lbSetCurSel [1750, 0];

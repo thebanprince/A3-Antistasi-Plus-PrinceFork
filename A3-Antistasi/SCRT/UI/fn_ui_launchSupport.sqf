@@ -16,7 +16,7 @@ if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL"] && bombRuns < 1) exit
 	] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "RECON", "PARADROP"] && supportPoints < 1) exitWith {
+if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "RECON", "PARADROP"] && supportPoints < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -26,7 +26,7 @@ if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "STATIC_MG_AIRDRO
 };
 
 private _airports = { sidesX getVariable [_x, sideUnknown] == teamPlayer } count airportsX;
-if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON", "PARADROP"] && _airports < 1) exitWith {
+if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON", "PARADROP"] && _airports < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -54,7 +54,7 @@ if (supportType == "PARADROP" && {_resourcesFIA < 500}) exitWith {
 	] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (supportType == "VEH_AIRDROP" && {_resourcesFIA < 200}) exitWith {
+if (supportType in ["VEH_AIRDROP", "LOOTCRATE_AIRDROP"] && {_resourcesFIA < 200}) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -145,6 +145,11 @@ switch (supportType) do {
         publicVariable "supportPoints";
         [0,-200] remoteExec ["A3A_fnc_resourcesFIA",2];
     };
+    case ("LOOTCRATE_AIRDROP"): {
+        supportPoints = supportPoints - 1;
+        publicVariable "supportPoints";
+        [0,-200] remoteExec ["A3A_fnc_resourcesFIA",2];
+    };
     case ("STATIC_MG_AIRDROP"): {
         supportPoints = supportPoints - 1;
         publicVariable "supportPoints";
@@ -182,6 +187,7 @@ switch (true) do {
         [] spawn SCRT_fnc_support_planeParadropRun;
     };
     case (supportType == "VEH_AIRDROP");
+    case (supportType == "LOOTCRATE_AIRDROP");
     case (supportType == "STATIC_MG_AIRDROP");
     case (supportType == "SUPPLY");
     case (supportType in ["HE", "CLUSTER", "CHEMICAL", "NAPALM"]): {

@@ -12,8 +12,6 @@ paradropPlane = _planeData select 0;
 private _planeCrew = _planeData select 1;
 private _groupPlane = _planeData select 2;
 
-paradropPlane lockDriver true;
-
 clearBackpackCargoGlobal paradropPlane; //people will not accidentially swap their backpacks to parachutes
 
 paradropPlane setPosATL [getPosATL paradropPlane select 0, getPosATL paradropPlane select 1, 1700];

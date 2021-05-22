@@ -19,7 +19,10 @@ switch (supportType) do {
         _costTextBox ctrlSetText "Costs 1 Support";
     };
     case ("VEH_AIRDROP"): {
-            _costTextBox ctrlSetText "Costs 1 Support and 200€";
+        _costTextBox ctrlSetText "Costs 1 Support and 200€";
+    };
+    case ("LOOTCRATE_AIRDROP"): {
+        _costTextBox ctrlSetText "Costs 1 Support and 200€";
     };
     case ("STATIC_MG_AIRDROP"): {
         _costTextBox ctrlSetText "Costs 1 Support and 1000€";

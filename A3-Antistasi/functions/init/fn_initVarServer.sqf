@@ -295,6 +295,7 @@ private _templateVariables = [
 	"vehSDKLightUnarmed",
 	"vehSDKTruck",
 	"vehSDKPlane",
+	"vehSDKPayloadPlane",
 	"vehSDKBoat",
 	"vehSDKRepair",
 	"vehSDKFuel",
@@ -715,7 +716,7 @@ DECLARE_SERVER_VAR(vehBoats, _vehBoats);
 private _vehAttack = vehNATOAttack + vehCSATAttack;
 DECLARE_SERVER_VAR(vehAttack, _vehAttack);
 
-private _vehPlanes = (vehNATOAir + vehCSATAir + [vehSDKPlane]);
+private _vehPlanes = (vehNATOAir + vehCSATAir + [vehSDKPlane, vehSDKPayloadPlane]);
 DECLARE_SERVER_VAR(vehPlanes, _vehPlanes);
 
 private _vehAttackHelis = vehCSATAttackHelis + vehNATOAttackHelis;
@@ -724,7 +725,7 @@ DECLARE_SERVER_VAR(vehAttackHelis, _vehAttackHelis);
 private _vehHelis = vehNATOTransportHelis + vehCSATTransportHelis + vehAttackHelis + [vehNATOPatrolHeli,vehCSATPatrolHeli];
 DECLARE_SERVER_VAR(vehHelis, _vehHelis);
 
-private _vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+private _vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane,vehSDKPayloadPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
 DECLARE_SERVER_VAR(vehFixedWing, _vehFixedWing);
 
 private _vehUAVs = [vehNATOUAV,vehCSATUAV,vehNATOUAVSmall,vehCSATUAVSmall];
@@ -760,7 +761,7 @@ DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATGMG, CSATMortar, CSATAARadar, CSATAACiws, CSATAASam];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
-private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel,vehSDKPlane];
+private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel,vehSDKPlane,vehSDKPayloadPlane];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
 private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };

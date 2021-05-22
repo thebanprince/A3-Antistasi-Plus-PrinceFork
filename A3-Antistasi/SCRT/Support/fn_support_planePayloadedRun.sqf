@@ -6,7 +6,7 @@ private _angleOrigin = _angle - 180;
 private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
 private _finPosition = [_poisitionDestination, 2500, _angle] call BIS_fnc_relPos;
 
-private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
+private _planeData = [_originPosition, _angle, vehSDKPayloadPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 private _plane = _planeData select 0;
 private _planeCrew = _planeData select 1;
 private _groupPlane = _planeData select 2;
@@ -14,9 +14,9 @@ private _groupPlane = _planeData select 2;
 _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
-_plane flyInHeight 100;
+_plane flyInHeight 120;
 private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
-_plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
+_plane flyInHeightASL [(_minAltASL select 2) +120, (_minAltASL select 2) +120, (_minAltASL select 2) +120];
 
 driver _plane sideChat "Starting plane run. ETA 30 seconds.";
 private _wp1 = group _plane addWaypoint [_positionOrigin, 0];
@@ -40,6 +40,10 @@ switch (supportType) do {
 	case ("VEH_AIRDROP"): {
 		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", vehSDKBike, supportType]];
 		_text = format ["<t size='0.6'>Rebel aircraft drops the <t size='0.6' color='#804000'>light vehicle</t> near your position.</t>"];
+	};
+	case ("LOOTCRATE_AIRDROP"): {
+		_wp1 setWaypointStatements ["true", format ["if !(local this) exitWith {}; [this, '%1', '%2'] spawn SCRT_fnc_common_supplyDrop", lootCrate, supportType]];
+		_text = format ["<t size='0.6'>Rebel aircraft drops the <t size='0.6' color='#010100'>loot crate</t> near your position.</t>"];
 	};
 	case ("NAPALM");
     case ("HE");

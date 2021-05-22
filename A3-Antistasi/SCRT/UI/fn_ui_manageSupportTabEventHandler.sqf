@@ -49,6 +49,10 @@ if(_mode == "ADD") then {
                         supportMarkerOrigin setMarkerColorLocal "ColorBrown";
                         supportMarkerOrigin setMarkerTextLocal "Light Vehicle Airdrop Init";
                     };
+                    case ("LOOTCRATE_AIRDROP"): {
+                        supportMarkerOrigin setMarkerColorLocal "ColorYellow";
+                        supportMarkerOrigin setMarkerTextLocal "Loot Crate Airdrop Init";
+                    };
                     case ("RECON"): {
                         supportMarkerOrigin setMarkerColorLocal "ColorOrange";
                         supportMarkerOrigin setMarkerTextLocal "Recon Plane Init";
@@ -96,6 +100,10 @@ if(_mode == "ADD") then {
                         case ("VEH_AIRDROP"): {
                             supportMarkerDestination setMarkerColorLocal "ColorBrown";
                             supportMarkerDestination setMarkerTextLocal "Light Vehicle Airdrop Exit";
+                        };
+                        case ("LOOTCRATE_AIRDROP"): {
+                            supportMarkerDestination setMarkerColorLocal "ColorYellow";
+                            supportMarkerDestination setMarkerTextLocal "Loot Crate Airdrop Exit";
                         };
                         case ("RECON"): {
                             supportMarkerDestination setMarkerColorLocal "ColorOrange";
