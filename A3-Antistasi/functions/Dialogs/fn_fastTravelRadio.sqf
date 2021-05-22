@@ -9,8 +9,13 @@ if (!isNil "traderMarker") then {
 };
 
 _esHC = false;
-if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached"] call A3A_fnc_customHint;};
-if (count hcSelected player > 1) exitWith {["Fast Travel", "You can select one group only to Fast Travel"] call A3A_fnc_customHint;};
+if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {
+	["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached"] call SCRT_fnc_misc_showDeniedActionHint;
+};
+if (count hcSelected player > 1) exitWith {
+	["Fast Travel", "You can select one group only to Fast Travel"] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
 if (count hcSelected player == 1) then {_groupX = hcSelected player select 0; _esHC = true} else {_groupX = group player};
 _checkForPlayer = false;
 if ((!_esHC) and limitedFT) then {_checkForPlayer = true};
@@ -18,11 +23,17 @@ _boss = leader _groupX;
 
 if ((_boss != player) and (!_esHC)) then {_groupX = player};
 
-if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel", "You cannot Fast Travel groups commanded by players"] call A3A_fnc_customHint;};
+if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {
+	["Fast Travel", "You cannot Fast Travel groups commanded by players"] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
-if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI"] call A3A_fnc_customHint;};
+if (player != player getVariable ["owner",player]) exitWith {
+	["Fast Travel", "You cannot Fast Travel while you are controlling AI"] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
-if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "Nope. Not happening."] call A3A_fnc_customHint;};
+if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {
+	["Fast Travel", "Nope. Not happening."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
 positionTel = [];
 
@@ -60,7 +71,7 @@ if(fastTravelIndividualEnemyCheck) then {
 };
 
 if (_isEnemiesNearby) exitWith {
-	["Fast Travel", "You cannot Fast Travel with enemies near the group"] call A3A_fnc_customHint;
+	["Fast Travel", "You cannot Fast Travel with enemies near the group"] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 private _checkX = false;
@@ -81,15 +92,19 @@ if(fastTravelIndividualEnemyCheck) then {
 	} forEach units _groupX;
 };
 
+if (vehicle player != player && {driver vehicle player != player}) exitWith {
+	["Fast Travel", "Only drivers can activate fast travel in vehicles."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
 if (_checkX) exitWith {
-	["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or you (your group) is in a boat"] call A3A_fnc_customHint;
+	["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or you (your group) is in a boat"] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 if (count _positionTel > 0) then {
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {
-		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call A3A_fnc_customHint;
+		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call SCRT_fnc_misc_showDeniedActionHint;
 	};
 
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {
@@ -97,7 +112,7 @@ if (count _positionTel > 0) then {
 	};
 
 	if ([getMarkerPos _base,_distanceX] call A3A_fnc_enemyNearCheck) exitWith {
-		["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call A3A_fnc_customHint; openMap [false,false]
+		["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding"] call SCRT_fnc_misc_showDeniedActionHint; openMap [false,false]
 	};
 
 	if (_positionTel distance getMarkerPos _base < 50) then {
@@ -124,7 +139,7 @@ if (count _positionTel > 0) then {
 			{if (vehicle _x != _x) then {_vehicles pushBackUnique (vehicle _x)}} forEach units _groupX;
 			{if ((vehicle _x) in _vehicles) exitWith {_checkForPlayer = true}} forEach (call A3A_fnc_playableUnits);
 			};
-		if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ, Airbase or Military Base",groupID _groupX]] call A3A_fnc_customHint;};
+		if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ, Airbase or Military Base",groupID _groupX]] call SCRT_fnc_misc_showDeniedActionHint;};
 		{
 		_unit = _x;
 		if ((!isPlayer _unit) or (_unit == player)) then
@@ -178,7 +193,7 @@ if (count _positionTel > 0) then {
 		}
 	else
 		{
-		["Fast Travel", "You must click near marker under your control"] call A3A_fnc_customHint;
+		["Fast Travel", "You must click near marker under your control"] call SCRT_fnc_misc_showDeniedActionHint;
 		};
 	};
 openMap false;

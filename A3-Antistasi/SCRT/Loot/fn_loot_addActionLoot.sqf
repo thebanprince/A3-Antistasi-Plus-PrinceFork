@@ -5,7 +5,7 @@
 */
 params ["_vehicle"];
 
-diag_log format ["%1: [Antistasi] | INFO | fn_loot_addActionLoot | Adding loot action to loot truck.",servertime];
+diag_log format ["%1: [Antistasi] | INFO | fn_loot_addActionLoot | Adding loot action to loot object.",servertime];
 
 private _lootActionID = _vehicle getVariable ["scrt_lootActionID", Nil];
 

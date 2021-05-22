@@ -33,9 +33,7 @@ if (alive _planeVehicle) then {
             clearMagazineCargoGlobal _supplyDrop;
             clearWeaponCargoGlobal _supplyDrop;
             clearBackpackCargoGlobal _supplyDrop;
-            [_supplyDrop] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _supplyDrop];
-			[_supplyDrop] remoteExec ["SCRT_fnc_common_addActionMove", 0, _supplyDrop];
-			[_supplyDrop] call A3A_fnc_logistics_addLoadAction;
+            [_supplyDrop] call SCRT_fnc_loot_addLootCrateActions;
             _paraPos = [0, 0, -0.2];
         };
         default {

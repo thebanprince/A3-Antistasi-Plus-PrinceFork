@@ -67,6 +67,25 @@ if ((_totalSeats - _occupiedSeats) < 0) exitWith {
 
 player moveInCargo paradropPlane;
 
+private _earlyEscape = false;
+private _iterations = 0;
+
+while {true} do {
+    if (vehicle player == paradropPlane) exitWith {};
+    if (_iterations > 30) exitWith {_earlyEscape = true;};
+    if (isNil "paradropPlane" || {!alive paradropPlane || {!([player] call A3A_fnc_canFight)}}) exitWith {
+        _earlyEscape = true;
+    };
+
+    player moveInCargo paradropPlane;
+    _iterations = _iterations + 1;
+    sleep 0.05;
+};
+
+if (_earlyEscape) exitWith {
+    ["Paradrop", "Something went wrong."] call SCRT_fnc_misc_showDeniedActionHint;
+};
+
 sleep 1;
 
 cutText ["<t color='#d3d9df' size='2'>You have been moved to airplane to attend in paradrop.</t>","BLACK IN", 3, true, true];

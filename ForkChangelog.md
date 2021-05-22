@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.5.4
+### Additions
+- New commander ability - Loot Crate Airdrop
+
+### Changes
+- Reduced cost of constructions
+- Fixed inability to sell vehicles after first initial try
+- Airdrop/bombing plane replaced with vanilla syndikat plane (not enough speed and durability on other planes from mods (RHS, CUP, 3CB))
+
+### Removals
+- Removed War Level requirement on FIA troops training
+
 ## 1.5.3
 ### Additions
 - Ability to use Fast Travel system with rally point (in adddition to "Travel To Rally Point" action on HQ flagpole)

@@ -27,6 +27,7 @@ class SCRT
         class loot_addActionLoot {};
         class loot_removeActionLoot {};
         class loot_createLootCrate {};
+        class loot_addLootCrateActions {};
 	};
 
     class Misc 

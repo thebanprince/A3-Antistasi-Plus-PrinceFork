@@ -325,10 +325,7 @@ switch (_callbackTarget) do {
 				};
 
 				[_purchasedVeh, false] remoteExec ["allowDamage", 0, _purchasedVeh];
-
-				[_purchasedVeh] remoteExec ["SCRT_fnc_loot_addActionLoot", 0, _purchasedVeh];
-				[_purchasedVeh] remoteExec ["SCRT_fnc_common_addActionMove", 0, _purchasedVeh];
-				[_purchasedVeh] call A3A_fnc_logistics_addLoadAction;
+				[_purchasedVeh] call SCRT_fnc_loot_addLootCrateActions;
 			};
 
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {
