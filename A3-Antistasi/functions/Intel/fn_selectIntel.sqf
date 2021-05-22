@@ -120,7 +120,7 @@ if(_intelType == "Small") then
         {
             _isTaskCreated = [] call SCRT_fnc_quest_rollTask;
             if(_isTaskCreated) then {
-                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
                 _text = format ["We found some valuable information about events are happening on the %1 right now.", _worldName];
             } else {
                 [2, "Rerolling small intel outcome", _fileName] call A3A_fnc_log;
@@ -192,7 +192,7 @@ if(_intelType == "Small") then
         {
             if (!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))) then {
                 [] call SCRT_fnc_quest_rollTask;
-                _worldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);
+                _worldName = [] call SCRT_fnc_misc_getWorldName;
                 _text = format ["We found some valuable information about important events on the %1.", _worldName];
             } else {
                 private _discount = traderDiscount + 0.01;

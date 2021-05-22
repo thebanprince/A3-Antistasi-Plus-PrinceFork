@@ -98,22 +98,22 @@ construction_type = _constructionType;
 switch(_constructionType) do {
     case("TRENCH"): {
         construction_buildingsAvailable = ["Land_SandbagBarricade_01_half_F", "Land_SandbagBarricade_01_F", "Land_BasaltKerb_01_pile_F", "Land_SandbagBarricade_01_hole_F", "Land_BagFence_01_long_green_F", "Land_BagFence_Round_F", "Land_BagFence_Long_F", "Land_BagFence_01_round_green_F"];
-        construction_cost = 125;
+        construction_cost = 50;
         construction_buildTime = 30;
     };
     case("OBSTACLE"): {
         construction_buildingsAvailable = ["Land_DragonsTeeth_01_1x1_old_F", "Land_Barricade_01_10m_F", "Land_Barricade_01_4m_F", "Land_GarbageWashingMachine_F", "Land_Fortress_01_bricks_v1_F", "Land_Fortress_01_bricks_v2_F","Land_WoodPile_large_F", "Land_JunkPile_F", "Land_WoodPile_F", "Land_Razorwire_F"];
-        construction_cost = 75;
+        construction_cost = 50;
         construction_buildTime = 25;
     };
     case("SANDBAG_BUNKER"): {
         construction_buildingsAvailable = ["Land_BagBunker_01_small_green_F", "Fort_Nest", "Land_BagBunker_Large_F"];
-        construction_cost = 500;
+        construction_cost = 250;
         construction_buildTime = 60;
     };
     case("CONCRETE_BUNKER"): {
         construction_buildingsAvailable = ["Land_Bunker_02_light_left_F", "Land_Bunker_02_light_right_F", "Land_PillboxBunker_01_hex_F", "Land_PillboxBunker_01_big_F", "Land_PillboxBunker_01_rectangle_F"];
-        construction_cost = 800;
+        construction_cost = 500;
         construction_buildTime = 90;
     };
     case("MISC"): {

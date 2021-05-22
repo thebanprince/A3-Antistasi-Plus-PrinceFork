@@ -13,16 +13,16 @@ private _buildType = _comboBox lbData _index;
 
 switch (_buildType) do {
     case ("TRENCH"): {
-        _costTextBox ctrlSetText format ["%1: 125€", _costLocalized];
+        _costTextBox ctrlSetText format ["%1: 50€", _costLocalized];
     };
     case ("OBSTACLE"): {
-        _costTextBox ctrlSetText format ["%1: 75€", _costLocalized];
+        _costTextBox ctrlSetText format ["%1: 50€", _costLocalized];
     };
     case ("SANDBAG_BUNKER"): {
-        _costTextBox ctrlSetText format ["%1: 500€", _costLocalized];
+        _costTextBox ctrlSetText format ["%1: 250€", _costLocalized];
     };
     case ("CONCRETE_BUNKER"): {
-        _costTextBox ctrlSetText format ["%1: 800€", _costLocalized];
+        _costTextBox ctrlSetText format ["%1: 500€", _costLocalized];
     };
     case ("MISC"): {
         _costTextBox ctrlSetText format ["%1: 10€", _costLocalized];
