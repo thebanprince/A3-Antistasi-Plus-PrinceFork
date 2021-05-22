@@ -16,15 +16,6 @@ if (skillFIA > 50) exitWith {
     ] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (skillFIA > (tierWar*2)) exitWith {
-    [
-        "FAIL",
-        "Skill Add",  
-        parseText format ["War level %1 required to be able to train %2 troops.", (tierWar*2), nameTeamPlayer], 
-        30
-    ] spawn SCRT_fnc_ui_showMessage;
-};
-
 _resourcesFIA = server getVariable "resourcesFIA";
 _costs = 1000 + (1.5*(skillFIA *750));
 
