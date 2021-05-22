@@ -859,8 +859,11 @@ if (!(additionalShopArtillery isEqualTo [])) then {
 		server setVariable [(additionalShopArtillery select 0), 2000, true];
 		server setVariable [(additionalShopArtillery select 1), 15000, true];
 		server setVariable [(additionalShopArtillery select 2), 20000, true];
-	} else {
-		//TODO: 3CB Factions roster
+	};
+	if (A3A_has3CBFactions) then {
+		server setVariable [(additionalShopArtillery select 0), 15000, true];
+		server setVariable [(additionalShopArtillery select 1), 25000, true];
+		server setVariable [(additionalShopArtillery select 2), 30000, true];
 	};
 };
 

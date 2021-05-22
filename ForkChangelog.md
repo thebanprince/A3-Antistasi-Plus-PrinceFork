@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.5
+### Changes
+- Fixed cost-free Rocket/Artillery Hiluxes
+
 ## 1.5.4
 ### Additions
 - New commander ability - Loot Crate Airdrop
