@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.5.5
+## 1.5.4.1
 ### Changes
 - Fixed cost-free Rocket/Artillery Hiluxes
+- Fixed broken vanilla templates
 
 ## 1.5.4
 ### Additions
