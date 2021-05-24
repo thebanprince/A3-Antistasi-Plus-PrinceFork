@@ -2,7 +2,7 @@
 
 ## 1.5.4.1
 ### Changes
-- Fixed cost-free Rocket/Artillery Hiluxes
+- Fixed cost-free Rocket/Artillery Hiluxes (3CB Factions)
 - Fixed broken vanilla templates
 
 ## 1.5.4
