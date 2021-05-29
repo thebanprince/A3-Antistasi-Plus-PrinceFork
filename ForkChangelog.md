@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.5.6
+### Additions
+- Virolahti support
+- Chernarus 2020 newest update support
+- (CUP, RHS, 3CB Factions) CDF Template
+
+## 1.5.5
+### Additions
+- Ability to hire MG car team
+
+### Changes
+- Fixed cost-free AA trucks
+- Fixed empty gunner seats in some hirable vehicles
+- Removed debug spam in message log
+- Russian localization fix
+- (3CB Factions) Fixed flatbed truck for rebels instead of infantry truck
+
+### Removals
+- (Panthera) Fixed leftover objects
+
 ## 1.5.4.1
 ### Changes
 - Fixed cost-free Rocket/Artillery Hiluxes (3CB Factions)

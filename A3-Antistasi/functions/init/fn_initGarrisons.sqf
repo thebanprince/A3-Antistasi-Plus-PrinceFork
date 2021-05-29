@@ -117,8 +117,8 @@ if (gameMode == 1) then
 			_controlsCSAT = ["control_14", "control_47"];
 		};
 		case "vt7": {
-			_mrkCSAT = ["airport_2", "control_25", "control_29", "control_30", "control_31", "control_32", "Seaport_1", "Outpost_3"];
-			_controlsCSAT = ["control_25", "control_29", "control_30", "control_31", "control_32"];
+			_mrkCSAT = ["airport_2", "Seaport_1", "Outpost_3", "Outpost_16", "control_25", "control_29", "control_24", "control_30", "control_19", "control_21", "control_22", "control_20", "control_23"];
+			_controlsCSAT = ["control_25", "control_29", "control_63", "control_62", "control_24", "control_64", "control_30", "control_19", "control_21", "control_22", "control_20", "control_23"];
 		};
 		case "stratis": {
 			_mrkCSAT = ["outpost_3"];
