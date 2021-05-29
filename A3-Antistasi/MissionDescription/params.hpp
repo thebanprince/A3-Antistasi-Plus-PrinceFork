@@ -225,7 +225,7 @@ class Params
      {
           title="Select Occupant Faction";
 		values[]={9999, 0, 1, 2};
-		texts[]={"Default (USAF)", "USAF", "BAF", "CDF"};
+		texts[]={"Default (USAF)", "USAF", "BAF"};
 		default = 9999;
      };
      class Spacer62
@@ -246,7 +246,7 @@ class Params
      {
           title="Select Occupant Faction";
 		values[]={9999, 0, 1};
-		texts[]={"Default (USAF)", "USAF", "CDF"};
+		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
      class Spacer231
@@ -263,11 +263,18 @@ class Params
           texts[] = {""};
           default = "";
      };
+     // class threecbfOccupantFaction
+     // {
+     //      title="Select Occupant Faction";
+	// 	values[]={9999, 0,1};
+	// 	texts[]={"Default (USAF)", "USAF", "CDF"};
+	// 	default = 9999;
+     // };
      class threecbfOccupantFaction
      {
           title="Select Occupant Faction";
 		values[]={9999, 0,1};
-		texts[]={"Default (USAF)", "USAF", "CDF"};
+		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
 
