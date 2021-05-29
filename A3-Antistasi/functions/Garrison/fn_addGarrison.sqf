@@ -96,7 +96,6 @@ private _nonReinfUnits = [["", [], []]];
   {
     {
       private _cargoUnit = _x;
-      systemChat str _cargoUnit;
       if(_cargoUnit == NATOCrew || _cargoUnit == CSATCrew) then
       {
         //Unit is crew member, check crew section
