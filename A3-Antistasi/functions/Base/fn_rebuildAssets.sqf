@@ -23,15 +23,6 @@ if (_leave) exitWith {
 };
 
 if (isNull _antennaDead) then {
-	private _name = [_site] call A3A_fnc_localizar;
-
-	[
-		"SUCCESS",
-		"Rebuild Assets",
-		parseText format ["%1 rebuilt.", _name],
-		30
-	] spawn SCRT_fnc_ui_showMessage;
-
 	[0, 10, _position] remoteExec ["A3A_fnc_citySupportChange",2];
     [Occupants, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
     [Invaders, 10, 30] remoteExec ["A3A_fnc_addAggression",2];
@@ -45,8 +36,21 @@ if (isNull _antennaDead) then {
 	destroyedSites = destroyedSites - [_site];
 	publicVariable "destroyedSites";
 } else {
-	["Rebuild Assets", "Radio Tower rebuilt."] call A3A_fnc_customHint;
+	private _militaryBuildings = nearestObjects [_position, listMilBld, 500,  true];
+
+	{
+		[_x] remoteExec ["A3A_fnc_repairRuinedBuilding", 2];
+	} forEach _militaryBuildings;
+
 	[_antennaDead] remoteExec ["A3A_fnc_rebuildRadioTower", 2];
 };
+
+private _name = [_site] call A3A_fnc_localizar;
+[
+	"SUCCESS",
+	"Rebuild Assets",
+	parseText format ["%1 rebuilt.", _name],
+	30
+] spawn SCRT_fnc_ui_showMessage;
 
 [0,-5000] remoteExec ["A3A_fnc_resourcesFIA",2];

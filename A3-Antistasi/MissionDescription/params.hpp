@@ -249,6 +249,28 @@ class Params
 		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
+     class Spacer231
+     {
+          title = "";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class Spacer80
+     {
+          title = "3CB FACTIONS SETTINGS";
+          values[] = {""};
+          texts[] = {""};
+          default = "";
+     };
+     class threecbfOccupantFaction
+     {
+          title="Select Occupant Faction";
+		values[]={9999, 0};
+		texts[]={"Default (USAF)", "USAF"};
+		default = 9999;
+     };
+
      class Spacer72
      {
           title = "";

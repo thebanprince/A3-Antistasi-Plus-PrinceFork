@@ -832,6 +832,7 @@ server setVariable [vehSDKLightUnarmed,200,true];
 server setVariable [vehSDKTruck,300,true];
 server setVariable [vehSDKLightArmed, 1000, true];
 server setVariable [vehSDKAT, 1500, true];
+server setVariable [vehSDKAA, 1750, true];
 server setVariable [vehSDKFuel, 550, true];
 server setVariable [vehSDKPlane, 3500, true];
 
@@ -878,10 +879,6 @@ if(A3A_hasCup) then {
 	server setVariable [technicalArmoredAa, 3000, true];
 	server setVariable [technicalArmoredSpg, 3000, true];
 	server setVariable [technicalArmoredMg, 2250, true];
-};
-
-if(A3A_has3CBFactions || {A3A_hasCup}) then {
-	server setVariable [vehSDKAA, 1500, true];
 };
 
 //lootcrate cost

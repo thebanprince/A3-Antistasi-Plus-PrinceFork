@@ -37,7 +37,6 @@ if (str (_display) != "no display") then
 	_costs = _costs + ([SDKMGStatic] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
-
 	_ChildControl = _display displayCtrl 109;
 	_costs = (2*(server getVariable staticCrewTeamPlayer));
 	_costHR = 2;
@@ -60,5 +59,11 @@ if (str (_display) != "no display") then
 	_costs = 0;
 	_costHR = 0;
 	{_costs = _costs + (server getVariable (_x select 0)); _costHR = _costHR +1} forEach groupsSDKCrew;
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
+
+	_ChildControl = _display displayCtrl 113;
+	_costs = (2*(server getVariable staticCrewTeamPlayer));
+	_costHR = 2;
+	_costs = _costs + ([vehSDKLightArmed] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 };

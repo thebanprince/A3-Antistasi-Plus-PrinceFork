@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "AFRF"] call _fnc_saveToTemplate; 						//this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
-["spawnMarkerName", "AFRF Support Corridor"] call _fnc_saveToTemplate; 			//this line determines the name tag for the "carrier" on the map -- Example: ["spawnMarkerName", "NATO support corridor"] - ENTER ONLY ONE OPTION
+["name", "AFRF"] call _fnc_saveToTemplate; 						
+["spawnMarkerName", "AFRF Support Corridor"] call _fnc_saveToTemplate; 			
 
 ["flag", "Flag_Red_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\A3\Data_F\Flags\Flag_red_CO.paa"] call _fnc_saveToTemplate;
@@ -20,72 +20,72 @@
 //       Vehicles       //
 //////////////////////////
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate; 	//Don't touch or you die a sad and lonely death!
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; 
+["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; 
 
-["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate; 			//this line determines basic vehicles, the lightest kind available. -- Example: ["vehiclesBasic", ["B_Quadbike_01_F"]] -- Array, can contain multiple assets
-["vehiclesLightUnarmed", ["CUP_O_GAZ_Vodnik_Unarmed_RU"]] call _fnc_saveToTemplate; 		//this line determines light and unarmed vehicles. -- Example: ["vehiclesLightUnarmed", ["B_MRAP_01_F"]] -- Array, can contain multiple assets
+["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate; 			
+["vehiclesLightUnarmed", ["CUP_O_GAZ_Vodnik_Unarmed_RU"]] call _fnc_saveToTemplate; 		
 ["vehiclesLightArmed", ["CUP_O_BRDM2_RUS", "CUP_O_BRDM2_ATGM_RUS", "CUP_O_BRDM2_HQ_RUS", "CUP_O_GAZ_Vodnik_PK_RU", "CUP_O_GAZ_Vodnik_AGS_RU", "CUP_O_GAZ_Vodnik_BPPU_RU", "CUP_O_GAZ_Vodnik_KPVT_RU"]] call _fnc_saveToTemplate; 		//this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
-["vehiclesTrucks", ["CUP_O_Kamaz_RU", "CUP_O_Kamaz_Open_RU", "CUP_O_Ural_Open_RU", "CUP_O_Ural_RU"]] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
-["vehiclesCargoTrucks", ["CUP_O_Kamaz_Open_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
-["vehiclesAmmoTrucks", ["CUP_O_Ural_Reammo_RU"]] call _fnc_saveToTemplate; 		//this line determines ammo trucks -- Example: ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] -- Array, can contain multiple assets
-["vehiclesRepairTrucks", ["CUP_O_Kamaz_Repair_RU", "CUP_O_Ural_Repair_RU"]] call _fnc_saveToTemplate; 		//this line determines repair trucks -- Example: ["vehiclesRepairTrucks", ["B_Truck_01_Repair_F"]] -- Array, can contain multiple assets
-["vehiclesFuelTrucks", ["CUP_O_Kamaz_Refuel_RU", "CUP_O_Ural_Refuel_RU"]] call _fnc_saveToTemplate;		//this line determines fuel trucks -- Array, can contain multiple assets
-["vehiclesMedical", ["CUP_O_GAZ_Vodnik_MedEvac_RU","CUP_O_BMP2_AMB_RU","CUP_O_UAZ_AMB_RU"]] call _fnc_saveToTemplate;			//this line determines medical vehicles -- Array, can contain multiple assets
-["vehiclesAPCs", ["CUP_O_BMP2_RU", "CUP_O_BMP3_RU", "CUP_O_BTR60_Green_RU", "CUP_O_BTR80A_DESERT_RU", "CUP_O_BTR80_DESERT_RU", "CUP_O_BTR90_RU", "CUP_O_MTLB_pk_WDL_RU"]] call _fnc_saveToTemplate; 				//this line determines APCs -- Example: ["vehiclesAPCs", ["B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] -- Array, can contain multiple assets
-["vehiclesTanks", ["CUP_O_T72_RU", "CUP_O_T90_RU"]] call _fnc_saveToTemplate; 			//this line determines tanks -- Example: ["vehiclesTanks", ["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]] -- Array, can contain multiple assets
-["vehiclesAA", ["CUP_O_2S6M_RU"]] call _fnc_saveToTemplate; 				//this line determines AA vehicles -- Example: ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] -- Array, can contain multiple assets
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
+["vehiclesTrucks", ["CUP_O_Kamaz_RU", "CUP_O_Kamaz_Open_RU", "CUP_O_Ural_Open_RU", "CUP_O_Ural_RU"]] call _fnc_saveToTemplate; 			
+["vehiclesCargoTrucks", ["CUP_O_Kamaz_Open_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate; 		
+["vehiclesAmmoTrucks", ["CUP_O_Ural_Reammo_RU"]] call _fnc_saveToTemplate; 		
+["vehiclesRepairTrucks", ["CUP_O_Kamaz_Repair_RU", "CUP_O_Ural_Repair_RU"]] call _fnc_saveToTemplate; 		
+["vehiclesFuelTrucks", ["CUP_O_Kamaz_Refuel_RU", "CUP_O_Ural_Refuel_RU"]] call _fnc_saveToTemplate;		
+["vehiclesMedical", ["CUP_O_GAZ_Vodnik_MedEvac_RU","CUP_O_BMP2_AMB_RU","CUP_O_UAZ_AMB_RU"]] call _fnc_saveToTemplate;			
+["vehiclesAPCs", ["CUP_O_BMP2_RU", "CUP_O_BMP3_RU", "CUP_O_BTR60_Green_RU", "CUP_O_BTR80A_DESERT_RU", "CUP_O_BTR80_DESERT_RU", "CUP_O_BTR90_RU", "CUP_O_MTLB_pk_WDL_RU"]] call _fnc_saveToTemplate; 				
+["vehiclesTanks", ["CUP_O_T72_RU", "CUP_O_T90_RU"]] call _fnc_saveToTemplate; 			
+["vehiclesAA", ["CUP_O_2S6M_RU"]] call _fnc_saveToTemplate; 				
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["O_Radar_System_02_F","O_SAM_System_04_F", ""]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS
 
 
-["vehiclesTransportBoats", ["CUP_O_PBX_RU"]] call _fnc_saveToTemplate; 	//this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
-["vehiclesGunBoats", ["CUP_O_ZUBR_RU"]] call _fnc_saveToTemplate; 			//this line determines gun boats -- Example: ["vehiclesGunboats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
-["vehiclesAmphibious", ["CUP_O_BMP3_RU"]] call _fnc_saveToTemplate; 		//this line determines amphibious vehicles  -- Example: ["vehiclesAmphibious", ["B_APC_Wheeled_01_cannon_F"]] -- Array, can contain multiple assets
+["vehiclesTransportBoats", ["CUP_O_PBX_RU"]] call _fnc_saveToTemplate; 	
+["vehiclesGunBoats", ["CUP_O_ZUBR_RU"]] call _fnc_saveToTemplate; 			
+["vehiclesAmphibious", ["CUP_O_BMP3_RU"]] call _fnc_saveToTemplate; 		
 
-["vehiclesPlanesCAS", ["CUP_O_Su25_Dyn_RU"]] call _fnc_saveToTemplate; 		//this line determines CAS planes -- Example: ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] -- Array, can contain multiple assets
-["vehiclesPlanesAA", ["CUP_O_SU34_RU"]] call _fnc_saveToTemplate; 			//this line determines air supperiority planes -- Example: ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] -- Array, can contain multiple assets
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate; 	//this line determines transport planes -- Example: ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] -- Array, can contain multiple assets
+["vehiclesPlanesCAS", ["CUP_O_Su25_Dyn_RU"]] call _fnc_saveToTemplate; 		
+["vehiclesPlanesAA", ["CUP_O_SU34_RU"]] call _fnc_saveToTemplate; 			
+["vehiclesPlanesTransport", []] call _fnc_saveToTemplate; 	
 
-["vehiclesHelisLight", ["CUP_O_Mi8AMT_RU", "CUP_O_Ka60_Grey_RU"]] call _fnc_saveToTemplate; 		//this line determines light helis -- Example: ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] -- Array, can contain multiple assets
-["vehiclesHelisTransport", ["CUP_O_Mi8AMT_RU", "CUP_O_Ka60_Grey_RU", "CUP_O_Mi8_RU", "CUP_O_Mi24_V_Dynamic_RU"]] call _fnc_saveToTemplate; 	//this line determines transport helis -- Example: ["vehiclesHelisTransport", ["B_Heli_Transport_01_F"]] -- Array, can contain multiple assets
-["vehiclesHelisAttack", ["CUP_O_Ka50_DL_RU", "CUP_O_Ka52_RU", "CUP_O_Mi24_P_Dynamic_RU", "CUP_O_Mi24_V_Dynamic_RU"]] call _fnc_saveToTemplate; 		//this line determines attack helis -- Example: ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] -- Array, can contain multiple assets
+["vehiclesHelisLight", ["CUP_O_Mi8AMT_RU", "CUP_O_Ka60_Grey_RU"]] call _fnc_saveToTemplate; 		
+["vehiclesHelisTransport", ["CUP_O_Mi8AMT_RU", "CUP_O_Ka60_Grey_RU", "CUP_O_Mi8_RU", "CUP_O_Mi24_V_Dynamic_RU"]] call _fnc_saveToTemplate; 	
+["vehiclesHelisAttack", ["CUP_O_Ka50_DL_RU", "CUP_O_Ka52_RU", "CUP_O_Mi24_P_Dynamic_RU", "CUP_O_Mi24_V_Dynamic_RU"]] call _fnc_saveToTemplate; 		
 
 ["vehiclesArtillery", [
 ["CUP_O_BM21_RU",["CUP_40Rnd_GRAD_HE"]]
-]] call _fnc_saveToTemplate; 		//this line determines artillery vehicles -- Example: ["vehiclesArtillery", [["B_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]]] -- Array, can contain multiple assets
+]] call _fnc_saveToTemplate; 		
 
-["uavsAttack", ["O_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate; 				//this line determines attack UAVs -- Example: ["uavsAttack", ["B_UAV_02_CAS_F"]] -- Array, can contain multiple assets
-["uavsPortable", ["CUP_O_Pchela1T_RU"]] call _fnc_saveToTemplate; 				//this line determines portable UAVs -- Example: ["uavsPortable", ["B_UAV_01_F"]] -- Array, can contain multiple assets
+["uavsAttack", ["O_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate; 				
+["uavsPortable", ["CUP_O_Pchela1T_RU"]] call _fnc_saveToTemplate; 				
 
-//Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["CUP_O_UAZ_MG_RU"]] call _fnc_saveToTemplate; //this line determines lightly armed militia vehicles -- Example: ["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaTrucks", ["CUP_O_Ural_Empty_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate; 	//this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaCars", ["CUP_O_UAZ_Unarmed_RU", "CUP_O_UAZ_Open_RU"]] call _fnc_saveToTemplate; 		//this line determines militia cars (unarmed) -- Example: ["vehiclesMilitiaCars", ["	B_G_Offroad_01_F"]] -- Array, can contain multiple assets
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate; 			//this line determines police cars -- Example: ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] -- Array, can contain multiple assets
+["vehiclesMilitiaLightArmed", ["CUP_O_UAZ_MG_RU"]] call _fnc_saveToTemplate; 
+["vehiclesMilitiaTrucks", ["CUP_O_Ural_Empty_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["CUP_O_UAZ_Unarmed_RU", "CUP_O_UAZ_Open_RU"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["CUP_B_Kord_Gun_Bag", "CUP_O_KORD_high_RU"]] call _fnc_saveToTemplate; 					//this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
-["staticAT", ["CUP_O_Kornet_RU"]] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
-["staticAA", ["CUP_O_Igla_AA_pod_RU"]] call _fnc_saveToTemplate; 					//this line determines static AAs -- Example: ["staticAA", ["B_static_AA_F"]] -- Array, can contain multiple assets
-["staticMortars", ["CUP_O_D30_ChDKZ"]] call _fnc_saveToTemplate; 				//this line determines static mortars -- Example: ["staticMortars", ["B_Mortar_01_F"]] -- Array, can contain multiple assets
+["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "CUP_30Rnd_122mmHE_D30_M"] call _fnc_saveToTemplate; 			//this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
-["mortarMagazineSmoke", "CUP_30Rnd_122mmSMOKE_D30_M"] call _fnc_saveToTemplate; 		//this line determines smoke-shells for the static mortar - !needs to be compatible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] - ENTER ONLY ONE OPTION
+["staticMGs", ["CUP_B_Kord_Gun_Bag", "CUP_O_KORD_high_RU"]] call _fnc_saveToTemplate; 					
+["staticAT", ["CUP_O_Kornet_RU"]] call _fnc_saveToTemplate; 					
+["staticAA", ["CUP_O_Igla_AA_pod_RU"]] call _fnc_saveToTemplate; 					
+["staticMortars", ["CUP_O_D30_ChDKZ"]] call _fnc_saveToTemplate;
 
-//Bagged weapon definitions
-["baggedMGs", [["CUP_B_Kord_Gun_Bag", "CUP_B_Kord_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				//this line determines bagged static MGs -- Example: ["baggedMGs", [["B_HMG_01_high_F", "B_HMG_01_support_high_F"]]] -- Array, can contain multiple assets
-["baggedAT", [["CUP_B_Kornet_Gun_Bag", "CUP_B_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					//this line determines bagged static ATs -- Example: ["baggedAT", [["B_AT_01_weapon_F", "B_HMG_01_support_F"]]] -- Array, can contain multiple assets
-["baggedAA", []] call _fnc_saveToTemplate; 					//this line determines bagged static AAs -- Example: ["baggedAA", [["B_AA_01_weapon_F", "B_HMG_01_support_F"]]] -- Array, can contain multiple assets
+["mortarMagazineHE", "CUP_30Rnd_122mmHE_D30_M"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", "CUP_30Rnd_122mmSMOKE_D30_M"] call _fnc_saveToTemplate;
+
+
+["baggedMGs", [["CUP_B_Kord_Gun_Bag", "CUP_B_Kord_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
+["baggedAT", [["CUP_B_Kornet_Gun_Bag", "CUP_B_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
+["baggedAA", []] call _fnc_saveToTemplate; 					
 ["baggedMortars", []] call _fnc_saveToTemplate; 			//this line determines bagged static mortars -- Example: ["baggedMortars", [["B_Mortar_01_weapon_F", "B_Mortar_01_support_F"]]] -- Array, can contain multiple assets
 
-//Minefield definition
+
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine", "APERSBoundingMine_Range_Mag"]] call _fnc_saveToTemplate;
 
-//PvP definitions
+
 ["playerDefaultLoadout", []] call _fnc_saveToTemplate;
 ["pvpLoadouts", [
 	//Team Leader
@@ -108,42 +108,42 @@
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;
-_loadoutData setVariable ["rifles", []]; 					//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["carbines", []]; 					//this line determines carbines -- Example: ["arifle_MXC_F", "arifle_MXC_Holo_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["grenadeLaunchers", []]; 			//this line determines grenade launchers -- Example: ["arifle_MX_GL_ACO_F", "arifle_MX_GL_ACO_pointer_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["SMGs", []]; 						//this line determines SMGs -- Example: ["SMG_01_F", "SMG_01_Holo_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["machineGuns", []]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["marksmanRifles", []]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["sniperRifles", []]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
+_loadoutData setVariable ["rifles", []]; 					
+_loadoutData setVariable ["carbines", []]; 					
+_loadoutData setVariable ["grenadeLaunchers", []]; 			
+_loadoutData setVariable ["SMGs", []]; 						
+_loadoutData setVariable ["machineGuns", []]; 				
+_loadoutData setVariable ["marksmanRifles", []]; 			
+_loadoutData setVariable ["sniperRifles", []]; 				
 _loadoutData setVariable ["lightATLaunchers", [
 ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_PG7V_M", "CUP_OG7_M"], [], ""],
 ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_PG7V_M", "CUP_PG7VL_M", "CUP_PG7VR_M"], [], ""],
 ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_PG7VM_M", "CUP_PG7VR_M", "CUP_PG7VR_M"], [], ""],
 ["CUP_launch_RPG7V", "", "", "CUP_optic_PGO7V3", ["CUP_PG7VM_M", "CUP_PG7VM_M", "CUP_PG7VM_M"], [], ""],
 ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7VM_M", "CUP_TBG7V_M", "CUP_OG7_M", "CUP_OG7_M"], [], ""]
-]];		//this line determines light AT launchers -- Example: ["launch_NLAW_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["ATLaunchers", ["CUP_launch_RShG2", "CUP_launch_RPG18"]]; 				//this line determines light AT launchers -- Example: ["launch_NLAW_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["missileATLaunchers", []]; 		//this line determines missile AT launchers -- Example: ["launch_B_Titan_short_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["AALaunchers", []]; 				//this line determines AA launchers -- Example: ["launch_B_Titan_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["sidearms", []]; 					//this line determines handguns/sidearms -- Example: ["hgun_Pistol_heavy_01_F", "hgun_P07_F"] -- Array, can contain multiple assets
+]];		
+_loadoutData setVariable ["ATLaunchers", ["CUP_launch_RShG2", "CUP_launch_RPG18"]]; 				
+_loadoutData setVariable ["missileATLaunchers", []]; 		
+_loadoutData setVariable ["AALaunchers", []]; 				
+_loadoutData setVariable ["sidearms", []]; 					
 
-_loadoutData setVariable ["ATMines", ["ATMine_Range_Mag"]]; 					//this line determines the AT mines which can be carried by units -- Example: ["ATMine_Range_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["APMines", ["APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]]; 					//this line determines the APERS mines which can be carried by units -- Example: ["APERSMine_Range_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			//this line determines light explosives -- Example: ["DemoCharge_Remote_Mag"] -- Array, can contain multiple assets
-_loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			//this line determines heavy explosives -- Example: ["SatchelCharge_Remote_Mag"] -- Array, can contain multiple assets
+_loadoutData setVariable ["ATMines", ["ATMine_Range_Mag"]]; 					
+_loadoutData setVariable ["APMines", ["APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag"]]; 					
+_loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			
+_loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			
 
 _loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_RGD5", "CUP_HandGrenade_RGO"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
-_loadoutData setVariable ["antiTankGrenades", []]; 			//this line determines anti tank grenades. Leave empty when not available. -- Array, can contain multiple assets
+_loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
-//Basic equipment. Shouldn't need touching most of the time.
-//Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
-_loadoutData setVariable ["maps", ["ItemMap"]];				//this line determines map
-_loadoutData setVariable ["watches", ["ItemWatch"]];		//this line determines watch
-_loadoutData setVariable ["compasses", ["ItemCompass"]];	//this line determines compass
-_loadoutData setVariable ["radios", ["ItemRadio"]];			//this line determines radio
-_loadoutData setVariable ["gpses", ["ItemGPS"]];			//this line determines GPS
-_loadoutData setVariable ["NVGs", ["NVGoggles_OPFOR"]];						//this line determines NVGs -- Array, can contain multiple assets
+
+
+_loadoutData setVariable ["maps", ["ItemMap"]];				
+_loadoutData setVariable ["watches", ["ItemWatch"]];		
+_loadoutData setVariable ["compasses", ["ItemCompass"]];	
+_loadoutData setVariable ["radios", ["ItemRadio"]];			
+_loadoutData setVariable ["gpses", ["ItemGPS"]];			
+_loadoutData setVariable ["NVGs", ["NVGoggles_OPFOR"]];						
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 _loadoutData setVariable ["Rangefinder", ["Rangefinder"]];
 
@@ -162,7 +162,7 @@ _loadoutData setVariable ["items_medical_standard", ["STANDARD"] call A3A_fnc_it
 _loadoutData setVariable ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies]; //this line defines the medic medical loadout for vanilla
 _loadoutData setVariable ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
 
-//Unit type specific item sets. Add or remove these, depending on the unit types in use.
+
 _loadoutData setVariable ["items_squadleader_extras", ["ACE_microDAGR", "ACE_DAGR", "Laserbatteries", "Laserbatteries", "Laserbatteries"]];
 _loadoutData setVariable ["items_rifleman_extras", []];
 _loadoutData setVariable ["items_medic_extras", []];
@@ -185,13 +185,13 @@ _loadoutData setVariable ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Gorka_Green", "CUP_U_O_RUS_Gorka_Green_gloves2", "CUP_U_O_RUS_Gorka_Partizan_A", "CUP_U_O_RUS_Gorka_Partizan_A_gloves2", "CUP_U_O_RUS_Gorka_Partizan_A_gloves_kneepads", "CUP_U_O_RUS_Gorka_Green_gloves_kneepads"]];			//this line determines uniforms for special forces -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_sfLoadoutData setVariable ["vests", ["CUP_V_RUS_Smersh_2", "CUP_V_RUS_Smersh_1", "CUP_V_RUS_6B3_2", "CUP_V_RUS_6B3_3"]];				//this line determines vests for special forces -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
+_sfLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Gorka_Green", "CUP_U_O_RUS_Gorka_Green_gloves2", "CUP_U_O_RUS_Gorka_Partizan_A", "CUP_U_O_RUS_Gorka_Partizan_A_gloves2", "CUP_U_O_RUS_Gorka_Partizan_A_gloves_kneepads", "CUP_U_O_RUS_Gorka_Green_gloves_kneepads"]];			
+_sfLoadoutData setVariable ["vests", ["CUP_V_RUS_Smersh_2", "CUP_V_RUS_Smersh_1", "CUP_V_RUS_6B3_2", "CUP_V_RUS_6B3_3"]];				
 _sfLoadoutData setVariable ["GLvests", ["CUP_V_RUS_6B3_1"]];
 _sfLoadoutData setVariable ["Hvests", ["CUP_V_RUS_6B3_3"]];
-_sfLoadoutData setVariable ["backpacks", ["CUP_B_RUS_Pack_Saboteur"]];			//this line determines backpacks for special forces -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_sfLoadoutData setVariable ["helmets", ["CUP_H_RUS_ZSH_1", "CUP_H_RUS_ZSH_1_Goggles", "H_Bandanna_khk", "CUP_H_RUS_GSSh01_Headphones_black", "CUP_H_RUS_Balaclava_Ratnik_Headphones_v2"]];				//this line determines helmets for special forces -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_sfLoadoutData setVariable ["backpacks", ["CUP_B_RUS_Pack_Saboteur"]];			
+_sfLoadoutData setVariable ["helmets", ["CUP_H_RUS_ZSH_1", "CUP_H_RUS_ZSH_1_Goggles", "H_Bandanna_khk", "CUP_H_RUS_GSSh01_Headphones_black", "CUP_H_RUS_Balaclava_Ratnik_Headphones_v2"]];				
 _sfLoadoutData setVariable ["binoculars", ["Laserdesignator_03"]];
 _sfLoadoutData setVariable ["missileATLaunchers", [
 ["CUP_launch_Metis", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""]
@@ -205,12 +205,12 @@ _sfLoadoutData setVariable ["rifles", [
 ["CUP_arifle_AKM", "CUP_muzzle_Bizon", "", "CUP_optic_1p63", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""],
 ["CUP_arifle_AKM", "CUP_muzzle_Bizon", "", "CUP_optic_ekp_8_02", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""],
 ["CUP_arifle_AKM", "CUP_muzzle_Bizon", "", "CUP_optic_PechenegScope", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""]
-]];			//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
+]];			
 _sfLoadoutData setVariable ["carbines", [
 ["CUP_arifle_AKMS", "CUP_muzzle_Bizon", "", "CUP_optic_1p63", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""],
 ["CUP_arifle_AKMS", "CUP_muzzle_Bizon", "", "CUP_optic_ekp_8_02", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""],
 ["CUP_arifle_AKMS", "CUP_muzzle_Bizon", "", "CUP_optic_PechenegScope", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], [], ""]
-]]; 					//this line determines carbines -- Example: ["arifle_MXC_F", "arifle_MXC_Holo_F"] -- Array, can contain multiple assets
+]]; 					
 _sfLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_AKMS_GL", "CUP_muzzle_Bizon", "", "CUP_optic_1p63", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""],
 ["CUP_arifle_AKMS_GL", "CUP_muzzle_Bizon", "", "CUP_optic_ekp_8_02", ["CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_762x39_AK47_M", "CUP_30Rnd_TE1_Green_Tracer_762x39_AK47_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""],
@@ -227,30 +227,30 @@ _sfLoadoutData setVariable ["SMGs", [
 _sfLoadoutData setVariable ["machineGuns", [
 ["CUP_lmg_Pecheneg_B50_vfg", "CUP_muzzle_snds_KZRZP_PK", "", "CUP_optic_GOSHAWK", ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Red_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Yellow_M"], [], ""],
 ["CUP_lmg_Pecheneg_B50_vfg", "CUP_muzzle_snds_KZRZP_PK", "", "CUP_optic_PechenegScope", ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Red_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Yellow_M"], [], ""]
-]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 				
 _sfLoadoutData setVariable ["marksmanRifles", [
 ["CUP_srifle_VSSVintorez", "", "", "CUP_optic_PSO_1_1", ["CUP_10Rnd_9x39_SP5_VSS_M"], [], ""],
 ["CUP_srifle_SVD", "CUP_muzzle_snds_KZRZP_SVD", "CUP_SVD_camo_d", "CUP_optic_PSO_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
-]]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _sfLoadoutData setVariable ["sniperRifles", [
 ["CUP_srifle_ksvk", "", "", "CUP_optic_GOSHAWK", ["CUP_5Rnd_127x108_KSVK_M"], [], ""]
-]]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
+]]; 				
 _sfLoadoutData setVariable ["sidearms", [
 ["CUP_hgun_PB6P9", "CUP_muzzle_PB6P9", "", "", ["CUP_8Rnd_9x18_MakarovSD_M"], [], ""]
-]]; 					//this line determines handguns/sidearms -- Example: ["hgun_Pistol_heavy_01_F", "hgun_P07_F"] -- Array, can contain multiple assets
+]]; 					
 
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
 
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Ratnik_BeigeDigital", "CUP_U_O_RUS_BeigeDigital_VDV_gloves_pads", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up_gloves_pads"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
+_militaryLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Ratnik_BeigeDigital", "CUP_U_O_RUS_BeigeDigital_VDV_gloves_pads", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up_gloves_pads"]];		
 _militaryLoadoutData setVariable ["offuniforms", ["CUP_U_O_RUS_BeigeDigital_VDV"]];
-_militaryLoadoutData setVariable ["vests", ["CUP_Vest_RUS_6B45_Sh117_BeigeDigital", "CUP_Vest_RUS_6B45_Sh117_PKP_BeigeDigital"]];			//this line determines vests for military loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_militaryLoadoutData setVariable ["vests", ["CUP_Vest_RUS_6B45_Sh117_BeigeDigital", "CUP_Vest_RUS_6B45_Sh117_PKP_BeigeDigital"]];			
 _militaryLoadoutData setVariable ["GLvests", ["CUP_Vest_RUS_6B45_Sh117_VOG_BeigeDigital"]];
 _militaryLoadoutData setVariable ["Hvests", ["CUP_V_RUS_6B45_4_BeigeDigital"]];
-_militaryLoadoutData setVariable ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital", "CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];		//this line determines backpacks for military loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_militaryLoadoutData setVariable ["helmets", ["CUP_H_RUS_6B47_v2_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesClosed_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesDown_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesUp_BeigeDigital"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militaryLoadoutData setVariable ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital", "CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];		
+_militaryLoadoutData setVariable ["helmets", ["CUP_H_RUS_6B47_v2_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesClosed_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesDown_BeigeDigital", "CUP_H_RUS_6B47_v2_GogglesUp_BeigeDigital"]];		
 _militaryLoadoutData setVariable ["binoculars", ["Laserdesignator_03"]];
 _militaryLoadoutData setVariable ["missileATLaunchers", [
 ["CUP_launch_Metis", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""]
@@ -264,19 +264,19 @@ _militaryLoadoutData setVariable ["rifles", [
 ["CUP_arifle_AK74M", "", "acc_flashlight", "CUP_optic_ekp_8_02", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AK74M", "", "acc_flashlight", "CUP_optic_Kobra", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AK74M", "", "acc_flashlight", "CUP_optic_PSO_1_AK", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""]
-]];			//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
+]];			
 _militaryLoadoutData setVariable ["carbines", [
 ["CUP_arifle_AKS74U", "", "acc_flashlight", "", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AKS74U", "", "acc_flashlight", "CUP_optic_ekp_8_02", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AKS74U", "", "acc_flashlight", "CUP_optic_Kobra", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AKS74U", "", "acc_flashlight", "CUP_optic_PSO_1_AK", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""]
-]]; 					//this line determines carbines -- Example: ["arifle_MXC_F", "arifle_MXC_Holo_F"] -- Array, can contain multiple assets
+]]; 					
 _militaryLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_AK74M_GL", "", "acc_flashlight", "", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""],
 ["CUP_arifle_AK74M_GL", "", "acc_flashlight", "CUP_optic_ekp_8_02", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""],
 ["CUP_arifle_AK74M_GL", "", "acc_flashlight", "CUP_optic_Kobra", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""],
 ["CUP_arifle_AK74M_GL", "", "acc_flashlight", "CUP_optic_PSO_1_AK", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M"], ""]
-]]; 			//this line determines grenade launchers -- Example: ["arifle_MX_GL_ACO_F", "arifle_MX_GL_ACO_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _militaryLoadoutData setVariable ["SMGs", [
 ["CUP_smg_bizon", "", "", "", ["CUP_64Rnd_9x19_Bizon_M", "CUP_64Rnd_Green_Tracer_9x19_Bizon_M"], [], ""],
 ["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""]
@@ -289,19 +289,19 @@ _militaryLoadoutData setVariable ["machineGuns", [
 ["CUP_arifle_RPK74M", "", "acc_flashlight", "CUP_optic_ekp_8_02", ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK74M_M"], [], ""],
 ["CUP_arifle_RPK74M", "", "acc_flashlight", "CUP_optic_Kobra", ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK74M_M"], [], ""],
 ["CUP_arifle_RPK74M", "", "acc_flashlight", "CUP_optic_PSO_1_AK", ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK74M_M"], [], ""]
-]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 				
 _militaryLoadoutData setVariable ["marksmanRifles", [
 ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
-]]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _militaryLoadoutData setVariable ["sniperRifles", [
 ["CUP_srifle_ksvk", "", "", "CUP_optic_PSO_3", ["CUP_5Rnd_127x108_KSVK_M"], [], ""]
-]]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
+]]; 				
 _militaryLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
 ///////////////////////////////
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
 _policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData setVariable ["helmets", ["H_Cap_police"]];
@@ -316,13 +316,13 @@ _policeLoadoutData setVariable ["sidearms", ["CUP_hgun_Makarov"]];
 //    Militia Loadout Data    //
 ////////////////////////////////
 
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militiaLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_EMR_gloves_pads", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_EMR_rolled_up_gloves_pads"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
+_militiaLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_EMR_gloves_pads", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_EMR_rolled_up_gloves_pads"]];		
 _militiaLoadoutData setVariable ["offuniforms", ["CUP_U_O_RUS_EMR_1"]];
 _militiaLoadoutData setVariable ["vests", ["CUP_V_RUS_Smersh_1", "CUP_V_RUS_Smersh_2"]];
 _militiaLoadoutData setVariable ["GLvests", ["CUP_V_RUS_6B3_Flora_1"]];
 _militiaLoadoutData setVariable ["Hvests", ["CUP_V_RUS_6B3_Flora_4"]];
-_militiaLoadoutData setVariable ["backpacks", ["CUP_B_RUS_Pack_Medic"]];		//this line determines backpacks for military loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["backpacks", ["CUP_B_RUS_Pack_Medic"]];		
 _militiaLoadoutData setVariable ["helmets", ["CUP_H_RUS_SSH68_green", "CUP_H_RUS_SSH68_olive", "CUP_H_RUS_SSH68_cover_vsr98"]];
 _militiaLoadoutData setVariable ["AALaunchers", [
 ["CUP_launch_9K32Strela", "", "", "", ["CUP_Strela_2_M"], [], ""]
@@ -330,42 +330,42 @@ _militiaLoadoutData setVariable ["AALaunchers", [
 
 _militiaLoadoutData setVariable ["rifles", [
 ["CUP_arifle_AKS74_Early", "", "CUP_acc_Flashlight", "", ["CUP_20Rnd_545x39_AKSU_M"], [], ""]
-]];			//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
+]];			
 _militiaLoadoutData setVariable ["carbines", [
 ["CUP_SKS", "", "", "", [], [], ""],
 ["CUP_arifle_AKS74U", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], [], ""]
-]]; 					//this line determines carbines -- Example: ["arifle_MXC_F", "arifle_MXC_Holo_F"] -- Array, can contain multiple assets
+]]; 					
 _militiaLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_AKS74_GL_Early", "", "", "", ["CUP_20Rnd_545x39_AKSU_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""]
-]]; 			//this line determines grenade launchers -- Example: ["arifle_MX_GL_ACO_F", "arifle_MX_GL_ACO_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _militiaLoadoutData setVariable ["SMGs", [
 ["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["machineGuns", [
 ["CUP_arifle_RPK74_45", "", "", "", ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M"], [], ""],
 ["CUP_arifle_RPK74", "", "", "", ["CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M", "CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M", "CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M"], [], ""]
-]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 				
 _militiaLoadoutData setVariable ["marksmanRifles", [
 ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""],
 ["CUP_SKS_rail", "", "", "optic_MRCO", ["CUP_10Rnd_762x39_SKS_M"], [], ""]
-]]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _militiaLoadoutData setVariable ["sniperRifles", [
 ["CUP_srifle_Mosin_Nagant", "", "", "CUP_optic_PEM", [], [], ""]
-]]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
+]]; 				
 _militiaLoadoutData setVariable ["sidearms", ["CUP_hgun_PMM"]];
 
 /////////////////////////////////
 //    Elite Loadout Data       //
 /////////////////////////////////
 
-private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_eliteLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Ratnik_BeigeDigital", "CUP_U_O_RUS_BeigeDigital_VDV_gloves_pads", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up_gloves_pads"]];		//this line determines uniforms for military loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
+private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
+_eliteLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_Ratnik_BeigeDigital", "CUP_U_O_RUS_BeigeDigital_VDV_gloves_pads", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up_gloves_pads"]];		
 _eliteLoadoutData setVariable ["offuniforms", ["CUP_U_O_RUS_BeigeDigital_VDV"]];
-_eliteLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_4_BeigeDigital"]];			//this line determines vests for military loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_eliteLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_4_BeigeDigital"]];			
 _eliteLoadoutData setVariable ["GLvests", ["CUP_Vest_RUS_6B45_Sh117_VOG_BeigeDigital"]];
 _eliteLoadoutData setVariable ["Hvests", ["CUP_V_RUS_6B45_4_BeigeDigital"]];
-_eliteLoadoutData setVariable ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital", "CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];		//this line determines backpacks for military loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
-_eliteLoadoutData setVariable ["helmets", ["CUP_H_RUS_Altyn", "CUP_H_RUS_Altyn_Goggles", "CUP_H_RUS_Altyn_Shield_Down", "CUP_H_RUS_Altyn_Shield_Up"]];		//this line determines helmets for military loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_eliteLoadoutData setVariable ["backpacks", ["CUP_O_RUS_Patrol_bag_BeigeDigital", "CUP_O_RUS_Patrol_bag_BeigeDigital_Shovel"]];		
+_eliteLoadoutData setVariable ["helmets", ["CUP_H_RUS_Altyn", "CUP_H_RUS_Altyn_Goggles", "CUP_H_RUS_Altyn_Shield_Down", "CUP_H_RUS_Altyn_Shield_Up"]];		
 _eliteLoadoutData setVariable ["binoculars", ["Laserdesignator_02"]];
 _eliteLoadoutData setVariable ["missileATLaunchers", [
 ["CUP_launch_Metis", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""]
@@ -381,7 +381,7 @@ _eliteLoadoutData setVariable ["rifles", [
 ["CUP_arifle_AK107_top_rail", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AK107_railed", "", "acc_pointer_IR", "CUP_optic_1P87_RIS", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], "bipod_02_F_blk"],
 ["CUP_arifle_AK107_railed", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], "bipod_02_F_blk"]
-]];			//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
+]];			
 _eliteLoadoutData setVariable ["carbines", [
 ["CUP_arifle_AK105", "", "acc_pointer_IR", "", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AK105", "", "acc_pointer_IR", "CUP_optic_PSO_1_AK", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
@@ -389,7 +389,7 @@ _eliteLoadoutData setVariable ["carbines", [
 ["CUP_arifle_AK105_top_rail", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], ""],
 ["CUP_arifle_AK105_railed", "", "acc_pointer_IR", "CUP_optic_1P87_RIS", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], "bipod_02_F_blk"],
 ["CUP_arifle_AK105_railed", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], [], "bipod_02_F_blk"]
-]]; 					//this line determines carbines -- Example: ["arifle_MXC_F", "arifle_MXC_Holo_F"] -- Array, can contain multiple assets
+]]; 					
 _eliteLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_AK105", "", "acc_pointer_IR", "", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
 ["CUP_arifle_AK105", "", "acc_pointer_IR", "CUP_optic_PSO_1_AK", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
@@ -397,7 +397,7 @@ _eliteLoadoutData setVariable ["grenadeLaunchers", [
 ["CUP_arifle_AK105_top_rail", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], ""],
 ["CUP_arifle_AK105_railed", "", "acc_pointer_IR", "CUP_optic_1P87_RIS", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], "bipod_02_F_blk"],
 ["CUP_arifle_AK105_railed", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_545x39_AK74M_M", "CUP_30Rnd_TE1_Green_Tracer_545x39_AK74M_M"], ["CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_HE_GP25_M", "CUP_1Rnd_SMOKE_GP25_M", "CUP_IlumFlareWhite_GP25_M"], "bipod_02_F_blk"]
-]]; 			//this line determines grenade launchers -- Example: ["arifle_MX_GL_ACO_F", "arifle_MX_GL_ACO_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _eliteLoadoutData setVariable ["SMGs", [
 ["CUP_arifle_SR3M_Vikhr", "", "", "CUP_optic_Kobra", ["CUP_30Rnd_9x39_SP5_VIKHR_M"], [], ""],
 ["CUP_arifle_SR3M_Vikhr_VFG", "", "", "CUP_optic_Kobra", ["CUP_30Rnd_9x39_SP5_VIKHR_M"], [], ""],
@@ -409,30 +409,30 @@ _eliteLoadoutData setVariable ["machineGuns", [
 ["CUP_lmg_Pecheneg_B50_vfg", "", "acc_pointer_IR", "CUP_optic_PechenegScope", ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Red_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Yellow_M"], [], ""],
 ["CUP_lmg_Pecheneg_top_rail_B50_vfg", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Red_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Yellow_M"], [], ""],
 ["CUP_lmg_Pecheneg_top_rail_B50_vfg", "", "acc_pointer_IR", "optic_tws", ["CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Red_M", "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Yellow_M"], [], ""]
-]]; 				//this line determines machine guns -- Example: ["arifle_MX_SW_F", "arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 				
 _eliteLoadoutData setVariable ["marksmanRifles", [
 ["CUP_srifle_SVD_top_rail", "", "", "optic_SOS", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
-]]; 			//this line determines markman rifles -- Example: ["arifle_MXM_F", "arifle_MXM_Hamr_pointer_F"] -- Array, can contain multiple assets
+]]; 			
 _eliteLoadoutData setVariable ["sniperRifles", [
 ["CUP_srifle_ksvk", "", "", "CUP_optic_PSO_3", ["CUP_5Rnd_127x108_KSVK_M"], [], ""]
-]]; 				//this line determines sniper rifles -- Example: ["srifle_LRR_camo_F", "srifle_LRR_camo_SOS_F"] -- Array, can contain multiple assets
+]]; 				
 _eliteLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
 
 
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////
-//The following lines are determining the loadout of the vehicle crew
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_crewLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_2"]];			//this line determines uniforms for vehicle crew loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_crewLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_1"]];				//this line determines vests for vehicle crew loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
-_crewLoadoutData setVariable ["helmets", ["CUP_H_SLA_TankerHelmet"]];			//this line determines backpacks for vehicle crew loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
 
-//The following lines are determining the loadout of the pilots
+private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; 
+_crewLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_2"]];			
+_crewLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_1"]];				
+_crewLoadoutData setVariable ["helmets", ["CUP_H_SLA_TankerHelmet"]];			
+
+
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_1"]];			//this line determines uniforms for pilot loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_pilotLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_1"]];			//this line determines vests for pilot loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
-_pilotLoadoutData setVariable ["helmets", ["CUP_H_RUS_ZSH_Shield_Up", "CUP_H_RUS_ZSH_Shield_Down"]];			//this line determines backpacks for pilot loadouts -- Example: ["B_AssaultPack_mcamo", "B_Kitbag_mcamo"] -- Array, can contain multiple assets
+_pilotLoadoutData setVariable ["uniforms", ["CUP_U_O_RUS_EMR_1"]];			
+_pilotLoadoutData setVariable ["vests", ["CUP_V_RUS_6B45_1"]];			
+_pilotLoadoutData setVariable ["helmets", ["CUP_H_RUS_ZSH_Shield_Up", "CUP_H_RUS_ZSH_Shield_Down"]];			
 
 
 // ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################
@@ -985,13 +985,13 @@ private _unitTypes = [
 //    Misc Units    //
 //////////////////////
 
-//The following lines are determining the loadout of vehicle crew
+
 ["other", [["Crew", _crewTemplate]], _crewLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-//The following lines are determining the loadout of the pilots
+
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-//The following lines are determining the loadout for the unit used in the "kill the official" mission
+
 ["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-//The following lines are determining the loadout for the AI used in the "kill the traitor" mission
+
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-//The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
+
 ["other", [["Unarmed", _unarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

@@ -107,6 +107,7 @@ A3A_paramTable = [
     ["playerIcons", "playerIcons", [], true],
     ["magRepack", "magRepack", [], true],
     ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],
+    ["threecbfOccupantFaction", "threecbfOccupantFaction", ["server"], 0],
     ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0]
     // beware of the comma
 ];

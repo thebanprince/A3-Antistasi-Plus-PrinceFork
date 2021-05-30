@@ -33,8 +33,8 @@ if (_typeGroup isEqualTo groupsSDKAT && {tierWar < 3}) exitWith {
 	["Recruit Squad", "You need to be at War Level 3 to be able to hire AT Teams."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-if (_typeGroup isEqualTo SDKMGStatic && {tierWar < 2}) exitWith {
-	["Recruit Squad", "You need to be at War Level 2 to be able to hire MG Squads."] call SCRT_fnc_misc_showDeniedActionHint;
+if (_typeGroup in [SDKMGStatic, vehSDKLightArmed] && {tierWar < 2}) exitWith {
+	["Recruit Squad", "You need to be at War Level 2 to be able to hire MG Squads and MG Cars."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 if (_typeGroup in [vehSDKAT, staticAAteamPlayer] && {tierWar < 4}) exitWith {
@@ -158,7 +158,6 @@ if (_esinf) then {
 			_launcher setVectorDirAndUp [[0,-1,0], [0,0,1]];
 			_gunner moveInGunner _launcher;
 			_gunner assignAsGunner _launcher;
-//			[_launcher] call A3A_fnc_AIVEHinit;			// don't need separate despawn/killed handlers
 		} else {
 			_gunner moveInGunner _truckX;
 			_gunner assignAsGunner _truckX;
@@ -167,9 +166,16 @@ if (_esinf) then {
 		private _veh = [_pos, _roadDirection,_typeGroup, teamPlayer] call A3A_fnc_spawnVehicle;
 		_truckX = _veh select 0;
 		_groupX = _veh select 2;
+
+		if (isNull (gunner _truckX)) then {
+			private _gunner = [_groupX, staticCrewTeamPlayer, _pos, [], 5, "NONE"] call A3A_fnc_createUnit;
+			_gunner moveInGunner _truckX;
+			_gunner assignAsGunner _truckX;
+		};
 	};
 
 	if (_typeGroup == vehSDKAT) then {_groupX setGroupIdGlobal [format ["M.AT-%1",{side (leader _x) == teamPlayer} count allGroups]]};
+	if (_typeGroup == vehSDKLightArmed) then {_groupX setGroupIdGlobal [format ["M.MG-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 	if (_typeGroup == staticAAteamPlayer) then {_groupX setGroupIdGlobal [format ["M.AA-%1",{side (leader _x) == teamPlayer} count allGroups]]};
 
 	driver _truckX action ["engineOn", _truckX];

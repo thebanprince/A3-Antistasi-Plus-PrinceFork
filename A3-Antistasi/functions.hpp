@@ -399,17 +399,6 @@ class A3A
         class logistics_unload {};
     };
 
-    class LTC
-    {
-        class canLoot {};
-        class canTransfer {};
-        class carryCrate {};
-        class initLootToCrate {};
-        class lootFromContainer {};
-        class lootToCrate {};
-        class spawnCrate {};
-    };
-
     class Missions
     {
         class AS_Collaborationist {};

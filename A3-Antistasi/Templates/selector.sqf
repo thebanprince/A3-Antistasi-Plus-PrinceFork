@@ -87,15 +87,23 @@ switch(true) do{
 //Occ Templates
 switch(true) do {
     case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (_terrainName in _temperateMaps);
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CBF\3CBF_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using temperate USAF Template", _filename] call A3A_fnc_log;
+        switch(threecbfOccupantFaction) do {
+            case (0): { //USAF
+                switch(true) do {
+                    case (_terrainName in _temperateMaps);
+                    case (_terrainName in _tropicalMaps): {
+                        ["Templates\NewTemplates\3CBF\3CBF_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using temperate USAF Template", _filename] call A3A_fnc_log;
+                    };
+                    default {
+                        ["Templates\NewTemplates\3CBF\3CBF_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using arid USAF Template", _filename] call A3A_fnc_log;
+                    };
+                };
             };
-            default {
-                ["Templates\NewTemplates\3CBF\3CBF_AI_USAF_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid USAF Template", _filename] call A3A_fnc_log;
+            case (1): { //CDF
+                ["Templates\NewTemplates\3CBF\3CBF_AI_CDF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using CDF Template", _filename] call A3A_fnc_log;
             };
         };
     };
@@ -113,6 +121,10 @@ switch(true) do {
                         [2, "Using arid USAF Template", _filename] call A3A_fnc_log;
                     };
                 };
+            };
+            case (1): { //CDF
+                ["Templates\NewTemplates\RHS\RHS_AI_CDF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using CDF Template", _filename] call A3A_fnc_log;
             };
         };
     };

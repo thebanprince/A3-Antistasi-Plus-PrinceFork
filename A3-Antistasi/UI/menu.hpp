@@ -872,6 +872,14 @@ class squadRecruit: SimpleMenuBigger
 			y = 0.584 * safezoneH + safezoneY;
 			action = "closeDialog 0;[SDKMortar] spawn A3A_fnc_addFIAsquadHC";
 		};
+		class r5Button: SimpleButton
+		{
+			idc = 113;
+			text = $STR_antistasi_dialogs_mg_car_title;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.682 * safezoneH + safezoneY;
+			action = "closeDialog 0;[vehSDKLightArmed] spawn A3A_fnc_addFIAsquadHC";
+		};
 	};
 };
 
