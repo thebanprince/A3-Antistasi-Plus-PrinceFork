@@ -170,7 +170,7 @@ private _fiaTrainingText = format ["FIA Skill Level: %1", skillFIA];
 ((findDisplay 60000) displayCtrl 3102) ctrlSetText _fiaTrainingText;
 
 //hiding reroll button if conditions are not met
-if (spawnTraderOnBase || {!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))}) then {
+if (!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))) then {
 	((findDisplay 60000) displayCtrl 6014) ctrlShow false;
 };
 

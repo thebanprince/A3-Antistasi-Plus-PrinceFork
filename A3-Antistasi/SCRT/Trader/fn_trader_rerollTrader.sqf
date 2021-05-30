@@ -13,8 +13,8 @@
 
 private _fileName = "fn_trader_rerollTrader";
 
-if (spawnTraderOnBase || {!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))}) exitWith {
-    [2,"Trader exists as trader terminal or task is not completed yet, aborting.",_fileName, true] call A3A_fnc_log;
+if (!(isTraderQuestCompleted || (!(isNil 'isTraderQuestAssigned') && {isTraderQuestAssigned}))) exitWith {
+    [2,"Trader task is not completed yet, aborting.",_fileName, true] call A3A_fnc_log;
 };
 
 [2,"Arms dealer reroll initiated.",_fileName, true] call A3A_fnc_log;

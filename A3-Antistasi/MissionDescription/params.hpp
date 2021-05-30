@@ -307,13 +307,6 @@ class Params
           texts[] =  {"Default (Yes)", "Yes", "No"};
           default = 9999;
      };
-     class traderOnBase
-     {
-          title = "Arms Dealer Store on HQ (WORKS ONLY IF ARMS DEALER IS NOT FOUND YET)";
-          values[] = {9999, 1, 0};
-          texts[] =  {"Default (No)", "Yes", "No"};
-          default = 9999;
-     };
      class fatalWounds
      {
           title = "Enable Fatal Wounds";

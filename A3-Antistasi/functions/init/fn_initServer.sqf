@@ -10,7 +10,6 @@ boxX allowDamage false;
 flagX allowDamage false;
 vehicleBox allowDamage false;
 mapX allowDamage false;
-traderScreenX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
 //Load server id
@@ -231,17 +230,3 @@ savingServer = false;
 	};
 };
 [2,"initServer completed",_fileName] call A3A_fnc_log;
-
-
-waitUntil{sleep 1;!(isNil "initVar")};
-
-//trader functionality on HQ
-if (spawnTraderOnBase && {!(isTraderQuestCompleted || (!(isNil "isTraderQuestAssigned") && {isTraderQuestAssigned}))}) then {
-	[3, "Spawning trader screen on base.", _fileName] call A3A_fnc_log;
-	isTraderQuestAssigned = true;
-	[] call SCRT_fnc_trader_createTraderTerminal;
-} else {
-	[3, "Hiding trader screen.", _fileName] call A3A_fnc_log;
-	[traderScreenX, true] remoteExec ["hideObject", 0, true];
-	[traderScreenX, false] remoteExec ["enableSimulation", 0, true];
-};

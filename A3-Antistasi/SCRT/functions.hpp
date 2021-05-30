@@ -101,7 +101,6 @@ class SCRT
         class trader_addVehicleMarketAction {};
         class trader_tryOpenVehicleMarketMenu {};
         class trader_removeUnlockedItemsFromStock {};
-        class trader_createTraderTerminal {};
         class trader_buyBlackMarketVehicle {};
         class trader_rerollTrader {};
         class trader_setTraderDiscount {};

@@ -1,4 +1,8 @@
 # Changelog
+## 1.6
+### Removals
+- Removed Trader on HQ mission parameter with it's tied functionality
+- Removed Grenadier and Autorifleman slots (Riflemen got theirs carry capacity audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
 
 ## 1.5.6
 ### Additions

@@ -303,8 +303,6 @@ if (_varName in _specialVarLoads) then {
 			flagX setPos (_varValue select 3);
 			vehicleBox setDir ((_varValue select 4) select 0);
 			vehicleBox setPos ((_varValue select 4) select 1);
-			traderScreenX setDir ((_varValue select 5) select 0);
-			traderScreenX setPos ((_varValue select 5) select 1);
 		};
 		{_x setPos _posHQ} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	};

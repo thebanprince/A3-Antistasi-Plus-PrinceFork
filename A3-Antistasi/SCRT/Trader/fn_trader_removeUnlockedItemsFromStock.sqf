@@ -1,13 +1,9 @@
 private _fileName = "trader_removeUnlockedWeaponsFromStock";
 
-private _trader = if (spawnTraderOnBase) then {
-    traderScreenX
-} else {
-    if (!isNil "traderX") then {
-        traderX
-    } else { 
-        nil 
-    };
+private _trader = if (!isNil "traderX") then {
+    traderX
+} else { 
+    nil 
 };
 
 if (isNil "_trader") exitWith {
