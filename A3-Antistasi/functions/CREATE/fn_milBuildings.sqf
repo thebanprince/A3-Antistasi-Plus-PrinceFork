@@ -132,7 +132,6 @@ for "_i" from 0 to (count _buildings) - 1 do
         {
             private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
             private _gmgType = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
-            private _atType = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
             _dir = getDir _building;
             _zOffset = [0, 0, -0.3]; //fix spawn hight
             _Tdir = _dir + 90; //relative rotation to building
@@ -154,7 +153,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
             _zpos = _zpos vectorAdd _zOffset;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_atType, _pos, _Tdir] call _fnc_spawnStatic;
+            [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
         };
 		if 	((_typeB == "Land_Radar_01_HQ_F")) exitWith
         {
