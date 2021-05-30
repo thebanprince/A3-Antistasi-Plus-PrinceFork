@@ -224,7 +224,7 @@ class Params
      class cupOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0, 1, 2};
+		values[]={9999, 0, 1};
 		texts[]={"Default (USAF)", "USAF", "BAF"};
 		default = 9999;
      };
@@ -245,7 +245,7 @@ class Params
      class rhsOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0, 1};
+		values[]={9999, 0};
 		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
@@ -263,17 +263,10 @@ class Params
           texts[] = {""};
           default = "";
      };
-     // class threecbfOccupantFaction
-     // {
-     //      title="Select Occupant Faction";
-	// 	values[]={9999, 0,1};
-	// 	texts[]={"Default (USAF)", "USAF", "CDF"};
-	// 	default = 9999;
-     // };
      class threecbfOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0,1};
+		values[]={9999, 0};
 		texts[]={"Default (USAF)", "USAF"};
 		default = 9999;
      };
