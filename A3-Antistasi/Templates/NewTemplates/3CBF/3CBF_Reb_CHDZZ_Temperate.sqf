@@ -85,7 +85,7 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 ["baseSoldier", "UK3CB_CHD_I_RIF_1"] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
-rallyPointRoot = "B_RadioBag_01_wdl_F";
+rallyPoint = "B_RadioBag_01_wdl_F";
 
 //black market stuff
 shop_UAV = ["rhs_pchela1t_vvs"];

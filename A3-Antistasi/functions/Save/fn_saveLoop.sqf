@@ -123,7 +123,7 @@ private _lootCratePrice = [lootCrate] call A3A_fnc_vehiclePrice;
 } forEach (allMissionObjects lootCrate);
 
 if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
-	private _rallyPointCost = [rallyPointRoot] call A3A_fnc_vehiclePrice;
+	private _rallyPointCost = [rallyPoint] call A3A_fnc_vehiclePrice;
 	_resourcesBackground = _resourcesBackground + round(_rallyPointCost/1.3);
 };
 

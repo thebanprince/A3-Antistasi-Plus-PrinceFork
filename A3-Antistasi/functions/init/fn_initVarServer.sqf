@@ -492,7 +492,7 @@ private _templateVariables = [
 	"smallBunker",
 	"sandbag",
 	"lootCrate",
-	"rallyPointRoot",
+	"rallyPoint",
 	"occupantBaseSoldierMilitia",
 	"occupantBaseSoldier",
 	"invaderBaseSoldierMilitia",
@@ -885,7 +885,7 @@ if(A3A_hasCup) then {
 server setVariable [lootCrate, 100, true];
 
 //rally point cost
-server setVariable [rallyPointRoot, 1000, true];
+server setVariable [rallyPoint, 100, true];
 
 ///////////////////////
 //     GARRISONS    ///

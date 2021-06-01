@@ -18,8 +18,17 @@ if (player != player getVariable ["owner",player]) exitWith {
     ["Rally Point", "You cannot travel to rally point while you are controlling AI."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-private _groupX = group player;
+if (player distance2D (getMarkerPos "Synd_HQ") > 50) exitWith {
+    ["Rally Point", "You cannot travel to rally point outside the HQ."] call SCRT_fnc_misc_showDeniedActionHint;
+};
 
+private _groupX = group player;
+private _remainingTravels = rallyPointRoot getVariable ["remainingTravels", 0];
+
+if (_remainingTravels < 1) exitWith {
+    ["Rally Point", "Not enough travel points."] call SCRT_fnc_misc_showDeniedActionHint;
+    remoteExecCall ["SCRT_fnc_rally_deleteRallyPoint",2];
+};
 
 private _rallyPoint = rallyProps select 0;
 private _rallyPosition = position _rallyPoint;
@@ -62,7 +71,15 @@ while {_timePassed < _distanceX} do {
 
 
 disableUserInput false;
-cutText ["You arrived to rally point.","BLACK IN",1];
+cutText ["You arrived to rally point.", "BLACK IN", 1];
+
+private _remainingTravels = _remainingTravels - 1;
+rallyPointRoot setVariable ["remainingTravels", _remainingTravels, true];
+rallyPointMarker setMarkerText (format ["Rally Point (Remaining Travels: %1)", str _remainingTravels]);
+
+if (_remainingTravels < 1) then {
+    remoteExecCall ["SCRT_fnc_rally_deleteRallyPoint",2];
+};
 
 sleep 5;
 {_x allowDamage true} forEach units _groupX;

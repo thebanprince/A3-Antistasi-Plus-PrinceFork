@@ -335,6 +335,13 @@ class Params
           texts[] =  {"Default (200)", "0", "100", "200", "500","1000"};
           default = 9999;
      };
+     class rallyPointSpawnCount
+     {
+          title = "Rally Point Travel Points";
+          values[] = {9999, 10, 15, 20, 30};
+          texts[] =  {"Default (10)", "10", "15", "20","30"};
+          default = 9999;
+     };
      class factionsDefeat
      {
           title = "Enemy Factions Defeat (EXPERIMENTAL)";

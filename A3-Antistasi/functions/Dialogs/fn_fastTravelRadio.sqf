@@ -2,10 +2,14 @@ private ["_roads","_pos","_positionX","_groupX"];
 
 private _distanceX = 250;
 
-_markersX = markersX + [respawnTeamPlayer];
+private _markersX = markersX + [respawnTeamPlayer];
 
 if (!isNil "traderMarker") then {
 	_markersX = _markersX + [traderMarker];
+};
+
+if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
+	_markersX = _markersX + [rallyPointMarker];
 };
 
 _esHC = false;

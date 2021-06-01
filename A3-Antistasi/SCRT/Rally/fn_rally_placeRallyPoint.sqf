@@ -14,10 +14,10 @@ private _convertPositionToWorldPosition = {
 };
 
 private _radioWorldPosition = [_pos] call _convertPositionToWorldPosition;
-private _rootRadio = [rallyPointRoot, _radioWorldPosition] call BIS_fnc_createSimpleObject;
-private _rootPos = position _rootRadio;
+rallyPointRoot = [rallyPoint, _radioWorldPosition] call BIS_fnc_createSimpleObject;
+private _rootPos = position rallyPointRoot;
 private _rootHeight = (_rootPos select 2) - 0.185;
-_rootRadio setPos [_rootPos select 0, _rootPos select 1, _rootHeight];
+rallyPointRoot setPos [_rootPos select 0, _rootPos select 1, _rootHeight];
 
 private _backpack1 = ["B_Carryall_oli", _radioWorldPosition] call BIS_fnc_createSimpleObject;
 private _backpack1Pos = position _backpack1;
@@ -41,18 +41,21 @@ private _ammoboxPos = position _ammobox;
 _ammobox setPos [(_ammoboxPos select 0) + 0.35, (_ammoboxPos select 1) - 0.15, (_ammoboxPos select 2) - 0.15];
 _ammobox setDir 115;
 
-[_rootRadio, [0, 0, -0.5], 0.2] remoteExec ["SCRT_fnc_common_attachLightSource", 0, _rootRadio];
+[rallyPointRoot, [0, 0, -0.5], 0.2] remoteExec ["SCRT_fnc_common_attachLightSource", 0, rallyPointRoot];
 
 rallyPointMarker = createMarker ["RallyPointMarker", _rootPos];
 rallyPointMarker setMarkerType "hd_join";
 rallyPointMarker setMarkerSize [1, 1];
-rallyPointMarker setMarkerText "Rally Point";
+rallyPointMarker setMarkerText (format ["Rally Point (Remaining Travels: %1)", str rallyPointSpawnCount]);
 rallyPointMarker setMarkerColor "colorIndependent";
 rallyPointMarker setMarkerAlpha 1;
 sidesX setVariable [rallyPointMarker,teamPlayer,true];
 publicVariable "rallyPointMarker";
 
-rallyProps append [_rootRadio, _backpack1, _backpack2, _bag, _ammobox];
+rallyProps append [_backpack1, _backpack2, _bag, _ammobox];
 publicVariable "rallyProps";
 
-_rootRadio
+rallyPointRoot setVariable ["remainingTravels", rallyPointSpawnCount, true];
+publicVariable "rallyPointRoot";
+
+rallyPointRoot

@@ -151,6 +151,7 @@ class SCRT
         class rally_toggleRallyPoint {};
         class rally_placeRallyPoint {};
         class rally_travelToRallyPoint {};
+        class rally_deleteRallyPoint {};
     };
 
     class Outpost

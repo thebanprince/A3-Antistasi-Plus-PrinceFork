@@ -99,6 +99,7 @@ A3A_paramTable = [
     //Antistasi Plus parameters
     ["settingsTimeMultiplier", "timeMultiplier", [], 1],
     ["playerStartingMoney", "playerStartingMoney", [], 200],
+    ["rallyPointSpawnCount", "rallyPointSpawnCount", [], 10],
     ["factionsDefeat", "factionsDefeat", [], true],
     // ["areRandomEventsEnabled", "randomEvents", [], false],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
