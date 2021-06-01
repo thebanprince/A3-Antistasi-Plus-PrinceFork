@@ -3,9 +3,7 @@
 	description: Loots all the bodies and crates near the vehicle or loot crate.
 	returns: nothing
 */
-params ["_vehicle"];
-
-#define RADIUS 50
+params ["_vehicle", "_radius"];
 
 private _time = serverTime;
 
@@ -13,13 +11,13 @@ if ((_time - (_vehicle getVariable ["lastLooted", -15])) < 15) exitWith {
 	if (hasInterface) then {
         {
             [localize "STR_antistasi_actions_looter_cooldown_text"] remoteExec ["systemChat", _x];
-        } forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+        } forEach ([_radius, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 	};
 };
 _vehicle setVariable ["lastLooted", _time, true];
 
 private _supplies = [];
-_supplies = (position _vehicle nearSupplies RADIUS) select {
+_supplies = (position _vehicle nearSupplies _radius) select {
     (_x isKindOf "Man" && !(alive _x)) || 
     {(typeOf _x) in [CSATSurrenderCrate, NATOSurrenderCrate, "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder", "Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"]}
 };
@@ -27,7 +25,7 @@ _supplies = (position _vehicle nearSupplies RADIUS) select {
 if(count _supplies < 1) exitWith {
     {
         localize "STR_antistasi_actions_no_bodies_text" remoteExec ["systemChat", _x];
-    } forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+    } forEach ([_radius, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 };
 
 private _moneyEarned = 0;
@@ -152,8 +150,8 @@ if(_moneyEarned > 0) then {
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
 _soundToPlay = _soundPath + "audio\lootSuccess.ogg";
 
-playSound3D [_soundToPlay, _vehicle, false, getPosASL _vehicle, 3, 1, 50];
+playSound3D [_soundToPlay, _vehicle, false, getPosASL _vehicle, 3, 1, _radius];
 
 {
     localize "STR_antistasi_actions_successful_loot_text" remoteExec ["systemChat", _x];
-} forEach ([RADIUS, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+} forEach ([_radius, _vehicle, teamPlayer] call SCRT_fnc_common_getNearPlayers);

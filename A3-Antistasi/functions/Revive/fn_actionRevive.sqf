@@ -34,12 +34,6 @@ if ((!("FirstAidKit" in (items _healer))) && !(_healer canAdd "FirstAidKit")) ex
     _isHealed
 };
 
-if ((([_healed] call A3A_fnc_fatalWound)) && !([_healer] call A3A_fnc_isMedic)) exitWith {
-    if (_isPlayer) then {["Revive", format ["%1 is injured by a fatal wound, only a medic can revive him",name _healed]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_healer groupChat format ["%1 is injured by a fatal wound, only a medic can revive him",name _healed]};
-    _isHealed
-};
-
 if !(isNull attachedTo _healed) exitWith {
     if (_isPlayer) then {["Revive", format ["%1 is being carried or transported and you cannot heal him",name _healed]] call A3A_fnc_customHint;};
     if (_inPlayerGroup) then {_healer groupChat format ["%1 is being carried or transported and I cannot heal him",name _healed]};
@@ -62,16 +56,7 @@ if  ((!("FirstAidKit" in (items _healer))) && {!("Medikit" in (items _healer))})
 };
 
 
-private _timer = if ([_healed] call A3A_fnc_fatalWound) then {
-		time + 20
-} else {
-	if ([_healer] call A3A_fnc_isMedic) then {
-		time + 10
-	}
-	else {
-		time + 15
-	};
-};
+private _timer = if ([_healer] call A3A_fnc_isMedic) then { time + 8 }else { time + 14 };
 
 _healer setVariable ["timeToHeal",_timer];
 _healer playMoveNow selectRandom medicAnims;

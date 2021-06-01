@@ -2,7 +2,7 @@ if(!isNil "supportCooldown" && {supportCooldown}) exitWith {
     [
 		"FAIL",
 		"Support",  
-		parseText "Support regiment are overwhelmed with support requests, wait 60 seconds.", 
+		parseText "Support regiment is overwhelmed with support requests, wait for a bit.", 
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };
@@ -16,7 +16,7 @@ if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL"] && bombRuns < 1) exit
 	] spawn SCRT_fnc_ui_showMessage;
 };
 
-if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "RECON", "PARADROP"] && supportPoints < 1) exitWith {
+if (supportType in ["LOOTHELI","SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "RECON", "PARADROP"] && supportPoints < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -26,7 +26,7 @@ if (supportType in ["SUPPLY", "SMOKE", "FLARE", "VEH_AIRDROP", "LOOTCRATE_AIRDRO
 };
 
 private _airports = { sidesX getVariable [_x, sideUnknown] == teamPlayer } count airportsX;
-if (supportType in ["NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON", "PARADROP"] && _airports < 1) exitWith {
+if (supportType in ["LOOTHELI","NAPALM", "HE", "CLUSTER", "CHEMICAL", "VEH_AIRDROP", "LOOTCRATE_AIRDROP", "STATIC_MG_AIRDROP", "SUPPLY", "RECON", "PARADROP"] && _airports < 1) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -46,6 +46,15 @@ if (supportType == "STATIC_MG_AIRDROP" && {_resourcesFIA < 1000}) exitWith {
 };
 
 if (supportType == "PARADROP" && {_resourcesFIA < 500}) exitWith {
+    [
+		"FAIL",
+		"Support",  
+		parseText "HQ needs to have at least 1000€ to make this support request.", 
+		30
+	] spawn SCRT_fnc_ui_showMessage;
+};
+
+if (supportType == "LOOTHELI" && {_resourcesFIA < 2000}) exitWith {
     [
 		"FAIL",
 		"Support",  
@@ -160,6 +169,11 @@ switch (supportType) do {
         publicVariable "supportPoints";
         [0,-500] remoteExec ["A3A_fnc_resourcesFIA",2];
     };
+    case ("LOOTHELI"): {
+        supportPoints = supportPoints - 1;
+        publicVariable "supportPoints";
+        [0,-2000] remoteExec ["A3A_fnc_resourcesFIA",2];
+    };
     case ("NAPALM");
     case ("HE");
     case ("CLUSTER");
@@ -186,6 +200,9 @@ switch (true) do {
         [] remoteExec  ["SCRT_fnc_paradrop_prepare", 2];
         [] spawn SCRT_fnc_support_planeParadropRun;
     };
+    case (supportType == "LOOTHELI"): {
+        [] spawn SCRT_fnc_support_lootHeli;
+    };
     case (supportType == "VEH_AIRDROP");
     case (supportType == "LOOTCRATE_AIRDROP");
     case (supportType == "STATIC_MG_AIRDROP");
@@ -197,8 +214,8 @@ switch (true) do {
 
 supportCooldown = true;
 publicVariable "supportCooldown";
-isSupportMarkerPlacingAvailable = true;
-publicVariable "isSupportMarkerPlacingAvailable";
+isSupportMarkerPlacingLocked = true;
+publicVariable "isSupportMarkerPlacingLocked";
 
 [
     "SUCCESS",
@@ -207,12 +224,10 @@ publicVariable "isSupportMarkerPlacingAvailable";
     30
 ] spawn SCRT_fnc_ui_showMessage;
 
-private _timeOut = time + 60;
-waitUntil { sleep 1; (time > _timeOut) };
+private _timeOut = time + 180;
+waitUntil { sleep 1; !isSupportMarkerPlacingLocked || {time > _timeOut} };
 
 supportCooldown = false;
 publicVariable "supportCooldown";
-isSupportMarkerPlacingAvailable = false;
-publicVariable "isSupportMarkerPlacingAvailable";
 
 [] spawn SCRT_fnc_ui_clearSupport;

@@ -34,7 +34,7 @@ if((_group getVariable ["canCallSupportAt", -1]) > (dateToNumber date)) exitWith
 
 //Block the group from calling support again
 private _date = date;
-_date set [4, (_date select 4) + 20];
+_date set [4, (_date select 4) + 15];
 private _dateNumber = dateToNumber _date;
 _group setVariable ["canCallSupportAt", _dateNumber, true];
 
@@ -46,7 +46,7 @@ if !([_radioMan] call A3A_fnc_canFight) exitWith {};
     _fileName
 ] call A3A_fnc_log;
 
-private _timeToCallSupport = time + 30 + random 30;
+private _timeToCallSupport = time + 30 + random 15;
 
 {_radioMan disableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 

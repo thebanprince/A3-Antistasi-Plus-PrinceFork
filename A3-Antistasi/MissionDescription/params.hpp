@@ -307,13 +307,6 @@ class Params
           texts[] =  {"Default (Yes)", "Yes", "No"};
           default = 9999;
      };
-     class fatalWounds
-     {
-          title = "Enable Fatal Wounds";
-          values[] = {9999, 1, 0};
-          texts[] =  {"Default (No)", "Yes", "No"};
-          default = 9999;
-     };
      class playerIcons
      {
           title = "Show 3D icons above players";

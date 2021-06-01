@@ -1,11 +1,11 @@
 private _positionOrigin = getMarkerPos supportMarkerOrigin;
-private _poisitionDestination = getMarkerPos supportMarkerDestination;
+private _positionDestination = getMarkerPos supportMarkerDestination;
 
-private _angle = [_positionOrigin, _poisitionDestination] call BIS_fnc_dirTo;
+private _angle = [_positionOrigin, _positionDestination] call BIS_fnc_dirTo;
 private _angleOrigin = _angle - 180;
 
 private _originPosition = [_positionOrigin, 2000, _angleOrigin] call BIS_fnc_relPos;
-private _finPosition = [_poisitionDestination, 2000, _angle] call BIS_fnc_relPos;
+private _finPosition = [_positionDestination, 2000, _angle] call BIS_fnc_relPos;
 
 private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 paradropPlane = _planeData select 0;
@@ -18,7 +18,7 @@ paradropPlane setPosATL [getPosATL paradropPlane select 0, getPosATL paradropPla
 paradropPlane disableAI "TARGET";
 paradropPlane disableAI "AUTOTARGET";
 paradropPlane flyInHeight 1400;
-private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
+private _minAltASL = ATLToASL [_positionDestination select 0, _positionDestination select 1, 0];
 paradropPlane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
 driver paradropPlane sideChat "Starting paradrop run. Get ready to jump!";
@@ -27,10 +27,10 @@ _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "FULL";
 _wp1 setWaypointBehaviour "CARELESS";
 
-_wp2 = group paradropPlane addWaypoint [_poisitionDestination, 1];
+_wp2 = group paradropPlane addWaypoint [_positionDestination, 1];
 _wp2 setWaypointSpeed "LIMITED";
 _wp2 setWaypointType "MOVE";
-_wp2 setWaypointStatements ["true", "private _crew = fullCrew [(vehicle this), 'cargo', false]; {private _unit = _x select 0; moveOut _unit;} forEach _crew;"];
+_wp2 setWaypointStatements ["true", "private _crew = fullCrew [(vehicle this), 'cargo', false]; {private _unit = _x select 0; moveOut _unit;} forEach _crew;isSupportMarkerPlacingLocked=false;publicVariable 'isSupportMarkerPlacingLocked';"];
 
 _wp3 = group paradropPlane addWaypoint [_finPosition, 2];
 _wp3 setWaypointType "MOVE";
@@ -40,6 +40,11 @@ publicVariable "paradropPlane";
 
 private _timeOut = time + 600;
 waitUntil { sleep 2; (currentWaypoint group paradropPlane == 4) or (time > _timeOut) or !(canMove paradropPlane) };
+
+if (isSupportMarkerPlacingLocked) then {
+    isSupportMarkerPlacingLocked = false;
+    publicVariable "isSupportMarkerPlacingLocked";
+};
 
 if !(canMove paradropPlane) then { sleep cleantime };
 deleteVehicle paradropPlane;

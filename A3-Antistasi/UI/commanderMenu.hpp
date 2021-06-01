@@ -123,7 +123,7 @@ class commanderMenu
 				class commanderDescriptionText: TextBaseMT
 				{
 					idc = 1701;			
-					text = "Select support type, click on desired position on the map and press Launch. Note that some call-ins requires at least 1 captured airport.";
+					text = "Select support type, click on desired position on the map and press Launch. Note that some call-ins require at least 1 captured airport.";
 					x = "1 * pixelGridNoUIScale * pixelW";
 					y = "2 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	

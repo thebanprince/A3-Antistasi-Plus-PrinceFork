@@ -1,6 +1,6 @@
 private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_helpX","_helped","_textX","_isPlayer","_camTarget","_saveVolumeVoice"];
 
-#define KEY_E 18
+#define KEY_R 19
 
 _unit = _this select 0;
 
@@ -22,7 +22,7 @@ if (isPlayer _unit) then {
 	if (!isNil "respawnMenu") then {(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu]};
 	respawnMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 		_handled = false;
-		if (_this select 1 == KEY_E) then {
+		if (_this select 1 == KEY_R) then {
 			if (player getVariable ["incapacitated",false]) then {
 				(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
 				[player] spawn A3A_fnc_respawn;
@@ -31,7 +31,6 @@ if (isPlayer _unit) then {
 
 		_handled;
 	}];
-	//if (side _unit == teamPlayer) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 	if (_injurer != Invaders) then {
 		[_unit,true] remoteExec ["setCaptive",0,_unit];
 		_unit setCaptive true
@@ -95,18 +94,18 @@ while {(time < _bleedOut) && (_unit getVariable ["incapacitated",false]) && (ali
 		if (isNull _helped) then {
 			_helpX = [_unit] call A3A_fnc_askHelp;
 			if (isNull _helpX) then {
-				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit E to Respawn</t></t>"];
+				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Press R to Respawn</t></t>"];
 			}
 			else {
-				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit E to Respawn</t></t>",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn</t></t>"};
+				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Press R to Respawn</t></t>",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Press R to Respawn</t></t>"};
 			};
 		}
 		else {
 			if (!isNil "_helpX") then {
-				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit E to Respawn</t></t>",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn</t></t>"};
+				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Press R to Respawn</t></t>",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Press R to Respawn</t></t>"};
 			}
 			else {
-				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit E to Respawn</t></t>";
+				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Press R to Respawn</t></t>";
 			};
 		};
 		[_textX,0,0,3,0,0,4] spawn bis_fnc_dynamicText;

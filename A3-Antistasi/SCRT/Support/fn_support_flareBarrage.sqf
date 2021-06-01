@@ -37,3 +37,6 @@ for "_i" from 1 to _flareCount do {
 
     sleep 5;
 };
+
+isSupportMarkerPlacingLocked = false;
+publicVariable "isSupportMarkerPlacingLocked";

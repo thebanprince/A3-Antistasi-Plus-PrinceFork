@@ -86,10 +86,18 @@ if (napalmEnabled) then {
 	lbAdd [1750, "Paradrop"];
 	lbSetData [1750, 11, "PARADROP"];
 	lbSetTooltip [1750, 11, "Plane flies over and drops players with parachutes at the specified location. Players must turn on paradrop attendance in game settings and be at rebel HQ to be successfully paradropped. If there are less seats in plane than players, it will choose them randomly."];
+
+	lbAdd [1750, "Loot Helicopter"];
+	lbSetData [1750, 12, "LOOTHELI"];
+	lbSetTooltip [1750, 12, "Rebel helicopter helps with collecting scattered loot and drops crate with loot at the marked zone."];
 } else {
 	lbAdd [1750, "Paradrop"];
 	lbSetData [1750, 10, "PARADROP"];
 	lbSetTooltip [1750, 10, "Plane flies over and drops players with parachutes at the specified location. Players must turn on paradrop attendance in game settings and be at rebel HQ to be successfully paradropped. If there are less seats in plane than players, it will choose them randomly."];
+
+	lbAdd [1750, "Loot Helicopter"];
+	lbSetData [1750, 11, "LOOTHELI"];
+	lbSetTooltip [1750, 11, "Rebel helicopter helps with collecting scattered loot and drops crate with loot at the marked zone."];
 };
 
 lbSetCurSel [1750, 0];

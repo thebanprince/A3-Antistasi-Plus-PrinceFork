@@ -552,7 +552,6 @@ class A3A
 	{
 		class actionRevive {};
 		class carry {};
-		class fatalWound {};
 		class handleDamage {};
 		class handleDamageAAF {};
 		class initRevive {};

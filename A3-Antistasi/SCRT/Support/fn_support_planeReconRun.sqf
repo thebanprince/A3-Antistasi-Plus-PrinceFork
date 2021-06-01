@@ -6,7 +6,7 @@ private _angleOrigin = _angle - 180;
 private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
 private _finPosition = [_positionDestination, 2500, _angle] call BIS_fnc_relPos;
 
-private _planeData = [_originPosition, _angle, vehSDKPlane, teamPlayer] call A3A_fnc_spawnVehicle;
+private _planeData = [_originPosition, _angle, vehSDKPayloadPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 private _plane = _planeData select 0;
 private _planeCrew = _planeData select 1;
 private _groupPlane = _planeData select 2;
@@ -38,7 +38,7 @@ private _relativePositions = [];
     _wp setWaypointType "MOVE";
 
     if(_index == 1) then {
-        _wp setWaypointStatements ["true", format ["if !(local this) exitWith {}; [%1, %2, %3] spawn SCRT_fnc_common_recon", _positionDestination, 350, 180]];
+        _wp setWaypointStatements ["true", format ["if !(local this) exitWith {}; [%1, %2, %3] spawn SCRT_fnc_common_recon;isSupportMarkerPlacingLocked=false;publicVariable 'isSupportMarkerPlacingLocked';", _positionDestination, 350, 180]];
     };
 } forEach _relativePositions;
 
@@ -48,6 +48,11 @@ _wp3 setWaypointSpeed "FULL";
 
 private _timeOut = time + 600;
 waitUntil { sleep 2; (currentWaypoint group _plane == 5) or (time > _timeOut) or !(canMove _plane) };
+
+if (isSupportMarkerPlacingLocked) then {
+    isSupportMarkerPlacingLocked = false;
+    publicVariable "isSupportMarkerPlacingLocked";
+};
 
 if !(canMove _plane) then { sleep cleantime };
 deleteVehicle _plane;

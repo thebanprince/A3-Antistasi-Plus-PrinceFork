@@ -6,7 +6,7 @@ if(_mode == "ADD") then {
         "supportMap",
         "onMapSingleClick",
         {
-            if(!isNil "isSupportMarkerPlacingAvailable" && {isSupportMarkerPlacingAvailable}) exitWith {};
+            if(!isNil "isSupportMarkerPlacingLocked" && {isSupportMarkerPlacingLocked}) exitWith {};
 
             playSound "readoutClick";
 
@@ -61,6 +61,10 @@ if(_mode == "ADD") then {
                         supportMarkerOrigin setMarkerColorLocal "ColorGrey";
                         supportMarkerOrigin setMarkerTextLocal "Paradrop Init";
                     };
+                    case ("LOOTHELI"): {
+                        supportMarkerOrigin setMarkerColorLocal "colorCivilian";
+                        supportMarkerOrigin setMarkerTextLocal "Loot Helicopter Init";
+                    };
                     default {
                         supportMarkerOrigin setMarkerColorLocal "ColorRed";
                         supportMarkerOrigin setMarkerTextLocal "Bomb Run Init";
@@ -110,8 +114,19 @@ if(_mode == "ADD") then {
                             supportMarkerDestination setMarkerTextLocal "Recon Plane Search Area";
                         };
                         case ("PARADROP"): {
+                            supportMarkerDestination setMarkerTypeLocal "hd_dot";
                             supportMarkerDestination setMarkerColorLocal "ColorGrey";
                             supportMarkerDestination setMarkerTextLocal "Paradrop Exit";
+                        };
+                        case ("LOOTHELI"): {
+                            supportMarkerDestination setMarkerColorLocal "colorCivilian";
+                            supportMarkerDestination setMarkerTextLocal "Loot Helicopter Search Area";
+                            private _areaMarker = createMarkerLocal ["LootHeliAreaMarker", _pos];
+                            _areaMarker setMarkerShapeLocal "ELLIPSE";
+                            _areaMarker setMarkerSizeLocal [250,250];
+                            _areaMarker setMarkerTypeLocal "hd_warning";
+                            _areaMarker setMarkerColorLocal "colorCivilian";
+                            _areaMarker setMarkerBrushLocal "Grid";
                         };
                         default {
                             supportMarkerDestination setMarkerColorLocal "ColorRed";

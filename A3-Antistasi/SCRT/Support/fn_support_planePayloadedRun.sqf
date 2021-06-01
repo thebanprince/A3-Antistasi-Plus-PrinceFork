@@ -1,10 +1,10 @@
 private _positionOrigin = getMarkerPos supportMarkerOrigin;
-private _poisitionDestination = getMarkerPos supportMarkerDestination;
-private _angle = [_positionOrigin, _poisitionDestination] call BIS_fnc_dirTo;
+private _positionDestination = getMarkerPos supportMarkerDestination;
+private _angle = [_positionOrigin, _positionDestination] call BIS_fnc_dirTo;
 private _angleOrigin = _angle - 180;
 
 private _originPosition = [_positionOrigin, 2500, _angleOrigin] call BIS_fnc_relPos;
-private _finPosition = [_poisitionDestination, 2500, _angle] call BIS_fnc_relPos;
+private _finPosition = [_positionDestination, 2500, _angle] call BIS_fnc_relPos;
 
 private _planeData = [_originPosition, _angle, vehSDKPayloadPlane, teamPlayer] call A3A_fnc_spawnVehicle;
 private _plane = _planeData select 0;
@@ -15,7 +15,7 @@ _plane setPosATL [getPosATL _plane select 0, getPosATL _plane select 1, 1000];
 _plane disableAI "TARGET";
 _plane disableAI "AUTOTARGET";
 _plane flyInHeight 120;
-private _minAltASL = ATLToASL [_positionX select 0, _positionX select 1, 0];
+private _minAltASL = ATLToASL [_positionDestination select 0, _positionDestination select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +120, (_minAltASL select 2) +120, (_minAltASL select 2) +120];
 
 driver _plane sideChat "Starting plane run. ETA 30 seconds.";
@@ -52,7 +52,7 @@ switch (supportType) do {
 		_text = format ["<t size='0.6'>Rebel aircraft is about to drop some <t size='0.6' color='#e60000'>%1 bombs</t> near your position, take cover.</t>", toLower supportType];
 
 		private _bombCount = if (supportType == "CHEMICAL") then {1} else {4};
-		private _distance = _positionOrigin distance2D _poisitionDestination;
+		private _distance = _positionOrigin distance2D _positionDestination;
 		private _bombParams = [_plane, supportType, _bombCount, _distance];
 
 		(driver _plane) setVariable ["bombParams", _bombParams, true];
@@ -66,9 +66,10 @@ switch (supportType) do {
 	};
 };
 
-_wp2 = group _plane addWaypoint [_poisitionDestination, 1];
+_wp2 = group _plane addWaypoint [_positionDestination, 1];
 _wp2 setWaypointSpeed "LIMITED";
 _wp2 setWaypointType "MOVE";
+_wp2 setWaypointStatements ["true", "isSupportMarkerPlacingLocked=false;publicVariable 'isSupportMarkerPlacingLocked';"];
 
 _wp3 = group _plane addWaypoint [_finPosition, 2];
 _wp3 setWaypointType "MOVE";
@@ -78,11 +79,16 @@ sleep 50;
 
 {
     [petros, "support", _text] remoteExec ["A3A_fnc_commsMP", _x];
-} forEach ([1000, _poisitionDestination, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+} forEach ([1000, _positionDestination, teamPlayer] call SCRT_fnc_common_getNearPlayers);
 
 
 private _timeOut = time + 600;
 waitUntil { sleep 2; (currentWaypoint group _plane == 4) or (time > _timeOut) or !(canMove _plane) };
+
+if (isSupportMarkerPlacingLocked) then {
+    isSupportMarkerPlacingLocked = false;
+    publicVariable "isSupportMarkerPlacingLocked";
+};
 
 if !(canMove _plane) then { sleep cleantime };
 deleteVehicle _plane;

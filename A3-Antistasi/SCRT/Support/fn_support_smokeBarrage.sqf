@@ -27,3 +27,6 @@ for "_i" from 1 to _smokeCount do {
 
     sleep 5;
 };
+
+isSupportMarkerPlacingLocked = false;
+publicVariable "isSupportMarkerPlacingLocked";

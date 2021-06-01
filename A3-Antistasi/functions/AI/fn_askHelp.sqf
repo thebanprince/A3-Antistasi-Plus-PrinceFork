@@ -38,7 +38,7 @@ else
 		};
 	} forEach _units;
 
-	if (((isNull _medicX) or (_unit getVariable ["incapacitated",false])) and !([_unit] call A3A_fnc_fatalWound)) then
+	if (((isNull _medicX) or (_unit getVariable ["incapacitated",false]))) then
 		{
 		{
 		if (!isPlayer _x) then

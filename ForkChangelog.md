@@ -1,8 +1,18 @@
 # Changelog
 ## 1.6
+###
+- New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
+
+### Changes
+- Radioman call support time reduced to 45 seconds, cooldown to 15 minutes
+- Changed respawn key from E to R when laying unconscious
+- AT static on top of big towers has been replaced with MG/GMG (depends on faction and modset)
+- Rally Point balance pass (Ticket system (mission parameter), fast travel on it can be only used near HQ, rally point can be only abolished on HQ or near rally point itself)
+
 ### Removals
-- Removed Trader on HQ mission parameter with it's tied functionality
-- Removed Grenadier and Autorifleman slots (Riflemen got theirs carry capacity audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
+- Removed Trader on HQ mission parameter with tied functionality
+- Removed Grenadier and Autorifleman slots (Riflemen got carry capacity, audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
+- Removed Fatal Wounds
 
 ## 1.5.6
 ### Additions

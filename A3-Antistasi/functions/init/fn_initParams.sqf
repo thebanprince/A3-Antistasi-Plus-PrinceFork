@@ -103,7 +103,6 @@ A3A_paramTable = [
     ["factionsDefeat", "factionsDefeat", [], true],
     // ["areRandomEventsEnabled", "randomEvents", [], false],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
-    ["isFatalWoundsEnabled", "fatalWounds", [], false],
     ["playerIcons", "playerIcons", [], true],
     ["magRepack", "magRepack", [], true],
     ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],

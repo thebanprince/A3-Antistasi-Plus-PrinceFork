@@ -36,6 +36,9 @@ switch (supportType) do {
     case ("PARADROP"): {
         _costTextBox ctrlSetText "Costs 1 Support and 500€";
     };
+    case ("LOOTHELI"): {
+        _costTextBox ctrlSetText "Costs 1 Support and 2000€";
+    };
     default {
         _costTextBox ctrlSetText "Costs 1 Support";
     };
@@ -60,4 +63,8 @@ if (supportType == "PARADROP") then {
     if (!isNil "forbiddenParadropZones") then {
         {deleteMarkerLocal _x} forEach forbiddenParadropZones;
     };
+};
+
+if (supportType != "LOOTHELI" && {getMarkerColor "LootHeliAreaMarker" != ""}) then {
+    deleteMarkerLocal "LootHeliAreaMarker";
 };
