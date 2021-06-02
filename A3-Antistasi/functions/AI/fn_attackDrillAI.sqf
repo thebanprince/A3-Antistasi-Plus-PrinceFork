@@ -44,8 +44,6 @@ if (count _mortarsX == 1) then
 	_mortarsX append ((units _groupX) select {_x getVariable ["typeOfSoldier",""] == "StaticBase"});
 	if (count _mortarsX > 1) then
 		{
-        //Never happens, the two previous conditions exclude each other
-		//_mortarsX spawn A3A_fnc_mortarDrill;
 		_mortarsX spawn A3A_fnc_staticMGDrill;//no olvides borrar la otra función si esto funciona
 		}
 	else

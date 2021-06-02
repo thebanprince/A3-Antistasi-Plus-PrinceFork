@@ -62,7 +62,6 @@ A3A_paramTable = [
     ["minWeaps", "unlockItem", [], 25],
     ["memberOnlyMagLimit", "memberOnlyMagLimit", [], 40],				// dead param
     ["unlockedUnlimitedAmmo", "unlockedUnlimitedAmmo", [], 0],			// these three are not bool for some reason
-    ["allowUnlockedExplosives", "allowUnlockedExplosives", [], 0],
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 1],
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
@@ -103,6 +102,7 @@ A3A_paramTable = [
     ["factionsDefeat", "factionsDefeat", [], true],
     // ["areRandomEventsEnabled", "randomEvents", [], false],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
+    ["unflipPersonCount", "unflipPersonCount", [], 3],
     ["playerIcons", "playerIcons", [], true],
     ["magRepack", "magRepack", [], true],
     ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],

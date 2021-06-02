@@ -57,7 +57,7 @@ if (A3A_hasCup) then {
 
 		private _categories = _item call A3A_fnc_equipmentClassToCategories;
 		if ("MissileLaunchers" in _categories && {allowGuidedLaunchers == 0}) exitWith {};
-		if ("Explosives" in _categories && {allowUnlockedExplosives == 0}) exitWith {};
+		if ("Explosives" in _categories) exitWith {};
 		if ("Backpacks" in _categories && {_item in allBackpacksTool}) exitWith {};			// should be UAV & static backpacks
 		if ("StaticWeaponParts" in _categories) exitWith {};
 

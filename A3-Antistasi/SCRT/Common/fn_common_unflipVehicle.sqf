@@ -15,15 +15,15 @@ if !(_crew isEqualTo []) exitWith {
 
 private _nearFriendlies = (_vehicle nearEntities ["Man", 35]) select {side _x == teamPlayer && {[_x] call A3A_fnc_canFight}};
 private _friendlyCount = count _nearFriendlies;
-if (_friendlyCount < 3) exitWith {
-    ["Unflip failed", "Not enough people to unflip vehicle."] call SCRT_fnc_misc_showDeniedActionHint;
+if (_friendlyCount < unflipPersonCount) exitWith {
+    ["Unflip failed", format ["Not enough people to unflip vehicle, %1 required.", str unflipPersonCount]] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 private _vehicleMass = getMass _vehicle;
 private _escape = false;
 
 if(_vehicleMass > 10000) then {
-    _nearVehicles = _vehicle nearEntities ["Car", 50];
+    _nearVehicles = nearestObjects [(position _vehicle),["TANK","CAR"],50,true];
 
     if !(count _nearVehicles < 1) then {
         _escape = true;

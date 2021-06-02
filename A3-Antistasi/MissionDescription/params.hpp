@@ -179,13 +179,6 @@ class Params
         texts[] = {"Default (No)","Yes","No"};
         default = 9999;
     };
-    class allowUnlockedExplosives
-    {
-        title = "Should Explosives become unlocked?";
-        values[] = {9999,1,0};
-        texts[] = {"Default (No)","Yes","No"};
-        default = 9999;
-    };
     class startWithLongRangeRadio
     {
         title = "[TFAR] Start with Long Range Radio?";
@@ -300,6 +293,13 @@ class Params
      //      texts[] =  {"Default (Yes)","Yes","No"};
      //      default = 9999;
      // };
+     class unflipPersonCount
+     {
+          title="How many persons required to unflip vehicle";
+		values[]={9999, 1, 2, 3, 4};
+		texts[]={"Default(1)","1","2","3","4"};
+		default = 9999;
+     };
      class magRepack
      {
           title = "Enable Mag Repack";
