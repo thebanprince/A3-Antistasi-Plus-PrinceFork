@@ -71,10 +71,12 @@
 ["staticAT", ["CUP_O_Kornet_RU"]] call _fnc_saveToTemplate; 					
 ["staticAA", ["CUP_O_Igla_AA_pod_RU"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["CUP_O_D30_ChDKZ"]] call _fnc_saveToTemplate;
+["staticHowitzers", ["CUP_O_D30_RU"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "CUP_30Rnd_122mmHE_D30_M"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "CUP_30Rnd_122mmSMOKE_D30_M"] call _fnc_saveToTemplate;
 
+["howitzerMagazineHE", "CUP_30Rnd_122mmHE_D30_M"] call _fnc_saveToTemplate;
 
 ["baggedMGs", [["CUP_B_Kord_Gun_Bag", "CUP_B_Kord_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
 ["baggedAT", [["CUP_B_Kornet_Gun_Bag", "CUP_B_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					

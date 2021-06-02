@@ -250,7 +250,9 @@ if (_side isEqualTo east) then {
 	staticATInvaders = _faction getVariable "staticAT" select 0;
 	staticAAInvaders = _faction getVariable "staticAA";
 	CSATMortar = _faction getVariable "staticMortars" select 0;
+	CSATHowitzer = _faction getVariable "staticHowitzers" select 0;
 	CSATmortarMagazineHE = _faction getVariable "mortarMagazineHE";
+	CSATHowitzerMagazineHE = _faction getVariable "howitzerMagazineHE";
 
 	MGStaticCSATB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.
@@ -488,7 +490,9 @@ if (_side isEqualTo west) then {
 	staticATOccupants = _faction getVariable "staticAT" select 0;
 	staticAAOccupants = _faction getVariable "staticAA";
 	NATOMortar = _faction getVariable "staticMortars" select 0;
+	NATOHowitzer = _faction getVariable "staticHowitzers" select 0;
 	NATOmortarMagazineHE = _faction getVariable "mortarMagazineHE";
+	NATOHowitzerMagazineHE = _faction getVariable "howitzerMagazineHE";
 
 	MGStaticNATOB = _faction getVariable "baggedMGs" select 0 select 0;
 	//TODO: Add tall/short support support.

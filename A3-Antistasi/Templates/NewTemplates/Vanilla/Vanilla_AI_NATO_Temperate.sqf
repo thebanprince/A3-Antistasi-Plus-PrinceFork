@@ -71,10 +71,12 @@
 ["staticAT", ["B_static_AT_F"]] call _fnc_saveToTemplate; 					
 ["staticAA", ["B_static_AA_F"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["B_Mortar_01_F"]] call _fnc_saveToTemplate;
+["staticHowitzers", [""]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
+["howitzerMagazineHE", "not_supported"] call _fnc_saveToTemplate;
 
 ["baggedMGs", [["I_G_HMG_02_weapon_F", "I_G_HMG_02_support_high_F"]]] call _fnc_saveToTemplate; 				
 ["baggedAT", [["B_HMG_01_support_F", "B_AT_01_weapon_F"]]] call _fnc_saveToTemplate; 					
