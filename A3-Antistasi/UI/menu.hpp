@@ -690,7 +690,7 @@ class commanderComm: SimpleMenuBigger
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.388 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_open_clean_garbage_tooltip;
-			action = "if (player == theBoss) then {closedialog 0;[] remoteExec [""A3A_fnc_garbageCleaner"",2]} else {[""Garbage Cleaner"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
+			action = "if (player == theBoss) then {closedialog 0;[] remoteExecCall [""A3A_fnc_garbageCleaner"",2]} else {[""Garbage Cleaner"", ""Only Player Commander has access to this function""] call A3A_fnc_customHint;};";
 		};
 
 		class r3Button: SimpleButton
