@@ -1,9 +1,9 @@
 private _fileName = "fn_civilian_createCivilianPresence";
 
-[2, format ["Starting creating Civilian Presence Modules for %1", _markerX], _fileName] call A3A_fnc_log;
-
 private _marker = _this;
 private _position = getMarkerPos _marker;
+
+[2, format ["Starting creating Civilian Presence Modules for %1", _marker], _fileName] call A3A_fnc_log;
 
 [2, format ["Central position: %1", str _position], _fileName] call A3A_fnc_log;
 
@@ -16,20 +16,55 @@ private _population = 0;
 private _spawnPointCount = 0;
 private _coverCount = 0;
 private _waypointCount = 0;
-private _size = 0;
+private _size = 100;
 
 if (_isCity) then {
     _spawnPointCount = round (random [5,6,8]);
     _coverCount = round (random [5,7,8]);
     _waypointCount = round (random [5,7,8]);
     _population = 20;
-    _size = 500;
 } else {
     _spawnPointCount = round (random [3,4,6]);
     _coverCount = round (random [2,4,6]);
     _waypointCount = round (random [3,4,6]);
     _population = 10;
-    _size = 250;
+};
+
+private _marker1 = createMarkerLocal [format ["%1civilian1", _marker], _position];
+_marker1 setMarkerShapeLocal "ELLIPSE";
+_marker1 setMarkerSizeLocal [(_size - 20),(_size - 20)];
+_marker1 setMarkerTypeLocal "hd_warning";
+_marker1 setMarkerAlphaLocal 0;
+
+private _marker2 = createMarkerLocal [format ["%1civilian2", _marker], _position];
+_marker2 setMarkerShapeLocal "ELLIPSE";
+_marker2 setMarkerSizeLocal [_size,_size];
+_marker2 setMarkerTypeLocal "hd_warning";
+_marker2 setMarkerAlphaLocal 0;
+
+// setMarkerAlphaLocal 0
+private _buildingSearchIterations = 0;
+while {true} do {
+    if (_isCity && {_size > 1000}) exitWith {};
+    if (!_isCity && {_size > 500}) exitWith {};
+    if (_buildingSearchIterations > 20) exitWith {};
+    private _hasBorderBuildings = (_position nearObjects ["House", _size]) findIf {!(_x inArea _marker1) && _x inArea _marker2} != -1;
+    if (!_hasBorderBuildings) exitWith {};
+
+    _size = _size + 20;
+    _marker1 setMarkerSizeLocal [(_size - 20),(_size - 20)];
+    _marker2 setMarkerSizeLocal [_size,_size];
+    _population = _population + 1;
+    
+    _buildingSearchIterations = _buildingSearchIterations + 1;
+};
+
+if (_population > 30) then {
+    _population = 30;
+};
+
+if (!_isCity && {_population > 15}) then {
+    _population = 15;
 };
 
 private _area = [_position,_size,_size,0,true,-1];
@@ -38,7 +73,7 @@ private _area = [_position,_size,_size,0,true,-1];
 [2, format ["Population: %1, spawns: %2, covers: %3, waypoints: %4", str _population, str _spawnPointCount, str _coverCount, str _waypointCount], _fileName] call A3A_fnc_log;
 
 private _generateWaypoints = {
-    params ["_capacity", "_useBuildings", "_terminal", "_type"];
+    params ["_capacity", "_useBuildings", "_terminal", "_type", "_isOnRoad"];
 
     private _miniRadius = if (_terminal) then {_size - 25} else {0};
 
@@ -72,34 +107,39 @@ private _generateWaypoints = {
             };
         };
 
-        private _road = objNull;
-        private _roadPosition = [];
-        private _roadRadius = 10;
-        private _iterations = 0;
+        private _finalPosition = _waypointPosition;
 
-        while {true} do {
-            if (_iterations > 30) exitWith {
-                _roadPosition = _waypointPosition;
+        if (_isOnRoad) then {
+            private _road = objNull;
+            private _roadPosition = [];
+            private _roadRadius = 10;
+            private _iterations = 0;
+
+            while {true} do {
+                if (_iterations > 30) exitWith {
+                    _roadPosition = _waypointPosition;
+                };
+
+                _road = _waypointPosition nearRoads _roadRadius;
+                if (count _road > 0) then {
+                    _roadPosition = position (_road select 0);
+                };
+                if (count _road > 0 && {!(_roadPosition isEqualTo []) && _roadPosition inArea _area}) exitWith {};
+
+                _roadRadius = _roadRadius + 10;
+                _iterations = _iterations + 1;
             };
 
-            _road = _waypointPosition nearRoads _roadRadius;
-            if (count _road > 0) then {
-                _roadPosition = position (_road select 0);
-            };
-            if (count _road > 0 && {!(_roadPosition isEqualTo []) && _roadPosition inArea _area}) exitWith {};
-
-            _roadRadius = _roadRadius + 10;
-            _iterations = _iterations + 1;
+            private _roadcon = roadsConnectedto (_road select 0);
+            private _roadDirection = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
+            private _tempObject = "Land_HelipadEmpty_F" createVehicleLocal _roadPosition;
+            _tempObject setDir _roadDirection;
+            private _curb = if ((random 1) > 0.5) then {7} else {-7};
+            private _tempPosition = position _tempObject;
+            _finalPosition = _tempPosition vectorAdd [_curb, 0, 0];
+            deleteVehicle _tempObject;
         };
-
-        private _roadcon = roadsConnectedto (_road select 0);
-        private _roadDirection = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
-        private _tempObject = "Land_HelipadEmpty_F" createVehicleLocal _roadPosition;
-        _tempObject setDir _roadDirection;
-        private _curb = if ((random 1) > 0.5) then {7} else {-7};
-        private _tempPosition = position _tempObject;
-        private _finalPosition = _tempPosition vectorAdd [_curb, 0, 0];
-
+        
         "ModuleCivilianPresenceSafeSpot_F" createUnit [
             _finalPosition,
             _moduleGroup,
@@ -109,8 +149,6 @@ private _generateWaypoints = {
         presenceWaypoint setVariable ["#usebuilding",_useBuildings];
         presenceWaypoint setVariable ["#terminal",_terminal];
         presenceWaypoint setVariable ["#type",_type]; //0 - Cover, 1 - Cover and Waypoint, 2 - Waypoint
-
-        deleteVehicle _tempObject;
     };
 };
 
@@ -139,13 +177,12 @@ private _generateCovers = {
 };
 
 //waypoints
-[2, false, false, 2] call _generateWaypoints; //waypoints
-[3, false, true, 2] call _generateWaypoints; //exit waypoints
+[2, false, false, 2, false] call _generateWaypoints; //waypoints
+[3, false, true, 2, true] call _generateWaypoints; //exit waypoints
 private _isCoversGenerated = [5, true, false, 0] call _generateCovers;
 if (!_isCoversGenerated) then {
     [4, true, false, 0] call _generateWaypoints; //covers as waypoints
 };
-
 
 //spawnpoints
 for "_i" from 0 to _spawnPointCount do {
@@ -201,4 +238,7 @@ presenceMain setVariable ["#onCreated", (compileFinal "_this spawn A3A_fnc_CIVin
 presenceMain = nil;
 presenceWaypoint = nil;
 
-[2, format ["%1 Civilian Presence Modules created, job has been completed.", _markerX], _fileName] call A3A_fnc_log;
+deleteMarkerLocal _marker1;
+deleteMarkerLocal _marker2;
+
+[2, format ["%1 Civilian Presence Modules created, job has been completed.", _marker], _fileName] call A3A_fnc_log;
