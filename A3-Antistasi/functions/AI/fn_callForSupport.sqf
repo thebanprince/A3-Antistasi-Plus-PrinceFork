@@ -16,10 +16,15 @@ params ["_group", "_supportTypes", "_target"];
 */
 private _fileName = "callForSupport";
 private _groupLeader = leader _group;
+private _side = side _group;
 
-if(side _group == teamPlayer) exitWith
+if(_side == teamPlayer) exitWith
 {
     [1, format ["Rebel group %1 managed to call callForSupport, not allowed for rebel groups", _group], _fileName] call A3A_fnc_log;
+};
+
+if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting calling support.", str _side], _fileName, true] call A3A_fnc_log;
 };
 
 if((_group getVariable ["canCallSupportAt", -1]) > (dateToNumber date)) exitWith {};

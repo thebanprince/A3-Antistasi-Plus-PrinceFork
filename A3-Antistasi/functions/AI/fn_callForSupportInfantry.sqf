@@ -16,7 +16,9 @@ params ["_group", "_supportTypes", "_target"];
 */
 private _fileName = "callForSupportInfantry";
 
-if(side _group == teamPlayer) exitWith {
+private _side = side _group;
+
+if(_side == teamPlayer) exitWith {
     [1, format ["Rebel group %1 managed to call support, not allowed for rebel groups", _group], _fileName] call A3A_fnc_log;
 };
 
@@ -24,6 +26,10 @@ private _radiomanIndex = (units _group) findIf {(_x getVariable "unitType") in r
 
 if (_radiomanIndex == -1) exitWith {
     [3, format [" %1 Group has no capability to call support, no radiomen in squad", _group], _fileName] call A3A_fnc_log;
+};
+
+if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting calling support.", str _side], _fileName, true] call A3A_fnc_log;
 };
 
 [3, format [" %1 Group has radioman, trying to call support...", _group], _fileName] call A3A_fnc_log;
