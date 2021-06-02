@@ -154,6 +154,7 @@ class A3A
         class landThreatEval {};
         class liberaterefugee {};
         class liberatePOW {};
+        class liberateFlee {};
         class mineSweep {};
         class mortyAI {};
         class napalm {};

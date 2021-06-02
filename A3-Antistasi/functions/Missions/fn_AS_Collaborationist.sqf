@@ -116,25 +116,8 @@ for "_i" from 0 to _powCount do {
 	removeAllWeapons _unit;
 	removeAllAssignedItems _unit;
 	_POWS pushBack _unit;
-	[_unit,"prisonerX"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
+	[_unit,"prisonerFlee"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
 	[_unit] call A3A_fnc_reDress;
-    [_unit] spawn {
-        params ["_prisoner"];
-        waitUntil { sleep 0.5; !captive _prisoner || {!alive _prisoner}};
-
-        if (alive _prisoner && {!captive _prisoner}) then {
-            sleep 2;
-            [_prisoner,"sideChat","I'm free, thank you!"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-            private _fakeGroup = createGroup [teamPlayer, true];
-            [_prisoner] joinSilent _fakeGroup;
-
-            [_prisoner, teamPlayer] remoteExec ["A3A_fnc_fleeToSide", _prisoner];
-            sleep 30;
-            [1,0] remoteExec ["A3A_fnc_resourcesFIA",2];
-            deleteGroup _fakeGroup;
-            deleteVehicle _prisoner;
-        };
-    };
 };
 
 {
