@@ -83,8 +83,7 @@
 ["baggedMGs", [["CUP_B_Kord_Gun_Bag", "CUP_B_Kord_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
 ["baggedAT", [["CUP_B_Kornet_Gun_Bag", "CUP_B_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
 ["baggedAA", []] call _fnc_saveToTemplate; 					
-["baggedMortars", ["CUP_B_Podnos_Gun_Bag","CUP_B_Podnos_Bipod_Bag"]] call _fnc_saveToTemplate; 			//this line determines bagged static mortars -- Example: ["baggedMortars", [["B_Mortar_01_weapon_F", "B_Mortar_01_support_F"]]] -- Array, can contain multiple assets
-
+["baggedMortars", [["CUP_B_Podnos_Gun_Bag","CUP_B_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			//this line determines bagged static mortars -- Example: ["baggedMortars", [["B_Mortar_01_weapon_F", "B_Mortar_01_support_F"]]] -- Array, can contain multiple assets
 
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine", "APERSBoundingMine_Range_Mag"]] call _fnc_saveToTemplate;
