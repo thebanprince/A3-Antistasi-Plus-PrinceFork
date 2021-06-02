@@ -17,8 +17,16 @@ params ["_side", "_timerIndex", "_supportPos", "_supportName"];
 */
 
 private _fileName = "SUP_mortar";
-private _mortarType = if(_side == Occupants) then {NATOMortar} else {CSATMortar};
-private _shellType = if(_side == Occupants) then {NATOmortarMagazineHE} else {CSATmortarMagazineHE};
+
+private _mortarType = "";
+private _shellType = "";
+if (_side == Occupants) then {
+    _mortarType = NATOMortar;
+    _shellType = NATOmortarMagazineHE;
+} else {
+    _mortarType = CSATMortar;
+    _shellType = CSATmortarMagazineHE;
+};
 private _isMortar = true;
 
 //If war level between 6 and 8 there is a chance (25%/50%/75%) that it switches to a howitzer instead, above it howitzer is guaranteed
@@ -39,8 +47,8 @@ private _spawnDir = 0;
 
 if(_isMortar) then
 {
-    //Search for a outpost, that isnt more than 2 kilometers away, which isnt spawned
-    private _possibleBases = (outposts + airportsX) select
+    //Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
+    private _possibleBases = (outposts + airportsX + milbases) select
     {
         (sidesX getVariable [_x, sideUnknown] == _side) &&
         {((getMarkerPos _x) distance2D _supportPos <= 3000) &&
@@ -96,6 +104,19 @@ if(_spawnPos isEqualTo []) exitWith
 {
     [2, format ["Couldn't spawn in mortar %1, no suitable position found!", _supportName], _fileName] call A3A_fnc_log;
     ["", 0, 0];
+};
+
+if (_isMortar && {_base in (airportsX + milbases)}) then {
+    if (_side == Occupants && NATOHowitzer == "" || {_side == Invaders && CSATHowitzer == ""}) exitWith {};
+
+    if (_side == Occupants) then {
+        _mortarType = NATOHowitzer;
+        _shellType = NATOHowitzerMagazineHE;
+    } else {
+        _mortarType = CSATHowitzer;
+        _shellType = CSATHowitzerMagazineHE;
+    };
+    [2, format ["Swapping mortar with howitzer due to mortar position being on %1", _base], _fileName] call A3A_fnc_log;
 };
 
 //Spawn in mortar
