@@ -155,7 +155,6 @@ class A3A
         class liberaterefugee {};
         class liberatePOW {};
         class mineSweep {};
-        class mortarDrill {};
         class mortyAI {};
         class napalm {};
         class napalmDamage {};
