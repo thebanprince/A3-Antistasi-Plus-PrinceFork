@@ -29,7 +29,7 @@ private _affectMan = {
 };
 
 while {time < _timeOut} do {
-    private _units = nearestObjects [_sourceObject, _affectedEntities, 75];
+    private _units = nearestObjects [_sourceObject, _affectedEntities, 90];
     _units = (_units select {local _x && alive _x && !isObjectHidden _x && isDamageAllowed _x }) - [petros];
 
 	{

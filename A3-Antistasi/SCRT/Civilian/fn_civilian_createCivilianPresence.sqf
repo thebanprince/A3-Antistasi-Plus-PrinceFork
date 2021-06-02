@@ -181,7 +181,7 @@ private _generateCovers = {
 [3, false, true, 2, true] call _generateWaypoints; //exit waypoints
 private _isCoversGenerated = [5, true, false, 0] call _generateCovers;
 if (!_isCoversGenerated) then {
-    [4, true, false, 0] call _generateWaypoints; //covers as waypoints
+    [4, true, false, 0, false] call _generateWaypoints; //covers as waypoints
 };
 
 //spawnpoints

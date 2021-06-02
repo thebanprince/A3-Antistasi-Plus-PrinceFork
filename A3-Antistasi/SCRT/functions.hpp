@@ -10,6 +10,7 @@ class SCRT
     {
 		file = "SCRT\Effect";
         class effect_createBurningDebrisEffect {};
+        class effect_createGasEffect {};
 	};
 
     class Encounter 
@@ -136,6 +137,7 @@ class SCRT
         class common_addActionMove {};
         class common_removeActionMove {};
         class common_setUnitTraits {};
+        class common_chemicalEnemy {};
     };
 
     class Garrison
