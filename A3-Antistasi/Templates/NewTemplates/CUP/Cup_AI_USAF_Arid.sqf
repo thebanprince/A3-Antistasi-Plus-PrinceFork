@@ -64,6 +64,7 @@
 ["vehiclesMilitiaLightArmed", ["CUP_I_M151_M2_SYND"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["CUP_B_MTVR_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["CUP_I_M151_SYND"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["CUP_B_M113_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 

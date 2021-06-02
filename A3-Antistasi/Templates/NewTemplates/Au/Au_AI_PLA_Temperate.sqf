@@ -65,6 +65,7 @@
 ["vehiclesMilitiaLightArmed", ["CUP_O_GAZ_Vodnik_KPVT_RU","CUP_O_GAZ_Vodnik_BPPU_RU", "CUP_O_GAZ_Vodnik_PK_RU"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["CUP_O_Ural_Open_SLA", "CUP_O_Ural_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["CUP_O_GAZ_Vodnik_Unarmed_RU"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 

@@ -64,6 +64,7 @@
 ["vehiclesMilitiaLightArmed", ["CUP_O_UAZ_MG_RU"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["CUP_O_Ural_Empty_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["CUP_O_UAZ_Unarmed_RU", "CUP_O_UAZ_Open_RU"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 

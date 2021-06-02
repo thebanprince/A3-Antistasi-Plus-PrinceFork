@@ -64,6 +64,7 @@
 ["vehiclesMilitiaLightArmed", ["Atlas_B_H_Offroad_02_LMG_F", "Atlas_B_H_Offroad_02_AT_F"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["Atlas_B_H_Offroad_02_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["B_G_APC_Wheeled_03_cannon_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["Police_I_P_Offroad_01_police_F"]] call _fnc_saveToTemplate;
 

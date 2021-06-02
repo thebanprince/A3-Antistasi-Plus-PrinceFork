@@ -66,6 +66,7 @@
 ["vehiclesMilitiaLightArmed", ["UK3CB_CW_SOV_O_LATE_VDV_UAZ_MG"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["UK3CB_CW_SOV_O_LATE_VDV_Gaz66_Open", "UK3CB_CW_SOV_O_LATE_VDV_Gaz66_Covered"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_CW_SOV_O_LATE_VDV_UAZ_Open", "UK3CB_CW_SOV_O_LATE_VDV_UAZ_Closed"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_CPD_O_Lada", "UK3CB_CPD_O_S1203"]] call _fnc_saveToTemplate;
 

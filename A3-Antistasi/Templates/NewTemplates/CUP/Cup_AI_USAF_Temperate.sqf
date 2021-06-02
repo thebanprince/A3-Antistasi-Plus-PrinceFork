@@ -64,6 +64,7 @@
 ["vehiclesMilitiaLightArmed", ["CUP_B_UAZ_MG_CDF"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["CUP_B_Ural_Open_CDF", "CUP_B_Ural_CDF", "CUP_B_Kamaz_CDF", "CUP_B_Kamaz_Open_CDF"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["CUP_B_UAZ_Unarmed_CDF", "CUP_B_UAZ_Open_CDF"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["CUP_B_MTLB_pk_CDF"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["CUP_LADA_LM_CIV", "CUP_C_S1203_Militia_CIV"]] call _fnc_saveToTemplate;
 

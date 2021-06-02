@@ -67,6 +67,7 @@
 ["vehiclesMilitiaLightArmed", ["rhsgref_hidf_m1025_m2"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_WD_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsusf_m1025_w_m2", "rhsusf_m1151_m240_v1_usarmy_wd"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["rhsusf_m113_usarmy_M240"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 

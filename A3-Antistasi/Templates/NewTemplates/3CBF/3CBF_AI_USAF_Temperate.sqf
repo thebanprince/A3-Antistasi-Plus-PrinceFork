@@ -67,6 +67,7 @@
 ["vehiclesMilitiaLightArmed", ["UK3CB_B_LandRover_M2_CDF", "UK3CB_B_LandRover_AGS30_CDF", "UK3CB_B_LandRover_SPG9_CDF"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["UK3CB_B_Kamaz_Covered_CDF","UK3CB_B_Kamaz_Open_CDF","rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_ural"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_B_LandRover_Open_CDF","UK3CB_B_LandRover_Closed_CDF"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["rhsgref_cdf_b_btr70"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_CPD_B_Lada"]] call _fnc_saveToTemplate;
 

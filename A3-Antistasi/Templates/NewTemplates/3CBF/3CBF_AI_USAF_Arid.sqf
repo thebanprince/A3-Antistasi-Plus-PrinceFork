@@ -67,6 +67,7 @@
 ["vehiclesMilitiaLightArmed", ["UK3CB_AAF_B_LR_M2"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["UK3CB_AAF_B_M939_Guntruck", "UK3CB_AAF_B_M939", "UK3CB_AAF_B_M939_Open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_AAF_B_LR_Open", "UK3CB_AAF_B_LR_Closed"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["rhsusf_m113_usarmy_M240"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_ADP_B_Hilux_Closed"]] call _fnc_saveToTemplate;
 

@@ -63,6 +63,7 @@
 ["vehiclesMilitiaLightArmed", ["rhsgref_cdf_b_reg_uaz_dshkm"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["rhsgref_cdf_b_gaz66","rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_ural"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_cdf_b_reg_uaz"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["rhsgref_cdf_b_btr70"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_CPD_B_Lada"]] call _fnc_saveToTemplate;
 

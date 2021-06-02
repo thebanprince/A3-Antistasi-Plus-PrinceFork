@@ -66,6 +66,7 @@
 ["vehiclesMilitiaLightArmed", ["rhs_uaz_vdv", "rhs_uaz_open_vdv"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["rhs_zil131_vv", "RHS_Ural_VV_01", "RHS_Ural_Open_VV_01", "rhs_zil131_open_vv", "rhs_kraz255b1_cargo_open_vv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhs_uaz_open_vv", "rhs_uaz_vv"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhs_uaz_open_vv", "rhs_uaz_vv"]] call _fnc_saveToTemplate;
 
