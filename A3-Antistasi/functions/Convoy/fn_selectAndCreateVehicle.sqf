@@ -67,12 +67,12 @@ if (!_isEasy) then
 }
 else
 {
-  if (not(_selectedVehicle == vehFIAArmedCar)) then
+  if (!(_selectedVehicle == vehFIAArmedCar)) then
   {
-    _typeGroup = selectRandom groupsFIASquad;
+    _typeGroup = if (_side == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv};
     if (_selectedVehicle == vehFIACar) then
     {
-      _typeGroup = selectRandom groupsFIAMid;
+      _typeGroup = if (_side == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
     };
   };
 };

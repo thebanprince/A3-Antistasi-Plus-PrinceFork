@@ -67,10 +67,8 @@ if (_side isEqualTo east) then {
 	CSATPilot = "loadouts_inv_other_Pilot";
 	CSATUnarmed = "loadouts_inv_other_Unarmed";
 
-	if (gameMode == 4) then {
-		FIARifleman = "loadouts_inv_militia_Rifleman";
-		FIAMarksman = "loadouts_inv_militia_Marksman";
-	};
+	FIARiflemanInv = "loadouts_inv_militia_Rifleman";
+	FIAMarksmanInv = "loadouts_inv_militia_Marksman";
 
 	groupsCSATSentry = [
 		["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Rifleman"],
@@ -156,42 +154,38 @@ if (_side isEqualTo east) then {
 		"loadouts_inv_SF_Medic"
 	];
 
-	if (gamemode == 4) then {
-		groupsFIASmall = [
-			["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Rifleman"],
-			["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Rifleman"],
-			["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Grenadier"]
+	groupsFIASmallInv = [
+		["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Rifleman"],
+		["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Rifleman"],
+		["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Grenadier"]
+	];
+	groupsFIAMidInv = [];
+	for "_i" from 1 to 6 do {
+		groupsFIAMidInv pushBack [
+			"loadouts_inv_militia_SquadLeader",
+			"loadouts_inv_militia_Grenadier",
+			"loadouts_inv_militia_MachineGunner",
+			selectRandomWeighted [
+				"loadouts_inv_militia_LAT", 1,
+				"loadouts_inv_militia_Marksman", 1,
+				"loadouts_inv_militia_Engineer", 1
+			]
 		];
-		groupsFIAMid = [];
-		for "_i" from 1 to 6 do {
-			groupsFIAMid pushBack [
-				"loadouts_inv_militia_SquadLeader",
-				"loadouts_inv_militia_Grenadier",
-				"loadouts_inv_militia_MachineGunner",
-				selectRandomWeighted [
-					"loadouts_inv_militia_LAT", 1,
-					"loadouts_inv_militia_Marksman", 1,
-					"loadouts_inv_militia_Engineer", 1
-				]
-			];
-		};
+	};
 
-		groupsFIASquad = [];
-		for "_i" from 1 to 5 do {
-			groupsFIASquad pushBack [
-				"loadouts_inv_militia_SquadLeader",
-				"loadouts_inv_militia_MachineGunner",
-				"loadouts_inv_militia_Grenadier",
-				"loadouts_inv_militia_Radioman",
-				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_ExplosivesExpert", 1],
-				"loadouts_inv_militia_LAT",
-				"loadouts_inv_militia_Medic"
-			];
-		};
-
-		FIASquad = groupsFIASquad select 0;
+	groupsFIASquadInv = [];
+	for "_i" from 1 to 5 do {
+		groupsFIASquadInv pushBack [
+			"loadouts_inv_militia_SquadLeader",
+			"loadouts_inv_militia_MachineGunner",
+			"loadouts_inv_militia_Grenadier",
+			"loadouts_inv_militia_Radioman",
+			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_ExplosivesExpert", 1],
+			"loadouts_inv_militia_LAT",
+			"loadouts_inv_militia_Medic"
+		];
 	};
 
 	vehCSATBike = _faction getVariable "vehiclesBasic" select 0;
@@ -238,12 +232,6 @@ if (_side isEqualTo east) then {
 		+ vehCSATAttackHelis
 		+ [vehCSATPlane, vehCSATPlaneAA]
 		+ vehCSATTransportPlanes;
-
-	if (gameMode == 4) then {
-		vehFIAArmedCar = _faction getVariable "vehiclesMilitiaLightArmed" select 0;
-		vehFIATruck = _faction getVariable "vehiclesMilitiaTrucks" select 0;
-		vehFIACar = _faction getVariable "vehiclesMilitiaCars" select 0;
-	};
 
 	CSATMG = _faction getVariable "staticMGs" select 0;
 	CSATGMG = _faction getVariable "staticMGs" select 1;
@@ -302,10 +290,8 @@ if (_side isEqualTo west) then {
 	staticCrewOccupants = NATOGrunt;
 	NATOPilot = "loadouts_occ_other_Pilot";
 
-	if (gameMode != 4) then {
-		FIARifleman = "loadouts_occ_militia_Rifleman";
-		FIAMarksman = "loadouts_occ_militia_Marksman";
-	};
+	FIARiflemanOcc = "loadouts_occ_militia_Rifleman";
+	FIAMarksmanOcc = "loadouts_occ_militia_Marksman";
 
 	policeOfficer = "loadouts_occ_police_SquadLeader";
 	policeGrunt = "loadouts_occ_police_Standard";
@@ -394,42 +380,38 @@ if (_side isEqualTo west) then {
 		"loadouts_occ_SF_Medic"
 	];
 
-	if (gameMode != 4) then {
-		groupsFIASmall = [
-			["loadouts_occ_militia_Grenadier", "loadouts_occ_militia_Rifleman"],
-			["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Rifleman"],
-			["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Grenadier"]
+	groupsFIASmallOcc = [
+		["loadouts_occ_militia_Grenadier", "loadouts_occ_militia_Rifleman"],
+		["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Rifleman"],
+		["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Grenadier"]
+	];
+	groupsFIAMidOcc = [];
+	for "_i" from 1 to 6 do {
+		groupsFIAMidOcc pushBack [
+			"loadouts_occ_militia_SquadLeader",
+			"loadouts_occ_militia_Grenadier",
+			"loadouts_occ_militia_MachineGunner",
+			selectRandomWeighted [
+				"loadouts_occ_militia_LAT", 1,
+				"loadouts_occ_militia_Marksman", 1,
+				"loadouts_occ_militia_Engineer", 1
+			]
 		];
-		groupsFIAMid = [];
-		for "_i" from 1 to 6 do {
-			groupsFIAMid pushBack [
-				"loadouts_occ_militia_SquadLeader",
-				"loadouts_occ_militia_Grenadier",
-				"loadouts_occ_militia_MachineGunner",
-				selectRandomWeighted [
-					"loadouts_occ_militia_LAT", 1,
-					"loadouts_occ_militia_Marksman", 1,
-					"loadouts_occ_militia_Engineer", 1
-				]
-			];
-		};
+	};
 
-		groupsFIASquad = [];
-		for "_i" from 1 to 5 do {
-			groupsFIASquad pushBack [
-				"loadouts_occ_militia_SquadLeader",
-				"loadouts_occ_militia_MachineGunner",
-				"loadouts_occ_militia_Grenadier",
-				"loadouts_occ_militia_Rifleman",
-				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 2, "loadouts_occ_militia_Marksman", 1],
-				selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_ExplosivesExpert", 1],
-				"loadouts_occ_militia_LAT",
-				"loadouts_occ_militia_Medic"
-			];
-		};
-
-		FIASquad = groupsFIASquad select 0;
+	groupsFIASquadOcc = [];
+	for "_i" from 1 to 5 do {
+		groupsFIASquadOcc pushBack [
+			"loadouts_occ_militia_SquadLeader",
+			"loadouts_occ_militia_MachineGunner",
+			"loadouts_occ_militia_Grenadier",
+			"loadouts_occ_militia_Rifleman",
+			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 2, "loadouts_occ_militia_Marksman", 1],
+			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 1, "loadouts_occ_militia_ExplosivesExpert", 1],
+			"loadouts_occ_militia_LAT",
+			"loadouts_occ_militia_Medic"
+		];
 	};
 
 	vehNATOBike = _faction getVariable "vehiclesBasic" select 0;
@@ -478,11 +460,11 @@ if (_side isEqualTo west) then {
 		+ [vehNATOPlane, vehNATOPlaneAA]
 		+ vehNATOTransportPlanes;
 
-	if (gameMode != 4) then {
-		vehFIAArmedCar = _faction getVariable "vehiclesMilitiaLightArmed" select 0;
-		vehFIATruck = _faction getVariable "vehiclesMilitiaTrucks" select 0;
-		vehFIACar = _faction getVariable "vehiclesMilitiaCars" select 0;
-	};
+	
+	vehFIAArmedCar = _faction getVariable "vehiclesMilitiaLightArmed" select 0;
+	vehFIATruck = _faction getVariable "vehiclesMilitiaTrucks" select 0;
+	vehFIACar = _faction getVariable "vehiclesMilitiaCars" select 0;
+	vehFIAAPC = _faction getVariable "vehiclesMilitiaApcs" select 0;
 
 	vehPoliceCar = _faction getVariable "vehiclesPolice" select 0;
 

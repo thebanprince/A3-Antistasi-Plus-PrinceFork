@@ -135,7 +135,11 @@ if (_side == civilian) then
 	}];
 };
 
-if(!_excludeTrails && {_typeX in vehMRLS + additionalShopArtillery + [CSATMortar, NATOMortar, SDKMortar]}) then
+private _artilleryTypes = vehMRLS + additionalShopArtillery + [CSATMortar, NATOMortar, SDKMortar];
+if (NATOHowitzer != "") then {_artilleryTypes pushBack NATOHowitzer};
+if (CSATHowitzer != "") then {_artilleryTypes pushBack CSATHowitzer};
+
+if(!_excludeTrails && {_typeX in _artilleryTypes}) then
 {
     [_veh] call A3A_fnc_addArtilleryTrailEH;
 };

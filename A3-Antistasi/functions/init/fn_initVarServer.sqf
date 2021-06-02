@@ -343,8 +343,8 @@ private _templateVariables = [
 	"NATOMarksman",
 	"staticCrewOccupants",
 	"NATOPilot",
-	"FIARifleman",
-	"FIAMarksman",
+	"FIARiflemanOcc",
+	"FIAMarksmanOcc",
 	"policeOfficer",
 	"policeGrunt",
 	"groupsNATOSentry",
@@ -357,10 +357,9 @@ private _templateVariables = [
 	"groupsNATOSquadT1",
 	"groupsNATOSquadT2",
 	"groupsNATOSquadT3",
-	"groupsFIASmall",
-	"groupsFIAMid",
-	"FIASquad",
-	"groupsFIASquad",
+	"groupsFIASmallOcc",
+	"groupsFIAMidOcc",
+	"groupsFIASquadOcc",
 	"groupsNATOGen",
 	"vehNATOBike",
 	"vehNATOLightArmed",
@@ -391,17 +390,19 @@ private _templateVariables = [
 	"vehNATOAir",
 	"vehFIAArmedCar",
 	"vehFIATruck",
+	"vehFIAAPC",
 	"vehFIACar",
 	"vehPoliceCar",
 	"NATOMG",
 	"staticATOccupants",
 	"staticAAOccupants",
 	"NATOMortar",
+	"NATOHowitzer",
 	"NATOAARadar",
 	"NATOAACiws",
 	"NATOAASam",
 	"NATOmortarMagazineHE",
-
+	"NATOHowitzerMagazineHE",
 
 	//Invaders
 	"nameInvaders",
@@ -421,8 +422,8 @@ private _templateVariables = [
 	"CSATMarksman",
 	"staticCrewInvaders",
 	"CSATPilot",
-	"FIARifleman",
-	"FIAMarksman",
+	"FIARiflemanInv",
+	"FIAMarksmanInv",
 	"groupsCSATSentry",
 	"groupsCSATSniper",
 	"groupsCSATsmall",
@@ -434,10 +435,9 @@ private _templateVariables = [
 	"groupsCSATSquadT1",
 	"groupsCSATSquadT2",
 	"groupsCSATSquadT3",
-	"groupsFIASmall",
-	"groupsFIAMid",
-	"FIASquad",
-	"groupsFIASquad",
+	"groupsFIASmallInv",
+	"groupsFIAMidInv",
+	"groupsFIASquadInv",
 	"vehCSATBike",
 	"vehCSATLightArmed",
 	"vehCSATLightUnarmed",
@@ -464,18 +464,17 @@ private _templateVariables = [
 	"vehCSATMRLSMags",
 	"vehCSATNormal",
 	"vehCSATAir",
-	"vehFIAArmedCar",
-	"vehFIATruck",
-	"vehFIACar",
 	"CSATMG",
 	"CSATGMG",
 	"staticATInvaders",
 	"staticAAInvaders",
 	"CSATMortar",
+	"CSATHowitzer",
 	"CSATAARadar",
 	"CSATAACiws",
 	"CSATAASam",
 	"CSATmortarMagazineHE",
+	"CSATHowitzerMagazineHE",
 	"shop_UAV",
     "shop_AA",
     "shop_MRAP",
@@ -519,7 +518,7 @@ if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDK
 
 // modify these appropriately when adding new template vars
 private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "flagSDKmrk", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
-private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "CSATmortarMagazineHE"];
+private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "ATMineMag", "APERSMineMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "NATOHowitzerMagazineHE", "CSATmortarMagazineHE", "CSATHowitzerMagazineHE"];
 
 private _missingVars = [];
 private _badCaseVars = [];
@@ -645,39 +644,50 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 //////////////////////////////////////
 [2,"Identifying unit types",_fileName] call A3A_fnc_log;
 //Identify Squad Leader Units
-private _squadLeaders = (SDKSL + [
-	((NATOSquad select 0) select 0),
-	((NATOSquad select 1) select 0),
-	((NATOSquad select 2) select 0),
-	((CSATSquad select 0) select 0),
-	((CSATSquad select 1) select 0),
-	((CSATSquad select 2) select 0),
-	(NATOSpecOp select 0),
-	(CSATSpecOp select 0),
-	(FIASquad select 0)
-]);
+private _squadLeaders = [
+	"loadouts_occ_militia_SquadLeader",
+	"loadouts_occ_military_SquadLeader",
+	"loadouts_occ_elite_SquadLeader",
+	"loadouts_occ_SF_SquadLeader",
+	"loadouts_inv_militia_SquadLeader",
+	"loadouts_inv_military_SquadLeader",
+	"loadouts_inv_elite_SquadLeader",
+	"loadouts_inv_SF_SquadLeader"
+];
 DECLARE_SERVER_VAR(squadLeaders, _squadLeaders);
 //Identify radio-capable units
 private _radioMen = [
 	"loadouts_occ_militia_Radioman",
 	"loadouts_occ_military_Radioman",
 	"loadouts_occ_elite_Radioman",
+	"loadouts_occ_SF_Radioman",
 	"loadouts_inv_militia_Radioman",
 	"loadouts_inv_military_Radioman",
-	"loadouts_inv_elite_Radioman"
+	"loadouts_inv_elite_Radioman",
+	"loadouts_inv_SF_Radioman"
 ];
 DECLARE_SERVER_VAR(radioMen, _radioMen);
 //Identify Medic Units
-private _medics = SDKMedic + [(FIAsquad select ((count FIAsquad)-1)),(NATOSquad select ((count NATOSquad)-1)),(NATOSpecOp select ((count NATOSpecOp)-1)),(CSATSquad select ((count CSATSquad)-1)),(CSATSpecOp select ((count CSATSpecOp)-1))];
+private _medics = [
+	SDKMedic,
+	"loadouts_occ_militia_Medic",
+	"loadouts_occ_military_Medic",
+	"loadouts_occ_elite_Medic",
+	"loadouts_occ_SF_Medic",
+	"loadouts_inv_militia_Medic",
+	"loadouts_inv_military_Medic",
+	"loadouts_inv_elite_Medic",
+	"loadouts_inv_SF_Medic"
+];
 DECLARE_SERVER_VAR(medics, _medics);
 //Define Sniper Groups and Units
 private _sniperGroups = [
-	(groupsNATOSniper select 0),
-	(groupsNATOSniper select 1),
-	(groupsNATOSniper select 2),
-	(groupsCSATSniper select 0),
-	(groupsCSATSniper select 1),
-	(groupsCSATSniper select 2)
+	"loadouts_occ_militia_Sniper",
+	"loadouts_occ_military_Sniper",
+	"loadouts_occ_elite_Sniper",
+	"loadouts_inv_militia_Sniper",
+	"loadouts_inv_military_Sniper",
+	"loadouts_inv_elite_Sniper"
 ];
 DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 
@@ -734,7 +744,7 @@ DECLARE_SERVER_VAR(vehUAVs, _vehUAVs);
 private _vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 DECLARE_SERVER_VAR(vehAmmoTrucks, _vehAmmoTrucks);
 
-private _vehAPCs = vehNATOAPC + vehCSATAPC;
+private _vehAPCs = vehNATOAPC + vehCSATAPC + [vehFIAAPC];
 DECLARE_SERVER_VAR(vehAPCs, _vehAPCs);
 
 private _vehTanks = vehNATOTanks + vehCSATTanks;
@@ -758,7 +768,7 @@ DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_Tropical_RM","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 
-private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATGMG, CSATMortar, CSATAARadar, CSATAACiws, CSATAASam];
+private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOHowitzer,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATGMG, CSATMortar, CSATHowitzer, CSATAARadar, CSATAACiws, CSATAASam];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
 private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel,vehSDKPlane,vehSDKPayloadPlane];

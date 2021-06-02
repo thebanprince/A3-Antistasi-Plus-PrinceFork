@@ -33,6 +33,7 @@ switch (tierWar) do
                 [vehFIACar, 30],
                 [vehFIATruck, 20],
                 [vehFIAArmedCar, 10],
+                [vehFIAAPC, 5],
 
                 [vehNATOPatrolHeli, 100]
             ];
@@ -60,6 +61,7 @@ switch (tierWar) do
                 [vehFIACar, 15],
                 [vehFIAArmedCar, 10],
                 [vehFIATruck, 10],
+                [vehFIAAPC, 10],
                 [vehNATOLightUnarmed, 15],
                 [vehNATOTrucks, 25],
                 [vehNATOLightArmed, 10],
@@ -89,7 +91,8 @@ switch (tierWar) do
             _vehicleSelection =
             [
                 [vehFIAArmedCar, 10],
-                [vehFIATruck, 10],
+                [vehFIATruck, 5],
+                [vehFIAAPC, 10],
                 [vehNATOLightUnarmed, 10],
                 [vehNATOLightArmed, 20],
                 [vehNATOTrucks, 40],

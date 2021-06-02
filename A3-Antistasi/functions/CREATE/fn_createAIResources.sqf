@@ -121,7 +121,7 @@ if (_patrol) then
 			if (!_isFIA) then {
 				[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
 				} else {
-					groupsFIASmall
+					if (_sideX == Occupants) then {groupsFIASmallOcc} else {groupsFIASmallInv}
 				};
 		}
 		else

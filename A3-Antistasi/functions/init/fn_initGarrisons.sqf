@@ -64,13 +64,14 @@ _fnc_initGarrison =
 			if(_side != Occupants) then
 			{
 				private _squads = [_side, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
-				_groupsRandom = [_squads, groupsFIASquad] select ((_marker in outposts) && (gameMode == 4));
+				private _fiaSquads = if (_side == Occupants) then {groupsFIASquadOcc} else {groupsFIASquadInv};
+				_groupsRandom = [_squads, _fiaSquads] select ((_marker in outposts) && (gameMode == 4));
 			}
 			else
 			{
 				if(_type != "Airport" && {_type != "Outpost"} && {_type != "MilitaryBase"}) then
 				{
-					_groupsRandom = groupsFIASquad;
+					_groupsRandom = if (_side == Occupants) then {groupsFIASquadOcc} else {groupsFIASquadInv};
 				}
 				else
 				{

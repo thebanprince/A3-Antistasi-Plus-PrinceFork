@@ -250,7 +250,11 @@ _typeUnit = if (_sideX == Occupants) then {
 } else {
 	staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier
 };
-_typeVehX = if (_sideX == Occupants) then {NATOMortar} else {CSATMortar};
+private _typeVehX = if (_sideX == Occupants) then {
+ 	if (NATOHowitzer != "") then {NATOHowitzer} else {NATOMortar}
+} else {
+	if (CSATHowitzer != "") then {CSATHowitzer} else {CSATMortar}
+};
 
 _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 while {_spawnParameter isEqualType []} do

@@ -39,6 +39,10 @@ if(_side == sideUnknown) exitWith
     [1, format ["Could not retrieve side for %1", _markerOrigin], _fileName] call A3A_fnc_log;
 };
 
+if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areInvadersDefeated)}) exitWith {
+    [2, format ["%1 faction was defeated earlier, aborting single attack.", str _side], _fileName, true] call A3A_fnc_log;
+};
+
 private _typeOfAttack = [_posDestination, _side] call A3A_fnc_chooseAttackType;
 if(_typeOfAttack == "") exitWith {};
 
@@ -96,14 +100,15 @@ else
 private _vehPool = [];
 private _replacement = [];
 
-if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then
-{
+if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then {
     //The attack will be carried out by land and air vehicles
 	_vehPool = [_side] call A3A_fnc_getVehiclePoolForAttacks;
-    _replacement = if(_side == Occupants) then {(vehNATOTransportHelis + vehNATOTrucks + [vehNATOPatrolHeli])} else {(vehCSATTransportHelis + vehCSATTrucks + [vehCSATPatrolHeli])};
-}
-else
-{
+    _replacement = if(_side == Occupants) then {
+        (vehNATOTransportHelis + vehNATOTrucks + vehNATOAPC + [vehNATOPatrolHeli])
+    } else {
+        (vehCSATTransportHelis + vehCSATTrucks + vehCSATAPC + [vehCSATPatrolHeli])
+    };
+} else {
     //The attack will be carried out by air vehicles only
 	_vehPool = [_side, ["LandVehicle"]] call A3A_fnc_getVehiclePoolForAttacks;
     _replacement = if(_side == Occupants) then {(vehNATOTransportHelis + [vehNATOPatrolHeli])} else {(vehCSATTransportHelis + [vehCSATPatrolHeli])};
@@ -132,6 +137,34 @@ for "_i" from 1 to _vehicleCount do
         sleep 5;
     };
 };
+
+if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then {
+    private _heavyResponseChance =  if (side _x == Occupants) then {aggressionOccupants/2} else {aggressionInvaders/2};
+    if (_heavyResponseChance > 35) then {
+        _heavyResponseChance = 35;
+    };
+
+    if ((random 100) < _heavyResponseChance) then {
+        private _quantity =  round random 2;
+        private _additionalVehicleType = selectRandom vehNATOAttack;
+        [2, format ["Heavy response rolled: added %1 attack vehicles to pool.", str _quantity], _filename] call A3A_fnc_log;
+        for "_i" from 1 to _quantity do {
+            private _vehicleData = [_additionalVehicleType, _typeOfAttack, _landPosBlacklist, _side, _markerOrigin] call A3A_fnc_createAttackVehicle;
+            if (_vehicleData isEqualType []) then
+            {
+                _vehicles pushBack (_vehicleData select 0);
+                _groups pushBack (_vehicleData select 1);
+                if !(isNull (_vehicleData select 2)) then
+                {
+                    _groups pushBack (_vehicleData select 2);
+                };
+                _landPosBlacklist = (_vehicleData select 3);
+                sleep 5;
+            };
+        };
+    };
+};
+
 [2, format ["Spawn Performed: Small %1 attack sent with %2 vehicles", _typeOfAttack, count _vehicles], _filename] call A3A_fnc_log;
 
 //Prepare despawn conditions

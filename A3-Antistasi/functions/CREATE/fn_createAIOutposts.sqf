@@ -97,7 +97,7 @@ if (_patrol) then
 			if (!_isFIA) then {
 				[(groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier), (groupsNATOSniper call SCRT_fnc_unit_selectInfantryTier)]
 			} else {
-				groupsFIASmall
+				if (_sideX == Occupants) then {groupsFIASmallOcc} else {groupsFIASmallInv}
 			};
 		}
 		else
@@ -318,7 +318,7 @@ if (!isNull _antenna) then
 		_typeUnit = if (_sideX == Occupants) then {
 			if (!_isFIA) then {
 				NATOMarksman call SCRT_fnc_unit_selectInfantryTier
-			} else {FIAMarksman}
+			} else {FIAMarksmanOcc}
 		} else {CSATMarksman};
 		_unit = [_groupX, _typeUnit, _positionX, [], _dir, "NONE"] call A3A_fnc_createUnit;
 		_unit setPosATL _posF;

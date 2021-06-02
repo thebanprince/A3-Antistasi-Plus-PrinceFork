@@ -165,6 +165,9 @@ switch (_type) do {
 		_possibleMarkers = [seaports + outposts] call _findIfNearAndHostile;
 		_possibleMarkers = _possibleMarkers select {(_x in seaports) or (spawner getVariable _x != 0)};
 
+		private _controlsX = ([controlsX] call _findIfNearAndHostile) select {!isOnRoad (getMarkerPos _x)};
+		_possibleMarkers = _possibleMarkers + _controlsX;
+
 		//append banks in hostile cities
 		if (random 100 < 20) then {
 			{

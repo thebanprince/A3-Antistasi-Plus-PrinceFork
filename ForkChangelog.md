@@ -2,17 +2,33 @@
 ## 1.6
 ###
 - New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
+- (CUP, RHS, 3CB Factions) Military bases and airports will have howitzers instead of mortars on artillery positions
+- Included military bases into possible mortar support locations
+- "How many persons required to unflip vehicle" mission parameter
+- Rally Point balance pass (Ticket system (mission parameter), fast travel on it can be only used near HQ, rally point can be only abolished on HQ or near rally point itself)
+- APCs in militia vehicle pool
+- New invader airstrike type - chemical airstrike
+- Civilian Presence city size measure, waypoints can be not on roads too
+- New Arms Dealer item type - gasmasks (can be bought at Misc section in Arms Dealer store)
 
 ### Changes
 - Radioman call support time reduced to 45 seconds, cooldown to 15 minutes
 - Changed respawn key from E to R when laying unconscious
+- Fixed inability to move HQ assets on HQ border
+- Fixed error that does not allowed to roll Helicrash and Airdrop missions
+- Fixed wrong invader T1 infantry loadouts
 - AT static on top of big towers has been replaced with MG/GMG (depends on faction and modset)
-- Rally Point balance pass (Ticket system (mission parameter), fast travel on it can be only used near HQ, rally point can be only abolished on HQ or near rally point itself)
+- Fixed Kill Collaborationist POW issue
+- Civilian Presence waypoints can be not on roads too
+- Added APCs into Single Attack fallback vehicle pool
+- SF radiomen will have the ability to call support
+- Single Attack may roll armored vehicles response  
 
 ### Removals
 - Removed Trader on HQ mission parameter with tied functionality
-- Removed Grenadier and Autorifleman slots (Riflemen got carry capacity, audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
+- Removed Grenadier and Autorifleman slots, merged their abilities with the Rifleman and Team Leader (Riflemen got carry capacity, audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
 - Removed Fatal Wounds
+- Removed "Should Explosives become unlocked?" mission parameter
 
 ## 1.5.6
 ### Additions

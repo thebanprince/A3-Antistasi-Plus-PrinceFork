@@ -126,11 +126,12 @@ if (_isControl) then
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = selectRandom groupsFIAMid;
+		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 			{
-			_unit = [_groupX, FIARifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+			private _fiaRifleman = if(_sideX == Occupants) then {FIARiflemanOcc} else {FIARiflemanInv};
+			_unit = [_groupX, _fiaRifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 			};

@@ -504,7 +504,7 @@ if(_type == "convoy") then
           }
           else
           {
-            [vehFIAArmedCar,vehFIATruck,vehFIACar]
+            [vehFIAArmedCar,vehFIATruck,vehFIACar,vehFIAAPC]
           };
         }
         else

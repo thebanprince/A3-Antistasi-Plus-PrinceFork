@@ -213,12 +213,12 @@ private _fnc_spawnEscortVehicle = {
 	}
 	else
 	{
-		if (not(_typeVehEsc == vehFIAArmedCar)) then
+		if (!(_typeVehEsc == vehFIAArmedCar)) then
 		{
-			private _typeGroup = selectRandom groupsFIASquad;
+			private _typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv};
 			if (_typeVehEsc == vehFIACar) then
 			{
-				_typeGroup = selectRandom groupsFIAMid;
+				if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
 			};
 			private _groupEsc = [_posOrigin,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh;} forEach units _groupEsc;
