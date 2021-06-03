@@ -7,7 +7,7 @@
 //	Nothing
 //
 // 	How to use: 
-// 	[_position, _lifeTime] spawn SCRT_fn_common_getNearPlayers;
+// 	[_position, _lifeTime] remoteExec ["SCRT_fnc_effect_createBurningDebrisEffect",0];
 //
 
 params ["_position", "_lifeTime"];

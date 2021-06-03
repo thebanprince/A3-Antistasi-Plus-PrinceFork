@@ -1,7 +1,6 @@
-private _object = _this;
-
 if (!hasInterface) exitWith {};
 
+private _object = _this;
 private _pos = position _object;
 
 private _gasEffect = "#particlesource" createVehicleLocal _pos; 
@@ -19,7 +18,7 @@ _gasEffect setParticleParams [
     10.2,  
     7.9,  
     0.5,  
-    [8, 24, 32],  
+    [16, 32, 48],  
     [[0.450, 0.556, 0.215, 0.5], [0.662, 0.768, 0.411, 0.25], [0.921, 0.960, 0.811, 0]],  
     [0.125],  
     1,  

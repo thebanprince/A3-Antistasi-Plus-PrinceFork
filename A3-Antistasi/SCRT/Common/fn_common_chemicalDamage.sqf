@@ -19,7 +19,7 @@ private _affectMan = {
         };
 
         [_man] spawn {
-            if (random 100 < 40) then {
+            if (random 100 < 35) then {
                 _aliveMan = _this select 0;
                 sleep random 3;
                 playSound3D [(selectRandom coughSounds), _aliveMan];
@@ -28,9 +28,21 @@ private _affectMan = {
     };
 };
 
+private _damageMarker = createMarkerLocal [format ["%1damage%2", random 10000, random 10000], (position _sourceObject)];
+_damageMarker setMarkerShapeLocal "ELLIPSE";
+_damageMarker setMarkerSizeLocal [40,75];
+_damageMarker setMarkerTypeLocal "hd_warning";
+_damageMarker setMarkerAlphaLocal 0;
+
 while {time < _timeOut} do {
-    private _units = nearestObjects [_sourceObject, _affectedEntities, 90];
-    _units = (_units select {local _x && alive _x && !isObjectHidden _x && isDamageAllowed _x }) - [petros];
+    if (_sourceObject inArea _damageMarker) then {
+        _damageMarker setMarkerDirLocal windDir;
+        private _windPos = (getMarkerPos _damageMarker) vectorAdd wind;
+        _damageMarker setMarkerPos _windPos;
+    };
+
+    private _units = nearestObjects [_sourceObject, _affectedEntities, 300];
+    _units = (_units select {alive _x && !isObjectHidden _x && isDamageAllowed _x  && {(getPos _x) inArea _damageMarker}}) - [petros];
 
 	{
         switch (true) do {
@@ -61,3 +73,5 @@ while {time < _timeOut} do {
 	} forEach _units;
 	sleep 5;
 };
+
+deleteMarkerLocal _damageMarker;

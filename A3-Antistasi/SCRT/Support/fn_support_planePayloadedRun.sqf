@@ -24,8 +24,6 @@ _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "LIMITED";
 _wp1 setWaypointBehaviour "CARELESS";
 
-if ((supportType == "CHEMICAL") && (chemicalCurrent)) then {supportType = "HE"};
-
 private _text = nil;
 
 switch (supportType) do {

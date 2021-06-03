@@ -22,9 +22,6 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach (allMissionObjects "Land_CampingTable_small_F");
 { deleteVehicle _x } forEach (allMissionObjects "Box_Syndicate_WpsLaunch_F");
 { deleteVehicle _x } forEach (allMissionObjects "Bo_Mk82_MI08");
-if !(!isNil "chemicalCurrent" && {chemicalCurrent}) then {
-	{ deleteVehicle _x } forEach (allMissionObjects "Land_GarbageBarrel_02_F");
-};
 
 private _rebelPlayers = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 private _lootCrates = (allMissionObjects lootCrate) select { 

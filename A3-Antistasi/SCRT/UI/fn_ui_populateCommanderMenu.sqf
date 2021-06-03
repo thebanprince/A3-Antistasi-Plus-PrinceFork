@@ -76,7 +76,7 @@ lbSetTooltip [1750, 8, "Plane flies over and drops Cluster bombs at the specifie
 
 lbAdd [1750, "Chemical Airstrike"];
 lbSetData [1750, 9, "CHEMICAL"];
-lbSetTooltip [1750, 9, "Plane flies over and drops barrel with hazardous chemicals at the specified location. Violates Geneva Protocol."];
+lbSetTooltip [1750, 9, "Plane flies over and drops bomb with hazardous chemicals at the specified location. Violates Geneva Protocol."];
 
 if (napalmEnabled) then { 
 	lbAdd [1750, "Napalm Airstrike"];

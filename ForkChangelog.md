@@ -7,8 +7,8 @@
 - "How many persons required to unflip vehicle" mission parameter
 - Rally Point balance pass (Ticket system (mission parameter), fast travel on it can be only used near HQ, rally point can be only abolished on HQ or near rally point itself)
 - APCs in militia vehicle pool
-- New invader airstrike type - chemical airstrike
-- Civilian Presence city size measure, waypoints can be not on roads too
+- Chemical Airstrike 2.0 - refactored code, invaders will use it too, damage zone is affected by wind, new visual effects
+- Civilian Presence city dynamic city size, waypoints can be not on roads too
 - New Arms Dealer item type - gasmasks (can be bought at Misc section in Arms Dealer store)
 
 ### Changes

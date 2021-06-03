@@ -53,20 +53,20 @@ if(isNil "napalmEnabled") then
 };
 
 private _bombPool = if (napalmEnabled) then {["NAPALM", "CLUSTER", "HE"]} else {["CLUSTER", "HE"]};
-
-if (_side == Invaders) then {
-    _bombPool pushBack "CHEMICAL_ENEMY";
-};
-private _bombType = selectRandom _bombPool;
+private _bombType = "HE";
 
 private _isTank = _enemies findIf {vehicle _x isKindOf "Tank"} != -1;
-if (_isTank) then {
-    _bombType = "HE";
-};
 
-private _infantryCount = { vehicle _x == _x } count _enemies;
-if (_side == Invaders && {_infantryCount > 4}) then {
-    _bombType = selectRandom ["CLUSTER", "CHEMICAL_ENEMY"];
+switch (true) do {
+    case (_isTank): {
+        _bombType = "HE";
+    };
+    case (_side == Invaders && {({ vehicle _x == _x } count _enemies) > 4}): {
+        _bombType = selectRandom ["CLUSTER", "CHEMICAL"];
+    };
+    default {
+        _bombType = selectRandom _bombPool;
+    };
 };
 
 [2, format ["Airstrike will be carried out with bombType %1", _bombType], _fileName] call A3A_fnc_log;

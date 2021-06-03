@@ -1,58 +1,35 @@
-params ["_pos", "_barrel"];
+params ["_position", "_direction", "_pitchBank", "_side"];
+if (!isServer) exitWith {};
+if (isNil "_position") exitWith {};
+if (count _position == 0) exitWith {};
 
-if (isNil "_pos") exitWith {};
-if (count _pos == 0) exitWith {};
-if (isServer) then {
-	if (!chemicalCurrent) then {chemicalCurrent = true; publicVariable "chemicalCurrent"};
-};
+sleep random [0.8,1.2,1.6];
 
-if (hasInterface) then {
-    private _pos = position _barrel;
+private _chemicalSpreadingSounds = [
+    "A3\Sounds_f\weapons\smokeshell\smoke_1.wss",
+    "A3\Sounds_f\weapons\smokeshell\smoke_2.wss",
+    "A3\Sounds_f\weapons\smokeshell\smoke_3.wss"
+];
 
-    private _gasEffect = "#particlesource" createVehicleLocal _pos; 
-    _gasEffect setParticleCircle [0, [0, 0, 0]]; 
-    _gasEffect setParticleRandom [0, [0.5, 0.5, 0], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0]; 
-    _gasEffect setParticleParams [ 
-        ["\A3\Data_F\ParticleEffects\Universal\Universal", 16, 9, 1],  
-        "",  
-        "Billboard",  
-        1,  
-        32,  
-        [0, 0, 0],  
-        [0, 0, 0.5],  
-        0,  
-        10.2,  
-        7.9,  
-        0.5,  
-        [8, 24, 32],  
-        [[0.450, 0.556, 0.215, 0.5], [0.662, 0.768, 0.411, 0.25], [0.921, 0.960, 0.811, 0]],  
-        [0.125],  
-        1,  
-        0,  
-        "",  
-        "",  
-        _barrel 
-    ];  
-    _gasEffect setDropInterval 0.4; 
-    _gasEffect attachTo [_barrel, [0, 0, -0.5]]; 
+private _tempObject = createVehicle ["Land_HelipadEmpty_F", _position, [], 0, "FLY"];
+private _angle = random [30,45,60];
+private _worldPosition = getPosWorld _tempObject;
 
-    sleep 8;
-    [_barrel] spawn SCRT_fnc_common_chemicalDamage;
+private _shell = createSimpleObject ["Bo_Mk82_MI08", _worldPosition, false];
+_shell setDir (_direction - 180);
+[_shell, (-(_pitchBank select 0)), (_pitchBank select 1)] call BIS_fnc_setPitchBank;
 
-	sleep 160;
-	deletevehicle _gasEffect;
-} else {
-	sleep 8;
-	[_barrel] spawn SCRT_fnc_common_chemicalDamage;
-};
+_tempObject remoteExec ["SCRT_fnc_effect_createGasEffect", 0];
+playSound3D [(selectRandom _chemicalSpreadingSounds), _shell];
 
-if (isServer) then {
-	sleep 135;
-	if (chemicalCurrent) then {
-        chemicalCurrent = false; 
-        publicVariable "chemicalCurrent";
-    };
-    
+sleep 4;
+[_tempObject] spawn SCRT_fnc_common_chemicalDamage;
+
+private _timeOut = time + 140;
+waitUntil {sleep 1; time > _timeOut};
+deleteVehicle _tempObject;
+
+if (_side == teamPlayer) then {
     [Occupants, 200, 60] remoteExec ["A3A_fnc_addAggression",2];
     [Invaders, 200, 60] remoteExec ["A3A_fnc_addAggression",2];
 };

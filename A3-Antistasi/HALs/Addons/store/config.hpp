@@ -2369,11 +2369,11 @@ class cfgHALsStore
 			ITEM(APERSBoundingMine_Range_Mag, 150, MISC_STOCK);
 			ITEM(APERSTripMine_Wire_Mag, 100, MISC_STOCK);
 
-			ITEM(G_RegulatorMask_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_01_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_sand_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_olive_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_black_F, 100, MISC_STOCK);
+			ITEM(G_RegulatorMask_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_01_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_sand_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_olive_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_black_F, 300, MISC_STOCK);
 		};
 
 		///////////////////////////////////////////////////////
@@ -5771,11 +5771,11 @@ class cfgHALsStore
 			ITEM(APERSBoundingMine_Range_Mag, 150, MISC_STOCK);
 			ITEM(APERSTripMine_Wire_Mag, 100, MISC_STOCK);
 
-			ITEM(G_RegulatorMask_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_01_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_sand_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_olive_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_black_F, 100, MISC_STOCK);
+			ITEM(G_RegulatorMask_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_01_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_sand_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_olive_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_black_F, 300, MISC_STOCK);
 		};
 
 		///////////////////////////////////////////////////////
@@ -9066,11 +9066,11 @@ class cfgHALsStore
 			ITEM(APERSBoundingMine_Range_Mag, 150, MISC_STOCK);
 			ITEM(APERSTripMine_Wire_Mag, 100, MISC_STOCK);
 
-			ITEM(G_RegulatorMask_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_01_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_sand_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_olive_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_black_F, 100, MISC_STOCK);
+			ITEM(G_RegulatorMask_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_01_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_sand_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_olive_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_black_F, 300, MISC_STOCK);
 		};
 
 		///////////////////////////////////////////////////////
@@ -10855,11 +10855,11 @@ class cfgHALsStore
 			ITEM(rhs_mag_mine_pfm1, 250, MISC_STOCK);
 			ITEM(rhs_mine_tm62m_mag, 350, MISC_STOCK);		
 
-			ITEM(G_RegulatorMask_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_01_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_sand_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_olive_F, 100, MISC_STOCK);
-			ITEM(G_AirPurifyingRespirator_02_black_F, 100, MISC_STOCK);
+			ITEM(G_RegulatorMask_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_01_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_sand_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_olive_F, 300, MISC_STOCK);
+			ITEM(G_AirPurifyingRespirator_02_black_F, 300, MISC_STOCK);
 		};
 
 		class handguns3cbf
