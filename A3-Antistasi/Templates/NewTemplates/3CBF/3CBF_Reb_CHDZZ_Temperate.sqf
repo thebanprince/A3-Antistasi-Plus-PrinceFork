@@ -6,7 +6,7 @@
 
 ["flag", "Flag_CHD_Green"] call _fnc_saveToTemplate; 						
 ["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CHD\Flag\chd_flag_green_co.paa"] call _fnc_saveToTemplate; 				
-["flagMarkerType", ""] call _fnc_saveToTemplate; 			
+["flagMarkerType", "UK3CB_Marker_CHD_GREEN"] call _fnc_saveToTemplate; 			
 
 ["vehicleBasic", "UK3CB_CHD_I_YAVA"] call _fnc_saveToTemplate; 			
 ["vehicleLightUnarmed", "UK3CB_CHD_I_Hilux_Open"] call _fnc_saveToTemplate; 		
