@@ -27,6 +27,7 @@
 - Attempt to fix "trying to send a too large non-guaranteed message" log spam
 - Log Level will be INFO by default
 - (RHS) Empty Launchers will be removed from arsenal on each Arsenal Manage tick
+- Cities will change loalty to rebels when their respective faction is defeated
 - Fixed various typos
 
 ### Removals
