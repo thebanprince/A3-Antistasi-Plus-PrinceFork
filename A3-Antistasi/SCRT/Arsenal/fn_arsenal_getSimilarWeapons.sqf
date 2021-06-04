@@ -62,8 +62,7 @@ private _baseInputClassesMap = createHashMap;
 		[
             3,
             format ["Weapon: %1, Base Config: %2, Final similar weapons: %3", str _item, _cfgName, str _similarClassnames],
-            "fn_arsenal_getSimilarWeapons",
-            true
+            "fn_arsenal_getSimilarWeapons"
         ] call A3A_fnc_log;
 
 		_possibleClassesMap set [_cfgName, _similarClassnames];

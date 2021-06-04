@@ -1,6 +1,7 @@
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
-params ["_box"];
+
+private _box = _this;
 
 private _fileName = "fn_common_fillSupplyDrop";
 

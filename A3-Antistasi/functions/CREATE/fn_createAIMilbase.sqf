@@ -196,7 +196,21 @@ private _garrison = garrison getVariable [_markerX,[]];
 if (count _garrison > 120) then {
 	_garrison resize 120;
 };
-_garrison = [_sideX, _garrison, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
+
+private _additionalGarrison = [_sideX, _markerX] call SCRT_fnc_garrison_rollOversizeGarrison;
+if (count _additionalGarrison > 0) then {
+	for "_i" from 0 to (count _additionalGarrison) - 1 do {
+		private _groupTypes = _additionalGarrison select _i;
+		private _group = [_positionX, _sideX, _groupTypes, false, true] call A3A_fnc_spawnGroup;
+		if !(isNull _group) then {
+			sleep 1;
+			_nul = [leader _group, _mrk, "SAFE","SPAWNED", "RANDOM", "NOVEH2"] execVM "scripts\UPSMON.sqf";//TODO need delete UPSMON link
+			_groups pushBack _group;
+			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _group;
+		};
+	};
+};
+
 _garrison = _garrison call A3A_fnc_garrisonReorg;
 private _radiusX = count _garrison;
 private _patrol = true;

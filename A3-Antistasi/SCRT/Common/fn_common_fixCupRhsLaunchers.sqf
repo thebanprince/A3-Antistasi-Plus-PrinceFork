@@ -1,12 +1,13 @@
-private _fileName = "common_fixCupLaunchers";
+if (!(A3A_hasRhs && {A3A_hasCup})) exitWith {};
 
-[3, "Trader is not spawned yet.", _fileName] call A3A_fnc_log;
+private _fileName = "common_fixCupRhsLaunchers";
 
 //looks like this is needed to grab weapons from arsenal
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 private _brokenLaunchers = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON) select {
-    ["_loaded", (_x select 0)] call BIS_fnc_inString || {["_used", (_x select 0)] call BIS_fnc_inString}
+    private _weaponClass = _x select 0;
+    "_loaded" in _weaponClass || {"_used" in _weaponClass}
 };
 
 [2, format ["Broken launchers to remove: %1", str _brokenLaunchers], _fileName, true] call A3A_fnc_log;
@@ -17,4 +18,4 @@ private _brokenLaunchers = (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_SECOND
     [_arsenalTab, _item, -1] call jn_fnc_arsenal_removeItem;
 } forEach _brokenLaunchers;
 
-[2, "CUP broken launchers clearance pass finished.", _fileName, true] call A3A_fnc_log;
+[2, "Broken launchers clearance pass finished.", _fileName, true] call A3A_fnc_log;

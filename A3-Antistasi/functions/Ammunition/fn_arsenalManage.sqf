@@ -46,9 +46,7 @@ if (!isNil "_originalWeaponsWithSimilarWeapons" && {count _originalWeaponsWithSi
 
 private _allExceptNVs = _weapons + _explosives + _backpacks + _items + _optics + _helmets + _vests + _magazine;
 
-if (A3A_hasCup) then {
-	[] call SCRT_fnc_common_fixCupLaunchers;
-};
+[] call SCRT_fnc_common_fixCupRhsLaunchers;
 
 {
 	call {

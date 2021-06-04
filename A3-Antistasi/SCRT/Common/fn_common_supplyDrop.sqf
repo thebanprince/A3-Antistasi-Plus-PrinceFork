@@ -37,7 +37,7 @@ if (alive _planeVehicle) then {
             _paraPos = [0, 0, -0.2];
         };
         default {
-            [_supplyDrop] call SCRT_fnc_common_fillSupplyDrop;
+            _supplyDrop remoteExecCall ["SCRT_fnc_common_fillSupplyDrop", 2];
             _paraPos = [0, 0, -0.6];
         };
     };

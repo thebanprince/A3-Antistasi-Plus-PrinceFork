@@ -1,5 +1,6 @@
-params ["_side", "_garrison", "_marker"];
+params ["_side", "_marker"];
 
+private _additionalTroops = [];
 
 private _aggression = if (_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 private _oversizeChance =  _aggression / 2;
@@ -29,11 +30,11 @@ if ((random 100) < _oversizeChance) then {
     for "_i" from 1 to _squadCount do {
         private _squad = selectRandom _squadPool;
         {
-            _garrison pushBack _x;
+            _additionalTroops pushBack _x;
         } forEach _squad;
     };
 
     [1, format ["Oversized %1 garrison, number of additional squads: %2", str _marker, str _squadCount], "fn_garrison_rollOversizeGarrison", true] call A3A_fnc_log;
 };
 
-_garrison
+_additionalTroops
