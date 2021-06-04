@@ -1,5 +1,9 @@
 params ["_unit", "_playerX"];
 
+if (!alive _unit) exitWith {
+    [_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
+};
+
 if (captive _playerX) then { _playerX setCaptive false };
 
 _playerX globalChat "You are free. Come with us!";
