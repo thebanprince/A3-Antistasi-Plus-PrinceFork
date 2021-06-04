@@ -72,7 +72,7 @@ if (!alive _heli || !(canMove _heli) || {!([(driver _heli)] call A3A_fnc_canFigh
     [3, format ["Helicopter is unable to loot area. Positions: %1, %2", str _positionOrigin, str _positionDestination], "fn_support_lootHeli"] call A3A_fnc_log;
 };
 
-[_lootCrate, 300] remoteExec ["SCRT_fnc_loot_gatherLoot", 2];
+[_lootCrate, 300, _positionDestination] remoteExec ["SCRT_fnc_loot_gatherLoot", 2];
 _heli setSlingLoad objNull;
 
 _isGatherSuccessful = true;

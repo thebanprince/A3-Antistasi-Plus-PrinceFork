@@ -446,7 +446,7 @@ class Params
      {
         title = "Logging Level (Amount of detail in .rpt file)";
         values[] = {9999,1,2,3};
-        texts[] = {"Default (Debug)", "Error", "Info", "Debug"};
+        texts[] = {"Default (Info)", "Error", "Info", "Debug"};
         default = 9999;
      };
      class SystemChatLogMessages

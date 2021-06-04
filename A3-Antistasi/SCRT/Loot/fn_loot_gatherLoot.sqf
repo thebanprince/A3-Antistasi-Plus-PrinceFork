@@ -3,7 +3,7 @@
 	description: Loots all the bodies and crates near the vehicle or loot crate.
 	returns: nothing
 */
-params ["_vehicle", "_radius"];
+params ["_vehicle", "_radius", ["_overridePosition",[]]];
 
 private _time = serverTime;
 
@@ -17,7 +17,9 @@ if ((_time - (_vehicle getVariable ["lastLooted", -15])) < 15) exitWith {
 _vehicle setVariable ["lastLooted", _time, true];
 
 private _supplies = [];
-_supplies = (position _vehicle nearSupplies _radius) select {
+private _position = if (!(_overridePosition isEqualTo [])) then {_overridePosition} else {position _vehicle};
+
+_supplies = (_position nearSupplies _radius) select {
     (_x isKindOf "Man" && !(alive _x)) || 
     {(typeOf _x) in [CSATSurrenderCrate, NATOSurrenderCrate, "WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder", "Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"]}
 };

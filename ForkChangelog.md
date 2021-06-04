@@ -23,6 +23,10 @@
 - Added APCs into Single Attack fallback vehicle pool
 - SF radiomen will have the ability to call support
 - Single Attack may roll armored vehicles response  
+- Rally Point travel will no longer dismount AI units in squad (they will not travel and stay in the vehicle at their origin position)
+- Attempt to fix "trying to send a too large non-guaranteed message" log spam
+- Log Level will be INFO by default
+- Fixed various typos
 
 ### Removals
 - Removed Trader on HQ mission parameter with tied functionality

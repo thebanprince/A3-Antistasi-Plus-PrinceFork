@@ -39,7 +39,7 @@ _group setVariable ["canCallSupportAt", _dateNumber, true];
 if !([_groupLeader] call A3A_fnc_canFight) exitWith {};
 
 [
-    3,
+    2,
     format ["Leader of %1 (side %2) is starting to call for help against %3 with helps %4", _group, side _group, _target, _supportTypes],
     _fileName
 ] call A3A_fnc_log;
@@ -60,12 +60,12 @@ if([_groupLeader] call A3A_fnc_canFight) then
 {
     private _revealed = [getPos _groupLeader, side _group] call A3A_fnc_calculateSupportCallReveal;
     //Starting the support
-    [3, format ["%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed], _fileName] call A3A_fnc_log;
+    [2, format ["%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed], _fileName] call A3A_fnc_log;
     [_target, _group knowsAbout _target, _supportTypes, side _group, _revealed] remoteExec ["A3A_fnc_sendSupport", 2];
 }
 else
 {
     //Support call failed, resetting cooldown
-    [3, format ["%1 got no help as the leader is dead or down", _group], _fileName] call A3A_fnc_log;
+    [2, format ["%1 got no help as the leader is dead or down", _group], _fileName] call A3A_fnc_log;
     _group setVariable ["canCallSupportAt", -1, true];
 };

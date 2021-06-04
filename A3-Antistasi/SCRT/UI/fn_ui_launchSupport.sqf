@@ -49,7 +49,7 @@ if (supportType == "PARADROP" && {_resourcesFIA < 500}) exitWith {
     [
 		"FAIL",
 		"Support",  
-		parseText "HQ needs to have at least 1000€ to make this support request.", 
+		parseText "HQ needs to have at least 500€ to make this support request.", 
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };
@@ -58,7 +58,7 @@ if (supportType == "LOOTHELI" && {_resourcesFIA < 2000}) exitWith {
     [
 		"FAIL",
 		"Support",  
-		parseText "HQ needs to have at least 1000€ to make this support request.", 
+		parseText "HQ needs to have at least 2000€ to make this support request.", 
 		30
 	] spawn SCRT_fnc_ui_showMessage;
 };

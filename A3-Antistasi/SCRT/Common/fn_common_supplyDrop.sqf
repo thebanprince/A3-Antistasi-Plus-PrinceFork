@@ -38,6 +38,7 @@ if (alive _planeVehicle) then {
         };
         default {
             _supplyDrop remoteExecCall ["SCRT_fnc_common_fillSupplyDrop", 2];
+            [_supplyDrop] call A3A_fnc_logistics_addLoadAction;
             _paraPos = [0, 0, -0.6];
         };
     };

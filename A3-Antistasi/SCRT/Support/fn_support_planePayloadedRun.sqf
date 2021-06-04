@@ -75,9 +75,12 @@ _wp3 setWaypointSpeed "FULL";
 
 sleep 50;
 
-{
-    [petros, "support", _text] remoteExec ["A3A_fnc_commsMP", _x];
-} forEach ([1000, _positionDestination, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+
+if (canMove _plane && {alive _plane}) then {
+	{
+    	[petros, "support", _text] remoteExec ["A3A_fnc_commsMP", _x];
+	} forEach ([1000, _positionDestination, teamPlayer] call SCRT_fnc_common_getNearPlayers);
+};
 
 
 private _timeOut = time + 600;

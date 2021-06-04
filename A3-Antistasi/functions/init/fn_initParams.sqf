@@ -63,9 +63,8 @@ A3A_paramTable = [
     ["memberOnlyMagLimit", "memberOnlyMagLimit", [], 40],				// dead param
     ["unlockedUnlimitedAmmo", "unlockedUnlimitedAmmo", [], 0],			// these three are not bool for some reason
     ["allowGuidedLaunchers", "allowGuidedLaunchers", [], 1],
-    ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
-    ["logLevel", "LogLevel", ["override"], 3],
+    ["logLevel", "LogLevel", ["override"], 2],
 
     ["bobChaosCrates", "truelyRandomCrates", [], false],
     ["cratePlayerScaling", "cratePlayerScaling", [], true],

@@ -32,7 +32,7 @@ if ((_side == Occupants && areOccupantsDefeated) || {(_side == Invaders && areIn
     [2, format ["%1 faction was defeated earlier, aborting calling support.", str _side], _fileName, true] call A3A_fnc_log;
 };
 
-[3, format [" %1 Group has radioman, trying to call support...", _group], _fileName] call A3A_fnc_log;
+[2, format [" %1 Group has radioman, trying to call support...", _group], _fileName] call A3A_fnc_log;
 
 private _radioMan = (units _group) select _radiomanIndex;
 
@@ -47,7 +47,7 @@ _group setVariable ["canCallSupportAt", _dateNumber, true];
 if !([_radioMan] call A3A_fnc_canFight) exitWith {};
 
 [
-    3,
+    2,
     format ["Radioman of %1 (side %2) is starting to call for help against %3 with helps %4", _group, side _group, _target, _supportTypes],
     _fileName
 ] call A3A_fnc_log;
@@ -99,10 +99,10 @@ _radioMan setVariable ["timeToCall", nil];
 if(_radioMan getVariable ["callSuccess",true]) then {
     private _revealed = [getPos _radioMan, side _group] call A3A_fnc_calculateSupportCallReveal;
     //Starting the support
-    [3, format ["%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed], _fileName] call A3A_fnc_log;
+    [2, format ["%1 managed to call help against %2, reveal value is %3", _group, _target, _revealed], _fileName] call A3A_fnc_log;
     [_target, _group knowsAbout _target, _supportTypes, side _group, _revealed] remoteExec ["A3A_fnc_sendSupport", 2];
 }
 else {
-    [3, format ["%1 got no help as the radioman is dead or down", _group], _fileName] call A3A_fnc_log;
+    [2, format ["%1 got no help as the radioman is dead or down", _group], _fileName] call A3A_fnc_log;
     _group setVariable ["canCallSupportAt", -1, true];
 };
