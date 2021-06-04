@@ -29,6 +29,7 @@ clearBackpackCargoGlobal _lootCrate;
 clearItemCargoGlobal _lootCrate;
 clearWeaponCargoGlobal _lootCrate;
 clearMagazineCargoGlobal _lootCrate;
+[_lootCrate] call A3A_fnc_logistics_addLoadAction;
 _heli setSlingLoad _lootCrate;
 
 private _areaMarker = createMarkerLocal ["LootHeliAreaGlobalMarker", _positionDestination];
@@ -76,7 +77,7 @@ _heli setSlingLoad objNull;
 
 _isGatherSuccessful = true;
 
-_timeOut = time + 2.5;
+_timeOut = time + 3.5;
 waitUntil {time > _timeOut};
 
 deleteMarker _areaMarker;
