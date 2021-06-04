@@ -26,6 +26,7 @@
 - Rally Point travel will no longer dismount AI units in squad (they will not travel and stay in the vehicle at their origin position)
 - Attempt to fix "trying to send a too large non-guaranteed message" log spam
 - Log Level will be INFO by default
+- (RHS) Empty Launchers will be removed from arsenal on each Arsenal Manage tick
 - Fixed various typos
 
 ### Removals
