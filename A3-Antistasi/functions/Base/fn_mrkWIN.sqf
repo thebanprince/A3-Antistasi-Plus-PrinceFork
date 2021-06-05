@@ -81,4 +81,3 @@ if ((count _revealX) > 2*({([_x,_markerX] call A3A_fnc_canConquer) and (side _x 
 
 [2, format ["Flag capture by %1 rewarded", str _playerX], _filename, true] call A3A_fnc_log;
 [teamPlayer,_markerX] remoteExec ["A3A_fnc_markerChange",2];
-[_sideX] remoteExecCall ["SCRT_fnc_common_defeatFactionIfPossible", 2];

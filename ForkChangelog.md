@@ -28,6 +28,7 @@
 - Log Level will be INFO by default
 - (RHS) Empty Launchers will be removed from arsenal on each Arsenal Manage tick
 - Cities will change loalty to rebels when their respective faction is defeated
+- Top info string will reflect factions current status
 - Fixed various typos
 
 ### Removals
