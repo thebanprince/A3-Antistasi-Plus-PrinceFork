@@ -70,11 +70,11 @@ switch(_vehicleType) do {
 
 if (!isNil "_shopLookupArrayIndex" && {_shopLookupArrayIndex != -1}) then {
     switch (true) do {
-        case(_shopLookupArrayIndex == 0 && {tierWar > 3}): {
-           _price = _price * 0.85;
-        };
         case(_shopLookupArrayIndex == 0 && {tierWar > 6}): {
             _price = _price * 0.7;
+        };
+        case(_shopLookupArrayIndex == 0 && {tierWar > 3}): {
+           _price = _price * 0.85;
         };
         case(_shopLookupArrayIndex == 1 && {tierWar > 6}): {
             _price = _price * 0.75;
@@ -82,7 +82,7 @@ if (!isNil "_shopLookupArrayIndex" && {_shopLookupArrayIndex != -1}) then {
     };
 };
 
-vehiclePurchase_cost = _price;
+vehiclePurchase_cost = round _price;
 
 private _resourcesFIA = player getVariable "moneyX";
 

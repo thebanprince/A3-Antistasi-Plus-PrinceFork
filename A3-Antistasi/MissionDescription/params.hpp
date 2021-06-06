@@ -337,9 +337,9 @@ class Params
      };
      class factionsDefeat
      {
-          title = "Enemy Factions Defeat (EXPERIMENTAL)";
+          title = "Enemy Factions Defeat";
           values[] = {9999, 1, 0};
-          texts[] =  {"Default (Factions can be defeated for good (only by players))", "Factions can be defeated for good (only by players)", "Disable"};
+          texts[] =  {"Default (Factions can be defeated for good)", "Factions can be defeated for good", "Disable"};
           default = 9999;
      };
      
