@@ -17,8 +17,12 @@ class SCRT
     class Encounter 
     {
         file = "SCRT\Encounter";
-        class encounter_gameEventCheckLoop {};
-        class encounter_spawnPursuers {};
+        class encounter_gameEventLoop {};
+        class encounter_civHeli {};
+        class encounter_police {};
+        class encounter_vehicleMove {};
+        class encounter_vehiclePatrol {};
+        class encounter_postAmbush {};
     };
 
 	class Loot 

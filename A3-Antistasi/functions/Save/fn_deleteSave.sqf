@@ -1,15 +1,6 @@
 params ["_campaignID", "_worldname", ["_gametype", "Greenfor"]];
 
-private _postfix = if (_worldName == "Tanoa") then {
-	format["%1%2WoTP",serverID,_campaignID];
-} else {
-	if (_gametype == "Blufor") then {
-		format["%1%2AntistasiB%3",serverID,_campaignID,_worldName];
-	} else {
-		format["%1%2Antistasi%3",serverID,_campaignID,_worldName]; 
-	};
-};
-
+private _postfix = format["%1%2Antistasi%3",serverID,_campaignID,_worldName]; 
 
 // Delete all known player data for specified campaign
 private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix, []];

@@ -1,6 +1,9 @@
 # Changelog
 ## 1.6
 ###
+- Tanoa support
+- Virolahti support
+- Chernarus 2020 newest update support
 - New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
 - (CUP, RHS, 3CB Factions) Military bases and airports will have howitzers instead of mortars on artillery positions
 - Included military bases into possible mortar support locations
@@ -9,7 +12,10 @@
 - APCs in militia vehicle pool
 - Chemical Airstrike 2.0 - refactored code, invaders will use it too, damage zone is affected by wind, new visual effects
 - Civilian Presence city dynamic city size, waypoints can be not on roads too
+- Random Events first implementation with Police Vehicle Patrol, Civilian Helicopter Fly By, Utility Truck Movement, Military Vehicle Patrol and Post-Ambush Vehicle encounters
 - New Arms Dealer item type - gasmasks (can be bought at Misc section in Arms Dealer store)
+- (CUP, RHS, 3CB Factions) Chernarus Defence Force (CDF) Unit Roster
+- (CUP, 3CB Factions) Horizon Islands Legion (HIL) Unit Roster
 
 ### Changes
 - Radioman call support time reduced to 45 seconds, cooldown to 15 minutes
@@ -19,7 +25,6 @@
 - Fixed wrong invader T1 infantry loadouts
 - AT static on top of big towers has been replaced with MG/GMG (depends on faction and modset)
 - Fixed Kill Collaborationist POW issue
-- Civilian Presence waypoints can be not on roads too
 - Added APCs into Single Attack fallback vehicle pool
 - SF radiomen will have the ability to call support
 - Single Attack may roll armored vehicles response  
@@ -36,12 +41,7 @@
 - Removed Grenadier and Autorifleman slots, merged their abilities with the Rifleman and Team Leader (Riflemen got carry capacity, audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
 - Removed Fatal Wounds
 - Removed "Should Explosives become unlocked?" mission parameter
-
-## 1.5.6
-### Additions
-- Virolahti support
-- Chernarus 2020 newest update support
-- (CUP, RHS, 3CB Factions) CDF Template
+- Removed Pursuers
 
 ## 1.5.5
 ### Additions

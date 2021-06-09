@@ -13,14 +13,6 @@
 
 params ["_distance", "_center", "_side"];
 
-_result = [];
+private _players = call BIS_fnc_listPlayers select {side _x == _side && {_x distance2D _center <= _distance}};
 
-_allPlayers = call BIS_fnc_listPlayers;
-
-{
-    if(side _x == _side && {_x distance2D _center <= _distance}) then {
-        _result pushBack _x;
-    };
-} forEach (call BIS_fnc_listPlayers);
-
-_result
+_players

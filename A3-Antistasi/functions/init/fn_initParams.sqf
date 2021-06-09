@@ -99,7 +99,7 @@ A3A_paramTable = [
     ["playerStartingMoney", "playerStartingMoney", [], 200],
     ["rallyPointSpawnCount", "rallyPointSpawnCount", [], 10],
     ["factionsDefeat", "factionsDefeat", [], true],
-    // ["areRandomEventsEnabled", "randomEvents", [], false],
+    ["areRandomEventsEnabled", "randomEvents", [], true],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
     ["unflipPersonCount", "unflipPersonCount", [], 3],
     ["playerIcons", "playerIcons", [], true],

@@ -112,8 +112,6 @@ DECLARE_SERVER_VAR(traderPosition, []);
 //Trader discount.
 DECLARE_SERVER_VAR(traderDiscount, 0);
 //Latest pursuers spawn time
-//TODO: Disabled until random events full implementation
-// DECLARE_SERVER_VAR(pursuersTime, 0);
 //Players who attend in parachute jumps
 DECLARE_SERVER_VAR(paradropAttendants, []);
 
@@ -386,6 +384,7 @@ private _templateVariables = [
 	"vehNATOMRLS",
 	"vehNATOMRLSMags",
 	"vehNATONormal",
+	"vehNATOUtilityTrucks",
 	"vehNATOAir",
 	"vehFIAArmedCar",
 	"vehFIATruck",
@@ -462,6 +461,7 @@ private _templateVariables = [
 	"vehCSATMRLS",
 	"vehCSATMRLSMags",
 	"vehCSATNormal",
+	"vehCSATUtilityTrucks",
 	"vehCSATAir",
 	"CSATMG",
 	"CSATGMG",
@@ -715,8 +715,7 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
 
 private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
-_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike];
-_vehNormal append [vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel];
+_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
 private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];

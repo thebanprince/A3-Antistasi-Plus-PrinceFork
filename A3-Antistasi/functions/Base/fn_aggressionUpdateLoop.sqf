@@ -15,8 +15,7 @@ while {true} do
     sleep 60;
 
     //Sleep if no player is online
-    if (isMultiplayer && (count (allPlayers - (entities "HeadlessClient_F")) == 0)) then
-    {
+    if (count (allPlayers - (entities "HeadlessClient_F")) == 0) then {
         waitUntil {sleep 10; (count (allPlayers - (entities "HeadlessClient_F")) > 0)};
     };
 

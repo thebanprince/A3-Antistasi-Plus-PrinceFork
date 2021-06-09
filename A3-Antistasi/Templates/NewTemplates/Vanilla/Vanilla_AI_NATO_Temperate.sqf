@@ -61,9 +61,9 @@
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate; 				
 
 
-["vehiclesMilitiaLightArmed", ["I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate; 
-["vehiclesMilitiaTrucks", ["I_Truck_02_covered_F", "I_Truck_02_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["I_C_Offroad_02_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["I_MRAP_03_gmg_F"]] call _fnc_saveToTemplate; 
+["vehiclesMilitiaTrucks", ["I_Truck_02_covered_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["I_MRAP_03_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaApcs", ["I_E_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;

@@ -13,7 +13,7 @@ Dependencies:
 private _filename = "selector.sqf";
 //Map checker
 private _aridMaps = ["altis"];
-private _tropicalMaps = ["panthera3"];
+private _tropicalMaps = ["panthera3", "tanoa"];
 private _temperateMaps = ["enoch", "vt7", "cup_chernarus_a3", "napf", "abramia", "taviana"];
 //Mod selector
 
@@ -23,14 +23,17 @@ private _terrainName = toLower worldName;
 switch(true) do{
     case (A3A_has3CBFactions): {
         switch(true) do {
-            case (_terrainName in _temperateMaps);
             case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate Napa Template", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\3CBF\3CBF_Reb_SDK.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Tropical SDK Template", _filename] call A3A_fnc_log;
+            };
+            case (_terrainName in _temperateMaps): {
+                ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Temperate CHDZZ Template", _filename] call A3A_fnc_log;
             };
             default {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using arid Napa Templates", _filename] call A3A_fnc_log;
+                ["Templates\NewTemplates\3CBF\3CBF_Reb_FIA.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using Arid FIA Template", _filename] call A3A_fnc_log;
             };
         };
     };
@@ -104,6 +107,10 @@ switch(true) do {
             case (1): { //CDF
                 ["Templates\NewTemplates\3CBF\3CBF_AI_CDF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
                 [2, "Using CDF Template", _filename] call A3A_fnc_log;
+            };
+            case (2): { //HIL
+                ["Templates\NewTemplates\3CBF\3CBF_AI_HIL.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using HIL Template", _filename] call A3A_fnc_log;
             };
         };
     };

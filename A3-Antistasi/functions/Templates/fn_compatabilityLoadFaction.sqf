@@ -227,6 +227,8 @@ if (_side isEqualTo east) then {
 		+ (_faction getVariable "vehiclesFuelTrucks")
 		+ (_faction getVariable "vehiclesMedical");
 
+	vehCSATUtilityTrucks = (_faction getVariable "vehiclesAmmoTrucks") + (_faction getVariable "vehiclesRepairTrucks") + (_faction getVariable "vehiclesFuelTrucks") + (_faction getVariable "vehiclesMedical");
+
 	vehCSATAir =
 		  vehCSATTransportHelis
 		+ vehCSATAttackHelis
@@ -453,6 +455,8 @@ if (_side isEqualTo west) then {
 		+ (_faction getVariable "vehiclesRepairTrucks")
 		+ (_faction getVariable "vehiclesFuelTrucks")
 		+ (_faction getVariable "vehiclesMedical");
+
+	vehNATOUtilityTrucks = (_faction getVariable "vehiclesAmmoTrucks") + (_faction getVariable "vehiclesRepairTrucks") + (_faction getVariable "vehiclesFuelTrucks") + (_faction getVariable "vehiclesMedical");
 
 	vehNATOAir =
 		  vehNATOTransportHelis
