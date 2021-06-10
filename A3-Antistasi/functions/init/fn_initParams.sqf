@@ -106,7 +106,8 @@ A3A_paramTable = [
     ["magRepack", "magRepack", [], true],
     ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],
     ["threecbfOccupantFaction", "threecbfOccupantFaction", ["server"], 0],
-    ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0]
+    ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0],
+    ["aiControlTime", "aiControlTime", [], 60]
     // beware of the comma
 ];
 

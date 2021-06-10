@@ -132,7 +132,7 @@ _loadoutData setVariable ["APMines", ["rhs_mine_ozm72_a_mag", "rhs_mine_ozm72_b_
 _loadoutData setVariable ["lightExplosives", ["rhs_ec200_mag"]]; 			
 _loadoutData setVariable ["heavyExplosives", ["rhs_ec400_mag"]]; 			
 
-_loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
+_loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]]; 			
 
@@ -365,7 +365,7 @@ _policeLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_fakel", "rhs_m
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_emr_des_patchless"]];
-_militiaLoadoutData setVariable ["vests", ["rhs_6sh92_digi"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["vests", ["rhs_6sh92_digi"]];			
 _militiaLoadoutData setVariable ["SLvests", ["rhs_6sh92_digi_headset", "rhs_6sh92_digi_radio"]];
 _militiaLoadoutData setVariable ["GLvests", ["rhs_6sh92_digi_vog", "rhs_6sh92_digi_vog_headset"]];
 _militiaLoadoutData setVariable ["backpacks", ["rhs_sidor"]];

@@ -132,7 +132,7 @@ _loadoutData setVariable ["APMines", ["APERSMine_Range_Mag", "APERSBoundingMine_
 _loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			
 _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			
 
-_loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_M67", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
+_loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_M67", "MiniGrenade"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
@@ -465,10 +465,10 @@ _militiaLoadoutData setVariable ["uniforms", [
 	"CUP_U_B_BDUv2_gloves_Tigerstripe",
 	"CUP_U_B_BDUv2_dirty_Tigerstripe",
 	"CUP_U_B_BDUv2_Tigerstripe"
-]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["vests", ["CUP_V_B_ALICE", "CUP_V_B_PASGT_no_bags_OD", "CUP_V_B_PASGT_OD"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+]];		
+_militiaLoadoutData setVariable ["vests", ["CUP_V_B_ALICE", "CUP_V_B_PASGT_no_bags_OD", "CUP_V_B_PASGT_OD"]];			
 _militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_sgg", "B_FieldPack_oli"]];		
-_militiaLoadoutData setVariable ["helmets", ["CUP_H_PASGTv2_tigerstripe", "CUP_H_US_patrol_cap_tigerstripe", "CUP_H_PASGTv2_NVG_OD", "H_Bandanna_khk", "H_Booniehat_oli"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["helmets", ["CUP_H_PASGTv2_tigerstripe", "CUP_H_US_patrol_cap_tigerstripe", "CUP_H_PASGTv2_NVG_OD", "H_Bandanna_khk", "H_Booniehat_oli"]];		
 _militiaLoadoutData setVariable ["lightATLaunchers", [
 	["CUP_launch_MAAWS", "", "", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 	["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],

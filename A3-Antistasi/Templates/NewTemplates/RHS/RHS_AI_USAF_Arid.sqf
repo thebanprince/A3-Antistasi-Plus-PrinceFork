@@ -130,7 +130,7 @@ _loadoutData setVariable ["APMines", ["rhsusf_mine_m14_mag"]];
 _loadoutData setVariable ["lightExplosives", ["rhsusf_m112_mag"]]; 			
 _loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag"]]; 			
 
-_loadoutData setVariable ["antiInfantryGrenades", []]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
+_loadoutData setVariable ["antiInfantryGrenades", []]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc", "rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]]; 			
 

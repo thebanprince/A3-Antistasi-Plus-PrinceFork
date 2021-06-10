@@ -193,6 +193,13 @@ class Params
         texts[] = {"Default (Sometimes)","Never","Sometimes","Often","Always"};
         default = 9999;
     };
+    class aiControlTime
+    {
+        title = "AI Control Time Limit";
+        values[] = {9999,60,120,300,900,1800};
+        texts[] = {"Default (60 seconds)","1 minute","2 minutes","5 minutes","15 minutes", "30 minutes"};
+        default = 9999;
+    };
     class Spacer11
     {
         title = "";

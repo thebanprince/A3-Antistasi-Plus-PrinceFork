@@ -140,7 +140,7 @@ _loadoutData setVariable ["APMines", ["APERSMine_Range_Mag", "APERSBoundingMine_
 _loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			
 _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			
 
-_loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
+_loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
@@ -346,10 +346,10 @@ _policeLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_militiaLoadoutData setVariable ["uniforms", ["U_I_E_Uniform_01_shortsleeve_F", "U_I_E_Uniform_01_sweater_F", "U_I_E_Uniform_01_tanktop_F"]];		//this line determines uniforms for militia loadouts -- Example: ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt"] -- Array, can contain multiple assets
-_militiaLoadoutData setVariable ["vests", ["V_Chestrig_rgr", "V_BandollierB_rgr", "V_CarrierRigKBT_01_Olive_F", "V_CarrierRigKBT_01_light_EAF_F"]];			//this line determines vests for militia loadouts -- Example: ["V_PlateCarrierSpec_mtp", "V_PlateCarrierGL_mtp"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["uniforms", ["U_I_E_Uniform_01_shortsleeve_F", "U_I_E_Uniform_01_sweater_F", "U_I_E_Uniform_01_tanktop_F"]];		
+_militiaLoadoutData setVariable ["vests", ["V_Chestrig_rgr", "V_BandollierB_rgr", "V_CarrierRigKBT_01_Olive_F", "V_CarrierRigKBT_01_light_EAF_F"]];			
 _militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_rgr"]];		
-_militiaLoadoutData setVariable ["helmets", ["H_PASGT_basic_olive_F", "H_HelmetIA", "H_Beret_EAF_01_F", "H_Bandanna_khk", "H_Booniehat_eaf", "H_Booniehat_oli"]];		//this line determines helmets for police loadouts -- Example: ["H_HelmetB_camo", "H_HelmetB_desert"] -- Array, can contain multiple assets
+_militiaLoadoutData setVariable ["helmets", ["H_PASGT_basic_olive_F", "H_HelmetIA", "H_Beret_EAF_01_F", "H_Bandanna_khk", "H_Booniehat_eaf", "H_Booniehat_oli"]];		
 
 _militiaLoadoutData setVariable ["rifles", [
 ["arifle_TRG20_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],

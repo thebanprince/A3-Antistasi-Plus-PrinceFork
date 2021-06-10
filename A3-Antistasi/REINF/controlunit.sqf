@@ -47,7 +47,7 @@ _eh2 = _unit addEventHandler ["HandleDamage",
 	}];
 selectPlayer _unit;
 
-_timeX = 60;
+private _timeX = aiControlTime;
 
 _unit addAction ["Return Control to AI",{selectPlayer leader (group (_this select 0))}];
 

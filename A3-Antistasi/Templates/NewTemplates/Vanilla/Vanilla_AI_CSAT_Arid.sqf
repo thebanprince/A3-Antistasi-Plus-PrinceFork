@@ -133,7 +133,7 @@ _loadoutData setVariable ["APMines", ["APERSMine_Range_Mag", "APERSBoundingMine_
 _loadoutData setVariable ["lightExplosives", ["DemoCharge_Remote_Mag"]]; 			
 _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]]; 			
 
-_loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		//this line determines anti infantry grenades (frag and such) -- Example: ["HandGrenade", "MiniGrenade"] -- Array, can contain multiple assets
+_loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
 _loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
