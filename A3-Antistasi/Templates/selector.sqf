@@ -13,7 +13,7 @@ Dependencies:
 private _filename = "selector.sqf";
 //Map checker
 private _aridMaps = ["altis"];
-private _tropicalMaps = ["panthera3", "tanoa"];
+private _tropicalMaps = ["panthera3", "tanoa", "UMB_Colombia"];
 private _temperateMaps = ["enoch", "vt7", "cup_chernarus_a3", "napf", "abramia", "taviana"];
 //Mod selector
 
@@ -166,6 +166,16 @@ switch(true) do {
                         [2, "Using arid BAF Templates", _filename] call A3A_fnc_log;
                     };
                 };
+            };
+            case (2): { //CDF
+                switch(true) do {
+                    ["Templates\NewTemplates\Cup\Cup_AI_CDF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                    [2, "Using CDF Template", _filename] call A3A_fnc_log;
+                };
+            };
+            case (3): { //HIL
+                ["Templates\NewTemplates\Cup\Cup_AI_HIL.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using HIL Template", _filename] call A3A_fnc_log;
             };
         };
     };

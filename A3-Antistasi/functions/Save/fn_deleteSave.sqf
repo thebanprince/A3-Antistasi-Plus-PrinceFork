@@ -1,6 +1,6 @@
 params ["_campaignID", "_worldname", ["_gametype", "Greenfor"]];
 
-private _postfix = format["%1%2Antistasi%3",serverID,_campaignID,_worldName]; 
+private _postfix = format["%1%2AntistasiPlus%3",serverID,_campaignID,_worldName]; 
 
 // Delete all known player data for specified campaign
 private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix, []];
@@ -31,12 +31,12 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 
 
 // Remove this campaign from the save list, if present
-private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+private _saveList = [profileNamespace getVariable "antistasiPlusSavedGames"] param [0, [], [[]]];
 private _saveIndex = -1;
 {
 	if (_x select 0 == _campaignID) exitWith { _saveIndex = _forEachIndex };
 } forEach _saveList;
 
 _saveList deleteAt _saveIndex;
-profileNamespace setVariable ["antistasiSavedGames", _saveList];
+profileNamespace setVariable ["antistasiPlusSavedGames", _saveList];
 

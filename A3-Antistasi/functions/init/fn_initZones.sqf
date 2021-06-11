@@ -295,6 +295,12 @@ switch (toLower worldName) do {
 		_blackListPos = [];
 	    antennas = [];
 	};
+	case "umb_colombia": {
+		_posAntennas = [[10140.9,9579.71,0],[9614.93,10466.5,0],[11332.7,12526,0],[18871.3,15535.8,0]];
+	    _posBank = [];
+		_blackListPos = [];
+	    antennas = [];
+	};
 	default {
 		antennas = nearestObjects [[worldSize /2, worldSize/2], ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base", "Land_Telek1"], worldSize];
 
