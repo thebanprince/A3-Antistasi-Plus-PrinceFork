@@ -3,7 +3,6 @@
 ###
 - Tanoa support
 - Virolahti support
-- Chernarus 2020 newest update support
 - New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
 - (CUP, RHS, 3CB Factions) Military bases and airports will have howitzers instead of mortars on artillery positions
 - Included military bases into possible mortar support locations
@@ -35,6 +34,7 @@
 - Cities will change loalty to rebels when their respective faction is defeated
 - Top info string will reflect factions current status
 - Fixed various typos
+- (Panthera) seaport_3 objects fix
 
 ### Removals
 - Removed Trader on HQ mission parameter with tied functionality
