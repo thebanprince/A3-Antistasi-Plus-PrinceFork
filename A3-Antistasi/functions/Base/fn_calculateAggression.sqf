@@ -58,15 +58,15 @@ switch (true) do {
 //invaders
 switch (true) do {
     case (!areInvadersDefeated && {_newInvadersValue < (_levelBoundsInvaders select 0)}): {
-        aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
-        publicVariable "aggressionLevelOccupants";
-        _notificationText = format ["%1 aggression level reduced to %2<br/>", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
+        aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
+        publicVariable "aggressionLevelInvaders";
+        _notificationText = format ["%1%2 aggression level reduced to %3", _notificationText, nameInvaders, [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
     case (!areInvadersDefeated && {_newInvadersValue > (_levelBoundsInvaders select 1)}): {
-        aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
-        publicVariable "aggressionLevelOccupants";
-        _notificationText = format ["%1 aggression level increased to %2<br/>", nameOccupants, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
+        aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
+        publicVariable "aggressionLevelInvaders";
+        _notificationText = format ["%1%2 aggression level increased to %3<br/>", _notificationText, nameInvaders, [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
 };
