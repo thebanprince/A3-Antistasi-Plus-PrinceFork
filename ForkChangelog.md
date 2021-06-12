@@ -17,6 +17,7 @@
 - (CUP, 3CB Factions) Horizon Islands Legion (HIL) Unit Roster
 
 ### Changes
+- Interrogations and recon planes reveal positions to AI rebels too
 - Separate save ID for Antistasi Plus (prevents Antistasi Community Version saves loading which does not work on Antistasi Plus)
 - Radioman call support time reduced to 45 seconds, cooldown to 15 minutes
 - Changed respawn key from E to R when laying unconscious
