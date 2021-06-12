@@ -17,7 +17,7 @@ autoSaveTime = time + autoSaveInterval;
 } forEach (call A3A_fnc_playableUnits);
 
 // Check if this campaign is already in the save list
-private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+private _saveList = [profileNamespace getVariable "antistasiPlusSavedGames"] param [0, [], [[]]];
 private _saveIndex = -1;
 {
 	if (_x select 0 == campaignID) exitWith { _saveIndex = forEachIndex };
@@ -27,7 +27,7 @@ private _saveIndex = -1;
 if (_saveIndex == -1) then {
 	private _gametype = if (teamPlayer isEqualTo independent) then {"Greenfor"} else {"Blufor"};
 	_saveList pushBack [campaignID, worldName, _gametype];
-	profileNamespace setVariable ["antistasiSavedGames", _saveList];
+	profileNamespace setVariable ["antistasiPlusSavedGames", _saveList];
 };
 
 // Update the legacy campaign ID store
@@ -71,8 +71,6 @@ private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["areOccupantsDefeated", areOccupantsDefeated] call A3A_fnc_setStatVariable;
 ["areInvadersDefeated", areInvadersDefeated] call A3A_fnc_setStatVariable;
 ["traderPosition", traderPosition] call A3A_fnc_setStatVariable;
-//TODO: Disabled until random events full implementation
-// ["pursuersTime", pursuersTime] call A3A_fnc_setStatVariable;
 
 //Save aggression values
 ["aggressionOccupants", [aggressionLevelOccupants, aggressionStackOccupants]] call A3A_fnc_setStatVariable;

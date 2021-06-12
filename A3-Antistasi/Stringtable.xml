@@ -1730,39 +1730,28 @@
         <Korean>자유보다 중요한건 없기에.</Korean>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_short_text">
-        <Original>Antistasi Tanoa</Original>
-        <English>Antistasi Tanoa</English>
-        <Russian>Antistasi Таноа</Russian>
+        <Original>Antistasi Plus - Horizon Islands</Original>
+        <English>Antistasi Plus - Horizon Islands</English>
+        <French>Antistasi Plus -  Îles Horizon</French>
+        <German>Antistasi Plus - Horizontinseln</German>
+        <Czech>Antistasi Plus - Horizon Islands</Czech>
+        <Russian>Antistasi Plus - Острова Горизонта</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_mapname_text">
-        <Original>Antistasi - Warlords of the Pacific</Original>
-        <English>Antistasi - Warlords of the Pacific</English>
-        <French>Antistasi - Les Seigneurs de Guerre du Pacifique</French>
-        <Russian>Antistasi - Хозяева Тихого Океана</Russian>
-        <German>Antistasi - Warlords of the Pacific</German>
-        <Czech>Antistasi - Vojevůdci Pacifiku</Czech>
-        <Korean>안티스타시 - 태평양의 군벌</Korean>
-        <Chinesesimp>Antistasi - 太平洋军阀之战</Chinesesimp>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_tanoa_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
-        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
-        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
-        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
-        <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
-        <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
-        <Chinesesimp>作为抵抗运动的领袖,与优势敌人使用游击战术灵活作战,有18个左右的支线任务.</Chinesesimp>
+        <Original>Antistasi Plus - Horizon Islands</Original>
+        <English>Antistasi Plus - Horizon Islands</English>
+        <French>Antistasi Plus -  Îles Horizon</French>
+        <German>Antistasi Plus - Horizontinseln</German>
+        <Czech>Antistasi Plus - Horizon Islands</Czech>
+        <Russian>Antistasi Plus - Острова Горизонта</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_tanoa_blurb_text">
-        <Original>Business and War...</Original>
-        <English>Business and War...</English>
-        <French>Les Affaires et la Guerre...</French>
-        <Russian>Бизнес и Война ...</Russian>
-        <German>Geschäft und Krieg...</German>
-        <Czech>Obchod a válka ...</Czech>
-        <Korean>사업과 전쟁</Korean>
-        <Chinesesimp>商业与战争...</Chinesesimp>
+        <Original>A pack of old men in a job where people die young.</Original>
+        <English>A pack of old men in a job where people die young.</English>
+        <French>Une meute de vieillards dans un travail où les gens meurent jeunes.</French>
+        <Russian>Стая стариков там, где люди умирают молодыми.</Russian>
+        <German>Ein Rudel alter Männer in einem Job, in dem Menschen jung sterben.</German>
+        <Czech>Balíček starých mužů v práci, kde lidé umírají mladí.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_livonia_mapname_short_text">
         <Original>Antistasi Plus - Horizon Scan</Original>
@@ -1922,8 +1911,8 @@
         <Russian>Antistasi Plus - Летняя Война</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_vt7_blurb_text">
-        <Original>They are not there.</Original>
-        <English>They are not there.</English>
+        <Original>They are not here.</Original>
+        <English>They are not here.</English>
         <German>Sie sind nicht da.</German>
         <French>Ils ne sont pas là.</French>
         <Czech>Nejsou tam.</Czech>

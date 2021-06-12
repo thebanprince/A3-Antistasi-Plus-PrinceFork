@@ -229,6 +229,7 @@ private _tablePosition = _buildingPositions select _buildingPosIndex;
 
 private _desk = createVehicle ["Land_CampingTable_small_F", _tablePosition, [], 0, "CAN_COLLIDE"];
 _desk setVelocity [0, 0, -1];
+_desk setDir (getDir _building);
 
 //Await until desk have hit the group, it tend to stuck in the air otherwise
 sleep 5;

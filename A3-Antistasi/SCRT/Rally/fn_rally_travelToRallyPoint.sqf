@@ -54,7 +54,7 @@ while {_timePassed < _distanceX} do {
 
 {
     _unit = _x;
-    if ((!isPlayer _unit || _unit == player) && player distance2D _unit < 100 && vehicle _unit == _unit) then {
+    if (!isPlayer _unit || _unit == player) then {
         _unit allowDamage false;
         if (!(_unit getVariable ["incapacitated",false])) then {
             _positionX = _positionX findEmptyPosition [1,25,typeOf _unit];

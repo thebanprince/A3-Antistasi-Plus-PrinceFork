@@ -27,7 +27,7 @@ if (isMultiplayer) then {
 	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
 };
 
-// Maintain a profilenamespace array called antistasiSavedGames
+// Maintain a profilenamespace array called antistasiPlusSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
 
 campaignID = profileNameSpace getVariable ["ss_CampaignID",""];
@@ -39,8 +39,8 @@ call
 	};
 
 	// Otherwise, check through the saved game list for matches and build existing ID list
-	private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
-	private _gametype = if (side petros == independent) then {"Greenfor"} else {"Blufor"};
+	private _saveList = [profileNamespace getVariable "antistasiPlusSavedGames"] param [0, [], [[]]];
+	private _gametype = "Greenfor";
 	private _existingIDs = [campaignID];
 	{
 		if (_x isEqualType [] && {count _x >= 2}) then
@@ -191,10 +191,10 @@ distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 
-//TODO: Disabled until random events full implementation
-// if(areRandomEventsEnabled) then {
-// 	[] spawn SCRT_fnc_encounter_gameEventCheckLoop;
-// };
+if(areRandomEventsEnabled) then {
+	[] spawn SCRT_fnc_encounter_gameEventLoop;
+};
+
 savingServer = false;
 
 // Autosave loop. Save if there were any players on the server since the last save.

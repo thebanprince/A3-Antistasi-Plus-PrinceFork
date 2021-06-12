@@ -99,14 +99,15 @@ A3A_paramTable = [
     ["playerStartingMoney", "playerStartingMoney", [], 200],
     ["rallyPointSpawnCount", "rallyPointSpawnCount", [], 10],
     ["factionsDefeat", "factionsDefeat", [], true],
-    // ["areRandomEventsEnabled", "randomEvents", [], false],
+    ["areRandomEventsEnabled", "randomEvents", [], true],
     ["fastTravelIndividualEnemyCheck", "fastTravelEnemyCheck", [], true],
     ["unflipPersonCount", "unflipPersonCount", [], 3],
     ["playerIcons", "playerIcons", [], true],
     ["magRepack", "magRepack", [], true],
     ["rhsOccupantFaction", "rhsOccupantFaction", ["server"], 0],
     ["threecbfOccupantFaction", "threecbfOccupantFaction", ["server"], 0],
-    ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0]
+    ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0],
+    ["aiControlTime", "aiControlTime", [], 60]
     // beware of the comma
 ];
 

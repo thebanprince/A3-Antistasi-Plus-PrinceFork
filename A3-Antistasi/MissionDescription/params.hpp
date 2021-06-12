@@ -193,6 +193,13 @@ class Params
         texts[] = {"Default (Sometimes)","Never","Sometimes","Often","Always"};
         default = 9999;
     };
+    class aiControlTime
+    {
+        title = "AI Control Time Limit";
+        values[] = {9999,60,120,300,900,1800};
+        texts[] = {"Default (60 seconds)","1 minute","2 minutes","5 minutes","15 minutes", "30 minutes"};
+        default = 9999;
+    };
     class Spacer11
     {
         title = "";
@@ -217,8 +224,8 @@ class Params
      class cupOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0, 1};
-		texts[]={"Default (USAF)", "USAF", "BAF"};
+		values[]={9999, 0, 1, 2, 3};
+		texts[]={"Default (USAF)", "USAF", "BAF", "CDF", "HIL"};
 		default = 9999;
      };
      class Spacer62
@@ -238,8 +245,8 @@ class Params
      class rhsOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0};
-		texts[]={"Default (USAF)", "USAF"};
+		values[]={9999, 0, 1};
+		texts[]={"Default (USAF)", "USAF", "CDF"};
 		default = 9999;
      };
      class Spacer231
@@ -259,8 +266,8 @@ class Params
      class threecbfOccupantFaction
      {
           title="Select Occupant Faction";
-		values[]={9999, 0};
-		texts[]={"Default (USAF)", "USAF"};
+		values[]={9999, 0, 1, 2};
+		texts[]={"Default (USAF)", "USAF", "CDF", "HIL"};
 		default = 9999;
      };
 
@@ -282,22 +289,21 @@ class Params
      {
           title="Time Multiplier";
 		values[]={9999, 1, 6, 12, 24};
-		texts[]={"Default(1:1 (Normal))","1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
+		texts[]={"Default (1:1 (Normal))","1:1 (Normal)","1:6 (Day = 4 Hours)","1:12 (Day = 2 Hours)","1:24 (Day = 1 Hour)"};
 		default = 9999;
      };
-     //TODO: disabled until random events implementation
-     // class randomEvents
-     // {
-     //      title = "Enable Random Events (EXPERIMENTAL)";
-     //      values[] = {9999, 1, 0};
-     //      texts[] =  {"Default (Yes)","Yes","No"};
-     //      default = 9999;
-     // };
+     class randomEvents
+     {
+          title = "Enable Random Events";
+          values[] = {9999, 1, 0};
+          texts[] =  {"Default (Yes)","Yes","No"};
+          default = 9999;
+     };
      class unflipPersonCount
      {
           title="How many persons required to unflip vehicle";
 		values[]={9999, 1, 2, 3, 4};
-		texts[]={"Default(1)","1","2","3","4"};
+		texts[]={"Default (1)","1","2","3","4"};
 		default = 9999;
      };
      class magRepack
@@ -337,9 +343,9 @@ class Params
      };
      class factionsDefeat
      {
-          title = "Enemy Factions Defeat (EXPERIMENTAL)";
+          title = "Enemy Factions Defeat";
           values[] = {9999, 1, 0};
-          texts[] =  {"Default (Factions can be defeated for good (only by players))", "Factions can be defeated for good (only by players)", "Disable"};
+          texts[] =  {"Default (Factions can be defeated for good)", "Factions can be defeated for good", "Disable"};
           default = 9999;
      };
      

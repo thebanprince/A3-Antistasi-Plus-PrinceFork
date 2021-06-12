@@ -403,8 +403,7 @@ if (_winner == teamPlayer) then
 		[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
 	};
 }
-else
-	{
+else {
 	//Remove static weapons near the marker from the saved statics array
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
 	staticsToSave = staticsToSave - _staticWeapons;
@@ -413,31 +412,40 @@ else
 		[_x, _winner, true] call A3A_fnc_vehKilledOrCaptured;
 	} forEach _staticWeapons;
 
-	if (!isNull _flagX) then
-	{
+	if (!isNull _flagX) then {
 		//_flagX setVariable ["isGettingCaptured", nil, true];
-		if (_looser == teamPlayer) then
-		{
+		if (_looser == teamPlayer) then {
 			[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 			sleep 2;
 			[_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 		};
-		if (_winner == Occupants) then
-		{
+		if (_winner == Occupants) then {
 			[_flagX,NATOFlagTexture] remoteExec ["setFlagTexture",_flagX];
 		}
-		else
-		{
+		else {
 			[_flagX,CSATFlagTexture] remoteExec ["setFlagTexture",_flagX];
 		};
 	};
-	if (_looser == teamPlayer) then
-		{
+	if (_looser == teamPlayer) then {
         ([Occupants] + _prestigeOccupants) spawn A3A_fnc_addAggression;
         ([Invaders] + _prestigeInvaders) spawn A3A_fnc_addAggression;
 		if ((random 10 < ((tierWar + difficultyCoef)/4)) and !("DEF_HQ" in A3A_activeTasks) and (isPlayer theBoss)) then {[[],"A3A_fnc_attackHQ"] remoteExec ["A3A_fnc_scheduler",2]};
-		};
 	};
+
+	//if side somehow manages to capture point after their defeat -
+	//for example, attack that was started before last point capture and then succeeded after defeat,
+	//they can revert their defeat
+	if (areInvadersDefeated && {_winner == Invaders}) then {
+		areInvadersDefeated = false;
+		publicVariable "areInvadersDefeated";
+		"CSAT_carrier" setMarkerAlpha 1;
+	};
+	if (areOccupantsDefeated && {_winner == Occupants}) then {
+		areOccupantsDefeated = false;
+		publicVariable "areOccupantsDefeated";
+		"NATO_carrier" setMarkerAlpha 1;
+	};
+};
 if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 	switch(true) do {
 		case (_markerX in outposts): {
@@ -466,18 +474,6 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 };
 markersChanging = markersChanging - [_markerX];
 
-//if side somehow manages to capture point after their defeat -
-//for example, attack that was started before last point capture and then succeeded after defeat,
-//they can revert their defeat
-if (areInvadersDefeated && {_winner == Invaders}) then {
-	areInvadersDefeated = false;
-    publicVariable "areInvadersDefeated";
-	"CSAT_carrier" setMarkerAlpha 1;
-};
-if (areOccupantsDefeated && {_winner == Occupants}) then {
-	areOccupantsDefeated = false;
-    publicVariable "areOccupantsDefeated";
-	"NATO_carrier" setMarkerAlpha 1;
-};
+[_looser] remoteExecCall ["SCRT_fnc_common_defeatFactionIfPossible", 2];
 
 [3, format ["Finished marker change at %1", _markerX], _fileName] call A3A_fnc_log;

@@ -1,4 +1,50 @@
 # Changelog
+## 1.6
+###
+- Tanoa support
+- Virolahti support
+- New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
+- (CUP, RHS, 3CB Factions) Military bases and airports will have howitzers instead of mortars on artillery positions
+- Included military bases into possible mortar support locations
+- "How many persons required to unflip vehicle" mission parameter
+- Rally Point balance pass (Ticket system (mission parameter), fast travel on it can be only used near HQ, rally point can be only abolished on HQ or near rally point itself)
+- APCs in militia vehicle pool
+- Chemical Airstrike 2.0 - refactored code, invaders will use it too, damage zone is affected by wind, new visual effects
+- Civilian Presence city dynamic city size, waypoints can be not on roads too
+- Random Events first implementation with Police Vehicle Patrol, Civilian Helicopter Fly By, Utility Truck Movement, Military Vehicle Patrol and Post-Ambush Vehicle encounters
+- New Arms Dealer item type - gasmasks (can be bought at Misc section in Arms Dealer store)
+- (CUP, RHS, 3CB Factions) Chernarus Defence Force (CDF) Unit Roster
+- (CUP, 3CB Factions) Horizon Islands Legion (HIL) Unit Roster
+
+### Changes
+- Interrogations and recon planes reveal positions to AI rebels too
+- Separate save ID for Antistasi Plus (prevents Antistasi Community Version saves loading which does not work on Antistasi Plus)
+- Radioman call support time reduced to 45 seconds, cooldown to 15 minutes
+- Changed respawn key from E to R when laying unconscious
+- Fixed inability to move HQ assets on HQ border
+- Fixed error that does not allowed to roll Helicrash and Airdrop missions
+- Fixed wrong invader T1 infantry loadouts
+- AT static on top of big towers has been replaced with MG/GMG (depends on faction and modset)
+- Fixed Kill Collaborationist POW issue
+- Added APCs into Single Attack fallback vehicle pool
+- SF radiomen will have the ability to call support
+- Single Attack may roll armored vehicles response  
+- Rally Point travel will no longer dismount AI units in squad (they will not travel and stay in the vehicle at their origin position)
+- Attempt to fix "trying to send a too large non-guaranteed message" log spam
+- Log Level will be INFO by default
+- (RHS) Empty Launchers will be removed from arsenal on each Arsenal Manage tick
+- Cities will change loalty to rebels when their respective faction is defeated
+- Top info string will reflect factions current status
+- Fixed various typos
+- (Panthera) seaport_3 objects fix
+
+### Removals
+- Removed Trader on HQ mission parameter with tied functionality
+- Removed Grenadier and Autorifleman slots, merged their abilities with the Rifleman and Team Leader (Riflemen got carry capacity, audio and camo coeffs, but lost UAV hacking, Team Leader got UAV hacking instead)
+- Removed Fatal Wounds
+- Removed "Should Explosives become unlocked?" mission parameter
+- Removed Pursuers
+
 ## 1.5.5
 ### Additions
 - Ability to hire MG car team
