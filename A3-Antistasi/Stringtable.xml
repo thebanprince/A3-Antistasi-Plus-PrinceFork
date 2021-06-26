@@ -2569,7 +2569,7 @@
         <French>Comme pour tout mouvement de résistance, le commandement n'est pas aussi stable que dans les États organisés. N'importe quel joueur peut jouer le rôle de commandant de la Faction si l'actuel n'est pas très populaire ... Démontrez vos compétences tout en accomplissant des missions et en tuant des ennemis et peut-être deviendrez-vous le prochain chef.</French>
         <German>Wie üblich in Widerstandsbewegungen, ist die Führung nicht so stabil wie in organisierten Streitkräften. Jeder Spieler kann die Rolle des Fraktionsanführers übernehmen, wenn die Reputation des aktuellen Anführers niedrig ist. Erhöhe deine eigene Reputation durch die Erfüllung von Sekundärmissionen und dem Ausschalten von feindlichen Einheiten und du kannst der nächste Anführer werden.</German>
         <Czech>Stejně jako u každého hnutí odboje, vedení není tak stabilní jako v organizovaných státech. Každý hráč může převzít roli velitele frakcí, pokud současný není příliš populární ... Prokázat své dovednosti při plnění misí a zabíjení nepřátel a možná se stanete dalším vůdcem.</Czech>
-        <Chinesesimp>就像任何抵抗运动一样, 领导层并不像主权国家那样稳定。任何玩家都可以扮演阵营指挥官的角色, 如果现任指挥官不是很受欢迎的话...在完成任务和杀死敌人的同时展示你的技能, 你就有可能成为下一任领袖。</Chinesesimp>
+        <Chinesesimp>就像任何抵抗运动一样, 领导层并不像主权国家那样稳定。任何玩家都可以扮演阵营指挥官的角色, 如果现任指挥官不是很受欢迎的话……在完成任务和杀死敌人的同时展示你的技能, 你就有可能成为下一任领袖。</Chinesesimp>
         <Korean>어느 반군들과 같이, 리더십도 안정적이지 못합니다. 현재 많은 지지를 받지 못하면 다른 플레이어가 지휘관을 맡을 수 있습니다. 훌륭한 작전수행과 사격실력을 보여주면 다음 지휘관이 될 수 있습니다.</Korean>
         <Russian>Как и в случае с любым движением сопротивления, руководство не так стабильно, как в организованных государствах. Любой игрок может взять на себя роль командующего силами фракции, если текущий не очень популярен... Продемонстрируйте свое мастерство, выполняя миссии и убивая врагов, и, возможно, вы станете следующим лидером</Russian>
       </Key>
@@ -2659,7 +2659,7 @@
         <French>Détruisez ou capturez des tours radio afin de gagner la confiance des %1 citoyens.</French>
         <German>Zerstöre oder erobere Funkmaster, um das Vertrauen der Zivilbevölkerung von %1 zu erhöhen.</German>
         <Czech>Zničte nebo obsaďte rádiové věže, abyste si vybudovali důvěru u %1 občanů.</Czech>
-        <Chinesesimp>摧毁或占领无线电塔, 以获取 %1 个公民的信任。</Chinesesimp>
+        <Chinesesimp>摧毁或占领无线电塔, 以获取 %1 公民的信任。</Chinesesimp>
         <Korean>시민들 신뢰 %1를 쌓기 위해 라디오 타워를 파괴하거나 점령하십시오.</Korean>
         <Russian>Уничтожьте или захватите Радиовышки, чтобы завоевать доверие %1 жителей</Russian>
       </Key>
@@ -2857,7 +2857,7 @@
         <French>Pour percer un APC, vous avez besoin de %1 %2. Pour briser un tank, vous avez besoin de %3.</French>
         <German>Um einen Truppentransporter aufzusprengen benötigst du %1 %2.&lt;br/&gt;Für einen Panzer benötigst du %3.</German>
         <Czech>K proražení APC potřebujete %1 %2 K proražení Tanku potřebujete %3</Czech>
-        <Chinesesimp>要爆破装甲运兵车, 你需要%1个%2。要爆破坦克, 你需要%3。</Chinesesimp>
+        <Chinesesimp>要爆破装甲运兵车, 你需要%1 %2。要爆破坦克, 你需要 %3。</Chinesesimp>
         <Korean>장갑차 해치 폭파하기위해선 %1 %2탱크 해치 폭파하기 위해선 %3</Korean>
         <Russian>Чтобы пробить APC вам нужно %1 %2 Чтобы пробить танк вам нужно %3</Russian>
       </Key>
