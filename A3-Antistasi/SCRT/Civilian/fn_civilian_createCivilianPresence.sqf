@@ -42,7 +42,6 @@ _marker2 setMarkerSizeLocal [_size,_size];
 _marker2 setMarkerTypeLocal "hd_warning";
 _marker2 setMarkerAlphaLocal 0;
 
-// setMarkerAlphaLocal 0
 private _buildingSearchIterations = 0;
 while {true} do {
     if (_isCity && {_size > 1000}) exitWith {};

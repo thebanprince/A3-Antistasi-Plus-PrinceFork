@@ -1100,7 +1100,7 @@ class roundsNumber: SimpleMenuBig
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_squad_recruitment_menu_frame_text;
+			text = $STR_antistasi_dialogs_rounds_quantity_title;
 		};
 
 		class l1Button: SimpleButton

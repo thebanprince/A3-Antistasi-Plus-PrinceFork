@@ -14,6 +14,14 @@
       </Key>
     </Container>
     <Container name="simple_menu_dialogs">
+      <Key ID="STR_antistasi_dialogs_rounds_quantity_title">
+        <Original>Select number of rounds to be fired</Original>
+        <English>Select number of rounds to be fired</English>
+        <French>Sélectionnez le nombre de coups à tirer</French>
+        <Russian>Выберите количество выстрелов</Russian>
+        <German>Wählen Sie die Anzahl der abzufeuernden Runden</German>
+        <Czech>Vyberte počet výstřelů</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_build_tooltip">
         <Original>Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.</Original>
         <English>Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.</English>
@@ -3199,10 +3207,7 @@
         <Russian>Авторы сценария</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Credits_1">
-        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen (sorry for including you that late)&lt;br/&gt;Advanced Towing by Seth Duda.</Original>
-        <German>UPSMon von Monsada, Kronzy und Cool=Azroul13.&lt;br/&gt;Persistent Save von zooloo75.&lt;br/&gt;Tags von Marker und Melbo.&lt;br/&gt;JAS von Jeroen (Entschuldige, dass es so lange gedauert hat dich hinzuzufügen)&lt;br/&gt;Advanced Towing von Seth Duda.</German>
-        <Czech>UPSMon od Monsada, Kronzy and Cool = Azroul13 &lt;br/&gt;Trvalé Uložit podle zooloo75.&lt;br/&gt;Štítky Marker a Melbo.&lt;br/&gt;JAS od Jeroen (omlouvám se za to, že jste byli pozdě)&lt;br/&gt;Štítky od Markera a Melba.&lt;br/&gt;Rozšířené tažení od Setha Dudy.</Czech>
-        <Korean>UPSMon 제공 : Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save 제공 : zooloo75.&lt;br/&gt;태그 제공 : Marker and Melbo.&lt;br/&gt;JAS 제공: Jeroen &lt;br/&gt;Advanced Towing 제공 : Seth Duda.</Korean>
+        <Original>UPSMon by Monsada, Kronzy and Cool=Azroul13.&lt;br/&gt;Persistent Save by zooloo75.&lt;br/&gt;Tags by Marker and Melbo.&lt;br/&gt;JAS by Jeroen&lt;br/&gt;Advanced Towing by Seth Duda.&lt;br/&gt;Antistasi Community Edition by Official Antistasi Community.&lt;br/&gt;Magrepack by Outlawled, R3vo and OOster.&lt;br/&gt;HALs_Store by HallyG, R3vo and barman75.&lt;br/&gt;Discord Rich Presence by ConnorAU.&lt;br/&gt;Antistasi Plus fork by Socrates.</Original>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Credits_2">
         <Original>Mods</Original>
@@ -3820,24 +3825,12 @@
         <Original>Select Mortar Ammo</Original>
         <Russian>Выберите боеприпасы для минометов</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_mortar_type_he">
-        <Original>HE</Original>
-        <Russian>ОФ</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he_tooltip">
         <Original>Cost: 10 points</Original>
         <Russian>Цена: 10 Очков</Russian>
       </Key>
-      <Key ID="STR_antistasi_dialogs_mortar_type_smoke">
-        <Original>Smoke</Original>
-        <Russian>Дым</Russian>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mortar_type_laser">
-        <Original>Laser Guided</Original>
-        <Russian>С лазерным наведением</Russian>
-      </Key>
       <Key ID="STR_antistasi_dialogs_rounds_number">
-        <Original>Select No. Rounds to be fired</Original>
+        <Original>Select Quantity Rounds to be fired</Original>
         <Russian>Выберите кол-во снарядов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type">
