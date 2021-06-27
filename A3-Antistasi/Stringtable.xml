@@ -1424,7 +1424,7 @@
         <Original>2.4.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.6</Original>
+        <Original>1.7</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
