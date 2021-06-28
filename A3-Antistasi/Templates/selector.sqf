@@ -50,10 +50,6 @@ switch(true) do{
             };
         };
     };
-    case (A3A_hasAu): {
-        ["Templates\NewTemplates\Au\Au_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-        [2, "Using Temperate NAPA Template", _filename] call A3A_fnc_log;
-    };
     case (A3A_hasCup): {
         switch(true) do {
             case (_terrainName in _temperateMaps);
@@ -134,10 +130,6 @@ switch(true) do {
                 [2, "Using CDF Template", _filename] call A3A_fnc_log;
             };
         };
-    };
-    case (A3A_hasAu): {
-        ["Templates\NewTemplates\Au\Au_AI_BAF_Temperate.sqf", west] call A3A_fnc_compatabilityLoadFaction;
-        [2, "Using AU Temperate BAF Template", _filename] call A3A_fnc_log;
     };
     case (A3A_hasCup): {
         switch(cupOccupantFaction) do {
@@ -224,10 +216,6 @@ switch(true) do{
                 [2, "Using arid AFRF Template", _filename] call A3A_fnc_log;
             };
         };
-    };
-    case (A3A_hasAu): {
-        ["Templates\NewTemplates\Au\Au_AI_PLA_Temperate.sqf", east] call A3A_fnc_compatabilityLoadFaction;
-        [2, "Using AU Temperate CSAT Template", _filename] call A3A_fnc_log;
     };
     case (A3A_hasCup): {
         switch(true) do {
