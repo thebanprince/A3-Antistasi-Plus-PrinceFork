@@ -92,7 +92,9 @@ if (isClass (configFile >> "CfgFactionClasses" >> "rhssaf_faction_army")) then {
 
 if (_activeAfrf || _activeUsaf || _activeGref || _activeSaf) then {
 	if !(_activeAfrf && _activeUsaf && _activeGref && _activeSaf) then {
-		[1, "RHS USAF or RHS GREF or RHS AFRF or RHS SAF detected, but not all of them. Ensure that RHS USAF, RHS GREF, RHS AFRF, RHS SAF mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+    private _text = "RHS USAF or RHS GREF or RHS AFRF or RHS SAF detected, but not all of them. Ensure that RHS USAF, RHS GREF, RHS AFRF, RHS SAF mods are actually enabled and relaunch the mission.";
+    systemChat _text;
+    [1, _text, _fileName] call A3A_fnc_log;
 		["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 	} else {
     A3A_hasRHS = true;
@@ -129,7 +131,9 @@ if(_activeAegis && _activeAtlas && _activeAtlasOpfor && _activePolice) then {
 }
 else {
   if(_activeAegis || _activeAtlas || _activeAtlasOpfor || _activePolice) then {
-    [1, "Arma 3 Aegis or Arma 3 Atlas or Arma 3 Atlas - Opposing Forces or Arma 3 - Police detected, but not all of them. Ensure that Aegis, Atlas, Atlas - Oppsoing Forces and Police mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+    private _text = "Arma 3 Aegis or Arma 3 Atlas or Arma 3 Atlas - Opposing Forces or Arma 3 - Police detected, but not all of them. Ensure that Aegis, Atlas, Atlas - Oppsoing Forces and Police mods are actually enabled and relaunch the mission.";
+    systemChat _text;
+    [1, _text, _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
   };
 };
@@ -158,18 +162,24 @@ if(_activeCupUnits && _activeCupWeapons && _activeCupVehicles) then {
 } else {
   //if at least one of these mods enabled - shut down mission
   if(_activeCupUnits || _activeCupWeapons || _activeCupVehicles) then {
-    [1, "One of CUP mods detected, but not all of them. Ensure that CUP Vehicles, CUP Units and CUP Weapons mods are actually enabled and relaunch the mission.", _fileName] call A3A_fnc_log;
+    private _text = "One of CUP mods detected, but not all of them. Ensure that CUP Vehicles, CUP Units and CUP Weapons mods are actually enabled and relaunch the mission.";
+    systemChat _text;
+    [1, _text, _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
   };
 };
 
 if (A3A_has3CBFactions && (!_activeAfrf || !_activeUsaf || !_activeGref || !_activeSaf)) then {
-  [1, "3CB Factions should be used together with all RHS mods - AFRF, USAF, GREF and SAF. Enable those mods to proceed.", _fileName] call A3A_fnc_log;
+  private _text = "3CB Factions should be used together with all RHS mods - AFRF, USAF, GREF and SAF. Enable those mods to proceed.";
+  systemChat _text;
+  [1, _text, _fileName] call A3A_fnc_log;
 	["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
 if((_activeAfrf || _activeUsaf || _activeGref || _activeSaf) && (_activeCupUnits || _activeCupWeapons || _activeCupVehicles)) then {
-	[1, "CUP Units/Vehicles/Weapons and RHS simultaneously are not supported and leads to inconsistent and buggy experience. Choose either RHS or CUP modset to proceed.", _fileName] call A3A_fnc_log;
+	private _text = "CUP Units/Vehicles/Weapons and RHS simultaneously are not supported and leads to inconsistent and buggy experience. Choose either RHS or CUP modset to proceed.";
+  systemChat _text;
+  [1, _text, _fileName] call A3A_fnc_log;
 	["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
