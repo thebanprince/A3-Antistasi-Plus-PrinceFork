@@ -3,8 +3,6 @@ if (!isServer and hasInterface) exitWith {};
 private _markerX = _this select 0;
 private _positionX = getMarkerPos _markerX;
 
-private _props = [];
-
 private _radiusX = 1;
 private _garrison = garrison getVariable [_markerX, []];
 private _veh = objNull;
@@ -33,20 +31,10 @@ private _roadcon = roadsConnectedto (_road select 0);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
-private _barricade1Position = [(_roadPosition select 0) - 2, (_roadPosition select 1) + 2, 0];
-private _barricade1 = "Land_Barricade_01_10m_F" createVehicle _barricade1Position;
-_barricade1 setDir _dirveh;
-
-private _barricade2Position = [(_roadPosition select 0) + 4, (_roadPosition select 1) - 2, 0];
-private _barricade2 = "Land_Barricade_01_4m_F" createVehicle _barricade2Position;
-_barricade2 setDir _dirveh;
-
-_props pushBack _barricade1;
-_props pushBack _barricade2;
-
-{
-	_x setVectorUp surfaceNormal position _x;
-} forEach _props;
+private _barricadePosition = if(count _roadcon > 0) then { getPos (_roadcon select 0); } else {[(_roadPosition select 0) - 2, (_roadPosition select 1) + 2, 0]};
+private _barricade = "Land_Barricade_01_10m_F" createVehicle _barricadePosition;
+_barricade setDir _dirveh;
+_barricade setVectorUp surfaceNormal position _barricade;
 
 if ((SDKMil select 0) in _garrison) then {
     _veh = vehSDKLightArmed createVehicle getPos (_road select 0);
@@ -97,7 +85,3 @@ if (!isNull _veh) then {
     deleteVehicle _x 
 } forEach units _groupX;
 deleteGroup _groupX;
-
-{
-	deleteVehicle _x;
-} forEach _props;
