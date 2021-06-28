@@ -112,8 +112,8 @@ class Params
     class unlockItem
     {
         title = "Number of the same item required to unlock";
-        values[] = {9999,25,30,35,40,45,50};
-        texts[] = {"Default (25)","25","30","35","40","45","50"};
+        values[] = {9999,25,30,35,40,45,50,100,200,500};
+        texts[] = {"Default (25)","25","30","35","40","45","50","100","200","500"};
         default = 9999;
     };
     class memberOnlyMagLimit
@@ -416,13 +416,6 @@ class Params
     class Enoch
     {
         title = "Allow Items and Vehicles from Contact DLC?";
-        values[] = {9999,1,0};
-        texts[] = {"Default (No)","Yes","No"};
-        default = 9999;
-    };
-    class OfficialMod
-    {
-        title = "Allow ADR-97 DLC?";
         values[] = {9999,1,0};
         texts[] = {"Default (No)","Yes","No"};
         default = 9999;
