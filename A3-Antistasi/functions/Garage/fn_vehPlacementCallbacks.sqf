@@ -274,10 +274,6 @@ switch (_callbackTarget) do {
 			};
 
 			case CALLBACK_VEH_PLACED_SUCCESSFULLY: {
-				//No return needed.
-				// private _construction = _callbackParams param [0];
-				// constructionsToSave pushBack _construction;
-				// publicVariable "constructionsToSave";
 			};
 
 			case CALLBACK_VEH_CUSTOM_CREATE_VEHICLE: {

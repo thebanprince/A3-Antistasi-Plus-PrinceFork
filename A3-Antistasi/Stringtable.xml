@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi Mission">
-    <Container name="dialog_load_previous_session">
-      <Key ID="STR_antistasi_dialogs_lps_frame_text">
-        <Original>Load previous personal save?</Original>
-        <English>Load previous personal save?</English>
-        <French>Charger la sauvegarde précédente?</French>
-        <Russian>Загрузить предыдущее персональное сохранение?</Russian>
-        <German>Letzten persönlichen Spielstand laden?</German>
-        <Czech>Načíst předchozí osobní relaci?</Czech>
-        <Chinesesimp>是否加载以前的个人保存？</Chinesesimp>
-        <Korean>이전 저장 데이터를 로드 하시겠습니까?</Korean>
-      </Key>
-    </Container>
+  <Container name="construction_removal">
+    <Key ID="STR_antistasi_dialogs_construction_removal_title">
+      <Original>Construction Removal</Original>
+      <English>Construction Removal</English>
+      <French>Enlèvement de construction</French>
+      <Russian>Удаление постройки</Russian>
+      <German>Bauabbau</German>
+      <Czech>Stěhování</Czech>
+    </Key>
+    <Key ID="STR_antistasi_dialogs_construction_removal_no_trait">
+      <Original>Only engineers and commander can remove constructions.</Original>
+      <English>Only engineers and commander can remove constructions.</English>
+      <French>Seuls les ingénieurs et le commandant peuvent supprimer des constructions.</French>
+      <Russian>Удалять постройки могут только инженеры и командир.</Russian>
+      <German>Nur Ingenieure und Kommandanten können Konstruktionen entfernen.</German>
+      <Czech>Konstrukce mohou odstraňovat pouze inženýři a velitel.</Czech>
+    </Key>
+    <Key ID="STR_antistasi_dialogs_construction_removal_no_valid_construction">
+      <Original>You're not looking at removable construction.</Original>
+      <English>You're not looking at removable construction.</English>
+      <French>Vous ne cherchez pas une construction amovible.</French>
+      <Russian>Вы смотрите на невалидный объект для удаления.</Russian>
+      <German>Sie betrachten keine abnehmbare Konstruktion.</German>
+      <Czech>Nedíváte se na odnímatelnou konstrukci.</Czech>
+    </Key>
+    <Key ID="STR_antistasi_dialogs_construction_removal_success">
+      <Original>Construction has been successfully removed.</Original>
+      <English>Construction has been successfully removed.</English>
+      <French>La construction a été supprimée avec succès.</French>
+      <Russian>Постройка успешно удалена.</Russian>
+      <German>Die Konstruktion wurde erfolgreich entfernt.</German>
+      <Czech>Stavba byla úspěšně odstraněna.</Czech>
+    </Key>
+  </Container>
     <Container name="simple_menu_dialogs">
       <Key ID="STR_antistasi_dialogs_rounds_quantity_title">
         <Original>Select number of rounds to be fired</Original>
@@ -23,12 +45,20 @@
         <Czech>Vyberte počet výstřelů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_tooltip">
-        <Original>Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.</Original>
-        <English>Allows engineer to select construction type, it's position and then build it. Use arrow keys to switch construction type.</English>
-        <French>Permet à l'ingénieur de sélectionner le type de construction, sa position, puis de le construire. Utilisez les touches fléchées pour changer de type de construction.</French>
-        <Russian>Позволяет инженеру выбрать тип конструкции, её позицию и затем построить её. Используйте клавиши стрелок для смены типа конструкции.</Russian>
-        <German>Ermöglicht dem Ingenieur, den Konstruktionstyp und seine Position auszuwählen und dann zu erstellen. Verwenden Sie die Pfeiltasten, um die Bauart zu wechseln.</German>
-        <Czech>Umožňuje technikovi vybrat typ konstrukce, její polohu a poté ji postavit. K přepnutí typu konstrukce použijte klávesy se šipkami.</Czech>
+        <Original>Enters building construction mode where you can select construction type, it's position and then build it. Use arrow keys to switch construction type. Commander or Engineer only.</Original>
+        <English>Enters building construction mode where you can select construction type, it's position and then build it. Use arrow keys to switch construction type. Commander or Engineer only.</English>
+        <French>Entre en mode de construction de bâtiment où vous pouvez sélectionner le type de construction, sa position, puis le construire. Utilisez les touches fléchées pour changer de type de construction. Commandant ou Ingénieur uniquement.</French>
+        <Russian>Переходит в режим постройки, где вы можете выбрать тип конструкции, её позицию и затем построить её. Используйте клавиши стрелок для смены типа конструкции. Доступно только для инженера или командира.</Russian>
+        <German>Ruft den Gebäudebaumodus auf, in dem Sie den Bautyp und seine Position auswählen und dann bauen können. Verwenden Sie die Pfeiltasten, um den Bautyp zu wechseln. Nur Kommandant oder Ingenieur.</German>
+        <Czech>Vstupuje do režimu konstrukce budovy, kde můžete vybrat typ konstrukce, její polohu a poté ji postavit. K přepnutí typu konstrukce použijte klávesy se šipkami. Pouze velitel nebo inženýr.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_remove_construction_tooltip">
+        <Original>Removes construction you're looking at. Commander or Engineer only.</Original>
+        <English>Removes construction you're looking at. Commander or Engineer only.</English>
+        <French>Supprime la construction que vous regardez. Commandant ou Ingénieur uniquement.</French>
+        <Russian>Убирает строение, на которое вы смотрите. Доступно только для командира или инженера.</Russian>
+        <German>Entfernt die angezeigte Konstruktion. Nur Kommandant oder Ingenieur.</German>
+        <Czech>Odstraní konstrukci, na kterou se díváte. Pouze velitel nebo inženýr.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_select_strike_type">
         <Original>Select type of strike</Original>
@@ -53,6 +83,14 @@
         <Russian>Заградительный огонь</Russian>
         <German>Sperrfeuer</German>
         <Czech>Příval</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garage">
+        <Original>Garage</Original>
+        <English>Garage</English>
+        <French>Garage</French>
+        <Russian>Гараж</Russian>
+        <German>Garage</German>
+        <Czech>Garáž</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_personal_garage">
         <Original>Personal Garage</Original>
@@ -629,12 +667,28 @@
      </Container>
     <Container name="simple_menu_actions_and_tooltips">
      <Key ID="STR_antistasi_dialogs_build">
-        <Original>Build</Original>
-        <English>Build</English>
-        <French>Construire</French>
-        <Russian>Построить</Russian>
-        <German>Bauen</German>
-        <Czech>Stavět</Czech>
+        <Original>Build Construction</Original>
+        <English>Build Construction</English>
+        <French>Construire Construction</French>
+        <Russian>Построить строение</Russian>
+        <German>Build Konstruktion</German>
+        <Czech>Stavět stavby</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_remove_construction">
+        <Original>Remove Construction</Original>
+        <English>Remove Construction</English>
+        <French>Supprimer le bâtiment</French>
+        <Russian>Убрать строение</Russian>
+        <German>Gebäude entfernen</German>
+        <Czech>Odstraňte budovu</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_remove_construction_confirmation">
+        <Original>Remove Construction?</Original>
+        <English>Remove Construction?</English>
+        <French>Supprimer la construction?</French>
+        <Russian>Убрать строение?</Russian>
+        <German>Konstruktion entfernen?</German>
+        <Czech>Odstranit konstrukci?</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy">
         <Original>Buy</Original>
@@ -2193,24 +2247,6 @@
         <Korean>공습 포인트를 사용하면 지정된 유형의 폭격을 합니다.</Korean>
         <Russian>Используйте свои очки авиаудара, чтобы выполнить бомбардировку указанного типа.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander_8">
-        <Original>Artillery</Original>
-        <French>Artillerie</French>
-        <German>Artillerie</German>
-        <Czech>Dělostřelectvo</Czech>
-        <Chinesesimp>炮击支援</Chinesesimp>
-        <Korean>포병</Korean>
-        <Russian>Артиллерия</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_text_commander_8">
-        <Original>Mounted mortar teams may be used as artillery support. Select a mortar team using the High Command bar, and press SHIFT + Y in-game to call in a mortar fire mission.</Original>
-        <French>Les équipes de mortiers montés peuvent être utilisées comme support d'artillerie. Sélectionnez une équipe de mortiers à l'aide de la barre de haut commandement et appuyez sur SHIFT + Y dans le jeu pour demander un tir de mortier.</French>
-        <German>Stationierte Mörserteams können als Artillerieunterstützung eingesetzt werden. Wähle ein Mörserteam über die Oberbefehlsleiste und drücke Shift + Z, um einen Artillerieschlag anzufordern.</German>
-        <Czech>Umístěné minometné týmy mohou být použity jako dělostřelecká podpora. Vyberte minometný tým nad panelem příkazů a stisknutím shift + Z požádejte o dělostřelecký úder.</Czech>
-        <Chinesesimp>迫击炮部队可以作为炮兵支援.使用高级命令栏选择迫击炮小组,并在游戏中按SHIFT+Y调用迫击炮火力任务.</Chinesesimp>
-        <Korean>설치된 박격포 팀은 포격지원으로 사용할 수 있습니다. High Command (컨트롤 + 스페이스)를 사용하여 박격포팀을 선택하고 SHIFT + Y를 눌러 박격포 포격 지원을 호출하면 됩니다.</Korean>
-        <Russian>Минометные расчеты могут использоваться в качестве артиллерийской поддержки. Выберите минометную команду с помощью панели высшего командования и нажмите SHIFT + Y в игре, чтобы вызвать минометную огневую задачу.</Russian>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_9">
         <Original>Recruit Squad</Original>
         <French>Recruter une escouade</French>
@@ -2373,24 +2409,6 @@
         <Korean>지휘관일때, 컨트롤 + 스페이스를 누르면 High Command 로 AI분대에 way-point를 주거나 명령을 하달합니다. 지휘관이 아닌경우 아군 통신 네트워크로 적 발견 보고를 할수있습니다.</Korean>
         <Russian>Когда вы являетесь командиром, нажмите CTRL + ПРОБЕЛ, чтобы отдать команды вашим отрядам ИИ, используя режим HC. Некомандующие могут использовать его для проверки контактов с противником, сообщаемых сетью связи фракции.</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
-        <Original>Artillery</Original>
-        <French>Artillerie</French>
-        <German>Artillerie</German>
-        <Czech>Dělostřelectvo</Czech>
-        <Chinesesimp>炮兵部队</Chinesesimp>
-        <Korean>포병</Korean>
-        <Russian>Артиллерия</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
-        <Original>Press SHIFT + Y in-game while having an artillery squad selected on the HC bar.</Original>
-        <French>Appuyez sur SHIFT + Y dans le jeu tout en ayant une escouade d'artillerie sélectionnée sur la barre HC.</French>
-        <German>Drücke im Spiel Shift + Z während du eine Artilleriegruppe in der Oberbefehlsleiste ausgewählt hast.</German>
-        <Czech>Stiskněte ve hře SHIFT + Z zatímco dělostřelecké družstvo je vybráno na panelu štábu.</Czech>
-        <Chinesesimp>在游戏中按下SHIFT+Y,同时在小队栏上选择一个炮兵小队.</Chinesesimp>
-        <Korean>High Command로 포반을 선택한 상태에서 시프트 + Y를 누르시오.</Korean>
-        <Russian>Нажмите SHIFT + Y в игре, выбрав артиллерийский отряд на панели управления.</Russian>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_4">
         <Original>Group Manager</Original>
         <French>Gestion de groupe</French>
@@ -2426,6 +2444,20 @@
         <Chinesesimp>按END启用 / 关闭 耳塞. 使用ACE时禁用.</Chinesesimp>
         <Korean>END키로 이어플러그 탈부착이 가능합니다. ACE모드에선 불가능.</Korean>
         <Russian>Нажмите END, чтобы включить/отключить беруши. Отключено при использовании ACE.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_6">
+        <Original>Commander Menu</Original>
+        <French>Menu Commandant</French>
+        <German>Commander-Menü</German>
+        <Czech>Nabídka Commander</Czech>
+        <Russian>Меню командира</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
+        <Original>Press Y to enter Commander Menu.</Original>
+        <French>Appuyez sur Y pour accéder au menu Commandant.</French>
+        <German>Drücken Sie Y, um das Commander-Menü aufzurufen.</German>
+        <Czech>Stisknutím tlačítka Y otevřete nabídku Commander.</Czech>
+        <Russian>Нажмите Y, чтобы попасть в меню командира стороны.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>

@@ -88,6 +88,7 @@ class SCRT
         class ui_toggleCommanderMenu {};
         class ui_createConstructionMenu {};
         class ui_prepareConstructionBuild {};
+        class ui_prepareConstructionRemoval {};
         class ui_setBuildTypeCostText {};
         class ui_setAvailableVehicleTypes {};
         class ui_createVehicleBlackMarketMenu {};

@@ -487,6 +487,43 @@ class vehQuery: SimpleMenuSmall
 	};
 };
 
+class constructionRemovalConfirmation: SimpleMenuSmall
+{
+	idd=123;
+	onLoad = "";
+	onUnload = "";
+
+	class Controls
+	{
+		class title: SimpleTitle
+		{
+			idc = 1244;
+			text = $STR_antistasi_dialogs_remove_construction_confirmation;
+		};
+
+		class yesButton: SimpleButton
+		{
+			idc = 104;
+			text = $STR_antistasi_dialogs_generic_button_yes_text;
+			tooltip = $STR_antistasi_dialogs_generic_button_yes_tooltip;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
+			colorBackground[] = {"0.376","0.125","0.043",0.9};
+			action = "closeDialog 0; removeConstruction = true;";
+		};
+		
+		class noButton: SimpleButton
+		{
+			idc = 105;
+			text = $STR_antistasi_dialogs_generic_button_no_text;
+			tooltip = $STR_antistasi_dialogs_generic_button_no_tooltip;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
+			action = "closeDialog 0; removeConstruction = nil;";
+		};
+	};
+};
+
 class aiManagement: SimpleMenuBigger 
 {
 	idd = -1;
@@ -755,6 +792,17 @@ class constructionMenu: SimpleMenuSmall
 			y = 0.304 * safezoneH + safezoneY;
 			w = 0.183333 * safezoneW;	
 			h = 0.0222222 * safezoneH;
+		};
+
+		class r1Button: SimpleButton
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_remove_construction;
+			tooltip = $STR_antistasi_dialogs_remove_construction_tooltip;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.262 * safezoneH + safezoneY;	
+			colorBackground[] = {"0.376","0.125","0.043",0.9};
+			action = "[] spawn SCRT_fnc_ui_prepareConstructionRemoval;";
 		};
 
 		class r2Button: SimpleButton
@@ -1026,7 +1074,7 @@ class garageCheck: SimpleMenuSmall
 		class title: SimpleTitle
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_lps_frame_text;
+			text = $STR_antistasi_dialogs_garage;
 		};
 
 		class l1Button: SimpleButton
