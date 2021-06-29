@@ -1,5 +1,5 @@
 #define KEY_Y 21
-#define KEY_O 24
+#define KEY_HOME 199
 #define KEY_END 207
 #define KEY_TAB 15
 
@@ -29,7 +29,7 @@ switch (true) do {
 			};
 		};
 	};
-	case (_key == KEY_O): {
+	case (_key == KEY_HOME): {
 		[] call SCRT_fnc_ui_toggleCommanderMenu;
 	};
 	case (_key == KEY_TAB): {

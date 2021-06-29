@@ -358,10 +358,16 @@ if (_varName in _specialVarLoads) then {
                     [Occupants] spawn A3A_fnc_rebelAttack;
                 };
 			} else {
-				if (_x == "DEF_HQ") then {
-					[] spawn A3A_fnc_attackHQ;
-				} else {
-					[_x,clientOwner,true] call A3A_fnc_missionRequest;
+				switch (_x) do {
+					case "DEF_HQ": {
+						[] spawn A3A_fnc_attackHQ;
+					};
+					case "ENC": {
+						[] remoteExec ["SCRT_fnc_trader_prepareTraderQuest", 2];
+					};
+					default {
+						[_x,clientOwner,true] call A3A_fnc_missionRequest;
+					};
 				};
 			};
 		} forEach _varvalue;

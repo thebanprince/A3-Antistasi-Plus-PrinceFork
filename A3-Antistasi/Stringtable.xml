@@ -2453,11 +2453,11 @@
         <Russian>Меню командира</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
-        <Original>Press Y to enter Commander Menu.</Original>
-        <French>Appuyez sur Y pour accéder au menu Commandant.</French>
-        <German>Drücken Sie Y, um das Commander-Menü aufzurufen.</German>
-        <Czech>Stisknutím tlačítka Y otevřete nabídku Commander.</Czech>
-        <Russian>Нажмите Y, чтобы попасть в меню командира стороны.</Russian>
+        <Original>Press HOME to enter Commander Menu.</Original>
+        <French>Appuyez sur HOME pour accéder au menu Commandant.</French>
+        <German>Drücken Sie HOME, um das Commander-Menü aufzurufen.</German>
+        <Czech>Stisknutím tlačítka HOME otevřete nabídku Commander.</Czech>
+        <Russian>Нажмите HOME, чтобы попасть в меню командира стороны.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
