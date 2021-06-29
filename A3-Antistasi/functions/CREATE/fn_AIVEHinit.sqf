@@ -105,19 +105,7 @@ if (_typeX in (vehNormal + vehAttack + vehBoats + vehAA)) then {
 			{
 				if (A3A_hasRHS and ((_typeX == staticATteamPlayer) or (_typeX == staticAAteamPlayer))) then {[_veh,"moveS"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh]};
 			};
-			if (_typeX == SDKMortar) then
-			{
-			    _veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
-			};
 		};
-	};
-};
-
-if (!(additionalShopArtillery isEqualTo [])) then {
-	private _model = _typeX call A3A_fnc_classNameToModel;
-
-	if (_model in noArtilleryComputerVehicles) then {
-		_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
 	};
 };
 
@@ -139,9 +127,12 @@ private _artilleryTypes = vehMRLS + additionalShopArtillery + [CSATMortar, NATOM
 if (NATOHowitzer != "") then {_artilleryTypes pushBack NATOHowitzer};
 if (CSATHowitzer != "") then {_artilleryTypes pushBack CSATHowitzer};
 
-if(!_excludeTrails && {_typeX in _artilleryTypes}) then
-{
-    [_veh] call A3A_fnc_addArtilleryTrailEH;
+if(_typeX in _artilleryTypes) then {
+	_veh addEventHandler ["Fired", SCRT_fnc_common_triggerArtilleryResponseEH];
+
+	if (!_excludeTrails) then {
+		[_veh] call A3A_fnc_addArtilleryTrailEH;
+	};
 };
 
 // EH behaviour:
