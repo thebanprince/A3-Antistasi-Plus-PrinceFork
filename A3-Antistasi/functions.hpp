@@ -111,7 +111,6 @@ class A3A
         class stripGearFromLoadout {};
         class teleportVehicleToBase {};
         class timingCA {};
-        class translateVariable {};
         class unlockVehicle {};
         class zoneCheck {};
     };
