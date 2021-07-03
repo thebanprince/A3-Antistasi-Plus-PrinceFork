@@ -34,14 +34,16 @@ if (random 100 < _chance) then {
 
         private _bases = _airports + _milbases;
 
-        if (count _bases > 0) then
-        {
+        if (count _bases > 0) then {
             private _base = selectRandom _bases;
             _sideX = sidesX getVariable [_base,sideUnknown];
+            
+            private _reveal = [_positionX, _sideX] call A3A_fnc_calculateSupportCallReveal;
+
             if (_base in _airports) then {
-                [_artillery, 1.5, ["AIRSTRIKE", "CAS", "QRF"], _sideX, 0.4] remoteExec ["A3A_fnc_sendSupport", 2];
+                [_artillery, _reveal, ["AIRSTRIKE", "CAS", "QRF"], _sideX, 0.4] remoteExec ["A3A_fnc_sendSupport", 2];
             } else {
-                [_artillery, 1.5, ["MORTAR", "QRF"], _sideX, 0.75] remoteExec ["A3A_fnc_sendSupport", 2];
+                [_artillery, _reveal, ["MORTAR", "QRF"], _sideX, 0.75] remoteExec ["A3A_fnc_sendSupport", 2];
             };
         };
 
