@@ -1855,6 +1855,7 @@
         <French>Antistasi Plus - Bleu récolte</French>
         <German>Antistasi Plus - Ernte blau</German>
         <Russian>Antistasi Plus - Лазурный урожай</Russian>
+        <Czech>Antistasi Plus - Harvest Blue</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus2020_mapname_short_text">
         <Original>Antistasi Plus - Harvest Blue</Original>
@@ -1862,6 +1863,7 @@
         <French>Antistasi Plus - Bleu récolte</French>
         <German>Antistasi Plus - Ernte blau</German>
         <Russian>Antistasi Plus - Лазурный урожай</Russian>
+        <Czech>Antistasi Plus - Harvest Blue</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus2020_blurb_text">
         <Original>Bardak is out there.</Original>
@@ -1869,6 +1871,31 @@
         <German>Bardak ist da draußen.</German>
         <French>Bardak est là-bas.</French>
         <Russian>Бардак где-то рядом.</Russian>
+        <Czech>Bardak je někde poblíž. </Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_weferlingen_mapname_text">
+        <Original>Antistasi Plus - Status Red</Original>
+        <English>Antistasi Plus - Status Red</English>
+        <French>Antistasi Plus - Statut Rouge</French>
+        <German>Antistasi Plus - Status Rot</German>
+        <Russian>Antistasi Plus - Код Красный</Russian>
+        <Czech>Antistasi Plus - Stav Červená</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_weferlingen_mapname_short_text">
+        <Original>Antistasi Plus - Status Red</Original>
+        <English>Antistasi Plus - Status Red</English>
+        <French>Antistasi Plus - Statut Rouge</French>
+        <German>Antistasi Plus - Status Rot</German>
+        <Russian>Antistasi Plus - Код Красный</Russian>
+        <Czech>Antistasi Plus - Stav Červená</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_weferlingen_blurb_text">
+        <Original>Sample Text</Original>
+        <English>Sample Text</English>
+        <German>Sample Text</German>
+        <French>Sample Text</French>
+        <Russian>Sample Text</Russian>
+        <Czech>Sample Text</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
         <Original>Antistasi Plus - The Red Dawn</Original>
