@@ -9,14 +9,18 @@
 - Fixed AI Rebel Strike wrong localization string at title
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
 - ADR-97 Official Mod included into base configuration, parameter has been removed
-- Military bases has included into win condition check (previously only airports were counted, rebels required to have majority of terrain's population and all airbases and milbases to win)
+- Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of terrain's population and all airbases and milbases to win)
+- Multiple vehicle for same category support for militia, militia tanks support
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
 - Changed keybinding for Commander Menu and Player Menu to HOME button due to conflicts with some mods that uses O key
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
 - Artillery Response minor fixes
+- All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
+- (3CB Factions, CUP) Replaced Chernarus Police with Gendarmerie on tropical maps 
 - (Aegis) Fixed wrong AUG 3GL mags
 - (CUP) Vanilla weapons and equipment will no longer appear in crates at outposts 
+- (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
 
 ### Removals
 - Removed Antistasi Units template support
