@@ -64,6 +64,7 @@
 ["vehiclesMilitiaTrucks", ["Atlas_O_W_APC_Wheeled_02_rcws_v2_ghex_F", "Atlas_O_W_Truck_02_transport_F", "Atlas_O_W_Truck_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["Atlas_O_W_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", []] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
