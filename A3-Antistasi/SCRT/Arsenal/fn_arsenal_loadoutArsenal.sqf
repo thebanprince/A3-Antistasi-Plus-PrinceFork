@@ -2606,47 +2606,18 @@ switch _mode do {
 		private _loadout = rebelLoadouts get currentRebelLoadout;
 
 		if (isNil "_loadout") then {
-			private _unitType = nil;
-
-			switch (currentRebelLoadout) do {
-				case "rifleman": {
-					_unitType = "loadouts_rebel_militia_Rifleman";
-				};
-				case "autorifleman": {
-					_unitType = "loadouts_rebel_militia_MachineGunner";
-				};
-				case "medic": {
-					_unitType = "loadouts_rebel_militia_medic";
-				};
-				case "engineer": {
-					_unitType = "loadouts_rebel_militia_Engineer";
-				};
-				case "grenadier": {
-					_unitType = "loadouts_rebel_militia_Grenadier";
-				};
-				case "marksman": {
-					_unitType = "loadouts_rebel_militia_sniper";
-				};
-				case "at": {
-					_unitType = "loadouts_rebel_militia_lat";
-				};
-				case "crewman": {
-					_unitType = "loadouts_rebel_militia_staticCrew";
-				};
-			};
-
-			[player, 0, _unitType] call A3A_fnc_equipRebel;
+			[player, 0, currentRebelLoadout] call A3A_fnc_equipRebel;
 		} else {
 			player setUnitLoadout _loadout;
 		};
-
-		currentRebelLoadout = nil;
 	};
 
 	case "Close": {
 		private _commanderLoadout = localNamespace getVariable ["commanderLoadout", [[],[],[],[],[],[],"","",[],["","","","","",""]]];
 		player setUnitLoadout _commanderLoadout;
 		localNamespace setVariable ["commanderLoadout", nil];
+
+		currentRebelLoadout = nil;
 
 		[] call SCRT_fnc_ui_toggleCommanderMenu;
 

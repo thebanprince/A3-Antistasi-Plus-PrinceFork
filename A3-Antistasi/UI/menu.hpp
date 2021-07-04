@@ -1551,7 +1551,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.258 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'rifleman'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_Rifleman'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l1ResetButton: ResetButton
@@ -1561,7 +1561,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.258 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'rifleman' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_Rifleman' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l2ArsenalButton: ArsenalButton
@@ -1571,7 +1571,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'autorifleman'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_MachineGunner'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l2ResetButton: ResetButton
@@ -1581,7 +1581,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'autorifleman' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_MachineGunner' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l3ArsenalButton: ArsenalButton
@@ -1591,7 +1591,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'medic'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_medic'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l3ResetButton: ResetButton
@@ -1601,7 +1601,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'medic' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_medic' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l4ArsenalButton: ArsenalButton
@@ -1611,7 +1611,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.357 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'engineer'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_Engineer'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l4ResetButton: ResetButton
@@ -1621,7 +1621,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.357 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'engineer' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_Engineer' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 		
 		class l5ArsenalButton: ArsenalButton
@@ -1631,7 +1631,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'grenadier'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_Grenadier'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l5ResetButton: ResetButton
@@ -1641,7 +1641,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'grenadier' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_Grenadier' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l6ArsenalButton: ArsenalButton
@@ -1651,7 +1651,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.423 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'marksman'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_sniper'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l6ResetButton: ResetButton
@@ -1661,7 +1661,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.423 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'marksman' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_sniper' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l7ArsenalButton: ArsenalButton
@@ -1671,7 +1671,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.456 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'at'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_lat'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l7ResetButton: ResetButton
@@ -1681,7 +1681,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.456 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'at' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_lat' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 
 		class l8ArsenalButton: ArsenalButton
@@ -1691,7 +1691,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.489 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "currentRebelLoadout = 'crewman'; [] call JN_fnc_arsenal_handleAction;";
+			action = "currentRebelLoadout = 'loadouts_rebel_militia_staticCrew'; [] call JN_fnc_arsenal_handleAction;";
 		};
 
 		class l8ResetButton: ResetButton
@@ -1701,7 +1701,7 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			y = 0.489 * safezoneH + safezoneY;
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "'crewman' call SCRT_fnc_arsenal_clearLoadout;";
+			action = "'loadouts_rebel_militia_staticCrew' call SCRT_fnc_arsenal_clearLoadout;";
 		};
 	};
 };
