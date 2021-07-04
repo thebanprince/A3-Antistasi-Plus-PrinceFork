@@ -466,10 +466,24 @@ class commanderMenu
 					action = "[] call A3A_fnc_FIAskillAdd";		
 				};
 
+				class rebelLoadoutButton: ButtonBase
+				{			
+					idc = 3104;
+					text = $STR_antistasi_dialogs_hq_button_rebel_loadouts_text;
+					tooltip = $STR_antistasi_dialogs_hq_button_rebel_loadouts_tooltip;
+					x = "1 * pixelGridNoUIScale * pixelW";
+					y = "14 * pixelGridNoUIScale * pixelH";
+					w = "22 * pixelGridNoUIScale * pixelW";	
+					h = "3 * pixelGridNoUIScale * pixelH";	
+					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
+					shadow = 2;	
+					action = "createDialog 'rebelLoadoutMenu'";
+				};
+
 				class hqSpacer2: brSpacer 
 				{
-					idc = 3104;					
-					y = "14 * pixelGridNoUIScale * pixelH";	
+					idc = 3105;					
+					y = "18 * pixelGridNoUIScale * pixelH";	
 				};
 
 				class movePetrosButton: ButtonBase

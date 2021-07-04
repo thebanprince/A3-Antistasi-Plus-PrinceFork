@@ -404,6 +404,14 @@
         <German>Beachten Sie, dass die Liste der Rebellenfahrzeuge im Verlauf des Krieges erweitert wird.</German>
         <Czech>Pamatujte, že soupiska rebelských vozidel se bude s vývojem války rozšiřovat.</Czech>
       </Key>
+      <Key ID="STR_antistasi_dialogs_buy_rebel_loadout_text">
+        <Original>Buy Vehicle</Original>
+        <English>Buy Vehicle</English>
+        <French>Acheter un véhicule</French>
+        <Russian>Покупка техники</Russian>
+        <German>Fahrzeug kaufen</German>
+        <Czech>Koupit vozidlo</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_available_missions_frame_text">
         <Original>Available Missions</Original>
         <English>Available Missions</English>
@@ -1007,24 +1015,46 @@
         <Czech>Přestavuje rádiové věže a vojenské budovy na značku. </Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
-        <Original>Train FIA Troops</Original>
-        <English>Train FIA Troops</English>
-        <French>Entrainer les troupes de la FIA</French>
-        <Russian>Тренировать Войска</Russian>
-        <German>FIA Truppen ausbilden</German>
-        <Czech>Vycvičit jednotky FIA</Czech>
-        <Chinesesimp>训练FIA士兵</Chinesesimp>
-        <Korean>FIA 부대 훈련</Korean>
+        <Original>Train Rebel Troops</Original>
+        <English>Train Rebel Troops</English>
+        <French>Former les troupes rebelles</French>
+        <Russian>Тренировать повстанцев</Russian>
+        <German>Rebellentruppen ausbilden</German>
+        <Czech>Trénujte povstalecké jednotky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
-        <Original>Upgrades the AI skill level</Original>
-        <English>Upgrades the AI skill level</English>
-        <French>Améliorer le niveau de l'IA</French>
-        <Russian>Увеличивает уровень готовности войск</Russian>
+        <Original>Upgrades the AI skill level.</Original>
+        <English>Upgrades the AI skill level.</English>
+        <French>Améliorer le niveau de l'IA.</French>
+        <Russian>Улучшает боевые навыки повстанцев.</Russian>
         <German>Erhöht den KI Fähigkeitslevel.</German>
-        <Czech>Vylepší úroveň dovednosti AI</Czech>
+        <Czech>Vylepší úroveň dovednosti AI.</Czech>
         <Chinesesimp>更新AI难度</Chinesesimp>
         <Korean>AI 스킬 레벨 업그레이드</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_text">
+        <Original>Set rebel loadouts</Original>
+        <English>Set rebel loadouts</English>
+        <French>Définir des chargements rebelles</French>
+        <Russian>Настроить снаряжение повстанцев</Russian>
+        <German>Rebellen-Loadouts einstellen</German>
+        <Czech>Nastavit rebel zatížení</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_tooltip">
+        <Original>Allows commander to pick weapons and equipment for rebel troops.</Original>
+        <English>Allows commander to pick weapons and equipment for rebel troops.</English>
+        <French>Permet au commandant de choisir des armes et des équipements pour les troupes rebelles.</French>
+        <Russian>Позволяет командиру выбрать оружие и снаряжение для повстанческих войск.</Russian>
+        <German>Ermöglicht dem Kommandanten, Waffen und Ausrüstung für Rebellentruppen auszuwählen.</German>
+        <Czech>Umožňuje veliteli vybírat zbraně a vybavení pro povstalecké jednotky.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_menu_title_text">
+        <Original>Rebel Loadouts</Original>
+        <English>Rebel Loadouts</English>
+        <French>Chargements rebelles</French>
+        <Russian>Снаряжение повстанцев</Russian>
+        <German>Rebellen-Ausrüstungen</German>
+        <Czech>Výzvy Rebelů</Czech>
       </Key>
     </Container>
     <Container name="dialog_build_menu">

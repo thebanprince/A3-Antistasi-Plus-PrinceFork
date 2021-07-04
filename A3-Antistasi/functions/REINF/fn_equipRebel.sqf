@@ -1,7 +1,7 @@
 // Fully equips a rebel infantry unit based on their class and unlocked gear
 // _recruitType param allows some variation based on recruiting method: 0 recruit, 1 HC squad, 2 garrison
 
-params ["_unit", "_recruitType"];
+params ["_unit", "_recruitType", ["_forceClass", ""]];
 private _filename = "fn_equipRebel";
 
 // Mostly exists because BIS_fnc_addWeapon won't use backpack space properly with AT launchers
@@ -60,8 +60,7 @@ _unit addItemToUniform "FirstAidKit";
 private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
-
-private _unitClass = _unit getVariable "unitType";
+private _unitClass = if (_forceClass != "") then {_forceClass} else {_unit getVariable "unitType"};
 
 switch (true) do {
 	case (_unitClass in SDKSniper): {

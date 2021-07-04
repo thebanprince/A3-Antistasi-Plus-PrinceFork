@@ -1072,6 +1072,58 @@ class RscCloseButton
 	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])", 0};
 };
 
+class RscSimpleMenuButton 
+{
+	type = CT_BUTTON;
+	style = ST_CENTER + ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
+	colorBackgroundDisabled[] = {0, 0, 0, 0.5};
+	colorBackgroundActive[] = {
+		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",
+		1
+	};
+	colorFocused[] = {
+		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
+		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",
+		1
+	};
+	font = "PuristaLight";
+	colorText[] = {1, 1, 1, 1};
+	colorDisabled[] = {1, 1, 1, 0.25};
+	borderSize = 0;
+	colorBorder[] = {0, 0, 0, 0};
+	colorShadow[] = {0, 0, 0, 0};
+	offsetX = 0;
+	offsetY = 0;
+	offsetPressedX = "pixelW";
+	offsetPressedY = "pixelH";
+	period = 0;
+	periodFocus = 2;
+	periodOver = 0.5;
+	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush", 0.09, 1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape", 0.09, 1};
+	colorActive[] = {1, 1, 1, 1};
+	color[] = {1, 1, 1, 1};
+	sizeEx = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])", 0};
+};
+
+class ArsenalButton : RscSimpleMenuButton
+{
+	text = "\a3\3den\data\displays\display3den\entitymenu\arsenal_ca.paa";
+	tooltip = "Opens Arsenal with the current class loadout. To save custom loadout, press SET LOADOUT in Arsenal.";
+};
+
+class ResetButton : RscSimpleMenuButton
+{
+	text = "\a3\3den\data\displays\display3den\toolbar\undo_ca.paa";
+	tooltip = "Resets class loadout to default, randomized state.";
+};
+
 class SimpleMenu
 {
 	movingenable=false;
@@ -1154,6 +1206,33 @@ class SimpleMenuSmall : SimpleMenu
 			x = 0.244979 * safezoneW + safezoneX;
 			y = 0.223941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
+			h = 0.02 * safezoneH;
+			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
+		};
+	};
+};
+
+class SimpleMenuMedium : SimpleMenu
+{
+	class ControlsBackground
+	{
+		class background: BOX
+		{
+			idc = -1;
+			text = "";
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.297 * safezoneH;
+		};
+
+		class titleBackground: BOX
+		{
+			idc = -1;
+			text = "";
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
 			h = 0.02 * safezoneH;
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.376])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.125])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.043])",1};
 		};

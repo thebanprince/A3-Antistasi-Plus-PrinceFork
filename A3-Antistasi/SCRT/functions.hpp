@@ -4,6 +4,8 @@ class SCRT
     {
 		file = "SCRT\Arsenal";
         class arsenal_getSimilarWeapons {};
+        class arsenal_loadoutArsenal {}; 
+        class arsenal_clearLoadout {};
 	};
 
     class Effect 

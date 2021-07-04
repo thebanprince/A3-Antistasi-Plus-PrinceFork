@@ -25,6 +25,7 @@ private _specialVarLoads = [
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "attackCountdownInvaders", "testingTimerIsActive",
 	"traderDiscount", "supportPoints", "isTraderQuestCompleted", "traderPosition", "areOccupantsDefeated", "areInvadersDefeated",
+	"rebelLoadouts",
 	"version"
 ];
 
@@ -419,6 +420,12 @@ if (_varName in _specialVarLoads) then {
 			"CSAT_carrier" setMarkerAlpha 0;
 		};
     };
+
+	if(_varname == 'rebelLoadouts') then {
+        diag_log format ["Rebel Loadouts: %1", str _varvalue];
+        rebelLoadouts = _varvalue;  publicVariable "rebelLoadouts";
+    };
+
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];
 };

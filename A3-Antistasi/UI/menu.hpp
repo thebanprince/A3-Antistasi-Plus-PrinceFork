@@ -1436,3 +1436,272 @@ class buyVehicleMenu: SimpleMenuSmall
 		};
 	};
 };
+
+class rebelLoadoutMenu: SimpleMenuMedium
+{
+	idd = 120000;
+	onUnload ="";
+
+	class Controls
+	{
+		class closeButton: RscCloseButton
+		{
+			idc = -1;
+			x = 0.567031 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.02 * safezoneW;
+			h = 0.02 * safezoneH;
+			action = "closeDialog 0;";
+		};
+
+		class title: SimpleTitle
+		{
+			idc = -1;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.02 * safezoneH;
+			text = $STR_antistasi_dialogs_hq_button_rebel_loadouts_menu_title_text;
+		};
+
+		class l1Text: SimpleText
+		{
+			idc = -1;
+			text = "Militiaman";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.258 * safezoneH + safezoneY; //0.236
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l2Text: SimpleText
+		{
+			idc = -1;
+			text = "Autorifleman";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY; //0.269
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l3Text: SimpleText
+		{
+			idc = -1;
+			text = "Medic";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY; //0.302 
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l4Text: SimpleText
+		{
+			idc = -1;
+			text = "Engineer";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY; //0.335
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l5Text: SimpleText
+		{
+			idc = -1;
+			text = "Grenadier";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY; //0.368
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l6Text: SimpleText
+		{
+			idc = -1;
+			text = "Marksman";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY; //0.401
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l7Text: SimpleText
+		{
+			idc = -1;
+			text = "Antitank Soldier";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY; //0.434
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l8Text: SimpleText
+		{
+			idc = -1;
+			text = "Crewman";
+			x = 0.422656 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY; //0.467
+			w = 0.0773437 * safezoneW;	
+			h = 0.022 * safezoneH;
+		};
+
+		class l1ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.258 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'rifleman'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l1ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.258 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'rifleman' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l2ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'autorifleman'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l2ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.291 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'autorifleman' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l3ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'medic'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l3ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'medic' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l4ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'engineer'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l4ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.357 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'engineer' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+		
+		class l5ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'grenadier'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l5ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'grenadier' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l6ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'marksman'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l6ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.423 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'marksman' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l7ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'at'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l7ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'at' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+
+		class l8ArsenalButton: ArsenalButton
+		{
+			idc = -1;
+			x = 0.54125 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "currentRebelLoadout = 'crewman'; [] call JN_fnc_arsenal_handleAction;";
+		};
+
+		class l8ResetButton: ResetButton
+		{
+			idc = -1;
+			x = 0.561875 * safezoneW + safezoneX;
+			y = 0.489 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+			action = "'crewman' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+	};
+};
