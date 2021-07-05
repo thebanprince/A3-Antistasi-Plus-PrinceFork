@@ -54,6 +54,7 @@ class SCRT
         class misc_createBelonging {};
         class misc_extendPosition {};
         class misc_isInHouse {};
+        class misc_getLoadoutName {};
     };
 
     class UI
