@@ -753,10 +753,6 @@ switch _mode do {
 			if (ctrlenabled _ctrlList) exitwith {_selected = _x;};
 		} foreach [IDCS_LEFT];
 
-		if (_selected == IDC_RSCDISPLAYARSENAL_TAB_UNIFORM) then {
-			['showMessage',[_display, "Uniforms will be not be applied and be randomized."]] call SCRT_fnc_arsenal_loadoutArsenal;
-		};
-
 		["updateItemInfo",[_display,_ctrlList, _index]] call SCRT_fnc_arsenal_loadoutArsenal;
 	};
 
@@ -2594,12 +2590,20 @@ switch _mode do {
 	};
 
 	case "buttonSetLoadoutMenu": {
+		_display = _this select 0;
+
+		private _loadout = getUnitLoadout player;
+		rebelLoadouts set [currentRebelLoadout, _loadout];
+		publicVariable "rebelLoadouts";
+
+		private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+		['showMessage',[_display, format ["%1 loadout has been saved.", _loadoutName]]] call SCRT_fnc_arsenal_loadoutArsenal;
+		playSound "3DEN_notificationDefault";
 	};
 
-
 	case "applyInitialLoadout": {
-		private _loadoutUpper = toUpper currentRebelLoadout;
-		['showMessage',[_display, format ["%1 Loadout Arsenal", _loadoutUpper]]] call SCRT_fnc_arsenal_loadoutArsenal;
+		private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
+		['showMessage',[_display, format ["%1 Loadout Arsenal. Note that custom uniforms will be not applied and still be randomized on actual rebels.", _loadoutName]]] call SCRT_fnc_arsenal_loadoutArsenal;
 
 		localNamespace setVariable ["commanderLoadout", (getUnitLoadout player)];
 

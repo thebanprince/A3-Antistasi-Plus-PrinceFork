@@ -18,6 +18,42 @@ private _addWeaponAndMags = {
 	_unit addMagazines [_magazine, _magCount-1];
 };
 
+private _unitClass = if (_forceClass != "") then {_forceClass} else {_unit getVariable "unitType"};
+private _customLoadout = rebelLoadouts get _unitClass;
+
+if (!isNil "_customLoadout") exitWith {
+	private _uniform = uniform _unit;
+	private _uniformItems = uniformItems _unit;
+
+	_unit setUnitLoadout _customLoadout;
+	systemChat str (uniformItems _unit);
+
+	_unit forceAddUniform _uniform;
+	{_unit addItemToUniform _x} forEach _uniformItems;
+
+	_unit linkItem "ItemMap";
+	_unit linkItem "ItemCompass";
+	_unit linkItem "ItemWatch";
+	if (haveRadio) then {_unit linkItem "ItemRadio"};
+
+	switch (true) do {
+		case (_unitClass in SDKExp): {
+			_unit setUnitTrait ["explosiveSpecialist",true];
+			_unit addItemToBackpack "Toolkit";
+			_unit addItemToBackpack "MineDetector";
+			_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
+		};
+		case (_unitClass in SDKEng): {
+			_unit setUnitTrait ["engineer",true];
+		};
+		case (_unitClass in SDKMedic): {
+			_unit setUnitTrait ["medic",true];
+			_unit addItemToBackpack "Medikit";
+		};
+	};
+
+	[4, format["Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit)], _filename] call A3A_fnc_log;
+};
 
 // Clear everything except standard items and empty uniform
 // Actually fast, unlike a setUnitLoadout with a full loadout
@@ -59,8 +95,6 @@ _unit addItemToUniform "FirstAidKit";
 // this should be improved by categorising grenades properly
 private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
-
-private _unitClass = if (_forceClass != "") then {_forceClass} else {_unit getVariable "unitType"};
 
 switch (true) do {
 	case (_unitClass in SDKSniper): {
