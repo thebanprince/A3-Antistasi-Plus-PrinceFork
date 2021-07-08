@@ -433,7 +433,7 @@ class radioComm: SimpleMenuBigger
 		class r4Button: SimpleButton
 		{
 			idc = -1;
-			text = $STR_antistasi_actions_draw3d_commander_text;
+			text = $STR_antistasi_actions_commander_text;
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.584 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_commander_tooltip;
