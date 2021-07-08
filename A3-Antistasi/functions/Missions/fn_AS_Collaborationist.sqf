@@ -23,7 +23,7 @@ private _destinationName = [_markerX] call A3A_fnc_localizar;
 //building occupation
 ////////////
 private _sites = outposts + airportsX + resourcesX + factories + seaports + milbases;
-private _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F"], 1000, true]; 
+private _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F", "land_gm_euro_office_02"], 1000, true]; 
 
 //we need only intact buildings that are not under some marker
 _appropriateBuildings = _appropriateBuildings select {
@@ -44,24 +44,30 @@ private _tablePositions = nil;
 private _soldierPositions = nil;
 private _collaborantPositions = nil;
 
-switch(true) do {
-    case (_buildingType == "Land_zachytka"): {
+switch(_buildingType) do {
+    case "Land_zachytka": {
         _powPositions = [43, 44, 53, 54, 55, 59, 61];
         _tablePositions = [64];
         _soldierPositions = [0,12,13,14,16,17,18,19,20,21,22,23,25,29,34,38,47,49,56,67,68,69,70,71,72,73,74,75,76,77,78,79];
         _collaborantPositions = [24, 28, 50, 51, 63];
     };
-    case (_buildingType == "Land_PoliceStation_01_F"): {
+    case "Land_PoliceStation_01_F": {
         _powPositions = [0, 4];
         _tablePositions = [6];
         _soldierPositions = [1,2,5,7,8,9,10,11,12];
         _collaborantPositions = [3,6,7];
     };
-    case (_buildingType == "Land_i_Barracks_V2_F"): {
+    case "Land_i_Barracks_V2_F": {
         _powPositions = [15,16,48,49];
         _tablePositions = [11,12,21,22,23,29];
         _soldierPositions = [0,1,2,3,4,5,6,14,17,18,19,24,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
         _collaborantPositions = [10,13,20,27,28,30];
+    };
+    case "land_gm_euro_office_02": {
+        _powPositions = [1,2,3,4];
+        _tablePositions = [12,49,50];
+        _soldierPositions = [13,9,19,20,21,22,23,6,10,33,26,36,37,38,57,34,35,36,37,38,39,40,41,42,43,44,45,52,53,47];
+        _collaborantPositions = [58,62,48,54];
     };
 };
 
@@ -211,11 +217,14 @@ private _roadcon = roadsConnectedto (_road select 0);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_DirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
-private _policeVehicle1 = vehPoliceCar createVehicle getPos (_road select 0);
+private _policeVehClass1 = selectRandom vehPoliceCars;
+private _policeVehClass2 = selectRandom vehPoliceCars;
+
+private _policeVehicle1 = _policeVehClass1 createVehicle getPos (_road select 0);
 _policeVehicle1 setDir _dirveh + 45;
 [_policeVehicle1, Occupants] call A3A_fnc_AIVEHinit;
 
-private _policeVehicle2 = vehPoliceCar createVehicle getPos (_road select 0);
+private _policeVehicle2 = _policeVehClass2 createVehicle getPos (_road select 0);
 _policeVehicle2 setDir _dirveh;
 [_policeVehicle2, Occupants] call A3A_fnc_AIVEHinit;
 

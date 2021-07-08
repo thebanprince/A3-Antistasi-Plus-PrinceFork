@@ -67,10 +67,10 @@ if (!_isEasy) then
 }
 else
 {
-  if (!(_selectedVehicle == vehFIAArmedCar)) then
+  if (!(_selectedVehicle in vehFIAArmedCars)) then
   {
     _typeGroup = if (_side == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv};
-    if (_selectedVehicle == vehFIACar) then
+    if (_selectedVehicle in vehFIACars) then
     {
       _typeGroup = if (_side == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
     };

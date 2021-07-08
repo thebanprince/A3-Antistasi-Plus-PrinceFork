@@ -465,12 +465,13 @@ if (_side isEqualTo west) then {
 		+ vehNATOTransportPlanes;
 
 	
-	vehFIAArmedCar = _faction getVariable "vehiclesMilitiaLightArmed" select 0;
-	vehFIATruck = _faction getVariable "vehiclesMilitiaTrucks" select 0;
-	vehFIACar = _faction getVariable "vehiclesMilitiaCars" select 0;
-	vehFIAAPC = _faction getVariable "vehiclesMilitiaApcs" select 0;
+	vehFIAArmedCars = _faction getVariable "vehiclesMilitiaLightArmed";
+	vehFIATrucks = _faction getVariable "vehiclesMilitiaTrucks";
+	vehFIACars = _faction getVariable "vehiclesMilitiaCars";
+	vehFIAAPC = _faction getVariable "vehiclesMilitiaApcs";
+	vehFIATanks = _faction getVariable "vehiclesMilitiaTanks";
 
-	vehPoliceCar = _faction getVariable "vehiclesPolice" select 0;
+	vehPoliceCars = _faction getVariable "vehiclesPolice";
 
 	NATOMG = _faction getVariable "staticMGs" select 0;
 	staticATOccupants = _faction getVariable "staticAT" select 0;

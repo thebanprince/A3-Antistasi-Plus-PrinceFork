@@ -58,7 +58,7 @@ if !(_owner isEqualTo "" || {getPlayerUID _player isEqualTo _owner}) exitWith { 
 private _typeX = typeOf _veh;
 private _costs = call {
     if (_veh isKindOf "StaticWeapon") exitWith {400};			// in case rebel static is same as enemy statics
-    if (_typeX == vehPoliceCar) exitWith {250};
+    if (_typeX in vehPoliceCars) exitWith {250};
     if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };
     if ((_typeX in arrayCivVeh) or (_typeX in civBoats) or (_typeX in [civBoat,civCar,civTruck])) exitWith {150};
     if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) exitWith {500};

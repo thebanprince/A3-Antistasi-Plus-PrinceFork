@@ -49,7 +49,7 @@ if (sidesX getVariable [_base,sideUnknown] == Occupants) then {
 			if (_typeCar == vehNATOPatrolHeli) then {_typePatrol = "AIR"};
 		}
 		else {
-			_typeCar = selectRandom [vehPoliceCar,vehFIAArmedCar];
+			_typeCar = selectRandom (vehPoliceCars + vehFIAArmedCars);
 		};
 	};
 }

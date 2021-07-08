@@ -49,7 +49,7 @@ private _allVehClassToCrew = [
     [vehHelis, [NATOPilot, CSATPilot, staticCrewTeamPlayer, "C_Man_1"]],
     [vehUAVs, ["B_UAV_AI", "O_UAV_AI", "I_UAV_AI", "C_UAV_AI"]],
     [vehFIA, [FIARiflemanOcc, FIARiflemanInv, staticCrewTeamPlayer, "C_Man_1"]],
-    [[vehPoliceCar], [policeGrunt, policeGrunt, staticCrewTeamPlayer, "C_Man_1"]]       // < vehPoliceCar is a single classname; therefore, it needs to be put into an array.
+    [vehPoliceCars, [policeGrunt, policeGrunt, staticCrewTeamPlayer, "C_Man_1"]]
 ];
 // ⬆ STOP EDITING HERE 👋 THANK YOU, COME AGAIN ⬆
 

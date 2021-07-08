@@ -54,8 +54,8 @@ private _crewManIndex = _groupXUnits findIf {(_x getVariable "unitType") == "loa
 if (_crewManIndex != -1) then {
     private _crewMan = _groupXUnits select _crewManIndex;
     _crewMan moveInGunner _veh;
-    sleep 2;
-    _crewMan lookAt (_crewMan getRelPos [100, _dirveh]); 
+    sleep 1;
+    _crewMan lookAt (_crewMan getRelPos [100, _dirveh]);
 };
 
 

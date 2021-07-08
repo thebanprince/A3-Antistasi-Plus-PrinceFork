@@ -31,7 +31,9 @@ private _roadcon = roadsConnectedto (_road select 0);
 private _dirveh = if(count _roadcon > 0) then {[_road select 0, _roadcon select 0] call BIS_fnc_dirTo} else {random 360};
 private _roadPosition = getPos (_road select 0);
 
-private _policeVehicleData = [(getPos (_road select 0)), _dirveh, vehPoliceCar, Occupants] call A3A_fnc_spawnVehicle;
+private _policeVehicleClass = selectRandom vehPoliceCars;
+
+private _policeVehicleData = [(getPos (_road select 0)), _dirveh, _policeVehicleClass, Occupants] call A3A_fnc_spawnVehicle;
 private _policeVehicle = _policeVehicleData select 0;
 _policeVehicle limitSpeed 50;
 [_policeVehicle, Occupants] call A3A_fnc_AIVEHinit;
@@ -44,7 +46,7 @@ private _policeGroup = _policeVehicleData select 2;
 _groups pushBack _policeGroup;
 _vehicles pushBack _policeVehicle;
 
-private _typeCargoGroup = [vehPoliceCar, Occupants] call A3A_fnc_cargoSeats;
+private _typeCargoGroup = [_policeVehicleClass, Occupants] call A3A_fnc_cargoSeats;
 private _cargoGroup = [_cityPosition, Occupants, _typeCargoGroup, true,false] call A3A_fnc_spawnGroup;
 
 {

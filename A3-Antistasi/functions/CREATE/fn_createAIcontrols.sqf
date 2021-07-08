@@ -21,8 +21,7 @@ _leave = false;
 
 _isControl = if (isOnRoad _positionX) then {true} else {false};
 
-if (_isControl) then
-	{
+if (_isControl) then {
 	if (gameMode != 4) then
 		{
 		if (_sideX == Occupants) then
@@ -30,7 +29,7 @@ if (_isControl) then
 			if ((random 10 > (tierWar + difficultyCoef)) and (!([_markerX] call A3A_fnc_isFrontline))) then
 				{
 				_isFIA = true;
-				}
+				};
 			};
 		}
 	else
@@ -120,7 +119,14 @@ if (_isControl) then
 		};
 	}
 	else {
-		_typeVehX = vehFIAArmedCar;
+		_typeVehX = objNull;
+
+		if(random 10 < (tierWar + difficultyCoef)) then {
+			_typeVehX = selectRandom vehFIAAPC;
+		} else {
+			_typeVehX = selectRandom vehFIAArmedCars;
+		};
+
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -128,15 +134,19 @@ if (_isControl) then
 		sleep 1;
 		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
-		if !(isNull _groupX) then
-			{
+		if !(isNull _groupX) then {
 			private _fiaRifleman = if(_sideX == Occupants) then {FIARiflemanOcc} else {FIARiflemanInv};
 			_unit = [_groupX, _fiaRifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
-			{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
-			};
+			sleep 1;
+			_unit lookAt (_unit getRelPos [100, _dirveh]);
+			{
+				_soldiers pushBack _x; 
+				[_x,"", false] call A3A_fnc_NATOinit;
+			} forEach units _groupX;
 		};
-	}
+	};
+}
 else
 	{
 	_markersX = markersX select {(getMarkerPos _x distance _positionX < distanceSPWN) and (sidesX getVariable [_x,sideUnknown] == teamPlayer)};

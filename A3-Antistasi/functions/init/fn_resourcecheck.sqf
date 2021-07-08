@@ -91,7 +91,10 @@ while {true} do
 	} forEach citiesX;
 
 	if (_popKilled > (_popTotal / 3)) then {["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"]};
-	if ((_popReb > _popGov) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]};
+
+	if (_popReb > _popGov && {((airportsX + milbases) findIf {sidesX getVariable [_x, sideUnknown] != teamPlayer} == -1)}) then {
+		["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0];
+	};
 
 	{
 		if ((sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)) then
@@ -108,7 +111,9 @@ while {true} do
     if(_rebelsCount > 0) then {
         private _incomePerPlayer = round(_totalSalary / _rebelsCount);
         {
-            _x setVariable ["moneyX", ((_x getVariable ["moneyX", 0]) + _incomePerPlayer) max 0, true];
+			private _playerMoney = round (((_x getVariable ["moneyX", 0]) + _incomePerPlayer) max 0);
+			private _owner = owner _x;
+            _x setVariable ["moneyX", _playerMoney, _owner];
             private _paycheckText = format [
                 "<t size='0.6'>%1 got paid <t color='#00FF00'>%2 €</t> for fighting for the freedom!</t>",
                 name _x,

@@ -213,10 +213,10 @@ private _fnc_spawnEscortVehicle = {
 	}
 	else
 	{
-		if (!(_typeVehEsc == vehFIAArmedCar)) then
+		if (!(_typeVehEsc in vehFIAArmedCars)) then
 		{
 			private _typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv};
-			if (_typeVehEsc == vehFIACar) then
+			if (_typeVehEsc in vehFIACars) then
 			{
 				if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
 			};
@@ -231,7 +231,7 @@ private _fnc_spawnEscortVehicle = {
 // Convoy vehicle spawning
 
 // Lead vehicle
-private _typeVehX = if (_sideX == Occupants) then {if (!_isMilitia) then {selectRandom vehNATOLightArmed} else {vehPoliceCar}} else {selectRandom vehCSATLightArmed};
+private _typeVehX = if (_sideX == Occupants) then {if (!_isMilitia) then {selectRandom vehNATOLightArmed} else {selectRandom vehPoliceCars}} else {selectRandom vehCSATLightArmed};
 private _vehLead = [_typeVehX, "Convoy Lead"] call _fnc_spawnConvoyVehicle;
 
 

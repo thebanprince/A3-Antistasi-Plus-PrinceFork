@@ -475,7 +475,7 @@ if(_type == "convoy") then
         _crewUnits = if(_side == Occupants) then {NATOCrew} else {CSATCrew};
 
         //Creating convoy lead vehicle
-        _typeVehLead = if (_side == Occupants) then {if (!_isEasy) then {selectRandom vehNATOLightArmed} else {vehPoliceCar}} else {selectRandom vehCSATLightArmed};
+        _typeVehLead = if (_side == Occupants) then {if (!_isEasy) then {selectRandom vehNATOLightArmed} else {selectRandom vehPoliceCars}} else {selectRandom vehCSATLightArmed};
         _crew = [_typeVehLead, _crewUnits] call A3A_fnc_getVehicleCrew;
         _units pushBack [_typeVehLead, _crew, []];
         _vehicleCount = _vehicleCount + 1;
@@ -504,7 +504,7 @@ if(_type == "convoy") then
           }
           else
           {
-            [vehFIAArmedCar,vehFIATruck,vehFIACar,vehFIAAPC]
+            vehMilitia
           };
         }
         else

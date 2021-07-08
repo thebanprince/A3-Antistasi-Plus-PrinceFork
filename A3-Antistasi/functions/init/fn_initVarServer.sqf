@@ -114,6 +114,8 @@ DECLARE_SERVER_VAR(traderDiscount, 0);
 //Latest pursuers spawn time
 //Players who attend in parachute jumps
 DECLARE_SERVER_VAR(paradropAttendants, []);
+//Stores  custom AI rebel loadouts.
+DECLARE_SERVER_VAR(rebelLoadouts, createHashMap);
 
 //Check if occupants and invaders are defeated
 DECLARE_SERVER_VAR(areOccupantsDefeated, false);
@@ -386,11 +388,12 @@ private _templateVariables = [
 	"vehNATONormal",
 	"vehNATOUtilityTrucks",
 	"vehNATOAir",
-	"vehFIAArmedCar",
-	"vehFIATruck",
+	"vehFIAArmedCars",
+	"vehFIATrucks",
 	"vehFIAAPC",
-	"vehFIACar",
-	"vehPoliceCar",
+	"vehFIATanks",
+	"vehFIACars",
+	"vehPoliceCars",
 	"NATOMG",
 	"staticATOccupants",
 	"staticAAOccupants",
@@ -714,9 +717,12 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
 
-private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks;
-_vehNormal append [vehFIACar,vehFIATruck,vehFIAArmedCar,vehPoliceCar,vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel];
+private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks + vehFIACars + vehFIATrucks + vehFIAArmedCars + vehPoliceCars;
+_vehNormal append [vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
+
+private _vehMilitia = vehNATOCargoTrucks + vehFIACars + vehFIAAPC + vehFIAArmedCars + vehFIATanks;
+DECLARE_SERVER_VAR(vehMilitia, _vehMilitia);
 
 private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
 DECLARE_SERVER_VAR(vehBoats, _vehBoats);
@@ -742,13 +748,13 @@ DECLARE_SERVER_VAR(vehUAVs, _vehUAVs);
 private _vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 DECLARE_SERVER_VAR(vehAmmoTrucks, _vehAmmoTrucks);
 
-private _vehAPCs = vehNATOAPC + vehCSATAPC + [vehFIAAPC];
+private _vehAPCs = vehNATOAPC + vehCSATAPC + vehFIAAPC;
 DECLARE_SERVER_VAR(vehAPCs, _vehAPCs);
 
-private _vehTanks = vehNATOTanks + vehCSATTanks;
+private _vehTanks = vehNATOTanks + vehCSATTanks + vehFIATanks;
 DECLARE_SERVER_VAR(vehTanks, _vehTanks);
 
-private _vehTrucks = vehNATOTrucks + vehCSATTrucks + [vehSDKTruck,vehFIATruck];
+private _vehTrucks = vehNATOTrucks + vehCSATTrucks + vehFIATrucks + [vehSDKTruck];
 DECLARE_SERVER_VAR(vehTrucks, _vehTrucks);
 
 private _vehAA = [vehNATOAA,vehCSATAA];
