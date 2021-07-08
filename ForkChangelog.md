@@ -20,6 +20,7 @@
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
 - Artillery Response minor fixes
 - All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
+- Kill Collaborationist tasks will be not guaranteed when police station is in radius (this will give other assasinate type tasks enough room to breathe)
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
 - (RHS) turretless BRDM-2 logistic nodes (allows to mount ZU-23 on top of them)
 - (RHS) KRAZ cargo support
