@@ -135,6 +135,11 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
 allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
+allCivilianGlasses deleteAt (allCivilianGlasses find "G_RegulatorMask_F");
+allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_olive_F");
+allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_sand_F");
+allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_black_F");
+allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_01_F");
 
 ////////////////
 //   Radios   //
