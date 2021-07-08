@@ -474,6 +474,8 @@ if ((_winner != teamPlayer) and (_looser != teamPlayer)) then {
 };
 markersChanging = markersChanging - [_markerX];
 
-[_looser] remoteExecCall ["SCRT_fnc_common_defeatFactionIfPossible", 2];
+if (_winner == teamPlayer) then {
+	[_looser] remoteExecCall ["SCRT_fnc_common_defeatFactionIfPossible", 2];
+};
 
 [3, format ["Finished marker change at %1", _markerX], _fileName] call A3A_fnc_log;

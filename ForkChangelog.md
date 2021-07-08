@@ -1,12 +1,15 @@
 # Changelog
 ## 1.7
 ### Additions
+- Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Persistent Constructions Removal action (new button in Constructions submenu)
+- Arms Dealer will sell UAV terminals
 - Additional "Number of the same item required to unlock" parameter values - 100, 200, 500
 
 ### Changes
 - Fixed AI Control Time for HC squads
 - Fixed AI Rebel Strike wrong localization string at title
+- Rebel training minor fixes (45 level cap, price calculations have been adjusted to new skill cap to prevent excessive price snowballing with each training level past 20)
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
 - ADR-97 Official Mod included into base configuration, parameter has been removed
 - Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of terrain's population and all airbases and milbases to win)
@@ -17,6 +20,10 @@
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
 - Artillery Response minor fixes
 - All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
+- (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
+- (RHS) turretless BRDM-2 logistic nodes (allows to mount ZU-23 on top of them)
+- (RHS) KRAZ cargo support
+- (3CB Factions) MT-LB logistic nodes (allows to mount ZU-23 on top of them)
 - (3CB Factions, CUP) Replaced Chernarus Police with Gendarmerie on tropical maps 
 - (Aegis) Fixed wrong AUG 3GL mags
 - (CUP) Vanilla weapons and equipment will no longer appear in crates at outposts 

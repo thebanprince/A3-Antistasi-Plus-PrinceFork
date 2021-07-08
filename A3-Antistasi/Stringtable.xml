@@ -246,6 +246,14 @@
         <German>Quad-Bike</German>
         <Czech>Čtyřkolka</Czech>
       </Key>
+      <Key ID="STR_antistasi_actions_commander_text">
+        <Original>Commander</Original>
+        <English>Commander</English>
+        <French>Le commandant</French>
+        <Russian>Командир</Russian>
+        <German>Kommandant</German>
+        <Czech>Velitel</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_commander_tooltip">
         <Original>Accesses various commander options.</Original>
         <English>Accesses various commander options.</English>

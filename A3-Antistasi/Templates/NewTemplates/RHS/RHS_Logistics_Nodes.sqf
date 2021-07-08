@@ -1,6 +1,28 @@
 //Each element is: [model name, [nodes]]
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
+
 A3A_logistics_vehicleHardpoints append [
+    ["rhsgref_BRDM2_HQ_ins_g" call A3A_fnc_classNameToModel,[
+        [1,         [0,0,-0.25],       []  ],
+        [1,         [0,0,-0.25],      []  ]
+    ]],
+    ["rhsgref_BRDM2UM_ins_g" call A3A_fnc_classNameToModel,[
+        [1,         [0,0,-0.25],       []  ],
+        [1,         [0,0,-0.25],      []  ]
+    ]],
+    ["UK3CB_I_MTLB_PKT_CHK" call A3A_fnc_classNameToModel,[
+        [1,         [-0.10,-1.6,-0.58],    []  ],
+        [1,         [-0.10,-2.4,-0.58],    []  ]
+    ]],
+    //Kraz
+    //Kraz Open
+    ["rhsafrf\addons\rhs_kraz255\rhs_kraz255b1", [
+        [1,             [0, 0.14,-0.45],         [11,12,1,2]],
+        [1,             [0,-0.66,-0.45],        [3,4,5]],
+        [1,             [0,-1.4,-0.45],         [6,7]],
+        [1,             [0,-2.2,-0.45],         [8,9,10]],
+        [1,             [0,-3,-0.45],           [13,14]]
+    ]],
     //Urals
     //Ural Open
     ["RHS_Ural_Open_Civ_01" call A3A_fnc_classNameToModel, [
@@ -230,7 +252,7 @@ A3A_logistics_attachmentOffset append [
     ["rhs_SPG9_INS" call A3A_fnc_classNameToModel,                              [-0.1, 0, 1.03],            [-0.96,0.25,0],             4,      250],               //RHS SPG-9, facing 75 degrees to the left
     ["RHS_AGS30_TriPod_MSV" call A3A_fnc_classNameToModel,                      [-0.4, 0, 1.25],            [0, -1, 0],                 4,      100],               //RHS AGS-30 the russian GMG, facing right
     ["rhs_Igla_AA_pod_msv" call A3A_fnc_classNameToModel,                       [0.3, 0, 1.59],             [0, 1, 0],                  4,      250],               //RHS double Igla launcher
-    ["RHS_ZU23_MSV" call A3A_fnc_classNameToModel,                              [0,0,2],                    [0,1,0],                    7,      250],               //RHS ZU-23 //no rhs vehicle can fit it :D
+    ["RHS_ZU23_MSV" call A3A_fnc_classNameToModel,                              [0,0,2],                    [0,1,0],                    2,      750],               //RHS ZU-23 //no rhs vehicle can fit it :D
     ["rhsgref_ins_2b14" call A3A_fnc_classNameToModel,                          [0, -0.55, 0.8],            [0, 1, 0],                  2,      2000],              //RHS Podnos Mortar
     ["RHS_M252_USMC_WD" call A3A_fnc_classNameToModel,                          [0, -0.45, 1.22],           [0, 1, 0],                  2,      2000]               //RHS M252
 //Crates
