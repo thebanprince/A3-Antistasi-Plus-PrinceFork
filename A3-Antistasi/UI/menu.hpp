@@ -1466,80 +1466,80 @@ class rebelLoadoutMenu: SimpleMenuMedium
 
 		class l1Text: SimpleText
 		{
-			idc = -1;
-			text = "Militiaman";
+			idc = 120001;
+			text = $STR_antistasi_dialogs_rifleman_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.258 * safezoneH + safezoneY; //0.236
+			y = 0.258 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l2Text: SimpleText
 		{
-			idc = -1;
-			text = "Autorifleman";
+			idc = 120002;
+			text = $STR_antistasi_dialogs_autorifleman_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.291 * safezoneH + safezoneY; //0.269
+			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l3Text: SimpleText
 		{
-			idc = -1;
-			text = "Medic";
+			idc = 120003;
+			text = $STR_antistasi_dialogs_medic_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.324 * safezoneH + safezoneY; //0.302 
+			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l4Text: SimpleText
 		{
-			idc = -1;
-			text = "Engineer";
+			idc = 120004;
+			text = $STR_antistasi_dialogs_engineer_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.357 * safezoneH + safezoneY; //0.335
+			y = 0.357 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l5Text: SimpleText
 		{
-			idc = -1;
-			text = "Grenadier";
+			idc = 120005;
+			text = $STR_antistasi_dialogs_grenadier_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.39 * safezoneH + safezoneY; //0.368
+			y = 0.39 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l6Text: SimpleText
 		{
-			idc = -1;
-			text = "Marksman";
+			idc = 120006;
+			text = $STR_antistasi_dialogs_marksman_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.423 * safezoneH + safezoneY; //0.401
+			y = 0.423 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l7Text: SimpleText
 		{
-			idc = -1;
-			text = "Antitank Soldier";
+			idc = 120007;
+			text = $STR_antistasi_dialogs_at_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.456 * safezoneH + safezoneY; //0.434
+			y = 0.456 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
 
 		class l8Text: SimpleText
 		{
-			idc = -1;
-			text = "Crewman";
+			idc = 120008;
+			text = $STR_antistasi_dialogs_crewman_title;
 			x = 0.422656 * safezoneW + safezoneX;
-			y = 0.489 * safezoneH + safezoneY; //0.467
+			y = 0.489 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;	
 			h = 0.022 * safezoneH;
 		};
