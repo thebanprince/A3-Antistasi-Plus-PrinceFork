@@ -68,13 +68,12 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			private _ambushRoll = random 100;
 
 			switch(true) do {
-				case (_ambushRoll < 15): {
+				case ((random 100) < 15): {
 					[[_site],"A3A_fnc_AS_Ambush"] remoteExec ["A3A_fnc_scheduler",2];
 				};
-				case (count _policeCities > 0): {
+				case (count _policeCities > 0 && {(random 100) < 20}): {
 					_policeCity = selectRandom _policeCities;
 					[[_policeCity],"A3A_fnc_AS_Collaborationist"] remoteExec ["A3A_fnc_scheduler",2];
 				};
