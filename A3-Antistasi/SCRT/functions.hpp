@@ -100,6 +100,7 @@ class SCRT
         class ui_setAvailableBuyVehicleTypes {};
         class ui_getMarketLookup {};
         class ui_buyBuyVehicle {};
+        class ui_createRebelLoadoutMenu {};
     };
 
     class Trader

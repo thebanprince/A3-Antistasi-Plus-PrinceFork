@@ -3,13 +3,50 @@ private _loadoutKey = _this;
 if (isNil "_loadoutKey" || {_loadoutKey == ""}) exitWith {};
 
 private _loadout = rebelLoadouts get _loadoutKey;
-private _loadoutName = _loadoutKey call SCRT_fnc_misc_getLoadoutName;
+
+private _title = localize "STR_antistasi_dialogs_hq_button_rebel_loadouts_menu_title_text";
 
 if (isNil "_loadout") exitWith {
-    ["Rebel Loadout", format ["No custom loadout for %1 has been found.", _loadoutName], "WARNING"] call SCRT_fnc_ui_showDynamicTextMessage;
+    [_title, localize "STR_antistasi_dialogs_hq_button_no_custom_loadouts", "WARNING"] call SCRT_fnc_ui_showDynamicTextMessage;
 };
 
 rebelLoadouts deleteAt _loadoutKey;
 publicVariable "rebelLoadouts";
 
-["Rebel Loadout", format ["Custom loadout for %1 has been cleared, units of this class will use randomized loadout.", _loadoutName], "SUCCESS"] call SCRT_fnc_ui_showDynamicTextMessage;
+private _display = findDisplay 120000;
+
+if (str (_display) != "no display") then {
+    if !("loadouts_rebel_militia_Rifleman" in rebelLoadouts) then {
+        (_display displayCtrl 120001) ctrlSetText localize "STR_antistasi_dialogs_rifleman_title";
+    };
+
+    if !("loadouts_rebel_militia_MachineGunner" in rebelLoadouts) then {
+        (_display displayCtrl 120002) ctrlSetText localize "STR_antistasi_dialogs_autorifleman_title";
+    };
+
+    if !("loadouts_rebel_militia_medic" in rebelLoadouts) then {
+        (_display displayCtrl 120003) ctrlSetText localize "STR_antistasi_dialogs_medic_title";
+    };
+
+    if !("loadouts_rebel_militia_Engineer" in rebelLoadouts) then {
+        (_display displayCtrl 120004) ctrlSetText localize "STR_antistasi_dialogs_engineer_title";
+    };
+
+    if !("loadouts_rebel_militia_Grenadier" in rebelLoadouts) then {
+        (_display displayCtrl 120005) ctrlSetText localize "STR_antistasi_dialogs_grenadier_title";
+    };
+
+    if !("loadouts_rebel_militia_sniper" in rebelLoadouts) then {
+        (_display displayCtrl 120006) ctrlSetText localize "STR_antistasi_dialogs_marksman_title";
+    };
+
+    if !("loadouts_rebel_militia_lat" in rebelLoadouts) then {
+        (_display displayCtrl 120007) ctrlSetText localize "STR_antistasi_dialogs_at_title";
+    };
+
+    if !("loadouts_rebel_militia_staticCrew" in rebelLoadouts) then {
+        (_display displayCtrl 120008) ctrlSetText localize "STR_antistasi_dialogs_crewman_title";
+    };
+};
+
+[_title, localize  "STR_antistasi_dialogs_hq_button_custom_loadout_clear", "SUCCESS"] call SCRT_fnc_ui_showDynamicTextMessage;

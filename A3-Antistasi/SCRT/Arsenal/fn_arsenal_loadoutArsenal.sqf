@@ -269,7 +269,6 @@ switch _mode do {
 		["ReplaceBaseItems",[_display]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["customEvents",[_display]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["CreateListAll", [_display]] call SCRT_fnc_arsenal_loadoutArsenal;
-		['showMessage',[_display,"Rebel Loadout Arsenal"]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["HighlightMissingIcons",[_display]] call SCRT_fnc_arsenal_loadoutArsenal;
 		["applyInitialLoadout"] call SCRT_fnc_arsenal_loadoutArsenal;
 
@@ -357,9 +356,9 @@ switch _mode do {
 
 		_ctrlButtonSetLoadout = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONIMPORT;
 		_ctrlButtonSetLoadout ctrlRemoveAllEventHandlers "buttonclick";
-		_ctrlButtonSetLoadout ctrlSetText "Set Loadout";
+		_ctrlButtonSetLoadout ctrlSetText localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_button";
 		_ctrlButtonSetLoadout ctrlEnable true;
-		_ctrlButtonSetLoadout ctrlSetTooltip "Sets loadout for class.";
+		_ctrlButtonSetLoadout ctrlSetTooltip localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_tooltip";
 		_ctrlButtonSetLoadout ctrlAddEventHandler ["buttonclick",{["buttonSetLoadoutMenu",[ctrlparent (_this select 0)]] call SCRT_fnc_arsenal_loadoutArsenal;}];
 
 		_ctrlButtonImport = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONEXPORT;
@@ -1587,7 +1586,7 @@ switch _mode do {
 		//check if weapon is unlocked
 		private _min = [_index, _item] call _minItemsMember;
 		if ((_amount <= _min) && {_amount != -1 AND {_item !="" && {!_type}}}) exitWith{
-			['showMessage',[_display, "Only unlocked items can be used."]] call SCRT_fnc_arsenal_loadoutArsenal;
+			['showMessage',[_display, (localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_unlocked_items")]] call SCRT_fnc_arsenal_loadoutArsenal;
 
 			//reset _cursel
 			if(missionnamespace getvariable ["jna_reselect_item",true])then{//prefent loop when unavalable item was worn and a other unavalable item was selected
@@ -2115,7 +2114,7 @@ switch _mode do {
 			if (_add > 0) then {//add
 				_min = [_index, _item] call _minItemsMember;
 				if(_amount <= _min && {_amount != -1}) exitWith{
-					['showMessage',[_display,"Only unlocked items can be used."]] call SCRT_fnc_arsenal_loadoutArsenal;
+					['showMessage',[_display, (localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_unlocked_items")]] call SCRT_fnc_arsenal_loadoutArsenal;
 				};
 				if(_index in [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG,IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL])then{//magazines are handeld by bullet count
 					//check if full mag can be optaind
@@ -2597,13 +2596,15 @@ switch _mode do {
 		publicVariable "rebelLoadouts";
 
 		private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-		['showMessage',[_display, format ["%1 loadout has been saved.", _loadoutName]]] call SCRT_fnc_arsenal_loadoutArsenal;
+		private _text = localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_saved";
+		['showMessage',[_display, format ["%1 %2", _loadoutName, _text]]] call SCRT_fnc_arsenal_loadoutArsenal;
 		playSound "3DEN_notificationDefault";
 	};
 
 	case "applyInitialLoadout": {
 		private _loadoutName = currentRebelLoadout call SCRT_fnc_misc_getLoadoutName;
-		['showMessage',[_display, format ["%1 Loadout Arsenal. Note that custom uniforms will be not applied and still be randomized on actual rebels.", _loadoutName]]] call SCRT_fnc_arsenal_loadoutArsenal;
+		private _text = localize "STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_title";
+		['showMessage',[_display, format ["%1 %2", _loadoutName,_text]]] call SCRT_fnc_arsenal_loadoutArsenal;
 
 		localNamespace setVariable ["commanderLoadout", (getUnitLoadout player)];
 
@@ -2624,8 +2625,7 @@ switch _mode do {
 		currentRebelLoadout = nil;
 
 		[] call SCRT_fnc_ui_toggleCommanderMenu;
-
-		createDialog 'rebelLoadoutMenu';
+		[] call SCRT_fnc_ui_createRebelLoadoutMenu;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////

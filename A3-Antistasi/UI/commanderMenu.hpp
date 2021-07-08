@@ -477,7 +477,7 @@ class commanderMenu
 					h = "3 * pixelGridNoUIScale * pixelH";	
 					sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 1.25) * 0.5";	
 					shadow = 2;	
-					action = "createDialog 'rebelLoadoutMenu'";
+					action = "[] call SCRT_fnc_ui_createRebelLoadoutMenu;";
 				};
 
 				class hqSpacer2: brSpacer 

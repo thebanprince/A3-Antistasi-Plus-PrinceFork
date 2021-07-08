@@ -1067,7 +1067,7 @@ class RscCloseButton
 	colorActive[] = {1, 1, 1, 1};
 	color[] = {1, 1, 1, 1};
 	text = "\a3\3DEN\Data\ControlsGroups\Tutorial\close_ca.paa";
-	tooltip = "Close";
+	tooltip = $STR_antistasi_dialogs_generic_button_close_text;
 	sizeEx = "4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
 	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])", 0};
 };
@@ -1115,13 +1115,13 @@ class RscSimpleMenuButton
 class ArsenalButton : RscSimpleMenuButton
 {
 	text = "\a3\3den\data\displays\display3den\entitymenu\arsenal_ca.paa";
-	tooltip = "Opens Arsenal with the current class loadout. To save custom loadout, press SET LOADOUT in Arsenal.";
+	tooltip = $STR_antistasi_dialogs_hq_button_rebel_set_loadout_button_tooltip;
 };
 
 class ResetButton : RscSimpleMenuButton
 {
 	text = "\a3\3den\data\displays\display3den\toolbar\undo_ca.paa";
-	tooltip = "Resets class loadout to default, randomized state.";
+	tooltip = $STR_antistasi_dialogs_hq_button_rebel_reset_button_tooltip;
 };
 
 class SimpleMenu

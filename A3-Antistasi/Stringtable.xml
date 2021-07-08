@@ -1,40 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi Mission">
-  <Container name="construction_removal">
-    <Key ID="STR_antistasi_dialogs_construction_removal_title">
-      <Original>Construction Removal</Original>
-      <English>Construction Removal</English>
-      <French>Enlèvement de construction</French>
-      <Russian>Удаление постройки</Russian>
-      <German>Bauabbau</German>
-      <Czech>Stěhování</Czech>
-    </Key>
-    <Key ID="STR_antistasi_dialogs_construction_removal_no_trait">
-      <Original>Only engineers and commander can remove constructions.</Original>
-      <English>Only engineers and commander can remove constructions.</English>
-      <French>Seuls les ingénieurs et le commandant peuvent supprimer des constructions.</French>
-      <Russian>Удалять постройки могут только инженеры и командир.</Russian>
-      <German>Nur Ingenieure und Kommandanten können Konstruktionen entfernen.</German>
-      <Czech>Konstrukce mohou odstraňovat pouze inženýři a velitel.</Czech>
-    </Key>
-    <Key ID="STR_antistasi_dialogs_construction_removal_no_valid_construction">
-      <Original>You're not looking at removable construction.</Original>
-      <English>You're not looking at removable construction.</English>
-      <French>Vous ne cherchez pas une construction amovible.</French>
-      <Russian>Вы смотрите на невалидный объект для удаления.</Russian>
-      <German>Sie betrachten keine abnehmbare Konstruktion.</German>
-      <Czech>Nedíváte se na odnímatelnou konstrukci.</Czech>
-    </Key>
-    <Key ID="STR_antistasi_dialogs_construction_removal_success">
-      <Original>Construction has been successfully removed.</Original>
-      <English>Construction has been successfully removed.</English>
-      <French>La construction a été supprimée avec succès.</French>
-      <Russian>Постройка успешно удалена.</Russian>
-      <German>Die Konstruktion wurde erfolgreich entfernt.</German>
-      <Czech>Stavba byla úspěšně odstraněna.</Czech>
-    </Key>
-  </Container>
+    <Container name="construction_removal">
+      <Key ID="STR_antistasi_dialogs_construction_removal_title">
+        <Original>Construction Removal</Original>
+        <English>Construction Removal</English>
+        <French>Enlèvement de construction</French>
+        <Russian>Удаление постройки</Russian>
+        <German>Bauabbau</German>
+        <Czech>Stěhování</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_removal_no_trait">
+        <Original>Only engineers and commander can remove constructions.</Original>
+        <English>Only engineers and commander can remove constructions.</English>
+        <French>Seuls les ingénieurs et le commandant peuvent supprimer des constructions.</French>
+        <Russian>Удалять постройки могут только инженеры и командир.</Russian>
+        <German>Nur Ingenieure und Kommandanten können Konstruktionen entfernen.</German>
+        <Czech>Konstrukce mohou odstraňovat pouze inženýři a velitel.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_removal_no_valid_construction">
+        <Original>You're not looking at removable construction.</Original>
+        <English>You're not looking at removable construction.</English>
+        <French>Vous ne cherchez pas une construction amovible.</French>
+        <Russian>Вы смотрите на невалидный объект для удаления.</Russian>
+        <German>Sie betrachten keine abnehmbare Konstruktion.</German>
+        <Czech>Nedíváte se na odnímatelnou konstrukci.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_construction_removal_success">
+        <Original>Construction has been successfully removed.</Original>
+        <English>Construction has been successfully removed.</English>
+        <French>La construction a été supprimée avec succès.</French>
+        <Russian>Постройка успешно удалена.</Russian>
+        <German>Die Konstruktion wurde erfolgreich entfernt.</German>
+        <Czech>Stavba byla úspěšně odstraněna.</Czech>
+      </Key>
+    </Container>
+    <Container name="rebel_classes">
+      <Key ID="STR_antistasi_dialogs_rifleman_title">
+        <Original>Rifleman</Original>
+        <English>Rifleman</English>
+        <French>Fusilier</French>
+        <Russian>Стрелок</Russian>
+        <German>Schütze</German>
+        <Czech>Střelec</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_autorifleman_title">
+        <Original>Autorifleman</Original>
+        <English>Autorifleman</English>
+        <French>Mitrailleur</French>
+        <Russian>Пулеметчик</Russian>
+        <German>Maschinengewehrschütze</German>
+        <Czech>Kulometčík</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_medic_title">
+        <Original>Medic</Original>
+        <English>Medic</English>
+        <French>Médical</French>
+        <Russian>Медик</Russian>
+        <German>Medizin</German>
+        <Czech>Zdravotník</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_engineer_title">
+        <Original>Engineer</Original>
+        <English>Engineer</English>
+        <French>Ingénieur</French>
+        <Russian>Инженер</Russian>
+        <German>Ingenieur</German>
+        <Czech>Inženýr</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_grenadier_title">
+        <Original>Grenadier</Original>
+        <English>Grenadier</English>
+        <French>Grenadier</French>
+        <Russian>Гренадёр</Russian>
+        <German>Grenadier</German>
+        <Czech>Granátník</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_marksman_title">
+        <Original>Marksman</Original>
+        <English>Marksman</English>
+        <French>Buteur</French>
+        <Russian>Снайпер</Russian>
+        <German>Scharfschütze</German>
+        <Czech>Snajpr</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_at_title">
+        <Original>AT</Original>
+        <English>AT</English>
+        <French>Fusilier antichar</French>
+        <Russian>Гранатомётчик</Russian>
+        <German>Panzerabwehrschütze</German>
+        <Czech>Protitankový střelec</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_crewman_title">
+        <Original>Crewman</Original>
+        <English>Crewman</English>
+        <French>Membre d'équipage</French>
+        <Russian>Член экипажа</Russian>
+        <German>Besatzungsmitglied</German>
+        <Czech>Člen posádky</Czech>
+      </Key>
+    </Container>
     <Container name="simple_menu_dialogs">
       <Key ID="STR_antistasi_dialogs_rounds_quantity_title">
         <Original>Select number of rounds to be fired</Original>
@@ -348,7 +414,7 @@
         <German>Squad Rekrutierung</German>
         <Czech>Nábor družstev</Czech>
       </Key>
-       <Key ID="STR_antistasi_dialogs_squad_money_player_interaction_menu_frame_text">
+      <Key ID="STR_antistasi_dialogs_squad_money_player_interaction_menu_frame_text">
         <Original>Player and Money</Original>
         <English>Player and Money</English>
         <French>Joueur et argent</French>
@@ -380,7 +446,7 @@
         <German>Fahrzeug zum Kader hinzufügen?</German>
         <Czech>Přidat vozidlo do týmu?</Czech>
       </Key>
-       <Key ID="STR_antistasi_dialogs_ai_management_frame_text">
+      <Key ID="STR_antistasi_dialogs_ai_management_frame_text">
         <Original>AI Management</Original>
         <English>AI Management</English>
         <French>Gestion de l'IA</French>
@@ -404,14 +470,6 @@
         <German>Beachten Sie, dass die Liste der Rebellenfahrzeuge im Verlauf des Krieges erweitert wird.</German>
         <Czech>Pamatujte, že soupiska rebelských vozidel se bude s vývojem války rozšiřovat.</Czech>
       </Key>
-      <Key ID="STR_antistasi_dialogs_buy_rebel_loadout_text">
-        <Original>Buy Vehicle</Original>
-        <English>Buy Vehicle</English>
-        <French>Acheter un véhicule</French>
-        <Russian>Покупка техники</Russian>
-        <German>Fahrzeug kaufen</German>
-        <Czech>Koupit vozidlo</Czech>
-      </Key>
       <Key ID="STR_antistasi_dialogs_available_missions_frame_text">
         <Original>Available Missions</Original>
         <English>Available Missions</English>
@@ -421,7 +479,7 @@
         <Czech>Dostupné mise</Czech>
       </Key>
     </Container>
-     <Container name="simple_menu_infantry_recruitment">
+    <Container name="simple_menu_infantry_recruitment">
       <Key ID="STR_antistasi_dialogs_normal_squad_title">
         <Original>Ordinary Squad</Original>
         <English>Ordinary Squad</English>
@@ -534,8 +592,8 @@
         <German>Recruter l'équipe de mortier</German>
         <Czech>Naverbujte tým malty</Czech>
       </Key>
-     </Container>
-     <Container name="simple_menu_commander_menu">
+    </Container>
+    <Container name="simple_menu_commander_menu">
       <Key ID="STR_antistasi_dialogs_recruit_squad_title">
         <Original>Recruit Squad</Original>
         <English>Recruit Squad</English>
@@ -588,7 +646,7 @@
         <Original>Resign / Eligible</Original>
         <English>Resign / Eligible</English>
         <French>Démission / éligible</French>
-        <Russian>Уйти в отставку / Право на командира</Russian>
+        <Russian>Отставка / Право на командира</Russian>
         <German>Rücktritt / Berechtigung</German>
         <Czech>Odstoupit / Způsobilý</Czech>
       </Key>
@@ -609,12 +667,12 @@
         <Czech>Otevřete nabídku Commander</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_open_comm_menu_tooltip">
-        <Original>Opens commander menu. Also can be accessed via O key.</Original>
-        <English>Opens commander menu. Also can be accessed via O key.</English>
-        <French>Ouvre le menu du commandant. Peut également être consulté via la touche O.</French>
-        <Russian>Открывает командирское меню. Также доступно через клавишу О.</Russian>
-        <German>Öffnet das Commander-Menü. Kann auch über die O-Taste aufgerufen werden.</German>
-        <Czech>Otevře nabídku velitele. Lze k nim přistupovat také pomocí klávesy O.</Czech>
+        <Original>Opens commander menu. Also can be accessed via HOME key.</Original>
+        <English>Opens commander menu. Also can be accessed via HOME key.</English>
+        <French>Ouvre le menu du commandant. Peut également être consulté via la touche HOME.</French>
+        <Russian>Открывает командирское меню. Также доступно через клавишу HOME.</Russian>
+        <German>Öffnet das Commander-Menü. Kann auch über die HOME-Taste aufgerufen werden.</German>
+        <Czech>Otevře nabídku velitele. Lze k nim přistupovat také pomocí klávesy HOME.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_open_add_to_air_title">
         <Original>Add to Air Support</Original>
@@ -672,9 +730,9 @@
         <German>Schauen Sie sich ein Fahrzeug an und verkaufen Sie es für Geld.</German>
         <Czech>Podívejte se na vozidlo a prodejte ho za peníze.</Czech>
       </Key>
-     </Container>
+    </Container>
     <Container name="simple_menu_actions_and_tooltips">
-     <Key ID="STR_antistasi_dialogs_build">
+      <Key ID="STR_antistasi_dialogs_build">
         <Original>Build Construction</Original>
         <English>Build Construction</English>
         <French>Construire Construction</French>
@@ -836,7 +894,7 @@
         <German>Ein- / Aussteigen</German>
         <Czech>Mount / Demontovat</Czech>
       </Key>
-     </Container>
+    </Container>
     <Container name="simple_menu_missions">
       <Key ID="STR_antistasi_dialogs_assassination_text">
         <Original>Assasination Mission</Original>
@@ -870,30 +928,30 @@
         <German>Logistikmissionen</German>
         <Czech>Logistické mise</Czech>
       </Key>
-    <Key ID="STR_antistasi_dialogs_rescue_text">
-      <Original>Rescue Missions</Original>
-      <English>Rescue Missions</English>
-      <French>Missions de sauvetage</French>
-      <Russian>Спасательные миссии</Russian>
-      <German>Rettungsmissionen</German>
-      <Czech>Záchranné mise</Czech>
-    </Key>
-    <Key ID="STR_antistasi_dialogs_supply_text">
-      <Original>Supply Missions</Original>
-      <English>Supply Missions</English>
-      <French>Missions d'approvisionnement</French>
-      <Russian>Миссии по снабжению</Russian>
-      <German>Versorgungsmissionen</German>
-      <Czech>Zásobovací mise</Czech>
-    </Key>
-    <Key ID="STR_antistasi_dialogs_conquest_text">
-      <Original>Conquest Missions</Original>
-      <English>Conquest Missions</English>
-      <French>Missions de conquête</French>
-      <Russian>Миссии по захвату</Russian>
-      <German>Eroberungsmissionen</German>
-      <Czech>Dobývací mise</Czech>
-    </Key>
+      <Key ID="STR_antistasi_dialogs_rescue_text">
+        <Original>Rescue Missions</Original>
+        <English>Rescue Missions</English>
+        <French>Missions de sauvetage</French>
+        <Russian>Спасательные миссии</Russian>
+        <German>Rettungsmissionen</German>
+        <Czech>Záchranné mise</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_supply_text">
+        <Original>Supply Missions</Original>
+        <English>Supply Missions</English>
+        <French>Missions d'approvisionnement</French>
+        <Russian>Миссии по снабжению</Russian>
+        <German>Versorgungsmissionen</German>
+        <Czech>Zásobovací mise</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_conquest_text">
+        <Original>Conquest Missions</Original>
+        <English>Conquest Missions</English>
+        <French>Missions de conquête</French>
+        <Russian>Миссии по захвату</Russian>
+        <German>Eroberungsmissionen</German>
+        <Czech>Dobývací mise</Czech>
+      </Key>
     </Container>
     <Container name="dialog_headquarters">
       <Key ID="STR_antistasi_dialogs_hq_frame_text">
@@ -1040,13 +1098,85 @@
         <German>Rebellen-Loadouts einstellen</German>
         <Czech>Nastavit rebel zatížení</Czech>
       </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_no_custom_loadouts">
+        <Original>No custom loadout has been found.</Original>
+        <English>No custom loadout has been found.</English>
+        <French>Aucun chargement personnalisé n'a été trouvé.</French>
+        <Russian>Пользовательский вариант снаряжения не был найден.</Russian>
+        <German>Es wurde kein benutzerdefiniertes Loadout gefunden.</German>
+        <Czech>Nebylo nalezeno žádné vlastní načítání.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_custom_loadout_clear">
+        <Original>Custom loadout has been cleared, units of this class will use randomized loadout.</Original>
+        <English>Custom loadout has been cleared, units of this class will use randomized loadout.</English>
+        <French>Le chargement personnalisé a été effacé, les unités de cette classe utiliseront un chargement aléatoire.</French>
+        <Russian>Пользовательский вариант снаряжения был очищен, юниты этого класса будут использовать рандомизированное снаряжение.</Russian>
+        <German>Benutzerdefiniertes Loadout wurde gelöscht, Einheiten dieser Klasse verwenden zufälliges Loadout.</German>
+        <Czech>Vlastní načítání bylo vymazáno, jednotky této třídy budou používat randomizované načítání.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_button">
+        <Original>Save</Original>
+        <English>Save</English>
+        <French>Sauvegarder</French>
+        <Russian>Сохранить</Russian>
+        <German>speichern</German>
+        <Czech>Uložit</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_unlocked_items">
+        <Original>Only unlocked items can be used.</Original>
+        <English>Only unlocked items can be used.</English>
+        <French>Seuls les objets déverrouillés peuvent être utilisés.</French>
+        <Russian>Только бесконечные предметы могут быть выбраны.</Russian>
+        <German>Es können nur freigeschaltete Gegenstände verwendet werden.</German>
+        <Czech>Lze použít pouze odemčené položky.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_saved">
+        <Original>loadout has been saved.</Original>
+        <English>loadout has been saved.</English>
+        <French>le chargement a été enregistré.</French>
+        <Russian>снаряжение было сохранено. </Russian>
+        <German>ladevorgang wurde gespeichert.</German>
+        <Czech>náklad byl uložen.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_title">
+        <Original>loadout Arsenal. Note that custom uniforms will be not applied and still be randomized on actual rebels.</Original>
+        <English>loadout Arsenal. Note that custom uniforms will be not applied and still be randomized on actual rebels.</English>
+        <French>arsenal de chargement. Notez que les uniformes personnalisés ne seront pas appliqués et seront toujours aléatoires sur les vrais rebelles.</French>
+        <Russian>арсенал для снаряжения. Имейте ввиду, что униформа не будет применена и все равно будет рандомизирована.</Russian>
+        <German>ausrüstung Arsenal. Beachten Sie, dass benutzerdefinierte Uniformen nicht angewendet werden und dennoch auf tatsächliche Rebellen zufällig verteilt werden.</German>
+        <Czech>arzenál. Uvědomte si, že vlastní uniformy nebudou použity, a přesto budou na skutečné rebely randomizovány.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_tooltip">
+        <Original>Sets loadout for future use by this infantry class.</Original>
+        <English>Sets loadout for future use by this infantry class.</English>
+        <French>Définit le chargement pour une utilisation future par cette classe d'infanterie.</French>
+        <Russian>Сохраняет снаряжение для будущего использования этим классом пехоты.</Russian>
+        <German>Legt die Ausrüstung für die zukünftige Verwendung durch diese Infanterieklasse fest.</German>
+        <Czech>Nastavuje náklad pro budoucí použití v této pěchotní třídě.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_reset_button_tooltip">
+        <Original>Resets class loadout to default, randomized state.</Original>
+        <English>Resets class loadout to default, randomized state.</English>
+        <French>Réinitialise le chargement de la classe à l'état aléatoire par défaut.</French>
+        <Russian>Сбрасывает снаряжение класса до стандартного, рандомизированного состояния.</Russian>
+        <German>Setzt das Klassen-Loadout auf den zufälligen Standardzustand zurück.</German>
+        <Czech>Obnoví načítání třídy na výchozí, randomizovaný stav.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_button_tooltip">
+        <Original>Opens Arsenal with the current class loadout. To save custom loadout, press SAVE in Arsenal.</Original>
+        <English>Opens Arsenal with the current class loadout. To save custom loadout, press SAVE in Arsenal.</English>
+        <French>Ouvre Arsenal avec l'équipement de classe actuel. Pour enregistrer le chargement personnalisé, appuyez sur Sauvegarder rebelles dans Arsenal.</French>
+        <Russian>Открывает арсенал для этого класса повстанцев. Для сохранения снаряжения, нажмите в арсенале СОХРАНИТЬ.</Russian>
+        <German>Öffnet Arsenal mit der aktuellen Klassenausstattung. Um benutzerdefiniertes Loadout zu speichern, drücken speichern einstellen in Arsenal.</German>
+        <Czech>Otevírá Arsenal s aktuálním načtením třídy. Chcete-li uložit vlastní načítání, stiskněte tlačítko Uložit v Arsenalu.</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_tooltip">
-        <Original>Allows commander to pick weapons and equipment for rebel troops.</Original>
+        <Original>Allows commander to override rebel troops choices in weapons and equipment. Only for EXPERIENCED commanders that knows what they're doing.</Original>
         <English>Allows commander to pick weapons and equipment for rebel troops.</English>
-        <French>Permet au commandant de choisir des armes et des équipements pour les troupes rebelles.</French>
-        <Russian>Позволяет командиру выбрать оружие и снаряжение для повстанческих войск.</Russian>
-        <German>Ermöglicht dem Kommandanten, Waffen und Ausrüstung für Rebellentruppen auszuwählen.</German>
-        <Czech>Umožňuje veliteli vybírat zbraně a vybavení pro povstalecké jednotky.</Czech>
+        <French>Permet au commandant d'outrepasser les choix des troupes rebelles en matière d'armes et d'équipement. Uniquement pour les commandants EXPERIMENTES qui savent ce qu'ils font.</French>
+        <Russian>Позволяет командиру переопределить выбор оружия и снаряжения у повстанческих войск. Только для ОПЫТНЫХ командиров, которые действительно знают что делают.</Russian>
+        <German>Ermöglicht dem Kommandanten, die Wahl der Rebellentruppen bei Waffen und Ausrüstung zu überschreiben. Nur für ERFAHRENE Kommandanten, die wissen, was sie tun.</German>
+        <Czech>Umožňuje veliteli přepsat volby povstaleckých jednotek ve zbraních a vybavení. Pouze pro ZKUŠENÉ velitele, kteří vědí, co dělají.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_menu_title_text">
         <Original>Rebel Loadouts</Original>
@@ -1437,6 +1567,16 @@
         <Czech>Zpět</Czech>
         <Chinesesimp>返回</Chinesesimp>
         <Korean>뒤로</Korean>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_generic_button_close_text">
+        <Original>Close</Original>
+        <English>Close</English>
+        <French>Fermer</French>
+        <Russian>Закрыть</Russian>
+        <German>Schließen</German>
+        <Czech>Zavřít</Czech>
+        <Chinesesimp>关闭</Chinesesimp>
+        <Korean>닫기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_text">
         <Original>Yes</Original>
@@ -2874,7 +3014,7 @@
         <Czech>Tato funkce si klade za cíl simulovat nedostatek radiové komunikace se stíhači AI. Vaši kamarádi AI nebudou mít rádio, dokud jej odemknete z Arsenalu. Bez rádia, pokud se družstvo AI dostane příliš daleko, ztratí se a vrátí se na pozici vůdce po dokončení posledního přijatého příkazu. Abyste tomu zabránili, můžete vyklidit některá rádia od nepřítele (funkce „Automaticky přezbrojit" to udělá) nebo nechat AI používat vojenské vozidlo, které má rádia s dlouhým dosahem. Pokud najdou svého vůdce příliš dlouho, vrátí se automaticky na velitelství.</Czech>
         <Chinesesimp>这个功能旨在模拟与人工智能战斗机缺乏无线电通信的情况.你的人工智能队友不会有收音机,除非你从阿森纳打开它.如果没有无线电,如果一个人工智能队友走得太远,他们会迷失方向,在完成最后一个命令后回到领导的位置.为了避免这种情况,你可以从敌人身上清除一些无线电（自动搜索功能可以做到）,或者让人工智能使用一辆有远程无线电的军用车辆.如果需要很长时间才能找到他们的领导,他们会自动返回总部.</Chinesesimp>
         <Korean>AI전투원과 무전부재 상황이 특징입니다. AI분대원은 아스널에서 라디오를 언락전까지 라디오를 갖을수 없습니다. 무전기가 없다면 AI분대원들은 너무 멀어지면 길을 잃고 마지막으로 받은 임무를 마친뒤 분대장 자리로 돌아옵니다. 이를 막기 위해 적으로부터 라디오를 획득하거나(자동획득 기능) AI가 장거리 라디오를 탑재한 군용차량을 사용할수 있도록하면 됩니다. 분대장을 찾는데 너무 시간이 오래걸리면 자동으로 본부로 복귀합니다.</Korean>
-         <Russian>Эта функция призвана имитировать отсутствие радиосвязи с бойцами ИИ. У ваших товарищей по отряду ИИ не будет радио, пока вы не разблокируете его в Арсенале. Без радио, если товарищ по отряду ИИ уйдет слишком далеко, он заблудится и вернется на позицию лидера после выполнения последнего полученного приказа. Чтобы избежать этого, вы можете убрать несколько радиостанций у врага или позволить ИИ использовать военную машину с радиостанциями дальнего действия. Если поиск лидера займет слишком много времени, они автоматически вернутся в штаб</Russian>
+        <Russian>Эта функция призвана имитировать отсутствие радиосвязи с бойцами ИИ. У ваших товарищей по отряду ИИ не будет радио, пока вы не разблокируете его в Арсенале. Без радио, если товарищ по отряду ИИ уйдет слишком далеко, он заблудится и вернется на позицию лидера после выполнения последнего полученного приказа. Чтобы избежать этого, вы можете убрать несколько радиостанций у врага или позволить ИИ использовать военную машину с радиостанциями дальнего действия. Если поиск лидера займет слишком много времени, они автоматически вернутся в штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_AI_4">
         <Original>Auto Heal</Original>
@@ -4046,75 +4186,75 @@
         <French>La capacité de pillage a été utilisée au cours des 15 dernières secondes! Veuillez patienter un peu.</French>
         <Russian>Сборщик лута уже был использован недавно. Пожалуйста, подождите 15 секунд.</Russian>
       </Key>
-        <Key ID="STR_antistasi_actions_looter_found_money_titleЬш">
-          <Original>Money</Original>
-          <English>Money</English>
-          <French>Argent</French>
-          <Russian>Деньги</Russian>
-        </Key>
+      <Key ID="STR_antistasi_actions_looter_found_money_titleЬш">
+        <Original>Money</Original>
+        <English>Money</English>
+        <French>Argent</French>
+        <Russian>Деньги</Russian>
+      </Key>
     </Container>
     <Container name="black_market">
       <Key ID="STR_trader_black_market_title">
-          <Original>Military Vehicles Black Market</Original>
-          <English>Military Vehicles Black Market</English>
-          <French>Marché noir des véhicules militaires</French>
-          <Russian>Черный рынок военной техники</Russian>
-          <German>Schwarzmarkt für Militärfahrzeuge</German>
-          <Czech>Černý trh s vojenskými vozidly</Czech>
-          <Korean>군용 차량 암시장</Korean>
+        <Original>Military Vehicles Black Market</Original>
+        <English>Military Vehicles Black Market</English>
+        <French>Marché noir des véhicules militaires</French>
+        <Russian>Черный рынок военной техники</Russian>
+        <German>Schwarzmarkt für Militärfahrzeuge</German>
+        <Czech>Černý trh s vojenskými vozidly</Czech>
+        <Korean>군용 차량 암시장</Korean>
       </Key>
     </Container>
     <Container name="technicals_menu">
       <Key ID="STR_trader_technicals_title">
-          <Original>Additional Rebel Vehicles</Original>
-          <English>Additional Rebel Vehicles</English>
-          <French>Véhicules rebelles supplémentaires</French>
-          <Russian>Дополнительная повстанческая техника</Russian>
-          <German>Schwarzmarkt für Militärfahrzeuge</German>
-          <Czech>Další povstalecká vozidla</Czech>
-          <Korean>추가 반란군 차량</Korean>
+        <Original>Additional Rebel Vehicles</Original>
+        <English>Additional Rebel Vehicles</English>
+        <French>Véhicules rebelles supplémentaires</French>
+        <Russian>Дополнительная повстанческая техника</Russian>
+        <German>Schwarzmarkt für Militärfahrzeuge</German>
+        <Czech>Další povstalecká vozidla</Czech>
+        <Korean>추가 반란군 차량</Korean>
       </Key>
     </Container>
     <Container name="intel_tasks">
       <Key ID="STR_trader_task_hint_outdated">
-          <Original>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</Original>
-          <English>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</English>
-          <French>Malheureusement, les informations ennemies sont pour la plupart dépassées. Rien d'utile n'a été trouvé.</French>
-          <Russian>Донесения, которые мы добыли, к сожалению, устарели.</Russian>
+        <Original>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</Original>
+        <English>Unfortunately, enemy intel is mostly outdated. Nothing useful was found.</English>
+        <French>Malheureusement, les informations ennemies sont pour la plupart dépassées. Rien d'utile n'a été trouvé.</French>
+        <Russian>Донесения, которые мы добыли, к сожалению, устарели.</Russian>
       </Key>
       <Key ID="STR_trader_task_hint_description">
-          <Original>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</Original>
-          <English>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</English>
-          <French>Le dernier rapport d'Enemy contient des informations sur l'infâme marchand d'armes qui est arrivé dans notre état agité. Nous devons le trouver et établir des contacts entre le marché noir et la résistance.</French>
-          <Russian>В свежих донесениях противника содержится информация о том, что в зону конфликта прибыл торговец оружием. Необходимо наладить контакт между ним и сопротивлением.</Russian>
+        <Original>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</Original>
+        <English>Enemy's latest report contains information about infamous arms dealer which has been arrived in our restless state. We need to find him and establish contacts between black market and the resistance.</English>
+        <French>Le dernier rapport d'Enemy contient des informations sur l'infâme marchand d'armes qui est arrivé dans notre état agité. Nous devons le trouver et établir des contacts entre le marché noir et la résistance.</French>
+        <Russian>В свежих донесениях противника содержится информация о том, что в зону конфликта прибыл торговец оружием. Необходимо наладить контакт между ним и сопротивлением.</Russian>
       </Key>
     </Container>
     <Container name="common_actions">
       <Key ID="STR_antistasi_actions_common_access_vehicle_marker_text">
-          <Original>Access Vehicle Market</Original>
-          <English>Access Vehicle Market</English>
-          <French>Accéder au marché des véhicules</French>
-          <Russian>Посмотреть чёрный рынок техники</Russian>
+        <Original>Access Vehicle Market</Original>
+        <English>Access Vehicle Market</English>
+        <French>Accéder au marché des véhicules</French>
+        <Russian>Посмотреть чёрный рынок техники</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_common_move_trader_text">
-          <Original>Move Arms Dealer to Rebel HQ</Original>
-          <English>Move Arms Dealer to Rebel HQ</English>
-          <French>Déplacer le commerçant vers le QG des rebelles</French>
-          <Russian>Перевести торговца оружием на базу</Russian>
+        <Original>Move Arms Dealer to Rebel HQ</Original>
+        <English>Move Arms Dealer to Rebel HQ</English>
+        <French>Déplacer le commerçant vers le QG des rebelles</French>
+        <Russian>Перевести торговца оружием на базу</Russian>
       </Key>
     </Container>
     <Container name="common_notifications">
       <Key ID="STR_antistasi_actions_common_notifications_money_found_title">
-          <Original>Money</Original>
-          <English>Money</English>
-          <French>Argent</French>
-          <Russian>Деньги</Russian>
+        <Original>Money</Original>
+        <English>Money</English>
+        <French>Argent</French>
+        <Russian>Деньги</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_common_notifications_share_money_title">
-          <Original>Faction money has been shared</Original>
-          <English>Faction money has been shared</English>
-          <French>L'argent a été partagé</French>
-          <Russian>Разделение денег фракции</Russian>
+        <Original>Faction money has been shared</Original>
+        <English>Faction money has been shared</English>
+        <French>L'argent a été partagé</French>
+        <Russian>Разделение денег фракции</Russian>
       </Key>
       <Key ID="STR_antistasi_actions_common_notifications_share_money_not_enough_text">
         <Original>Not enough money to share.</Original>
@@ -4144,65 +4284,9 @@
         <German>Bewusstlos</German>
         <Czech>Nevědomý</Czech>
       </Key>
-      <Key ID="STR_antistasi_actions_draw3d_commander_text">
-        <Original>Commander</Original>
-        <English>Commander</English>
-        <French>Le commandant</French>
-        <Russian>Командир</Russian>
-        <German>Kommandant</German>
-        <Czech>Velitel</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_engineer_text">
-        <Original>Engineer</Original>
-        <English>Engineer</English>
-        <French>Ingénieur</French>
-        <Russian>Инженер</Russian>
-        <German>Ingenieur</German>
-        <Czech>Inženýr</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_medic_text">
-        <Original>Medic</Original>
-        <English>Medic</English>
-        <French>Médical</French>
-        <Russian>Санинструктор</Russian>
-        <German>Medizin</German>
-        <Czech>Medic</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_grenadier_text">
-        <Original>Grenadier</Original>
-        <English>Grenadier</English>
-        <French>Grenadier</French>
-        <Russian>Гренадер</Russian>
-        <German>Grenadier</German>
-        <Czech>Grenadier</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_autorifleman_text">
-        <Original>Autorifleman</Original>
-        <English>Autorifleman</English>
-        <French>Mitrailleur</French>
-        <Russian>Пулеметчик</Russian>
-        <German>Maschinengewehrschütze</German>
-        <Czech>Kulometčík</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_teamleader_text">
-        <Original>Team Leader</Original>
-        <English>Team Leader</English>
-        <French>Chef d'équipe</French>
-        <Russian>Командир звена</Russian>
-        <German>Gruppenführer</German>
-        <Czech>Vedoucí týmu</Czech>
-      </Key>
-      <Key ID="STR_antistasi_actions_draw3d_rifleman_text">
-        <Original>Rifleman</Original>
-        <English>Rifleman</English>
-        <French>Fusilier</French>
-        <Russian>Стрелок</Russian>
-        <German>Schütze</German>
-        <Czech>Střelec</Czech>
-      </Key>
     </Container>
     <Container name="surrender_actions">
-    <Key ID="STR_interrogate_action">
+      <Key ID="STR_interrogate_action">
         <Original>Interrogate</Original>
         <English>Interrogate</English>
         <French>Interroger</French>
@@ -4344,196 +4428,196 @@
     </Container>
   </Package>
   <Package name="General">
-	  <Key ID="STR_HALS_STORE_ACTION">
-		    <Original>Store</Original>
-		    <English>Store</English>
-		    <French>Magasin</French>
-		    <German>Geschäft</German>
-		    <Russian>Магазин</Russian>
-		    <Spanish>Comprar</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_OPEN_ACTION">
-		    <Original>Open the %1</Original> <!--e.g. open the Weapons Store-->
-		    <English>Open the %1</English>
-		    <French></French>
-		    <German></German>
-		    <Russian></Russian>
-		    <Spanish></Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
-		    <Original>Item unavaliable.</Original>
-		    <English>Item unavaliable.</English>
-		    <French>Item indisponible.</French>
-		    <German>Gegenstand nicht verfügbar.</German>
-		    <Russian>Предмет недоступен</Russian>
-		    <Spanish>Objeto no disponible.</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_OUTOFSTOCK">
-		    <Original>Insufficient stock.</Original>
-		    <English>Insufficient stock.</English>
-		    <French>Stocks insufissant.</French>
-		    <German>Ausverkauft.</German>
-		    <Russian>Товар закончился</Russian>
-		    <Spanish>Sin stock.</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_TOOEXPENSIVE">
-		    <Original>Insufficient funds.</Original>
-		    <English>Insufficient funds.</English>
-		    <French>Fonds insufissant.</French>
-		    <German>Zu wenig Geld.</German>
-		    <Russian>Недостаточно средств</Russian>
-		    <Spanish>Dinero insuficiente.</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_NOEQUIP">
-		    <Original>Unable to equip.</Original>
-		    <English>Unable to equip.</English>
-		    <French>Impossible de s'équiper.</French>
-		    <German>Ausrüsten fehlgeschlagen.</German>
-		    <Russian>Невозможно экипировать</Russian>
-		    <Spanish>Imposible equipar.</Spanish>
-		    <Italian></Italian>
-		  </Key>
-		<Key ID="STR_HALS_STORE_ITEM_NOCARGOSPACE">
-		    <Original>Insufficient cargo space.</Original>
-		    <English>Insufficient cargo space.</English>
-		    <French>Pas assez d'espace disponible.</French>
-		    <German>Nicht genug Platz.</German>
-		    <Russian>Не хватает места в инвентаре</Russian>
-		    <Spanish>Espacio insuficiente.</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_PURCHASED">
-		    <Original>purchased</Original>
-		    <English>purchased</English>
-		    <French>acheté</French>
-		    <German>gekauft</German>
-		    <Russian>куплен</Russian>
-		    <Spanish>comprad</Spanish>
-		    <Italian></Italian>
-		</Key>
-        <!-- Thanks to JakeHekesFists -->
-        <Key ID="STR_HALS_STORE_ITEM_SELL_NOTEMPTY">
-			<Original>You cannot sell your %1 (%2) because it is not empty.</Original>
-			<English>You cannot sell your %1 (%2) because it is not empty.</English>
+    <Key ID="STR_HALS_STORE_ACTION">
+      <Original>Store</Original>
+      <English>Store</English>
+      <French>Magasin</French>
+      <German>Geschäft</German>
+      <Russian>Магазин</Russian>
+      <Spanish>Comprar</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_OPEN_ACTION">
+      <Original>Open the %1</Original>      <!--e.g. open the Weapons Store-->
+      <English>Open the %1</English>
+      <French></French>
+      <German></German>
+      <Russian></Russian>
+      <Spanish></Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
+      <Original>Item unavaliable.</Original>
+      <English>Item unavaliable.</English>
+      <French>Item indisponible.</French>
+      <German>Gegenstand nicht verfügbar.</German>
+      <Russian>Предмет недоступен</Russian>
+      <Spanish>Objeto no disponible.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_OUTOFSTOCK">
+      <Original>Insufficient stock.</Original>
+      <English>Insufficient stock.</English>
+      <French>Stocks insufissant.</French>
+      <German>Ausverkauft.</German>
+      <Russian>Товар закончился</Russian>
+      <Spanish>Sin stock.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_TOOEXPENSIVE">
+      <Original>Insufficient funds.</Original>
+      <English>Insufficient funds.</English>
+      <French>Fonds insufissant.</French>
+      <German>Zu wenig Geld.</German>
+      <Russian>Недостаточно средств</Russian>
+      <Spanish>Dinero insuficiente.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_NOEQUIP">
+      <Original>Unable to equip.</Original>
+      <English>Unable to equip.</English>
+      <French>Impossible de s'équiper.</French>
+      <German>Ausrüsten fehlgeschlagen.</German>
+      <Russian>Невозможно экипировать</Russian>
+      <Spanish>Imposible equipar.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_NOCARGOSPACE">
+      <Original>Insufficient cargo space.</Original>
+      <English>Insufficient cargo space.</English>
+      <French>Pas assez d'espace disponible.</French>
+      <German>Nicht genug Platz.</German>
+      <Russian>Не хватает места в инвентаре</Russian>
+      <Spanish>Espacio insuficiente.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_PURCHASED">
+      <Original>purchased</Original>
+      <English>purchased</English>
+      <French>acheté</French>
+      <German>gekauft</German>
+      <Russian>куплен</Russian>
+      <Spanish>comprad</Spanish>
+      <Italian></Italian>
+    </Key>
+    <!-- Thanks to JakeHekesFists -->
+    <Key ID="STR_HALS_STORE_ITEM_SELL_NOTEMPTY">
+      <Original>You cannot sell your %1 (%2) because it is not empty.</Original>
+      <English>You cannot sell your %1 (%2) because it is not empty.</English>
       <Russian>Вы не можете продать %1 (%2), поскольку он не пустой.</Russian>
-		</Key>
-		<Key ID="STR_HALS_STORE_ITEM_SELL_SOLD">
-			<Original>Sold x%1 %2(s) for $%3.</Original>
-			<English>Sold x%1 %2(s) for $%3.</English>
+    </Key>
+    <Key ID="STR_HALS_STORE_ITEM_SELL_SOLD">
+      <Original>Sold x%1 %2(s) for $%3.</Original>
+      <English>Sold x%1 %2(s) for $%3.</English>
       <Russian>Продано x%1 %2(s) за $%3.</Russian>
-		</Key>
-	</Package>
-	<Package name="Dialog">
-	    <Key ID="STR_HALS_STORE_CHECKBOX_AFFORD">
-		    <Original>Only show items which the player can afford.</Original>
-		    <English>Only show items which the player can afford.</English>
-		    <French>Ne montrer que les items achetables.</French>
-		    <German>Zeige nur Gegenstände, die sich der Spieler leisten kann.</German>
-		    <Russian>Показывать только предметы, на которые хватает денег</Russian>
-		    <Spanish>Mostrar solo objetos que pueda comprar.</Spanish>
-		    <Italian></Italian>
-		</Key>
-        <Key ID="STR_HALS_STORE_CHECKBOX_AVALIABLE">
-            <Original>Only show items that are avaliable for purchase.</Original>
-            <English>Only show items that are avaliable for purchase.</English>
-            <French></French>
-            <German></German>
-            <Russian>Показывать только предметы, доступные к покупке.</Russian>
-            <Spanish></Spanish>
-            <Italian></Italian>
-        </Key>
-	    <Key ID="STR_HALS_STORE_CHECKBOX_STOCK">
-		    <Original>Only show items which are in stock.</Original>
-		    <English>Only show items which are in stock.</English>
-		    <French>Ne montrer que les items en stock.</French>
-		    <German>Zeige nur Gegenstände, die auf Lager sind.</German>
-		    <Russian>Показывать только предметы, доступные для продажи.</Russian>
-		    <Spanish>Mostrar solo objetos en stock.</Spanish>
-		    <Italian></Italian>
-		</Key>
-	    <Key ID="STR_HALS_STORE_CHECKBOX_COMPATIBLE">
-		    <Original>Only show items compatible with the player's equipped weapons.</Original>
-		    <English>Only show items compatible with the player's equipped weapons.</English>
-		    <French>Ne montrer que les items compatibles.</French>
-		    <German>Zeige nur Gegenstände, die mit der ausgerüsteten Waffe des Spielers kompatibel sind.</German>
-		    <Russian>Показывать только предметы, совместимые с оружием игрока.</Russian>
-		    <Spanish>Mostrar solo objetos compatibles con armas equipadas.</Spanish>
-		    <Italian></Italian>
-		</Key>
-        <!-- SELL BOX -->
-        <Key ID="STR_HALS_STORE_CHECKBOX_SELLFILTER">
-            <Original>Only show items that the player can sell.</Original>
-            <English>Only show items that the player can sell.</English>
-            <Russian>Показывать только предметы, которые можно продать.</Russian>
-        </Key>
-        <!-- SELL BUTTON -->
-        <Key ID="STR_HALS_STORE_BUTTON_SELL">
-            <Original>Sell</Original>
-            <English>Sell</English>
-            <French>Vendre</French>
-            <German>Verkaufen</German>
-            <Russian>Продать</Russian>
-            <Spanish>Vender</Spanish>
-            <Italian>Vendere</Italian>
-        </Key>
-	    <Key ID="STR_HALS_STORE_CHECKBOX_EQUIP">
-		    <Original>Equip item upon purchase (if possible).</Original>
-		    <English>Equip item upon purchase (if possible).</English>
-		    <French>Equiper une fois acheter (si possible).</French>
-		    <German>Gegenstand beim Kauf ausrüsten (wenn möglich).</German>
-		    <Russian>Экипировать после покупки (по возможности).</Russian>
-		    <Spanish>Equipar el articulo al comprar (si es posible).</Spanish>
-		    <Italian></Italian>
-		</Key>
-	    <Key ID="STR_HALS_STORE_BUTTON_PURCHASE">
-		    <Original>Purchase</Original>
-		    <English>Purchase</English>
-		    <French>Acheter</French>
-		    <German>Kaufen</German>
-		    <Russian>Купить</Russian>
-		    <Spanish>Compra</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_TEXT_PRICE">
-		    <Original>Price</Original>
-		    <English>Price</English>
-		    <French>Prix</French>
-		    <German>Preis</German>
-		    <Russian>Цена</Russian>
-		    <Spanish>Precio</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_TEXT_INSTOCK">
-		    <Original>IN STOCK</Original>
-		    <English>IN STOCK</English>
-		    <French>EN STOCK</French>
-		    <German>AUF LAGER</German>
-		    <Russian>В ПРОДАЖЕ</Russian>
-		    <Spanish>EN STOCK</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_TEXT_NOSTOCK">
-		    <Original>OUT OF STOCK.</Original>
-		    <English>OUT OF STOCK.</English>
-		    <French>INDISPONIVLE.</French>
-		    <German>AUSVERKAUFT.</German>
-		    <Russian>ЗАКОНЧИЛСЯ</Russian>
-		    <Spanish>FUERA DE STOCK.</Spanish>
-		    <Italian></Italian>
-		</Key>
-		<Key ID="STR_HALS_STORE_LISTBOX_NOMONEY">
-		    <Original>%1¢ more required.</Original>
-		    <English>%1¢ more required.</English>
-		    <French>%1¢ requis.</French>
-		    <German>%1¢ mehr benötigt.</German>
-		    <Russian>Не хватает %1¢.</Russian>
-		    <Spanish>Se necesitan %1¢.</Spanish>
-		    <Italian></Italian>
-		</Key>
-	</Package>
+    </Key>
+  </Package>
+  <Package name="Dialog">
+    <Key ID="STR_HALS_STORE_CHECKBOX_AFFORD">
+      <Original>Only show items which the player can afford.</Original>
+      <English>Only show items which the player can afford.</English>
+      <French>Ne montrer que les items achetables.</French>
+      <German>Zeige nur Gegenstände, die sich der Spieler leisten kann.</German>
+      <Russian>Показывать только предметы, на которые хватает денег</Russian>
+      <Spanish>Mostrar solo objetos que pueda comprar.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_CHECKBOX_AVALIABLE">
+      <Original>Only show items that are avaliable for purchase.</Original>
+      <English>Only show items that are avaliable for purchase.</English>
+      <French></French>
+      <German></German>
+      <Russian>Показывать только предметы, доступные к покупке.</Russian>
+      <Spanish></Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_CHECKBOX_STOCK">
+      <Original>Only show items which are in stock.</Original>
+      <English>Only show items which are in stock.</English>
+      <French>Ne montrer que les items en stock.</French>
+      <German>Zeige nur Gegenstände, die auf Lager sind.</German>
+      <Russian>Показывать только предметы, доступные для продажи.</Russian>
+      <Spanish>Mostrar solo objetos en stock.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_CHECKBOX_COMPATIBLE">
+      <Original>Only show items compatible with the player's equipped weapons.</Original>
+      <English>Only show items compatible with the player's equipped weapons.</English>
+      <French>Ne montrer que les items compatibles.</French>
+      <German>Zeige nur Gegenstände, die mit der ausgerüsteten Waffe des Spielers kompatibel sind.</German>
+      <Russian>Показывать только предметы, совместимые с оружием игрока.</Russian>
+      <Spanish>Mostrar solo objetos compatibles con armas equipadas.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <!-- SELL BOX -->
+    <Key ID="STR_HALS_STORE_CHECKBOX_SELLFILTER">
+      <Original>Only show items that the player can sell.</Original>
+      <English>Only show items that the player can sell.</English>
+      <Russian>Показывать только предметы, которые можно продать.</Russian>
+    </Key>
+    <!-- SELL BUTTON -->
+    <Key ID="STR_HALS_STORE_BUTTON_SELL">
+      <Original>Sell</Original>
+      <English>Sell</English>
+      <French>Vendre</French>
+      <German>Verkaufen</German>
+      <Russian>Продать</Russian>
+      <Spanish>Vender</Spanish>
+      <Italian>Vendere</Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_CHECKBOX_EQUIP">
+      <Original>Equip item upon purchase (if possible).</Original>
+      <English>Equip item upon purchase (if possible).</English>
+      <French>Equiper une fois acheter (si possible).</French>
+      <German>Gegenstand beim Kauf ausrüsten (wenn möglich).</German>
+      <Russian>Экипировать после покупки (по возможности).</Russian>
+      <Spanish>Equipar el articulo al comprar (si es posible).</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_BUTTON_PURCHASE">
+      <Original>Purchase</Original>
+      <English>Purchase</English>
+      <French>Acheter</French>
+      <German>Kaufen</German>
+      <Russian>Купить</Russian>
+      <Spanish>Compra</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_TEXT_PRICE">
+      <Original>Price</Original>
+      <English>Price</English>
+      <French>Prix</French>
+      <German>Preis</German>
+      <Russian>Цена</Russian>
+      <Spanish>Precio</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_TEXT_INSTOCK">
+      <Original>IN STOCK</Original>
+      <English>IN STOCK</English>
+      <French>EN STOCK</French>
+      <German>AUF LAGER</German>
+      <Russian>В ПРОДАЖЕ</Russian>
+      <Spanish>EN STOCK</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_TEXT_NOSTOCK">
+      <Original>OUT OF STOCK.</Original>
+      <English>OUT OF STOCK.</English>
+      <French>INDISPONIVLE.</French>
+      <German>AUSVERKAUFT.</German>
+      <Russian>ЗАКОНЧИЛСЯ</Russian>
+      <Spanish>FUERA DE STOCK.</Spanish>
+      <Italian></Italian>
+    </Key>
+    <Key ID="STR_HALS_STORE_LISTBOX_NOMONEY">
+      <Original>%1¢ more required.</Original>
+      <English>%1¢ more required.</English>
+      <French>%1¢ requis.</French>
+      <German>%1¢ mehr benötigt.</German>
+      <Russian>Не хватает %1¢.</Russian>
+      <Spanish>Se necesitan %1¢.</Spanish>
+      <Italian></Italian>
+    </Key>
+  </Package>
 </Project>
