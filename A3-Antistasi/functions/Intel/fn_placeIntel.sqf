@@ -19,8 +19,7 @@ private _fileName = "placeIntel";
 ] call A3A_fnc_log;
 
 //Catch invalid cases
-if(!(_marker  in airportsX || {_marker in outposts} || {_marker in milbases})) exitWith
-{
+if(!(_marker in airportsX || {_marker in outposts} || {_marker in milbases})) exitWith {
     [
         1,
         format ["Marker %1 is not suited to have intel!", _marker, true],
@@ -34,14 +33,20 @@ private _side = sidesX getVariable _marker;
 private _size = markerSize _marker;
 private _radius = sqrt ((_size select 0) * (_size select 0) + (_size select 1) * (_size select 1));
 
-private _listStaticTower = ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F"];
 private _listStaticHQ = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F"];
-private _listEnochRadar = ["Land_Radar_01_HQ_F"];
+private _listRadarComplexHq = ["Land_Radar_01_HQ_F"];
+private _listGuardhouse = ["Land_GuardHouse_02_F", "Land_GuardHouse_02_grey_F"];
+private _listBarracks = ["Land_i_Barracks_V1_F", "Land_i_Barracks_V2_F", "Land_u_Barracks_V2_F", "Land_Barracks_01_dilapidated_F", "Land_Barracks_01_grey_F", "Land_Barracks_01_camo_F"];
+private _listBarracksLivonia = ["Land_Barracks_06_F"];
+private _listBarracksGmEastern = ["land_gm_euro_barracks_02_win", "land_gm_euro_barracks_02"];
+private _listBarracksGmWestern = ["land_gm_euro_barracks_01_win", "land_gm_euro_barracks_01"];
+private _listBarracksGmBt6 = ["land_gm_tower_bt_6_fuest_80"];
 
-private _allBuildings = nearestObjects [getMarkerPos _marker, _listStaticHQ + _listStaticTower + _listEnochRadar, _radius, true];
+private _searchArray = _listBarracks + _listStaticHQ + _listRadarComplexHq + _listGuardhouse + _listBarracksLivonia + _listBarracksGmEastern + _listBarracksGmWestern + _listBarracksGmBt6;
 
-if(count _allBuildings == 0) exitWith
-{
+private _allBuildings = nearestObjects [getMarkerPos _marker, _searchArray, _radius, true];
+
+if(count _allBuildings == 0) exitWith {
     [
         2,
         format ["No suitable buildings found on marker %1", _marker],
@@ -54,9 +59,13 @@ private _building = selectRandom _allBuildings;
 
 //Placing the intel desk
 private _spawnParameters = switch (true) do {
-case ((typeOf _building) in _listStaticTower): {[_building buildingPos 9, -90]};
-case ((typeof _building) in _listStaticHQ): {[_building buildingPos 1, -180]};
-case ((typeof _building) in _listEnochRadar): {[_building buildingPos 24, -90]};
+    case ((typeOf _building) in _listBarracksGmEastern): {[_building buildingPos 8, 0]};
+    case ((typeOf _building) in _listBarracksGmWestern): {[_building buildingPos 8, 0]};
+    case ((typeOf _building) in _listBarracksLivonia): {[_building buildingPos 7, 0]};
+    case ((typeOf _building) in _listBarracks): {[_building buildingPos 2, -180]};
+    case ((typeOf _building) in _listGuardhouse): {[_building buildingPos 3, -180]};
+    case ((typeOf _building) in _listRadarComplexHq): {[_building buildingPos 6, -90]};
+    case ((typeof _building) in _listStaticHQ): {[_building buildingPos 1, -180]};
 };
 
 private _desk = createVehicle ["Land_CampingTable_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];

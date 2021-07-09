@@ -3,8 +3,6 @@
 ### Additions
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Persistent Constructions Removal action (new button in Constructions submenu)
-- Arms Dealer will sell UAV terminals
-- Additional "Number of the same item required to unlock" parameter values - 100, 200, 500
 
 ### Changes
 - Fixed AI Control Time for HC squads
@@ -13,6 +11,8 @@
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
 - ADR-97 Official Mod included into base configuration, parameter has been removed
 - Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of terrain's population and all airbases and milbases to win)
+- Arms Dealer will sell UAV terminals
+- Additional "Number of the same item required to unlock" parameter values - 100, 200, 500
 - Multiple vehicle for same category support for militia, militia tanks support
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
@@ -20,8 +20,11 @@
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
 - Artillery Response minor fixes
 - All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
+- Added bunch of new intel spawn locations - Radar Complex HQ, Guard House, Barracks
 - Kill Collaborationist tasks will be not guaranteed when police station is in radius (this will give other assasinate type tasks enough room to breathe)
+- Fixed singleAttack undefined variable error
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
+- (RHS, Aegis, 3CB Factions, CUP) Rear Echelon/Militia engineers and medics may use shotguns
 - (RHS) turretless BRDM-2 logistic nodes (allows to mount ZU-23 on top of them)
 - (RHS) KRAZ cargo support
 - (3CB Factions) MT-LB logistic nodes (allows to mount ZU-23 on top of them)
@@ -32,6 +35,7 @@
 
 ### Removals
 - Removed Antistasi Units template support
+- Removed possibility of intel spawn in high military towers 
 
 ## 1.6
 ### Additions
@@ -211,7 +215,7 @@
 - Multiple "Search for Intel" action fixes - fixed some bugs and exploits (multiple searchs on same squad leader), localized string for action, search process visualization
 - Remade announcement system - much less messages on screen will be overwritten by new information
 - AA Emplacements will scan horizon for targets (this will increase their situation awareness, but still not totally fix their built-in stupidity)
-- AA/AT Emplacements static gunner replaced with militiaman (which allows to replenish gunners on these emplacements)
+- AA/AT Emplacements static gunner replaced with militiaman (allows to replenish gunners on these emplacements)
 - Sum Similar Weapons to Unlock changes - optimization pass (less memory allocations, hashmap usage instead of arrays), weapon similarity check changes (attempt to reduce different caliber weapon unlocks with same weapon origin (for example, sudden early M110 unlock situation)), bugfixes, pistols inclusion
 - Airbases have SAM sites too
 - CIWSes and AA vehicles on airbase will scan horizon
