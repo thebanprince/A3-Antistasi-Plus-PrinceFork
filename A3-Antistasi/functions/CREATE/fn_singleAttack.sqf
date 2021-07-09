@@ -139,9 +139,9 @@ for "_i" from 1 to _vehicleCount do
 };
 
 if ((_posOrigin distance2D _posDestination < distanceForLandAttack) && {[_posOrigin, _posDestination] call A3A_fnc_arePositionsConnected}) then {
-    private _heavyResponseChance =  if (side _x == Occupants) then {aggressionOccupants/2} else {aggressionInvaders/2};
-    if (_heavyResponseChance > 35) then {
-        _heavyResponseChance = 35;
+    private _heavyResponseChance =  if (_side == Occupants) then {aggressionOccupants/2} else {aggressionInvaders/2};
+    if (_heavyResponseChance > 30) then {
+        _heavyResponseChance = 30;
     };
 
     if ((random 100) < _heavyResponseChance) then {
