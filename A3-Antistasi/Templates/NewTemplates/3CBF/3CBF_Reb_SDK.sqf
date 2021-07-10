@@ -30,7 +30,7 @@
 ["vehicleCivLooter", "UK3CB_CHC_C_Ural_Open"] call _fnc_saveToTemplate;
 
 ["staticMG", "UK3CB_AAF_I_M2_TriPod"] call _fnc_saveToTemplate; 					
-["staticAT", "UK3CB_AAF_I_Kornet"] call _fnc_saveToTemplate; 					
+["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate; 					
 ["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate; 					
 ["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate; 				
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
@@ -38,7 +38,7 @@
 
 //Static weapon definitions
 ["baggedMGs", [["RHS_M2_Gun_Bag","RHS_M2_Tripod_Bag"]]] call _fnc_saveToTemplate; 				
-["baggedAT", [["RHS_Kornet_Gun_Bag","RHS_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
+["baggedAT", [["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
@@ -82,7 +82,7 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "UK3CB_CHD_I_RIF_1"] call _fnc_saveToTemplate;
+["baseSoldier", "I_C_Soldier_Para_1_F"] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";

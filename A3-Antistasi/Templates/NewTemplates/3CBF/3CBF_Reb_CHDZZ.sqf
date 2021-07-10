@@ -30,7 +30,7 @@
 ["vehicleCivLooter", "UK3CB_C_V3S_Open"] call _fnc_saveToTemplate;
 
 ["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate; 					
-["staticAT", "UK3CB_AAF_I_Kornet"] call _fnc_saveToTemplate; 					
+["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate; 					
 ["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate; 					
 ["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate; 				
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
@@ -38,7 +38,7 @@
 
 //Static weapon definitions
 ["baggedMGs", [["RHS_DShkM_Gun_Bag","RHS_DShkM_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
-["baggedAT", [["RHS_Kornet_Gun_Bag","RHS_Kornet_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
+["baggedAT", [["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
