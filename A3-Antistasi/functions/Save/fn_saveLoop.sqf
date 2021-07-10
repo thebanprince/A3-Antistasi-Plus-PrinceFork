@@ -249,7 +249,11 @@ private _arrayAAPostsFIA = [];
 
 {
 	_positionOutpost = getMarkerPos _x;
-	_arrayAAPostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+	_arrayAAPostsFIA pushBack [
+		_positionOutpost,
+		garrison getVariable [_x,[]],
+		staticPositions getVariable [_x,[]] 
+	];
 } forEach aapostsFIA;
 
 ["aapostsFIA", _arrayAAPostsFIA] call A3A_fnc_setStatVariable;
@@ -258,7 +262,11 @@ private _arrayATPostsFIA = [];
 
 {
 	_positionOutpost = getMarkerPos _x;
-	_arrayATPostsFIA pushBack [_positionOutpost,garrison getVariable [_x,[]]];
+	_arrayATPostsFIA pushBack [
+		_positionOutpost, 
+		garrison getVariable [_x,[]], 
+		staticPositions getVariable [_x,[]] 
+	];
 } forEach atpostsFIA;
 
 ["atpostsFIA", _arrayATPostsFIA] call A3A_fnc_setStatVariable;

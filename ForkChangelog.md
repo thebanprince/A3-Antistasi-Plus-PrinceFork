@@ -3,6 +3,7 @@
 ### Additions
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Persistent Constructions Removal action (new button in Constructions submenu)
+- Ability to move and save static weapon position and direction in AA/AT Emplacements
 
 ### Changes
 - Fixed AI Control Time for HC squads
@@ -28,10 +29,13 @@
 - (RHS) turretless BRDM-2 logistic nodes (allows to mount ZU-23 on top of them)
 - (RHS) KRAZ cargo support
 - (3CB Factions) MT-LB logistic nodes (allows to mount ZU-23 on top of them)
+- (3CB Factions) SPG-9 instead of Kornet in all templates
 - (3CB Factions, CUP) Replaced Chernarus Police with Gendarmerie on tropical maps 
 - (Aegis) Fixed wrong AUG 3GL mags
 - (CUP) Vanilla weapons and equipment will no longer appear in crates at outposts 
 - (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
+- (Livonia) New factory at the South of the map
+- (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
 
 ### Removals
 - Removed Antistasi Units template support

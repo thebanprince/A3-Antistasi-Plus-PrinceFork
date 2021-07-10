@@ -78,4 +78,4 @@ waitUntil {sleep 1; (_playerX != attachedTo _thingX) or (vehicle _playerX != _pl
 
 if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle"] call A3A_fnc_customHint;};
 
-if  (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset cannot be moved more far away for its zone center"] call A3A_fnc_customHint;};
+if  (_playerX distance2D _positionX > (_size-3)) exitWith {["Move HQ", "This asset cannot be moved more far away for its zone center"] call A3A_fnc_customHint;};

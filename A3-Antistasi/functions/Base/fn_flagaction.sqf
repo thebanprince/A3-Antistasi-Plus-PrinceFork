@@ -62,7 +62,7 @@ switch _typeX do
     };
     case "moveS":
     {
-        _flag addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"]
+        _flag addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","_this == theBoss"]
     };
     case "remove":
     {
@@ -161,5 +161,9 @@ switch _typeX do
     case "Intel_Large":
     {
         _flag addAction ["Download Intel", A3A_fnc_searchIntelOnLaptop, nil, 4, true, false, "", "isPlayer _this", 4];
+    };
+    case "Move_Outpost_Static":
+    {
+        _flag addAction ["Move Emplacement Static", SCRT_fnc_common_moveOutpostStatic, nil, 4, true, false, "", "isPlayer _this", 4];
     };
 };
