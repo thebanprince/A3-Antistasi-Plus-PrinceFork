@@ -1,8 +1,8 @@
 private _title = call SCRT_fnc_misc_getMissionTitle;
 
 _credits = [ 
-	[ _title, [antistasiVersion]], 
-	[ "Antistasi Plus Version:", [antistasiPlusVersion]], 
+	[ _title, [antistasiPlusVersion]], 
+	[ "Antistasi Version:", [antistasiVersion]], 
 	[ "Antistasi Plus Authors:", ["Socrates"]], 
 	[ "Antistasi Authors:", ["Barbolani","Official AntiStasi Community"]] 
 ];
