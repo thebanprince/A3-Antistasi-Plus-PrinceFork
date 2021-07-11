@@ -82,6 +82,7 @@ private _fnc_spawnStatic = {
     _unit moveInGunner _veh;
     _soldiers pushBack _unit;
     _vehiclesX pushBack _veh;
+    _veh
 };
 
 for "_i" from 0 to (count _buildings) - 1 do
@@ -92,96 +93,176 @@ for "_i" from 0 to (count _buildings) - 1 do
 
     call {
         if (isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
-        if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
-        {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
-            private _dir = (getDir _building) - 180;
-            private _zpos = AGLToASL (_building buildingPos 1);
-            private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-		if 	((_typeB == "Land_Hlaska")) exitWith
-        {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-            private _dir = (getDir _building);
-            private _zpos = AGLToASL (_building buildingPos 1);
-            private _pos = _zpos getPos [0.5, _dir];
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-        if 	((_typeB == "Land_fortified_nest_small_EP1") or (_typeB == "Land_BagBunker_Small_F") or (_typeB == "Land_BagBunker_01_small_green_F")
-            or (_typeB == "Land_fortified_nest_small") or (_typeB == "Fort_Nest")) exitWith
-        {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
-            private _dir = (getDir _building) - 180;
-            private _zpos = AGLToASL (_building buildingPos 1);
-            private _pos = _zpos getPos [-1, _dir];
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-        if(_typeB == "Land_ControlTower_02_F") exitWith {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-            private _dir = (getDir _building) - 180;
-            private _zpos = AGLToASL (_building buildingPos 15);
-            private _pos = _zpos getPos [0, _dir];
-            _pos = ASLToATL ([(_pos select 0) + 4.2, (_pos select 1) - 2, (_zpos select 2) + 0.5]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-        if 	(_typeB in listbld) exitWith			// just the big towers?
-        {
-            private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
-            private _gmgType = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
-            _dir = getDir _building;
-            _zOffset = [0, 0, -0.3]; //fix spawn hight
-            _Tdir = _dir + 90; //relative rotation to building
-            _zpos = AGLToASL (_building buildingPos 11); //relative East
-            _pos = _zpos getPos [-1, _Tdir]; //offset
-            _zpos = _zpos vectorAdd _zOffset;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
-            sleep 0.5;			// why only here?
-            _Tdir = _dir + 0;
-            _zpos = AGLToASL (_building buildingPos 13); //relative North
-            _pos = _zpos getPos [-0.8, _Tdir]; //offset
-            _zpos = _zpos vectorAdd _zOffset;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _Tdir] call _fnc_spawnStatic;
-            sleep 0.5;
-            _Tdir = _dir + 180;
-            _zpos = AGLToASL (_building buildingPos 15); //relative South
-            _pos = _zpos getPos [-0.2, _Tdir]; //offset
-            _zpos = _zpos vectorAdd _zOffset;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
-        };
-		if 	((_typeB == "Land_Radar_01_HQ_F")) exitWith
-        {
-            private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
-            private _dir = getDir _building;
-            private _zpos = AGLToASL (_building buildingPos 30);
-            private _pos = getPosASL _building;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
-        {
-            private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
-            private _dir = getDir _building;
-            private _zpos = AGLToASL (_building buildingPos 8);
-            private _pos = getPosASL _building;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
-        };
-        if 	(_typeB == "Land_Radar_01_HQ_F") exitWith {
-            private _type = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
-            private _dir = getDir _building;
-            private _zOffset = [0, 0, -0.15]; //fix spawn hight
-            private _zpos = AGLToASL (_building buildingPos 35);
-            _zpos = _zpos vectorAdd _zOffset;
-            private _pos = getPosASL _building;
-            _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
-            [_type, _pos, _dir] call _fnc_spawnStatic;
+        switch (true) do {
+            case (_typeB in ["Land_Cargo_Patrol_V1_F", "Land_Cargo_Patrol_V2_F", "Land_Cargo_Patrol_V3_F","Land_Cargo_Patrol_V4_F"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 1);
+                private _pos = _zpos getPos [1.5, _dir];			// zeroes Z value because BIS
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB == "Land_Hlaska"): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+                private _dir = (getDir _building);
+                private _zpos = AGLToASL (_building buildingPos 1);
+                private _pos = _zpos getPos [0.5, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB in ["Land_fortified_nest_small_EP1", "Land_BagBunker_Small_F", "Land_BagBunker_01_small_green_F", "Land_fortified_nest_small", "Fort_Nest"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 1);
+                private _pos = _zpos getPos [-1, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB == "Land_ControlTower_02_F"): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 15);
+                private _pos = _zpos getPos [0, _dir];
+                _pos = ASLToATL ([(_pos select 0) + 4.2, (_pos select 1) - 2, (_zpos select 2) + 0.5]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB in ["Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V4_F"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATMG};
+                private _gmgType = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                _dir = getDir _building;
+                _zOffset = [0, 0, -0.3]; //fix spawn hight
+                _Tdir = _dir + 90; //relative rotation to building
+                _zpos = AGLToASL (_building buildingPos 11); //relative East
+                _pos = _zpos getPos [-1, _Tdir]; //offset
+                _zpos = _zpos vectorAdd _zOffset;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
+                sleep 0.5;			// why only here?
+                _Tdir = _dir + 0;
+                _zpos = AGLToASL (_building buildingPos 13); //relative North
+                _pos = _zpos getPos [-0.8, _Tdir]; //offset
+                _zpos = _zpos vectorAdd _zOffset;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _Tdir] call _fnc_spawnStatic;
+                sleep 0.5;
+                _Tdir = _dir + 180;
+                _zpos = AGLToASL (_building buildingPos 15); //relative South
+                _pos = _zpos getPos [-0.2, _Tdir]; //offset
+                _zpos = _zpos vectorAdd _zOffset;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_gmgType, _pos, _Tdir] call _fnc_spawnStatic;
+            };
+            case (_typeB == "Land_Radar_01_HQ_F"): {
+                private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
+                private _dir = getDir _building;
+                private _zpos = AGLToASL (_building buildingPos 30);
+                private _pos = getPosASL _building;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB in ["Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_HQ_V4_F"]): {
+                private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
+                private _dir = getDir _building;
+                private _zpos = AGLToASL (_building buildingPos 8);
+                private _zOffset = [0, 0, 0.15];
+                _zpos = _zpos vectorAdd _zOffset;
+                private _pos = getPosASL _building;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB == "Land_Radar_01_HQ_F"): {
+                private _type = if (_sideX == Occupants) then {staticATOccupants} else {staticATInvaders};
+                private _dir = getDir _building;
+                private _zOffset = [0, 0, -0.15]; //fix spawn hight
+                private _zpos = AGLToASL (_building buildingPos 35);
+                _zpos = _zpos vectorAdd _zOffset;
+                private _pos = getPosASL _building;
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                [_type, _pos, _dir] call _fnc_spawnStatic;
+            };
+            case (_typeB in ["land_gm_sandbags_02_bunker_high", "land_gm_woodbunker_01_bags"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = getDir _building;
+                private _zpos = AGLToASL (position _building);
+                private _pos = _zpos getPos [0, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB in ["Land_HBarrier_01_big_tower_green_F", "Land_HBarrierTower_F"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (position _building);
+                private _zOffset = [0, 0, 2.25];
+                _zpos = _zpos vectorAdd _zOffset;
+                private _pos = _zpos getPos [1.5, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB in ["Land_Fort_Watchtower_EP1", "Land_Fort_Watchtower", "Land_HBarrier_01_tower_green_F", "Land_BagBunker_Tower_F"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (position _building);
+                private _zOffset = [0, 0, 2.85];
+                _zpos = _zpos vectorAdd _zOffset;
+                private _pos = _zpos getPos [1.5, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB in ["Land_BagBunker_Large_F", "Land_fortified_nest_big_EP1", "Land_fortified_nest_big", "Land_BagBunker_01_large_green_F"]): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 4);
+                private _pos = _zpos getPos [2, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB == "Land_Bunker_01_big_F"): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 2);
+                private _pos = _zpos getPos [-1, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+                _zpos = AGLToASL (_building buildingPos 5);
+                _pos = _zpos getPos [-1, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB == "Land_Bunker_01_small_F"): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 1);
+                private _pos = _zpos getPos [-1, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB == "Land_Bunker_01_tall_F"): {
+                private _type = if (_sideX == Occupants) then {NATOMG} else {CSATGMG};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (_building buildingPos 3);
+                private _pos = _zpos getPos [-1.5, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
+            case (_typeB == "land_gm_euro_misc_viewplatform_01"): {
+                private _type = if (_sideX == Occupants) then {selectRandom staticAAOccupants} else {selectRandom staticAAInvaders};
+                private _dir = (getDir _building) - 180;
+                private _zpos = AGLToASL (position _building);
+                private _zOffset = [0, 0, 5.2];
+                _zpos = _zpos vectorAdd _zOffset;
+                private _pos = _zpos getPos [0.6, _dir];
+                _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
+                private _static = [_type, _pos, _dir] call _fnc_spawnStatic;
+                _static setPos _pos; //for some stupid reason position should be reapplied after everything
+            };
         };
     };
 };

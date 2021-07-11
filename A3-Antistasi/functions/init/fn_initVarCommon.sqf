@@ -101,7 +101,7 @@ call compile preProcessFileLineNumbers "Templates\detector.sqf";
 ////////////////////////////////////
 [2,"Creating building arrays",_fileName] call A3A_fnc_log;
 
-listbld = [
+listMilBld = [
 	"Land_Cargo_Tower_V1_F",
 	"Land_Cargo_Tower_V1_No1_F",
 	"Land_Cargo_Tower_V1_No2_F",
@@ -112,9 +112,7 @@ listbld = [
 	"Land_Cargo_Tower_V1_No7_F",
 	"Land_Cargo_Tower_V2_F", 
 	"Land_Cargo_Tower_V3_F", 
-	"Land_Cargo_Tower_V4_F"
-];
-listMilBld = listbld + [
+	"Land_Cargo_Tower_V4_F",
 	"land_bunker_garage",
 	"Land_Hlidac_budka",
 	"Land_Bunker_01_big_F",
@@ -168,7 +166,24 @@ listMilBld = listbld + [
 	"land_gm_euro_barracks_01_win", 
 	"land_gm_euro_barracks_01",
 	"land_gm_tower_bt_6_fuest_80",
-	"land_gm_tower_bt_11_60"
+	"land_gm_tower_bt_11_60",
+	"land_gm_sandbags_02_bunker_high", 
+	"land_gm_woodbunker_01_bags", 
+	"land_gm_euro_misc_viewplatform_01",
+	"Land_Vez", 
+	"Land_Hlaska", 
+	"Land_Posed", 
+	"Land_Strazni_vez",
+	"Land_HBarrierTower_F",
+	"Land_HBarrier_01_big_tower_green_F",
+	"Land_Fort_Watchtower_EP1", 
+	"Land_Fort_Watchtower", 
+	"Land_HBarrier_01_tower_green_F", 
+	"Land_BagBunker_Tower_F",
+	"Land_BagBunker_Large_F", 
+	"Land_fortified_nest_big_EP1", 
+	"Land_fortified_nest_big", 
+	"Land_BagBunker_01_large_green_F"
 ];
 
 UPSMON_Bld_remove = ["Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f","cliff_wall_tall_f","cliff_wall_round_f","containerline_02_f","containerline_01_f","warehouse_01_f","quayconcrete_01_20m_f","airstripplatform_01_f","airport_02_terminal_f","cliff_wall_long_f","shop_town_05_f","Land_ContainerLine_01_F","Land_MilOffices_V1_F"];
