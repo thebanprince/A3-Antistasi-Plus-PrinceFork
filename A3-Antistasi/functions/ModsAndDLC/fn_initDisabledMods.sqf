@@ -9,7 +9,6 @@ if (!allowDLCExpansion) then {_disabledMods pushBack "expansion"};
 if (!allowDLCJets) then {_disabledMods pushBack "jets"};
 if (!allowDLCOrange) then {_disabledMods pushBack "orange"};
 if (!allowDLCTanks) then {_disabledMods pushBack "tanks"};
-if (!allowDLCGlobMob) then {_disabledMods pushBack "globmob"};
 if (!allowDLCEnoch) then {_disabledMods pushBack "enoch"};
 if (!allowDLCAoW) then {_disabledMods pushBack "aow"};
 

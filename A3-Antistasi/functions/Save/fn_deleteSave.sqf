@@ -24,7 +24,7 @@ private _savedPlayers = profileNamespace getVariable ["savedPlayers" + _postfix,
 	"chopForest", "maxUnits", "maxConstructions", "nextTick", "weather", "destroyedBuildings", "aggressionOccupants",
 	"aggressionInvaders", "resourcesFIA", "hr", "vehInGarage", "staticsX", "constructionsX", "jna_datalist",
 	"prestigeOPFOR", "prestigeBLUFOR", "garrison", "wurzelGarrison", "usesWurzelGarrison", "minesX",
-	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "tasks", "idlebases", 
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "mortarpostsFIA", "atpostsFIA", "hmgpostsFIA", "tasks", "idlebases", 
 	"idleassets", "killZones", "controlsSDK", "params",
 	"attackCountdownOccupants", "attackCountdownInvaders", "prestigeNATO", "prestigeCSAT",
 	"savedPlayers", "testingTimerIsActive", "traderPosition", "isTraderQuestCompleted", "traderDiscount", "areOccupantsDefeated", "areInvadersDefeated", "rebelLoadouts"];

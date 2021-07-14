@@ -6,6 +6,9 @@ private _watchpostFIA = if (_site in watchpostsFIA) then {true} else {false};
 private _roadblockFIA = if (_site in roadblocksFIA) then {true} else {false};
 private _aapostFIA = if (_site in aapostsFIA) then {true} else {false};
 private _atpostFIA = if (_site in atpostsFIA) then {true} else {false};
+private _mortarpostFIA = if (_site in mortarpostsFIA) then {true} else {false};
+private _hmgpostFIA = if (_site in hmgpostsFIA) then {true} else {false};
+
 _garrison = if (!_watchpostFIA) then {
 	garrison getVariable [_site,[]]
 } else {
@@ -103,6 +106,20 @@ if (_typeX == "rem") then {
 		case (_atpostFIA): {
 			garrison setVariable [_site,nil,true];
 			atpostsFIA = atpostsFIA - [_site]; publicVariable "atpostsFIA";
+			markersX = markersX - [_site]; publicVariable "markersX";
+			deleteMarker _site;
+			sidesX setVariable [_site,nil,true];
+		};
+		case (_mortarpostFIA): {
+			garrison setVariable [_site,nil,true];
+			mortarpostsFIA = mortarpostsFIA - [_site]; publicVariable "mortarpostsFIA";
+			markersX = markersX - [_site]; publicVariable "markersX";
+			deleteMarker _site;
+			sidesX setVariable [_site,nil,true];
+		};
+		case (_hmgpostFIA): {
+			garrison setVariable [_site,nil,true];
+			hmgpostsFIA = hmgpostsFIA - [_site]; publicVariable "hmgpostsFIA";
 			markersX = markersX - [_site]; publicVariable "markersX";
 			deleteMarker _site;
 			sidesX setVariable [_site,nil,true];

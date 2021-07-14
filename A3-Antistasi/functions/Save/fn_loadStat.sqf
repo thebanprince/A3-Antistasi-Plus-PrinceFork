@@ -18,7 +18,7 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "minesX","staticsX","constructionsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+	"watchpostsFIA", "roadblocksFIA", "aapostsFIA", "atpostsFIA", "mortarpostsFIA", "hmgpostsFIA", "minesX","staticsX","constructionsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
 	"prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
 	"prestigeBLUFOR","resourcesFIA","skillFIA", "maxConstructions", "destroyedSites",
 	"garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
@@ -216,6 +216,44 @@ if (_varName in _specialVarLoads) then {
 				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
 				if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
 				atpostsFIA pushBack _mrk;
+				sidesX setVariable [_mrk,teamPlayer,true];
+			} forEach _varvalue;
+		};
+	};
+	if (_varName == 'mortarpostsFIA') then {
+		if (count (_varValue select 0) >= 2) then {
+			{
+				_positionX = _x select 0;
+				_garrison = _x select 1;
+				_staticPositions = _x select 2;
+				_mrk = createMarker [format ["FIAMortarpost%1", random 1000], _positionX];
+				_mrk setMarkerShape "ICON";
+				_mrk setMarkerType "n_mortar";
+				_mrk setMarkerColor colorTeamPlayer;
+				_mrk setMarkerText format ["%1 Mortar Emplacement",nameTeamPlayer];
+				spawner setVariable [_mrk,2,true];
+				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+				if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
+				mortarpostsFIA pushBack _mrk;
+				sidesX setVariable [_mrk,teamPlayer,true];
+			} forEach _varvalue;
+		};
+	};
+	if (_varName == 'hmgpostsFIA') then {
+		if (count (_varValue select 0) >= 2) then {
+			{
+				_positionX = _x select 0;
+				_garrison = _x select 1;
+				_staticPositions = _x select 2;
+				_mrk = createMarker [format ["FIAHmgpost%1", random 1000], _positionX];
+				_mrk setMarkerShape "ICON";
+				_mrk setMarkerType "n_unknown";
+				_mrk setMarkerColor colorTeamPlayer;
+				_mrk setMarkerText format ["%1 HMG Emplacement",nameTeamPlayer];
+				spawner setVariable [_mrk,2,true];
+				if (count _garrison > 0) then {garrison setVariable [_mrk,_garrison,true]};
+				if (count _staticPositions > 0) then {staticPositions setVariable [_mrk,_staticPositions,true]};
+				hmgpostsFIA pushBack _mrk;
 				sidesX setVariable [_mrk,teamPlayer,true];
 			} forEach _varvalue;
 		};
