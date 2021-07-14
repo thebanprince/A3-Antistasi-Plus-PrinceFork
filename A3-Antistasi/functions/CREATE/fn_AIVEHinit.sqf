@@ -40,7 +40,7 @@ _veh call A3A_fnc_vehicleTextureSync;
 
 private _typeX = typeOf _veh;
 
-if (_typeX in (vehNormal + vehAttack + vehBoats + vehAA)) then {
+if (_typeX in vehNormal || {_typeX in (vehAttack + vehBoats + vehAA)}) then {
 	_veh call A3A_fnc_addActionBreachVehicle;
 
 	if !(_typeX in vehAttack) then {
