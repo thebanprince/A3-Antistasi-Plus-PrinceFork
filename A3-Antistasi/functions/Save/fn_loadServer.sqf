@@ -9,6 +9,8 @@ if (isServer) then {
 	["watchpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "watchpostsFIA";
 	["roadblocksFIA"] call A3A_fnc_getStatVariable; publicVariable "roadblocksFIA";
 	["aapostsFIA"] call A3A_fnc_getStatVariable; publicVariable "aapostsFIA";
+	["mortarpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "mortarpostsFIA";
+	["hmgpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "hmgpostsFIA";
 	["atpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "atpostsFIA";
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
@@ -70,7 +72,7 @@ if (isServer) then {
 	{
 		if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
 			_positionX = getMarkerPos _x;
-			_nearX = [(markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA),_positionX] call BIS_fnc_nearestPosition;
+			_nearX = [(markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - mortarpostsFIA - hmgpostsFIA),_positionX] call BIS_fnc_nearestPosition;
 			_sideX = sidesX getVariable [_nearX,sideUnknown];
 			sidesX setVariable [_x,_sideX,true];
 		};
@@ -102,8 +104,18 @@ if (isServer) then {
 		publicVariable "markersX";
 	};
 
+	if (count mortarpostsFIA > 0) then {
+		markersX = markersX + mortarpostsFIA;
+		publicVariable "markersX";
+	};
+
 	if (count atpostsFIA > 0) then {
 		markersX = markersX + atpostsFIA;
+		publicVariable "markersX";
+	};
+
+	if (count hmgpostsFIA > 0) then {
+		markersX = markersX + hmgpostsFIA;
 		publicVariable "markersX";
 	};
 

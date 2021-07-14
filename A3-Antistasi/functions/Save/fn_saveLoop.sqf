@@ -53,7 +53,7 @@ private _antennasDeadPositions = [];
 { _antennasDeadPositions pushBack getPos _x; } forEach antennasDead;
 ["antennas", _antennasDeadPositions] call A3A_fnc_setStatVariable;
 //["mrkNATO", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Occupants}] call A3A_fnc_setStatVariable;
-["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;
+["mrkSDK", (markersX - controlsX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - mortarpostsFIA - hmgpostsFIA) select {sidesX getVariable [_x,sideUnknown] == teamPlayer}] call A3A_fnc_setStatVariable;
 ["mrkCSAT", (markersX - controlsX) select {sidesX getVariable [_x,sideUnknown] == Invaders}] call A3A_fnc_setStatVariable;
 ["posHQ", [getMarkerPos respawnTeamPlayer,[getDir boxX,getPos boxX],[getDir mapX,getPos mapX],getPos flagX,[getDir vehicleBox,getPos vehicleBox]]] call A3A_fnc_setStatVariable;
 ["dateX", date] call A3A_fnc_setStatVariable;
@@ -189,7 +189,7 @@ _prestigeBLUFOR = [];
 ["prestigeOPFOR", _prestigeOPFOR] call A3A_fnc_setStatVariable;
 ["prestigeBLUFOR", _prestigeBLUFOR] call A3A_fnc_setStatVariable;
 
-_markersX = markersX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - controlsX;
+_markersX = markersX - watchpostsFIA - roadblocksFIA - aapostsFIA - atpostsFIA - mortarpostsFIA - hmgpostsFIA - controlsX;
 _garrison = [];
 _wurzelGarrison = [];
 
@@ -270,6 +270,32 @@ private _arrayATPostsFIA = [];
 } forEach atpostsFIA;
 
 ["atpostsFIA", _arrayATPostsFIA] call A3A_fnc_setStatVariable;
+
+private _arrayMortarPostsFIA = [];
+
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayMortarPostsFIA pushBack [
+		_positionOutpost,
+		garrison getVariable [_x,[]],
+		staticPositions getVariable [_x,[]] 
+	];
+} forEach mortarpostsFIA;
+
+["mortarpostsFIA", _arrayMortarPostsFIA] call A3A_fnc_setStatVariable;
+
+private _arrayHMGPostsFIA = [];
+
+{
+	_positionOutpost = getMarkerPos _x;
+	_arrayHMGPostsFIA pushBack [
+		_positionOutpost,
+		garrison getVariable [_x,[]],
+		staticPositions getVariable [_x,[]] 
+	];
+} forEach hmgpostsFIA;
+
+["hmgpostsFIA", _arrayHMGPostsFIA] call A3A_fnc_setStatVariable;
 
 if (!isDedicated) then {
 	_typesX = [];
