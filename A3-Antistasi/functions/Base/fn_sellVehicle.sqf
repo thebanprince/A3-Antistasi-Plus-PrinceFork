@@ -60,11 +60,11 @@ private _costs = call {
     if (_veh isKindOf "StaticWeapon") exitWith {400};			// in case rebel static is same as enemy statics
     if (_typeX in vehPoliceCars) exitWith {250};
     if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };
-    if ((_typeX in arrayCivVeh) or (_typeX in civBoats) or (_typeX in [civBoat,civCar,civTruck])) exitWith {150};
-    if ((_typeX in vehNormal) or (_typeX in vehBoats) or (_typeX in vehAmmoTrucks)) exitWith {500};
+    if (_typeX in (arrayCivVeh + civBoats + [civBoat,civCar,civTruck])) exitWith {150};
+    if (_typeX in vehNormal || {_typeX in (vehBoats + vehAmmoTrucks)}) exitWith {500};
     if (_typeX in [vehCSATPatrolHeli, vehNATOPatrolHeli, civHeli]) exitWith {3000};
-    if ((_typeX in vehAPCs) || (_typeX in vehTransportAir) || (_typeX in vehUAVs)) exitWith {2500};
-    if ((_typeX in vehAttackHelis) or (_typeX in vehTanks) or (_typeX in vehAA) or (_typeX in vehMRLS)) exitWith {6500};
+    if (_typeX in (vehAPCs + vehTransportAir + vehUAVs)) exitWith {2500};
+    if (_typeX in (vehAttackHelis + vehTanks + vehAA + vehMRLS)) exitWith {6500};
     if (_typeX in [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA]) exitWith {7500};
     0;
 };
