@@ -269,6 +269,12 @@ private _processFIAMarker = {
                 case (_marker in atpostsFIA): {
                     [[_marker],"SCRT_fnc_outpost_createAtDistance"] call A3A_fnc_scheduler;
                 };
+                case (_marker in mortarpostsFIA): {
+                    [[_marker],"SCRT_fnc_outpost_createMortarDistance"] call A3A_fnc_scheduler;
+                };
+                case (_marker in hmgpostsFIA): {
+                    [[_marker],"SCRT_fnc_outpost_createHmgDistance"] call A3A_fnc_scheduler;
+                };
 
                 case !(_marker in controlsX):
                 {

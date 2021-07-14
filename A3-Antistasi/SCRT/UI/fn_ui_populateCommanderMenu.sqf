@@ -107,10 +107,14 @@ lbAdd [2750, "Watchpost"];
 lbSetData [2750, 0, "WATCHPOST"];
 lbAdd [2750, "Roadblock"];
 lbSetData [2750, 1, "ROADBLOCK"];
+lbAdd [2750, "HMG Emplacement"];
+lbSetData [2750, 2, "HMG"];
 lbAdd [2750, "AA Emplacement"];
-lbSetData [2750, 2, "AA"];
+lbSetData [2750, 3, "AA"];
 lbAdd [2750, "AT Emplacement"];
-lbSetData [2750, 3, "AT"];
+lbSetData [2750, 4, "AT"];
+lbAdd [2750, "Mortar Emplacement"];
+lbSetData [2750, 5, "MORTAR"];
 
 lbSetCurSel [2750, 0];
 
