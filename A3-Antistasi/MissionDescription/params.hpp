@@ -406,13 +406,6 @@ class Params
         texts[] = {"Default (No)","Yes","No"};
         default = 9999;
     };
-    class GlobMob
-    {
-        title = "Allow Items and Vehicles from Global Mobilization DLC?";
-        values[] = {9999,1,0};
-        texts[] = {"Default (No)","Yes","No"};
-        default = 9999;
-    };
     class Enoch
     {
         title = "Allow Items and Vehicles from Contact DLC?";
