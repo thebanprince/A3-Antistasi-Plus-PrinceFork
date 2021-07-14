@@ -45,7 +45,6 @@ A3A_paramTable = [
     ["allowDLCJets", "Jets", ["server"], false],
     ["allowDLCOrange", "Orange", ["server"], false],
     ["allowDLCTanks", "Tanks", ["server"], false],
-    ["allowDLCGlobMob", "GlobMob", ["server"], false],
     ["allowDLCEnoch", "Enoch", ["server"], false],
     ["allowDLCAoW", "AoW", ["server"], false],
 
