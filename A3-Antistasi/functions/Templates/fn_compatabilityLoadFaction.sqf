@@ -192,6 +192,7 @@ if (_side isEqualTo east) then {
 	vehCSATLightArmed = _faction getVariable "vehiclesLightArmed";
 	vehCSATLightUnarmed = _faction getVariable "vehiclesLightUnarmed";
 	vehCSATTrucks = _faction getVariable "vehiclesTrucks";
+	vehCSATCargoTrucks = _faction getVariable "vehiclesCargoTrucks";
 	vehCSATAmmoTruck = _faction getVariable "vehiclesAmmoTrucks" select 0;
 	vehCSATRepairTruck = _faction getVariable "vehiclesRepairTrucks" select 0;
 	vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
