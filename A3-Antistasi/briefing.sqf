@@ -20,8 +20,7 @@ player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_e
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_11"],format [localize "STR_antistasi_journal_entry_text_commander_11"]]];
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_10"],format [localize "STR_antistasi_journal_entry_text_commander_10"]]];
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_9"],format [localize "STR_antistasi_journal_entry_text_commander_9"]]];
-player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_7"],format [localize "STR_antistasi_journal_entry_text_commander_7"]]];
-player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_6"],format [localize "STR_antistasi_journal_entry_text_commander_6"]]];
+player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_7"],format [localize "STR_antistasi_journal_entry_text_commander_7"]]];;
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_5"],format [localize "STR_antistasi_journal_entry_text_commander_5"]]];
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_4"],format [localize "STR_antistasi_journal_entry_text_commander_4"]]];
 player createDiaryRecord ["Commander",[format [localize "STR_antistasi_journal_entry_header_commander_3"],format [localize "STR_antistasi_journal_entry_text_commander_3"]]];

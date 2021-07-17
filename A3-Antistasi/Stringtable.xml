@@ -2416,24 +2416,6 @@
         <Korean>지휘관은 HQ를 다른 장소로 이동하기위해 HQ 깃발에서 HQ 이동하기를 사용할 수 있습니다. HQ를 더 안전한 곳으로 혹은 최전방으로 이동시킬 수 있습니다. 만약 HQ가 적과 가깝다면 더 많은 서브미션이 가능합니다. 기억하십시오! 페트로스를 지키지 않으면 게임에서 패배합니다.</Korean>
         <Russian>Командующий может выбрать эту опцию у Петроса, чтобы переместить расположение штаба в другое место. Это позволит вам переместить свой штаб в более безопасное место или приблизиться к линии фронта. Чем ближе ваш штаб к противнику, тем большее количество возможных побочных миссий у вас будет. Помнить! Держите Петроса в безопасности, или вы проиграете игру</Russian>
       </Key>
-      <Key ID="STR_antistasi_journal_entry_header_commander_6">
-        <Original>Rest - Camp-fire</Original>
-        <French>Se reposer - Feu de camp</French>
-        <German>Ausruhen - Lagerfeuer</German>
-        <Czech>Odpočinek - táborový oheň</Czech>
-        <Chinesesimp>休息 - 营火</Chinesesimp>
-        <Korean>휴식 - 캠프 파이어</Korean>
-        <Russian>Отдых - У палатки</Russian>
-      </Key>
-      <Key ID="STR_antistasi_journal_entry_text_commander_6">
-        <Original>Use the action menu on your HQ Camp-fire to rest for 8 hours.</Original>
-        <French>Utilisez le menu d'action de votre feu de camp au QG pour vous reposer pendant 8 heures.</French>
-        <German>Mit dieser Aktion kannst du dich am Lagerfeuer des HQs für 8 Stunden ausruhen.</German>
-        <Czech>Použijte možnost na vašem táborovém ohni, abyste si mohli odpočnou na 8 hodin</Czech>
-        <Chinesesimp>使用总部营火上的行动菜单休息8小时.</Chinesesimp>
-        <Korean>HQ 캠프 파이어를 사용하면 8시간을 스킵할 수 있습니다.</Korean>
-        <Russian>Используйте меню действий у палатки, чтобы отдохнуть в течение 8 часов.</Russian>
-      </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_7">
         <Original>Bomb Run</Original>
         <French>Bombardement</French>
