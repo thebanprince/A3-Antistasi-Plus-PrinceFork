@@ -2052,28 +2052,28 @@
         <Czech>Bardak je někde poblíž. </Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_weferlingen_mapname_text">
-        <Original>Antistasi Plus - Status Red</Original>
-        <English>Antistasi Plus - Status Red</English>
-        <French>Antistasi Plus - Statut Rouge</French>
-        <German>Antistasi Plus - Status Rot</German>
+        <Original>Antistasi Plus - Code Red</Original>
+        <English>Antistasi Plus - Code Red</English>
+        <French>Antistasi Plus - Code rouge</French>
+        <German>Antistasi Plus - Alarmstufe Rot</German>
         <Russian>Antistasi Plus - Код Красный</Russian>
-        <Czech>Antistasi Plus - Stav Červená</Czech>
+        <Czech>Antistasi Plus - Červený kód</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_weferlingen_mapname_short_text">
-        <Original>Antistasi Plus - Status Red</Original>
-        <English>Antistasi Plus - Status Red</English>
-        <French>Antistasi Plus - Statut Rouge</French>
-        <German>Antistasi Plus - Status Rot</German>
+        <Original>Antistasi Plus - Code Red</Original>
+        <English>Antistasi Plus - Code Red</English>
+        <French>Antistasi Plus - Code rouge</French>
+        <German>Antistasi Plus - Alarmstufe Rot</German>
         <Russian>Antistasi Plus - Код Красный</Russian>
-        <Czech>Antistasi Plus - Stav Červená</Czech>
+        <Czech>Antistasi Plus - Červený kód</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_weferlingen_blurb_text">
-        <Original>Sample Text</Original>
-        <English>Sample Text</English>
-        <German>Sample Text</German>
-        <French>Sample Text</French>
-        <Russian>Sample Text</Russian>
-        <Czech>Sample Text</Czech>
+        <Original>Polyushko-polye.</Original>
+        <English>Polyushko-polye.</English>
+        <German>Polyushko-polye.</German>
+        <French>Polyushko-polye.</French>
+        <Russian>Полюшко-поле.</Russian>
+        <Czech>Polyushko-polye.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
         <Original>Antistasi Plus - The Red Dawn</Original>
