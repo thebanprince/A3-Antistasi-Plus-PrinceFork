@@ -5,9 +5,9 @@ private _hrCost = outpostCost select 1;
 
 [-_hrCost,-_moneyCost] remoteExec ["A3A_fnc_resourcesFIA",2];
 
-private _textX = format ["%1 AA Emplacement", nameTeamPlayer];
+private _textX = format ["%1 HMG Emplacement", nameTeamPlayer];
 
-private _marker = createMarker [format ["FIAAApost%1", random 1000], _position];
+private _marker = createMarker [format ["FIAHmgpost%1", random 1000], _position];
 _marker setMarkerShape "ICON";
 
 //creating task
@@ -15,13 +15,13 @@ private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 private _taskId = "outpostTask" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,["We are sending a team to establish a AA emplacement. Use HC to send the team to their destination","Post \ AA Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,["We are sending a team to establish a HMG emplacement. Use HC to send the team to their destination","Post \ HMG Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _formatX = [];
 {
-    _formatX pushBack (_x select 0);
-} forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
+    _formatX pushBack (_x select 0)
+} forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKATman,SDKMedic];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 _groupX setGroupId ["Emplacement Crew"];
@@ -56,20 +56,20 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 		"" remoteExec ["hint",_owner];
 		waitUntil {!(isPlayer leader _groupX)};
 	};
-	aapostsFIA = aapostsFIA + [_marker]; publicVariable "aapostsFIA";
+	hmgpostsFIA = hmgpostsFIA + [_marker]; publicVariable "hmgpostsFIA";
 	sidesX setVariable [_marker,teamPlayer,true];
 	markersX = markersX + [_marker];
 	publicVariable "markersX";
 	spawner setVariable [_marker,2,true];
 	[_taskId, "outpostTask", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	_nul = [-5,5,_position] remoteExec ["A3A_fnc_citySupportChange",2];
-	_marker setMarkerType "n_antiair";
+	_marker setMarkerType "n_unknown";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
     _garrison = [];
     {
     	_garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
+    } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKATman,SDKMedic];
     garrison setVariable [_marker,_garrison,true];
 } else {
    	[_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;

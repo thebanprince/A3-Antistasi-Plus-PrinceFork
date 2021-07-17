@@ -12,12 +12,8 @@ private _road = objNull;
 if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
     _garrison = [(SDKMil select 0)];
     {
-        if (random 20 <= skillFIA) then {
-            _garrison pushBack (_x select 1)
-        } else {
-            _garrison pushBack (_x select 0)
-        };
-    } forEach groupsSDKAT;
+        _garrison pushBack (_x select 0)
+    } forEach groupsSDKSquad;
     garrison setVariable [_markerX,_garrison,true];
 };
 

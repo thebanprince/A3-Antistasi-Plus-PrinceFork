@@ -6,11 +6,11 @@ private _garrison = garrison getVariable [_markerX, []];
 
 private _props = [];
 
-if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
+if (isNil "_garrison") then {
     _garrison = [];
     {
         _garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
+    } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMedic];
     garrison setVariable [_markerX,_garrison,true];
 };
 
@@ -22,9 +22,6 @@ if (isNil "_garrison") then {//this is for backward compatibility, remove after 
     _props pushBack _sandbag;
 } forEach [0, 90, 180, 270];
 
-private _camonet = createVehicle ["CamoNet_BLUFOR_open_F", _positionX, [], 0, "CAN_COLLIDE"];
-_props pushBack _camonet;
-
 private _veh = objNull;
 
 //overriden static position and direction
@@ -32,11 +29,11 @@ private _staticPositionInfo = staticPositions getVariable [_markerX, []];
 if (!(_staticPositionInfo isEqualTo [])) then {
     private _staticPosition = _staticPositionInfo select 0;
     private _staticDirection = _staticPositionInfo select 1;
-    _veh = createVehicle [staticATteamPlayer, _positionX, [], 0, "CAN_COLLIDE"];
+    _veh = createVehicle [SDKMortar, _positionX, [], 0, "CAN_COLLIDE"];
     _veh setPosATL _staticPosition;
     _veh setDir _staticDirection;
 } else {
-    _veh = staticATteamPlayer createVehicle _positionX;
+    _veh = SDKMortar createVehicle _positionX;
 };
 
 _veh lock 3;
@@ -56,26 +53,26 @@ if (_crewManIndex != -1) then {
 };
 
 _groupX setBehaviour "AWARE";
-_groupX setCombatMode "YELLOW";
+_groupX setCombatMode "YELLOW"; 
 
 [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
 
 waitUntil {
 	sleep 1; 
 	((spawner getVariable _markerX == 2)) or 
-	({alive _x} count units _groupX == 0) or (!(_markerX in atpostsFIA))
+	({alive _x} count units _groupX == 0) or (!(_markerX in mortarpostsFIA))
 };
 
 if ({alive _x} count units _groupX == 0) then {
-	atpostsFIA = atpostsFIA - [_markerX]; publicVariable "atpostsFIA";
+	mortarpostsFIA = mortarpostsFIA - [_markerX]; publicVariable "mortarpostsFIA";
 	markersX = markersX - [_markerX]; publicVariable "markersX";
 	sidesX setVariable [_markerX,nil,true];
 	_nul = [5,-5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 	deleteMarker _markerX;
-	["TaskFailed", ["", "AT Emplacement Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
+	["TaskFailed", ["", "Mortar Emplacement Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
 };
 
-waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (!(_markerX in atpostsFIA))};
+waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (!(_markerX in mortarpostsFIA))};
 
 if (!isNull _veh) then { 
     deleteVehicle _veh;

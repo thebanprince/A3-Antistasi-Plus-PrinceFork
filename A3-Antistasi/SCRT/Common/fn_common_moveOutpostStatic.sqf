@@ -38,7 +38,7 @@ private _actionX = _caller addAction ["Drop Here", {
 	[_target, player, (_this select 2)] call _fnc_placeObject;
 }, [_target, _fnc_placeObject],0,false,true,"",""];
 
-private _markerX = [(atpostsFIA + aapostsFIA), _caller] call BIS_fnc_nearestPosition;
+private _markerX = [(atpostsFIA + aapostsFIA + mortarpostsFIA + hmgpostsFIA), _caller] call BIS_fnc_nearestPosition;
 private _markerSize = [_markerX] call A3A_fnc_sizeMarker;
 private _markerPosition = getMarkerPos _markerX;
 
