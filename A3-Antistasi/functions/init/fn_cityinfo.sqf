@@ -177,6 +177,12 @@ while {visibleMap} do
 		if (_siteX in atpostsFIA) then {
 			_textX = format ["%2 AT Emplacement%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
 		};
+		if (_siteX in mortarpostsFIA) then {
+			_textX = format ["%2 Mortar Emplacement%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+		};
+		if (_siteX in hmgpostsFIA) then {
+			_textX = format ["%2 HMG Emplacement%1",[_siteX] call A3A_fnc_garrisonInfo,_nameFaction];
+		};
 		["City Information", _textX] call A3A_fnc_customHint;
 		};
 	positionTel = [];
