@@ -56,20 +56,12 @@ private _forbiddenTerrainObjects = [
  
 private _allTerrainObjects = (nearestTerrainObjects [[worldSize/2, worldSize/2], ["HIDE"], worldSize,false]) select {
     private _terrainObjectName = toLower(str _x);
-    (_forbiddenTerrainObjects findIf {_x in _terrainObjectName} != -1) && {(isOnRoad _x || "dead" in _terrainObjectName)}
+    (_forbiddenTerrainObjects findIf {_x in _terrainObjectName} != -1) && {(isOnRoad _x || "dead" in _terrainObjectName || "tram" in _terrainObjectName)}
 }; 
 
-{ 
-    _terrainObject = _x; 
-    _terrainObjectName = toLower(str _terrainObject); 
- 
-    { 
-        if ((_terrainObjectName find _x) >= 0) exitWith { 
-            hideObjectGlobal _terrainObject; 
-            _terrainObject enableSimulationGlobal false; 
-        } 
-    }   forEach _forbiddenTerrainObjects; 
- 
+{
+    hideObjectGlobal _x; 
+    _x enableSimulationGlobal false;
 } forEach _allTerrainObjects;
 
 [] call A3A_fnc_initServer;
