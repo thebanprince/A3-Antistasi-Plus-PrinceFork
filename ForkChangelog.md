@@ -1,9 +1,11 @@
 # Changelog
 ## 1.7
-### Additions
+### Additions 
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Persistent Constructions Removal action (new button in Constructions submenu)
-- Ability to move and save static weapon position and direction in AA/AT Emplacements
+- Buildable Mortar and HMG Emplacements
+- Ability to move and save static weapon position and direction in AA/AT/Mortar Emplacements
+- (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store). To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC 
 
 ### Changes
 - Fixed AI Control Time for HC squads
@@ -11,9 +13,9 @@
 - Rebel training minor fixes (45 level cap, price calculations have been adjusted to new skill cap to prevent excessive price snowballing with each training level past 20)
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
 - ADR-97 Official Mod included into base configuration, parameter has been removed
-- Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of terrain's population and all airbases and milbases to win)
+- Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of country population and all airbases and milbases to win)
 - Arms Dealer will sell UAV terminals
-- Additional "Number of the same item required to unlock" parameter values - 100, 200, 500
+- Additional "Number of the same item required to unlock" parameter values - 20, 100, 200, 500
 - Multiple vehicle for same category support for militia, militia tanks support
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
@@ -24,10 +26,18 @@
 - Added bunch of new intel spawn locations - Radar Complex HQ, Guard House, Barracks
 - Kill Collaborationist tasks will be not guaranteed when police station is in radius (this will give other assasinate type tasks enough room to breathe)
 - Fixed singleAttack undefined variable error
+- Fixed wrong initial AA Emplacement and Roablock icons
+- Fixed inability to recruit soldiers on emplacements, roadblocks and watchposts
+- Various military buildings static weapon emplacement support
+- Invaders cargo trucks unit roster support
+- Synchronized prices of emplacements and statics in Buy Vehicle menu
+- Added one medic to initial static Emplacement crews to increase their Survivability 
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
 - (RHS, Aegis, 3CB Factions, CUP) Rear Echelon/Militia engineers and medics may use shotguns
-- (RHS) turretless BRDM-2 logistic nodes (allows to mount ZU-23 on top of them)
+- (RHS) turretless BRDM-2 logistic nodes (allows to mount cargo, ZU-23 and other statics on top of them)
 - (RHS) KRAZ cargo support
+- (RHS, 3CB Factions) Removed T-15 from AFRF templates
+- (3CB Factions) HIL faction lineup changes - RBS-70 instead of static Stinger, M240 on tripod instead of M2
 - (3CB Factions) MT-LB logistic nodes (allows to mount ZU-23 on top of them)
 - (3CB Factions) SPG-9 instead of Kornet in all templates
 - (3CB Factions, CUP) Replaced Chernarus Police with Gendarmerie on tropical maps 
@@ -36,6 +46,7 @@
 - (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
 - (Livonia) New factory at the South of the map
 - (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
+- (Taviana) Additional outpost at the small island on West of Taviana, hangar fix on Sector B, radio tower fix on race track, Novistrana police station support, removal of radio tower on Sector B
 
 ### Removals
 - Removed Antistasi Units template support
