@@ -52,7 +52,9 @@ defaultControlIndex = (count controlsX) - 1;
 watchpostsFIA = [];
 roadblocksFIA = [];
 aapostsFIA = [];
+hmgpostsFIA = [];
 atpostsFIA = [];
+mortarpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + milbases + ["Synd_HQ"];
@@ -102,7 +104,22 @@ switch (toLower worldName) do {
 		["Sydankyla",150],["Tinkanen",80],["toipela",0],["uski",80],["Uutela",100],["Vilkkila",110],["Virojoki",500],["Ylapaa",80],["Ylapihlaja",80],
 		["Souvio",70]];
 	};
-	//TODO: NAPF, cherno 2020, Abramia, Panthera configs
+	case "gm_weferlingen_summer": {
+		{server setVariable [_x select 0,_x select 1]} forEach
+		[["gm_name_grasleben",350],["gm_name_weferlingen",500],["gm_name_doehren",122],["gm_name_seggerde",80],["gm_name_belsdorf",80],["gm_name_behnsdorf",100],
+		["gm_name_eschenrode",100],["gm_name_eschenrode",90],["gm_name_walbeck",110],
+		["gm_name_beendorf",80],["gm_name_mariental",60],["gm_name_querenhorst",70],["gm_name_bahrdorf",110],["DefaultKeyPoint53",80],["DefaultKeyPoint1",90],
+		["DefaultKeyPoint2",100],["DefaultKeyPoint3",80],
+		["DefaultKeyPoint4",90],["DefaultKeyPoint5",100],
+		["DefaultKeyPoint6",100],["DefaultKeyPoint7",60],["DefaultKeyPoint8",90],["DefaultKeyPoint9",60],["DefaultKeyPoint10",80],["DefaultKeyPoint11",80],["DefaultKeyPoint12",100],
+		["DefaultKeyPoint13",90],["DefaultKeyPoint14",100],["DefaultKeyPoint15",120],["DefaultKeyPoint17",80],["DefaultKeyPoint18",90],["DefaultKeyPoint19",100],
+		["DefaultKeyPoint20",100],["DefaultKeyPoint21",80],["DefaultKeyPoint22",80],
+		["DefaultKeyPoint23",150],["DefaultKeyPoint24",80],["DefaultKeyPoint25",87],["DefaultKeyPoint26",80],
+		["DefaultKeyPoint27",100],["DefaultKeyPoint28",110],["DefaultKeyPoint29",500],["DefaultKeyPoint30",80],["DefaultKeyPoint44",80],
+		["DefaultKeyPoint158",100],["DefaultKeyPoint159",110],["DefaultKeyPoint160",500],["DefaultKeyPoint161",80],["DefaultKeyPoint162",80],
+		["DefaultKeyPoint157",70]];
+	};
+	//TODO: NAPF, cherno 2020, Abramia, Panthera, GM configs
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
@@ -295,16 +312,16 @@ switch (toLower worldName) do {
 		_blackListPos = [];
 	    antennas = [];
 	};
-	case "umb_colombia": {
-		_posAntennas = [[10140.9,9579.71,0],[9614.93,10466.5,0],[11332.7,12526,0],[18871.3,15535.8,0]];
-	    _posBank = [];
+	case "gm_weferlingen_summer": {
+	    _posAntennas = [[8337.11,233.722,0],[7798.23,19132.5,0],[8059.37,15662.7,0],[1799.43,5669.32,0],[13432.6,4127.66,0],[10545.1,11093.3,0],[11652.1,17667,0],[15161.3,2313.79,0],[1262.66,13047,0.535751],[20095.4,6230.95,0]];
+	    _posBank = [[18483.4,367.726,0],[17150.2,17916.9,0],[3579.12,15120.9,0],[13593.9,16156.6,0],[13918.9,4854.84,0],[8164.3,4322.03,0]];
 		_blackListPos = [];
 	    antennas = [];
 	};
 	default {
 		antennas = nearestObjects [[worldSize /2, worldSize/2], ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base", "Land_Telek1"], worldSize];
 
-		banks = nearestObjects [[worldSize /2, worldSize/2], ["Land_Offices_01_V1_F"], worldSize];
+		banks = nearestObjects [[worldSize /2, worldSize/2], ["land_gm_euro_office_01","Land_Offices_01_V1_F"], worldSize];
 
 		private _replacedAntennas = [];
 		{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;
@@ -400,7 +417,7 @@ diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers iden
 
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {
-		_bankProv = nearestObjects [_posBank select _i, ["Land_Offices_01_V1_F"], 30];
+		_bankProv = nearestObjects [_posBank select _i, ["land_gm_euro_office_01", "Land_Offices_01_V1_F"], 30];
 
 		if (count _bankProv > 0) then {
 			private _banco = _bankProv select 0;
@@ -434,6 +451,8 @@ publicVariable "watchpostsFIA";
 publicVariable "roadblocksFIA";
 publicVariable "aapostsFIA";
 publicVariable "atpostsFIA";
+publicVariable "mortarpostsFIA";
+publicVariable "hmgpostsFIA";
 publicVariable "seaMarkers";
 publicVariable "spawnPoints";
 publicVariable "antennas";
