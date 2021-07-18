@@ -152,6 +152,10 @@ if (gameMode == 1) then
 		    _mrkCSAT = ["airport","outpost","outpost_2", "resource", "seaport", "outpost_8", "outpost_3", "outpost_5", "factory", "control", "control_1", "control_2"];
             _controlsCSAT = ["control", "control_1", "control_2"];
 		};
+		case "gm_weferlingen_summer": {
+		    _mrkCSAT = ["gm_weferlingen_summer", "factory_7", "outpost_13", "resource_4", "resource_5", "outpost_8", "outpost_17", "outpost_16", "factory_6", "resource_3", "resource_6", "milbase_2", "factory_5", "factory_9", "milbase_3", "factory_8", "airport_3", "outpost_3", "outpost_6", "control_83", "control_76", "control_84", "control_82", "control_93", "control_89", "control_88", "control_85", "control_96", "control_5", "control_86", "control_87", "control_80", "control_81", "control_29", "control_79", "control_49", "control_50", "control_4", "control_70", "control_91", "control_90", "control_95", "control_98", "control_66", "control_65", "control_64", "control_22", "control_67", "control_92", "control_20", "control_75", "control_74", "control_73", "control_78", "control_77", "control_69", "control_19", "control_52", "control_51", "control_63"];
+            _controlsCSAT = ["control_83", "control_76", "control_84", "control_82", "control_93", "control_89", "control_88", "control_85", "control_96", "control_5", "control_86", "control_87", "control_80", "control_81", "control_29", "control_79", "control_49", "control_50", "control_4", "control_70", "control_91", "control_90", "control_95", "control_98", "control_66", "control_65", "control_64", "control_22", "control_67", "control_92", "control_20", "control_75", "control_74", "control_73", "control_78", "control_77", "control_69", "control_19", "control_52", "control_51", "control_63"]; 
+		};
 	};
     _controlsNATO = _controlsNATO - _controlsCSAT;
 	_mrkNATO = markersX - _mrkCSAT - ["Synd_HQ"];
