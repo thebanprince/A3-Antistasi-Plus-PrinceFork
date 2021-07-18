@@ -244,13 +244,26 @@ if (A3A_hasTFAR) then
 
 //No real reason we initialise this on the server right now...
 private _arrayCivs = ["C_man_polo_1_F","C_man_polo_1_F_asia","C_man_polo_1_F_euro"];
+if (toLower worldName isEqualTo "tanoa") then {
+	_arrayCivs pushBack "C_man_sport_1_F_tanoan";
+};
 DECLARE_SERVER_VAR(arrayCivs, _arrayCivs);
 
+//money magazines
 private _arrayMoney = ["Money_bunch","Money_roll","Money_stack","Money"];
 DECLARE_SERVER_VAR(arrayMoney, _arrayMoney);
 
+//money props
+private _arrayMoneyLand = ["Item_Money_bunch","Item_Money_roll","Item_Money_stack","Item_Money"];
+DECLARE_SERVER_VAR(arrayMoneyLand, _arrayMoneyLand);
+
 //SHOULD BE SYNCHRONIZED WITH arrayMoney VARIABLE
-private _arrayMoneyAmount = [600,150,300,50];
+private _arrayMoneyAmount = [
+	HALs_money_oldManItemsPrice select 0,
+	HALs_money_oldManItemsPrice select 1,
+	HALs_money_oldManItemsPrice select 2,
+	HALs_money_oldManItemsPrice select 3
+];
 DECLARE_SERVER_VAR(arrayMoneyAmount, _arrayMoneyAmount);
 
 //////////////////////////////////////
@@ -443,6 +456,7 @@ private _templateVariables = [
 	"vehCSATLightArmed",
 	"vehCSATLightUnarmed",
 	"vehCSATTrucks",
+	"vehCSATCargoTrucks",
 	"vehCSATAmmoTruck",
 	"vehCSATRepairTruck",
 	"vehCSATLight",
@@ -717,11 +731,11 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 ////////////////////////////////////
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
 
-private _vehNormal = vehNATONormal + vehCSATNormal + vehNATOCargoTrucks + vehFIACars + vehFIATrucks + vehFIAArmedCars + vehPoliceCars;
-_vehNormal append [vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel];
+//little experiment with hashmap
+private _vehNormal = (vehNATONormal + vehCSATNormal + vehNATOCargoTrucks + vehCSATCargoTrucks + vehFIACars + vehFIATrucks + vehFIAArmedCars + vehPoliceCars + [vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel]) createHashMapFromArray [];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
-private _vehMilitia = vehNATOCargoTrucks + vehFIACars + vehFIAAPC + vehFIAArmedCars + vehFIATanks;
+private _vehMilitia = vehFIATrucks + vehFIACars + vehFIAAPC + vehFIAArmedCars + vehFIATanks;
 DECLARE_SERVER_VAR(vehMilitia, _vehMilitia);
 
 private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
@@ -757,7 +771,7 @@ DECLARE_SERVER_VAR(vehTanks, _vehTanks);
 private _vehTrucks = vehNATOTrucks + vehCSATTrucks + vehFIATrucks + [vehSDKTruck];
 DECLARE_SERVER_VAR(vehTrucks, _vehTrucks);
 
-private _vehAA = [vehNATOAA,vehCSATAA];
+private _vehAA = vehNATOAA + vehCSATAA;
 DECLARE_SERVER_VAR(vehAA, _vehAA);
 
 private _vehMRLS = [vehCSATMRLS, vehNATOMRLS];
@@ -778,7 +792,7 @@ DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel,vehSDKPlane,vehSDKPayloadPlane];
 DECLARE_SERVER_VAR(vehFIA, _vehFIA);
 
-private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
+private _vehCargoTrucks = (vehTrucks + vehNATOCargoTrucks + vehCSATCargoTrucks) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
 DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
 private _vehClassToCrew = call A3A_fnc_initVehClassToCrew;
@@ -819,8 +833,8 @@ if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148"
 {timer setVariable [_x,10,true]} forEach vehCSATAPC;
 {timer setVariable [_x,0,true]} forEach vehNATOTanks;
 {timer setVariable [_x,10,true]} forEach vehCSATTanks;
-timer setVariable [vehNATOAA,0,true];
-timer setVariable [vehCSATAA,3,true];
+{timer setVariable [_x,0,true]} forEach vehNATOAA;
+{timer setVariable [_x,3,true]} forEach vehCSATAA;
 timer setVariable [vehNATOBoat,3,true];
 timer setVariable [vehCSATBoat,3,true];
 timer setVariable [vehNATOPlane,0,true];
@@ -850,9 +864,11 @@ server setVariable [vehSDKAA, 1750, true];
 server setVariable [vehSDKFuel, 550, true];
 server setVariable [vehSDKPlane, 3500, true];
 
+server setVariable [staticATteamPlayer, 1500, true];
+server setVariable [staticAAteamPlayer, 1300, true];
+server setVariable [SDKMortar, 2000, true];
 
 {server setVariable [_x,700,true]} forEach [SDKMGStatic,vehSDKBoat,vehSDKRepair];
-{server setVariable [_x,1200,true]} forEach [SDKMortar,staticATteamPlayer,staticAAteamPlayer];
 
 //black market costs
 {server setVariable [_x,2000,true]} forEach shop_UAV;
