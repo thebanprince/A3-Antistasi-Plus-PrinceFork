@@ -37,14 +37,12 @@ if (!isNil "_lootCrates" && {count _lootCrates > 0}) then {
 	} forEach _lootCrates;
 };
 
-_moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
-
 {
 	private _moneyItem = _x;
 	{ 
 		deleteVehicle _x; 
 	} forEach (allMissionObjects _moneyItem);	
-} forEach _moneyItems;
+} forEach arrayMoneyLand;
 
 {
 	private _belongingItem = _x;

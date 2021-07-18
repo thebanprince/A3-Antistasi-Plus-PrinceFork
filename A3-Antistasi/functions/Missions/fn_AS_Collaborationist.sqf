@@ -23,7 +23,7 @@ private _destinationName = [_markerX] call A3A_fnc_localizar;
 //building occupation
 ////////////
 private _sites = outposts + airportsX + resourcesX + factories + seaports + milbases;
-private _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F", "land_gm_euro_office_02"], 1000, true]; 
+private _appropriateBuildings = nearestObjects [_positionX, ["Land_zachytka_nov","Land_zachytka","Land_PoliceStation_01_F","Land_i_Barracks_V2_F", "land_gm_euro_office_02"], 1000, true]; 
 
 //we need only intact buildings that are not under some marker
 _appropriateBuildings = _appropriateBuildings select {
@@ -244,12 +244,10 @@ _desk setDir (getDir _building);
 sleep 5;
 _desk enableSimulation false;
 
-_moneyItems = ["Item_Money","Item_Money_bunch","Item_Money_roll","Item_Money_stack"];
-
 _randomPos = [(random 0.4) + 0.2, (random 0.2) - 0.2, 0]; 
-_objects1 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
+_objects1 = [[_desk,"TOP"], selectRandom arrayMoneyLand, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
 _randomPos = [(random 0.2) + 0.1, (random 0.1) - 0.2, 0]; 
-_objects2 = [[_desk,"TOP"], selectRandom _moneyItems, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
+_objects2 = [[_desk,"TOP"], selectRandom arrayMoneyLand, 1, _randomPos, random 180, {0}, true] call BIS_fnc_spawnObjects;
 
 //make sure that no one is invincible
 {
