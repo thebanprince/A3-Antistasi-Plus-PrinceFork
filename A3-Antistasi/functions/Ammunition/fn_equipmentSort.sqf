@@ -124,6 +124,35 @@ allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
 //allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
 allCivilianHeadgear = allHeadgear - allArmoredHeadgear;
 
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "H_Beret_Colonel");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "H_Beret_02");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_tsh4");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_H_Crew_Cap");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_tsh4_ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_H_Crew_Cap_Ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_H_Police_Cap");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_fieldcap_helm");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_fieldcap_helm_digi");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_fieldcap_helm_ml");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_6m2");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_6m2_1");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_gssh18");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_tsh4_bala");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_tsh4_ess_bala");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhs_xmas_antlers");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_ADA_I_H_M1_Liner_DPP");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_ARD_B_H_Crew_Cap");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_ARD_B_H_Crew_Cap_Ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_ARD_I_H_Crew_Cap");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "UK3CB_ARD_I_H_Crew_Cap_Ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_Bowman");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_bowman_cap");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_protech_helmet");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_protech_helmet_ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_protech_helmet_rhino");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsusf_protech_helmet_rhino_ess");
+allCivilianHeadgear deleteAt (allCivilianHeadgear find "rhsgref_helmet_M1_liner");
+
 //////////////////
 //   Glasses   ///
 //////////////////
@@ -140,6 +169,31 @@ allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_0
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_sand_F");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_black_F");
 allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_01_F");
+
+if (A3A_coldWarMode) then {
+	allCivilianGlasses deleteAt (allCivilianGlasses find "G_Tactical_Clear");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "G_Tactical_Black");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_facewear_6m2");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_facewear_6m2_1");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh2_gogg_grn");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh2_gogg_od");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh2_gogg_tan");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh2_gogg_white");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh_gogg_grn");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh_gogg_od");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh_gogg_white");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_shemagh_gogg_tan");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_oakley_goggles_ylw");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_oakley_goggles_clr");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhsusf_oakley_goggles_blk");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_ess_black");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_googles_orange");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_googles_yellow");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_googles_clear");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "rhs_googles_black");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "G_Balaclava_combat");
+	allCivilianGlasses deleteAt (allCivilianGlasses find "G_Combat");
+};
 
 ////////////////
 //   Radios   //
