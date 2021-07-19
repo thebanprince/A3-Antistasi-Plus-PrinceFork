@@ -31,7 +31,7 @@ private _samType = if (_sideX == Occupants) then {NATOAASam} else {CSATAASam};
 private _vehCargoTruck =  if (_sideX == Occupants) then {selectRandom vehNATOCargoTrucks} else {selectRandom vehCSATCargoTrucks};
 private _aaElements = [_radarType, _ciwsType, _samType];
 
-private _heavyVehicles = if (_sideX == Occupants) then { vehNATOAPC + vehNATOTanks + [vehNATOAA] } else { vehCSATAPC + vehCSATTanks  + [vehCSATAA] };
+private _heavyVehicles = if (_sideX == Occupants) then { vehNATOAPC + vehNATOTanks + vehNATOAA } else { vehCSATAPC + vehCSATTanks + vehCSATAA };
 
 
 /////////////////////////////
@@ -90,7 +90,7 @@ while {_spawnParameter isEqualType []} do {
 };
 
 if(_ciwsType == "") then {
-	private _aaVehicleType = if(_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
+	private _aaVehicleType = if(_sideX == Occupants) then {selectRandom vehNATOAA} else {selectRandom vehCSATAA};
 	private _vehiclePosition = [_positionX, 0, 50, 8, 0, 0.5] call BIS_fnc_findSafePos;
 	private _aaVehicleData = [_vehiclePosition, (random 360), _aaVehicleType, _sideX] call A3A_fnc_spawnVehicle;
 	private _aaVehicle = _aaVehicleData select 0;
@@ -294,7 +294,6 @@ _groups pushBack (_ret select 0);
 _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
 {[_x, _sideX] call A3A_fnc_AIVEHinit} forEach (_ret select 1);
-
 
 if(random 100 < (50 + tierWar * 3)) then
 {

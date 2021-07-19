@@ -199,7 +199,7 @@ if (_side isEqualTo east) then {
 
 	vehCSATAPC = _faction getVariable "vehiclesAPCs";
 	vehCSATTanks = _faction getVariable "vehiclesTanks";
-	vehCSATAA = _faction getVariable "vehiclesAA" select 0;
+	vehCSATAA = _faction getVariable "vehiclesAA";
 	vehCSATAttack = vehCSATAPC + vehCSATTanks;
 
 	vehCSATBoat = _faction getVariable "vehiclesGunboats" select 0;
@@ -428,7 +428,7 @@ if (_side isEqualTo west) then {
 
 	vehNATOAPC = _faction getVariable "vehiclesAPCs";
 	vehNATOTanks = _faction getVariable "vehiclesTanks";
-	vehNATOAA = _faction getVariable "vehiclesAA" select 0;
+	vehNATOAA = _faction getVariable "vehiclesAA";
 	vehNATOAttack = vehNATOAPC + vehNATOTanks;
 
 	vehNATOBoat = _faction getVariable "vehiclesGunboats" select 0;

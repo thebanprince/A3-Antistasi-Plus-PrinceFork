@@ -87,7 +87,7 @@ while {_spawnParameter isEqualType []} do {
 };
 
 
-_typeVehX = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
+_typeVehX = if (_sideX == Occupants) then {selectRandom vehNATOAA} else {selectRandom vehCSATAA};
 _max = if (_frontierX && {[_typeVehX] call A3A_fnc_vehAvailable}) then {2} else {1};
 for "_i" from 1 to _max do {
 	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;

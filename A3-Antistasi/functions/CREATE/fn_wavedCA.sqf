@@ -81,7 +81,7 @@ private _typesMRAP = if (_sideX == Occupants) then {vehNATOLightArmed} else {veh
 call {
 	private _typesAPC = if (_sideX == Occupants) then {vehNATOAPC} else {vehCSATAPC};
 	private _typesTank = if (_sideX == Occupants) then {vehNATOTanks} else {vehCSATTanks};
-	private _typeAA = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
+	private _typesAA = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
 
 	// Add up to 4 + tierWar APCs, selected randomly from available vehicles
 	{
@@ -98,8 +98,10 @@ call {
 	_vehPoolLand resize ((4 + tierWar) min (count _vehPoolLand));
 
 	// Add in war-tier capped AA vehicles
-	private _aaCount = (ceil (tierWar / 3)) min (timer getVariable [_typeAA, 0]);
-	for "_i" from 1 to (_aaCount) do { _vehPoolLand pushBack _typeAA };
+	{
+		private _aacount = (ceil (tierWar / 3)) min (timer getVariable [_x, 0]);
+		for "_i" from 1 to (_aacount) do { _vehPoolLand pushBack _x };
+	} forEach _typesAA;
 
 	// Add some trucks and MRAPs depending on war tier
 	private _truckCount = 8 - ceil (tierWar / 2);

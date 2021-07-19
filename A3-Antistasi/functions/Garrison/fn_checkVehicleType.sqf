@@ -46,7 +46,7 @@ switch (_preference) do
     };
     case ("LAND_AIR"):
     {
-      _result = (_vehicle == vehNATOAA || {_vehicle == vehCSATAA});
+      _result = (_vehicle in vehNATOAA || {_vehicle in vehCSATAA});
     };
     case ("HELI_PATROL"):
     {

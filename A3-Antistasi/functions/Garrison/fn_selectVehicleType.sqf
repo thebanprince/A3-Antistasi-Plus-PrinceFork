@@ -15,7 +15,7 @@ private _fileName = "SelectVehicleType";
 
 if(_preference == "LAND_AIR") exitWith
 {
-  if(_side == Occupants) then {vehNATOAA} else {vehCSATAA};
+  if(_side == Occupants) then {selectRandom vehNATOAA} else {selectRandom vehCSATAA};
 };
 if(_preference == "LAND_TANK") exitWith
 {

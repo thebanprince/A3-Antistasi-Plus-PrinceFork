@@ -79,7 +79,7 @@ switch (_convoyType) do
 		_textX = format ["A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
 		_taskTitle = "Armored Convoy";
 		_taskIcon = "Destroy";
-		_typeVehObj = if (_sideX == Occupants) then {vehNATOAA} else {vehCSATAA};
+		_typeVehObj = if (_sideX == Occupants) then {selectRandom vehNATOAA} else {selectRandom vehCSATAA};
 	};
 	case "Prisoners":
 	{
