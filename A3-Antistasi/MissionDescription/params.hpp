@@ -193,13 +193,6 @@ class Params
         texts[] = {"Default (Sometimes)","Never","Sometimes","Often","Always"};
         default = 9999;
     };
-    class aiControlTime
-    {
-        title = "AI Control Time Limit";
-        values[] = {9999,60,120,300,900,1800};
-        texts[] = {"Default (60 seconds)","1 minute","2 minutes","5 minutes","15 minutes", "30 minutes"};
-        default = 9999;
-    };
     class Spacer11
     {
         title = "";
@@ -303,7 +296,7 @@ class Params
      {
           title="How many persons required to unflip vehicle";
 		values[]={9999, 1, 2, 3, 4};
-		texts[]={"Default (1)","1","2","3","4"};
+		texts[]={"Default (3)","1","2","3","4"};
 		default = 9999;
      };
      class magRepack
@@ -348,7 +341,21 @@ class Params
           texts[] =  {"Default (Factions can be defeated for good)", "Factions can be defeated for good", "Disable"};
           default = 9999;
      };
-     
+     class aiControlTime
+     {
+        title = "AI Control Time Limit";
+        values[] = {9999,60,120,300,900,1800};
+        texts[] = {"Default (60 seconds)","1 minute","2 minutes","5 minutes","15 minutes", "30 minutes"};
+        default = 9999;
+     };
+     class deathPenalty
+     {
+          title = "Player Death Penalty (How many money player will lose on death)";
+          values[] = {9999, 0.15, 0.3, 0.5, 0.75, 1};
+          texts[] =  {"Default (30%)", "15%", "30%", "50%", "75%", "100%"};
+          default = 9999;
+     };
+
      class Spacer307
      {
           title = "";
