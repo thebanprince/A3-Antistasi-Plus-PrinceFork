@@ -55,11 +55,23 @@ A3A_logistics_vehicleHardpoints append [
 ];
 
 //Offsets for adding new statics/boxes to the JNL script.
-A3A_logistics_attachmentOffset append [];
+A3A_logistics_attachmentOffset append [
+    ["gm_ge_army_mg3_aatripod" call A3A_fnc_classNameToModel,                   [0, 0, 1.5],            [0, -1, 0],           4,      100],
+    ["gm_gc_army_dshkm_aatripod" call A3A_fnc_classNameToModel,                 [0, 0, 1.75],           [0, -1, 0],           4,      100],
+    ["gm_ge_army_milan_launcher_tripod" call A3A_fnc_classNameToModel,          [0, 0, 1.2],            [0, -1, 0],           4,      250],
+    ["gm_gc_army_fagot_launcher_tripod" call A3A_fnc_classNameToModel,          [0, 0, 1.2],            [0, -1, 0],           4,      250],
+    ["gm_gc_army_spg9_tripod" call A3A_fnc_classNameToModel,                    [0, 0, 1.1],            [0, -1, 0],           4,      250]
+];
 
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
 A3A_logistics_coveredVehicles append ["gm_ge_army_kat1_451_cargo", "gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_container", "gm_ge_army_kat1_454_cargo", "gm_gc_army_ural375d_cargo", "gm_gc_bgs_ural4320_cargo", "gm_pl_army_ural4320_cargo"];
 
 //if you want a weapon to be loadable you need to add it to this as a array of [model, [blacklist specific vehicles]],
 //if the vehicle is in the coveredVehicles array don't add it to the blacklist in this array.
-A3A_logistics_weapons append [];
+A3A_logistics_weapons append [
+    ["gm_gc_army_dshkm_aatripod" call A3A_fnc_classNameToModel,[]],
+    ["gm_ge_army_mg3_aatripod" call A3A_fnc_classNameToModel,[]],
+    ["gm_gc_army_fagot_launcher_tripod" call A3A_fnc_classNameToModel,[]],
+    ["gm_ge_army_milan_launcher_tripod" call A3A_fnc_classNameToModel,[]],
+    ["gm_gc_army_spg9_tripod" call A3A_fnc_classNameToModel,[]]
+];
