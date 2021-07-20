@@ -123,11 +123,11 @@ class commanderMenu
 				class commanderDescriptionText: TextBaseMT
 				{
 					idc = 1701;			
-					text = "Select support type, click on desired position on the map and press Launch. Note that some call-ins require at least 1 captured airport.";
+					text = "Select support type, click on desired position on the map and press Launch. Some call-ins require at least 1 captured airport. Support points will gain automatically starting War Level 2.";
 					x = "1 * pixelGridNoUIScale * pixelW";
 					y = "2 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
-					h = "3.5 * pixelGridNoUIScale * pixelH";
+					h = "5 * pixelGridNoUIScale * pixelH";
 					colorText[] = {1,1,1,0.7};
 				};
 
@@ -135,7 +135,7 @@ class commanderMenu
 				{
 					idc = 1750;
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "7 * pixelGridNoUIScale * pixelH";					
+					y = "7.5 * pixelGridNoUIScale * pixelH";					
 					w = "22 * pixelGridNoUIScale * pixelW";
 					h = "2 * pixelGridNoUIScale * pixelH";	
 					onLBSelChanged = "[] call SCRT_fnc_ui_setSupportCostText; [] spawn SCRT_fnc_ui_clearSupport;";
@@ -146,7 +146,7 @@ class commanderMenu
 					idc = 1751;
 					text = "Costs";
 					x = "1 * pixelGridNoUIScale * pixelW";
-					y = "10 * pixelGridNoUIScale * pixelH";	
+					y = "10.5 * pixelGridNoUIScale * pixelH";	
 					w = "22 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";
 				};
