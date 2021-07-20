@@ -11,6 +11,9 @@ Public: No
 
 //Var initialisation
 private _filename = "detector.sqf";
+
+A3A_coldWarMode = false;
+
 A3A_hasRHS = false;
 A3A_has3CBFactions = false;
 A3A_hasIvory = false;
@@ -20,6 +23,7 @@ A3A_hasD3S = false;
 A3A_hasRDS = false;
 A3A_hasCup = false;
 A3A_hasAegis = false;
+A3A_hasGlobMob = false;
 
 //Aegis submods
 private _activeAegis = false;
@@ -38,17 +42,27 @@ private _activeAfrf = false;
 private _activeUsaf = false;
 private _activeSaf = false;
 
+//Actual Detection
+//IFA Detection
+if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
+    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+
 //3CB Factions Detection
 if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then {
   A3A_has3CBFactions = true;
   [2,"3CB Factions Detected.",_fileName] call A3A_fnc_log;
 };
 
-//Actual Detection
-//IFA Detection
-if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
-    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+if (isClass (configfile >> "CfgPatches" >> "gm_core")) then {
+  A3A_hasGlobMob = true;
+  [2,"Global Mobilization Detected.",_fileName] call A3A_fnc_log;
+};
+
+if (A3A_has3CBFactions && {(threecbfOccupantFaction == 4 || A3A_hasGlobMob)}) then {
+  A3A_coldWarMode = true;
+  [2,"3CB Factions and US Cold War template detected, Cold War Mode to be initiated.",_fileName] call A3A_fnc_log;
 };
 
 //FFAA Detection
