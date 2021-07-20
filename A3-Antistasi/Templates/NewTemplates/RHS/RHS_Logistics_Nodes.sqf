@@ -2,6 +2,12 @@
 //Nodes are build like this: [Available(internal use,  always 1), Hardpoint location, Seats locked when node is in use]
 
 A3A_logistics_vehicleHardpoints append [
+    ["RHS_UAZ_MSV_01" call A3A_fnc_classNameToModel,[
+        [1,         [0, -1.35, -0.45],    [2,5]]
+    ]],
+    ["rhs_uaz_open_MSV_01" call A3A_fnc_classNameToModel,[
+        [1,         [0, -1.3, -0.45],    [2,5]]
+    ]],
     ["rhsgref_BRDM2_HQ_ins_g" call A3A_fnc_classNameToModel,[
         [1,         [0,0,-0.25],       []  ],
         [1,         [0,0,-0.25],      []  ]
