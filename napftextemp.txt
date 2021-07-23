@@ -1,0 +1,123 @@
+[h1]Antistasi Plus 1.6 Update[/h1] 
+[img]https://i.imgur.com/zYCT3P0.jpg[/img]
+
+Mostly expansive update with some QoL improvements, unit rosters and extra terrains support to conclude some development things.
+
+[h2]Notable changes:[/h2]
+[list]  
+[*] Tanoa support
+[*] Virolahti support
+[*] New commander ability - Loot Helicopter (Helicopter gathers scattered loot at area and put it into crate)
+[*] Random Events first implementation with Police Vehicle Patrol, Civilian Helicopter Fly By, Utility Truck Movement, Military Vehicle Patrol and Post-Ambush Vehicle encounters
+[*] "How many persons required to unflip vehicle" and AI Control Time mission parameters
+[*] Rally Point balance pass
+[*] Chemical Airstrike 2.0 - refactored code, invaders will use it too, damage zone is affected by wind, new visual effects
+[*] (CUP, RHS, 3CB Factions) Military bases and airports will have howitzers instead of mortars on artillery positions
+[*] (CUP, 3CB Factions) Horizon Islands Legion (HIL) Unit Roster
+[*] (CUP, RHS, 3CB Factions) Chernarus Defence Force (CDF) Unit Roster
+[*] Some bugfixes and improvements.
+[/list]
+
+Full changelog is available on Github.
+[url=https://github.com/igorkis-scrts/A3-Antistasi-Plus/blob/unstable/ForkChangelog.md]Github[/url]
+
+Mission files:
+[url=https://github.com/igorkis-scrts/A3-Antistasi-Plus/releases/tag/1.6]Antistasi Plus Latest Release[/url]
+
+[h1]Antistasi Plus - Napf[/h1] 
+[img]https://i.imgur.com/A4p2yxz.jpg[/img]
+
+Petros, stranger in the strange [b]Napf[/b] island, is trying to help local insurgency with their enemy occupation problem. Time to anwser the call and help those poor rebels!
+
+[h1]Antistasi Features[/h1] 
+
+Antistasi is a Persistent Whole Map mission, for SP or MP Coop, focused on Resistance Infantry and Guerrilla Tactics.
+
+[list]  
+[*]Napf is in an All vs All war on which the players play the role of rebels fighting against foreign invaders
+[*]Around 25 possible side missions which may happen everywhere. Assassination, Logistics, Destroy Assets, Rescue POWS, Conquer Missions, Salvage in a wide variety on each type
+[*]PvP Element: NATO and CSAT players can join and try to disrupt rebel operations
+[*]Possibility of Undercover-Operations, same as a Resistance soldier can do
+[*]AI Enemy Commander which reacts to your movements and manages his resources  
+[*]Enemy Network Comms that may be disrupted
+[*]Persistent Stat Save System: You won't lose game or server progress upon a game update
+[*]Enhanced AI Squadmate control
+[*]Playable in SP, MP, and persistent open server MP
+[*]Cooperate while compete to be the commander of your side (MP Only)
+[*]Build minefields, improve bases with static weapons which AI will use
+[*]Playable as SP (through LAN server), MP, and persistent open server MP
+[*]From Guerrilla ambushes on the beginning to BIG battles at the end
+[*]Napf gets destroyed as long as the war evolves
+[*]Integrated side mods: TFAR, ACRE, ACE3. None of them mandatory.
+[*]Integrated mission variants: Vanilla, RHS, CUP, Aegis, 3CB Factions + RHS ([b]PICK ONE, DO NOT MIX[/b]).
+[/list]
+
+[b]Support is not provided on any of unsupported mods! Custom mission edits too, since i don't know what you have changed and how.[/b] 
+
+[h1]Antistasi Plus Features[/h1] 
+[list] 
+[*]Commander Menu (O hotkey) with the various new abilities which commander can use to support his troops on ground - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike, Loot Helicopter
+[*]Special truck, crate and commander ability provides capabilities to automatically loot bodies, surrender crates and weapons on ground to reduce tediousness of looting enemy
+[*]Persistent save for everything players build
+[*]7 new mission types (Find the Arms Dealer, Salvage Helicrash tasks, Prevent Artillery Strike, Ambush Officer, Kill Collaborationist, Seize Airdrop, Rescue Smugglers)
+[*]Arms Dealer vendor with the ability to directly buy and sell weapons, items and gear
+[*]Vehicle Black Market - possibility to spend money on vehicles, aircrafts et cetera
+[*]Handly crafted big bases and outposts
+[*]Ability to build persistent roadblocks, watchposts, AA or AT emplacements
+[*]Move Static Weapon, Unlfip Vehicle, Share Faction Money actions
+[*]Similar weapons counted as one entity on infinite unlock
+[*]Civilian Presence Module - more performance-friendly and alive footmobile civilians
+[*]Pickupable money items
+[*]Rally Point - temporary spawn point that can be placed by commander
+[*]New outpost type - Military Base
+[*]Additional commander abilities - Smoke Barrage, Flare Barrage, Light Vehicle Airdrop, HMG Airdrop, Loot Crate Airdrop, Recon Plane Run, Supply Crate Airdrop, Chemical Airstrike
+[*]Special commander ability - Paradrop (commander can move player paratroopers to airplane for HALO jump on desired location)
+[*]Infantry unit tiers based on current war level, the bigger war level - the better enemy's infantry units equipment
+[*]Discord Rich Presence support 
+[*]Chemical airstrike - new airstirke variant which can be used by rebel commander and invader faction
+[*]Projectile Camera
+[*]Integrated Mag Repack script (menu can be accessed via Ctrl+R hotkey) 
+[*]Different occupant factions support for same modset - for example, 3CB Factions can provide HIL, CDF or USAF mission variants
+[*]CUP Vehicles/Weapons/Units support
+[*]Various additional settings and small abilities - vehicle unflip, time multiplier et cetera
+[*]Many QoL fixes, tweaks, enhancements and UI overhaul
+[/list]
+
+[h1]FAQ[/h1] 
+[b]Where is the arms dealer?[/b]
+Arms dealer location can be obtained via squad leader interrogations, documents and laptophacks. 
+
+[b]Which modsets are supported?[/b]
+These modsets are supported ([b]PICK ONE, DO NOT MIX VARIANTS, MODSETS SHOULD BE USED AS WHOLE AND ALL MODS FROM IT SHOULD BE TURNED ON[/b]):
+[list]  
+[*]Aegis - Aegis, Atlas, Atlas - Opposing Forces, Police 
+[*]RHS - RHS AFRF, RHS GREF, RHS USAF, RHS SAF
+[*]3CB Factions - RHS AFRF, RHS GREF, RHS USAF, RHS SAF, 3CB Factions
+[*]CUP - CUP Vehicles, CUP Units, CUP Weapons
+[*]Vanilla - no mods at all
+[/list]
+
+[b]Where is the HQ tent?[/b]
+HQ tent was removed, it's functionality was moved into Commander Menu, Environment tab (O or HOME hotkey).
+
+[b]I can't find the mission in Scenarios tab in single player menu, is there any way to play as single player?[/b]
+Antistasi Plus will not appear in Scenarios menu, but you can still play as singe player by creating LAN server in Arma 3's multiplayer menu, it is pretty easy.
+
+[b]My dedicated server is not working with this mission at all, while listen one works perfectly fine. What's wrong?[/b]
+Make sure that you're not using -autoInit startup parameter, removing it might resolve many dedicated server issues.
+
+[h3]Github page:[/h3] 
+[url=https://github.com/igorkis-scrts/A3-Antistasi-Plus/issues]Github[/url]
+
+[h3]Donations, devblog[/h3]
+[url=https://ko-fi.com/igorksocrates]Ko-Fi[/url]
+
+[h3]Credits[/h3]
+[b]Disclaimer:[/b] This is the fork of Antistasi Community Version, original mission credits to [url=https://steamcommunity.com/profiles/76561198036417817]barbolani[/url], [url=https://steamcommunity.com/id/OfficialAntiStasiCommunity]Official Antistasi Community[/url].  
+[*]Original Mission by barbolani
+[*]Antistasi Community Edition by Official Antistasi Community
+[*]Magrepack by Outlawled, R3vo and OOster
+[*]HALs_Store by  HallyG, R3vo and barman75
+[*]DRO by mbrdmn
+[*]Discord Rich Presence by ConnorAU 
+[*]Antistasi Plus by Socrates
