@@ -7391,9 +7391,6 @@ class cfgHALsStore
 		{
 			displayName = "Misc";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
-
-			ITEM(B_Bergen_dgtl_F, 900, MISC_STOCK);
-			ITEM(B_Bergen_hex_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_mcamo_F, 900, MISC_STOCK);
 			ITEM(B_Bergen_tna_F, 900, MISC_STOCK);
 			ITEM(rhsgref_hidf_alicepack, 750, MISC_STOCK);
@@ -9590,10 +9587,6 @@ class cfgHALsStore
 			displayName = "Misc";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
 
-			ITEM(B_Bergen_dgtl_F, 900, MISC_STOCK);
-			ITEM(B_Bergen_hex_F, 900, MISC_STOCK);
-			ITEM(B_Bergen_mcamo_F, 900, MISC_STOCK);
-			ITEM(B_Bergen_tna_F, 900, MISC_STOCK);
 			ITEM(rhsgref_hidf_alicepack, 750, MISC_STOCK);
 			ITEM(rhsgref_ttsko_alicepack, 750, MISC_STOCK);
 			ITEM(rhsgref_wdl_alicepack, 750, MISC_STOCK);
@@ -9618,9 +9611,9 @@ class cfgHALsStore
 			ITEM(G_AirPurifyingRespirator_02_olive_F, 200, MISC_STOCK);
 			ITEM(G_AirPurifyingRespirator_02_black_F, 200, MISC_STOCK);
 
-			ITEM(I_UavTerminal, 800, MISC_STOCK);
-			ITEM(O_UavTerminal, 800, MISC_STOCK);
-			ITEM(B_UavTerminal, 800, MISC_STOCK);
+			ITEM(I_UavTerminal, 2500, MISC_STOCK);
+			ITEM(O_UavTerminal, 2500, MISC_STOCK);
+			ITEM(B_UavTerminal, 2500, MISC_STOCK);
 		};
 	};
 
