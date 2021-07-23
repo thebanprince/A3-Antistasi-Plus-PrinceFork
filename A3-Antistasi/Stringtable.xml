@@ -846,6 +846,22 @@
         <German>Öffnet das Mörser-Sperrmenü, mit dem der Spieler das Artillerieziel für einen sofortigen Treffer festlegen kann.</German>
         <Czech>Otevírá nabídku minometné palby, která umožňuje hráči nastavit dělostřelecký cíl pro okamžitý úder.</Czech>
       </Key>
+      <Key ID="STR_antistasi_dialogs_high_command_transfer_title">
+        <Original>High Command Transfer</Original>
+        <English>High Command Transfer</English>
+        <French>Transfert de haut commandement</French>
+        <Russian>Передача в HC-командование</Russian>
+        <German>Oberkommandoübertragung</German>
+        <Czech>Přenos vrchního velení</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_arty_high_command_transfer_tooltip">
+        <Original>Transfers your current AI squadmates to High Command, allows them to be used by commander as separate squad.</Original>
+        <English>Transfers your current AI squadmates to High Command, allows them to be used by commander as separate squad.</English>
+        <French>Transfère vos coéquipiers d'IA actuels au haut commandement, leur permet d'être utilisés par le commandant en tant qu'escouade distincte.</French>
+        <Russian>Передаёт ИИ-солдат из вашего отряда в High Command-меню, позволяя их использовать как отдельный отряд.</Russian>
+        <German>Überträgt Ihre aktuellen KI-Truppkameraden an das Oberkommando, sodass sie vom Kommandanten als separater Trupp verwendet werden können</German>
+        <Czech>Přenese vaše současné členy AI do vrchního velení a umožní jim, aby je velitel použil jako samostatnou jednotku.</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_auto_rearm_title">
         <Original>Auto Rearm / Loot</Original>
         <English>Auto Rearm / Loot</English>

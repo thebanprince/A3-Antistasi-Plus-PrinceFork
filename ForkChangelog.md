@@ -6,6 +6,7 @@
 - Buildable Mortar and HMG Emplacements
 - Ability to move and save static weapon position and direction in AA/AT/Mortar/HMG Emplacements
 - (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC 
+- High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow him to use it as HC squad
 - Player Death Penalty mission parameter - how many money player will lose on death
 
 ### Changes

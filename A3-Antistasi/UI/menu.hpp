@@ -635,6 +635,16 @@ class aiManagement: SimpleMenuBigger
 			tooltip = $STR_antistasi_dialogs_mount_veh_tooltip;
 			action = "[""mount""] call A3A_fnc_vehStats";
 		};
+
+		class r5Button: SimpleButton
+		{
+			idc = 113;
+			text = $STR_antistasi_dialogs_high_command_transfer_title;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.682 * safezoneH + safezoneY;
+			tooltip = $STR_antistasi_dialogs_arty_high_command_transfer_tooltip;
+			action = "closeDialog 0;[] call SCRT_fnc_common_hcTransfer";
+		};
 	};
 };
 

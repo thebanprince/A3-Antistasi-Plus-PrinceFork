@@ -148,6 +148,7 @@ class SCRT
         class common_removeActionMove {};
         class common_setUnitTraits {};
         class common_moveOutpostStatic {};
+        class common_hcTransfer {};
     };
 
     class Garrison
