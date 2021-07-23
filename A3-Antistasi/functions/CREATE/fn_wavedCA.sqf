@@ -501,24 +501,26 @@ while {(_waves > 0)} do
 		//75% chance to spawn a UAV, to give some variety.
 		if (random 1 < 0.25) exitWith {};
 		_typeVehX = if (_sideX == Occupants) then {vehNATOUAV} else {vehCSATUAV};
-		_uav = createVehicle [_typeVehX, _posOrigin, [], 0, "FLY"];
-		_vehiclesX pushBack _uav;
-		_airSupport pushBack _uav;
-		//[_uav,"UAV"] spawn A3A_fnc_inmuneConvoy;
-		[_uav,_mrkDestination,_sideX] spawn A3A_fnc_VANTinfo;
-		[_sideX, _uav] call A3A_fnc_createVehicleCrew;
-		_pilots append (crew _uav);
-		_groupVeh = group driver _uav;
-		_groups pushBack _groupVeh;
-		_uwp0 = _groupVeh addWayPoint [_posDestination,0];
-		_uwp0 setWaypointBehaviour "AWARE";
-		_uwp0 setWaypointType "SAD";
-		{[_x] call A3A_fnc_NATOinit} forEach (crew _uav);
-		[_uav, _sideX] call A3A_fnc_AIVEHinit;
-		if (not(_mrkDestination in airportsX)) then {_uav removeMagazines "6Rnd_LG_scalpel"};
-		[3, format ["Spawning vehicle type %1", _typeVehX], _filename] call A3A_fnc_log;
-		sleep 5;
-		_countX = _countX + 1;
+		if (_typeVehX != "not_supported") then {
+			_uav = createVehicle [_typeVehX, _posOrigin, [], 0, "FLY"];
+			_vehiclesX pushBack _uav;
+			_airSupport pushBack _uav;
+			//[_uav,"UAV"] spawn A3A_fnc_inmuneConvoy;
+			[_uav,_mrkDestination,_sideX] spawn A3A_fnc_VANTinfo;
+			[_sideX, _uav] call A3A_fnc_createVehicleCrew;
+			_pilots append (crew _uav);
+			_groupVeh = group driver _uav;
+			_groups pushBack _groupVeh;
+			_uwp0 = _groupVeh addWayPoint [_posDestination,0];
+			_uwp0 setWaypointBehaviour "AWARE";
+			_uwp0 setWaypointType "SAD";
+			{[_x] call A3A_fnc_NATOinit} forEach (crew _uav);
+			[_uav, _sideX] call A3A_fnc_AIVEHinit;
+			if (not(_mrkDestination in airportsX)) then {_uav removeMagazines "6Rnd_LG_scalpel"};
+			[3, format ["Spawning vehicle type %1", _typeVehX], _filename] call A3A_fnc_log;
+			sleep 5;
+			_countX = _countX + 1;
+		};
 	};
 
 	while {_countX <= _nVehAir} do

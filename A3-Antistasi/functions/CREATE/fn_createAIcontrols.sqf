@@ -175,14 +175,17 @@ else
 		sleep 1;
 		{_soldiers pushBack _x} forEach units _groupX;
 		_typeVehX = if (_sideX == Occupants) then {vehNATOUAVSmall} else {vehCSATUAVSmall};
-		_uav = createVehicle [_typeVehX, _positionX, [], 0, "FLY"];
-		[_sideX, _uav] call A3A_fnc_createVehicleCrew;
-		_vehiclesX pushBack _uav;
-		_groupUAV = group (crew _uav select 1);
-		{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
-		deleteGroup _groupUAV;
+		if (_typeVehX != "not_supported") then {
+			_uav = createVehicle [_typeVehX, _positionX, [], 0, "FLY"];
+			[_sideX, _uav] call A3A_fnc_createVehicleCrew;
+			_vehiclesX pushBack _uav;
+			_groupUAV = group (crew _uav select 1);
+			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
+			deleteGroup _groupUAV;
+		};
+
 		{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
-		}
+	}
 	else
 		{
 		_leave = true;

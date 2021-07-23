@@ -69,7 +69,7 @@ private _initialRebelEquipment = [
 "rhsgref_5Rnd_762x54_m38", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle", "rhsgref_8Rnd_762x63_M2B_M1rifle",
 "rhs_sidor",
 "rhs_grenade_khattabka_vog17_mag", "rhs_grenade_khattabka_vog25_mag",
-"V_BandollierB_blk", "V_BandollierB_rgr", "V_BandollierB_oli", "V_Rangemaster_belt", "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
+"rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
 "rhs_acc_2dpZenit","Binocular","Laserbatteries"];
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};

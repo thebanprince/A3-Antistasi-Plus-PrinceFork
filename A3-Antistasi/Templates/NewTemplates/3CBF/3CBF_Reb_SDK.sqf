@@ -71,7 +71,7 @@ private _initialRebelEquipment = [
 "rhsgref_5Rnd_762x54_m38", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle", "rhsgref_8Rnd_762x63_M2B_M1rifle",
 "rhs_sidor",
 "rhs_grenade_khattabka_vog17_mag", "rhs_grenade_khattabka_vog25_mag",
-"V_BandollierB_blk", "V_BandollierB_rgr", "V_BandollierB_oli", "V_Rangemaster_belt", "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
+"rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
 "rhs_acc_2dpZenit","Binocular","Laserbatteries"];
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
@@ -95,7 +95,7 @@ shop_wheel_apc = ["UK3CB_CHD_I_BTR60", "UK3CB_CHD_I_BTR70", "UK3CB_B_LAV25_HIDF"
 shop_track_apc = ["UK3CB_TKA_B_M113_M240", "UK3CB_CHD_I_MTLB_PKT", "UK3CB_CHD_I_BMD1PK"];
 shop_heli = ["rhs_uh1h_hidf_gunship", "I_E_Heli_light_03_dynamicLoadout_F", "UK3CB_CHD_I_Mi8AMTSh"];
 shop_tank = ["UK3CB_CHD_I_T34", "UK3CB_CHD_I_T55", "UK3CB_CW_US_B_EARLY_M60a1"];
-shop_plane = ["RHSGREF_A29B_HIDF", "rhs_l39_cdf", "rhs_l159_CDF"];
+shop_plane = ["RHSGREF_A29B_HIDF", "UK3CB_MDF_I_Mystere_CAS1", "rhs_l159_CDF"];
 
 additionalShopLight = ["rhssaf_m1151_olive_pkm", "rhssaf_m1025_olive_m2", "rhs_tigr_sts_vmf"];
 additionalShopAtgmVehicles = ["UK3CB_CW_US_B_EARLY_M151_Jeep_TOW", "UK3CB_CW_US_B_LATE_M1025_TOW", "UK3CB_CHD_I_BRDM2_ATGM"];
