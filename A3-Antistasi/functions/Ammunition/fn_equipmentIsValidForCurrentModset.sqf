@@ -1,4 +1,4 @@
-params ["_configClass", "_categories"];
+params ["_configClass", "_categories", ["_configName", "not_specified"]];
 
 private _remove = false;
 
@@ -19,7 +19,7 @@ if (getText (_configClass >> "picture") == "") exitWith {
 };
 
 //Remove vanilla items if no vanilla sides
-if (_itemIsVanilla && {A3A_hasRHS || A3A_hasCup}) then {
+if (_itemIsVanilla && ({A3A_hasRHS || {A3A_hasCup || {A3A_hasGlobMob}}})) then {
 	switch (_categories select 0) do {
 		case "Item": {
 			switch (_categories select 1) do {
@@ -50,6 +50,10 @@ if (_itemIsVanilla && {A3A_hasRHS || A3A_hasCup}) then {
 			};
 		};
 	};
+};
+
+if (A3A_coldWarMode && {_configName in forbiddenAssets}) then {
+	_remove = true;
 };
 
 _remove;

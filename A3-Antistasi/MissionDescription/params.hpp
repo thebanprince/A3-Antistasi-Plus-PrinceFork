@@ -260,7 +260,7 @@ class Params
      {
           title="Select Occupant Faction";
 		values[]={9999, 0, 1, 2, 3, 4};
-		texts[]={"Default (USAF)", "USAF", "Chernarus Defence Forces (CDF)", "Horizon Islands Legion (HIL)", "Takistani Army (TKA)", "US Army Cold War (Enables Cold War Mode)"};
+		texts[]={"Default (US Army)", "US Army", "Chernarus Defence Forces (CDF)", "Horizon Islands Legion (HIL)", "Takistani Army (TKA)", "US Army Cold War (Enables Cold War Mode)"};
 		default = 9999;
      };
 
