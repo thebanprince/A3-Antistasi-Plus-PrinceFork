@@ -232,7 +232,6 @@ _sfLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_rpk74m", "rhs_acc_tgpa", "", "rhs_acc_nita", ["rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""]
 ]];
 _sfLoadoutData setVariable ["marksmanRifles", [
-["rhs_weap_svdp_wd", "rhs_acc_tgpv2", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N14"], [], ""],
 ["rhs_weap_vss", "", "", "rhs_acc_pso1m21", ["rhs_10rnd_9x39mm_SP5", "rhs_10rnd_9x39mm_SP5", "rhs_10rnd_9x39mm_SP6"], [], ""]
 ]];
 _sfLoadoutData setVariable ["sidearms", [
@@ -279,8 +278,8 @@ _militaryLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["marksmanRifles", [
-["rhs_weap_svdp", "", "", "rhs_acc_pso1m2", [], [], ""],
-["rhs_weap_svdp", "", "", "rhs_acc_1pn34", [], [], ""]
+["UK3CB_SVD_OLD", "", "", "rhs_acc_pso1m2", [], [], ""],
+["UK3CB_SVD_OLD", "", "", "rhs_acc_1pn34", [], [], ""]
 ]];
 _militaryLoadoutData setVariable ["sidearms", ["rhs_weap_makarov_pm"]];
 
@@ -391,8 +390,8 @@ _eliteLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""]
 ]];
 _eliteLoadoutData setVariable ["marksmanRifles", [
-["rhs_weap_svds", "", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1"], [], ""],
-["rhs_weap_svds", "", "", "rhs_acc_1pn34", ["rhs_10Rnd_762x54mmR_7N1"], [], ""]
+["UK3CB_SVD_OLD", "", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1"], [], ""],
+["UK3CB_SVD_OLD", "", "", "rhs_acc_1pn34", ["rhs_10Rnd_762x54mmR_7N1"], [], ""]
 ]];
 _eliteLoadoutData setVariable ["sidearms", ["rhs_weap_6p53"]];
 
