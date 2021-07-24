@@ -5905,7 +5905,9 @@ class cfgHALsStore
 			displayName = "DMRs, Sniper Rifles, Battle Rifles";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\primaryWeapon_ca.paa";
 
-			ITEM(rhs_weap_m38_rail, 600, RIFLE_STOCK);
+			ITEM(rhs_weap_m38_rail, 400, RIFLE_STOCK);
+
+			ITEM(rhs_weap_m1garand_sa43, 600, RIFLE_STOCK);
 
 			ITEM(rhs_weap_vss, 1500, RIFLE_STOCK);
 			ITEM(rhs_weap_vss_grip, 1550, RIFLE_STOCK);
@@ -6688,6 +6690,15 @@ class cfgHALsStore
 			///////////////////////////////////////////////////////
 			// RIFLES
 			///////////////////////////////////////////////////////
+			class rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle {
+				price = 75;
+				stock = MAGAZINE_STOCK;
+			};
+			class rhsgref_8Rnd_762x63_M2B_M1rifle {
+				price = 65;
+				stock = MAGAZINE_STOCK;
+			};
+
 			class rhssaf_30Rnd_762x39mm_M67 {
 				price = 125;
 				stock = MAGAZINE_STOCK;
@@ -7630,8 +7641,10 @@ class cfgHALsStore
 			displayName = "DMRs, Sniper Rifles, Battle Rifles";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\primaryWeapon_ca.paa";
 
-			ITEM(rhs_weap_m38_rail, 400, RIFLE_STOCK);
-			ITEM(UK3CB_Enfield_Rail, 600, RIFLE_STOCK);
+			ITEM(rhs_weap_m38_rail, 350, RIFLE_STOCK);
+			ITEM(UK3CB_Enfield_Rail, 450, RIFLE_STOCK);
+
+			ITEM(rhs_weap_m1garand_sa43, 600, RIFLE_STOCK);
 
 			ITEM(rhs_weap_vss, 1500, RIFLE_STOCK);
 			ITEM(rhs_weap_vss_grip, 1550, RIFLE_STOCK);
@@ -8226,6 +8239,8 @@ class cfgHALsStore
 			displayName = "DMRs, Sniper Rifles, Battle Rifles";
 			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\primaryWeapon_ca.paa";
 
+			ITEM(rhs_weap_m1garand_sa43, 600, RIFLE_STOCK);
+
 			ITEM(rhs_weap_vss, 1500, RIFLE_STOCK);
 
 			ITEM(rhs_weap_m76, 1100, RIFLE_STOCK);
@@ -8721,6 +8736,15 @@ class cfgHALsStore
 			///////////////////////////////////////////////////////
 			// RIFLES
 			///////////////////////////////////////////////////////
+			class rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle {
+				price = 75;
+				stock = MAGAZINE_STOCK;
+			};
+			class rhsgref_8Rnd_762x63_M2B_M1rifle {
+				price = 65;
+				stock = MAGAZINE_STOCK;
+			};
+
 			class UK3CB_FAMAS_25rnd_556x45 {
 				price = 60;
 				stock = MAGAZINE_STOCK;
