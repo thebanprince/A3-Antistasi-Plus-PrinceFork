@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "USSR"] call _fnc_saveToTemplate; 						
-["spawnMarkerName", "USSR Support Corridor"] call _fnc_saveToTemplate; 			
+["name", "Red Army"] call _fnc_saveToTemplate; 						
+["spawnMarkerName", "Red Army Support Corridor"] call _fnc_saveToTemplate; 			
 
 ["flag", "Flag_CW_SOV"] call _fnc_saveToTemplate; 						
 ["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CW_SOV\Flag\cw_sov_flag_co.paa"] call _fnc_saveToTemplate; 				

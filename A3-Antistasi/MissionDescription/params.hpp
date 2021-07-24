@@ -42,8 +42,8 @@ class Params
     class gameMode
     {
         title = "Game Mode - Do NOT change this mid mission";
-        values[] = {9999,1,2,3};
-        texts[] = {"Default (Reb vs Gov vs Inv)","Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov"};
+        values[] = {9999,1,2,3,4};
+        texts[] = {"Default (Reb vs Gov vs Inv)","Reb vs Gov vs Inv","Reb vs Gov & Inv","Reb vs Gov", "Reb vs Inv"};
         default = 9999;
     };
     class autoSave
@@ -260,7 +260,7 @@ class Params
      {
           title="Select Occupant Faction";
 		values[]={9999, 0, 1, 2, 3, 4};
-		texts[]={"Default (US Army)", "US Army", "Chernarus Defence Forces (CDF)", "Horizon Islands Legion (HIL)", "Takistani Army (TKA)", "US Army Cold War (Enables Cold War Mode)"};
+		texts[]={"Default (US Army)", "US Army", "Chernarus Defence Forces (CDF)", "Horizon Islands Legion (HIL)", "Takistani Army (TKA)", "US Army Cold War (Enables Cold War Mode, Red Army as Invaders faction)"};
 		default = 9999;
      };
 
