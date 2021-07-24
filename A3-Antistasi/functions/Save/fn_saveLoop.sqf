@@ -25,8 +25,7 @@ private _saveIndex = -1;
 
 // If not, append a new entry
 if (_saveIndex == -1) then {
-	private _gametype = if (teamPlayer isEqualTo independent) then {"Greenfor"} else {"Blufor"};
-	_saveList pushBack [campaignID, worldName, _gametype];
+	_saveList pushBack [campaignID, worldName, "Greenfor"];
 	profileNamespace setVariable ["antistasiPlusSavedGames", _saveList];
 };
 
@@ -134,7 +133,7 @@ _arrayEst = [];
 {
 	_veh = _x;
 	_typeVehX = typeOf _veh;
-	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
+	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F", "Land_DeskChair_01_black_F", "Land_PortableDesk_01_black_F","Land_Laptop_02_unfolded_F","Land_Ammobox_rounds_F","Land_Cargo20_military_green_F"])) then {
 		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not (_veh isKindOf "FlagCarrier")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
 			_posVeh = getPosWorld _veh;
 			_xVectorUp = vectorUp _veh;
