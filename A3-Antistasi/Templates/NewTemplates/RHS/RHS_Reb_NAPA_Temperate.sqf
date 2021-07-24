@@ -60,13 +60,13 @@ allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2
 "rhs_insurgent_uniform_2","rhs_insurgent_uniform_3","rhs_insurgent_uniform_4","rhs_insurgent_uniform_5"];
 
 private _initialRebelEquipment = [
-"rhs_weap_m3a1", "rhs_weap_m38", "rhs_weap_m1garand_sa43",
+"rhs_weap_m3a1", "rhs_weap_m38",
 "rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k",
 "rhs_weap_panzerfaust60",
 "rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k",
 "rhsgref_mag_rkg3em", "rhs_grenade_nbhgr39_mag",
 "rhsgref_30rnd_1143x23_M1911B_SMG", "rhsgref_30rnd_1143x23_M1T_SMG",
-"rhsgref_5Rnd_762x54_m38", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle", "rhsgref_8Rnd_762x63_M2B_M1rifle",
+"rhsgref_5Rnd_762x54_m38",
 "rhs_grenade_khattabka_vog17_mag", "rhs_grenade_khattabka_vog25_mag",
 "rhs_sidor",
 "V_BandollierB_blk", "V_BandollierB_rgr", "V_BandollierB_oli", "V_Rangemaster_belt", "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
