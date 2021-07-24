@@ -32,8 +32,8 @@
 ["vehiclesRepairTrucks", ["rhs_gaz66_repair_msv"]] call _fnc_saveToTemplate; 		
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;		
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;			
-["vehiclesAPCs", ["rhs_t15_tv","rhs_btr70_msv","rhs_btr80_msv", "rhs_btr80a_msv", "rhs_bmp3m_msv", "rhs_btr80_vdv", "rhs_bmp2d_msv", "rhs_bmp2k_msv","rhs_bmp3mera_msv", "rhs_bmd4_vdv", "rhs_bmd4m_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2"]] call _fnc_saveToTemplate; 				
-["vehiclesTanks", ["rhs_t72ba_tv", "rhs_t72bb_tv", "rhs_t72be_tv", "rhs_t80", "rhs_t80bv", "rhs_t80um", "rhs_t90a_tv", "rhs_t90sab_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate; 			
+["vehiclesAPCs", ["rhs_btr70_msv","rhs_btr80_msv", "rhs_btr80a_msv", "rhs_bmp3m_msv", "rhs_btr80_vdv", "rhs_bmp2d_msv", "rhs_bmp2k_msv","rhs_bmp3mera_msv", "rhs_bmd4_vdv", "rhs_bmd4m_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2"]] call _fnc_saveToTemplate; 				
+["vehiclesTanks", ["rhs_t72bb_tv", "rhs_t72be_tv", "rhs_t80bv", "rhs_t80um", "rhs_t90a_tv", "rhs_t90sab_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate; 				
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
@@ -66,8 +66,8 @@
 ["vehiclesMilitiaLightArmed", ["rhs_uaz_vdv", "rhs_uaz_open_vdv"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["rhs_zil131_vv", "RHS_Ural_VV_01", "RHS_Ural_Open_VV_01", "rhs_zil131_open_vv", "rhs_kraz255b1_cargo_open_vv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhs_uaz_open_vv", "rhs_uaz_vv"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaTanks", []] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["UK3CB_CW_SOV_O_LATE_MTLB_PKT","rhs_btr60_vv"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["rhs_t72ba_tv", "rhs_t80", "rhs_t80b"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhs_uaz_open_vv", "rhs_uaz_vv"]] call _fnc_saveToTemplate;
 

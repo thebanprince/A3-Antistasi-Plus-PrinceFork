@@ -61,10 +61,10 @@
 
 
 ["vehiclesMilitiaLightArmed", ["Atlas_O_W_LSV_02_armed_F","Atlas_O_W_LSV_02_AT_F"]] call _fnc_saveToTemplate; 
-["vehiclesMilitiaTrucks", ["Atlas_O_W_APC_Wheeled_02_rcws_v2_ghex_F", "Atlas_O_W_Truck_02_transport_F", "Atlas_O_W_Truck_02_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["Atlas_O_W_Truck_02_transport_F", "Atlas_O_W_Truck_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["Atlas_O_W_LSV_02_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaTanks", []] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["Atlas_O_W_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["Atlas_O_W_MBT_02_cannon_ghex_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
@@ -113,7 +113,8 @@ private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData setVariable ["rifles", []]; 					
 _loadoutData setVariable ["carbines", []]; 					
 _loadoutData setVariable ["grenadeLaunchers", []]; 			
-_loadoutData setVariable ["SMGs", []]; 						
+_loadoutData setVariable ["SMGs", []]; 
+_loadoutData setVariable ["shotguns", []];						
 _loadoutData setVariable ["machineGuns", []]; 				
 _loadoutData setVariable ["marksmanRifles", []]; 			
 _loadoutData setVariable ["sniperRifles", []]; 				
@@ -363,6 +364,9 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 _militiaLoadoutData setVariable ["SMGs", [
 ["SMG_02_F", "", "acc_flashlight", "", [], [], ""]
 ]];
+_militiaLoadoutData setVariable ["shotguns", [
+	["sgun_Mp153_black_F", "", "", "", ["4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug"], [], ""]
+]];
 _militiaLoadoutData setVariable ["machineGuns", [
 ["LMG_Zafir_F", "", "acc_flashlight", "", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""]
 ]]; 				
@@ -549,7 +553,7 @@ private _medicTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-  	[selectRandom ["carbines", "smgs"]] call _fnc_setPrimary;
+  	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -632,7 +636,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["carbines", "smgs"]] call _fnc_setPrimary;
+	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

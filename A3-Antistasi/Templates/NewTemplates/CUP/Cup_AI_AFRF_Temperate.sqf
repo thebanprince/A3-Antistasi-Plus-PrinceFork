@@ -33,7 +33,7 @@
 ["vehiclesFuelTrucks", ["CUP_O_Kamaz_Refuel_RU", "CUP_O_Ural_Refuel_RU"]] call _fnc_saveToTemplate;		
 ["vehiclesMedical", ["CUP_O_GAZ_Vodnik_MedEvac_RU","CUP_O_BMP2_AMB_RU","CUP_O_UAZ_AMB_RU"]] call _fnc_saveToTemplate;			
 ["vehiclesAPCs", ["CUP_O_BMP2_RU", "CUP_O_BMP3_RU", "CUP_O_BTR60_Green_RU", "CUP_O_BTR80A_GREEN_RU", "CUP_O_BTR80_GREEN_RU", "CUP_O_BTR90_RU", "CUP_O_MTLB_pk_Green_RU"]] call _fnc_saveToTemplate; 				
-["vehiclesTanks", ["CUP_O_T72_RU", "CUP_O_T90_RU"]] call _fnc_saveToTemplate; 			
+["vehiclesTanks", ["CUP_O_T90_RU"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["CUP_O_2S6M_RU"]] call _fnc_saveToTemplate; 				
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
@@ -64,8 +64,8 @@
 ["vehiclesMilitiaLightArmed", ["CUP_O_UAZ_MG_RU"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["CUP_O_Ural_Empty_RU", "CUP_O_Ural_Open_RU"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["CUP_O_UAZ_Unarmed_RU", "CUP_O_UAZ_Open_RU"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", []] call _fnc_saveToTemplate;
-["vehiclesMilitiaTanks", []] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["CUP_O_MTLB_pk_WDL_RU","CUP_O_BTR60_Green_RU"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["CUP_O_T72_RU"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
@@ -114,8 +114,9 @@
 private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData setVariable ["rifles", []]; 					
 _loadoutData setVariable ["carbines", []]; 					
-_loadoutData setVariable ["grenadeLaunchers", []]; 			
-_loadoutData setVariable ["SMGs", []]; 						
+_loadoutData setVariable ["grenadeLaunchers", []];
+_loadoutData setVariable ["SMGs", []];
+_loadoutData setVariable ["shotguns", []];			
 _loadoutData setVariable ["machineGuns", []]; 				
 _loadoutData setVariable ["marksmanRifles", []]; 			
 _loadoutData setVariable ["sniperRifles", []]; 				
@@ -345,6 +346,10 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 _militiaLoadoutData setVariable ["SMGs", [
 ["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""]
 ]];
+_militiaLoadoutData setVariable ["shotguns", [
+	["CUP_sgun_Saiga12K", "", "", "", ["CUP_5Rnd_B_Saiga12_Buck_00", "CUP_5Rnd_B_Saiga12_Slug"], [], ""],
+	["CUP_sgun_Saiga12K_top_rail", "", "", "", ["CUP_5Rnd_B_Saiga12_Buck_00", "CUP_5Rnd_B_Saiga12_Slug"], [], ""]
+]];
 _militiaLoadoutData setVariable ["machineGuns", [
 ["CUP_arifle_RPK74_45", "", "", "", ["CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M"], [], ""],
 ["CUP_arifle_RPK74", "", "", "", ["CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M", "CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M", "CUP_40Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M"], [], ""]
@@ -537,7 +542,7 @@ private _medicTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-  	[selectRandom ["carbines", "smgs"]] call _fnc_setPrimary;
+  	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -620,7 +625,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["carbines", "smgs"]] call _fnc_setPrimary;
+	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
