@@ -110,10 +110,10 @@ class garrisonRecruit: SimpleMenuBig
 		class mortarButton: SimpleButton
 		{
 			idc = 108;
-			text = $STR_antistasi_dialogs_garrison_spawn_mortar_text;
+			text = $STR_antistasi_dialogs_garrison_spawn_at_text;
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.29 * safezoneH + safezoneY;
-			action = "[staticCrewTeamPlayer] spawn A3A_fnc_garrisonAdd";
+			action = "[SDKATman] spawn A3A_fnc_garrisonAdd";
 		};
 
 		class grenadierButton: SimpleButton
@@ -132,15 +132,6 @@ class garrisonRecruit: SimpleMenuBig
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.486 * safezoneH + safezoneY;
 			action = "[SDKSniper] spawn A3A_fnc_garrisonAdd";
-		};
-
-		class atButton: SimpleButton
-		{
-			idc = 111;
-			text = $STR_antistasi_dialogs_garrison_spawn_at_text;
-			x = 0.477 * safezoneW + safezoneX;
-			y = 0.584 * safezoneH + safezoneY;
-			action = "[SDKATman] spawn A3A_fnc_garrisonAdd";
 		};
 	};
 };

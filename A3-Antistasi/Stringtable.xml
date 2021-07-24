@@ -1363,16 +1363,6 @@
         <Chinesesimp>招募班长</Chinesesimp>
         <Korean>분대장 모집</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
-        <Original>Recruit Mortar</Original>
-        <English>Recruit Mortar</English>
-        <French>Recruter un Mortier</French>
-        <Russian>Миномётчик</Russian>
-        <German>Mörser rekrutieren</German>
-        <Czech>Minometník</Czech>
-        <Chinesesimp>招募迫击炮</Chinesesimp>
-        <Korean>박격포병 모집</Korean>
-      </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_grenadier_text">
         <Original>Recruit Grenadier</Original>
         <English>Recruit Grenadier</English>
