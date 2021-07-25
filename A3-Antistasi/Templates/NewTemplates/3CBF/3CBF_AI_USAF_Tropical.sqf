@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["UK3CB_B_AAV_US_WDL", "UK3CB_B_LAV25_US_WDL", "UK3CB_B_LAV25_HQ_US_WDL","rhsusf_stryker_m1126_m2_wd", "rhsusf_stryker_m1126_mk19_wd", "rhsusf_stryker_m1134_wd", "RHS_M2A2_BUSKI_WD", "RHS_M2A3_wd", "RHS_M2A3_BUSKI_wd", "RHS_M2A3_BUSKIII_wd"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["rhsusf_m1a1aimwd_usarmy", "rhsusf_m1a1aim_tuski_wd", "rhsusf_m1a2sep1wd_usarmy", "rhsusf_m1a2sep1tuskiwd_usarmy", "rhsusf_m1a2sep1tuskiiwd_usarmy", "rhsusf_m1a2sep2wd_usarmy"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", ["UK3CB_CW_US_B_LATE_LAV25", "UK3CB_CW_US_B_LATE_LAV25_HQ"]] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["UK3CB_CW_US_B_LATE_LAV25"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["B_Radar_System_01_F","B_SAM_System_03_F", "B_AAA_System_01_F"]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS

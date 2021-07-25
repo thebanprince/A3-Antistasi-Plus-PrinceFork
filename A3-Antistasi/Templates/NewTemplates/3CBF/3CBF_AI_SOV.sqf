@@ -47,7 +47,7 @@
 
 ["vehiclesPlanesCAS", ["UK3CB_CW_SOV_O_LATE_Su25SM","UK3CB_CW_SOV_O_LATE_Su25SM_CAS", "UK3CB_CW_SOV_O_LATE_Su25SM_Cluster", "UK3CB_CW_SOV_O_LATE_Su25SM_KH29"]] call _fnc_saveToTemplate; 		
 ["vehiclesPlanesAA", ["UK3CB_CW_SOV_O_LATE_MIG29SM", "UK3CB_CW_SOV_O_LATE_MIG29S"]] call _fnc_saveToTemplate; 			
-["vehiclesPlanesTransport", ["UK3CB_CW_SOV_O_EARLY_Antonov_AN2"]] call _fnc_saveToTemplate; 	
+["vehiclesPlanesTransport", ["UK3CB_ADA_O_C130J"]] call _fnc_saveToTemplate; 	
 
 ["vehiclesHelisLight", ["UK3CB_CW_SOV_O_LATE_Mi8"]] call _fnc_saveToTemplate; 		
 ["vehiclesHelisTransport", ["UK3CB_CW_SOV_O_LATE_Mi8", "UK3CB_CW_SOV_O_LATE_Mi8AMT", "UK3CB_CW_SOV_O_LATE_Mi_24V"]] call _fnc_saveToTemplate; 	
