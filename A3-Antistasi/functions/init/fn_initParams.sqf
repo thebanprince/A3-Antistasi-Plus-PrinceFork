@@ -38,16 +38,6 @@ A3A_paramTable = [
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
 
-    ["allowDLCKart", "Kart", ["server"], false],
-    ["allowDLCMark", "Mark", ["server"], false],
-    ["allowDLCHeli", "Heli", ["server"], false],
-    ["allowDLCExpansion", "Expansion", ["server"], false],
-    ["allowDLCJets", "Jets", ["server"], false],
-    ["allowDLCOrange", "Orange", ["server"], false],
-    ["allowDLCTanks", "Tanks", ["server"], false],
-    ["allowDLCEnoch", "Enoch", ["server"], false],
-    ["allowDLCAoW", "AoW", ["server"], false],
-
     ["membershipEnabled", "membership", [], true],
     ["switchCom", "switchComm", ["server"], true],						// dead param
     ["tkpunish", "tkPunish", [], true],
