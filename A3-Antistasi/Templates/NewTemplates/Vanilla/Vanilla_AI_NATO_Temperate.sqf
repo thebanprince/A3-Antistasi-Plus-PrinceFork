@@ -13,7 +13,7 @@
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
 ["baseSoldier", "B_Soldier_F"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "B_G_Soldier_F"] call _fnc_saveToTemplate;
+["baseSoldierMilitia", "B_Soldier_F"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -24,8 +24,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; 
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate; 			
-["vehiclesLightUnarmed", ["B_T_MRAP_01_F", "B_T_LSV_01_unarmed_F"]] call _fnc_saveToTemplate; 		
-["vehiclesLightArmed",["B_T_LSV_01_armed_F", "B_T_LSV_01_AT_F", "B_T_MRAP_01_gmg_F"]] call _fnc_saveToTemplate; 		//this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
+["vehiclesLightUnarmed", ["B_T_MRAP_01_F"]] call _fnc_saveToTemplate; 		
+["vehiclesLightArmed",["B_T_LSV_01_AT_F", "B_T_MRAP_01_gmg_F"]] call _fnc_saveToTemplate; 		//this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
 ["vehiclesTrucks", ["B_T_Truck_01_covered_F", "B_T_Truck_01_transport_F"]] call _fnc_saveToTemplate; 			
 ["vehiclesCargoTrucks", ["B_T_Truck_01_cargo_F", "B_T_Truck_01_flatbed_F"]] call _fnc_saveToTemplate; 		
 ["vehiclesAmmoTrucks", ["B_T_Truck_01_ammo_F"]] call _fnc_saveToTemplate; 		
@@ -60,13 +60,13 @@
 ["uavsAttack", ["B_UAV_02_dynamicLoadout_F", "B_T_UAV_03_dynamicLoadout_F"]] call _fnc_saveToTemplate; 				
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate; 				
 
+["vehiclesMilitiaLightArmed", ["B_LSV_01_armed_F"]] call _fnc_saveToTemplate; 
+["vehiclesMilitiaTrucks", ["B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["B_LSV_01_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["B_APC_Wheeled_01_cannon_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["B_AFV_Wheeled_01_cannon_F"]] call _fnc_saveToTemplate;
 
-["vehiclesMilitiaLightArmed", ["I_MRAP_03_gmg_F"]] call _fnc_saveToTemplate; 
-["vehiclesMilitiaTrucks", ["I_Truck_02_covered_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["I_MRAP_03_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", ["I_E_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
-
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["B_GEN_Offroad_01_gen_F", "B_GEN_Offroad_01_comms_F", "B_GEN_Offroad_01_covered_F", "B_GEN_Van_02_transport_F"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["B_G_HMG_02_high_F"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["B_static_AT_F"]] call _fnc_saveToTemplate; 					
@@ -346,10 +346,10 @@ _policeLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_militiaLoadoutData setVariable ["uniforms", ["U_I_E_Uniform_01_shortsleeve_F", "U_I_E_Uniform_01_sweater_F", "U_I_E_Uniform_01_tanktop_F"]];		
-_militiaLoadoutData setVariable ["vests", ["V_Chestrig_rgr", "V_BandollierB_rgr", "V_CarrierRigKBT_01_Olive_F", "V_CarrierRigKBT_01_light_EAF_F"]];			
-_militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_rgr"]];		
-_militiaLoadoutData setVariable ["helmets", ["H_PASGT_basic_olive_F", "H_HelmetIA", "H_Beret_EAF_01_F", "H_Bandanna_khk", "H_Booniehat_eaf", "H_Booniehat_oli"]];		
+_militiaLoadoutData setVariable ["uniforms", ["U_B_CombatUniform_mcam_wdl_f", "U_B_CombatUniform_tshirt_mcam_wdL_f"]];		
+_militiaLoadoutData setVariable ["vests", ["V_TacVest_oli", "V_BandollierB_rgr"]];			
+_militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_wdl_F"]];		
+_militiaLoadoutData setVariable ["helmets", ["H_HelmetB_light_wdl", "H_Bandanna_khk", "H_Booniehat_eaf", "H_Booniehat_oli"]];		
 
 _militiaLoadoutData setVariable ["rifles", [
 ["arifle_TRG20_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
