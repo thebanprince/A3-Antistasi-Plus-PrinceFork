@@ -612,6 +612,9 @@ class A3A
         class SUP_SAM {};
         class SUP_SAMAvailable {};
         class SUP_SAMRoutine {};
+        class SUP_airdrop {};
+        class SUP_airdropAvailable {};
+        class SUP_airdropRoutine {};
         class supportAvailable {};
     };
 
