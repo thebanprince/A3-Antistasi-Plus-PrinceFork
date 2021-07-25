@@ -375,7 +375,7 @@ if(_type == "convoy") then
       	{
       		if ((_destinationX in resourcesX) or (_destinationX in factories)) then
           {
-            _typeConvoy = ["Money"];
+            _typeConvoy = ["Money", "Fuel"];
           }
           else
           {
@@ -427,6 +427,13 @@ if(_type == "convoy") then
       		_taskTitle = "Ammo Convoy";
       		_taskIcon = "rearm";
       		_typeVehObj = if (_side == Occupants) then {vehNATOAmmoTruck} else {vehCSATAmmoTruck};
+      	};
+        case "Fuel":
+      	{
+      		_text = format ["A convoy from %1 is about to depart at %2. It will provide fuel to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
+      		_taskTitle = "Fuel Convoy";
+      		_taskIcon = "refuel";
+      		_typeVehObj = if (_side == Occupants) then {vehNATOFuelTruck} else {vehCSATFuelTruck};
       	};
       	case "Armor":
       	{

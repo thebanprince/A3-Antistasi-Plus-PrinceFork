@@ -37,7 +37,7 @@ else
 	}
 	else
 	{
-		if ((_mrkDest in resourcesX) or (_mrkDest in factories)) then {_convoyTypes = ["Money"]} else {_convoyTypes = ["Prisoners"]};
+		if ((_mrkDest in resourcesX) or (_mrkDest in factories)) then {_convoyTypes = ["Money", "Fuel"]} else {_convoyTypes = ["Prisoners"]};
 		if (((count (garrison getVariable [_mrkDest, []]))/2) >= [_mrkDest] call A3A_fnc_garrisonSize) then {_convoyTypes pushBack "Reinforcements"};
 	};
 };
@@ -73,6 +73,13 @@ switch (_convoyType) do
 		_taskTitle = "Ammo Convoy";
 		_taskIcon = "rearm";
 		_typeVehObj = if (_sideX == Occupants) then {vehNATOAmmoTruck} else {vehCSATAmmoTruck};
+	};
+	case "Fuel":
+	{
+		_textX = format ["A convoy from %1 is about to depart at %2. It will provide fuel to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
+		_taskTitle = "Fuel Convoy";
+		_taskIcon = "refuel";
+		_typeVehObj = if (_sideX == Occupants) then {vehNATOFuelTruck} else {vehCSATFuelTruck};
 	};
 	case "Armor":
 	{
@@ -213,12 +220,12 @@ private _fnc_spawnEscortVehicle = {
 	}
 	else
 	{
-		if (!(_typeVehEsc in vehFIAArmedCars)) then
+		if (!(_typeVehEsc in (vehFIAArmedCars + vehWAMArmedCars))) then
 		{
-			private _typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv};
-			if (_typeVehEsc in vehFIACars) then
+			private _typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIASquad} else {selectRandom groupsWAMSquad};
+			if (_typeVehEsc in (vehFIACars + vehWAMCars)) then
 			{
-				if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
+				if (_sideX == Occupants) then {selectRandom groupsFIAMid} else {selectRandom groupsWAMMid};
 			};
 			private _groupEsc = [_posOrigin,_sideX, _typeGroup] call A3A_fnc_spawnGroup;
 			{[_x] call A3A_fnc_NATOinit;_x assignAsCargo _veh;_x moveInCargo _veh;} forEach units _groupEsc;
