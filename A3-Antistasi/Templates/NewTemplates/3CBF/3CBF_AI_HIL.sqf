@@ -44,9 +44,9 @@
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate; 			
 ["vehiclesAmphibious", ["UK3CB_B_LAV25_HIDF", "UK3CB_B_LAV25_HQ_HIDF"]] call _fnc_saveToTemplate; 		
 
-["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF"]] call _fnc_saveToTemplate; 		
-["vehiclesPlanesAA", ["UK3CB_ADA_B_MIG29S"]] call _fnc_saveToTemplate; 			
-["vehiclesPlanesTransport", ["UK3CB_ADA_B_C130J"]] call _fnc_saveToTemplate; 	
+["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF", "UK3CB_B_Mystere_HIDF_CAS1"]] call _fnc_saveToTemplate; 		
+["vehiclesPlanesAA", ["UK3CB_B_Mystere_HIDF_AA1"]] call _fnc_saveToTemplate; 			
+["vehiclesPlanesTransport", ["UK3CB_ADA_B_C130J","UK3CB_B_AC500_HIDF"]] call _fnc_saveToTemplate; 	
 
 ["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed"]] call _fnc_saveToTemplate; 		
 ["vehiclesHelisTransport", ["rhs_uh1h_hidf", "rhs_uh1h_hidf_gunship"]] call _fnc_saveToTemplate; 	
@@ -60,16 +60,17 @@
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate; 				
 
 
-["vehiclesMilitiaLightArmed", ["UK3CB_B_M151_Jeep_HMG_HIDF", "UK3CB_B_M151_Jeep_TOW_HIDF"]] call _fnc_saveToTemplate; 
+["vehiclesMilitiaLightArmed", ["UK3CB_MDF_B_M1151_GPK_M240"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["UK3CB_B_M939_Guntruck_HIDF","UK3CB_B_M939_Closed_HIDF"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["UK3CB_B_M151_Jeep_Closed_HIDF","UK3CB_B_M151_Jeep_Open_HIDF"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["UK3CB_MDF_B_M998_4DR", "UK3CB_MDF_B_M998_2DR","UK3CB_B_M151_Jeep_Closed_HIDF","UK3CB_B_M151_Jeep_Open_HIDF"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaApcs", ["rhsgref_hidf_m113a3_m2"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["UK3CB_B_M60A1_HIDF"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_ADP_B_Hilux_Open"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["RHS_M2StaticMG_D"]] call _fnc_saveToTemplate; 					
+["staticMGs", ["UK3CB_B_Static_M240_High_HIDF"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["RHS_TOW_TriPod_D"]] call _fnc_saveToTemplate; 					
-["staticAA", ["RHS_Stinger_AA_pod_D"]] call _fnc_saveToTemplate; 					
+["staticAA", ["UK3CB_MDF_B_RBS70"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["RHS_M252_D"]] call _fnc_saveToTemplate;
 ["staticHowitzers", ["RHS_M119_WD"]] call _fnc_saveToTemplate;
 
@@ -77,9 +78,9 @@
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 
-["baggedMGs", [["RHS_M2_Gun_Bag", "RHS_M2_Tripod_Bag"]]] call _fnc_saveToTemplate; 				
+["baggedMGs", [["UK3CB_Static_M240_Gun_Bag", "UK3CB_B_Static_M240_Tripod_High_Bag_HIDF"]]] call _fnc_saveToTemplate; 				
 ["baggedAT", [["rhs_Tow_Gun_Bag", "rhs_TOW_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
-["baggedAA", []] call _fnc_saveToTemplate; 					
+["baggedAA", [["UK3CB_B_G_Static_RBS70_Gun_Bag","UK3CB_G_Static_RBS70_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["rhs_M252_Gun_Bag", "rhs_M252_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
 ["howitzerMagazineHE", "RHS_mag_m1_he_12"] call _fnc_saveToTemplate;
@@ -113,6 +114,7 @@ _loadoutData setVariable ["rifles", []];
 _loadoutData setVariable ["carbines", []];
 _loadoutData setVariable ["grenadeLaunchers", []];
 _loadoutData setVariable ["SMGs", []];
+_loadoutData setVariable ["shotguns", []];
 _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanrifles", []];
 _loadoutData setVariable ["sniperrifles", []];
@@ -326,7 +328,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData setVariable ["vests", ["V_TacVest_gen_F"]];
 _policeLoadoutData setVariable ["helmets", ["H_MilCap_gen_F", "H_Beret_gen_F", "H_PASGT_basic_blue_F"]];
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
@@ -356,12 +358,16 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 ]]; 			
 _militiaLoadoutData setVariable ["SMGs", [
 ["UK3CB_MP5", "", "", "", ["UK3CB_MP5_30Rnd_Magazine", "UK3CB_MP5_30Rnd_Magazine", "UK3CB_MP5_30Rnd_Magazine_RT"], [], ""]
-]]; 						
+]]; 
+_militiaLoadoutData setVariable ["shotguns", [
+	["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""]
+]];						
 _militiaLoadoutData setVariable ["machineGuns", [
 ["UK3CB_M60", "", "", "", ["UK3CB_M60_100rnd_762x51_RM", "UK3CB_M60_100rnd_762x51_RM", "UK3CB_M60_100rnd_762x51_RT"], [], ""],
 ["rhs_weap_fnmag", "", "", "", ["rhsusf_50Rnd_762x51_m80a1epr", "rhsusf_50Rnd_762x51_m80a1epr", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""]
 ]]; 				
 _militiaLoadoutData setVariable ["marksmanrifles", [
+["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_anpvs2", ["rhs_mag_20Rnd_762x51_m80_fnfal", "rhs_mag_20Rnd_762x51_m80_fnfal", "rhs_mag_20Rnd_762x51_m62_fnfal"], [], ""],
 ["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80_fnfal", "rhs_mag_20Rnd_762x51_m80_fnfal", "rhs_mag_20Rnd_762x51_m62_fnfal"], [], ""]
 ]]; 			
 _militiaLoadoutData setVariable ["sniperrifles", [
@@ -574,7 +580,7 @@ private _medicTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	["carbines"] call _fnc_setPrimary;
+	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -658,7 +664,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	["carbines"] call _fnc_setPrimary;
+	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
@@ -853,7 +859,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["SMGs", "shotgun"]] call _fnc_setPrimary;
+	[selectRandom ["SMGs", "shotguns"]] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

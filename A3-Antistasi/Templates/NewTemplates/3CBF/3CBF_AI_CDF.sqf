@@ -25,13 +25,13 @@
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate; 			
 ["vehiclesLightUnarmed", ["UK3CB_B_BTR40_CDF", "UK3CB_B_LandRover_Closed_CDF", "UK3CB_B_LandRover_Open_CDF", "rhsgref_BRDM2UM_b"]] call _fnc_saveToTemplate; 		
 ["vehiclesLightArmed", ["UK3CB_B_BTR40_MG_CDF", "UK3CB_B_LandRover_AGS30_CDF", "UK3CB_B_LandRover_M2_CDF", "UK3CB_B_LandRover_SPG9_CDF", "rhsgref_cdf_b_gaz66_zu23", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2_HQ_b", "rhsgref_BRDM2_b"]] call _fnc_saveToTemplate; 		
-["vehiclesTrucks", ["UK3CB_B_Kamaz_Open_CDF","rhsgref_cdf_b_gaz66", "rhsgref_cdf_b_gaz66o", "rhsgref_cdf_b_ural", "rhsgref_cdf_b_ural_open", "rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_open"]] call _fnc_saveToTemplate; 			
+["vehiclesTrucks", ["UK3CB_B_Kamaz_Open_CDF","rhsgref_cdf_b_gaz66", "rhsgref_cdf_b_gaz66o", "rhsgref_cdf_b_ural", "rhsgref_cdf_b_ural_open"]] call _fnc_saveToTemplate; 			
 ["vehiclesCargoTrucks", ["UK3CB_B_Ural_Recovery_CDF","rhsgref_cdf_b_gaz66o_flat", "rhsgref_cdf_b_gaz66_flat", "rhsgref_cdf_b_zil131_flatbed", "rhsgref_cdf_b_zil131_flatbed_cover"]] call _fnc_saveToTemplate; 		
 ["vehiclesAmmoTrucks", ["rhsgref_cdf_b_gaz66_ammo"]] call _fnc_saveToTemplate; 		
 ["vehiclesRepairTrucks", ["rhsgref_cdf_b_gaz66_repair", "rhsgref_cdf_b_ural_repair"]] call _fnc_saveToTemplate; 		
 ["vehiclesFuelTrucks", ["rhsgref_cdf_b_ural_fuel"]] call _fnc_saveToTemplate;		
 ["vehiclesMedical", ["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"]] call _fnc_saveToTemplate;			
-["vehiclesAPCs", ["rhsgref_cdf_b_btr60", "rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr80", "rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d"]] call _fnc_saveToTemplate; 				
+["vehiclesAPCs", ["rhsgref_cdf_b_btr80", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72bb_tv", "rhsgref_cdf_b_t80b_tv", "rhsgref_cdf_b_t80bv_tv", "rhsgref_cdf_b_t80u_tv", "rhsgref_cdf_b_t80uk_tv"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["rhsgref_cdf_b_zsu234"]] call _fnc_saveToTemplate; 				
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
@@ -41,7 +41,7 @@
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate; 	
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate; 			
-["vehiclesAmphibious", ["rhsgref_cdf_b_btr60", "rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr80"]] call _fnc_saveToTemplate; 		
+["vehiclesAmphibious", ["rhsgref_cdf_b_btr80"]] call _fnc_saveToTemplate; 		
 
 ["vehiclesPlanesCAS", ["rhsgref_cdf_b_su25","rhs_l159_cdf_b_CDF"]] call _fnc_saveToTemplate; 		
 ["vehiclesPlanesAA", ["rhsgref_cdf_b_mig29s"]] call _fnc_saveToTemplate; 			
@@ -61,11 +61,12 @@
 
 
 ["vehiclesMilitiaLightArmed", ["rhsgref_cdf_b_reg_uaz_dshkm"]] call _fnc_saveToTemplate; 
-["vehiclesMilitiaTrucks", ["rhsgref_cdf_b_gaz66","rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_ural"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_ural"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_cdf_b_reg_uaz"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", ["rhsgref_cdf_b_btr70"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr60"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["rhsgref_cdf_b_bmd1k"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["UK3CB_CPD_B_Lada"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["UK3CB_CPD_B_Lada", "UK3CB_CPD_B_S1203", "UK3CB_CPD_B_Gaz24"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["rhsgref_cdf_b_DSHKM"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["RHS_TOW_TriPod_D"]] call _fnc_saveToTemplate; 					
@@ -379,7 +380,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData setVariable ["uniforms", ["UK3CB_CPD_B_U_CombatUniform_01_Grey"]];
 _policeLoadoutData setVariable ["vests", ["UK3CB_CPD_B_V_6b23_ml_BLU"]];
 _policeLoadoutData setVariable ["helmets", ["UK3CB_CPD_B_H_Beret", "UK3CB_CPD_B_H_Police_Cap"]];
-_policeLoadoutData setVariable ["shotgun", [
+_policeLoadoutData setVariable ["shotguns", [
 ["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
@@ -933,7 +934,7 @@ private _policeTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	["SMGs"] call _fnc_setPrimary;
+	[["SMGs", "shotguns"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 5] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

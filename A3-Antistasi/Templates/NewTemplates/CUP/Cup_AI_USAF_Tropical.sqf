@@ -66,7 +66,7 @@
 ["vehiclesMilitiaApcs", ["CUP_B_AAV_USMC", "CUP_B_M113_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTanks", ["CUP_B_M60A3_USMC"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["CUP_LADA_LM_CIV", "CUP_C_S1203_Militia_CIV"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_HMG_02_high_F"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["CUP_B_TOW2_TriPod_US"]] call _fnc_saveToTemplate; 					
@@ -115,8 +115,8 @@ private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData setVariable ["rifles", []]; 					
 _loadoutData setVariable ["carbines", []]; 					
 _loadoutData setVariable ["grenadeLaunchers", []]; 			
-_loadoutData setVariable ["SMGs", []];
-_loadoutData setVariable ["shotguns", []]; 						
+_loadoutData setVariable ["SMGs", []]; 	
+_loadoutData setVariable ["shotguns", []];					
 _loadoutData setVariable ["machineGuns", []]; 				
 _loadoutData setVariable ["marksmanRifles", []]; 			
 _loadoutData setVariable ["sniperRifles", []]; 				
@@ -436,15 +436,18 @@ _eliteLoadoutData setVariable ["sidearms", [
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
-_policeLoadoutData setVariable ["uniforms", ["CUP_U_C_Policeman_01"]];
-_policeLoadoutData setVariable ["vests", ["CUP_V_C_Police_Holster"]];
-_policeLoadoutData setVariable ["helmets", ["CUP_H_C_Policecap_01"]];
+_policeLoadoutData setVariable ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
+_policeLoadoutData setVariable ["vests", ["V_TacVest_blk_POLICE"]];
+_policeLoadoutData setVariable ["helmets", ["H_Cap_police", "H_PASGT_basic_black_F", "H_PASGT_basic_blue_F"]];
 _policeLoadoutData setVariable ["smgs", [
-["CUP_smg_SA61", "", "", "", ["CUP_20Rnd_B_765x17_Ball_M"], [], ""],
-["CUP_smg_vityaz", "", "", "", ["CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19_Vityaz", "CUP_30Rnd_9x19AP_Vityaz"], [], ""],
-["CUP_arifle_AKS74U", "", "CUP_acc_Flashlight", "", ["CUP_20Rnd_545x39_AKSU_M"], [], ""]
+["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5"], [], ""],
+["CUP_smg_MP5A5_flashlight", "", "", "", ["CUP_30Rnd_9x19_MP5"], [], ""],
+["CUP_smg_PS90_olive", "", "CUP_acc_Flashlight", "CUP_optic_HoloBlack", ["50Rnd_570x28_SMG_03", "50Rnd_570x28_SMG_03", "CUP_50Rnd_570x28_Red_Tracer_P90_M"], [], ""],
+["CUP_smg_p90_black", "", "CUP_acc_Flashlight", "", ["50Rnd_570x28_SMG_03", "50Rnd_570x28_SMG_03", "CUP_50Rnd_570x28_Red_Tracer_P90_M"], [], ""],
+["CUP_smg_p90_olive", "", "CUP_acc_Flashlight", "", ["50Rnd_570x28_SMG_03", "50Rnd_570x28_SMG_03", "CUP_50Rnd_570x28_Red_Tracer_P90_M"], [], ""]
 ]];
-_policeLoadoutData setVariable ["sidearms", ["CUP_hgun_Makarov"]];
+_policeLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
+
 
 ////////////////////////////////
 //    Militia Loadout Data    //
@@ -613,6 +616,7 @@ private _medicTemplate = {
 	[["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
+	
   	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
@@ -664,7 +668,7 @@ private _explosivesExpertTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
+	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 
@@ -696,7 +700,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["carbines", "smgs"]] call _fnc_setPrimary;
+	[["shotguns", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
