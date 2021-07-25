@@ -41,17 +41,17 @@ allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_01"
 allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_03");
 allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_02");
 allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_suit_80_grn");	//Gmob PoliceUniform
+allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_suit_80_grn");
 allCivilianUniforms deleteAt (allCivilianUniforms find "gm_gc_pol_uniform_dress_80_blu");
 allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_blouse_80_blk");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");	//Gmob Firefighter
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");	//LDF Deserter Jacket
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");	//LDF Desserter T-Shirt
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F"); //Looter Clothes (T-Shirt Olive)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F"); //Looter Clothes (T-Shirt Sport)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F"); //Looter Clothes (T-Shirt Black)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F"); //Looter Clothes (T-Shirt Skull)
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");	//Idap Worker Uniforms
+allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F");
+allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_casual_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_cargo_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Tee_F");
@@ -59,10 +59,45 @@ allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Jeans_F");
 allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_TeeShorts_F");
 allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_Story_Protagonist_F");
 allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
-allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
-allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
 allRebelUniforms deleteAt (allRebelUniforms find "U_BG_GhillieSuit");
 allRebelUniforms deleteAt (allRebelUniforms find "CUP_U_I_Ghillie_Top");
+
+
+if (A3A_has3CBFactions) then {
+	allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
+	allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_B");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_C");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_D");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_E");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_F");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_G");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_H");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_I");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_J");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_K");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_B");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_C");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_D");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_E");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_B");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_C");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_D");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_E");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_B");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_C");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_D");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_E");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_B");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_C");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_D");
+	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_E");
+};
 
 ////////////////////////////////////
 //      Backpacks Sorting        ///
