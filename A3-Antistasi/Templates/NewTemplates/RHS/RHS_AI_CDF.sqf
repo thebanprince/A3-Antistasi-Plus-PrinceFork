@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["rhsgref_cdf_b_btr80", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72bb_tv", "rhsgref_cdf_b_t80b_tv", "rhsgref_cdf_b_t80bv_tv", "rhsgref_cdf_b_t80u_tv", "rhsgref_cdf_b_t80uk_tv"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["rhsgref_cdf_b_zsu234"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1pk", "rhsgref_cdf_b_bmd2"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["B_Radar_System_01_F","B_SAM_System_03_F", "B_AAA_System_01_F"]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS
