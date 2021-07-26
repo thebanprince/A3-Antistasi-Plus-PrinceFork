@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["CUP_B_M2Bradley_NATO_T", "CUP_B_Boxer_HMG_HIL", "CUP_B_Boxer_GMG_HIL"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["CUP_B_M1A1_NATO_T", "CUP_B_Leopard2A6_HIL"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["CUP_B_M6LineBacker_NATO_T"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["CUP_B_LAV25_green", "CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["B_Radar_System_01_F","B_SAM_System_03_F", "B_AAA_System_01_F"]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS

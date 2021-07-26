@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["CUP_O_BMP2_RU", "CUP_O_BMP3_RU", "CUP_O_BTR80A_DESERT_RU", "CUP_O_BTR80_DESERT_RU", "CUP_O_BTR90_RU"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["CUP_O_T90_RU"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["CUP_O_2S6M_RU"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["CUP_O_BMP3_RU"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["O_Radar_System_02_F","O_SAM_System_04_F", ""]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS

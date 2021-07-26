@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["CUP_B_M113_USA","CUP_B_BMP2_CDF", "CUP_B_BTR80_CDF", "CUP_B_BTR80A_CDF"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["CUP_B_T72_CDF","CUP_B_M60A3_USMC"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["CUP_B_ZSU23_CDF"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["CUP_B_MTLB_pk_CDF"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["B_Radar_System_01_F","B_SAM_System_03_F", "B_AAA_System_01_F"]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS

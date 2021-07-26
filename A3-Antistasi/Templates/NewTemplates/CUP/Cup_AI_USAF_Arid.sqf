@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["CUP_B_LAV25_desert_USMC", "CUP_B_LAV25M240_desert_USMC", "CUP_B_LAV25_HQ_desert_USMC", "CUP_B_M1126_ICV_M2_Desert", "CUP_B_M1126_ICV_MK19_Desert", "CUP_B_M1130_CV_M2_Desert", "CUP_B_M1133_MEV_Desert", "CUP_B_M7Bradley_USA_D", "CUP_B_M2Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["CUP_B_M1128_MGS_Desert", "CUP_B_M1135_ATGMV_Desert", "CUP_B_M1A1_DES_US_Army", "CUP_B_M1A2_TUSK_MG_DES_US_Army"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["CUP_B_M6LineBacker_USA_D"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["CUP_B_LAV25_desert_USMC", "CUP_B_LAV25M240_desert_USMC"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["B_Radar_System_01_F","B_SAM_System_03_F", "B_AAA_System_01_F"]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS

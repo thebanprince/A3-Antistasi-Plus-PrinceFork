@@ -35,7 +35,7 @@
 ["vehiclesAPCs", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F", "O_T_APC_Tracked_02_cannon_ghex_F"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["O_T_MBT_02_cannon_ghex_F", "O_T_MBT_04_cannon_F", "O_T_MBT_04_command_F"]] call _fnc_saveToTemplate; 			
 ["vehiclesAA", ["O_T_APC_Tracked_02_AA_ghex_F"]] call _fnc_saveToTemplate; 				
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			
+["vehiclesLightAPCs", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
 ["vehiclesSam", ["O_Radar_System_02_F","O_SAM_System_04_F", ""]] call _fnc_saveToTemplate; 	//this line determines SAM systems, order: radar, SAM, CIWS
