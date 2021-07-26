@@ -1,4 +1,4 @@
-params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrigin", "_landPosBlacklist"];
+params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrigin", "_landPosBlacklist", ["_isAirdrop", false]];
 
 /*  Create the logic for attacking units, how different units should attack and behave
 
@@ -77,7 +77,7 @@ switch (true) do
     case (_vehicle isKindOf "Helicopter" && {(typeof _vehicle) in vehTransportAir}):
     {
         //Transport helicopter
-        _landPos = [_posDestination, 100, 150, 10, 0, 0.12, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
+        _landPos = [_posDestination, 200, 300, 10, 0, 0.12, 0, [], [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
 
         {
             if(_x distance2D _landPos < 20) exitWith
@@ -135,6 +135,11 @@ switch (true) do
         private _vehWP0 = _crewGroup addWaypoint [_posDestination, 0];
         _vehWP0 setWaypointBehaviour "AWARE";
         _vehWP0 setWaypointType "SAD";
+    };
+    case ((typeof _vehicle) in vehTransportAir && {!(_vehicle isKindOf "Helicopter") && {_isAirdrop}}):
+    {
+        //Dropship with para units and airdrop veh
+        [_vehicle, _cargoGroup, _posDestination, _markerOrigin] spawn SCRT_fnc_common_paradropVehicle;
     };
     case ((typeof _vehicle) in vehTransportAir && {!(_vehicle isKindOf "Helicopter")}):
     {
