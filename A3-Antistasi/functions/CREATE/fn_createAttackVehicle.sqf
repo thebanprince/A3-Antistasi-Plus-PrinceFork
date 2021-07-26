@@ -1,4 +1,4 @@
-params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerOrigin"];
+params ["_vehicleType", "_typeOfAttack", "_landPosBlacklist", "_side", "_markerOrigin", ["_isAirdrop", false]];
 
 /*  Creates a vehicle for a QRF or small attack, including crew and cargo
 
@@ -98,7 +98,7 @@ if(!_spawnPerformed) exitWith
     objNull;
 };
 
-_landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist] call A3A_fnc_createVehicleQRFBehaviour;
+_landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist, _isAirdrop] call A3A_fnc_createVehicleQRFBehaviour;
 [3, format ["Spawn Preformed: Created vehicle %1 with %2 soldiers", typeof _vehicle, count crew _vehicle], _filename] call A3A_fnc_log;
 
 private _vehicleData = [_vehicle, _crewGroup, _cargoGroup, _landPosBlacklist];
