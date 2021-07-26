@@ -86,6 +86,18 @@ if (A3A_hasRhs) then {
 	} forEach _forbiddenrhs;
 };
 
+if (A3A_hasGlobMob) then {
+	private _forbiddengm = ["gm_p2a1_launcher_blk","gm_1Rnd_2650mm_potato_dm11"]; 
+
+	{
+		private _forbiddenItem = _x;
+		private _index = _allConfigs findIf {(configName _x) == _forbiddenItem};
+		if (_index != -1) then {
+			_allConfigs deleteAt _index;
+		};
+	} forEach _forbiddengm;
+};
+
 //////////////////////////////
 //    Sorting Function     ///
 //////////////////////////////
