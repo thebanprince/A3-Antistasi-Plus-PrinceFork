@@ -124,15 +124,15 @@ switch (_type) do {
 				};
 			};
 		} forEach _controlsX;
-
-		//append occupants antennas to list
+		
+		//append all antennas to list
 		{
 			private _nearbyMarker = [markersX, getPos _x] call BIS_fnc_nearestPosition;
 			if (
-				(sidesX getVariable [_nearbyMarker,sideUnknown] == Occupants)
+				(sidesX getVariable [_nearbyMarker,sideUnknown] != teamPlayer)
 				&& (getPos _x distance getMarkerPos respawnTeamPlayer < distanceMission)
 				) then {_possibleMarkers pushBack _x};
-		}forEach antennas;
+		} forEach antennas;
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
@@ -285,7 +285,8 @@ switch (_type) do {
 			};
 		};
 		//prety mutch untuched, not mutch in common with the others
-		private _Markers = (airportsX + resourcesX + factories + seaports + outposts + milbases - blackListDest);
+		private _Markers = (airportsX + resourcesX + factories + seaports + outposts + milbases - blackListDest);	
+
 		_Markers = _Markers select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 		if (count _Markers > 0) then {
 			for "_i" from 0 to ((count _Markers) - 1) do {
