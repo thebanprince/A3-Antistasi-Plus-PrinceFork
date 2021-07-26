@@ -46,7 +46,7 @@ private _groupPilot = group driver _vehicle;
 private _targetPosition = if(_target isEqualType "") then {getMarkerPos _target} else {_target};
 private _originPosition = getMarkerPos _originMarker;
 
-private _entryDistance = 250;
+private _entryDistance = 350;
 _vehicle flyInHeight 250;
 _vehicle setCollisionLight false;
 _vehicle setDir (_originPosition getDir _targetPosition);
@@ -111,6 +111,8 @@ if(_vehicle getVariable ["dropPosReached", false]) then {
     private _apc = _apcData select 0;
 	private _apcCrew = _apcData select 1;
 	private _apcGroup = _apcData select 2;
+
+    _vehicle setVariable ["apc", _apc, true]; //broadcast in case of HC
 
     {
         _x disableAI "TARGET";
