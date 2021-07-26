@@ -1,4 +1,4 @@
-params ["_campaignID", "_worldname", ["_gametype", "Greenfor"]];
+params ["_campaignID", "_worldname"];
 
 private _postfix = format["%1%2AntistasiPlus%3",serverID,_campaignID,_worldName]; 
 
