@@ -24,6 +24,7 @@ A3A_hasRDS = false;
 A3A_hasCup = false;
 A3A_hasAegis = false;
 A3A_hasGlobMob = false;
+A3A_hasGlobMobAaf = false;
 
 //Aegis submods
 private _activeAegis = false;
@@ -58,6 +59,11 @@ if (isClass (configfile >> "CfgPatches" >> "UK3CB_Factions_Vehicles_SUV")) then 
 if (isClass (configfile >> "CfgPatches" >> "gm_core")) then {
   A3A_hasGlobMob = true;
   [2,"Global Mobilization Detected.",_fileName] call A3A_fnc_log;
+};
+
+if (A3A_hasGlobMob && {isClass (configfile >> "CfgVehicles" >> "gmx_aaf_leopard1a1a1_wdl")}) then {
+  A3A_hasGlobMobAaf = true;
+  [2,"GM AAF Detected.",_fileName] call A3A_fnc_log;
 };
 
 if (A3A_has3CBFactions && {(threecbfOccupantFaction == 4 || A3A_hasGlobMob)}) then {

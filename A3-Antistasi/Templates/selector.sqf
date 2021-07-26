@@ -91,6 +91,10 @@ switch(true) do{
 };
 //Occ Templates
 switch(true) do {
+    case (A3A_hasGlobMobAaf): {
+        ["Templates\NewTemplates\GM\GM_AI_AAF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using GM AAF Template", _filename] call A3A_fnc_log;
+    };
     case (A3A_has3CBFactions): {
         switch(threecbfOccupantFaction) do {
             case (0): {
