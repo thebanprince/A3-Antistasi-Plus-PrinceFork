@@ -47,7 +47,7 @@
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_CAS_vvs"]] call _fnc_saveToTemplate; 		
 ["vehiclesPlanesAA", ["RHS_T50_vvs_generic_ext", "rhs_mig29s_vvs"]] call _fnc_saveToTemplate; 			
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate; 	
+["vehiclesPlanesTransport", ["UK3CB_ADA_O_C130J"]] call _fnc_saveToTemplate; 	
 
 ["vehiclesHelisLight", ["rhs_ka60_c"]] call _fnc_saveToTemplate; 		
 ["vehiclesHelisTransport", ["RHS_Mi8AMT_vdv", "RHS_Mi8mt_vdv", "RHS_Mi8T_vdv"]] call _fnc_saveToTemplate; 	
