@@ -1,20 +1,35 @@
 # Changelog
 ## 1.7
 ### Additions 
+- Global Mobilization support
+- Weferlingen support
+- Rebels vs Invaders gamemode is back (with some fixes and adjustments to make it as same as possible as fighting BLUFOR occupants as usual, but there might be some places in code that wasn't changed, so it is a bit experimental but mostly stable, also it's more hardcore than default game settings)
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Persistent Constructions Removal action (new button in Constructions submenu)
 - Buildable Mortar and HMG Emplacements
 - Ability to move and save static weapon position and direction in AA/AT/Mortar/HMG Emplacements
-- (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC 
+- (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC
 - High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow him to use it as HC squad
+- New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
+- (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
+- (3CB Factions + Global Mobilization) Warsaw Pact, NATO factions for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
+- (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
 ### Changes
 - Fixed AI Control Time for HC squads
 - Fixed AI Rebel Strike wrong localization string at title
+- Fixed singleAttack undefined variable error
+- Fixed wrong initial AA Emplacement and Roablock icons
+- Fixed inability to recruit soldiers on emplacements, roadblocks and watchposts
+- Fixed panic fleeing vehicles
+- Fixed inability to get Destroy Radio Tower task with invaders radio tower
+- Fixed possible out of map bounds helicrash position in Helicrash task
+- Fixed possible out of map bounds Arms Dealer position in Find the Arms Dealer task
+- Artillery Response minor fixes
+- Unflip Vehicle various fixes
 - Rebel training minor fixes (45 level cap, price calculations have been adjusted to new skill cap to prevent excessive price snowballing with each training level past 20)
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
-- ADR-97 Official Mod included into base configuration, parameter has been removed
 - Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of country population and all airbases and milbases to win)
 - Arms Dealer will sell UAV terminals
 - Additional "Number of the same item required to unlock" parameter values - 20, 100, 200, 500
@@ -23,21 +38,18 @@
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
 - Changed keybinding for Commander Menu and Player Menu to HOME button due to conflicts with some mods that uses O key
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
-- Artillery Response minor fixes
 - All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
 - Added bunch of new intel spawn locations - Radar Complex HQ, Guard House, Barracks
 - Kill Collaborationist tasks will be not guaranteed when police station is in radius (this will give other assasinate type tasks enough room to breathe)
-- Fixed singleAttack undefined variable error
-- Fixed wrong initial AA Emplacement and Roablock icons
-- Fixed inability to recruit soldiers on emplacements, roadblocks and watchposts
 - Various military buildings static weapon emplacement support
 - Invaders cargo trucks unit roster support
 - Synchronized prices of emplacements and statics in Buy Vehicle menu
 - Added one medic to initial static Emplacement crews to increase their Survivability 
 - Multiple AA vehicle support
-- Unflip Vehicle various fixes
-- Changed paradrop plane height to spawnable distance
-- More militia AT trooper for both Occupants and Invaders
+- Lowered paradrop plane height to spawnable distance to give defenders chance to shot down the plane
+- More militia AT troopers for both Occupants and Invaders
+- Chance to spawn non-cargo truck on enemy resources and factories (fuel/medical/repair trucks)
+- Additional convoy type - fuel convoys
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
 - (RHS, Aegis, 3CB Factions, CUP) Rear Echelon/Militia engineers and medics may use shotguns
 - (RHS) turretless BRDM-2 logistic nodes (allows to mount cargo, ZU-23 and other statics on top of them)
@@ -51,7 +63,7 @@
 - (CUP) Vanilla weapons and equipment will no longer appear in crates at outposts 
 - (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
 - (RHS) Arms Dealer Stock changes - added PM, Sa vz. 61, Zastava series rifles, M249 PIP, removed vanilla RPG-7, adjusted prices of some items, added some additional magazine types and attachments
-- (3CBF) Arms Dealer Stock changes - all changes from RHS Arms Dealer change plus added all MP5 variants, CZ75 Czechmate, M16A3, FAMAS, M14DMR, adjusted prices of some items, added some additional magazine types and attachments
+- (3CBF) Arms Dealer Stock changes - all changes from RHS Arms Dealer change plus added all MP5 variants, CZ75 Czechmate, M16A3, FAMAS, M14DMR, M1 Garand, adjusted prices of some items, added some additional magazine types and attachments
 - (Livonia) New factory at the South of the map
 - (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
 - (Taviana) Additional outpost at the small island on West of Taviana, hangar fix on Sector B, radio tower fix on race track, Novistrana police station support, removal of radio tower on Sector B
@@ -59,7 +71,10 @@
 ### Removals
 - Removed Antistasi Units template support
 - Removed possibility of intel spawn in high military towers 
+- Removed ability to recruit mortar units at garrison (mortar still can be bought in vehicle menu at flag and then occupied by AI rebel)
+- Removed all DLC parameters since they seem to confuse people since they're affecting loot boxes loot pool and civilians only and does not work in modded environment at all, all DLCs will be enabled for vanilla except Karts, Art of War and Laws of War since they have no real gameplay value
 - Towns will not flip on it's faction defeat (never worked properly)
+- (RHS, 3CB Factions) Removed M1 Garand from initial rebel weapons to give other starting weapons enough room to breathe
 
 ## 1.6
 ### Additions
