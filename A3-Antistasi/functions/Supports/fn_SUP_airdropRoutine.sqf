@@ -33,18 +33,20 @@ _plane setVariable ["TimerArray", _timerArray, true];
 _plane setVariable ["TimerIndex", _timerIndex, true];
 _plane setVariable ["supportName", _supportName, true];
 _plane setVariable ["side", _side, true];
+_plane setVariable ["planeDead", false, true];
 
 //Setting up the EH for support destruction
 _plane addEventHandler [
     "Killed",
     {
         params ["_plane"];
-        [2, "Paradrop plane has been destroyed, airstrike aborted", "SUP_airdrop"] call A3A_fnc_log;
+        [2, "Paradrop plane has been destroyed, airdrop aborted", "SUP_airdrop"] call A3A_fnc_log;
         ["TaskSucceeded", ["", "Paradrop Plane Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _timerArray = _plane getVariable "TimerArray";
         private _timerIndex = _plane getVariable "TimerIndex";
         _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600];
         [_plane getVariable "supportName", _plane getVariable "side"] spawn A3A_fnc_endSupport;
+        _plane setVariable ["planeDead", true, true];
         [_plane] spawn A3A_fnc_postMortem;
         [(_plane getVariable "side"), 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     }
@@ -56,8 +58,9 @@ _pilot addEventHandler [
     "Killed",
     {
         params ["_unit"];
-        ["TaskSucceeded", ["", "Airstrike crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+        ["TaskSucceeded", ["", "Airdrop crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
         private _plane = _unit getVariable "Plane";
+        _plane setVariable ["planeDead", true, true];
         [2, format ["Crew for %1 killed, airdrop aborted", _plane getVariable "supportName"], "SUP_airdrop"] call A3A_fnc_log;
         private _timerArray = _plane getVariable "TimerArray";
         private _timerIndex = _plane getVariable "TimerIndex";

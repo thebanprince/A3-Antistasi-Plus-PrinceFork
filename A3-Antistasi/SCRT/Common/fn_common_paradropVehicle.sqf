@@ -82,7 +82,7 @@ _wp2 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle
 
 waitUntil {sleep 1; (_vehicle getVariable ["dropPosReached", false]) || (!alive _vehicle) || (!canMove _vehicle)};
 
-if(_vehicle getVariable ["dropPosReached", false]) then {
+if(_vehicle getVariable ["dropPosReached", false] && {!(_vehicle getVariable ["planeDead", false])}) then {
     [3, 'Drop pos reached', 'paradrop'] call A3A_fnc_log;
     _vehicle setCollisionLight true;
     {
