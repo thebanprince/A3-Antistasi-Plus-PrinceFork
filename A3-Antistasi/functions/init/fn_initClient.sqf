@@ -471,8 +471,7 @@ if (A3A_hasACE) then
 	};
 	// Remove group join action from all rebel unit types
 	// Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
-	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F" /*greenfor*/,
-		"B_G_soldier_F", "B_G_Soldier_TL_F", "B_G_Soldier_AR_F", "B_G_medic_F", "B_G_engineer_F", "B_G_Soldier_GL_F" /*bluefor*/];
+	private _playerUnits = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F"];
 	{
 		[_x] call ace_interact_menu_fnc_compileMenu;
 		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;

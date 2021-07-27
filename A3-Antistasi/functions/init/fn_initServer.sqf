@@ -22,10 +22,7 @@ publicVariable "serverID";
 
 
 // Read loadLastSave param directly, SP handles this in createDialog_setParams
-if (isMultiplayer) then {
-	//Load server parameters
-	loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
-};
+loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 // Maintain a profilenamespace array called antistasiPlusSavedGames
 // Each entry is an array: [campaignID, mapname, "Blufor"|"Greenfor"]
@@ -191,8 +188,21 @@ distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_aggressionUpdateLoop;
 [] execVM "Scripts\fn_advancedTowingInit.sqf";
 
-if(areRandomEventsEnabled) then {
+if (areRandomEventsEnabled) then {
 	[] spawn SCRT_fnc_encounter_gameEventLoop;
+};
+
+if (!loadLastSave) then {
+	switch (gameMode) do {
+		case 3: {
+			areInvadersDefeated = true;
+			publicVariable "areInvadersDefeated";
+		};
+		case 4: {
+			areOccupantsDefeated = true;
+			publicVariable "areOccupantsDefeated";
+		};
+	};
 };
 
 savingServer = false;

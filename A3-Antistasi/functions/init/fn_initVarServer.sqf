@@ -349,14 +349,13 @@ private _templateVariables = [
 	"NATOGrunt",
 	"NATOOfficer",
 	"NATOOfficer2",
-	"NATOBodyG",
 	"NATOCrew",
 	"NATOUnarmed",
 	"NATOMarksman",
 	"staticCrewOccupants",
 	"NATOPilot",
-	"FIARiflemanOcc",
-	"FIAMarksmanOcc",
+	"FIARifleman",
+	"FIAMarksman",
 	"policeOfficer",
 	"policeGrunt",
 	"groupsNATOSentry",
@@ -369,19 +368,21 @@ private _templateVariables = [
 	"groupsNATOSquadT1",
 	"groupsNATOSquadT2",
 	"groupsNATOSquadT3",
-	"groupsFIASmallOcc",
-	"groupsFIAMidOcc",
-	"groupsFIASquadOcc",
-	"groupsNATOGen",
+	"groupsFIASmall",
+	"groupsFIAMid",
+	"groupsFIASquad",
 	"vehNATOBike",
 	"vehNATOLightArmed",
 	"vehNATOLightUnarmed",
 	"vehNATOTrucks",
 	"vehNATOCargoTrucks",
 	"vehNATOAmmoTruck",
+	"vehNATOFuelTruck",
+	"vehNATOMedical",
 	"vehNATORepairTruck",
 	"vehNATOLight",
 	"vehNATOAPC",
+	"vehNATOLightAPC",
 	"vehNATOTanks",
 	"vehNATOAA",
 	"vehNATOAttack",
@@ -406,7 +407,6 @@ private _templateVariables = [
 	"vehFIAAPC",
 	"vehFIATanks",
 	"vehFIACars",
-	"vehPoliceCars",
 	"NATOMG",
 	"staticATOccupants",
 	"staticAAOccupants",
@@ -417,6 +417,8 @@ private _templateVariables = [
 	"NATOAASam",
 	"NATOmortarMagazineHE",
 	"NATOHowitzerMagazineHE",
+
+	"vehPoliceCars",
 
 	//Invaders
 	"nameInvaders",
@@ -430,14 +432,14 @@ private _templateVariables = [
 	"vehCSATPVP",
 	"CSATGrunt",
 	"CSATOfficer",
-	"CSATBodyG",
+	"CSATOfficer2",
 	"CSATCrew",
 	"CSATUnarmed",
 	"CSATMarksman",
 	"staticCrewInvaders",
 	"CSATPilot",
-	"FIARiflemanInv",
-	"FIAMarksmanInv",
+	"WAMRifleman",
+	"WAMMarksman",
 	"groupsCSATSentry",
 	"groupsCSATSniper",
 	"groupsCSATsmall",
@@ -449,18 +451,26 @@ private _templateVariables = [
 	"groupsCSATSquadT1",
 	"groupsCSATSquadT2",
 	"groupsCSATSquadT3",
-	"groupsFIASmallInv",
-	"groupsFIAMidInv",
-	"groupsFIASquadInv",
+	"groupsWAMSmall",
+	"groupsWAMMid",
+	"groupsWAMSquad",
+	"vehWAMArmedCars",
+	"vehWAMTrucks",
+	"vehWAMAPC",
+	"vehWAMTanks",
+	"vehWAMCars",
 	"vehCSATBike",
 	"vehCSATLightArmed",
 	"vehCSATLightUnarmed",
 	"vehCSATTrucks",
 	"vehCSATCargoTrucks",
 	"vehCSATAmmoTruck",
+	"vehCSATFuelTruck",
+	"vehCSATMedical",
 	"vehCSATRepairTruck",
 	"vehCSATLight",
 	"vehCSATAPC",
+	"vehCSATLightAPC",
 	"vehCSATTanks",
 	"vehCSATAA",
 	"vehCSATAttack",
@@ -732,10 +742,10 @@ DECLARE_SERVER_VAR(sniperGroups, _sniperGroups);
 [2,"Identifying vehicle types",_fileName] call A3A_fnc_log;
 
 //little experiment with hashmap
-private _vehNormal = (vehNATONormal + vehCSATNormal + vehNATOCargoTrucks + vehCSATCargoTrucks + vehFIACars + vehFIATrucks + vehFIAArmedCars + vehPoliceCars + [vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel]) createHashMapFromArray [];
+private _vehNormal = (vehNATONormal + vehCSATNormal + vehNATOCargoTrucks + vehCSATCargoTrucks + vehFIACars + vehFIATrucks + vehFIAArmedCars + vehWAMCars + vehWAMTrucks + vehWAMArmedCars + vehPoliceCars + [vehNATOBike,vehCSATBike,vehSDKTruck,vehSDKLightArmed,vehSDKAT,vehSDKBike,vehSDKRepair,vehSDKFuel]) createHashMapFromArray [];
 DECLARE_SERVER_VAR(vehNormal, _vehNormal);
 
-private _vehMilitia = vehFIATrucks + vehFIACars + vehFIAAPC + vehFIAArmedCars + vehFIATanks;
+private _vehMilitia = vehFIATrucks + vehFIACars + vehFIAAPC + vehFIAArmedCars + vehFIATanks + vehWAMTrucks + vehWAMCars + vehWAMAPC + vehWAMArmedCars + vehWAMTanks;
 DECLARE_SERVER_VAR(vehMilitia, _vehMilitia);
 
 private _vehBoats = [vehNATOBoat,vehNATORBoat,vehCSATBoat,vehCSATRBoat,vehSDKBoat];
@@ -762,13 +772,16 @@ DECLARE_SERVER_VAR(vehUAVs, _vehUAVs);
 private _vehAmmoTrucks = [vehNATOAmmoTruck,vehCSATAmmoTruck];
 DECLARE_SERVER_VAR(vehAmmoTrucks, _vehAmmoTrucks);
 
-private _vehAPCs = vehNATOAPC + vehCSATAPC + vehFIAAPC;
+private _vehSupplyTrucks = [vehNATOFuelTruck,vehNATOMedical,vehNATORepairTruck, vehCSATFuelTruck, vehCSATRepairTruck, vehCSATMedical];
+DECLARE_SERVER_VAR(vehSupplyTrucks, _vehSupplyTrucks);
+
+private _vehAPCs = vehNATOAPC + vehCSATAPC + vehFIAAPC + vehWAMAPC + vehNATOLightAPC + vehCSATLightAPC;
 DECLARE_SERVER_VAR(vehAPCs, _vehAPCs);
 
-private _vehTanks = vehNATOTanks + vehCSATTanks + vehFIATanks;
+private _vehTanks = vehNATOTanks + vehCSATTanks + vehFIATanks + vehWAMTanks;
 DECLARE_SERVER_VAR(vehTanks, _vehTanks);
 
-private _vehTrucks = vehNATOTrucks + vehCSATTrucks + vehFIATrucks + [vehSDKTruck];
+private _vehTrucks = vehNATOTrucks + vehCSATTrucks + vehFIATrucks + vehWAMTrucks + [vehSDKTruck];
 DECLARE_SERVER_VAR(vehTrucks, _vehTrucks);
 
 private _vehAA = vehNATOAA + vehCSATAA;

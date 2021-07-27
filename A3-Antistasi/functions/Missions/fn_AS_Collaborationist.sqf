@@ -6,6 +6,7 @@ private _fileName = "fn_AS_Collaborationist";
 
 private _markerX = _this select 0;
 private _positionX = getMarkerPos _markerX;
+private _side = if (gameMode == 4) then {Invaders} else {Occupants};
 
 private _POWs = [];
 private _groups = [];
@@ -134,7 +135,7 @@ for "_i" from 0 to _powCount do {
 ////////////
 //Collaborationist
 ////////////
-private _groupCollaborant = createGroup Occupants;
+private _groupCollaborant = createGroup _side;
 private _buildingPosIndex = selectRandom _collaborantPositions;
 private _buildingPosition = _buildingPositions select _buildingPosIndex;
 
@@ -165,14 +166,14 @@ private _patrolPosition = [
     [_buildingPos, _buildingPos]
 ] call BIS_fnc_findSafePos;
 
-private _patrolGroup1 = [_patrolPosition, Occupants, _patrolGroupRoster] call A3A_fnc_spawnGroup;
+private _patrolGroup1 = [_patrolPosition, _side, _patrolGroupRoster] call A3A_fnc_spawnGroup;
 {
     [_x] call A3A_fnc_NATOinit;
 } forEach units _patrolGroup1;
 [_patrolGroup1, _buildingPos, 250] call bis_fnc_taskPatrol;
 _groups pushBack _patrolGroup1;
 
-private _patrolGroup2 = [_patrolPosition, Occupants, _patrolGroupRoster] call A3A_fnc_spawnGroup;
+private _patrolGroup2 = [_patrolPosition, _side, _patrolGroupRoster] call A3A_fnc_spawnGroup;
 {
     [_x] call A3A_fnc_NATOinit;
 } forEach units _patrolGroup2;
@@ -222,11 +223,11 @@ private _policeVehClass2 = selectRandom vehPoliceCars;
 
 private _policeVehicle1 = _policeVehClass1 createVehicle getPos (_road select 0);
 _policeVehicle1 setDir _dirveh + 45;
-[_policeVehicle1, Occupants] call A3A_fnc_AIVEHinit;
+[_policeVehicle1, _side] call A3A_fnc_AIVEHinit;
 
 private _policeVehicle2 = _policeVehClass2 createVehicle getPos (_road select 0);
 _policeVehicle2 setDir _dirveh;
-[_policeVehicle2, Occupants] call A3A_fnc_AIVEHinit;
+[_policeVehicle2, _side] call A3A_fnc_AIVEHinit;
 
 [_policeVehicle1, ["BeaconsStart", 1]] remoteExecCall ["animate", 0, _policeVehicle1];
 

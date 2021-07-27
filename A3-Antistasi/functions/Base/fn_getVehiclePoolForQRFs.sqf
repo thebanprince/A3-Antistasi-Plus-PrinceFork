@@ -40,14 +40,27 @@ switch (tierWar) do
         };
         if(_side == Invaders) then
         {
-            _vehicleSelection =
-            [
-                [vehCSATLightUnarmed, 40],
-                [vehCSATTrucks, 40],
-                [vehCSATLightArmed, 20],
+            if (gameMode == 4) then {
+                _vehicleSelection =
+                [
+                    [vehPoliceCars, 40],
+                    [vehWAMCars, 30],
+                    [vehWAMTrucks, 20],
+                    [vehWAMArmedCars, 10],
+                    [vehWAMAPC, 5],
 
-                [vehCSATPatrolHeli, 100]
-            ];
+                    [vehCSATPatrolHeli, 100]
+                ];
+            } else {
+                _vehicleSelection =
+                [
+                    [vehCSATLightUnarmed, 40],
+                    [vehCSATTrucks, 40],
+                    [vehCSATLightArmed, 20],
+
+                    [vehCSATPatrolHeli, 100]
+                ];
+            };
         };
     };
     //General idea: Enemies get airborne, police units are reduced and replaced by military units
@@ -72,16 +85,35 @@ switch (tierWar) do
         };
         if(_side == Invaders) then
         {
-            _vehicleSelection =
-            [
-                [vehCSATLightUnarmed, 20],
-                [vehCSATTrucks, 40],
-                [vehCSATLightArmed, 30],
-                [vehCSATAPC, 10],
+            if (gameMode == 4) then {
+                _vehicleSelection =
+                [
+                    [vehPoliceCars, 15],
+                    [vehWAMCars, 15],
+                    [vehWAMArmedCars, 10],
+                    [vehWAMTrucks, 10],
+                    [vehWAMAPC, 5],
+                    [vehWAMTanks, 2],
+                    [vehCSATLightUnarmed, 20],
+                    [vehCSATTrucks, 40],
+                    [vehCSATLightArmed, 30],
+                    [vehCSATAPC, 10],
 
-                [vehCSATPatrolHeli, 80],
-                [vehCSATTransportHelis, 20]
-            ];
+                    [vehCSATPatrolHeli, 80],
+                    [vehCSATTransportHelis, 20]
+                ];
+            } else {
+                _vehicleSelection =
+                [
+                    [vehCSATLightUnarmed, 20],
+                    [vehCSATTrucks, 40],
+                    [vehCSATLightArmed, 30],
+                    [vehCSATAPC, 10],
+
+                    [vehCSATPatrolHeli, 80],
+                    [vehCSATTransportHelis, 20]
+                ];
+            };
         };
     };
     //General idea: No police units any more, armed vehicles and first sightings of APCs
@@ -106,16 +138,33 @@ switch (tierWar) do
         };
         if(_side == Invaders) then
         {
-            _vehicleSelection =
-            [
-                [vehCSATLightUnarmed, 5],
-                [vehCSATTrucks, 30],
-                [vehCSATLightArmed, 45],
-                [vehCSATAPC, 20],
+            if (gameMode == 4) then {
+                _vehicleSelection =
+                [
+                    [vehWAMArmedCars, 10],
+                    [vehWAMTrucks, 5],
+                    [vehWAMAPC, 10],
+                    [vehWAMTanks, 5],
+                    [vehCSATLightUnarmed, 5],
+                    [vehCSATTrucks, 30],
+                    [vehCSATLightArmed, 45],
+                    [vehCSATAPC, 20],
 
-                [vehCSATPatrolHeli, 60],
-                [vehCSATTransportHelis, 40]
-            ];
+                    [vehCSATPatrolHeli, 60],
+                    [vehCSATTransportHelis, 40]
+                ];
+            } else {
+                 _vehicleSelection =
+                [
+                    [vehCSATLightUnarmed, 5],
+                    [vehCSATTrucks, 30],
+                    [vehCSATLightArmed, 45],
+                    [vehCSATAPC, 20],
+
+                    [vehCSATPatrolHeli, 60],
+                    [vehCSATTransportHelis, 40]
+                ];
+            };
         };
     };
     //General idea: Unarmed vehicles vanish, trucks start to get replaced by APCs, first sighting of transport helicopters
@@ -137,17 +186,33 @@ switch (tierWar) do
         };
         if(_side == Invaders) then
         {
-            _vehicleSelection =
-            [
-                [vehCSATTrucks, 10],
-                [vehCSATLightArmed, 40],
-                [vehCSATAPC, 40],
-                [vehCSATTanks, 10],
+            if (gameMode == 4) then {
+                _vehicleSelection =
+                [
+                    [vehCSATTrucks, 10],
+                    [vehCSATLightArmed, 40],
+                    [vehCSATAPC, 40],
+                    [vehCSATTanks, 10],
+                    [vehWAMAPC, 15],
+                    [vehWAMTanks, 8],
 
-                [vehCSATPatrolHeli, 40],
-                [vehCSATTransportHelis, 50],
-                [vehCSATAttackHelis, 10]
-            ];
+                    [vehCSATPatrolHeli, 40],
+                    [vehCSATTransportHelis, 50],
+                    [vehCSATAttackHelis, 10]
+                ];
+            } else {
+                _vehicleSelection =
+                [
+                    [vehCSATTrucks, 10],
+                    [vehCSATLightArmed, 40],
+                    [vehCSATAPC, 40],
+                    [vehCSATTanks, 10],
+
+                    [vehCSATPatrolHeli, 40],
+                    [vehCSATTransportHelis, 50],
+                    [vehCSATAttackHelis, 10]
+                ];
+            };
         };
     };
     //General idea: Get rid of any unarmed vehicle, Invaders start to bring the big guns

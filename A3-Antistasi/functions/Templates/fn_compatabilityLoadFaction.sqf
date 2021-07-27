@@ -60,15 +60,15 @@ if (_side isEqualTo east) then {
 
 	CSATGrunt = ["loadouts_inv_militia_Rifleman", "loadouts_inv_military_Rifleman", "loadouts_inv_elite_Rifleman"];
 	CSATOfficer = "loadouts_inv_other_Official";
-	CSATBodyG = "loadouts_inv_military_Rifleman";
+	CSATOfficer2 = "loadouts_inv_other_Traitor";
 	CSATCrew = "loadouts_inv_other_Crew";
 	CSATMarksman = ["loadouts_inv_militia_Marksman", "loadouts_inv_military_Marksman", "loadouts_inv_elite_Marksman"];
 	staticCrewInvaders = CSATGrunt;
 	CSATPilot = "loadouts_inv_other_Pilot";
 	CSATUnarmed = "loadouts_inv_other_Unarmed";
 
-	FIARiflemanInv = "loadouts_inv_militia_Rifleman";
-	FIAMarksmanInv = "loadouts_inv_militia_Marksman";
+	WAMRifleman = "loadouts_inv_militia_Rifleman";
+	WAMMarksman = "loadouts_inv_militia_Marksman";
 
 	groupsCSATSentry = [
 		["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_Rifleman"],
@@ -154,14 +154,14 @@ if (_side isEqualTo east) then {
 		"loadouts_inv_SF_Medic"
 	];
 
-	groupsFIASmallInv = [
+	groupsWAMSmall = [
 		["loadouts_inv_militia_Grenadier", "loadouts_inv_militia_LAT"],
 		["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Rifleman"],
 		["loadouts_inv_militia_Marksman", "loadouts_inv_militia_Grenadier"]
 	];
-	groupsFIAMidInv = [];
+	groupsWAMMid = [];
 	for "_i" from 1 to 6 do {
-		groupsFIAMidInv pushBack [
+		groupsWAMMid pushBack [
 			"loadouts_inv_militia_SquadLeader",
 			"loadouts_inv_militia_Grenadier",
 			"loadouts_inv_militia_MachineGunner",
@@ -174,9 +174,9 @@ if (_side isEqualTo east) then {
 		];
 	};
 
-	groupsFIASquadInv = [];
+	groupsWAMSquad = [];
 	for "_i" from 1 to 5 do {
-		groupsFIASquadInv pushBack [
+		groupsWAMSquad pushBack [
 			"loadouts_inv_militia_SquadLeader",
 			"loadouts_inv_militia_MachineGunner",
 			"loadouts_inv_militia_Grenadier",
@@ -195,9 +195,12 @@ if (_side isEqualTo east) then {
 	vehCSATTrucks = _faction getVariable "vehiclesTrucks";
 	vehCSATCargoTrucks = _faction getVariable "vehiclesCargoTrucks";
 	vehCSATAmmoTruck = _faction getVariable "vehiclesAmmoTrucks" select 0;
+	vehCSATFuelTruck = _faction getVariable "vehiclesFuelTrucks" select 0;
 	vehCSATRepairTruck = _faction getVariable "vehiclesRepairTrucks" select 0;
+	vehCSATMedical = _faction getVariable "vehiclesMedical" select 0;
 	vehCSATLight = vehCSATLightArmed + vehCSATLightUnarmed;
 
+	vehCSATLightAPC = _faction getVariable "vehiclesLightAPCs";
 	vehCSATAPC = _faction getVariable "vehiclesAPCs";
 	vehCSATTanks = _faction getVariable "vehiclesTanks";
 	vehCSATAA = _faction getVariable "vehiclesAA";
@@ -236,6 +239,19 @@ if (_side isEqualTo east) then {
 		+ vehCSATAttackHelis
 		+ [vehCSATPlane, vehCSATPlaneAA]
 		+ vehCSATTransportPlanes;
+
+	if (gameMode == 4) then {
+		policeOfficer = "loadouts_inv_police_SquadLeader";
+		policeGrunt = "loadouts_inv_police_Standard";
+
+		vehPoliceCars = _faction getVariable "vehiclesPolice";
+	};
+
+	vehWAMArmedCars = _faction getVariable "vehiclesMilitiaLightArmed";
+	vehWAMTrucks = _faction getVariable "vehiclesMilitiaTrucks";
+	vehWAMCars = _faction getVariable "vehiclesMilitiaCars";
+	vehWAMAPC = _faction getVariable "vehiclesMilitiaApcs";
+	vehWAMTanks = _faction getVariable "vehiclesMilitiaTanks";
 
 	CSATMG = _faction getVariable "staticMGs" select 0;
 	CSATGMG = _faction getVariable "staticMGs" select 1;
@@ -287,19 +303,14 @@ if (_side isEqualTo west) then {
 	NATOGrunt = ["loadouts_occ_militia_Rifleman", "loadouts_occ_military_Rifleman", "loadouts_occ_elite_Rifleman"];
 	NATOOfficer = "loadouts_occ_other_Official";
 	NATOOfficer2 = "loadouts_occ_other_Traitor";
-	NATOBodyG = "loadouts_occ_military_Rifleman";
 	NATOCrew = "loadouts_occ_other_Crew";
 	NATOUnarmed = "loadouts_occ_other_Unarmed";
 	NATOMarksman = ["loadouts_occ_militia_Marksman", "loadouts_occ_military_Marksman", "loadouts_occ_elite_Marksman"];
 	staticCrewOccupants = NATOGrunt;
 	NATOPilot = "loadouts_occ_other_Pilot";
 
-	FIARiflemanOcc = "loadouts_occ_militia_Rifleman";
-	FIAMarksmanOcc = "loadouts_occ_militia_Marksman";
-
-	policeOfficer = "loadouts_occ_police_SquadLeader";
-	policeGrunt = "loadouts_occ_police_Standard";
-	groupsNATOGen = [policeOfficer, policeGrunt];
+	FIARifleman = "loadouts_occ_militia_Rifleman";
+	FIAMarksman = "loadouts_occ_militia_Marksman";
 
 	groupsNATOSentry = [
 		["loadouts_occ_militia_Grenadier", "loadouts_occ_militia_Rifleman"],
@@ -384,14 +395,14 @@ if (_side isEqualTo west) then {
 		"loadouts_occ_SF_Medic"
 	];
 
-	groupsFIASmallOcc = [
+	groupsFIASmall = [
 		["loadouts_occ_militia_Grenadier", "loadouts_occ_militia_Rifleman"],
 		["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Rifleman"],
 		["loadouts_occ_militia_Marksman", "loadouts_occ_militia_Grenadier"]
 	];
-	groupsFIAMidOcc = [];
+	groupsFIAMid = [];
 	for "_i" from 1 to 6 do {
-		groupsFIAMidOcc pushBack [
+		groupsFIAMid pushBack [
 			"loadouts_occ_militia_SquadLeader",
 			"loadouts_occ_militia_Grenadier",
 			"loadouts_occ_militia_MachineGunner",
@@ -404,9 +415,9 @@ if (_side isEqualTo west) then {
 		];
 	};
 
-	groupsFIASquadOcc = [];
+	groupsFIASquad = [];
 	for "_i" from 1 to 5 do {
-		groupsFIASquadOcc pushBack [
+		groupsFIASquad pushBack [
 			"loadouts_occ_militia_SquadLeader",
 			"loadouts_occ_militia_MachineGunner",
 			"loadouts_occ_militia_Grenadier",
@@ -425,9 +436,12 @@ if (_side isEqualTo west) then {
 	vehNATOTrucks = _faction getVariable "vehiclesTrucks";
 	vehNATOCargoTrucks = _faction getVariable "vehiclesCargoTrucks";
 	vehNATOAmmoTruck = _faction getVariable "vehiclesAmmoTrucks" select 0;
+	vehNATOFuelTruck = _faction getVariable "vehiclesFuelTrucks" select 0;
 	vehNATORepairTruck = _faction getVariable "vehiclesRepairTrucks" select 0;
+	vehNATOMedical = _faction getVariable "vehiclesMedical" select 0;
 	vehNATOLight = vehNATOLightArmed + vehNATOLightUnarmed;
 
+	vehNATOLightAPC = _faction getVariable "vehiclesLightAPCs";
 	vehNATOAPC = _faction getVariable "vehiclesAPCs";
 	vehNATOTanks = _faction getVariable "vehiclesTanks";
 	vehNATOAA = _faction getVariable "vehiclesAA";
@@ -467,14 +481,18 @@ if (_side isEqualTo west) then {
 		+ [vehNATOPlane, vehNATOPlaneAA]
 		+ vehNATOTransportPlanes;
 
-	
 	vehFIAArmedCars = _faction getVariable "vehiclesMilitiaLightArmed";
 	vehFIATrucks = _faction getVariable "vehiclesMilitiaTrucks";
 	vehFIACars = _faction getVariable "vehiclesMilitiaCars";
 	vehFIAAPC = _faction getVariable "vehiclesMilitiaApcs";
 	vehFIATanks = _faction getVariable "vehiclesMilitiaTanks";
 
-	vehPoliceCars = _faction getVariable "vehiclesPolice";
+	if (gameMode != 4) then {
+		policeOfficer = "loadouts_occ_police_SquadLeader";
+		policeGrunt = "loadouts_occ_police_Standard";
+
+		vehPoliceCars = _faction getVariable "vehiclesPolice";	
+	};
 
 	NATOMG = _faction getVariable "staticMGs" select 0;
 	staticATOccupants = _faction getVariable "staticAT" select 0;

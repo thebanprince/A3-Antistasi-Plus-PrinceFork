@@ -12,7 +12,7 @@ if (_cargoSeats < 2) exitwith { [1, format ["Cargoseats misused for vehicle %1",
 
 if (_cargoSeats < 4) exitWith
 {
-	if (_isMilitia) exitWith {if (_sideX == Occupants) then {selectRandom groupsFIASmallOcc} else {selectRandom groupsFIASmallInv}};
+	if (_isMilitia) exitWith {if (_sideX == Occupants) then {selectRandom groupsFIASmall} else {selectRandom groupsWAMSmall}};
 	if (_veh in vehPoliceCars) exitWith { [policeOfficer, policeGrunt] };
 	if (_sideX == Occupants) then { 
 		groupsNATOSentry call SCRT_fnc_unit_selectInfantryTier;
@@ -23,14 +23,14 @@ if (_cargoSeats < 4) exitWith
 
 if (_cargoSeats < 7) exitWith			// fudge for Warrior
 {
-	if (_isMilitia) exitWith { if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv}; };
+	if (_isMilitia) exitWith { if (_sideX == Occupants) then {selectRandom groupsFIAMid} else {selectRandom groupsWAMMid}; };
 	if (_veh in vehPoliceCars) exitWith { [policeOfficer, policeGrunt, policeGrunt, policeGrunt] };
 	private _mid = [_sideX, "MID"] call SCRT_fnc_unit_getGroupSet;
 	selectRandom _mid;
 };
 
 private _squad = call {
-	if (_isMilitia) exitWith { if (_sideX == Occupants) then {selectRandom groupsFIASquadOcc} else {selectRandom groupsFIASquadInv} };
+	if (_isMilitia) exitWith { if (_sideX == Occupants) then {selectRandom groupsFIASquad} else {selectRandom groupsWAMSquad} };
 	private _squads = [_sideX, "SQUAD"] call SCRT_fnc_unit_getGroupSet;
 	selectRandom _squads;
 };

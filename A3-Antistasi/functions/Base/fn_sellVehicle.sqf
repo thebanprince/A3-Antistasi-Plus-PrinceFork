@@ -61,7 +61,7 @@ private _costs = call {
     if (_typeX in vehPoliceCars) exitWith {250};
     if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };
     if (_typeX in (arrayCivVeh + civBoats + [civBoat,civCar,civTruck])) exitWith {150};
-    if (_typeX in vehNormal || {_typeX in (vehBoats + vehAmmoTrucks)}) exitWith {500};
+    if (_typeX in vehNormal || {_typeX in (vehBoats + vehAmmoTrucks + vehSupplyTrucks)}) exitWith {500};
     if (_typeX in [vehCSATPatrolHeli, vehNATOPatrolHeli, civHeli]) exitWith {3000};
     if (_typeX in (vehAPCs + vehTransportAir + vehUAVs)) exitWith {2500};
     if (_typeX in (vehAttackHelis + vehTanks + vehAA + vehMRLS)) exitWith {6500};

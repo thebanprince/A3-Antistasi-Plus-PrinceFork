@@ -119,12 +119,10 @@ if (_isControl) then {
 		};
 	}
 	else {
-		_typeVehX = objNull;
-
-		if(random 10 < (tierWar + difficultyCoef)) then {
-			_typeVehX = selectRandom vehFIAAPC;
+		_typeVehX = if(random 10 < (tierWar + (difficultyCoef / 2))) then {
+			if (_sideX == Occupants) then {selectRandom vehFIAAPC} else {selectRandom vehWAMAPC};
 		} else {
-			_typeVehX = selectRandom vehFIAArmedCars;
+			if (_sideX == Occupants) then {selectRandom vehFIAArmedCars} else {selectRandom vehWAMArmedCars};
 		};
 
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
@@ -132,10 +130,10 @@ if (_isControl) then {
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
 		_vehiclesX pushBack _veh;
 		sleep 1;
-		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIAMidOcc} else {selectRandom groupsFIAMidInv};
+		_typeGroup = if (_sideX == Occupants) then {selectRandom groupsFIAMid} else {selectRandom groupsWAMMid};
 		_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then {
-			private _fiaRifleman = if(_sideX == Occupants) then {FIARiflemanOcc} else {FIARiflemanInv};
+			private _fiaRifleman = if(_sideX == Occupants) then {FIARifleman} else {WAMRifleman};
 			_unit = [_groupX, _fiaRifleman, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 			_unit moveInGunner _veh;
 			sleep 1;
