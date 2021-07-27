@@ -2,11 +2,11 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "SDK"] call _fnc_saveToTemplate; 						
+["name", "FIA"] call _fnc_saveToTemplate; 						
 
-["flag", "Flag_Syndikat_F"] call _fnc_saveToTemplate; 						
-["flagTexture", "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa"] call _fnc_saveToTemplate; 				
-["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate; 			
+["flag", "Flag_FIA_F"] call _fnc_saveToTemplate; 						
+["flagTexture", "\A3\Data_F\Flags\flag_FIA_CO.paa"] call _fnc_saveToTemplate; 				
+["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate; 			
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate; 			
 ["vehicleLightUnarmed", "I_G_Offroad_01_F"] call _fnc_saveToTemplate; 		
@@ -25,7 +25,7 @@
 
 ["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "C_Heli_Light_01_civil_F"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "gm_gc_civ_mi2p"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 ["vehicleCivLooter", "C_Truck_02_covered_F"] call _fnc_saveToTemplate;
 
@@ -55,12 +55,15 @@ allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2
 "U_IG_leader","U_IG_Guerrilla_6_1"];
 
 private _initialRebelEquipment = [
-"hgun_ACPC2_F","hgun_Pistol_01_F","sgun_HunterShotgun_01_F", "hgun_PDW2000_F", "sgun_HunterShotgun_01_sawedoff_F",
-"30Rnd_9x21_Mag", "30Rnd_9x21_Red_Mag",
-"9Rnd_45ACP_Mag", "2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell", "10Rnd_9x21_Mag",
+"gm_p1_blk", "gm_pm_blk", "sgun_HunterShotgun_01_F", "gm_pm63_blk", "sgun_HunterShotgun_01_sawedoff_F",
+"gm_8Rnd_9x19mm_B_DM11_p1_blk", "2Rnd_12Gauge_Pellets","2Rnd_12Gauge_Slug", "MiniGrenade", "SmokeShell", 
+"gm_15Rnd_9x18mm_B_pst_pm63_blk", "gm_8Rnd_9x18mm_B_pst_pm_blk",
+"gm_lp1_blk", 
+"gm_1Rnd_265mm_flare_single_wht_gc", "gm_1Rnd_265mm_flare_single_grn_gc", "gm_1Rnd_265mm_flare_single_red_gc",
+"gm_1Rnd_265mm_flare_multi_red_gc", "gm_1Rnd_265mm_smoke_single_yel_gc", "gm_1Rnd_265mm_smoke_single_blu_gc", "gm_1Rnd_265mm_smoke_single_blk_gc",
 "B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_AssaultPack_sgg",
 "V_BandollierB_blk","V_BandollierB_rgr","V_BandollierB_oli","V_Rangemaster_belt",
-"Binocular","acc_flashlight", "Laserbatteries","acc_flashlight_smg_01","acc_flashlight_pistol"];
+"Binocular","acc_flashlight", "Laserbatteries"];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155_coyote"};
@@ -71,19 +74,19 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "I_C_Soldier_Para_1_F"] call _fnc_saveToTemplate;
+["baseSoldier", "I_G_Soldier_F"] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";
 
 //black market stuff
 shop_UAV = ["I_UAV_01_F"];
-shop_AA = ["I_LT_01_AA_F"];
-shop_MRAP = ["I_MRAP_03_hmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_hmg_F"];
-shop_wheel_apc = ["O_APC_Wheeled_02_rcws_v2_F", "B_APC_Wheeled_01_cannon_F", "I_APC_Wheeled_03_cannon_F"];
-shop_track_apc = ["I_APC_tracked_03_cannon_F", "I_APC_tracked_03_cannon_F", "B_APC_Tracked_01_rcws_F"];
-shop_heli = ["O_Heli_Light_02_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["I_LT_01_cannon_F", "I_LT_01_AT_F", "I_MBT_03_cannon_F"];
+shop_AA = ["gm_gc_army_zsu234v1"];
+shop_MRAP = ["gm_pl_army_brdm2"];
+shop_wheel_apc = ["gm_pl_army_ot64a"];
+shop_track_apc = ["gm_pl_army_bmp1sp2"];
+shop_heli = ["B_Heli_Light_01_dynamicLoadout_F"];
+shop_tank = ["gm_pl_army_pt76b", "gm_pl_army_t55a", "gm_gc_army_t55am2b"];
 shop_plane = ["I_Plane_Fighter_03_dynamicLoadout_F"];
 
 additionalShopLight = [];

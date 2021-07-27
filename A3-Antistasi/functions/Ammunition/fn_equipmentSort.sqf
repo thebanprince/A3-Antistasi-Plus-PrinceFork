@@ -61,7 +61,13 @@ allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_Story_Protagonist_F");
 allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
 allRebelUniforms deleteAt (allRebelUniforms find "U_BG_GhillieSuit");
 allRebelUniforms deleteAt (allRebelUniforms find "CUP_U_I_Ghillie_Top");
-
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_rolled_grn");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_dbp_uniform_suit_80_blu");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
+allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
 
 if (A3A_has3CBFactions) then {
 	allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");

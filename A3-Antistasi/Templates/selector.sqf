@@ -92,7 +92,7 @@ switch(true) do{
 //Occ Templates
 switch(true) do {
     case (A3A_hasGlobMobAaf): {
-        ["Templates\NewTemplates\GM\GM_AI_AAF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\GM\GMAAF_AI_AAF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using GM AAF Template", _filename] call A3A_fnc_log;
     };
     case (A3A_has3CBFactions): {
@@ -285,7 +285,11 @@ switch(true) do{
     };
 };
 //Civ Templates
-switch(true) do{
+switch(true) do {
+    case (A3A_hasGlobMobAaf): {
+        ["Templates\NewTemplates\GM\GMAAF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using GM AAF Civ template", _filename] call A3A_fnc_log;
+    };
     case (A3A_has3CBFactions): {
         ["Templates\NewTemplates\3CBF\3CBF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using 3CB Civ template", _filename] call A3A_fnc_log;
