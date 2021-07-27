@@ -138,6 +138,9 @@ private _cityConfigs = if ((toLower worldName) == "panthera3") then {
 	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
 };
 
+private _cityColor = if (gameMode == 4) then {colorInvaders} else {colorOccupants};
+private _citySide =  if (gameMode == 4) then {Invaders} else {Occupants};
+
 _cityConfigs apply {
 	_nameX = configName _x;
 	_sizeX = getNumber (_x >> "radiusA");
@@ -171,7 +174,7 @@ _cityConfigs apply {
 	_mrk setMarkerSize [_size, _size];
 	_mrk setMarkerShape "RECTANGLE";
 	_mrk setMarkerBrush "SOLID";
-	_mrk setMarkerColor colorOccupants;
+	_mrk setMarkerColor _cityColor;
 	_mrk setMarkerText _nameX;
 	_mrk setMarkerAlpha 0;
 	citiesX pushBack _nameX;
@@ -179,9 +182,9 @@ _cityConfigs apply {
 	_dmrk = createMarker [format ["Dum%1", _nameX], _pos];
 	_dmrk setMarkerShape "ICON";
 	_dmrk setMarkerType "loc_Ruin";
-	_dmrk setMarkerColor colorOccupants;
+	_dmrk setMarkerColor _cityColor;
 
-	sidesX setVariable [_mrk, Occupants, true];
+	sidesX setVariable [_mrk, _citySide, true];
 	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
 	server setVariable [_nameX, _info, true];
 };
