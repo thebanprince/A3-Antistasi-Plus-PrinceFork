@@ -273,7 +273,7 @@ if (dateToNumber date > _dateLimitNum) then {
     [10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 } else {
     [_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
-    { [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+    { [37,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
     [10,theBoss] call A3A_fnc_playerScoreAdd;
     [0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];

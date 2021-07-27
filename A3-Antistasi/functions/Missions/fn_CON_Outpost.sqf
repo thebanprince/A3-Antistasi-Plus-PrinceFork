@@ -64,7 +64,7 @@ else
 		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[-10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		[1200, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
-		{[70,_x] call A3A_fnc_playerScoreAdd} forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+		{[45,_x] call A3A_fnc_playerScoreAdd} forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[20,theBoss] call A3A_fnc_playerScoreAdd;
 		}
 	else
@@ -72,7 +72,7 @@ else
 		[0,200] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[-5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
 		[600, _markerSide] remoteExec ["A3A_fnc_timingCA",2];
-		{[50,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+		{[25,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	};

@@ -54,7 +54,7 @@ if (not alive _official) then {
 	if (_difficultX) then {
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[2400, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{ [60,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
+		{ [45,_x] call A3A_fnc_playerScoreAdd } forEach (call BIS_fnc_listPlayers) select { side _x == teamPlayer || side _x == civilian};
 		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,60] call A3A_fnc_addTimeForIdle;
 	}
