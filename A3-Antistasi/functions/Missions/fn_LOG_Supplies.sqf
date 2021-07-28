@@ -4,6 +4,8 @@ private ["_markerX","_difficultX","_leave","_contactX","_groupContact","_tsk","_
 
 _markerX = _this select 0;
 
+private _side = if (gameMode == 4) then {Invaders} else {Occupants};
+
 _difficultX = if (random 10 < tierWar) then {true} else {false};
 _leave = false;
 _contactX = objNull;
@@ -48,6 +50,39 @@ _truckX addAction ["Delivery infos",
 _truckX setVariable ["destinationX",_nameDest,true];
 
 [_truckX,"Supply Box"] spawn A3A_fnc_inmuneConvoy;
+
+_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _positionX];
+_mrk setMarkerShapeLocal "RECTANGLE";
+_mrk setMarkerSizeLocal [50,50];
+_mrk setMarkerTypeLocal "hd_warning";
+_mrk setMarkerColorLocal "ColorRed";
+_mrk setMarkerBrushLocal "DiagGrid";
+_mrk setMarkerAlphaLocal 0;
+
+private _squad = if (_side == Invaders) then {CSATSquad} else {NATOSquad};
+_typeGroup = if (random 10 < tierWar) then {
+	_squad call SCRT_fnc_unit_selectInfantryTier
+} else {
+	[policeOfficer,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt,policeGrunt]
+};
+_groupX = [_positionX,_side, _typeGroup] call A3A_fnc_spawnGroup;
+_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM "scripts\UPSMON.sqf";
+{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+
+waitUntil {
+    sleep 1;
+    private _players = (call BIS_fnc_listPlayers) select { side _x == teamPlayer || {side _x == civilian}};
+    (_players findIf {_x distance _positionX < 40} != -1) || {dateToNumber date > _dateLimitNum || {isNull _truckX}}
+};
+
+[2, "Rebels in area, spawning additional group.", "LOG_Supplies", true] call A3A_fnc_log; 
+private _group2Position = [_positionX, 650, 1000, 0, 0] call BIS_fnc_findSafePos;
+_groupX2 = [_group2Position, _side, _typeGroup] call A3A_fnc_spawnGroup;
+
+private _groupX2WP = _groupX2 addWaypoint [(position _truckX), 5];
+_groupX2WP setWaypointType "MOVE";
+_groupX2WP setWaypointCombatMode "YELLOW";
+_groupX2WP setWaypointSpeed "FULL";
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 _bonus = if (_difficultX) then {2} else {1};
@@ -119,5 +154,10 @@ _ecpos = getpos _truckX;
 deleteVehicle _truckX;
 _emptybox = "Land_Pallet_F" createVehicle _ecpos;
 [_emptybox] spawn A3A_fnc_postmortem;
+
+[_groupX] spawn A3A_fnc_groupDespawner;
+[_groupX2] spawn A3A_fnc_groupDespawner;
+
+deleteMarkerLocal _mrk;
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;
