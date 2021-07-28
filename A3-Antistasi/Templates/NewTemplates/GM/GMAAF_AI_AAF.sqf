@@ -260,7 +260,11 @@ _militaryLoadoutData setVariable ["vests", ["V_PlateCarrierIA2_dgtl", "V_PlateCa
 _militaryLoadoutData setVariable ["Hvests", ["V_PlateCarrierIAGL_dgtl"]];
 _militaryLoadoutData setVariable ["backpacks", ["B_Carryall_oli", "B_Kitbag_rgr"]];		
 _militaryLoadoutData setVariable ["helmets", ["H_HelmetIA"]];		
-_militaryLoadoutData setVariable ["lightATLaunchers", ["gm_pzf44_2_oli"]];
+_militaryLoadoutData setVariable ["lightATLaunchers", [
+	["gm_pzf3_blk", "", "", "", ["gm_1Rnd_60mm_heat_dm12_pzf3", "gm_1Rnd_60mm_heat_dm12_pzf3"], [], ""],
+	["gm_pzf3_blk", "", "", "", ["gm_1Rnd_60mm_heat_dm22_pzf3", "gm_1Rnd_60mm_heat_dm22_pzf3"], [], ""],
+	["gm_pzf3_blk", "", "", "", ["gm_1Rnd_60mm_heat_dm32_pzf3", "gm_1Rnd_60mm_heat_dm32_pzf3"], [], ""]
+]];
 _militaryLoadoutData setVariable ["ATLaunchers", [
     ["gm_pzf84_oli", "", "", "gm_feroz2x17_pzf84_blk", ["gm_1Rnd_84x245mm_heat_t_DM12_carlgustaf"], [], ""],
 	["launch_NLAW_F", "", "", "", ["NLAW_F"], [], ""]
