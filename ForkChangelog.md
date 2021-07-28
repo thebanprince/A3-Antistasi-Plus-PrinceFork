@@ -1,20 +1,21 @@
 # Changelog
 ## 1.7
 ### Additions 
-- Global Mobilization support
 - Weferlingen support
+- Takistan support
 - Rebels vs Invaders gamemode is back (with some fixes and adjustments to make it as same as possible as fighting BLUFOR occupants as usual, but there might be some places in code that wasn't changed, so it is a bit experimental but mostly stable, also it's more hardcore than default game settings)
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
+- Limited Global Mobilization CDLC support (Global Mobilization Extra - Altis Armed Forces, 3CB Factions + GM unit templates)
+- (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC
 - Persistent Constructions Removal action (new button in Constructions submenu)
 - Buildable Mortar and HMG Emplacements
 - Ability to move and save static weapon position and direction in AA/AT/Mortar/HMG Emplacements
-- (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization DLC
 - High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow him to use it as HC squad
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
 - (3CB Factions + Global Mobilization) Warsaw Pact, NATO factions for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
-- (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization and Global Mobilization Extra - Altis Armed Forces mod is turned on
+- (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization CDLC and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
 ### Changes
 - Fixed AI Control Time for HC squads
@@ -33,8 +34,9 @@
 - Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of country population and all airbases and milbases to win)
 - Arms Dealer will sell UAV terminals
 - Additional "Number of the same item required to unlock" parameter values - 20, 100, 200, 500
-- Multiple vehicle for same category support for militia, militia tanks support
+- Multiple vehicles for same category support for militia, militia tanks support
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
+- Moderate reduction of money rewards from task completion
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
 - Changed keybinding for Commander Menu and Player Menu to HOME button due to conflicts with some mods that uses O key
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
@@ -48,6 +50,7 @@
 - Multiple AA vehicle support
 - Lowered paradrop plane height to spawnable distance to give defenders chance to shot down the plane
 - More militia AT troopers for both Occupants and Invaders
+- Deliver Supplies mission will have a couple of enemy squads to make mission less boring
 - Chance to spawn non-cargo truck on enemy resources and factories (fuel/medical/repair trucks)
 - Additional convoy type - fuel convoys
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
@@ -60,9 +63,9 @@
 - (3CB Factions) SPG-9 instead of Kornet in all templates
 - (3CB Factions, CUP) Replaced Chernarus Police with Gendarmerie on tropical maps 
 - (Aegis) Fixed wrong AUG 3GL mags
-- (CUP) Vanilla weapons and equipment will no longer appear in crates at outposts 
+- (CUP) Vanilla weapons and equipment will no longer appear in crates at enemy outposts 
 - (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
-- (RHS) Arms Dealer Stock changes - added PM, Sa vz. 61, Zastava series rifles, M249 PIP, removed vanilla RPG-7, adjusted prices of some items, added some additional magazine types and attachments
+- (RHS) Arms Dealer Stock changes - added PM, Sa vz. 61, Zastava series rifles, M249 PIP, removed vanilla RPG-7 and some vanilla scopes and attachments, adjusted prices of some items, added some additional magazine types and attachments
 - (3CBF) Arms Dealer Stock changes - all changes from RHS Arms Dealer change plus added all MP5 variants, CZ75 Czechmate, M16A3, FAMAS, M14DMR, M1 Garand, adjusted prices of some items, added some additional magazine types and attachments
 - (Livonia) New factory at the South of the map
 - (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
@@ -72,6 +75,7 @@
 - Removed Antistasi Units template support
 - Removed possibility of intel spawn in high military towers 
 - Removed ability to recruit mortar units at garrison (mortar still can be bought in vehicle menu at flag and then occupied by AI rebel)
+- Removed hidden Minimum Players for PVP parameter
 - Removed all DLC parameters since they seem to confuse people since they're affecting loot boxes loot pool and civilians only and does not work in modded environment at all, all DLCs will be enabled for vanilla except Karts, Art of War and Laws of War since they have no real gameplay value
 - Towns will not flip on it's faction defeat (never worked properly)
 - (RHS, 3CB Factions) Removed M1 Garand from initial rebel weapons to give other starting weapons enough room to breathe
