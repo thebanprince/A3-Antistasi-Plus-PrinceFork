@@ -80,7 +80,6 @@ A3A_paramTable = [
     ["distanceSPWN", "", ["oldsave"], 1000],
     ["maxUnits", "", ["oldsave"], 140],
     ["maxConstructions", "", ["oldsave"], 150],
-    ["minPlayersRequiredForPVP", "", [], 2],
 
     //Antistasi Plus parameters
     ["settingsTimeMultiplier", "timeMultiplier", [], 1],
