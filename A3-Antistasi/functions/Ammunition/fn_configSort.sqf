@@ -87,7 +87,11 @@ if (A3A_hasRhs) then {
 };
 
 if (A3A_hasGlobMob) then {
-	private _forbiddengm = ["gm_p2a1_launcher_blk","gm_1Rnd_2650mm_potato_dm11"]; 
+	private _forbiddengm = [
+		"gm_p2a1_launcher_blk","gm_1Rnd_2650mm_potato_dm11", "gm_g3a3_oli", "gm_g3a3_blk", "gm_g3a3_grn", "gm_g3a3_grn", "gm_g3a3_des", "gm_g3a3_dmr_oli",
+		"gm_g3a3_dmr_blk", "gm_g3a3_dmr_des", "gm_g3a4_oli", "gm_g3a4_blk", "gm_g3a4_grn", "gm_g3a4_des", "gm_g3a4_ebr_oli", "gm_g3a4_ebr_blk", "gm_g3a4_ebr_des",
+		"gm_gvm75_oli", "gm_gvm75_blk", "gm_gvm75_grn", "gm_gvm75carb_oli", "gm_gvm75carb_blk", "gm_gvm75carb_grn"
+	]; 
 
 	{
 		private _forbiddenItem = _x;
