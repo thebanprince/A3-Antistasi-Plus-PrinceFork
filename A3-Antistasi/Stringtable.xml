@@ -2191,6 +2191,30 @@
         <Czech>Nejsou tam.</Czech>
         <Russian>Их там нет.</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_takistan_mapname_text">
+        <Original>Antistasi Plus - Takistan</Original>
+        <English>Antistasi Plus - Takistan</English>
+        <German>Antistasi Plus - Takistan</German>
+        <French>Antistasi Plus - Takistan</French>
+        <Czech>Antistasi Plus - Takistan</Czech>
+        <Russian>Antistasi Plus - Такистан</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
+        <Original>Antistasi Plus - Takistan</Original>
+        <English>Antistasi Plus - Takistan</English>
+        <German>Antistasi Plus - Takistan</German>
+        <French>Antistasi Plus - Takistan</French>
+        <Czech>Antistasi Plus - Takistan</Czech>
+        <Russian>Antistasi Plus - Такистан</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_takistan_blurb_text">
+        <Original>Not your kind of people.</Original>
+        <English>Not your kind of people.</English>
+        <German>Nicht deine Art von Leuten.</German>
+        <French>Pas votre genre de personnes.</French>
+        <Czech>Ne tvůj typ lidí.</Czech>
+        <Russian>Не твой тип людей.</Russian>
+      </Key>
     </Container>
     <Container name="journal_entries">
       <Key ID="STR_antistasi_journal_entry_header_tutorial_1">
