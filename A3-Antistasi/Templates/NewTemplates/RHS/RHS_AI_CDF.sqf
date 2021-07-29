@@ -318,7 +318,6 @@ _militaryLoadoutData setVariable ["AALaunchers", ["rhs_weap_igla"]];
 _militaryLoadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_black", "rhs_mag_rdg2_white"]];
 _militaryLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_at"]];
 _militaryLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_m67"]]; 
-_militaryLoadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc", "rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]];
 _militaryLoadoutData setVariable ["longRangeRadios", ["rhs_r148"]];	
 
 _militaryLoadoutData setVariable ["rifles", [
@@ -420,7 +419,7 @@ _militiaLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "", ["rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""]
 ]]; 				
 _militiaLoadoutData setVariable ["marksmanrifles", [
-["rhs_weap_m76", "", "", "rhs_acc_pso1m2", ["rhsgref_10Rnd_792x57_m76", "rhsgref_10Rnd_792x57_m76", "rhssaf_10Rnd_792x57_m76_tracer"], [], "rhsusf_acc_harris_swivel"]
+["rhs_weap_m76", "", "", "rhs_acc_pso1m2", ["rhsgref_10Rnd_792x57_m76", "rhsgref_10Rnd_792x57_m76", "rhssaf_10Rnd_792x57_m76_tracer"], [], ""]
 ]]; 			
 _militiaLoadoutData setVariable ["sniperrifles", [
 ["rhs_weap_m38_rail", "", "", "optic_MRCO", [], [], ""]
