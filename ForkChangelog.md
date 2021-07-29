@@ -3,6 +3,7 @@
 ### Additions 
 - Weferlingen support
 - Takistan support
+- Vidda support
 - Rebels vs Invaders gamemode is back (with some fixes and adjustments to make it as same as possible as fighting BLUFOR occupants as usual, but there might be some places in code that wasn't changed, so it is a bit experimental but mostly stable, also it's more hardcore than default game settings)
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Limited Global Mobilization CDLC support (Global Mobilization Extra - Altis Armed Forces, 3CB Factions + GM unit templates)

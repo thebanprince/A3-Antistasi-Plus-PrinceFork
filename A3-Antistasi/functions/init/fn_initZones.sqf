@@ -119,23 +119,43 @@ switch (toLower worldName) do {
 		["DefaultKeyPoint158",100],["DefaultKeyPoint159",110],["DefaultKeyPoint160",500],["DefaultKeyPoint161",80],["DefaultKeyPoint162",80],
 		["DefaultKeyPoint157",70]];
 	};
-	//TODO: NAPF, cherno 2020, Abramia, Panthera, GM configs
+	case "blud_vidda": {
+		{server setVariable [_x select 0,_x select 1]} forEach
+		[["DefaultKeyPoint3",20],["DefaultKeyPoint7",500],["DefaultKeyPoint9",140],["DefaultKeyPoint33",110],["DefaultKeyPoint34",50],["DefaultKeyPoint37",300],
+		["DefaultKeyPoint39",100],["DefaultKeyPoint51",160],["DefaultKeyPoint58",80],
+		["DefaultKeyPoint73",80],["DefaultKeyPoint91",135],["DefaultKeyPoint92",70],["DefaultKeyPoint104",40],["DefaultKeyPoint30", 160]];
+	};
+	//TODO: NAPF, cherno 2020, Abramia, Panthera
 	default { _hardcodedPop = false };
 };
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
 
-private _cityConfigs = if ((toLower worldName) == "panthera3") then {
-	"(getText (_x >> ""type"") in [""NameLocal"", ""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
-	!(getText (_x >> ""Name"") isEqualTo """") &&
-	!((configName _x) in ['idrsko','ladra','cesnjica','koprivnik','goreljek','jereka','ribcevlaz','starfuz','sredvas','bitnje','cezsoca','logmangart','strmec','belca','dovje','kocna','bdobrava','skooma','suzid','sseloo','zirovnica','vrba','obrne','gorje','ribno','lesce','lancovo','selca','kneza','Pikia','baca','sela','podljubinj', 'volce','dolje','bolhowo','ditchwood','rontushospital','ramons','bazovica','villasimona','fortieste','rubinaisland','savagia',""Mork"", ""trenta"", ""Kleinfort"", ""Freckle"", ""dino10"", ""dino11"", ""dino12"", ""dino13"", ""dino3"", ""dino5"", ""dino7""])"
-	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
-} else {
-	"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
-	!(getText (_x >> ""Name"") isEqualTo """") &&
-	!((configName _x) in [""fakeTown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
-	configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+private _cityConfigs = [];
+
+switch (toLower worldName) do {
+	case "blud_vidda": {
+		_cityConfigs = "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+		!(getText (_x >> ""Name"") isEqualTo """") &&
+		!((configName _x) in ['DefaultKeyPoint40','DefaultKeyPoint35', 'DefaultKeyPoint88', 'DefaultKeyPoint100'])"
+		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+		_cityConfigs append [("configName _x == 'DefaultKeyPoint30'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names"))]; //RV-133, big city without city marker
+	};
+
+	case "panthera3": {
+		_cityConfigs = "(getText (_x >> ""type"") in [""NameLocal"", ""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+		!(getText (_x >> ""Name"") isEqualTo """") &&
+		!((configName _x) in ['idrsko','ladra','cesnjica','koprivnik','goreljek','jereka','ribcevlaz','starfuz','sredvas','bitnje','cezsoca','logmangart','strmec','belca','dovje','kocna','bdobrava','skooma','suzid','sseloo','zirovnica','vrba','obrne','gorje','ribno','lesce','lancovo','selca','kneza','Pikia','baca','sela','podljubinj', 'volce','dolje','bolhowo','ditchwood','rontushospital','ramons','bazovica','villasimona','fortieste','rubinaisland','savagia',""Mork"", ""trenta"", ""Kleinfort"", ""Freckle"", ""dino10"", ""dino11"", ""dino12"", ""dino13"", ""dino3"", ""dino5"", ""dino7""])"
+		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+	};
+
+	default {
+		_cityConfigs = "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+		!(getText (_x >> ""Name"") isEqualTo """") &&
+		!((configName _x) in [""fakeTown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
+		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+	};
 };
 
 private _cityColor = if (gameMode == 4) then {colorInvaders} else {colorOccupants};
@@ -318,6 +338,12 @@ switch (toLower worldName) do {
 	case "gm_weferlingen_summer": {
 	    _posAntennas = [[8337.11,233.722,0],[7798.23,19132.5,0],[8059.37,15662.7,0],[1799.43,5669.32,0],[13432.6,4127.66,0],[10545.1,11093.3,0],[11652.1,17667,0],[15161.3,2313.79,0],[1262.66,13047,0.535751],[20095.4,6230.95,0]];
 	    _posBank = [[18483.4,367.726,0],[17150.2,17916.9,0],[3579.12,15120.9,0],[13593.9,16156.6,0],[13918.9,4854.84,0],[8164.3,4322.03,0]];
+		_blackListPos = [];
+	    antennas = [];
+	};
+	case "blud_vidda": {
+	    _posAntennas = [[7091.22,11366.6,0],[2229.25,7307.28,0],[11484.7,10539,0],[6321.78,6405.23,0],[9586.24,8275.53,0]];
+	    _posBank = [];
 		_blackListPos = [];
 	    antennas = [];
 	};
