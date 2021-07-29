@@ -14,6 +14,7 @@
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
+- (3CB Factions) Takistan Army (TKA) faction
 - (3CB Factions + Global Mobilization) Warsaw Pact, NATO factions for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
 - (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization CDLC and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
