@@ -294,12 +294,10 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData setVariable ["uniforms", ["UK3CB_TKP_B_U_CombatUniform_TAN"]];
 _policeLoadoutData setVariable ["vests", ["UK3CB_ANP_B_V_TacVest_BLU", "UK3CB_ANP_B_V_TacVest_Tan", "UK3CB_TKP_B_V_GA_LITE_BLK"]];
 _policeLoadoutData setVariable ["helmets", ["UK3CB_TKP_B_H_Beret", "UK3CB_TKP_B_H_Patrolcap_TAN"]];
-_policeLoadoutData setVariable ["shotguns", [
-["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
-["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
-]];
 _policeLoadoutData setVariable ["SMGs", [
-["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
 _policeLoadoutData setVariable ["sidearms", ["rhs_weap_makarov_pm", "rhs_weap_tt33"]]; 
 
