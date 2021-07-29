@@ -58,7 +58,6 @@
 ["uavsAttack", ["B_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate; 				
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate; 				
 
-
 ["vehiclesMilitiaLightArmed", ["UK3CB_TKA_B_Hilux_Dshkm", "UK3CB_TKA_B_Hilux_Spg9"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["UK3CB_TKA_B_Ural_Open", "UK3CB_TKA_B_Ural"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_TKA_B_Hilux_Closed", "UK3CB_TKA_B_Hilux_Open"]] call _fnc_saveToTemplate;
@@ -73,8 +72,8 @@
 ["staticMortars", ["UK3CB_TKA_B_2b14_82mm"]] call _fnc_saveToTemplate;
 ["staticHowitzers", ["UK3CB_TKA_B_D30"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 
 ["howitzerMagazineHE", "rhs_mag_3of56_10"] call _fnc_saveToTemplate;
 
@@ -278,7 +277,7 @@ _militaryLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_m249", "", "", "", ["rhsusf_100Rnd_556x45_M995_soft_pouch"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["marksmanrifles", [
-["UK3CB_SVD_OLD_NPZ", "", "", "rhsusf_acc_ACOG", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N1", "UK3CB_SVD_10rnd_762x54_RT"], [], ""],
+["UK3CB_SVD_OLD_NPZ", "", "", "rhsusf_acc_ACOG", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N1", "UK3CB_SVD_10rnd_762x54_RT"], [], ""]
 ]];
 _militaryLoadoutData setVariable ["sniperrifles", [
 ["rhs_weap_m40a5", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541", ["rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m62_Mag"], [], ""],
@@ -458,8 +457,6 @@ private _squadLeaderTemplate = {
 	[["SLvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	["backpacks"] call _fnc_setBackpack;
-
 	[selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 	["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
@@ -564,7 +561,6 @@ private _grenadierTemplate = {
 	["helmets"] call _fnc_setHelmet;
 	[["GLvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	["backpacks"] call _fnc_setBackpack;
 
 	["grenadeLaunchers"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
