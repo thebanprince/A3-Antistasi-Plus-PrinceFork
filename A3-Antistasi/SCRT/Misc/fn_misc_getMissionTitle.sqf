@@ -37,6 +37,10 @@ switch (toLower worldName) do {
 	{
 	    _title = localize "STR_antistasi_mission_info_taviana_mapname_text";
 	};
+	case "blud_vidda":
+	{
+	    _title = localize "STR_antistasi_mission_info_vidda_mapname_text";
+	};
 	case "takistan":
 	{
 	    _title = localize "STR_antistasi_mission_info_takistan_mapname_text";
