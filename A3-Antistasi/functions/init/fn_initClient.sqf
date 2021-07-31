@@ -591,5 +591,19 @@ if (magRepack) then {
 
 [] call SCRT_fnc_misc_updateRichPresence;
 
+//adding player as paradrop attendant by default
+[] spawn {
+	private _paradropAttendants = [missionNamespace, "paradropAttendants", nil] call BIS_fnc_getServerVariable;
+
+	while {isNil "_paradropAttendants"} do {
+		sleep 3;
+		_paradropAttendants = [missionNamespace, "paradropAttendants", nil] call BIS_fnc_getServerVariable;
+	};
+
+	private _uid = getPlayerUID player;
+	_paradropAttendants pushBackUnique _uid;
+	[missionNamespace, "paradropAttendants", _paradropAttendants] call BIS_fnc_setServerVariable;
+};
+
 [2,"initClient completed",_fileName] call A3A_fnc_log;
 A3A_customHintEnable = true; // Was false in initVarCommon to allow hints to flow in and overwrite each other.

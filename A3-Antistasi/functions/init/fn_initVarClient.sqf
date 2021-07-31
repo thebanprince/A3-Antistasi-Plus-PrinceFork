@@ -30,6 +30,6 @@ isMenuOpen = false;
 isProjectileCamEnabled = false;
 
 //parachute attendance
-isPlayerParadropable = false;
+isPlayerParadropable = true;
 
 [2,"initVarClient completed",_fileName] call A3A_fnc_log;
