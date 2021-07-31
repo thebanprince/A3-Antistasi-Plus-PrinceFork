@@ -2215,6 +2215,30 @@
         <Czech>Ne tvůj typ lidí.</Czech>
         <Russian>Не твой тип людей.</Russian>
       </Key>
+      <Key ID="STR_antistasi_mission_info_vidda_blurb_text">
+        <Original>The night is bright and full of guerillas.</Original>
+        <English>The night is bright and full of guerillas.</English>
+        <German>Die Nacht ist hell und voller Guerillas.</German>
+        <French>La nuit est lumineuse et pleine de guérillas.</French>
+        <Czech>Noc je jasná a plná partyzánů.</Czech>
+        <Russian>Ночь светла и полна партизан.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vidda_mapname_text">
+        <Original>Antistasi Plus - Nordvakt</Original>
+        <English>Antistasi Plus - Nordvakt</English>
+        <German>Antistasi Plus - Nordvakt</German>
+        <French>Antistasi Plus - Nordvakt</French>
+        <Czech>Antistasi Plus - Nordvakt</Czech>
+        <Russian>Antistasi Plus - Северный Дозор</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vidda_mapname_short_text">
+        <Original>Antistasi Plus - Nordvakt</Original>
+        <English>Antistasi Plus - Nordvakt</English>
+        <German>Antistasi Plus - Nordvakt</German>
+        <French>Antistasi Plus - Nordvakt</French>
+        <Czech>Antistasi Plus - Nordvakt</Czech>
+        <Russian>Antistasi Plus - Северный Дозор</Russian>
+      </Key>
     </Container>
     <Container name="journal_entries">
       <Key ID="STR_antistasi_journal_entry_header_tutorial_1">
