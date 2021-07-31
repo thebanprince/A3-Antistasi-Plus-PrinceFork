@@ -58,7 +58,7 @@ _markerSize = markerSize _marker;
 _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
 
 //TODO: fix garage row "Land_GarageRow_01_large_F"
-_buildings = nearestObjects [getMarkerPos _marker, ["Land_Hangar_2", "Land_i_Shed_Ind_F","land_bunker_garage","Helipad_Base_F", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
+_buildings = nearestObjects [getMarkerPos _marker, ["Land_Hangar_2", "Land_i_Shed_Ind_F","land_bunker_garage","Helipad_Base_F", "Land_BludpadCircle", "Land_Hangar_F", "Land_TentHangar_V1_F", "Land_Airport_01_hangar_F", "Land_Mil_hangar_EP1", "Land_Ss_hangar", "Land_Ss_hangard"], _distance, true];
 
 _hangars = [];
 _helipads = [];
@@ -68,6 +68,7 @@ _garages = [];
   if((getPos _x) inArea _marker) then {
     private _type = typeOf _x;
     switch (true) do {
+      case (_x isKindOf "Land_BludpadCircle");
       case (_x isKindOf "Helipad_Base_F"): {
         _helipads pushBack _x;
       };
@@ -86,7 +87,7 @@ _garages = [];
   _markerX = _x;
   _markerSize = markerSize _x;
   _distance = sqrt ((_markerSize select 0) * (_markerSize select 0) + (_markerSize select 1) * (_markerSize select 1));
-  _buildings = nearestObjects [getMarkerPos _x, ["Helipad_Base_F"], _distance, true];
+  _buildings = nearestObjects [getMarkerPos _x, ["Helipad_Base_F", "Land_BludpadCircle"], _distance, true];
   {
     if((getPos _x) inArea _markerX) then
     {

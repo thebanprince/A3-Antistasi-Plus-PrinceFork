@@ -321,7 +321,7 @@ if (!_busy) then
 	_groupX = createGroup _sideX;
 	_groups pushBack _groupX;
 	_countX = 0;
-	while {_countX < 3} do
+	while {_countX < 4} do
 	{
 		private _veh = objNull;
 		if(_spawnParameter isEqualType []) then
