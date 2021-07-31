@@ -29,6 +29,8 @@
 - Fixed inability to get Destroy Radio Tower task with invaders radio tower
 - Fixed possible out of map bounds helicrash position in Helicrash task
 - Fixed possible out of map bounds Arms Dealer position in Find the Arms Dealer task
+- Fixed inability to repair radio towers with Rebuild Assets commander action
+- Fixed Undefined Variable error when mortar support is called by enemy
 - Artillery Response minor fixes
 - Unflip Vehicle various fixes
 - Rebel training minor fixes (45 level cap, price calculations have been adjusted to new skill cap to prevent excessive price snowballing with each training level past 20)
@@ -53,6 +55,7 @@
 - Lowered paradrop plane height to spawnable distance to give defenders chance to shot down the plane
 - More militia AT troopers for both Occupants and Invaders
 - Deliver Supplies mission will have a couple of enemy squads to make mission less boring
+- Paradrop attendance will be turned on by default
 - Chance to spawn non-cargo truck on enemy resources and factories (fuel/medical/repair trucks)
 - Additional convoy type - fuel convoys
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
@@ -69,7 +72,7 @@
 - (CUP, RHS, 3CB Factions) Fixed launchers duplication arsenal issue
 - (RHS) Arms Dealer Stock changes - added PM, Sa vz. 61, Zastava series rifles, M249 PIP, removed vanilla RPG-7 and some vanilla scopes and attachments, adjusted prices of some items, added some additional magazine types and attachments
 - (3CBF) Arms Dealer Stock changes - all changes from RHS Arms Dealer change plus added all MP5 variants, CZ75 Czechmate, M16A3, FAMAS, M14DMR, M1 Garand, adjusted prices of some items, added some additional magazine types and attachments
-- (Livonia) New factory at the South of the map
+- (Livonia) New factory and milbase
 - (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
 - (Taviana) Additional outpost at the small island on West of Taviana, hangar fix on Sector B, radio tower fix on race track, Novistrana police station support, removal of radio tower on Sector B
 

@@ -145,7 +145,7 @@ _loadoutData setVariable ["radios", ["ItemRadio"]];
 _loadoutData setVariable ["gpses", []];			
 _loadoutData setVariable ["NVGs", ["NVGoggles_OPFOR"]];						
 _loadoutData setVariable ["binoculars", ["Binocular"]];		
-_loadoutData setVariable ["Rangefinder", ["rhs_pdu4"]];
+_loadoutData setVariable ["Rangefinder", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", []];
 _loadoutData setVariable ["vests", []];
@@ -335,7 +335,7 @@ _militiaLoadoutData setVariable ["grenadeLaunchers", [
 ["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""]
 ]];
 _militiaLoadoutData setVariable ["machineGuns", [
-["UK3CB_RPK", "", "", "",["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["UK3CB_RPK", "", "", "",["UK3CB_AK47_45Rnd_Magazine", "UK3CB_AK47_45Rnd_Magazine", "UK3CB_AK47_30Rnd_Magazine_GT"], [], ""],
 ["UK3CB_RPK_74N", "", "", "",["rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["marksmanRifles", [
