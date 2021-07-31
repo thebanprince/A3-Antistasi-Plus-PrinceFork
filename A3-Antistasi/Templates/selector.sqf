@@ -14,7 +14,7 @@ private _filename = "selector.sqf";
 //Map checker
 private _aridMaps = ["altis", "takistan"];
 private _tropicalMaps = ["tanoa"];
-private _temperateMaps = ["panthera3", "enoch", "vt7", "cup_chernarus_a3", "napf", "abramia", "taviana", "gm_weferlingen_summer"];
+private _temperateMaps = ["panthera3", "enoch", "vt7", "cup_chernarus_a3", "napf", "abramia", "taviana", "gm_weferlingen_summer", "blud_vidda"];
 //Mod selector
 
 private _terrainName = toLower worldName;
