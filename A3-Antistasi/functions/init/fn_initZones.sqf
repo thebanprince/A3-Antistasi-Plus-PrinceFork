@@ -123,7 +123,7 @@ switch (toLower worldName) do {
 		{server setVariable [_x select 0,_x select 1]} forEach
 		[["DefaultKeyPoint3",20],["DefaultKeyPoint7",500],["DefaultKeyPoint9",140],["DefaultKeyPoint33",110],["DefaultKeyPoint34",50],["DefaultKeyPoint37",300],
 		["DefaultKeyPoint39",100],["DefaultKeyPoint51",160],["DefaultKeyPoint58",80],
-		["DefaultKeyPoint73",80],["DefaultKeyPoint91",135],["DefaultKeyPoint92",70],["DefaultKeyPoint104",40],["DefaultKeyPoint30", 160]];
+		["DefaultKeyPoint73",80],["DefaultKeyPoint91",135],["DefaultKeyPoint92",70],["DefaultKeyPoint104",40],["DefaultKeyPoint31", 160]];
 	};
 	//TODO: NAPF, cherno 2020, Abramia, Panthera
 	default { _hardcodedPop = false };
@@ -140,7 +140,8 @@ switch (toLower worldName) do {
 		!(getText (_x >> ""Name"") isEqualTo """") &&
 		!((configName _x) in ['DefaultKeyPoint40','DefaultKeyPoint35', 'DefaultKeyPoint88', 'DefaultKeyPoint100'])"
 		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
-		_cityConfigs append [("configName _x == 'DefaultKeyPoint30'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names"))]; //RV-133, big city without city marker
+		private _rv133 = ("configName _x == 'DefaultKeyPoint31'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names")) select 0;
+		_cityConfigs pushBack _rv133; //RV-133, big city without city marker
 	};
 
 	case "panthera3": {
