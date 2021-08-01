@@ -31,6 +31,7 @@
 - Fixed possible out of map bounds Arms Dealer position in Find the Arms Dealer task
 - Fixed inability to repair radio towers with Rebuild Assets commander action
 - Fixed Undefined Variable error when mortar support is called by enemy
+- Fixed fast disappearance of some screen announces
 - Artillery Response minor fixes
 - Unflip Vehicle various fixes
 - Rebel training minor fixes (45 level cap, price calculations have been adjusted to new skill cap to prevent excessive price snowballing with each training level past 20)
