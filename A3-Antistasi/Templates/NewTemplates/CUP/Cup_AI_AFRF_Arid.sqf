@@ -69,7 +69,7 @@
 
 ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["CUP_B_Kord_Gun_Bag", "CUP_O_KORD_high_RU"]] call _fnc_saveToTemplate; 					
+["staticMGs", ["rhs_KORD_high_MSV"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["CUP_O_Kornet_RU"]] call _fnc_saveToTemplate; 					
 ["staticAA", ["CUP_O_Igla_AA_pod_RU"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["CUP_O_D30_ChDKZ"]] call _fnc_saveToTemplate;
