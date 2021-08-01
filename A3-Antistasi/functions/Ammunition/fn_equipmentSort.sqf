@@ -117,6 +117,7 @@ if (A3A_has3CBFactions) then {
 } forEach allBackpacks;
 
 allBackpacksEmpty deleteAt (allBackpacksEmpty find "B_AssaultPack_Kerry");
+allBackpacksEmpty deleteAt (allBackpacksEmpty find "B_CombinationUnitRespirator_01_F");
 
 {
 	switch (true) do {
