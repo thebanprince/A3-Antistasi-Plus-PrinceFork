@@ -2,34 +2,34 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "Syndikat"] call _fnc_saveToTemplate; 						
+["name", "ChDZZ"] call _fnc_saveToTemplate; 						
 
-["flag", "Flag_Syndikat_F"] call _fnc_saveToTemplate; 						
-["flagTexture", "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa"] call _fnc_saveToTemplate; 				
-["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate; 			
+["flag", "Flag_CHD_Green"] call _fnc_saveToTemplate; 						
+["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CHD\Flag\chd_flag_green_co.paa"] call _fnc_saveToTemplate; 				
+["flagMarkerType", "UK3CB_Marker_CHD_GREEN"] call _fnc_saveToTemplate; 			
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate; 			
-["vehicleLightUnarmed", "UK3CB_I_G_LandRover_Open"] call _fnc_saveToTemplate; 		
-["vehicleLightArmed", "UK3CB_I_G_LandRover_M2"] call _fnc_saveToTemplate; 		
-["vehicleTruck", "rhsgref_tla_g_kraz255b1_cargo_open"] call _fnc_saveToTemplate; 			
-["vehicleAT", "UK3CB_I_G_LandRover_SPG9"] call _fnc_saveToTemplate; 		
-["vehicleAA", "UK3CB_I_G_Hilux_Zu23"] call _fnc_saveToTemplate; 		
+["vehicleLightUnarmed", "UK3CB_CHD_I_Hilux_Open"] call _fnc_saveToTemplate; 		
+["vehicleLightArmed", "UK3CB_CHD_I_Hilux_Dshkm"] call _fnc_saveToTemplate; 		
+["vehicleTruck", "UK3CB_CHD_I_Gaz66_Open"] call _fnc_saveToTemplate; 			
+["vehicleAT", "UK3CB_CHD_I_Hilux_Spg9"] call _fnc_saveToTemplate; 		
+["vehicleAA", "UK3CB_CHD_I_Gaz66_ZU23"] call _fnc_saveToTemplate; 		
 
 ["vehicleBoat", "I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate; 	
-["vehicleRepair", "UK3CB_ADG_I_Kamaz_Repair"] call _fnc_saveToTemplate; 			
-["vehicleFuel", "UK3CB_CHC_I_Kamaz_Fuel"] call _fnc_saveToTemplate; 			
+["vehicleRepair", "UK3CB_CHD_I_Gaz66_Repair"] call _fnc_saveToTemplate; 			
+["vehicleFuel", "UK3CB_CHD_I_Kraz255_Fuel"] call _fnc_saveToTemplate; 			
 
-["vehiclePlane", "UK3CB_I_G_Antonov_An2"] call _fnc_saveToTemplate; 		
+["vehiclePlane", "UK3CB_CHD_I_Antonov_AN2"] call _fnc_saveToTemplate; 		
 ["vehiclePayloadPlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
 ["vehicleHeli", "not_supported"] call _fnc_saveToTemplate; 		
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "UK3CB_CHC_C_Kamaz_Open"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "UK3CB_C_Mi8AMT_ADC"] call _fnc_saveToTemplate;
+["vehicleCivTruck", "UK3CB_CHC_C_V3S_Open"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "UK3CB_CHC_C_Mi8AMT"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "UK3CB_CHC_C_Fishing_Boat"] call _fnc_saveToTemplate;
-["vehicleCivLooter", "UK3CB_CHC_C_Ural_Open"] call _fnc_saveToTemplate;
+["vehicleCivLooter", "UK3CB_C_V3S_Open"] call _fnc_saveToTemplate;
 
-["staticMG", "UK3CB_AAF_I_M2_TriPod"] call _fnc_saveToTemplate; 					
+["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate; 					
 ["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate; 					
 ["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate; 					
 ["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate; 				
@@ -37,7 +37,7 @@
 ["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 
 //Static weapon definitions
-["baggedMGs", [["RHS_M2_Gun_Bag","RHS_M2_Tripod_Bag"]]] call _fnc_saveToTemplate; 				
+["baggedMGs", [["RHS_DShkM_Gun_Bag","RHS_DShkM_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
 ["baggedAT", [["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
@@ -70,10 +70,9 @@ private _initialRebelEquipment = [
 "rhsgref_30rnd_1143x23_M1911B_SMG", "rhsgref_30rnd_1143x23_M1T_SMG",
 "rhsgref_5Rnd_762x54_m38",
 "rhs_sidor",
-"rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr24_mag", "rhs_grenade_sthgr43_mag",
 "rhs_grenade_khattabka_vog17_mag", "rhs_grenade_khattabka_vog25_mag",
-"rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
-"rhs_acc_2dpZenit","Binocular","Laserbatteries"];
+"rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr24_mag", "rhs_grenade_sthgr43_mag",
+"rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46","Binocular"];
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "tf_anprc155"};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
@@ -83,13 +82,13 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "I_C_Soldier_Para_1_F"] call _fnc_saveToTemplate;
+["baseSoldier", "UK3CB_CHD_I_RIF_1"] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";
 
 //black market stuff
-shop_UAV = ["rhs_pchela1t_vvs"];
+shop_UAV = [];
 shop_AA = ["UK3CB_CHD_I_MTLB_ZU23", "UK3CB_CHD_I_ZsuTank", "UK3CB_O_2S6M_Tunguska_VPV"];
 shop_MRAP = ["UK3CB_CHD_I_BTR40_MG","UK3CB_CHD_I_BRDM2_HQ", "UK3CB_CHD_I_BRDM2"];
 shop_wheel_apc = ["UK3CB_CHD_I_BTR60", "UK3CB_CHD_I_BTR70", "UK3CB_B_LAV25_HIDF"];

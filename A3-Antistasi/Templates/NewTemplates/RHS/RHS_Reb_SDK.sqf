@@ -93,7 +93,7 @@ shop_AA = ["rhsgref_cdf_zsu234", "rhsgref_cdf_zsu234", "I_LT_01_AA_F"];
 shop_MRAP = ["rhsgref_BRDM2UM_ins_g", "rhsgref_BRDM2_ins_g", "rhsusf_M1117_O"];
 shop_wheel_apc = ["rhsgref_ins_g_btr60", "rhsgref_nat_btr70", "rhs_btr80a_vmf"];
 shop_track_apc = ["rhsgref_hidf_m113a3_m2", "rhsgref_cdf_bmd1k", "rhsgref_cdf_bmp2e"];
-shop_heli = ["rhs_uh1h_hidf_gunship", "I_E_Heli_light_03_dynamicLoadout_F", "RHS_Mi8MTV3_vdv"];
+shop_heli = ["UK3CB_I_G_UH1H_M240_FIA", "UK3CB_I_G_UH1H_GUNSHIP_FIA", "UK3CB_CHD_I_Mi8AMTSh"];
 shop_tank = ["rhsgref_ins_g_t72ba", "rhsgref_ins_g_t72bb", "rhsgref_ins_g_t72bc"];
 shop_plane = ["RHSGREF_A29B_HIDF", "rhs_l39_cdf", "rhs_l159_CDF"];
 

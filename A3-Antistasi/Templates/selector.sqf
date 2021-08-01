@@ -22,18 +22,26 @@ private _terrainName = toLower worldName;
 //Reb Templates
 switch(true) do{
     case (A3A_has3CBFactions): {
-        switch(true) do {
-            case (_terrainName in _tropicalMaps): {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_SDK.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Tropical SDK Template", _filename] call A3A_fnc_log;
-            };
-            case (_terrainName in _temperateMaps): {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Temperate CHDZZ Template", _filename] call A3A_fnc_log;
+        switch(threecbfOccupantFaction) do {
+            case(4): {
+                ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ_CW.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using 3CBF CW Template", _filename] call A3A_fnc_log;
             };
             default {
-                ["Templates\NewTemplates\3CBF\3CBF_Reb_FIA.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
-                [2, "Using Arid FIA Template", _filename] call A3A_fnc_log;
+                switch(true) do {
+                    case (_terrainName in _tropicalMaps): {
+                        ["Templates\NewTemplates\3CBF\3CBF_Reb_SDK.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using Tropical SDK Template", _filename] call A3A_fnc_log;
+                    };
+                    case (_terrainName in _temperateMaps): {
+                        ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using Temperate CHDZZ Template", _filename] call A3A_fnc_log;
+                    };
+                    default {
+                        ["Templates\NewTemplates\3CBF\3CBF_Reb_FIA.sqf", independent] call A3A_fnc_compatabilityLoadFaction;
+                        [2, "Using Arid FIA Template", _filename] call A3A_fnc_log;
+                    };
+                };
             };
         };
     };
