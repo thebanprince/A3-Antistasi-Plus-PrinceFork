@@ -84,8 +84,8 @@ class Params
     class mRadius
     {
         title = "Max distance from HQ for tasks";
-        values[] = {9999,2000,4000,6000,8000,10000,12000};
-        texts[] = {"Default (4000)","2000","4000","6000","8000","10000","12000"};
+        values[] = {9999,2000,3000,4000,6000,8000,10000,12000};
+        texts[] = {"Default (3000)","2000","3000","4000","6000","8000","10000","12000"};
         default = 9999;
     };
     class allowPvP

@@ -28,7 +28,7 @@ A3A_paramTable = [
     ["gameMode", "gameMode", ["locked", "oldsave"], 1],
     ["autoSave", "autoSave", [], true],
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
-    ["distanceMission", "mRadius", [], 4000],
+    ["distanceMission", "mRadius", [], 3000],
     ["skillMult", "AISkill", [], 2],
     ["personalGarageMax", "personalGarageMax", [], 2],
     ["civTraffic", "civTraffic", [], 2],
