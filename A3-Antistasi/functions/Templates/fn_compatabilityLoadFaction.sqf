@@ -254,7 +254,6 @@ if (_side isEqualTo east) then {
 	vehWAMTanks = _faction getVariable "vehiclesMilitiaTanks";
 
 	CSATMG = _faction getVariable "staticMGs" select 0;
-	CSATGMG = _faction getVariable "staticMGs" select 1;
 	staticATInvaders = _faction getVariable "staticAT" select 0;
 	staticAAInvaders = _faction getVariable "staticAA";
 	CSATMortar = _faction getVariable "staticMortars" select 0;

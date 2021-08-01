@@ -51,7 +51,7 @@ else {
         _artilleryShellClass = vehCSATMRLSMags;
     };
 
-    _mgClass = CSATGMG;
+    _mgClass = CSATMG;
     _mgCrewClass = staticCrewInvaders call SCRT_fnc_unit_selectInfantryTier;
 };
 
