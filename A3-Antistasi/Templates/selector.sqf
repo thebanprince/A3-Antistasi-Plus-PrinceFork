@@ -103,6 +103,10 @@ switch(true) do {
         ["Templates\NewTemplates\GM\GMAAF_AI_AAF.sqf", west] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using GM AAF Template", _filename] call A3A_fnc_log;
     };
+    case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
+        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_AI_NATO.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using GM_3CBF NATO Cold War Template", _filename] call A3A_fnc_log;
+    };
     case (A3A_has3CBFactions): {
         switch(threecbfOccupantFaction) do {
             case (0): {
@@ -227,6 +231,10 @@ switch(true) do {
 
 //Inv Templates
 switch(true) do{
+    case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
+        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_AI_PACT.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using GM_3CBF Warsaw Pact Cold War Template", _filename] call A3A_fnc_log;
+    };
     case (A3A_has3CBFactions): {
         switch(threecbfOccupantFaction) do {
             case(4): {
@@ -298,9 +306,21 @@ switch(true) do {
         ["Templates\NewTemplates\GM\GMAAF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using GM AAF Civ template", _filename] call A3A_fnc_log;
     };
+    case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
+        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+        [2, "Using 3CBF CW Civ template", _filename] call A3A_fnc_log;
+    };
     case (A3A_has3CBFactions): {
-        ["Templates\NewTemplates\3CBF\3CBF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
-        [2, "Using 3CB Civ template", _filename] call A3A_fnc_log;
+        switch(threecbfOccupantFaction) do {
+            case(4): {
+                ["Templates\NewTemplates\3CBF\3CBF_CivCW.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using 3CB Civ template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\3CBF\3CBF_Civ.sqf", civilian] call A3A_fnc_compatabilityLoadFaction;
+                [2, "Using 3CB Civ template", _filename] call A3A_fnc_log;
+            };
+        };
     };
     case (A3A_hasCup): {
         switch (true) do {
