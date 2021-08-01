@@ -232,7 +232,7 @@ switch(true) do {
 //Inv Templates
 switch(true) do{
     case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
-        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_AI_PACT.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_AI_PACT.sqf", east] call A3A_fnc_compatabilityLoadFaction;
         [2, "Using GM_3CBF Warsaw Pact Cold War Template", _filename] call A3A_fnc_log;
     };
     case (A3A_has3CBFactions): {
