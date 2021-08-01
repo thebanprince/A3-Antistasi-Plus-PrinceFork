@@ -71,7 +71,7 @@
 
 ["vehiclesPolice", ["rhs_uaz_open_vv", "rhs_uaz_vv"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["rhs_KORD_high_MSV","rhs_KORD_high_MSV"]] call _fnc_saveToTemplate; 					
+["staticMGs", ["rhs_KORD_high_MSV"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate; 					
 ["staticAA", ["rhs_Igla_AA_pod_msv", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["rhs_2b14_82mm_msv"]] call _fnc_saveToTemplate;
@@ -123,7 +123,6 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanRifles", []];
 _loadoutData setVariable ["sniperRifles", []];
 _loadoutData setVariable ["lightATLaunchers", []];
-_loadoutData setVariable ["ATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
 _loadoutData setVariable ["heavyATLaunchers", []];
 _loadoutData setVariable ["AALaunchers", ["rhs_weap_igla"]];
 _loadoutData setVariable ["sidearms", [
@@ -369,7 +368,8 @@ _militiaLoadoutData setVariable ["SLvests", ["rhs_6sh92_digi_headset", "rhs_6sh9
 _militiaLoadoutData setVariable ["GLvests", ["rhs_6sh92_digi_vog", "rhs_6sh92_digi_vog_headset"]];
 _militiaLoadoutData setVariable ["backpacks", ["rhs_sidor"]];
 _militiaLoadoutData setVariable ["helmets", ["rhs_fieldcap_digi", "rhs_beanie_green"]];
-_militiaLoadoutData setVariable ["lightATLaunchers", [
+_militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
+_militiaLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_OG7V_mag"], [], ""]
 ]];
@@ -689,7 +689,7 @@ private _latTemplate = {
 	["rifles"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["ATLaunchers", "lightATLaunchers"]] call _fnc_setLauncher;
+	["lightATLaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 
@@ -719,7 +719,7 @@ private _atTemplate = {
 	["rifles"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["lightATLaunchers", "heavyATLaunchers"]] call _fnc_setLauncher;
+	["heavyATLaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 

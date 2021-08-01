@@ -71,7 +71,7 @@
 
 ["vehiclesPolice", ["UK3CB_CPD_O_Lada", "UK3CB_CPD_O_GAZ_Vodnik", "UK3CB_CPD_O_Gaz24", "UK3CB_CPD_O_UAZ_Closed", "UK3CB_CPD_O_S1203"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["UK3CB_CW_SOV_O_Late_DSHKM","UK3CB_CW_SOV_O_Late_DSHKM"]] call _fnc_saveToTemplate; 					
+["staticMGs", ["UK3CB_CW_SOV_O_Late_DSHKM"]] call _fnc_saveToTemplate; 					
 ["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate; 					
 ["staticAA", ["UK3CB_CW_SOV_O_Late_Igla_AA_pod", "UK3CB_CW_SOV_O_Late_ZU23"]] call _fnc_saveToTemplate; 					
 ["staticMortars", ["UK3CB_CW_SOV_O_Late_2b14_82mm"]] call _fnc_saveToTemplate;
@@ -123,7 +123,6 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanRifles", []];
 _loadoutData setVariable ["sniperRifles", []];
 _loadoutData setVariable ["lightATLaunchers", []];
-_loadoutData setVariable ["ATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
 _loadoutData setVariable ["heavyATLaunchers", []];
 _loadoutData setVariable ["AALaunchers", ["rhs_weap_igla"]];
 _loadoutData setVariable ["sidearms", []];
@@ -149,6 +148,7 @@ _loadoutData setVariable ["Rangefinder", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", []];
 _loadoutData setVariable ["vests", []];
+_loadoutData setVariable ["ATvests", []];	
 _loadoutData setVariable ["SLvests", []];
 _loadoutData setVariable ["MGvests", []];	
 _loadoutData setVariable ["Medvests", []];
@@ -195,11 +195,7 @@ _sfLoadoutData setVariable ["vests", ["rhs_lifchik", "rhs_lifchik_light", "rhs_6
 _sfLoadoutData setVariable ["SLvests", ["rhs_lifchik_NCO", "rhs_6b5_officer_spetsodezhda"]];
 _sfLoadoutData setVariable ["backpacks", ["B_Carryall_oli", "rhs_sidor"]];
 _sfLoadoutData setVariable ["helmets", ["rhs_beanie_green", "rhs_altyn_novisor", "rhs_altyn_visordown", "rhs_gssh18"]];				
-_sfLoadoutData setVariable ["lightATLaunchers", [
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VR_mag", "rhs_rpg7_PG7VR_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag", "rhs_rpg7_TBG7V_mag"], [], ""]
-]];
+_sfLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
 _sfLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VR_mag", "rhs_rpg7_PG7VR_mag"], [], ""],
@@ -243,12 +239,12 @@ _sfLoadoutData setVariable ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
 _militaryLoadoutData setVariable ["uniforms", ["rhs_uniform_afghanka_ttsko", "rhs_uniform_afghanka_winter_ttsko"]];
-_militaryLoadoutData setVariable ["vests", [
-"rhs_6b3", "rhs_6b3_AK"]];
+_militaryLoadoutData setVariable ["vests", ["rhs_6b3", "rhs_6b3_AK"]];
+_militaryLoadoutData setVariable ["ATvests", ["rhs_6b3_AK"]];
 _militaryLoadoutData setVariable ["MGvests", ["rhs_6b3_RPK"]];	
 _militaryLoadoutData setVariable ["SLvests", ["rhs_6b3_off", "rhs_6b23_digi_6sh92_headset"]];
 _militaryLoadoutData setVariable ["GLvests", ["rhs_6b3_VOG", "rhs_6b3_VOG_2"]];
-_militaryLoadoutData setVariable ["backpacks", ["rhs_rd54_vest", "rhs_sidor"]];
+_militaryLoadoutData setVariable ["backpacks", ["rhs_rd54", "rhs_rd54_vest", "rhs_sidor"]];
 _militaryLoadoutData setVariable ["helmets", [
 "rhs_stsh81_butan", "rhs_ssh68_2", "rhs_fieldcap_m88_ttsko", "rhs_fieldcap_m88_ttsko_back"
 ]];
@@ -307,6 +303,7 @@ _militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_afghanka_boots", "rhs
 _militiaLoadoutData setVariable ["vests", ["rhs_6b2_AK", "rhs_6b2_lifchik", "rhs_belt_AK", "rhs_lifchik_light", "rhs_suspender_AK"]];	
 _militiaLoadoutData setVariable ["MGvests", ["rhs_6b2_RPK", "rhs_belt_RPK"]];		
 _militiaLoadoutData setVariable ["SLvests", ["rhs_6b2_holster", "rhs_lifchik_NCO"]];
+_militiaLoadoutData setVariable ["ATvests", ["rhs_6b2_lifchik"]];
 _militiaLoadoutData setVariable ["backpacks", ["rhs_rd54"]];
 _militiaLoadoutData setVariable ["helmets", ["rhs_ssh68_2", "rhs_ssh60", "rhs_fieldcap_m88", "rhs_fieldcap_m88_back", "rhs_ushanka", "rhs_pilotka"]];
 _militiaLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_6b2"]];
@@ -621,14 +618,14 @@ private _engineerTemplate = {
 
 private _latTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	["vests"] call _fnc_setVest;
+	[["ATvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 	[["Atbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["rifles"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["ATLaunchers", "lightATLaunchers"]] call _fnc_setLauncher;
+	["lightATLaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 
@@ -651,14 +648,14 @@ private _latTemplate = {
 
 private _atTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	["vests"] call _fnc_setVest;
+	[["ATvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 	[["Atbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
 	["rifles"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["lightATLaunchers", "heavyATLaunchers"]] call _fnc_setLauncher;
+	["heavyATLaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 

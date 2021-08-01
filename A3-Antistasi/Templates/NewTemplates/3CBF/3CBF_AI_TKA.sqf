@@ -116,6 +116,8 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanrifles", []];
 _loadoutData setVariable ["sniperrifles", []];
 _loadoutData setVariable ["AALaunchers", []];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["lightATLaunchers", []];
 _loadoutData setVariable ["sidearms", []];
 _loadoutData setVariable ["ATMines", ["rhs_mine_M19_mag"]];
 _loadoutData setVariable ["APMines", ["rhsusf_mine_m14_mag"]]; 

@@ -119,6 +119,8 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanrifles", []];
 _loadoutData setVariable ["sniperrifles", []];
 _loadoutData setVariable ["AALaunchers", []];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["lightATLaunchers", []];
 _loadoutData setVariable ["sidearms", []];
 _loadoutData setVariable ["GLsidearms", []];
 _loadoutData setVariable ["ATMines", ["rhs_mine_M19_mag"]];
@@ -428,7 +430,7 @@ _militiaLoadoutData setVariable ["sidearms", ["rhs_weap_makarov_pm"]];
 _militiaLoadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgd5", "rhssaf_mag_br_m75", "rhssaf_mag_br_m84"]];
 _militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg75"]];
 _militiaLoadoutData setVariable ["ATLaunchers", [
-["rhs_weap_rpg7", "", "", "", ["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""]
+["rhs_weap_rpg7", "", "", "", ["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VM_mag"], [], ""]
 ]];
 
 

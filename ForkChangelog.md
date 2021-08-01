@@ -1,4 +1,5 @@
 # Changelog
+
 ## 1.7
 ### Additions 
 - Weferlingen support
@@ -15,7 +16,7 @@
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
-- (3CB Factions + Global Mobilization) Warsaw Pact, NATO factions for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
+- (3CB Factions + Global Mobilization) Warsaw Pact (USSR + East Germany), NATO factions (US + West Germany) for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
 - (3CB Factions) Takistan Army (TKA) faction
 - (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization CDLC and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
@@ -59,11 +60,14 @@
 - Paradrop attendance will be turned on by default
 - Chance to spawn non-cargo truck on enemy resources and factories (fuel/medical/repair trucks)
 - Additional convoy type - fuel convoys
+- Changed max distance from HQ for tasks to 3000 by default
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
+- (RHS, CUP) Fixed bags instead of statics on some outposts in some cases (only CDF and AFRF were affected)
 - (RHS, Aegis, 3CB Factions, CUP) Rear Echelon/Militia engineers and medics may use shotguns
 - (RHS) turretless BRDM-2 logistic nodes (allows to mount cargo, ZU-23 and other statics on top of them)
 - (RHS) KRAZ, UAZ cargo support
 - (RHS, 3CB Factions) Removed T-15 from AFRF templates
+- (RHS, 3CB Factions) Fixed misconfiguration that led to less launchers on enemy troops
 - (3CB Factions) HIL faction lineup changes - RBS-70 instead of static Stinger, M240 on tripod instead of M2
 - (3CB Factions) MT-LB logistic nodes (allows to mount ZU-23 on top of them)
 - (3CB Factions) SPG-9 instead of Kornet in all templates
@@ -83,7 +87,8 @@
 - Removed ability to recruit mortar units at garrison (mortar still can be bought in vehicle menu at flag and then occupied by AI rebel)
 - Removed hidden Minimum Players for PVP parameter
 - Removed all DLC parameters since they seem to confuse people since they're affecting loot boxes loot pool and civilians only and does not work in modded environment at all, all DLCs will be enabled for vanilla except Karts, Art of War and Laws of War since they have no real gameplay value
-- Towns will not flip on it's faction defeat (never worked properly)
+- Towns will no longer flip on it's faction defeat (never worked properly)
+- (Vanilla) Removed possibility of spawning OPFOR GMG on some outpost buildings
 - (RHS, 3CB Factions) Removed M1 Garand from initial rebel weapons to give other starting weapons enough room to breathe
 
 ## 1.6

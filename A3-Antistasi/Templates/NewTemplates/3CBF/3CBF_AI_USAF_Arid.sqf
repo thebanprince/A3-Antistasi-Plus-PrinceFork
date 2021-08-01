@@ -124,6 +124,8 @@ _loadoutData setVariable ["sniperrifles", []];
 _loadoutData setVariable ["AALaunchers", [ 				
 "rhs_weap_fim92"
 ]];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["lightATLaunchers", []];
 _loadoutData setVariable ["sidearms", []];
 _loadoutData setVariable ["GLsidearms", []];
 _loadoutData setVariable ["ATMines", ["rhs_mine_M19_mag"]]; 					
