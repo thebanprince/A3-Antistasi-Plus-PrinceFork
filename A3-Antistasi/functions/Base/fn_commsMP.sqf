@@ -112,7 +112,7 @@ switch (_typeX) do {
 
 		if (!isSupportAnnounced) then {
 			private _outposts = {sidesX getVariable [_x,sideUnknown] == teamPlayer} count outposts;
-			// if(_outposts > 4 && {player == theBoss}) then {
+			if(_outposts > 4 && {player == theBoss}) then {
 				_additionalText = _additionalText + format ["<br/><br/><t size='0.6'>Non-offensive support actions are available (Commander Menu).</t>"];
 				isSupportAnnounced = true;
 				publicVariable "isPowPaycheckAnnounced";
@@ -131,5 +131,4 @@ switch (_typeX) do {
 
 		[_textX, [safeZoneX + (0.65 * safeZoneW), (0.2 * safeZoneW)], 0.65, 8, 0, 0, 359] spawn BIS_fnc_dynamicText;
 		playSound "3DEN_notificationDefault";
-	};
 };
