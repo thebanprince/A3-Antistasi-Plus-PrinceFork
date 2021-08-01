@@ -123,6 +123,8 @@ _loadoutData setVariable ["machineGuns", []];
 _loadoutData setVariable ["marksmanrifles", []];
 _loadoutData setVariable ["sniperrifles", []];
 _loadoutData setVariable ["AALaunchers", ["rhs_weap_fim92"]];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["lightATLaunchers", []];
 _loadoutData setVariable ["sidearms", []];
 _loadoutData setVariable ["GLsidearms", []];
 _loadoutData setVariable ["ATMines", ["rhs_mine_M19_mag"]]; 					
@@ -813,7 +815,7 @@ private _latTemplate = {
 	["carbines"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	[selectRandom ["ATLaunchers", "lightATLaunchers"]] call _fnc_setLauncher;
+	["lightATLaunchers"] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 	["launcher", 2] call _fnc_addAdditionalMuzzleMagazines;
