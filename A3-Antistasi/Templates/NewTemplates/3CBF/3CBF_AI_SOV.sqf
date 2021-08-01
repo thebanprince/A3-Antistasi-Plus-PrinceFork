@@ -156,7 +156,7 @@ _loadoutData setVariable ["GLvests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["Medbackpacks", ["rhs_medic_bag"]];
 _loadoutData setVariable ["Atbackpacks", []];
-_loadoutData setVariable ["AAbackpacks", ["B_Carryall_oli"]];
+_loadoutData setVariable ["AAbackpacks", ["rhs_rpg_empty"]];
 _loadoutData setVariable ["longRangeRadios", ["rhs_r148"]];
 _loadoutData setVariable ["helmets", []];
 

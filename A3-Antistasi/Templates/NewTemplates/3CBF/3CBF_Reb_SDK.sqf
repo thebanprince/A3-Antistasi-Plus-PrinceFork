@@ -66,10 +66,11 @@ private _initialRebelEquipment = [
 "rhs_weap_panzerfaust60",
 "UK3CB_Sten_34Rnd_Magazine","UK3CB_Sten_34Rnd_Magazine_RT", "UK3CB_Enfield_10rnd_Mag", "UK3CB_Enfield_10rnd_Mag_RT",
 "rhs_mag_6x8mm_mhp","rhs_mag_762x25_8","rhsgref_1Rnd_00Buck","rhsgref_1Rnd_Slug","rhsgref_5Rnd_792x57_kar98k",
-"rhsgref_mag_rkg3em", "rhs_grenade_nbhgr39_mag",
+"rhsgref_mag_rkg3em",
 "rhsgref_30rnd_1143x23_M1911B_SMG", "rhsgref_30rnd_1143x23_M1T_SMG",
 "rhsgref_5Rnd_762x54_m38",
 "rhs_sidor",
+"rhs_grenade_nbhgr39_mag", "rhs_grenade_sthgr24_mag", "rhs_grenade_sthgr43_mag",
 "rhs_grenade_khattabka_vog17_mag", "rhs_grenade_khattabka_vog25_mag",
 "rhs_vest_pistol_holster","rhs_vest_commander","rhs_6sh46",
 "rhs_acc_2dpZenit","Binocular","Laserbatteries"];
