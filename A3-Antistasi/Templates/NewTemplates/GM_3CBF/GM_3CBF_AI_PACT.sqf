@@ -309,7 +309,7 @@ _militiaLoadoutData setVariable ["uniforms", ["gm_gc_army_uniform_soldier_80_str
 _militiaLoadoutData setVariable ["vests", ["rhs_6b2_lifchik", "gm_gc_army_vest_80_rifleman_str", "gm_ge_army_vest_80_rifleman", "gm_gc_vest_combatvest3_str"]];
 _militiaLoadoutData setVariable ["ATvests", ["rhs_6b2_lifchik"]];	
 _militiaLoadoutData setVariable ["backpacks", ["gm_gc_army_backpack_80_assaultpack_empty_str", "gm_gc_army_backpack_80_assaultpack_lmg_str"]];
-_militiaLoadoutData setVariable ["helmets", ["rhsgref_M56", "rhs_ssh60", "rhs_fieldcap_m88", "rhs_fieldcap_m88_back", "rhs_ushanka", "rhs_pilotka"]];
+_militiaLoadoutData setVariable ["helmets", ["rhsgref_M56", "gm_gc_headgear_beret_str"]];
 _militiaLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_6b2"]];
 _militiaLoadoutData setVariable ["longRangeRadios", ["gm_gc_backpack_r105m_brn"]];
 _militiaLoadoutData setVariable ["heavyATLaunchers", [
