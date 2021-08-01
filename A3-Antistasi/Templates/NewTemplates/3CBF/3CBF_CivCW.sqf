@@ -13,7 +13,7 @@
 	,"UK3CB_TKC_C_Datsun_Civ_Open", 1.0			// cargo capable
 	,"UK3CB_TKC_C_Hatchback", 0.5
 	,"UK3CB_TKC_C_Hilux_Civ_Closed", 0.5
-	,"UK3CB_TKC_C_Hilux_Civ_Open", 0.5			// cargo capable
+	,"UK3CB_TKC_C_Hilux_Civ_Open", 1.0			// cargo capable
 	,"UK3CB_TKC_C_Lada", 0.5
 	,"UK3CB_TKC_C_Lada_Taxi", 0.5
 	,"UK3CB_TKC_C_LR_Closed", 0.5		// land rovers
@@ -21,14 +21,10 @@
 	,"UK3CB_TKC_C_Sedan", 0.5
 	,"UK3CB_TKC_C_Skoda", 0.5
 	,"UK3CB_TKC_C_S1203", 0.5
-	,"UK3CB_TKC_C_SUV", 0.3
 	,"UK3CB_CHC_C_Pickup", 0.5
 	,"UK3CB_TKC_C_UAZ_Closed", 0.5
 	,"UK3CB_TKC_C_UAZ_Open", 0.5
-	,"UK3CB_TKC_C_Gaz24", 0.5
-	,"UK3CB_CHC_C_Octavia", 0.5
-	, "UK3CB_CHC_C_Landcruiser", 0.5
-	,"UK3CB_TKC_C_Golf", 0.5]] call _fnc_saveToTemplate; 			//this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
+	,"UK3CB_TKC_C_Gaz24", 0.5]] call _fnc_saveToTemplate; 			//this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivIndustrial", ["UK3CB_TKC_C_Tractor", 0.2
 	,"UK3CB_TKC_C_Tractor_Old", 0.2
