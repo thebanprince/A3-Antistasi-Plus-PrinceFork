@@ -8,7 +8,7 @@ private _allPlayers = (call BIS_fnc_listPlayers) select {side _x == teamPlayer};
 private _player = selectRandom _allPlayers;
 private _originPosition = position _player;
 
-private _spawnPosition = [_originPosition, 700, distanceSPWN, 0, 0, 1] call BIS_fnc_findSafePos;
+private _spawnPosition = [_originPosition, 900, distanceSPWN, 0, 0] call BIS_fnc_findSafePos;
 private _road = objNull;
 private _radiusX = 5;
 
