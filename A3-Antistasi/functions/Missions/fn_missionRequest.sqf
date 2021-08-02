@@ -6,7 +6,7 @@ waitUntil {isNil "A3A_missionRequestInProgress"};
 A3A_missionRequestInProgress = true;
 
 if(isNil "_type") then {
-	private _types = ["CON","DES","LOG","SUPP","RES","CONVOY"];
+	private _types = ["AS","CON","DES","LOG","SUPP","RES","CONVOY"];
 	_type = selectRandom (_types - A3A_activeTasks);
 	_silent = true;
 };
@@ -73,7 +73,7 @@ switch (_type) do {
 				case ((random 100) < 15): {
 					[[_site],"A3A_fnc_AS_Ambush"] remoteExec ["A3A_fnc_scheduler",2];
 				};
-				case (count _policeCities > 0 && {(random 100) < 20}): {
+				case (count _policeCities > 0 && {(random 100) < 25}): {
 					_policeCity = selectRandom _policeCities;
 					[[_policeCity],"A3A_fnc_AS_Collaborationist"] remoteExec ["A3A_fnc_scheduler",2];
 				};
