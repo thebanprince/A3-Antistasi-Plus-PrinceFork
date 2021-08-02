@@ -49,10 +49,10 @@
 	"rhs_mag_mine_ptm1",
 	"SLAMDirectionalMine_Wire_Mag",
 	"rhssaf_mine_tma4_mag",
-	"rhs_mine_TM43_mag",
-	"rhs_mine_M7A2_mag"
+	"rhs_mine_TM43_mag"
 ]] call _fnc_saveToTemplate;
 ["mineAPERS", [
+	"rhs_mine_M7A2_mag",
 	"APERSMine_Range_Mag",
 	"rhs_mine_pmn2_mag",
 	"APERSBoundingMine_Range_Mag",

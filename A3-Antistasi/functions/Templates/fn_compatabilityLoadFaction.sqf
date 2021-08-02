@@ -584,8 +584,8 @@ if (_side isEqualTo independent) then {
 	supportStaticsSDKB2 = _faction getVariable "baggedMGs" select 0 select 1;
 	supportStaticsSDKB3 = _faction getVariable "baggedMortars" select 0 select 1;
 
-	ATMineMag = _faction getVariable "mineAT";
-	APERSMineMag = _faction getVariable "mineAPERS";
+	ATMineMags = _faction getVariable "mineAT";
+	APERSMineMags = _faction getVariable "mineAPERS";
 
 	breachingExplosivesAPC = _faction getVariable "breachingExplosivesAPC";
 	breachingExplosivesTank = _faction getVariable "breachingExplosivesTank";
