@@ -150,6 +150,7 @@ class SCRT
         class common_moveOutpostStatic {};
         class common_hcTransfer {};
         class common_paradropVehicle {};
+        class common_toggleCoverBeforeRevive {};
     };
 
     class Garrison

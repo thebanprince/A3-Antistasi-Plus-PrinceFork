@@ -550,11 +550,11 @@ class aiManagement: SimpleMenuBigger
 		class l2Button: SimpleButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_auto_heal_title;
+			text = $STR_antistasi_dialogs_ai_healing_options_title;
 			x = 0.257187 * safezoneW + safezoneX;
 			y = 0.388 * safezoneH + safezoneY;
 			tooltip = $STR_antistasi_dialogs_auto_heal_tooltip;
-			action = "if (autoHeal) then {autoHeal = false; [""AI Auto Heal"", ""Auto Healing disabled""] call A3A_fnc_customHint;} else {autoHeal = true; [""AI Auto Heal"", ""Auto Heal enabled""] call A3A_fnc_customHint; nul = [] spawn A3A_fnc_autoHealFnc}";
+			action = "closeDialog 0; createDialog 'aiOptionsMenu';";
 		};
 
 		class l3Button: SimpleButton
@@ -1703,6 +1703,51 @@ class rebelLoadoutMenu: SimpleMenuMedium
 			w = 0.0103125 * safezoneW;
 			h = 0.022 * safezoneH;
 			action = "'loadouts_rebel_militia_staticCrew' call SCRT_fnc_arsenal_clearLoadout;";
+		};
+	};
+};
+
+
+class aiOptionsMenu: SimpleMenuSmall
+{
+	idd=-1;
+
+	class Controls
+	{
+		class title: SimpleTitle
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_ai_healing_options_title;
+		};
+
+		class closeButton: RscCloseButton
+		{
+			idc = -1;
+			x = 0.674 * safezoneW + safezoneX;
+			y = 0.223941 * safezoneH + safezoneY;
+			w = 0.02 * safezoneW;
+			h = 0.02 * safezoneH;
+			action = "closeDialog 0; createDialog 'aiManagement';";
+		};
+
+		class autoHealButton: SimpleButton
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_auto_heal_title;
+			x = 0.257187 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
+			tooltip = $STR_antistasi_dialogs_auto_heal_tooltip;
+			action = "if (autoHeal) then {autoHeal = false; [""AI Auto Heal"", ""Auto Healing disabled""] call A3A_fnc_customHint;} else {autoHeal = true; [""AI Auto Heal"", ""Auto Heal enabled""] call A3A_fnc_customHint; nul = [] spawn A3A_fnc_autoHealFnc}";
+		};
+		
+		class coverBeforeReviveButton: SimpleButton
+		{
+			idc = -1;
+			text = $STR_antistasi_dialogs_cover_before_revive_title;
+			tooltip = $STR_antistasi_dialogs_cover_before_revive_tooltip;
+			x = 0.477 * safezoneW + safezoneX;
+			y = 0.304 * safezoneH + safezoneY;
+			action = "[] call SCRT_fnc_common_toggleCoverBeforeRevive";
 		};
 	};
 };

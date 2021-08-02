@@ -19,6 +19,9 @@ incomeRep = false;
 //Should AI automatically heal teammates. Each client has their own copy of this.
 autoHeal = false;	
 
+//Should AI carry wounded player before revive. Each client has their own copy of this.
+coverBeforeRevive = true;
+
 //Are players know about that IDAP pays for released prisoners
 isPowPaycheckAnnounced = false;
 

@@ -782,6 +782,14 @@
       </Key>
     </Container>
     <Container name="simple_menu_commander_menu">
+    <Key ID="STR_antistasi_dialogs_ai_healing_options_title">
+        <Original>Healing Options</Original>
+        <English>Healing Options</English>
+        <French>Options de guérison</French>
+        <Russian>Опции лечения</Russian>
+        <German>Heilungsoptionen</German>
+        <Czech>Možnosti uzdravení</Czech>
+      </Key>
       <Key ID="STR_antistasi_dialogs_auto_heal_title">
         <Original>Auto Heal</Original>
         <English>Auto Heal</English>
@@ -797,6 +805,22 @@
         <Russian>ИИ-солдаты будут лечить друг друга.</Russian>
         <German>KI-Truppkollegen heilen sich proaktiv gegenseitig.</German>
         <Czech>Spoluhráči týmu AI se budou vzájemně proaktivně léčit.</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_cover_before_revive_title">
+        <Original>Cover Before Revive</Original>
+        <English>Cover Before Revive</English>
+        <French>Couvrir avant de relancer</French>
+        <Russian>Укрытие перед лечением</Russian>
+        <German>Vor dem Wiederbeleben abdecken</German>
+        <Czech>Obálka před oživením</Czech>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_cover_before_revive_tooltip">
+        <Original>Toggles AI squad mates ability to take your body to cover before starting attempts to healing. If option is turned off, AI will try to heal you in place.</Original>
+        <English>Toggles AI squad mates ability to take your body to cover before starting attempts to healing. If option is turned off, AI will try to heal you in place.</English>
+        <French>Active ou désactive la capacité des coéquipiers de l'IA à mettre votre corps à couvert avant de commencer les tentatives de guérison. Si l'option est désactivée, l'IA essaiera de vous soigner sur place.</French>
+        <Russian>Переключает способность ИИ-солдат укрывать ваше тело перед попыткой исцеления. Если опция выключена, ИИ попытается вылечить вас сразу на месте.</Russian>
+        <German>Schaltet die Fähigkeit der KI-Truppkameraden um, Ihren Körper in Deckung zu bringen, bevor Sie Heilungsversuche starten. Wenn die Option deaktiviert ist, versucht die KI, Sie an Ort und Stelle zu heilen.</German>
+        <Czech>Přepíná schopnost spoluhráčů AI, aby se vaše tělo přikrylo před zahájením pokusů o uzdravení. Pokud je možnost vypnutá, AI se vás pokusí uzdravit na místě.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_units_title">
         <Original>Garrison Units / Squads</Original>
