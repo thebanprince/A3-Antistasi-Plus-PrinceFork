@@ -42,7 +42,7 @@
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
-["mineAT", [
+["mineAT", [	
 	"ATMine_Range_Mag",
 	"rhs_mine_tm62m_mag",
 	"rhs_mine_M19_mag",
@@ -69,7 +69,7 @@
 	"rhssaf_mine_mrud_c_mag",
 	"rhssaf_mine_mrud_d_mag",
 	"rhs_mine_smine35_press_mag",
-	"rhs_mine_smine44_press_mag"
+	"rhs_mine_smine44_press_mag",
 	"rhs_mine_stockmine43_2m_mag",
 	"rhs_mine_stockmine43_4m_mag",
 	"rhs_mine_M3_tripwire_mag",
@@ -87,6 +87,7 @@
 	"rhs_mine_smine35_trip_mag",
 	"rhs_mine_smine44_trip_mag"
 ]] call _fnc_saveToTemplate;
+
 
 ["breachingExplosivesAPC", [["rhs_ec75_mag", 2], ["rhs_ec75_sand_mag", 2], ["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1], ["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["rhs_ec75_mag", 4], ["rhs_ec75_sand_mag", 4], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1],["DemoCharge_Remote_Mag", 2], ["rhsusf_m112_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1], ["SatchelCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;

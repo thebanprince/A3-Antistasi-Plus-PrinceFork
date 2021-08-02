@@ -42,7 +42,7 @@
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
-["mineAT", [
+["mineAT", [	
 	"ATMine_Range_Mag",
 	"rhs_mine_tm62m_mag",
 	"rhs_mine_M19_mag",
@@ -69,7 +69,7 @@
 	"rhssaf_mine_mrud_c_mag",
 	"rhssaf_mine_mrud_d_mag",
 	"rhs_mine_smine35_press_mag",
-	"rhs_mine_smine44_press_mag"
+	"rhs_mine_smine44_press_mag",
 	"rhs_mine_stockmine43_2m_mag",
 	"rhs_mine_stockmine43_4m_mag",
 	"rhs_mine_M3_tripwire_mag",
