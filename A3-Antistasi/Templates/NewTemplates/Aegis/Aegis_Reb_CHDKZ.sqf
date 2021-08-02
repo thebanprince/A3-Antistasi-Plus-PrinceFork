@@ -42,8 +42,8 @@
 ["baggedAA", [["I_AA_01_weapon_F","I_G_HMG_02_support_F"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["I_Mortar_01_weapon_F","I_Mortar_01_support_F"]]] call _fnc_saveToTemplate; 			
 
-["mineAT", "ATMine_Range_Mag"] call _fnc_saveToTemplate;
-["mineAPERS", "APERSMine_Range_Mag"] call _fnc_saveToTemplate;
+["mineAT", ["ATMine_Range_Mag", "SLAMDirectionalMine_Wire_Mag"]] call _fnc_saveToTemplate;
+["mineAPERS", ["APERSMine_Range_Mag", "APERSBoundingMine_Range_Mag", "APERSTripMine_Wire_Mag","ClaymoreDirectionalMine_Remote_Mag"]] call _fnc_saveToTemplate;
 
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;

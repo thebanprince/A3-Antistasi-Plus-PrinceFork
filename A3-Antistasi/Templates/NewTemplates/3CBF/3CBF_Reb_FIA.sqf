@@ -42,8 +42,51 @@
 ["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
 ["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
 
-["mineAT", "rhs_mag_mine_ptm1"] call _fnc_saveToTemplate;
-["mineAPERS", "rhs_mine_ozm72_b_mag"] call _fnc_saveToTemplate;
+["mineAT", [
+	"ATMine_Range_Mag",
+	"rhs_mine_tm62m_mag",
+	"rhs_mine_M19_mag",
+	"rhs_mag_mine_ptm1",
+	"SLAMDirectionalMine_Wire_Mag",
+	"rhssaf_mine_tma4_mag",
+	"rhs_mine_TM43_mag",
+	"rhs_mine_M7A2_mag"
+]] call _fnc_saveToTemplate;
+["mineAPERS", [
+	"APERSMine_Range_Mag",
+	"rhs_mine_pmn2_mag",
+	"APERSBoundingMine_Range_Mag",
+	"rhs_mag_mine_pfm1",
+	"rhsusf_mine_m14_mag",
+	"ClaymoreDirectionalMine_Remote_Mag",
+	"APERSTripMine_Wire_Mag",
+	"rhssaf_tm100_mag",
+	"rhssaf_tm200_mag",
+	"rhssaf_tm500_mag",
+	"rhssaf_mine_pma3_mag",
+	"rhssaf_mine_mrud_a_mag",
+	"rhssaf_mine_mrud_b_mag",
+	"rhssaf_mine_mrud_c_mag",
+	"rhssaf_mine_mrud_d_mag",
+	"rhs_mine_smine35_press_mag",
+	"rhs_mine_smine44_press_mag"
+	"rhs_mine_stockmine43_2m_mag",
+	"rhs_mine_stockmine43_4m_mag",
+	"rhs_mine_M3_tripwire_mag",
+	"rhs_mine_Mk2_tripwire_mag",
+	"rhs_mine_mk2_pressure_mag",
+	"rhs_mine_m3_pressure_mag",
+	"rhs_mine_glasmine43_hz_mag",
+	"rhs_mine_glasmine43_bz_mag",
+	"rhs_mine_m2a3b_press_mag",
+	"rhs_mine_m2a3b_trip_mag",
+	"rhs_mine_a200_bz_mag",
+	"rhs_mine_a200_dz35_mag",
+	"rhs_mine_m2a3b_press_mag",
+	"rhs_mine_m2a3b_trip_mag",
+	"rhs_mine_smine35_trip_mag",
+	"rhs_mine_smine44_trip_mag"
+]] call _fnc_saveToTemplate;
 
 ["breachingExplosivesAPC", [["rhs_ec75_mag", 2], ["rhs_ec75_sand_mag", 2], ["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1], ["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["rhs_ec75_mag", 4], ["rhs_ec75_sand_mag", 4], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1],["DemoCharge_Remote_Mag", 2], ["rhsusf_m112_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1], ["SatchelCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
