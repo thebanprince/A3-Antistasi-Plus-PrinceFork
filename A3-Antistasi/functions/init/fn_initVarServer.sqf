@@ -45,7 +45,6 @@ DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, 3000);
 
-
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
 
@@ -413,7 +412,6 @@ private _templateVariables = [
 	"NATOMortar",
 	"NATOHowitzer",
 	"NATOAARadar",
-	"NATOAACiws",
 	"NATOAASam",
 	"NATOmortarMagazineHE",
 	"NATOHowitzerMagazineHE",
@@ -496,7 +494,6 @@ private _templateVariables = [
 	"CSATMortar",
 	"CSATHowitzer",
 	"CSATAARadar",
-	"CSATAACiws",
 	"CSATAASam",
 	"CSATmortarMagazineHE",
 	"CSATHowitzerMagazineHE",
@@ -798,7 +795,7 @@ DECLARE_SERVER_VAR(vehTransportAir, _vehTransportAir);
 private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_Tropical_RM","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
 DECLARE_SERVER_VAR(vehFastRope, _vehFastRope);
 
-private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOHowitzer,NATOAARadar,NATOAACiws,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATMortar, CSATHowitzer, CSATAARadar, CSATAACiws, CSATAASam];
+private _vehUnlimited = vehNATONormal + vehCSATNormal + [vehNATORBoat,vehNATOPatrolHeli,vehCSATRBoat,vehCSATPatrolHeli,vehNATOUAV,vehNATOUAVSmall,NATOMG,NATOMortar,NATOHowitzer,NATOAARadar,NATOAASam,vehCSATUAV,vehCSATUAVSmall,CSATMG, CSATMortar, CSATHowitzer, CSATAARadar, CSATAASam];
 DECLARE_SERVER_VAR(vehUnlimited, _vehUnlimited);
 
 private _vehFIA = [vehSDKBike,vehSDKAT,vehSDKLightArmed,SDKMGStatic,vehSDKLightUnarmed,vehSDKTruck,vehSDKBoat,SDKMortar,staticATteamPlayer,staticAAteamPlayer,vehSDKRepair,vehSDKFuel,vehSDKPlane,vehSDKPayloadPlane];

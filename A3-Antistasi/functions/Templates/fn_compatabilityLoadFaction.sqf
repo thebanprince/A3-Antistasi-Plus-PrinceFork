@@ -272,7 +272,6 @@ if (_side isEqualTo east) then {
 
 	CSATAARadar = _faction getVariable "vehiclesSam" select 0;
 	CSATAASam = _faction getVariable "vehiclesSam" select 1;
-	CSATAACiws = _faction getVariable "vehiclesSam" select 2;
 };
 
 if (_side isEqualTo west) then {
@@ -512,7 +511,6 @@ if (_side isEqualTo west) then {
 
 	NATOAARadar = _faction getVariable "vehiclesSam" select 0;
 	NATOAASam = _faction getVariable "vehiclesSam" select 1;
-	NATOAACiws = _faction getVariable "vehiclesSam" select 2;
 };
 
 if (_side isEqualTo independent) then {
