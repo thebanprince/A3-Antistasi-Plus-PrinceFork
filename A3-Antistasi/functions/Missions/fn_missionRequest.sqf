@@ -92,7 +92,7 @@ switch (_type) do {
 
 	case "CON": {
 		//find apropriate sites
-		_possibleMarkers = [outposts + resourcesX + (controlsX select {isOnRoad (getMarkerPos _x)})] call _findIfNearAndHostile;
+		_possibleMarkers = [outposts + resourcesX + controlsX] call _findIfNearAndHostile;
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
@@ -101,7 +101,15 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-			[[_site],"A3A_fnc_CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
+
+			switch(true) do {
+				case (_site in controlsX && {!(isOnRoad (getMarkerPos _site))}): {
+					[[_site],"A3A_fnc_CON_Hideout"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+				default {
+					[[_site],"A3A_fnc_CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
+				};
+			};
 		};
 	};
 
@@ -268,10 +276,19 @@ switch (_type) do {
 					[[_site],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2];
 				};
 			} else {
-				if (_site in citiesX) then {
-					[[_site],"A3A_fnc_RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2]
-				} else {
-					[[_site],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]
+				
+				switch (true) do {
+					case (_site in citiesX && {sunOrMoon < 1}): {
+						[[_site],"A3A_fnc_RES_Informer"] remoteExec ["A3A_fnc_scheduler",2];
+					};
+
+					case (_site in citiesX): {
+						[[_site],"A3A_fnc_RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2];
+					};
+
+					default {
+						[[_site],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]
+					};
 				};
 			};
 		};

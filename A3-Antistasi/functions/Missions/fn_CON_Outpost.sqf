@@ -1,9 +1,7 @@
 //Mission: Conquer the outpost
 if (!isServer and hasInterface) exitWith{};
 
-private ["_markerX"];
-
-_markerX = _this select 0;
+params ["_markerX"];
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
 _leave = false;

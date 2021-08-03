@@ -9,6 +9,7 @@
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Limited Global Mobilization CDLC support as complement content pack for 3CB Factions and Global Mobilization Extra - Altis Armed Forces
 - (3CB Factions, 3CB Factions + Global Mobilization) Cold War Mode - Authentic US/NATO and Soviet/Warsaw Pact unit rosters with equipment and vehicles up until first half of 90s, exclusion of equipment that does not fit Cold War time period from all sources (enemies, loot crates and Arms Dealer store) with few exceptions. To enable Cold War Mode select US Army Cold War faction in 3CB Factions's "Select Occupant Faction" parameter OR load 3CB Factions with all it's dependencies + Global Mobilization CDLC
+- Two new mission types - Seize Deserters Hideout and Rescue Rebel Informer
 - Persistent Constructions Removal action (new button in Constructions submenu)
 - Buildable Mortar and HMG Emplacements
 - Ability to move and save static weapon position and direction in AA/AT/Mortar/HMG Emplacements
