@@ -286,6 +286,18 @@ if (A3A_hasCup) then {
 	];
 };
 
+flaresPool = if (A3A_hasCup) then { 
+	["CUP_F_40mm_Star_White", "CUP_F_40mm_Star_Red"] 
+} else { 
+	if (A3A_hasRhs) then {
+		["rhsusf_40mm_white", "rhsusf_40mm_green", "rhs_mag_m662_red"]
+	} else {
+		["F_40mm_white", "F_40mm_Red", "F_40mm_Yellow"]
+	};
+};
+
+flareSounds = ["A3\Sounds_F\weapons\Flare_Gun\flaregun_1.wss", "A3\Sounds_F\weapons\Flare_Gun\flaregun_2.wss"];
+
 medicAnims = ["AinvPknlMstpSnonWnonDnon_medic_1","AinvPknlMstpSnonWnonDnon_medic0","AinvPknlMstpSnonWnonDnon_medic1","AinvPknlMstpSnonWnonDnon_medic2"];
 
 radioSoundsIn = ["a3\dubbing_radio_f\sfx\in2a.ogg", "a3\dubbing_radio_f\sfx\in2b.ogg", "a3\dubbing_radio_f\sfx\in2c.ogg"];
