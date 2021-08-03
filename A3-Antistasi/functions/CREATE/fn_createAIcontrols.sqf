@@ -311,19 +311,5 @@ if (_conquered) then
 				sidesX setVariable [_markerX,Invaders,true];
 				};
 			};
-		}
-	else
-		{
-		/*
-		if ((!_isControl) and (_winner == teamPlayer)) then
-			{
-			_size = [_markerX] call A3A_fnc_sizeMarker;
-			for "_i" from 1 to 60 do
-				{
-				_mineX = createMine ["APERSMine",_positionX,[],_size];
-				if (_loser == Occupants) then {Occupants revealMine _mineX} else {Invaders revealMine _mineX};
-				};
-			};
-		*/
 		};
 	};

@@ -15,7 +15,7 @@ private _timeLimit = 90 * settingsTimeMultiplier;
 private _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 private _dateLimitNum = dateToNumber _dateLimit;
 private _taskId = "outpostTask" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,["We are sending a team to establish a HMG emplacement. Use HC to send the team to their destination","Post \ HMG Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,["We are sending a team to establish a HMG emplacement. Use HC to send the team to their destination","HMG Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _formatX = [];
