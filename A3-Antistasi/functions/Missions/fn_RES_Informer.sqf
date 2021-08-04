@@ -202,7 +202,7 @@ _informer playMoveNow "ApanPknlMstpSnonWnonDnon_G01";
 //Tasks
 ////////////
 private _text = format [
-    "%1 forces sweeps %2 in search of our civilian informer with some very valuable data. He's hiding in one of the city's buildings. We have to get him out of there or he will be killed and our intel source will be exposed. Bring him to our %3 HQ. Do this before %4.", _sideTitle, _destinationName, nameTeamPlayer, _displayTime];
+    "%1 forces sweeps %2 in search of our civilian informer with some very valuable data. He's hiding in one of the city's buildings. We have to get him out of there or he will be killed and our intel source will be exposed. He will shoot flare in the sky when we will be close to him. Bring him to our %3 HQ. Do this before %4.", _sideTitle, _destinationName, nameTeamPlayer, _displayTime];
 private _taskId = "RES" + str A3A_taskCount;
 
 [
@@ -217,7 +217,7 @@ private _taskId = "RES" + str A3A_taskCount;
     false,
     0,
     true,
-    "whiteboard",
+    "danger",
     true
 ] call BIS_fnc_taskCreate;
 [_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
@@ -290,24 +290,33 @@ waitUntil {
     _players findIf {_x distance2D _informer < 40} != -1 || {!alive _informer || {dateToNumber date > _dateLimitNum}}
 };
 
+private _informerMarker = nil;
+
 if (alive _informer) then {
     _informer allowDamage true;
-    [_informer,false] remoteExec ["setCaptive",0,_informer]; //will be turned off when players are close
+    [_informer,false] remoteExec ["setCaptive",0,_informer];
     
-    private _flarePosition = _informer getPos [random 25,random 360];
-    _flarePosition set [2,150];
+    private _flarePosition = _informer getPos [random 10,random 360];
+    _flarePosition set [2,200];
     _flareModel = selectRandom flaresPool;
 
     private _flare = _flareModel createVehicle _flarePosition;
     _flare setVelocity [-10 + random 20 , -10 + random 20, -5];
 
     playSound3D [(selectRandom flareSounds), _informer, false,  getPosASL _informer, 1.5, 1, 450, 0];
+
+    _informerMarker = createMarker ["InformerLocationMarker", (position _informer)];
+    _informerMarker setMarkerType "hd_objective";
+    _informerMarker setMarkerSize [1, 1];
+    _informerMarker setMarkerText "Informer Location";
+    _informerMarker setMarkerColor "colorCivilian";
+    _informerMarker setMarkerAlpha 1;
 };
 
 {
     private _wp = _x addWaypoint [_informer, 25];
     _wp setWaypointType "MOVE";
-    _wp setWaypointSpeed "FULL";
+    _wp setWaypointSpeed "NORMAL";
     _wp setWaypointBehaviour "AWARE";
 } forEach _groups;
 
@@ -360,6 +369,10 @@ switch(true) do {
 };
 
 deleteMarkerLocal _mrk;
+
+if (!isNil "_informerMarker") then {
+    deleteMarker _informerMarker;
+};
 
 {[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
 {[_x] spawn A3A_fnc_groupDespawner} forEach _groups;
