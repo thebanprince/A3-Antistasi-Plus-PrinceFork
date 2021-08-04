@@ -407,7 +407,6 @@ class A3A
         class AS_Traitor {};
         class attackHQ {};
         class CON_Outpost {};
-        class CON_Hideout {};
         class convoy {};
         class DES_Antenna {};
         class DES_Heli {};

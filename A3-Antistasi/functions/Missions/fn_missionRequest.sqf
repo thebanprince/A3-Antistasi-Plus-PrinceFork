@@ -92,8 +92,8 @@ switch (_type) do {
 
 	case "CON": {
 		//find apropriate sites
-		_possibleMarkers = [outposts + resourcesX + controlsX] call _findIfNearAndHostile;
-
+		_possibleMarkers = [outposts + resourcesX + (controlsX select {isOnRoad (getMarkerPos _x)})] call _findIfNearAndHostile;
+		
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
 				[petros,"globalChat","I have no Conquest missions for you. Move our HQ closer to the enemy."] remoteExec ["A3A_fnc_commsMP",_requester];
@@ -101,15 +101,7 @@ switch (_type) do {
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
-
-			switch(true) do {
-				case (_site in controlsX && {!(isOnRoad (getMarkerPos _site))}): {
-					[[_site],"A3A_fnc_CON_Hideout"] remoteExec ["A3A_fnc_scheduler",2];
-				};
-				default {
-					[[_site],"A3A_fnc_CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
-				};
-			};
+			[[_site],"A3A_fnc_CON_Outpost"] remoteExec ["A3A_fnc_scheduler",2];
 		};
 	};
 
