@@ -315,7 +315,6 @@ private _templateVariables = [
 	"civTruck",
 	"civHeli",
 	"civBoat",
-	"civLooter",
 	"SDKMGStatic",
 	"staticATTeamPlayer",
 	"staticAATeamPlayer",
@@ -863,7 +862,6 @@ server setVariable [civCar,350,true];
 server setVariable [civTruck,700,true];
 server setVariable [civHeli, 5000,true];
 server setVariable [civBoat,200,true];
-server setVariable [civLooter,1500,true];
 server setVariable [vehSDKBike, 100, true];
 server setVariable [vehSDKLightUnarmed,200,true];
 server setVariable [vehSDKTruck,300,true];

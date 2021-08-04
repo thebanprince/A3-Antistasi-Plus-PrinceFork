@@ -19,15 +19,18 @@ private _waypointCount = 0;
 private _size = 100;
 
 if (_isCity) then {
-    _spawnPointCount = round (random [5,6,8]);
-    _coverCount = round (random [5,7,8]);
-    _waypointCount = round (random [5,7,8]);
-    _population = 20;
-} else {
     _spawnPointCount = round (random [3,4,6]);
     _coverCount = round (random [2,4,6]);
     _waypointCount = round (random [3,4,6]);
-    _population = 10;
+    _population = civPedestrians * 2;
+    if (_population > 30) then {
+        _population = 30;
+    };
+} else {
+    _spawnPointCount = round (random [2,3,4]);
+    _coverCount = round (random [2,3,4]);
+    _waypointCount = round (random [2,3,4]);
+    _population = civPedestrians;
 };
 
 private _marker1 = createMarkerLocal [format ["%1civilian1", _marker], _position];

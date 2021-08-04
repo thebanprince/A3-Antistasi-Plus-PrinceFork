@@ -76,9 +76,4 @@ private _fillCombo = {
 
 [_shopLookupArray, _vehicleComboBox] call _fillCombo;
 
-if (_vehicleType == "CIV") then {
-    _vehicleComboBox lbAdd "Loot Truck";
-    _vehicleComboBox lbSetData [count _shopLookupArray, civLooter];
-};
-
 _vehicleComboBox lbSetCurSel 0;

@@ -126,8 +126,15 @@ class Params
     class civTraffic
     {
         title = "Rate of Civ Traffic";
-        values[] = {9999,0,1,2,4,};
+        values[] = {9999,0,1,2,4};
         texts[] = {"Load From Save (Default - Medium)","None","Low","Medium","High"};
+        default = 9999;
+    };
+    class civPedestrians 
+    {
+        title = "Maximum Civilian Pedestrians";
+        values[] = {9999,3,5,10,15,20,,25,30};
+        texts[] = {"Load From Save (Default - 10)","3","5","10","15","20","25","30"};
         default = 9999;
     };
     class allowMembersFactionGarageAccess

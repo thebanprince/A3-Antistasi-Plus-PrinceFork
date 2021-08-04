@@ -27,7 +27,6 @@
 ["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleCivHeli", "C_Heli_Light_01_civil_F"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
-["vehicleCivLooter", "C_Truck_02_covered_F"] call _fnc_saveToTemplate;
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate; 					
 ["staticAT", "CUP_I_SPG9_NAPA"] call _fnc_saveToTemplate; 					

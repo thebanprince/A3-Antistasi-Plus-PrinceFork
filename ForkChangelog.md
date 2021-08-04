@@ -17,6 +17,7 @@
 - High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow him to use it as HC squad
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
+- Maximum Civilian Pedestrians parameter - how many pedestrians might be simultaneously in the city (allows to tune performance of Civilian Presence modules on weak PCs)
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
 - (3CB Factions + Global Mobilization) Warsaw Pact (USSR + East Germany), NATO factions (US + West Germany) for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
 - (3CB Factions) Takistan Army (TKA) faction
@@ -66,6 +67,7 @@
 - Additional convoy type - fuel convoys
 - Changed max distance from HQ for tasks to 3000 by default
 - Returned assassinate mission types to forced mission request function
+- Reduced number of waypoints, coverpoints and escape points for Civilian Presence Modules (might lead to better performance on some PCs)
 - Changed restorable parameter title from "Default" to "Load From Save (Default)" to reduce confusion amongst the players
 - (Defeat Factions parameter) Only rebels may defeat faction for good, so Occupants and Invaders can't knockout each other anymore
 - (RHS, CUP) Fixed bags instead of statics on some outposts in some cases (only CDF and AFRF were affected)
@@ -94,6 +96,7 @@
 - Removed possibility of intel spawn in high military towers 
 - Removed ability to recruit mortar units at garrison (mortar still can be bought in vehicle menu at flag and then occupied by AI rebel)
 - Removed hidden Minimum Players for PVP parameter
+- Removed Loot Truck
 - Removed all DLC parameters since they seem to confuse people since they're affecting loot boxes loot pool and civilians only and does not work in modded environment at all, all DLCs will be enabled for vanilla except Karts, Art of War and Laws of War since they have no real gameplay value
 - Towns will no longer flip on it's faction defeat (never worked properly)
 - (Vanilla) Removed possibility of spawning OPFOR GMG on some outpost buildings

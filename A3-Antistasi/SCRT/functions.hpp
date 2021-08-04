@@ -30,7 +30,6 @@ class SCRT
 	class Loot 
     {
 		file = "SCRT\Loot";
-        class loot_addLooterCapability {};
         class loot_gatherLoot {};
         class loot_addActionLoot {};
         class loot_removeActionLoot {};

@@ -574,7 +574,6 @@ if (_side isEqualTo independent) then {
 	civTruck = _faction getVariable "vehicleCivTruck";
 	civHeli = _faction getVariable "vehicleCivHeli";
 	civBoat = _faction getVariable "vehicleCivBoat";
-	civLooter = _faction getVariable "vehicleCivLooter";
 
 	MGStaticSDKB = _faction getVariable "baggedMGs" select 0 select 0;
 	ATStaticSDKB = _faction getVariable "baggedAT" select 0 select 0;
