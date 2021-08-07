@@ -98,7 +98,7 @@
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;			
 ["vehiclesAPCs", ["rhs_btr70_msv","rhs_btr80_msv", "rhs_btr80a_msv", "rhs_bmp3m_msv", "rhs_btr80_vdv", "rhs_bmp2d_msv", "rhs_bmp2k_msv","rhs_bmp3mera_msv", "rhs_bmd4_vdv", "rhs_bmd4m_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["rhs_t72bb_tv", "rhs_t72be_tv", "rhs_t80bv", "rhs_t80um", "rhs_t90a_tv", "rhs_t90sab_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate; 			
-["vehiclesAA", ["UK3CB_O_2S6M_Tunguska_VPV"	]] call _fnc_saveToTemplate; 				
+["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate; 				
 ["vehiclesLightAPCs", ["rhs_bmd4ma_vdv", "rhs_bmd4m_vdv", "rhs_bmd4_vdv", "rhs_bmd2m", "rhs_bmd2"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 

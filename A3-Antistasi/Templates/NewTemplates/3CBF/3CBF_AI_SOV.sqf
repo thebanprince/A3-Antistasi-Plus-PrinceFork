@@ -98,7 +98,7 @@
 ["vehiclesMedical", ["UK3CB_CW_SOV_O_LATE_Gaz66_Med"]] call _fnc_saveToTemplate;			
 ["vehiclesAPCs", ["UK3CB_CW_SOV_O_EARLY_MTLB_ZU23","UK3CB_CW_SOV_O_LATE_MTLB_PKT", "UK3CB_CW_SOV_O_LATE_BTR80a", "UK3CB_CW_SOV_O_LATE_BTR80", "UK3CB_CW_SOV_O_LATE_BTR70", "UK3CB_CW_SOV_O_LATE_BTR60", "UK3CB_CW_SOV_O_LATE_BMP2", "UK3CB_CW_SOV_O_LATE_BMP1", "UK3CB_CW_SOV_O_LATE_BMD1PK", "UK3CB_CW_SOV_O_LATE_BMD1P", "UK3CB_CW_SOV_O_LATE_BMD1"]] call _fnc_saveToTemplate; 				
 ["vehiclesTanks", ["UK3CB_CW_SOV_O_LATE_T55", "UK3CB_CW_SOV_O_LATE_T72A", "UK3CB_CW_SOV_O_LATE_T72B", "UK3CB_CW_SOV_O_LATE_T72BM", "UK3CB_CW_SOV_O_LATE_T80", "UK3CB_CW_SOV_O_LATE_T80A", "UK3CB_CW_SOV_O_LATE_T80B", "UK3CB_CW_SOV_O_LATE_T80BK", "UK3CB_CW_SOV_O_LATE_T80BVK", "UK3CB_CW_SOV_O_LATE_T80UK", "UK3CB_CW_SOV_O_LATE_T80U"]] call _fnc_saveToTemplate; 			
-["vehiclesAA", ["UK3CB_CW_SOV_O_EARLY_2S6_Tunguska", "UK3CB_CW_SOV_O_EARLY_ZsuTank", "UK3CB_CW_SOV_O_LATE_2S6M_Tunguska"]] call _fnc_saveToTemplate; 				
+["vehiclesAA", ["UK3CB_CW_SOV_O_LATE_ZsuTank"]] call _fnc_saveToTemplate; 				
 ["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_LATE_BMD1", "UK3CB_CW_SOV_O_LATE_BMD1PK", "UK3CB_CW_SOV_O_LATE_BMD2"]] call _fnc_saveToTemplate;			
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;				
 
