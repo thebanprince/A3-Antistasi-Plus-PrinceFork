@@ -30,11 +30,11 @@ switch(_vehicleType) do {
             _shopLookupArray pushBack SDKMortar;
         };
 
-        if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count resourcesX > 2) then {
+        if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count resourcesX > 4) then {
             _shopLookupArray pushBack vehSDKFuel;
         };
 
-        if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count factories > 2) then {
+        if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count factories > 4) then {
             _shopLookupArray pushBack vehSDKRepair;
         };
 

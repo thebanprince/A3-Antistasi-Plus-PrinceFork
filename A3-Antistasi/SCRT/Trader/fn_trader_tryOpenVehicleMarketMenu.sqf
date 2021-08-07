@@ -1,10 +1,10 @@
 private _message = nil;
 private _outposts = if (count seaports > 0) then {
-    { sidesX getVariable [_x, sideUnknown] == teamPlayer } count seaports;
     _message = "Rebels need to control at least one seaport to access the black market.";
+    { sidesX getVariable [_x, sideUnknown] == teamPlayer } count seaports
 } else {
-    { sidesX getVariable [_x, sideUnknown] == teamPlayer } count resourcesX; //some maps may not have any seaports, so this will allow to use vehicle black market on such maps
     _message = "Rebels need to control at least one resource to access the black market.";
+    { sidesX getVariable [_x, sideUnknown] == teamPlayer } count resourcesX //some maps may not have any seaports, so this will allow to use vehicle black market on such maps
 };
 
 if(_outposts < 1) exitWith {

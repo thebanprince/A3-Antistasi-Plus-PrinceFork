@@ -136,10 +136,9 @@ private _taskId = "CONVOY" + str A3A_taskCount;
 
 [2, format ["%1 convoy mission created from %2 to %3", _convoyType, _mrkOrigin, _mrkDest], _filename, true] call A3A_fnc_log;
 
-
 // *********** Convoy vehicle spawning ***********************
 
-private _route = [_posOrigin, _posDest] call A3A_fnc_findPath;
+private _route = [(getMarkerPos _mrkOrigin), (getMarkerPos _mrkDest)] call A3A_fnc_findPath;
 
 private _markers = [];
 if (_visible) then {
@@ -160,6 +159,8 @@ if (_visible) then {
 
 _route = _route apply { _x select 0 };			// reduce to position array
 if (_route isEqualTo []) then { _route = [_posOrigin, _posDest] };
+
+// *********** Convoy vehicle spawning ***********************
 
 private _vehPool = [_sideX, ["Air"]] call A3A_fnc_getVehiclePoolForQRFs;
 private _pathState = [];			// Set the scope so that state is preserved between findPosOnRoute calls

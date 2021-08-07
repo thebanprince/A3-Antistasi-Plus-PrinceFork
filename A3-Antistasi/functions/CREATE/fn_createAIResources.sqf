@@ -213,21 +213,12 @@ if (not(_markerX in destroyedSites)) then
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
-	_typeVehX = if (_sideX == Occupants) then
-	{
-		private _types = if (!_isFIA) then {vehNATOTrucks + vehNATOCargoTrucks} else {vehFIATrucks};
-		private _nonCargoTypes = [vehNATOFuelTruck, vehNATORepairTruck, vehNATOMedical];
-		_types = _types select { _x in vehCargoTrucks };
-		if (!_isFIA) then {(_types + _nonCargoTypes)} else { _types };
-	}
-	else
-	{
-		private _types = if (!_isFIA) then {vehCSATTrucks + vehCSATCargoTrucks} else {vehWAMTrucks};
-		private _nonCargoTypes = [vehCSATFuelTruck, vehCSATRepairTruck, vehCSATMedical];
-		_types = _types select { _x in vehCargoTrucks };
-		if (!_isFIA) then {(_types + _nonCargoTypes)} else { _types };
+	_typeVehX = if (_sideX == Occupants) then {
+		if (!_isFIA) then {(vehNATOTrucks + vehNATOCargoTrucks + [vehNATOFuelTruck, vehNATORepairTruck, vehNATOMedical])} else {vehFIATrucks};
+	} else {
+		if (!_isFIA) then {(vehCSATTrucks + vehCSATCargoTrucks + [vehCSATFuelTruck, vehCSATRepairTruck, vehCSATMedical])} else {vehWAMTrucks};
 	};
-	_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
+	_veh = createVehicle [(selectRandom _typeVehX), (_spawnParameter select 0), [], 0, "NONE"];
 	_veh setDir (_spawnParameter select 1);
 	_vehiclesX pushBack _veh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;

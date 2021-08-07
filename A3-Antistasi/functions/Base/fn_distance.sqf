@@ -47,8 +47,11 @@ private _processOccupantMarker = {
             // PvP disabled: or somebody blufor is Player and is inside distanceSPWN2
             // or this marker is forced spawn than exit (marker still ENABLED)
             if (_teamplayer inAreaArray [_position, distanceSPWN, distanceSPWN] isNotEqualTo []
-                || { _invaders inAreaArray [_position, distanceSPWN2, distanceSPWN2] isNotEqualTo []
-                || { _marker in forcedSpawn } }) exitWith {};
+            || { _invaders inAreaArray [_position, distanceSPWN2, distanceSPWN2] isNotEqualTo []
+            || { (_occupants select {isPlayer _x}) inAreaArray [_position, distanceSPWN2, distanceSPWN2] isNotEqualTo []
+            || { _marker in forcedSpawn }
+            }}) exitWith {};
+
 
             // DISABLE this marker
             spawner setVariable [_marker, DISABLED, true];
@@ -225,6 +228,11 @@ private _processFIAMarker = {
             switch (true)
             do
             {
+                case !(_marker in controlsX):
+                {
+                    [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
+                };
+
                 case (_marker in watchpostsFIA): {
                     [[_marker],"SCRT_fnc_outpost_createWatchpostDistance"] call A3A_fnc_scheduler;
                 };
@@ -243,29 +251,27 @@ private _processFIAMarker = {
                 case (_marker in hmgpostsFIA): {
                     [[_marker],"SCRT_fnc_outpost_createHmgDistance"] call A3A_fnc_scheduler;
                 };
-
-                case !(_marker in controlsX):
-                {
-                    [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
-                };
             };
         };
     };
 };
 
 private _processInvaderMarker = {
-
     switch (spawner getVariable _marker)
     do
     {
         case ENABLED:
         {
             // if somebody green is inside distanceSPWN
+            // or somebody opfor is player and inside distanceSPWN2
             // or somebody blufor is inside distanceSPWN2
             // or marker is forced spawn then exit (marker still ENABLED)
-            if (_teamplayer inAreaArray [_position, distanceSPWN, distanceSPWN] isNotEqualTo []
+            if (
+                _teamplayer inAreaArray [_position, distanceSPWN, distanceSPWN] isNotEqualTo []
                 || { _occupants inAreaArray [_position, distanceSPWN2, distanceSPWN2] isNotEqualTo []
-                || { _marker in forcedSpawn } }) exitWith {};
+                || { (_invaders select {isPlayer _x}) inAreaArray [_position, distanceSPWN2, distanceSPWN2] isNotEqualTo []
+                || { _marker in forcedSpawn }
+                }}) exitWith {};
 
             // DISABLE this marker
             spawner setVariable [_marker, DISABLED, true];
@@ -324,6 +330,11 @@ private _processInvaderMarker = {
             switch (true)
             do
             {
+                case (gameMode == 4 && {_marker in citiesX}):
+                {
+                    [[_marker], "A3A_fnc_createAICities"] call A3A_fnc_scheduler;
+                };
+
                 case (_marker in controlsX):
                 {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
@@ -392,7 +403,6 @@ private _processCityCivMarker = {
         };
     };
 };
-
 
 /* -------------------------------------------------------------------------- */
 /*                                    start                                   */

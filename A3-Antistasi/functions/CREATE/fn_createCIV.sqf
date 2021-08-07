@@ -5,7 +5,7 @@ private _fileName = "fn_createCIV.sqf";
 private ["_markerX","_dataX","_numCiv","_numVeh","_prestigeOPFOR","_prestigeBLUFOR","_groups","_vehiclesX","_civsPatrol","_groupsPatrol","_vehPatrol","_typeCiv","_typeVehX","_dirVeh","_groupX","_size","_road","_typeVehX","_dirVeh","_area","_civ","_veh","_roadcon","_pos","_p1","_p2","_mrkMar","_burst","_groupP","_wp","_wp1"];
 
 _markerX = _this select 0;
-private _spawnKey = _markerX + "_civ";				// civ part of cities has a separate spawn state from the garrison
+private _spawnKey = _markerX + "_civ"; // civ part of cities has a separate spawn state from the garrison
 
 if (_markerX in destroyedSites) exitWith {};
 
@@ -169,7 +169,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 	};
 };
 
-waitUntil {sleep 1; (spawner getVariable _spawnKey == 2)};
+waitUntil {sleep 1;(spawner getVariable _spawnKey == 2)};
 
 
 {deleteGroup _x} forEach _groups;
