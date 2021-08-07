@@ -67,13 +67,6 @@ class Params
         texts[] = {"Load From Save (Default - Yes)","Yes","No"};
         default = 9999;
     };
-    class switchComm
-    {
-        title = "Enable Commander Switch (highest ranked player)";
-        values[] = {9999,1,0};
-        texts[] = {"Load From Save (Default - Yes)","Yes","No"};
-        default = 9999;
-    };
     class tkPunish
     {
         title = "Enable Teamkill Punish";
@@ -130,25 +123,11 @@ class Params
         texts[] = {"Load From Save (Default - Medium)","None","Low","Medium","High"};
         default = 9999;
     };
-    class civPedestrians 
+    class civPedestrians
     {
         title = "Maximum Civilian Pedestrians";
-        values[] = {9999,3,5,10,15,20,,25,30};
+        values[] = {9999,3,5,10,15,20,25,30};
         texts[] = {"Load From Save (Default - 10)","3","5","10","15","20","25","30"};
-        default = 9999;
-    };
-    class allowMembersFactionGarageAccess
-    {
-        title = "Allow members to access the faction garage";
-        values[] = {9999,1,0};
-        texts[] = {"Load From Save (Default - Yes)","Yes","No"};
-        default = 9999;
-    };
-    class personalGarageMax
-    {
-        title = "Max personal garage slots";
-        values[] = {9999,0,2,5,10};
-        texts[] = {"Load From Save (Default - 2)","Unlimited","2","5","10"};
         default = 9999;
     };
     class allowFT

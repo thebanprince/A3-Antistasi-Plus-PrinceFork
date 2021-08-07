@@ -5,6 +5,7 @@
 - Weferlingen support
 - Takistan support
 - Vidda support
+- Isla Abramia support
 - Rebels vs Invaders gamemode is back (with some fixes and adjustments to make it as same as possible as fighting BLUFOR occupants as usual, a bit experimental but stable, also it's more hardcore than default game settings)
 - Rebel Loadouts - ability to customize AI rebels weapons and equipment for each infantry class (commander menu, HQ Management tab - intended to be used by experienced commanders that know what they're doing, also you can always rollback to traditional randomized loadouts)
 - Limited Global Mobilization CDLC support as complement content pack for 3CB Factions and Global Mobilization Extra - Altis Armed Forces
@@ -14,16 +15,18 @@
 - Buildable Mortar and HMG Emplacements
 - Ability to move and save static weapon position and direction in AA/AT/Mortar/HMG Emplacements
 - "Cover Before Revive" AI Management option (ability to toggle AI squadmates behaviour to take your body to nearest cover before reviving, client-side)
-- High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow him to use it as HC squad
+- High Command Transfer - ability to transfer all your AI squadmates to commander's High Command which allow to use them as HC squad
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
 - Maximum Civilian Pedestrians parameter - how many pedestrians might be simultaneously in the city (allows to tune performance of Civilian Presence modules on weak PCs)
+- Show/hide top information string (INSERT hotkey) 
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
 - (3CB Factions + Global Mobilization) Warsaw Pact (USSR + East Germany), NATO factions (US + West Germany) for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
 - (3CB Factions) Takistan Army (TKA) faction
 - (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization CDLC and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
 ### Changes
+- 2.5.0 Community Version integration (Hakon's new garage and multiple fixes and improvements of core systems of Antistasi)
 - Fixed AI Control Time for HC squads
 - Fixed AI Rebel Strike wrong localization string at title
 - Fixed singleAttack undefined variable error
@@ -89,6 +92,8 @@
 - (Taviana) Road garbage removal algorhitm improvements (significantly cut .sqm file size due to less usage of manual object removal modules, faster mission loading times)
 - (Chernarus 2020) new outpost, new resource, new factory on the North
 - (Taviana) Additional outpost at the small island on West of Taviana, hangar fix on Sector B, radio tower fix on race track, Novistrana police stations support, removal of radio tower on Sector B
+- (Panthera, Napf, Taviana, Chernarus 2020) Navgrid update (may resolve some pathfing issues)
+- (Napf) Critical pathfinding issue has been resolved by navgrid update
 
 ### Removals
 - Removed CIWS (Phalanx/Praetorian air defence systems) from airbases and military bases

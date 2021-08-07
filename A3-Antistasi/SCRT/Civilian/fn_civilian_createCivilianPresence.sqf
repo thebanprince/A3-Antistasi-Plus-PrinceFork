@@ -10,7 +10,7 @@ private _position = getMarkerPos _marker;
 private _moduleGroup = createGroup sideLogic;
 
 private _cities = ["NameCityCapital","NameCity"] call SCRT_fnc_misc_getWorldPlaces;
-private _isCity  = _cities findIf {(_x select 1) distance2D _position <= 250} == 0;
+private _isCity  = _cities findIf {(_x select 1) distance2D _position <= 250} != -1;
 
 private _population = 0;
 private _spawnPointCount = 0;

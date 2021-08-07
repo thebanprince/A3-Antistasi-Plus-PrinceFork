@@ -40,26 +40,17 @@ if (_medicX != _unit) then {
 	_timeOut = time + 60;
 	sleep 5;
 	_medicX doMove getPosATL _unit;
-
-	while {true} do {
-		if (!([_medicX] call A3A_fnc_canFight) 
-			|| (!alive _unit) 
-			|| (_medicX distance _unit <= 3) 
-			|| (_timeOut < time) 
-			|| (_unit != vehicle _unit) 
-			|| (_medicX != vehicle _medicX) 
-			|| (_medicX != _unit getVariable ["helped",objNull]) 
-			|| !(isNull attachedTo _unit) 
-			|| (_medicX getVariable ["cancelRevive",false])) exitWith {};
+	while {true} do
+		{
 		sleep 1;
-	};
+	if (!([_medicX] call A3A_fnc_canFight) or (!alive _unit) or (unitReady _medicX) or (_medicX distance _unit <= 3) or (_timeOut < time) or (_unit != vehicle _unit) or (_medicX != vehicle _medicX) or (_medicX != _unit getVariable ["helped",objNull]) or !(isNull attachedTo _unit) or (_medicX getVariable ["cancelRevive",false])) exitWith {};};
 
-	if ((_unit distance _medicX <= 3) 
-		&& (alive _unit) 
-		&& ([_medicX] call A3A_fnc_canFight) 
-		&& (_medicX == vehicle _medicX) 
-		&& (_medicX == _unit getVariable ["helped",objNull]) 
-		&& (isNull attachedTo _unit) 
+	if ((_unit distance _medicX <= 3)
+		&& (alive _unit)
+		&& ([_medicX] call A3A_fnc_canFight)
+		&& (_medicX == vehicle _medicX)
+		&& (_medicX == _unit getVariable ["helped",objNull])
+		&& (isNull attachedTo _unit)
 		&& !(_medicX getVariable ["cancelRevive",false])) then {
 
 		if ((_unit getVariable ["incapacitated",false]) && (!isNull _enemy) && (_timeOut >= time) && (_medicX != _unit) && (!isPlayer _unit || (isPlayer _unit && coverBeforeRevive))) then {
@@ -74,10 +65,10 @@ if (_medicX != _unit) then {
 				_timeOut = time + 5;
 
 				waitUntil {
-					sleep 0.3; 
-					((animationState _medicX) == "AmovPercMstpSlowWrflDnon_AcinPknlMwlkSlowWrflDb_2") 
-					|| ((animationState _medicX) == "AmovPercMstpSnonWnonDnon_AcinPknlMwlkSnonWnonDb_2") 
-					|| !([_medicX] call A3A_fnc_canFight) 
+					sleep 0.3;
+					((animationState _medicX) == "AmovPercMstpSlowWrflDnon_AcinPknlMwlkSlowWrflDb_2")
+					|| ((animationState _medicX) == "AmovPercMstpSnonWnonDnon_AcinPknlMwlkSnonWnonDb_2")
+					|| !([_medicX] call A3A_fnc_canFight)
 					|| (_timeOut < time)
 				};
 
@@ -107,11 +98,11 @@ if (_medicX != _unit) then {
 					_timeOut = time + 30;
 					while {true} do {
 						sleep 0.2;
-						if (!([_medicX] call A3A_fnc_canFight) 
-							|| (!alive _unit) 
-							|| (_medicX distance _coverX <= 2) 
+						if (!([_medicX] call A3A_fnc_canFight)
+							|| (!alive _unit)
+							|| (_medicX distance _coverX <= 2)
 							|| (_timeOut < time)
-							|| (_medicX != vehicle _medicX) 
+							|| (_medicX != vehicle _medicX)
 							|| (_medicX getVariable ["cancelRevive",false])) exitWith {};
 
 						if (_unit distance _dummy > 3) then {

@@ -63,14 +63,26 @@
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
-allRebelUniforms append [
-	"U_IG_Guerilla1_1",
-	"U_IG_Guerilla2_1",
-	"U_IG_Guerilla2_2",
-	"U_IG_Guerilla2_3",
-	"U_IG_Guerilla3_1",
-	"U_IG_leader",
-	"U_IG_Guerrilla_6_1",
+["uniforms", [
+"U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F",
+    "U_I_C_Soldier_Bandit_4_F",
+    "U_I_C_Soldier_Bandit_1_F",
+    "U_I_C_Soldier_Bandit_2_F",
+    "U_I_C_Soldier_Bandit_5_F",
+    "U_I_C_Soldier_Bandit_3_F",
+    "U_I_C_Soldier_Para_2_F",
+    "U_I_C_Soldier_Para_3_F",
+    "U_I_C_Soldier_Para_5_F",
+    "U_I_C_Soldier_Para_4_F",
+    "U_I_C_Soldier_Para_1_F",
+    "U_I_C_Soldier_Camo_F",
 	"CUP_U_I_GUE_Anorak_01",
 	"CUP_U_I_GUE_Anorak_03",
 	"CUP_U_I_GUE_Anorak_02",
@@ -81,7 +93,33 @@ allRebelUniforms append [
 	"CUP_U_I_GUE_Flecktarn",
 	"CUP_U_I_GUE_Flecktarn4",
 	"CUP_U_I_GUE_Woodland1"
-];
+]] call _fnc_saveToTemplate;
+
+["headgear", [
+    "CUP_H_Ger_Boonie2_Flecktarn",
+	"CUP_H_NAPA_Fedora",
+	"CUP_H_C_Ushanka_01",
+	"CUP_H_C_Ushanka_02",
+	"CUP_H_C_Ushanka_03",
+	"CUP_H_C_Ushanka_04",
+	"CUP_H_C_Beret_01",
+	"CUP_H_C_Beret_02",
+	"CUP_H_C_Beret_03",
+	"CUP_H_C_Beret_04",
+	"CUP_H_US_BOONIE_Alpenflage",
+	"CUP_H_US_patrol_cap_alpenflage",
+	"H_Booniehat_khk_hs",
+	"H_Booniehat_tan",
+	"H_Cap_tan",
+	"H_Cap_oli_hs",
+	"H_Cap_blk",
+	"H_Cap_headphones",
+	"H_ShemagOpen_tan",
+	"H_Shemag_olive_hs",
+	"H_Bandanna_khk_hs",
+	"H_Bandanna_sand",
+	"H_Bandanna_cbr"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
 	"CUP_hgun_TT", "CUP_hgun_Colt1911", "CUP_hgun_Makarov",
@@ -109,7 +147,23 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "I_C_Soldier_Para_1_F"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_unarmed", "I_G_Survivor_F"],
+	["militia_rifleman", "I_G_Soldier_F"],
+	["militia_staticcrew", "I_G_Soldier_F"],
+	["militia_medic", "I_G_medic_F"],
+	["militia_sniper", "I_G_Sharpshooter_F"],
+	["militia_marksman", "I_G_Soldier_M_F"],
+	["militia_lat", "I_G_Soldier_LAT_F"],
+	["militia_machinegunner", "I_G_Soldier_AR_F"],
+	["militia_explosivesexpert", "I_G_Soldier_exp_F"],
+	["militia_grenadier", "I_G_Soldier_GL_F"],
+	["militia_squadleader", "I_G_Soldier_SL_F"],
+	["militia_engineer", "I_G_engineer_F"],
+	["militia_at", "I_Soldier_AT_F"],
+	["militia_aa", "I_Soldier_AA_F"],
+	["militia_petros", "I_G_officer_F"]
+]] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";
@@ -178,8 +232,8 @@ _loadoutData setVariable ["smokeGrenades", []];
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
 _loadoutData setVariable ["compasses", ["ItemCompass"]];
-_loadoutData setVariable ["radios", ["ItemRadio"]];
-_loadoutData setVariable ["gpses", ["ItemGPS"]];
+_loadoutData setVariable ["radios", []];
+_loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []]; 
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 

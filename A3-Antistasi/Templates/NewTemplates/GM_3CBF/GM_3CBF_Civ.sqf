@@ -1,12 +1,57 @@
 //////////////////////////////
 //   Civilian Information   //
 //////////////////////////////
+["uniforms", [
+	"UK3CB_ADC_C_Shorts_U_05",
+    "UK3CB_ADC_C_Shorts_U_01",
+    "UK3CB_ADC_C_Shorts_U_06",
+    "UK3CB_ADC_C_Shorts_U_03",
+    "UK3CB_CHC_C_U_VILL_01",
+    "UK3CB_CHC_C_U_VILL_03",
+    "UK3CB_CHC_C_U_VILL_04",
+    "UK3CB_CHC_C_U_POLITIC_01",
+    "UK3CB_CHC_C_U_POLITIC_02",
+    "UK3CB_CHC_C_U_POLITIC_03",
+    "UK3CB_CHC_C_U_Overall_02",
+    "UK3CB_ADC_C_Hunter_U_06",
+    "UK3CB_ADC_C_Hunter_U_08",
+    "UK3CB_ADC_C_Hunter_U_07",
+    "UK3CB_CHC_C_U_DOC_01",
+    "UK3CB_CHC_C_U_PROF_04",
+    "UK3CB_CHC_C_U_PROF_01",
+    "UK3CB_CHC_C_U_COACH_03",
+    "UK3CB_CHC_C_U_COACH_05",
+    "UK3CB_CHC_C_U_COACH_02",
+    "UK3CB_CHC_C_U_COACH_04",
+    "UK3CB_CHC_C_U_CAN_01"
+]] call _fnc_saveToTemplate;
 
-["civilianUniforms", []] call _fnc_saveToTemplate;
-
-["civilianHeadgear", []] call _fnc_saveToTemplate;
-
-
+["headgear", [
+	"UK3CB_H_Ushanka_Cap_01",
+	"UK3CB_H_Villager_Cap_01",
+	"UK3CB_H_Worker_Cap_01",
+	"H_Bandanna_blu",
+    "H_Bandanna_cbr",
+    "H_Bandanna_gry",
+    "H_Bandanna_khk",
+    "H_Bandanna_sand",
+    "H_Bandanna_sgg",
+    "H_Bandanna_surfer",
+    "H_Bandanna_surfer_blk",
+    "H_Bandanna_surfer_grn",
+    "H_Cap_blk",
+    "H_Cap_blu",
+    "H_Cap_grn",
+    "H_Cap_grn_BI",
+    "H_Cap_oli",
+    "H_Cap_press",
+    "H_Cap_red",
+    "H_Cap_surfer",
+    "H_Cap_tan",
+    "H_StrawHat",
+    "H_StrawHat_dark",
+    "H_Hat_checker"
+]] call _fnc_saveToTemplate;
 
 ["vehiclesCivCar", [
 	"gm_ge_civ_typ1200", 0.2

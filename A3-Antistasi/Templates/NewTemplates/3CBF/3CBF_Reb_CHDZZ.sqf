@@ -2,46 +2,46 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "ChDZZ"] call _fnc_saveToTemplate; 						
+["name", "ChDZZ"] call _fnc_saveToTemplate;
 
-["flag", "Flag_CHD_Green"] call _fnc_saveToTemplate; 						
-["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CHD\Flag\chd_flag_green_co.paa"] call _fnc_saveToTemplate; 				
-["flagMarkerType", "UK3CB_Marker_CHD_GREEN"] call _fnc_saveToTemplate; 			
+["flag", "Flag_CHD_Green"] call _fnc_saveToTemplate;
+["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_CHD\Flag\chd_flag_green_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "UK3CB_Marker_CHD_GREEN"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate; 			
-["vehicleLightUnarmed", "UK3CB_CHD_I_Hilux_Open"] call _fnc_saveToTemplate; 		
-["vehicleLightArmed", "UK3CB_CHD_I_Hilux_Dshkm"] call _fnc_saveToTemplate; 		
-["vehicleTruck", "UK3CB_CHD_I_Gaz66_Open"] call _fnc_saveToTemplate; 			
-["vehicleAT", "UK3CB_CHD_I_Hilux_Spg9"] call _fnc_saveToTemplate; 		
-["vehicleAA", "UK3CB_CHD_I_Gaz66_ZU23"] call _fnc_saveToTemplate; 		
+["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", "UK3CB_CHD_I_Hilux_Open"] call _fnc_saveToTemplate;
+["vehicleLightArmed", "UK3CB_CHD_I_Hilux_Dshkm"] call _fnc_saveToTemplate;
+["vehicleTruck", "UK3CB_CHD_I_Gaz66_Open"] call _fnc_saveToTemplate;
+["vehicleAT", "UK3CB_CHD_I_Hilux_Spg9"] call _fnc_saveToTemplate;
+["vehicleAA", "UK3CB_CHD_I_Gaz66_ZU23"] call _fnc_saveToTemplate;
 
-["vehicleBoat", "I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate; 	
-["vehicleRepair", "UK3CB_CHD_I_Gaz66_Repair"] call _fnc_saveToTemplate; 			
-["vehicleFuel", "UK3CB_CHD_I_Kraz255_Fuel"] call _fnc_saveToTemplate; 			
+["vehicleBoat", "I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate;
+["vehicleRepair", "UK3CB_CHD_I_Gaz66_Repair"] call _fnc_saveToTemplate;
+["vehicleFuel", "UK3CB_CHD_I_Kraz255_Fuel"] call _fnc_saveToTemplate;
 
-["vehiclePlane", "UK3CB_CHD_I_Antonov_AN2"] call _fnc_saveToTemplate; 		
+["vehiclePlane", "UK3CB_CHD_I_Antonov_AN2"] call _fnc_saveToTemplate;
 ["vehiclePayloadPlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
-["vehicleHeli", "not_supported"] call _fnc_saveToTemplate; 		
+["vehicleHeli", "not_supported"] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "UK3CB_CHC_C_V3S_Open"] call _fnc_saveToTemplate;
 ["vehicleCivHeli", "UK3CB_CHC_C_Mi8AMT"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "UK3CB_CHC_C_Fishing_Boat"] call _fnc_saveToTemplate;
 
-["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate; 					
-["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate; 					
-["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate; 					
-["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate; 				
+["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate;
+["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate;
+["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate;
+["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 
 //Static weapon definitions
-["baggedMGs", [["RHS_DShkM_Gun_Bag","RHS_DShkM_TripodHigh_Bag"]]] call _fnc_saveToTemplate; 				
-["baggedAT", [["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"]]] call _fnc_saveToTemplate; 					
-["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate; 					
-["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate; 			
+["baggedMGs", [["RHS_DShkM_Gun_Bag","RHS_DShkM_TripodHigh_Bag"]]] call _fnc_saveToTemplate;
+["baggedAT", [["RHS_SPG9_Gun_Bag","RHS_SPG9_Tripod_Bag"]]] call _fnc_saveToTemplate;
+["baggedAA", [["not_supported"]]] call _fnc_saveToTemplate;
+["baggedMortars", [["RHS_Podnos_Gun_Bag","RHS_Podnos_Bipod_Bag"]]] call _fnc_saveToTemplate;
 
-["mineAT", [	
+["mineAT", [
 	"ATMine_Range_Mag",
 	"rhs_mine_tm62m_mag",
 	"rhs_mine_M19_mag",
@@ -93,16 +93,26 @@
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
-//Vanilla + RHS Uniforms
-allRebelUniforms append ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader",
+
+["uniforms", [
+"U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader",
 "U_IG_Guerrilla_6_1","rhsgref_uniform_alpenflage","rhsgref_uniform_flecktarn","rhsgref_uniform_flecktarn_full",
 "rhsgref_uniform_tigerstripe","rhsgref_uniform_woodland","rhsgref_uniform_woodland_olive","rhsgref_uniform_olive",
 "rhsgref_uniform_altis_lizard","rhsgref_uniform_altis_lizard_olive","rhsgref_uniform_dpm","rhsgref_uniform_dpm_olive",
 "rhsgref_uniform_3color_desert","rhsgref_uniform_gorka_1_f","rhsgref_uniform_TLA_1","rhsgref_uniform_TLA_2","rhs_insurgent_uniform_1",
-"rhs_insurgent_uniform_2","rhs_insurgent_uniform_3","rhs_insurgent_uniform_4","rhs_insurgent_uniform_5"];
+"rhs_insurgent_uniform_2","rhs_insurgent_uniform_3","rhs_insurgent_uniform_4","rhs_insurgent_uniform_5"
+]] call _fnc_saveToTemplate;
+
+["headgear", [
+    "UK3CB_H_Beanie_02_BLK",
+	"UK3CB_H_Beret_Officer_Grn_Star",
+    "rhs_beanie",
+    "H_Cap_oli_hs",
+    "UK3CB_H_Ushanka_Cap_03",
+    "UK3CB_H_Ushanka_Cap_01"
+]] call _fnc_saveToTemplate;
 
 private _initialRebelEquipment = [
-"UK3CB_H_Beret_Officer_Grn_Star",
 "rhs_weap_m3a1", "rhs_weap_m38","UK3CB_Sten",
 "rhs_weap_type94_new","rhs_weap_tt33","rhs_weap_Izh18","rhs_weap_kar98k", "UK3CB_Enfield",
 "rhs_weap_panzerfaust60",
@@ -125,7 +135,23 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhsgref_nat_rifleman_akms"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_unarmed", "I_G_Survivor_F"],
+	["militia_rifleman", "rhsgref_nat_pmil_rifleman_akm"],
+	["militia_staticcrew", "rhsgref_nat_pmil_rifleman_akm"],
+	["militia_medic", "rhsgref_nat_medic"],
+	["militia_sniper", "rhsgref_nat_pmil_rifleman_akm"],
+	["militia_marksman", "rhsgref_nat_pmil_hunter"],
+	["militia_lat", "rhsgref_nat_pmil_grenadier_rpg"],
+	["militia_machinegunner", "rhsgref_nat_pmil_machinegunner"],
+	["militia_explosivesexpert", "rhsgref_cdf_ngd_engineer"],
+	["militia_grenadier", "rhsgref_cdf_para_grenadier"],
+	["militia_squadleader", "rhsgref_nat_commander"],
+	["militia_engineer", "rhsgref_cdf_ngd_engineer"],
+	["militia_at", "rhsgref_nat_pmil_grenadier_rpg"],
+	["militia_aa", "rhsgref_nat_pmil_grenadier_rpg"],
+	["militia_petros", "rhsgref_nat_warlord"]
+]] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";
@@ -159,27 +185,27 @@ sandbag = "Land_BagFence_Long_F";
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;
-_loadoutData setVariable ["rifles", []]; 				
-_loadoutData setVariable ["carbines", []]; 				
-_loadoutData setVariable ["grenadeLaunchers", []]; 		
-_loadoutData setVariable ["SMGs", []]; 					
+_loadoutData setVariable ["rifles", []];
+_loadoutData setVariable ["carbines", []];
+_loadoutData setVariable ["grenadeLaunchers", []];
+_loadoutData setVariable ["SMGs", []];
 _loadoutData setVariable ["machineGuns", []]; 			//this line determines machine guns -- Example: ["arifle_MX_SW_F","arifle_MX_SW_Hamr_pointer_F"] -- Array, can contain multiple assets
-_loadoutData setVariable ["marksmanRifles", []]; 		
-_loadoutData setVariable ["sniperRifles", []]; 			
-_loadoutData setVariable ["lightATLaunchers", []]; 		
-_loadoutData setVariable ["ATLaunchers", []]; 			
-_loadoutData setVariable ["missileATLaunchers", []]; 	
-_loadoutData setVariable ["AALaunchers", []]; 			
-_loadoutData setVariable ["sidearms", []]; 				
+_loadoutData setVariable ["marksmanRifles", []];
+_loadoutData setVariable ["sniperRifles", []];
+_loadoutData setVariable ["lightATLaunchers", []];
+_loadoutData setVariable ["ATLaunchers", []];
+_loadoutData setVariable ["missileATLaunchers", []];
+_loadoutData setVariable ["AALaunchers", []];
+_loadoutData setVariable ["sidearms", []];
 
-_loadoutData setVariable ["ATMines", []]; 				
-_loadoutData setVariable ["APMines", []]; 				
-_loadoutData setVariable ["lightExplosives", []]; 		
-_loadoutData setVariable ["heavyExplosives", []]; 		
+_loadoutData setVariable ["ATMines", []];
+_loadoutData setVariable ["APMines", []];
+_loadoutData setVariable ["lightExplosives", []];
+_loadoutData setVariable ["heavyExplosives", []];
 
-_loadoutData setVariable ["antiInfantryGrenades", []]; 	
-_loadoutData setVariable ["antiTankGrenades", []]; 		
-_loadoutData setVariable ["smokeGrenades", []]; 		
+_loadoutData setVariable ["antiInfantryGrenades", []];
+_loadoutData setVariable ["antiTankGrenades", []];
+_loadoutData setVariable ["smokeGrenades", []];
 
 
 
@@ -187,9 +213,9 @@ _loadoutData setVariable ["smokeGrenades", []];
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
 _loadoutData setVariable ["compasses", ["ItemCompass"]];
-_loadoutData setVariable ["radios", ["ItemRadio"]];
-_loadoutData setVariable ["gpses", ["ItemGPS"]];
-_loadoutData setVariable ["NVGs", []]; 
+_loadoutData setVariable ["radios", []];
+_loadoutData setVariable ["gpses", []];
+_loadoutData setVariable ["NVGs", []];
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
 _loadoutData setVariable ["uniforms", ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader",

@@ -101,7 +101,7 @@ DECLARE_SERVER_VAR(staticsToSave, []);
 //List of player-placed buildings that will be saved and loaded.
 DECLARE_SERVER_VAR(constructionsToSave, []);
 //Whether the players have access to radios.
-DECLARE_SERVER_VAR(haveRadio, A3A_hasTFAR || A3A_hasACRE || A3A_hasTFARBeta);
+DECLARE_SERVER_VAR(haveRadio, call A3A_fnc_checkRadiosUnlocked);
 //List of vehicles that are reported (I.e - Players can't go undercover in them)
 DECLARE_SERVER_VAR(reportedVehs, []);
 //Whether the players have access to trader.
@@ -126,6 +126,8 @@ DECLARE_SERVER_VAR(areInvadersDefeated, false);
 server setVariable ["hr",8,true];
 //Initial faction money pool
 server setVariable ["resourcesFIA",1000,true];
+// Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
+DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -211,7 +213,7 @@ everyEquipmentRelatedArrayName = allEquipmentArrayNames + unlockedEquipmentArray
 } forEach everyEquipmentRelatedArrayName;
 
 //Create a global namespace for custom unit types.
-DECLARE_SERVER_VAR(customUnitTypes, [true] call A3A_fnc_createNamespace);
+DECLARE_SERVER_VAR(A3A_customUnitTypes, [true] call A3A_fnc_createNamespace);
 
 ////////////////////////////////////
 //          MOD CONFIG           ///
@@ -227,9 +229,9 @@ if (A3A_hasTFAR) then
 			waitUntil {sleep 1; !isNil "TF_server_addon_version"};
 			[2,"Initializing TFAR settings","initVar.sqf"] call A3A_fnc_log;
 			["TF_no_auto_long_range_radio", true, true,"mission"] call CBA_settings_fnc_set;						//set to false and players will spawn with LR radio.
-			//tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
-			//tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
-			//tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_teamPlayer_radio_code = "";publicVariable "tf_teamPlayer_radio_code";								//to make enemy vehicles usable as LR radio
+			tf_east_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_east_radio_code";					//to make enemy vehicles usable as LR radio
+			tf_guer_radio_code = tf_teamPlayer_radio_code; publicVariable "tf_guer_radio_code";					//to make enemy vehicles usable as LR radio
 			["TF_same_sw_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize SR default frequencies
 			["TF_same_lr_frequencies_for_side", true, true,"mission"] call CBA_settings_fnc_set;						//synchronize LR default frequencies
 		};
@@ -275,7 +277,7 @@ private _templateVariables = [
 	"nameTeamPlayer",
 	"SDKFlag",
 	"SDKFlagTexture",
-	"flagSDKmrk",
+	"SDKFlagMarkerType",
 	"typePetros",
 	"staticCrewTeamPlayer",
 	"SDKUnarmed",
@@ -512,12 +514,7 @@ private _templateVariables = [
 	"smallBunker",
 	"sandbag",
 	"lootCrate",
-	"rallyPoint",
-	"occupantBaseSoldierMilitia",
-	"occupantBaseSoldier",
-	"invaderBaseSoldierMilitia",
-	"invaderBaseSoldier",
-	"rebelBaseSoldier"
+	"rallyPoint"
 ];
 
 //CUP-only technical variables
@@ -530,6 +527,7 @@ if(A3A_hasCup) then {
 } forEach _templateVariables;
 
 call compile preProcessFileLineNumbers "Templates\selector.sqf";
+//Set SDKFlagTexture on FlagX
 if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDKFlagTexture] remoteExec ["setFlagTexture", owner flagX] };
 
 ////////////////////////////////////
@@ -538,7 +536,7 @@ if (local flagX) then { flagX setFlagTexture SDKFlagTexture } else { [flagX, SDK
 [2,"Sanity-checking templates",_fileName] call A3A_fnc_log;
 
 // modify these appropriately when adding new template vars
-private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "flagSDKmrk", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
+private _nonClassVars = ["nameTeamPlayer", "SDKFlagTexture", "SDKFlagMarkerType", "nameOccupants", "NATOPlayerLoadouts", "NATOFlagTexture", "flagNATOmrk", "nameInvaders", "CSATPlayerLoadouts", "CSATFlagTexture", "flagCSATmrk"];
 private _magazineVars = ["SDKMortarHEMag", "SDKMortarSmokeMag", "vehNATOMRLSMags", "vehCSATMRLSMags", "breachingExplosivesAPC", "breachingExplosivesTank", "NATOmortarMagazineHE", "NATOHowitzerMagazineHE", "CSATmortarMagazineHE", "CSATHowitzerMagazineHE"];
 
 private _missingVars = [];
@@ -821,10 +819,15 @@ if (A3A_hasCup) then {
 	[] call A3A_fnc_cupModCompat;
 };
 
+if (A3A_coldWarMode && {toLower	worldName != "blud_vidda"}) then { //vidda has unique lightning config
+	setDate [1991, 5, 10, 7, 0];
+};
+
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////
-if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC77","ACRE_PRC117F"];};
+if (A3A_hasACRE) then {initialRebelEquipment append ["ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_SEM52SL"];};
+if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append ["ACRE_SEM70", "ACRE_PRC117F", "ACRE_PRC77"];};
 
 ////////////////////////////////////
 //    UNIT AND VEHICLE PRICES    ///

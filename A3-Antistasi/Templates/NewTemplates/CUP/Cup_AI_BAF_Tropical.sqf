@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "CUP_B_BAF_Soldier_Rifleman_MTP"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "CUP_B_BAF_Soldier_Rifleman_DPM"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "CUP_B_BAF_Soldier_SquadLeader_MTP"],
+	["militia_rifleman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["militia_radioman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["militia_medic", "CUP_B_BAF_Soldier_Medic_MTP"],
+	["militia_engineer", "CUP_B_BAF_Soldier_Engineer_MTP"],
+	["militia_explosivesexpert", "CUP_B_BAF_Soldier_Explosive_MTP"],
+	["militia_grenadier", "CUP_B_BAF_Soldier_Grenadier_MTP"],
+	["militia_lat", "CUP_B_BAF_Soldier_RiflemanLAT_MTP"],
+	["militia_at", "CUP_B_BAF_Soldier_RiflemanAT_MTP"],
+	["militia_aa", "CUP_B_BAF_Soldier_AA_MTP"],
+	["militia_machinegunner", "CUP_B_BAF_Soldier_AutoRifleman_MTP"],
+	["militia_marksman", "CUP_B_BAF_Soldier_Marksman_MTP"],
+	["militia_sniper", "CUP_B_BAF_Sniper_MTP"],
+
+	["military_squadleader", "CUP_B_BAF_Soldier_SquadLeader_MTP"],
+	["military_rifleman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["military_radioman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["military_medic", "CUP_B_BAF_Soldier_Medic_MTP"],
+	["military_engineer", "CUP_B_BAF_Soldier_Engineer_MTP"],
+	["military_explosivesexpert", "CUP_B_BAF_Soldier_Explosive_MTP"],
+	["military_grenadier", "CUP_B_BAF_Soldier_Grenadier_MTP"],
+	["military_lat", "CUP_B_BAF_Soldier_RiflemanLAT_MTP"],
+	["military_at", "CUP_B_BAF_Soldier_RiflemanAT_MTP"],
+	["military_aa", "CUP_B_BAF_Soldier_AA_MTP"],
+	["military_machinegunner", "CUP_B_BAF_Soldier_AutoRifleman_MTP"],
+	["military_marksman", "CUP_B_BAF_Soldier_Marksman_MTP"],
+	["military_sniper", "CUP_B_BAF_Sniper_MTP"],
+
+	["elite_squadleader", "CUP_B_BAF_Soldier_SquadLeader_MTP"],
+	["elite_rifleman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["elite_radioman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["elite_medic", "CUP_B_BAF_Soldier_Medic_MTP"],
+	["elite_engineer", "CUP_B_BAF_Soldier_Engineer_MTP"],
+	["elite_explosivesexpert", "CUP_B_BAF_Soldier_Explosive_MTP"],
+	["elite_grenadier", "CUP_B_BAF_Soldier_Grenadier_MTP"],
+	["elite_lat", "CUP_B_BAF_Soldier_RiflemanLAT_MTP"],
+	["elite_at", "CUP_B_BAF_Soldier_RiflemanAT_MTP"],
+	["elite_aa", "CUP_B_BAF_Soldier_AA_MTP"],
+	["elite_machinegunner", "CUP_B_BAF_Soldier_AutoRifleman_MTP"],
+	["elite_marksman", "CUP_B_BAF_Soldier_Marksman_MTP"],
+	["elite_sniper", "CUP_B_BAF_Sniper_MTP"],
+
+	["sf_squadleader", "CUP_B_BAF_Soldier_SquadLeader_MTP"],
+	["sf_rifleman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["sf_radioman", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["sf_medic", "CUP_B_BAF_Soldier_Medic_MTP"],
+	["sf_engineer", "CUP_B_BAF_Soldier_Engineer_MTP"],
+	["sf_explosivesexpert", "CUP_B_BAF_Soldier_Explosive_MTP"],
+	["sf_grenadier", "CUP_B_BAF_Soldier_Grenadier_MTP"],
+	["sf_lat", "CUP_B_BAF_Soldier_RiflemanLAT_MTP"],
+	["sf_at", "CUP_B_BAF_Soldier_RiflemanAT_MTP"],
+	["sf_aa", "CUP_B_BAF_Soldier_AA_MTP"],
+	["sf_machinegunner", "CUP_B_BAF_Soldier_AutoRifleman_MTP"],
+	["sf_marksman", "CUP_B_BAF_Soldier_Marksman_MTP"],
+	["sf_sniper", "CUP_B_BAF_Sniper_MTP"],
+
+	["other_crew", "CUP_B_BAF_Soldier_Crew_MTP"],
+	["other_unarmed", "CUP_B_BAF_Soldier_Survivor_MTP"],
+	["other_official", "CUP_B_BAF_Soldier_Officer_MTP"],
+	["other_traitor", "B_G_officer_F"],
+	["other_pilot", "CUP_B_BAF_Soldier_Pilot_MTP"],
+	["police_squadleader", "CUP_B_BAF_Soldier_Rifleman_MTP"],
+	["police_standard", "CUP_B_BAF_Soldier_Rifleman_MTP"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -132,10 +195,8 @@ _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_L109A2_HE", "CUP_HandGrenade_L109A1_HE"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
-
-
-
+_loadoutData setVariable ["smokeGrenades", ["SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
@@ -475,7 +536,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

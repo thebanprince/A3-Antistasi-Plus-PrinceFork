@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "CUP_B_US_Soldier_OEFCP"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "CUP_B_USMC_Soldier_des"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "CUP_B_US_Soldier_SL_OCP"],
+	["militia_rifleman", "CUP_B_US_Soldier_OCP"],
+	["militia_radioman", "CUP_B_US_Soldier_OCP"],
+	["militia_medic", "CUP_B_US_Medic_OCP"],
+	["militia_engineer", "CUP_B_US_Soldier_Engineer_OCP"],
+	["militia_explosivesexpert", "CUP_B_US_Soldier_OCP"],
+	["militia_grenadier", "CUP_B_US_Soldier_GL_OCP"],
+	["militia_lat", "CUP_B_US_Soldier_LAT_OCP"],
+	["militia_at", "CUP_B_US_Soldier_AT_OCP"],
+	["militia_aa", "CUP_B_US_Soldier_AA_OCP"],
+	["militia_machinegunner", "CUP_B_US_Soldier_MG_OCP"],
+	["militia_marksman", "CUP_B_US_Soldier_Marksman_OCP"],
+	["militia_sniper", "CUP_B_US_Sniper_M107_OCP"],
+
+	["military_squadleader", "CUP_B_US_Soldier_SL_OCP"],
+	["military_rifleman", "CUP_B_US_Soldier_OCP"],
+	["military_radioman", "CUP_B_US_Soldier_OCP"],
+	["military_medic", "CUP_B_US_Medic_OCP"],
+	["military_engineer", "CUP_B_US_Soldier_Engineer_OCP"],
+	["military_explosivesexpert", "CUP_B_US_Soldier_OCP"],
+	["military_grenadier", "CUP_B_US_Soldier_GL_OCP"],
+	["military_lat", "CUP_B_US_Soldier_LAT_OCP"],
+	["military_at", "CUP_B_US_Soldier_AT_OCP"],
+	["military_aa", "CUP_B_US_Soldier_AA_OCP"],
+	["military_machinegunner", "CUP_B_US_Soldier_MG_OCP"],
+	["military_marksman", "CUP_B_US_Soldier_Marksman_OCP"],
+	["military_sniper", "CUP_B_US_Sniper_M107_OCP"],
+
+	["elite_squadleader", "CUP_B_US_Soldier_SL_OCP"],
+	["elite_rifleman", "CUP_B_US_Soldier_OCP"],
+	["elite_radioman", "CUP_B_US_Soldier_OCP"],
+	["elite_medic", "CUP_B_US_Medic_OCP"],
+	["elite_engineer", "CUP_B_US_Soldier_Engineer_OCP"],
+	["elite_explosivesexpert", "CUP_B_US_Soldier_OCP"],
+	["elite_grenadier", "CUP_B_US_Soldier_GL_OCP"],
+	["elite_lat", "CUP_B_US_Soldier_LAT_OCP"],
+	["elite_at", "CUP_B_US_Soldier_AT_OCP"],
+	["elite_aa", "CUP_B_US_Soldier_AA_OCP"],
+	["elite_machinegunner", "CUP_B_US_Soldier_MG_OCP"],
+	["elite_marksman", "CUP_B_US_Soldier_Marksman_OCP"],
+	["elite_sniper", "CUP_B_US_Sniper_M107_OCP"],
+
+	["sf_squadleader", "CUP_B_US_SpecOps_TL"],
+	["sf_rifleman", "CUP_B_US_SpecOps"],
+	["sf_radioman", "CUP_B_US_SpecOps"],
+	["sf_medic", "CUP_B_US_SpecOps_Medic"],
+	["sf_engineer", "CUP_B_US_SpecOps"],
+	["sf_explosivesexpert", "CUP_B_US_SpecOps"],
+	["sf_grenadier", "CUP_B_US_SpecOps"],
+	["sf_lat", "CUP_B_US_SpecOps"],
+	["sf_at", "CUP_B_US_SpecOps"],
+	["sf_aa", "CUP_B_US_SpecOps"],
+	["sf_machinegunner", "CUP_B_US_SpecOps_MG"],
+	["sf_marksman", "CUP_B_US_SpecOps_M"],
+	["sf_sniper", "CUP_B_US_SpecOps_M"],
+
+	["other_crew", "CUP_B_US_Crew_OCP"],
+	["other_unarmed", "CUP_B_US_Soldier_OCP"],
+	["other_official", "CUP_B_US_Officer_OCP"],
+	["other_traitor", "B_G_officer_F"],
+	["other_pilot", "CUP_B_US_Pilot"],
+	["police_squadleader", "CUP_B_US_Soldier_OCP"],
+	["police_standard", "CUP_B_US_Soldier_OCP"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -136,10 +199,8 @@ _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_M67", "MiniGrenade"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
-
-
-
+_loadoutData setVariable ["smokeGrenades", ["SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
@@ -550,7 +611,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

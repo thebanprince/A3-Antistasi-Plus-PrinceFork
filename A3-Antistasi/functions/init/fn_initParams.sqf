@@ -30,7 +30,6 @@ A3A_paramTable = [
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 3000],
     ["skillMult", "AISkill", [], 2],
-    ["personalGarageMax", "personalGarageMax", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["civPedestrians", "civPedestrians", [], 10],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
@@ -40,10 +39,8 @@ A3A_paramTable = [
     ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
 
     ["membershipEnabled", "membership", [], true],
-    ["switchCom", "switchComm", ["server"], true],						// dead param
     ["tkpunish", "tkPunish", [], true],
     ["pvpEnabled", "allowPvP", [], true],
-    ["allowMembersFactionGarageAccess", "allowMembersFactionGarageAccess", [], true],
     ["teamSwitchDelay", "teamSwitchDelay", ["server"], 3600],
 
     ["startWithLongRangeRadio", "startWithLongRangeRadio", [], false],
@@ -167,7 +164,7 @@ if (isMultiplayer) then {
             // disabled for backwards compatibility
             //if (loadLastSave && ("locked" in _options)) exitWith {};
 
-            private _val = [_paramName, 9998] call BIS_fnc_getParamValue;         
+            private _val = [_paramName, 9998] call BIS_fnc_getParamValue;
             if (_val == 9998) exitWith {
                 [1, format ["Param %1 not found", _paramName], _filename] call A3A_fnc_log;
             };

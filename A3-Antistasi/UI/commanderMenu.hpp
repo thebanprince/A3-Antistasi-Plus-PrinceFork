@@ -182,7 +182,7 @@ class commanderMenu
 				};
 
 
-				class SupportTabFooter: RscControlsGroupNoScrollbars 
+				class SupportTabFooter: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 1710;
 					x = "1 * pixelGridNoUIScale * pixelW";
@@ -273,7 +273,7 @@ class commanderMenu
 					h = "1.5 * pixelGridNoUIScale * pixelH";
 				};
 
-				class garrisonFooter: RscControlsGroupNoScrollbars 
+				class garrisonFooter: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 2752;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
@@ -358,7 +358,7 @@ class commanderMenu
 					h = "1.5 * pixelGridNoUIScale * pixelH";
 				};
 
-				class mineFooter: RscControlsGroupNoScrollbars 
+				class mineFooter: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 2759;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
@@ -565,7 +565,7 @@ class commanderMenu
 					onSliderPosChanged = "_value = ((_this select 1)/100); _rounded = [_value, 2] call BIS_fnc_cutDecimals; ((findDisplay 60000) displayCtrl 4040) ctrlSetText format ['Fog: %1', _rounded]; fogValue = _rounded;";
 				};
 
-				class fogFooter: RscControlsGroupNoScrollbars 
+				class fogFooter: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 4110;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
@@ -620,7 +620,7 @@ class commanderMenu
 					onSliderPosChanged = "_value = ((_this select 1)/100); _rounded = [_value, 2] call BIS_fnc_cutDecimals; ((findDisplay 60000) displayCtrl 4060) ctrlSetText format ['Overcast: %1', _rounded]; overcastValue = _rounded;";
 				};
 
-				class overcastFooter: RscControlsGroupNoScrollbars 
+				class overcastFooter: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 4062;
 					x = "1.5 * pixelGridNoUIScale * pixelW";
@@ -829,7 +829,7 @@ class commanderMenu
 					colorText[] = {1,1,1,0.7};
 				};
 
-				class musicSwitchButton: RscControlsGroupNoScrollbars 
+				class musicSwitchButton: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 5100;
 					y = "23 * pixelGridNoUIScale * pixelH";
@@ -858,7 +858,7 @@ class commanderMenu
 					};		
 				};
 
-				class rocketCameraSwitchButton: RscControlsGroupNoScrollbars 
+				class rocketCameraSwitchButton: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 5200;
 					y = "26.5 * pixelGridNoUIScale * pixelH";
@@ -887,7 +887,7 @@ class commanderMenu
 					};		
 				};
 
-				class paradropButton: RscControlsGroupNoScrollbars 
+				class paradropButton: RscControlsGroupNoScrollbarsMain 
 				{
 					idc = 5400;
 					y = "30 * pixelGridNoUIScale * pixelH";

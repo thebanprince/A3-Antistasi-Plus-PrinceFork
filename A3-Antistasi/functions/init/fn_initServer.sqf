@@ -12,6 +12,11 @@ vehicleBox allowDamage false;
 mapX allowDamage false;
 teamPlayer = side group petros; 				// moved here because it must be initialized before accessing any saved vars
 
+//Disable VN music
+if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) then {
+    A3A_VN_MusicModule = (createGroup sideLogic) createUnit ["vn_module_dynamicradiomusic_disable", [worldSize, worldSize,0], [],0,"NONE"];
+};
+
 //Load server id
 serverID = profileNameSpace getVariable ["ss_ServerID",nil];
 if(isNil "serverID") then {
@@ -21,7 +26,7 @@ if(isNil "serverID") then {
 publicVariable "serverID";
 
 
-// Read loadLastSave param directly, SP handles this in createDialog_setParams
+// Read loadLastSave param directly
 loadLastSave = if ("loadSave" call BIS_fnc_getParamValue == 1) then {true} else {false};
 
 // Maintain a profilenamespace array called antistasiPlusSavedGames

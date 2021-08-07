@@ -8,7 +8,7 @@ if (theBoss distance2D _hqMarkerPos < 50) then {
 	menuSliderArray = [
 		["SUPPORT", 1140],
 		["MANAGE GARRISONS", 2000],
-		["HQ MANAGEMENT", 3000],
+		[format ["%1 MANAGEMENT", (toUpper nameTeamPlayer)], 3000],
 		["ENVIRONMENT", 4000],
 		["GAME OPTIONS", 5000],
 		["GAME INFO", 6000]
@@ -165,14 +165,16 @@ sliderSetPosition [5081, maxUnits];
 ((findDisplay 60000) displayCtrl 5080) ctrlSetText format ["AI Limit: %1", maxUnits];
 
 private _gameInfoText = format [
-    "Antistasi - %2, Version: %1, Antistasi Plus Version: %6, Difficulty: %3, Unlock Weapon Number: %4, Limited Fast Travel: %5", 
+    "Antistasi - %2, Version: %1, Antistasi Plus Version: %6, Difficulty: %3, Unlock Weapon Number: %4, Limited Fast Travel: %5, Time since GC: %7", 
     antistasiVersion, 
     worldName, 
     if (skillMult == 2) then {"Normal"} else {if (skillMult == 1) then {"Easy"} else {"Hard"}},
     minWeaps,
     if (limitedFT) then {"Yes"} else {"No"},
-    antistasiPlusVersion
+    antistasiPlusVersion,
+	([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
 ];
+
 ((findDisplay 60000) displayCtrl 6011) ctrlSetText _gameInfoText;
 
 private _serverMembersText = [] call A3A_fnc_membersList;

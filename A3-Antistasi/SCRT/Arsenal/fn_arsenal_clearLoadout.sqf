@@ -16,35 +16,35 @@ publicVariable "rebelLoadouts";
 private _display = findDisplay 120000;
 
 if (str (_display) != "no display") then {
-    if !("loadouts_rebel_militia_Rifleman" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_Rifleman" in rebelLoadouts) then {
         (_display displayCtrl 120001) ctrlSetText localize "STR_antistasi_dialogs_rifleman_title";
     };
 
-    if !("loadouts_rebel_militia_MachineGunner" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_MachineGunner" in rebelLoadouts) then {
         (_display displayCtrl 120002) ctrlSetText localize "STR_antistasi_dialogs_autorifleman_title";
     };
 
-    if !("loadouts_rebel_militia_medic" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_medic" in rebelLoadouts) then {
         (_display displayCtrl 120003) ctrlSetText localize "STR_antistasi_dialogs_medic_title";
     };
 
-    if !("loadouts_rebel_militia_Engineer" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_Engineer" in rebelLoadouts) then {
         (_display displayCtrl 120004) ctrlSetText localize "STR_antistasi_dialogs_engineer_title";
     };
 
-    if !("loadouts_rebel_militia_Grenadier" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_Grenadier" in rebelLoadouts) then {
         (_display displayCtrl 120005) ctrlSetText localize "STR_antistasi_dialogs_grenadier_title";
     };
 
-    if !("loadouts_rebel_militia_sniper" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_sniper" in rebelLoadouts) then {
         (_display displayCtrl 120006) ctrlSetText localize "STR_antistasi_dialogs_marksman_title";
     };
 
-    if !("loadouts_rebel_militia_lat" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_lat" in rebelLoadouts) then {
         (_display displayCtrl 120007) ctrlSetText localize "STR_antistasi_dialogs_at_title";
     };
 
-    if !("loadouts_rebel_militia_staticCrew" in rebelLoadouts) then {
+    if !("loadouts_reb_militia_staticCrew" in rebelLoadouts) then {
         (_display displayCtrl 120008) ctrlSetText localize "STR_antistasi_dialogs_crewman_title";
     };
 };

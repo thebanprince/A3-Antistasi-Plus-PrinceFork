@@ -22,34 +22,27 @@ private _unitClass = if (_forceClass != "") then {_forceClass} else {_unit getVa
 private _customLoadout = rebelLoadouts get _unitClass;
 
 if (!isNil "_customLoadout") exitWith {
-	private _uniform = uniform _unit;
+	private _uniforms = A3A_faction_reb getVariable "uniforms";
 	private _uniformItems = uniformItems _unit;
 
 	_unit setUnitLoadout _customLoadout;
-	systemChat str (uniformItems _unit);
+	private _headgear = headgear _unit;
 
-	_unit forceAddUniform _uniform;
+	_unit forceAddUniform (selectRandom _uniforms);
 	{_unit addItemToUniform _x} forEach _uniformItems;
+
+	//if it isn't a helmet - randomize
+	if !(_headgear in allArmoredHeadgear) then {
+		_unit addHeadgear (selectRandom (A3A_faction_reb getVariable "headgear"));
+	};
 
 	_unit linkItem "ItemMap";
 	_unit linkItem "ItemCompass";
 	_unit linkItem "ItemWatch";
-	if (haveRadio) then {_unit linkItem "ItemRadio"};
+	if (haveRadio) then {_unit linkItem selectrandom (unlockedRadios)};
 
-	switch (true) do {
-		case (_unitClass in SDKExp): {
-			_unit setUnitTrait ["explosiveSpecialist",true];
-			_unit addItemToBackpack "Toolkit";
-			_unit addItemToBackpack "MineDetector";
-			_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
-		};
-		case (_unitClass in SDKEng): {
-			_unit setUnitTrait ["engineer",true];
-		};
-		case (_unitClass in SDKMedic): {
-			_unit setUnitTrait ["medic",true];
-			_unit addItemToBackpack "Medikit";
-		};
+	if (_unitClass in SDKExp) then {
+		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 	};
 
 	[4, format["Class %1, type %2, loadout %3", _unitClass, _recruitType, str (getUnitLoadout _unit)], _filename] call A3A_fnc_log;
@@ -59,11 +52,11 @@ if (!isNil "_customLoadout") exitWith {
 // Actually fast, unlike a setUnitLoadout with a full loadout
 _unit setUnitLoadout [ [], [], [],    [uniform _unit, []], [], [],    "", "", [],
 	["ItemMap","","","ItemCompass","ItemWatch",""] ];		// no GPS, radio, NVG
-if (haveRadio) then {_unit linkItem "ItemRadio"};
+if (haveRadio) then {_unit linkItem selectrandom (unlockedRadios)};
 
 // Chance of picking armored rather than random vests and headgear, rising with unlocked gear counts
 if !(unlockedHeadgear isEqualTo []) then {
-	if (count unlockedArmoredHeadgear * 20 < random(100)) then { _unit addHeadgear (selectRandom unlockedHeadgear) }
+	if (count unlockedArmoredHeadgear * 20 < random(100)) then { _unit addHeadgear (selectRandom (A3A_faction_reb getVariable "headgear")) }
 	else { _unit addHeadgear (selectRandom unlockedArmoredHeadgear) };
 };
 if !(unlockedVests isEqualTo []) then {
@@ -88,9 +81,6 @@ if !(unlockedBackpacksCargo isEqualTo []) then {
 		};
 	};
 };
-
-_unit addItemToUniform "FirstAidKit";
-_unit addItemToUniform "FirstAidKit";
 
 // this should be improved by categorising grenades properly
 private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
@@ -124,25 +114,31 @@ switch (true) do {
 	};
 	case (_unitClass in SDKExp): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		_unit setUnitTrait ["explosiveSpecialist",true];
-		_unit addItemToBackpack "Toolkit";
-		_unit addItemToBackpack "MineDetector";
 		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 		if (count unlockedAA > 0) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};
+			_unit addItemToBackpack (selectRandom unlockedToolkits);
+			_unit addItemToBackpack (selectRandom unlockedMineDetectors);
 		// TODO: explosives. Not that they know what to do with them.
 	};
 	case (_unitClass in SDKEng): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		_unit setUnitTrait ["engineer",true];
-		_unit addItemToBackpack "Toolkit";
+		_unit addItemToBackpack (selectRandom unlockedToolkits);
 	};
 	case (_unitClass in SDKMedic): {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
-		_unit setUnitTrait ["medic",true];
-		_unit addItemToBackpack "Medikit";
-		for "_i" from 1 to 10 do {_unit addItemToBackpack "FirstAidKit"};
+		// temporary hack
+		private _medItems = [];
+		{
+			for "_i" from 1 to (_x#1) do { _medItems pushBack (_x#0) };
+		} forEach (["MEDIC",independent] call A3A_fnc_itemset_medicalSupplies);
+		{
+			_medItems deleteAt (_medItems find _x);
+		} forEach items _unit;
+		{
+			_unit addItemToBackpack _x;
+		} forEach _medItems;
 	};
 	case (_unitClass in SDKATman): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
@@ -153,11 +149,11 @@ switch (true) do {
 	// squad leaders and
 	case (_unitClass in squadLeaders): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if (_recruitType == 1) then {_unit linkItem "ItemRadio"};
+		if (_recruitType == 1) then {_unit linkItem selectrandom (unlockedRadios)};
 	};
  	case (_unitClass isEqualTo staticCrewTeamPlayer): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
-		if (_recruitType == 1) then {_unit linkItem "ItemRadio"};
+		if (_recruitType == 1) then {_unit linkItem selectrandom (unlockedRadios)};
 	};
 	default {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;

@@ -26,7 +26,7 @@ private _specialVarLoads = [
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "attackCountdownInvaders", "testingTimerIsActive",
 	"traderDiscount", "supportPoints", "isTraderQuestCompleted", "traderPosition", "areOccupantsDefeated", "areInvadersDefeated",
 	"rebelLoadouts",
-	"version"
+	"version", "HR_Garage"
 ];
 
 private _varName = _this select 0;
@@ -93,7 +93,14 @@ if (_varName in _specialVarLoads) then {
 		} forEach soldiersSDK;
 	};
 	if (_varName == 'maxConstructions') then {maxConstructions=_varValue; publicVariable "maxConstructions"};
-	if (_varName == 'vehInGarage') then {vehInGarage= +_varValue; publicVariable "vehInGarage"};
+    if (_varname == "HR_Garage") then {
+        [_varValue] call HR_GRG_fnc_loadSaveData;
+    };
+	if (_varName == 'vehInGarage') then { //convert old garage to new garage
+        vehInGarage= [];
+        publicVariable "vehInGarage";
+        [_varValue, ""] call HR_GRG_fnc_addVehiclesByClass;
+    };
 	if (_varName == 'destroyedBuildings') then {
 		{
 			// nearestObject sometimes picks the wrong building and is several times slower

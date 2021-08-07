@@ -8,6 +8,10 @@ if (isNil "storedWorldName") then {
 		{
 			storedWorldName = "Panthera";
 		};
+		case "abramia": 
+		{
+			storedWorldName = "Abramia";
+		};
 		default
 		{
 			storedWorldName = toUpper([worldName, 0, 0] call BIS_fnc_trimString) + ([worldName, 1, count worldName] call BIS_fnc_trimString);

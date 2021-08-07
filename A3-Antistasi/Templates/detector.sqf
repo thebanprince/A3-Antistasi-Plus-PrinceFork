@@ -16,6 +16,7 @@ A3A_coldWarMode = false;
 
 A3A_hasRHS = false;
 A3A_has3CBFactions = false;
+A3A_hasVN = false;
 A3A_hasIvory = false;
 A3A_hasTCGM = false;
 A3A_hasADV = false;
@@ -46,7 +47,16 @@ private _activeSaf = false;
 //Actual Detection
 //IFA Detection
 if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
-    [1, "IFA detected, but it is no longer supported, please remove this mod", _fileName] call A3A_fnc_log;
+    private _text = "IFA detected, but it is no longer supported, please remove this mod";
+    systemChat _text;
+    [1, _text, _fileName] call A3A_fnc_log;
+    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+};
+
+if (isClass (configFile >> "CfgPatches" >> "vn_weapons")) then {
+    private _text = "SOG PF detected, but it is not yet supported, please remove this mod";
+    systemChat _text;
+    [1, _text, _fileName] call A3A_fnc_log;
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
@@ -71,9 +81,13 @@ if (A3A_has3CBFactions && {(threecbfOccupantFaction == 4 || A3A_hasGlobMob)}) th
   [2,"3CB Factions and US Cold War template detected, Cold War Mode to be initiated.",_fileName] call A3A_fnc_log;
 };
 
+
+
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {
-  [1, "FFAA detected, but it is no longer supported.", _fileName] call A3A_fnc_log;
+  private _text = "FFAA detected, but it is no longer supported.";
+  systemChat _text;
+  [1, _text, _fileName] call A3A_fnc_log;
   ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 

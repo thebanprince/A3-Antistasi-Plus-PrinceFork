@@ -3,9 +3,6 @@
 #define QUOTE(var1) #var1
 #endif
 
-//Other Includes
-#include "functions\Garage\defineGarage.inc"
-
 // Control types
 #define CT_STATIC           0
 #define CT_BUTTON           1
@@ -556,7 +553,7 @@ class SliderBase
 	shadow = 0;    
 };
 
-class RscControlsGroupNoScrollbars
+class RscControlsGroupNoScrollbarsMain
 {
 	class VScrollbar
 	{

@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhsusf_army_ucp_rifleman"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "gm_ge_army_rifleman_g3a3_80_ols"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "gm_ge_army_squadleader_g3a3_p2a1_80_ols"],
+	["militia_rifleman", "gm_ge_army_rifleman_g3a3_80_ols"],
+	["militia_radioman", "gm_ge_army_radioman_g3a3_80_ols"],
+	["militia_medic", "gm_ge_army_medic_g3a3_80_ols"],
+	["militia_engineer", "gm_ge_army_rifleman_g3a3_80_ols"],
+	["militia_explosivesexpert", "gm_ge_army_demolition_g3a4_80_ols"],
+	["militia_grenadier", "gm_ge_army_grenadier_g3a3_80_ols"],
+	["militia_lat", "gm_ge_army_antitank_g3a3_pzf44_80_ols"],
+	["militia_at", "gm_ge_army_antitank_g3a3_pzf44_80_ols"],
+	["militia_aa", "gm_ge_army_antiair_g3a3_fim43_80_ols"],
+	["militia_machinegunner", "gm_ge_army_machinegunner_mg3_80_ols"],
+	["militia_marksman", "gm_ge_army_marksman_g3a3_80_ols"],
+	["militia_sniper", "gm_ge_army_marksman_g3a3_80_ols"],
+
+	["military_squadleader", "rhsusf_army_ocp_squadleader"],
+	["military_rifleman", "rhsusf_army_ocp_rifleman"],
+	["military_radioman", "rhsusf_army_ocp_rifleman"],
+	["military_medic", "rhsusf_army_ocp_medic"],
+	["military_engineer", "rhsusf_army_ocp_engineer"],
+	["military_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["military_grenadier", "rhsusf_army_ocp_grenadier"],
+	["military_lat", "rhsusf_army_ocp_riflemanat"],
+	["military_at", "rhsusf_army_ocp_maaws"],
+	["military_aa", "rhsusf_army_ocp_aa"],
+	["military_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["military_marksman", "rhsusf_army_ocp_marksman"],
+	["military_sniper", "rhsusf_army_ucp_sniper"],
+
+	["elite_squadleader", "rhsusf_army_ocp_squadleader"],
+	["elite_rifleman", "rhsusf_army_ocp_rifleman"],
+	["elite_radioman", "rhsusf_army_ocp_rifleman"],
+	["elite_medic", "rhsusf_army_ocp_medic"],
+	["elite_engineer", "rhsusf_army_ocp_engineer"],
+	["elite_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["elite_grenadier", "rhsusf_army_ocp_grenadier"],
+	["elite_lat", "rhsusf_army_ocp_riflemanat"],
+	["elite_at", "rhsusf_army_ocp_maaws"],
+	["elite_aa", "rhsusf_army_ocp_aa"],
+	["elite_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["elite_marksman", "rhsusf_army_ocp_marksman"],
+	["elite_sniper", "rhsusf_army_ucp_sniper"],
+
+	["sf_squadleader", "rhsusf_socom_marsoc_teamleader"],
+	["sf_rifleman", "rhsusf_socom_marsoc_cso"],
+	["sf_radioman", "rhsusf_socom_marsoc_cso"],
+	["sf_medic", "rhsusf_socom_marsoc_sarc"],
+	["sf_engineer", "rhsusf_socom_marsoc_cso_mechanic"],
+	["sf_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["sf_grenadier", "rhsusf_socom_marsoc_cso_grenadier"],
+	["sf_lat", "rhsusf_army_ocp_maaws"],
+	["sf_at", "rhsusf_army_ocp_maaws"],
+	["sf_aa", "rhsusf_army_ocp_aa"],
+	["sf_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["sf_marksman", "rhsusf_army_ocp_marksman"],
+	["sf_sniper", "rhsusf_army_ucp_sniper"],
+
+	["other_crew", "rhsusf_army_ucp_crewman"],
+	["other_unarmed", "B_Survivor_F"],
+	["other_official", "rhsusf_army_ucp_officer"],
+	["other_traitor", "B_G_Soldier_F"],
+	["other_pilot", "rhsusf_army_ucp_helipilot"],
+	["police_squadleader", "gm_ge_army_militarypolice_p1_80_oli"],
+	["police_standard", "gm_ge_army_militarypolice_p1_80_oli"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -60,7 +123,7 @@
 ["uavsAttack", ["not_supported"]] call _fnc_saveToTemplate; 				
 ["uavsPortable", ["not_supported"]] call _fnc_saveToTemplate; 				
 
-["vehiclesMilitiaLightArmed", ["gm_ge_army_iltis_mg3", "gm_ge_army_fuchsa0_command"]] call _fnc_saveToTemplate; 
+["vehiclesMilitiaLightArmed", ["gm_ge_army_iltis_mg3"]] call _fnc_saveToTemplate; 
 ["vehiclesMilitiaTrucks", ["gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaApcs", ["gm_ge_army_luchsa1", "gm_ge_army_luchsa2", "gm_ge_army_marder1a1plus", "gm_ge_army_marder1a1a", "gm_ge_army_marder1a2"]] call _fnc_saveToTemplate;
@@ -129,7 +192,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", []]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc", "rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]]; 			
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc"]]; 			
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]];	
 
 _loadoutData setVariable ["maps", ["ItemMap"]];				
 _loadoutData setVariable ["watches", ["ItemWatch"]];		
@@ -456,7 +520,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

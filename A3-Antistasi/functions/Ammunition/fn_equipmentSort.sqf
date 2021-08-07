@@ -1,113 +1,8 @@
 ////////////////////////////////////
-//      Uniforms Sorting        ///
-////////////////////////////////////
-{
-	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-	private _uniformSide = getNumber (configfile >> "CfgVehicles" >> _originUnit >> "side");
-	switch (_uniformSide) do {
-		case 3: {allCivilianUniforms pushBack _x};
-	};
-} forEach allUniforms;
-
-{
-	private _originUnit = getText (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "uniformClass");
-	private _uniformFaction = getText (configfile >> "CfgVehicles" >> _originUnit >> "faction");
-	switch (_uniformFaction) do {
-		//RHS
-		case "rhsgref_faction_nationalist": {if (nameTeamPlayer isEqualTo "NAPA") then {allRebelUniforms pushBack _x};};
-		case "rhsgref_faction_hidf": {if (nameTeamPlayer isEqualTo "Rebels") then {allRebelUniforms pushBack _x};};
-		//Tanoa/ApexDLC
-		case "IND_C_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//Contact DLC Looters
-		case "IND_L_F": {if (teamPlayer isEqualTo resistance) then {allRebelUniforms pushBack _x};};
-		//BLUFOR used because O/I Gueriilla uniforms 'scope' = 1 ----> Added Green Via Templates.
-		case "BLU_G_F": {if (teamPlayer isEqualTo west) then {allRebelUniforms pushBack _x};};
-		case "CUP_I_NAPA": {if (teamPlayer isEqualTo independent) then {allRebelUniforms pushBack _x};};
-	};
-} forEach allUniforms;
-
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_Protagonist_VR");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_LIB_CIV_Priest");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_PriestBody");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_B_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_C_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_I_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_03");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_02");
-allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_CHC_O_U_PRIEST_01");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_suit_80_grn");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_gc_pol_uniform_dress_80_blu");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_pol_uniform_blouse_80_blk");
-allCivilianUniforms deleteAt (allCivilianUniforms find "gm_ge_ff_uniform_man_80_orn");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_camo_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_deserter_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_olive_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_sport_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_black_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_I_L_Uniform_01_tshirt_skull_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_shorts_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_casual_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_cargo_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Tee_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_Jeans_F");
-allCivilianUniforms deleteAt (allCivilianUniforms find "U_C_IDAP_Man_TeeShorts_F");
-allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_Story_Protagonist_F");
-allRebelUniforms deleteAt (allRebelUniforms find "U_I_G_resistanceLeader_F");
-allRebelUniforms deleteAt (allRebelUniforms find "U_BG_GhillieSuit");
-allRebelUniforms deleteAt (allRebelUniforms find "CUP_U_I_Ghillie_Top");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_rolled_grn");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_dbp_uniform_suit_80_blu");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
-allRebelUniforms deleteAt (allRebelUniforms find "gm_ge_pol_uniform_pilot_grn");
-
-if (A3A_has3CBFactions) then {
-	allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_01_BLK");
-	allRebelUniforms deleteAt (allRebelUniforms find "UK3CB_CW_US_B_LATE_U_SF_CombatUniform_02_BLK");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_B");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_C");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_D");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_E");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_F");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_G");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_H");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_I");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_J");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_ADC_C_U_01_K");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_B");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_C");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_D");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_01_E");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_B");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_C");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_D");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_02_E");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_B");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_C");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_D");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_03_E");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_B");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_C");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_D");
-	allCivilianUniforms deleteAt (allCivilianUniforms find "UK3CB_TKC_C_U_06_E");
-};
-
-////////////////////////////////////
 //      Backpacks Sorting        ///
 ////////////////////////////////////
+private _fileName = "fn_equipmentSort";
+
 {
 	private _itemFaction = getText (configfile >> "CfgVehicles" >> _x >> "faction");
 	switch (_itemFaction) do {
@@ -164,15 +59,15 @@ allCivilianVests deleteAt (allCivilianVests find "V_RebreatherIA");
 ////////////////////////////////////
 //WHY is there no clean list?
 //allArmoredHeadgear = allHeadgear select {getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0};
-allCivilianHeadgear = allHeadgear - allArmoredHeadgear;
+allCosmeticHeadgear = allHeadgear - allArmoredHeadgear;
 
-allCivilianHeadgear deleteAt (allCivilianHeadgear find "H_Beret_Colonel");
-allCivilianHeadgear deleteAt (allCivilianHeadgear find "H_Beret_02");
-allCivilianHeadgear deleteAt (allCivilianHeadgear find "H_Beret_CSAT_01_F");
+allCosmeticHeadgear deleteAt (allCosmeticHeadgear find "H_Beret_Colonel");
+allCosmeticHeadgear deleteAt (allCosmeticHeadgear find "H_Beret_02");
+allCosmeticHeadgear deleteAt (allCosmeticHeadgear find "H_Beret_CSAT_01_F");
 
 if (A3A_hasGlobMob) then {
 	{
-		allCivilianHeadgear deleteAt (allCivilianHeadgear find _x);
+		allCosmeticHeadgear deleteAt (allCosmeticHeadgear find _x);
 	} forEach [
 		"gm_gc_army_headgear_crewhat_80_blk", "gm_gc_pol_headgear_cap_80_blu", "gm_gc_army_headgear_cap_80_gry", "gm_gc_army_headgear_hat_80_grn", "gm_gc_bgs_headgear_hat_80_gry",
 		"gm_gc_headgear_zsh3_orn", "gm_gc_headgear_zsh3_wht", "gm_gc_headgear_zsh3_blu", "gm_gc_headgear_fjh_model4_oli", "gm_gc_headgear_fjh_model4_wht",
@@ -190,7 +85,7 @@ if (A3A_hasGlobMob) then {
 
 if (A3A_hasCup) then {
 	{
-		allCivilianHeadgear deleteAt (allCivilianHeadgear find _x);
+		allCosmeticHeadgear deleteAt (allCosmeticHeadgear find _x);
 	} forEach [
 		"CUP_H_BAF_PARA_BERET", "CUP_H_BAF_PARA_PRROVER_BERET", "CUP_H_BAF_PARA_PRRUNDER_BERET", "CUP_H_Ger_Boonie_desert", "CUP_H_Ger_Boonie2_desert", "CUP_H_Ger_Boonie_Flecktarn", "CUP_H_Ger_Boonie2_Flecktarn", "CUP_H_Ger_Cap_EP_Tan1", "CUP_H_Ger_Cap_EP_Tan2", "CUP_H_Ger_Cap_EP_Grn1",
 		"CUP_H_Ger_Cap_EP_Grn2", "CUP_H_Ger_Cap_Grn1", "CUP_H_Ger_Cap_Grn2", "CUP_H_Ger_Cap_Tan1", "CUP_H_Ger_Cap_Tan2", "CUP_H_Ger_Beret_INF_Grn", "CUP_H_Ger_Beret_KSK_Red", "CUP_H_Ger_Beret_ARM_Grn", "CUP_H_Ger_Beret_ARM_Blk", "CUP_H_Ger_Beret_TankCommander_Grn", "CUP_H_Ger_Beret_TankCommander_Blk",
@@ -213,44 +108,48 @@ if (A3A_hasCup) then {
 //////////////////
 //   Glasses   ///
 //////////////////
-allCivilianGlasses append allGlasses;
+allCosmeticGlasses append allGlasses;
 
-allCivilianGlasses deleteAt (allCivilianGlasses find "None");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Goggles_VR");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_I_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_O_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_B_Diving");
-allCivilianGlasses deleteAt (allCivilianGlasses find "LIB_Glasses");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_RegulatorMask_F");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_olive_F");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_sand_F");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_02_black_F");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_AirPurifyingRespirator_01_F");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Tactical_Clear");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Tactical_Black");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Balaclava_combat");
-allCivilianGlasses deleteAt (allCivilianGlasses find "G_Combat");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "None");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Goggles_VR");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_I_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_RegulatorMask_F");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_AirPurifyingRespirator_02_olive_F");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_AirPurifyingRespirator_02_sand_F");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_AirPurifyingRespirator_02_black_F");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_AirPurifyingRespirator_01_F");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Tactical_Clear");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Tactical_Black");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Balaclava_combat");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_Combat");
 
 ////////////////
 //   Radios   //
 ////////////////
 If (A3A_hasTFAR || A3A_hasTFARBeta) then {
-private _encryptRebel = if (teamPlayer == west) then { ["tf_west_radio_code"] } else { ["tf_guer_radio_code", "tf_independent_radio_code"] };
-allRadios = allRadios select {
-    private _encrypt = getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode");
-    (_encrypt in _encryptRebel);
-};
+	private _allRadioItems = allRadios;
+	private _encryptRebel = ["tf_guer_radio_code", "tf_independent_radio_code"];  // tf_independent_radio_code may not exist. More investigation needed.
+	private _encryptEnemy = ["tf_west_radio_code", "tf_east_radio_code"];
 
-private _encrypthostile = if (teamPlayer == west) then { ["tf_guer_radio_code", "tf_independent_radio_code", "tf_east_radio_code"] } else { ["tf_west_radio_code", "tf_east_radio_code"] };
-private _allHostileRadio = [];
-{
-    private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
-  	if (_encrypt in _encryptRebel) then {allBackpacksRadio pushBack _x};
-    if (_encrypt in _encrypthostile) then {_allHostileRadio pushBack _x};
-} forEach allBackpacksEmpty;
+	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
+	if (count allRadios == 0) then { ["_encryptRebel","_encryptEnemy"] call BIS_fnc_swapVars };    // Fallback to east and west.
+	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
+	if (count allRadios == 0) then {
+	    [1, "No TFAR radios with matching encryption codes found. Recommendation is to remove TFAR from the mod-set, and use the vanilla radio channel system.", _filename] call A3A_fnc_log;
+	};
 
-//Removes Radios from allBackpacksEmpty
-allBackpacksEmpty = allBackpacksEmpty - _allHostileRadio - allBackpacksRadio;
+	private _allHostileRadio = [];
+	private _backpacksToDelete = [];
+	{
+		private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
+		if (_encrypt in _encryptRebel) then { allBackpacksRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] } else {
+			if (_encrypt in _encryptEnemy) then { _allHostileRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] };
+		};
+	} forEach allBackpacksEmpty;
+	{ allBackpacksEmpty deleteAt _x } forEach _backpacksToDelete;  // Removes Radios from allBackpacksEmpty
 };
 /////////////////
 // UAVTerminal //
@@ -260,3 +159,23 @@ allUAVTerminals = allUAVTerminals select {
     private _encrypt = getNumber  (configFile >> "CfgWeapons" >> _x >> "ItemInfo" >> "side");
     (_encrypt isEqualTo "") or (_encrypt isEqualTo _encryptRebel);
 };
+
+//Remove Prop Food
+allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x >> "ammo") isNotEqualTo "FakeAmmo"; };
+
+//Remove False NVGs
+allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
+
+private _removableDefaultItems = [
+	[allFirstAidKits,"FirstAidKit","firstAidKits"],
+	[allMedikits,"Medikit","mediKits"],
+	[allToolkits,"ToolKit","toolKits"],
+	[allMaps,"ItemMap","itemMaps"]
+];
+{
+	_x params ["_itemCategoryArray","_vanillaItem","_templateVariable"];
+	private _allowedItems = A3A_faction_reb getVariable _templateVariable;
+	if !(_vanillaItem in _allowedItems) then {
+		_itemCategoryArray deleteAt (_itemCategoryArray find _vanillaItem);
+	};
+} forEach _removableDefaultItems;

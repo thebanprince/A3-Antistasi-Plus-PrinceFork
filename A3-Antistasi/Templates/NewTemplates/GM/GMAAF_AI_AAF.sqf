@@ -12,9 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "B_G_Soldier_F"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "B_G_Soldier_F"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "B_G_Soldier_SL_F"],
+	["militia_rifleman", "B_G_Soldier_F"],
+	["militia_radioman", "B_G_Soldier_F"],
+	["militia_medic", "B_G_medic_F"],
+	["militia_engineer", "B_G_engineer_F"],
+	["militia_explosivesexpert", "B_G_Soldier_exp_F"],
+	["militia_grenadier", "B_G_Soldier_GL_F"],
+	["militia_lat", "B_G_Soldier_LAT2_F"],
+	["militia_at", "B_G_Soldier_LAT_F"],
+	["militia_aa", "B_G_Soldier_F"],
+	["militia_machinegunner", "B_G_Soldier_AR_F"],
+	["militia_marksman", "B_G_Soldier_M_F"],
+	["militia_sniper", "B_G_Soldier_M_F"],
 
+	["military_squadleader", "B_G_Soldier_SL_F"],
+	["military_rifleman", "B_G_Soldier_F"],
+	["military_radioman", "B_G_Soldier_F"],
+	["military_medic", "B_G_medic_F"],
+	["military_engineer", "B_G_engineer_F"],
+	["military_explosivesexpert", "B_G_Soldier_exp_F"],
+	["military_grenadier", "B_G_Soldier_GL_F"],
+	["military_lat", "B_G_Soldier_LAT2_F"],
+	["military_at", "B_G_Soldier_LAT_F"],
+	["military_aa", "B_G_Soldier_F"],
+	["military_machinegunner", "B_G_Soldier_AR_F"],
+	["military_marksman", "B_G_Soldier_M_F"],
+	["military_sniper", "B_G_Soldier_M_F"],
+
+	["elite_squadleader", "B_G_Soldier_SL_F"],
+	["elite_rifleman", "B_G_Soldier_F"],
+	["elite_radioman", "B_G_Soldier_F"],
+	["elite_medic", "B_G_medic_F"],
+	["elite_engineer", "B_G_engineer_F"],
+	["elite_explosivesexpert", "B_G_Soldier_exp_F"],
+	["elite_grenadier", "B_G_Soldier_GL_F"],
+	["elite_lat", "B_G_Soldier_LAT2_F"],
+	["elite_at", "B_G_Soldier_LAT_F"],
+	["elite_aa", "B_G_Soldier_F"],
+	["elite_machinegunner", "B_G_Soldier_AR_F"],
+	["elite_marksman", "B_G_Soldier_M_F"],
+	["elite_sniper", "B_G_Soldier_M_F"],
+
+	["sf_squadleader", "B_G_Soldier_SL_F"],
+	["sf_rifleman", "B_G_Soldier_F"],
+	["sf_radioman", "B_G_Soldier_F"],
+	["sf_medic", "B_G_medic_F"],
+	["sf_engineer", "B_G_engineer_F"],
+	["sf_explosivesexpert", "B_G_Soldier_exp_F"],
+	["sf_grenadier", "B_G_Soldier_GL_F"],
+	["sf_lat", "B_G_Soldier_LAT2_F"],
+	["sf_at", "B_G_Soldier_LAT_F"],
+	["sf_aa", "B_G_Soldier_F"],
+	["sf_machinegunner", "B_G_Soldier_AR_F"],
+	["sf_marksman", "B_G_Soldier_M_F"],
+	["sf_sniper", "B_G_Soldier_M_F"],
+
+	["other_crew", "B_G_Soldier_F"],
+	["other_unarmed", "B_G_Survivor_F"],
+	["other_official", "B_officer_F"],
+	["other_traitor", "B_G_Soldier_F"],
+	["other_pilot", "B_G_Soldier_F"],
+	["police_squadleader", "B_G_Soldier_F"],
+	["police_standard", "B_G_Soldier_F"]
+]] call _fnc_saveToTemplate;
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
@@ -131,7 +193,8 @@ _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade", "gm_handgrenade_frag_dm51a1", "gm_handgrenade_frag_dm51"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
+_loadoutData setVariable ["smokeGrenades", ["SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
@@ -462,7 +525,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

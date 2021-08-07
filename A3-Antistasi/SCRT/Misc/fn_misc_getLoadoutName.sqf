@@ -6,7 +6,7 @@ private _stringParts = _sourceString splitString "_";
 
 if (_stringParts isEqualTo []) exitWith {_sourceString};
 
-private _result = _stringParts select 3; //loadouts_rebel_militia_ length
+private _result = _stringParts select 3; //loadouts_reb_militia_LOADOUT
 _result = toUpper _result;
 
 _result

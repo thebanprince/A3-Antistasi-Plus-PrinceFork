@@ -53,7 +53,7 @@ if (isNil "_planeClass") exitWith {
     ["", 0, 0];
 };
 
-private _vehicleData = [_planeClass, "Normal", _landPosBlacklist, _side, _markerOrigin, true] call A3A_fnc_createAttackVehicle;
+private _vehicleData = [_planeClass, "Normal", _landPosBlacklist, _side, _markerOrigin, _posDestination, true] call A3A_fnc_createAttackVehicle;
 if (_vehicleData isEqualType []) then {
     _plane = (_vehicleData select 0);
     _groups pushBack (_vehicleData select 1);

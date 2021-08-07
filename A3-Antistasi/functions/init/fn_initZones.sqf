@@ -125,6 +125,18 @@ switch (toLower worldName) do {
 		["DefaultKeyPoint39",100],["DefaultKeyPoint51",160],["DefaultKeyPoint58",80],
 		["DefaultKeyPoint73",80],["DefaultKeyPoint91",135],["DefaultKeyPoint92",70],["DefaultKeyPoint104",40],["DefaultKeyPoint31", 160]];
 	};
+	//Reduced Pop for performance 16761 to 15350, minimum Pop per Town set to 100 to ensure Vehicle spawning
+    case "cam_lao_nam": {
+        {server setVariable [_x select 0,_x select 1]} forEach
+        [["haiphong",500],["hanoi",1000],["hue",2000],["saigon",700],["sihanoukville",200],["nodallho",100],["bru",100],["attapeu",100],
+        ["dakrong",100],["lumphat",100],["cuchi",100],["baria",100],["danang",600],["kenglat",100],["laichau",100],["paknoi",100],
+        ["phuan",100],["xomram",120],["xomgia",100],["tongmoo",100],["donlac",100],["cangon",100],["nalai",100],["baichai",100],
+        ["bachdang",100],["ketthuc",100],["vongxo",100],["banbon",100],["nongkhiaw",100],["horhog",100],["langmau",100],
+        ["baria2",100],["anhoa",100],["binhminh",100],["buoisang",100],["hoalien",100],["lacmy",100],["cacan",100],["tanhop",100],
+        ["hanoi2",1200],["gansong",100],["zokcarbora",100],["banhtrung",100],["yentinh",100],["thunglungcao",100],["baibiendep",100],
+        ["phoduc",100],["baove",100],["ngatu",100],["binhyen",100],["bosong",100],["marble",180],["niemtin",100],
+        ["krosang",100],["banlen",100],["comngon",100],["saigonport",100],["cauhai",100]];
+    };
 	//TODO: NAPF, cherno 2020, Abramia, Panthera
 	default { _hardcodedPop = false };
 };
@@ -135,6 +147,21 @@ private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_inf
 private _cityConfigs = [];
 
 switch (toLower worldName) do {
+    case "cam_lao_nam": {
+        _cityConfigs = "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+           !(getText (_x >> ""Name"") isEqualTo """") &&
+           !((configName _x) in [""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""Malden_C_Airport"", ""FobNauzad"", ""FobObeh"", ""22"",
+           ""23"", ""toipela"", ""hirvela"", ""Kuusela"", ""Niemela"", ""fob4"", ""daumau"", ""fob1"", ""quanloi"", ""stagingarea"", ""fob2"",
+           ""pleimei"", ""fob6"", ""berchtesgaden"", ""fob3"", ""khegio"", ""fob5"", ""thudridge"", ""halongnavybase"", ""plainofjars"", ""pleikuboatbase"",
+           ""banhoang"", ""vinhau"", ""kechau"", ""quanbo"", ""huecitadel"", ""bimat"", ""danthemthem"", ""daophai"", ""phuquoc"", ""dharmadocks"",
+            ""dharma"", ""patmep"", ""phokham"", ""rungcung"", ""tiengtai"", ""vacang"", ""hanoi3"", ""saigonport"", ""ansungsong"", ""vanchu"",
+            ""sangha"", ""hoxanx"", ""congtroi"", ""boave"", ""longhai"", ""honba"", ""kiemtra"", ""baibiendiep"", ""nuocbun"", ""cantho"",
+            ""nhenden"", ""soctrang"", ""mekongdelta"", ""tampep"", ""segbegat"", ""che"", ""tandi"", ""lahot"", ""alieng"", ""thiengling"",
+            ""phaonoi"", ""timho"", ""quyen"", ""caloi"", ""thuphac"", ""diemdang"", ""bandao"", ""mantau"",""dongxa"", ""tauphabang"", ""horgoat"",
+            ""samsong"", ""muylai"", ""caymo"", ""docon"", ""paradiseisland"", ""mien"", ""giuaho"", ""daotrai""])"
+           configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+    };
+
 	case "blud_vidda": {
 		_cityConfigs = "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 		!(getText (_x >> ""Name"") isEqualTo """") &&
@@ -154,7 +181,7 @@ switch (toLower worldName) do {
 	default {
 		_cityConfigs = "(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
 		!(getText (_x >> ""Name"") isEqualTo """") &&
-		!((configName _x) in [""fakeTown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
+		!((configName _x) in [""faketown"",""Lakatoro01"", ""Galili01"",""Sosovu01"", ""Ipota01"", ""FobNauzad"", ""FobObeh"", ""22"", ""23"", ""toipela"", ""hirvela"", ""Island_Bernerplatte"", ""Island_Feldmoos"", ""Island_Bernerplatte"", ""mil_SouthAirstrip"", ""LandMark_Hubel"", ""Insel_Hasenmatt"", ""pass_Rorenpass"", ""Castle_Froburg"", ""castle_Homburg"", ""Kuusela"", ""Niemela""])"
 		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
 	};
 };
@@ -225,6 +252,9 @@ mrkAntennas = [];
 private _posAntennas = [];
 private _blacklistPos = [];
 private _posBank = [];
+private _banktypes = ["land_gm_euro_office_01","Land_Offices_01_V1_F"];
+private _antennatypes = ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F",
+"Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1", "Land_vn_tower_signal_01"];
 private ["_antenna", "_mrkFinal", "_antennaProv"];
 if (debug) then {
 diag_log format ["%1: [Antistasi] | DEBUG | initZones | Setting up Radio Towers.",servertime];
@@ -252,7 +282,7 @@ private _replaceBadAntenna = {
 switch (toLower worldName) do {
 	case "tanoa": {
 		_posAntennas =
-		[[2682.94,2592.64,-0.000686646], [4701.6,3165.23,0.0633469], [2437.25,7224.06,0.0264893], [2563.15,9017.1,0.291538],
+		[[2566.07,9016.13,0.00299835],[2682.94,2592.64,-0.000686646], [4701.6,3165.23,0.0633469], [2437.25,7224.06,0.0264893], [2563.15,9017.1,0.291538],
 		[6617.95,7853.57,0.200073], [11008.8,4211.16,-0.00154114], [6005.47,10420.9,0.20298], [7486.67,9651.9,1.52588e-005],
 		[2631,11651,0.0173302], [2965.33,13087.1,0.191544], [7278.8,12846.6,0.0838776], [12889.2,8578.86,0.228729],
 		[10114.3,11743.1,9.15527e-005], [10949.8,11517.3,0.14209], [11153.3,11435.2,0.210876], [13775.8,10976.8,0.170441]];	// All antennas to be bases or to ignore.
@@ -290,6 +320,17 @@ switch (toLower worldName) do {
 		_posAntennas =
 		[[10106.4,10343.8,0],[616.562,4520.12,0],[4014.64,3089.66,0.150604], [5249.37,3709.48,-0.353882], [3126.7,8223.88,-0.649429], [8547.92,3897.03,-0.56073], [5578.24,9072.21,-0.842239], [2239.98,12630.7,-0.575844]];
 		_blacklistPos = [];
+		antennas = [];
+	};
+	case "cam_lao_nam": {
+		_posAntennas =
+		[[2247.39,3986.44,0.00225067], [6918.17,5419.54,0], [2947.57,8719.32,0.00744534], [3971.88,10207.1,0], [11382.5,5747.82,8.39233e-005],
+		[8700.25,10425.1,-0.00531006], [4898.78,13640.6,-0.120941], [3272.04,15538.2,0], [15266.2,4664.97,0.000167847], [13743.9,8425.6,-0.171967],
+		[14864.6,6866.28,-0.00304413], [16101.4,3639.34,-0.115108], [16074.1,7125.38,0.000450134], [5279.59,16872.8,0.446297], [16120.6,7510.5,0.00740814],
+		[16798.7,6349.54,-0.134335], [17358.3,5560.4,-0.15237], [16567.1,7649.92,-6.48499e-005], [16915.2,7431.9,-9.53674e-006], [11481,14497.6,0.093338],
+		[9002.38,16557.6,0.00338745], [16704,9187.21,-6.29425e-005], [14135,12825.5,0.106886], [16193.1,10991.2,-0.0359497], [16956.7,10360.2,-6.67572e-005],
+		[18696.2,8463.42,-0.26639], [20109.3,6538.61,9.53674e-007], [20062.7,7258.82,0.0105629], [14532.3,16441.8,-0.00198364], [14754.2,18335.2,0.000380516]];
+		_blackListPos = [11, 15, 17, 21, 24, 27];
 		antennas = [];
 	};
 	case "sara": {
@@ -355,9 +396,9 @@ switch (toLower worldName) do {
 	    antennas = [];
 	};
 	default {
-		antennas = nearestObjects [[worldSize /2, worldSize/2], ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base", "Land_Telek1"], worldSize];
+		antennas = nearestObjects [[worldSize /2, worldSize/2], _antennatypes, worldSize];
 
-		banks = nearestObjects [[worldSize /2, worldSize/2], ["land_gm_euro_office_01","Land_Offices_01_V1_F"], worldSize];
+		banks = nearestObjects [[worldSize /2, worldSize/2], _banktypes, worldSize];
 
 		private _replacedAntennas = [];
 		{ _replacedAntennas pushBack ([_x] call _replaceBadAntenna); } forEach antennas;
@@ -403,7 +444,7 @@ diag_log format ["%1: [Antistasi] | DEBUG | initZones | Finding broken Radio Tow
 
 if (count _posAntennas > 0) then {
 	for "_i" from 0 to (count _posAntennas - 1) do {
-		_antennaProv = nearestObjects [_posAntennas select _i, ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F", "Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1"], 35];
+		_antennaProv = nearestObjects [_posAntennas select _i, _antennaTypes, 35];
 
 		if (count _antennaProv > 0) then {
 			_antenna = _antennaProv select 0;
@@ -453,7 +494,7 @@ diag_log format ["%1: [Antistasi] | DEBUG | initZones | Broken Radio Towers iden
 
 if (count _posBank > 0) then {
 	for "_i" from 0 to (count _posBank - 1) do {
-		_bankProv = nearestObjects [_posBank select _i, ["land_gm_euro_office_01", "Land_Offices_01_V1_F"], 30];
+		_bankProv = nearestObjects [_posBank select _i, _banktypes, 30];
 
 		if (count _bankProv > 0) then {
 			private _banco = _bankProv select 0;

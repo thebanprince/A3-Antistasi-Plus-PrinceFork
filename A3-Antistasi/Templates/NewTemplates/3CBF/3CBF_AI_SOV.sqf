@@ -12,8 +12,72 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhs_msv_emr_rifleman"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "rhs_msv_emr_rifleman"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "rhs_msv_sergeant"],
+	["militia_rifleman", "rhs_msv_rifleman"],
+	["militia_radioman", "rhs_msv_rifleman"],
+	["militia_medic", "rhs_msv_medic"],
+	["militia_engineer", "rhs_msv_engineer"],
+	["militia_explosivesexpert", "rhs_msv_rifleman"],
+	["militia_grenadier", "rhs_msv_grenadier"],
+	["militia_lat", "rhs_msv_LAT"],
+	["militia_at", "rhs_msv_at"],
+	["militia_aa", "rhs_msv_aa"],
+	["militia_machinegunner", "rhs_msv_machinegunner"],
+	["militia_marksman", "rhs_msv_marksman"],
+	["militia_sniper", "rhs_msv_marksman"],
+
+	["military_squadleader", "rhs_msv_emr_sergeant"],
+	["military_rifleman", "rhs_msv_emr_rifleman"],
+	["military_radioman", "rhs_msv_emr_rifleman"],
+	["military_medic", "rhs_msv_emr_medic"],
+	["military_engineer", "rhs_msv_emr_engineer"],
+	["military_explosivesexpert", "rhs_msv_emr_rifleman"],
+	["military_grenadier", "rhs_msv_emr_grenadier"],
+	["military_lat", "rhs_msv_emr_LAT"],
+	["military_at", "rhs_msv_emr_at"],
+	["military_aa", "rhs_msv_emr_aa"],
+	["military_machinegunner", "rhs_msv_emr_machinegunner"],
+	["military_marksman", "rhs_msv_emr_marksman"],
+	["military_sniper", "rhs_msv_emr_marksman"],
+
+	["elite_squadleader", "rhs_msv_emr_sergeant"],
+	["elite_rifleman", "rhs_msv_emr_rifleman"],
+	["elite_radioman", "rhs_msv_emr_rifleman"],
+	["elite_medic", "rhs_msv_emr_medic"],
+	["elite_engineer", "rhs_msv_emr_engineer"],
+	["elite_explosivesexpert", "rhs_msv_emr_rifleman"],
+	["elite_grenadier", "rhs_msv_emr_grenadier"],
+	["elite_lat", "rhs_msv_emr_LAT"],
+	["elite_at", "rhs_msv_emr_at"],
+	["elite_aa", "rhs_msv_emr_aa"],
+	["elite_machinegunner", "rhs_msv_emr_machinegunner"],
+	["elite_marksman", "rhs_msv_emr_marksman"],
+	["elite_sniper", "rhs_msv_emr_marksman"],
+
+	["sf_squadleader", "rhs_msv_emr_sergeant"],
+	["sf_rifleman", "rhs_msv_emr_rifleman"],
+	["sf_radioman", "rhs_msv_emr_rifleman"],
+	["sf_medic", "rhs_msv_emr_medic"],
+	["sf_engineer", "rhs_msv_emr_engineer"],
+	["sf_explosivesexpert", "rhs_msv_emr_rifleman"],
+	["sf_grenadier", "rhs_msv_emr_grenadier"],
+	["sf_lat", "rhs_msv_emr_LAT"],
+	["sf_at", "rhs_msv_emr_at"],
+	["sf_aa", "rhs_msv_emr_aa"],
+	["sf_machinegunner", "rhs_msv_emr_machinegunner"],
+	["sf_marksman", "rhs_msv_emr_marksman"],
+	["sf_sniper", "rhs_msv_emr_marksman"],
+
+	["other_crew", "rhs_msv_emr_crew"],
+	["other_unarmed", "rhs_msv_emr_rifleman"],
+	["other_official", "rhs_msv_emr_officer"],
+	["other_traitor", "O_G_officer_F"],
+	["other_pilot", "rhs_pilot_combat_heli"],
+	["police_squadleader", "rhs_mvd_izlom_sergeant"],
+	["police_standard", "rhs_mvd_izlom_rifleman"]
+]] call _fnc_saveToTemplate;
+
 
 //////////////////////////
 //       Vehicles       //
@@ -134,8 +198,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhs_ec400_mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]]; 			
-
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_mag_rdg2_black"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_nspd"]];	
 
 _loadoutData setVariable ["maps", ["ItemMap"]];				
 _loadoutData setVariable ["watches", ["ItemWatch"]];		
@@ -443,7 +507,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	//["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

@@ -12,8 +12,72 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhsgref_cdf_b_reg_rifleman"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "rhsgref_cdf_b_ngd_rifleman"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "rhsgref_cdf_b_ngd_squadleader"],
+	["militia_rifleman", "rhsgref_cdf_b_ngd_rifleman"],
+	["militia_radioman", "rhsgref_cdf_b_ngd_rifleman"],
+	["militia_medic", "rhsgref_cdf_b_ngd_medic"],
+	["militia_engineer", "rhsgref_cdf_b_ngd_engineer"],
+	["militia_explosivesexpert", "rhsgref_cdf_b_ngd_rifleman"],
+	["militia_grenadier", "rhsgref_cdf_b_para_grenadier"],
+	["militia_lat", "rhsgref_cdf_b_ngd_rifleman_rpg75"],
+	["militia_at", "rhsgref_cdf_b_reg_grenadier_rpg"],
+	["militia_aa", "rhsgref_cdf_b_reg_specialist_aa"],
+	["militia_machinegunner", "rhsgref_cdf_b_reg_machinegunner"],
+	["militia_marksman", "rhsgref_cdf_b_reg_marksman"],
+	["militia_sniper", "rhsgref_cdf_b_reg_marksman"],
+
+	["military_squadleader", "rhsgref_cdf_b_reg_squadleader"],
+	["military_rifleman", "rhsgref_cdf_b_reg_rifleman"],
+	["military_radioman", "rhsgref_cdf_b_reg_rifleman"],
+	["military_medic", "rhsgref_cdf_b_reg_medic"],
+	["military_engineer", "rhsgref_cdf_b_reg_engineer"],
+	["military_explosivesexpert", "rhsgref_cdf_b_ngd_rifleman"],
+	["military_grenadier", "rhsgref_cdf_b_para_grenadier"],
+	["military_lat", "rhsgref_cdf_b_reg_rifleman_rpg75"],
+	["military_at", "rhsgref_cdf_b_reg_grenadier_rpg"],
+	["military_aa", "rhsgref_cdf_b_reg_specialist_aa"],
+	["military_machinegunner", "rhsgref_cdf_b_reg_machinegunner"],
+	["military_marksman", "rhsgref_cdf_b_reg_marksman"],
+	["military_sniper", "rhsgref_cdf_b_reg_marksman"],
+
+	["elite_squadleader", "rhsgref_cdf_b_reg_squadleader"],
+	["elite_rifleman", "rhsgref_cdf_b_reg_rifleman"],
+	["elite_radioman", "rhsgref_cdf_b_reg_rifleman"],
+	["elite_medic", "rhsgref_cdf_b_reg_medic"],
+	["elite_engineer", "rhsgref_cdf_b_reg_engineer"],
+	["elite_explosivesexpert", "rhsgref_cdf_b_ngd_rifleman"],
+	["elite_grenadier", "rhsgref_cdf_b_para_grenadier"],
+	["elite_lat", "rhsgref_cdf_b_reg_rifleman_rpg75"],
+	["elite_at", "rhsgref_cdf_b_reg_grenadier_rpg"],
+	["elite_aa", "rhsgref_cdf_b_reg_specialist_aa"],
+	["elite_machinegunner", "rhsgref_cdf_b_reg_machinegunner"],
+	["elite_marksman", "rhsgref_cdf_b_reg_marksman"],
+	["elite_sniper", "rhsgref_cdf_b_reg_marksman"],
+
+	["sf_squadleader", "rhsgref_cdf_b_reg_squadleader"],
+	["sf_rifleman", "rhsgref_cdf_b_reg_rifleman"],
+	["sf_radioman", "rhsgref_cdf_b_reg_rifleman"],
+	["sf_medic", "rhsgref_cdf_b_reg_medic"],
+	["sf_engineer", "rhsgref_cdf_b_reg_engineer"],
+	["sf_explosivesexpert", "rhsgref_cdf_b_ngd_rifleman"],
+	["sf_grenadier", "rhsgref_cdf_b_para_grenadier"],
+	["sf_lat", "rhsgref_cdf_b_reg_rifleman_rpg75"],
+	["sf_at", "rhsgref_cdf_b_reg_grenadier_rpg"],
+	["sf_aa", "rhsgref_cdf_b_reg_specialist_aa"],
+	["sf_machinegunner", "rhsgref_cdf_b_reg_machinegunner"],
+	["sf_marksman", "rhsgref_cdf_b_reg_marksman"],
+	["sf_sniper", "rhsgref_cdf_b_reg_marksman"],
+
+	["other_crew", "rhsgref_cdf_b_ngd_crew"],
+	["other_unarmed", "B_Survivor_F"],
+	["other_official", "rhsgref_cdf_b_reg_officer"],
+	["other_traitor", "rhsgref_cdf_b_ngd_rifleman"],
+	["other_pilot", "rhsgref_cdf_b_air_pilot"],
+	["police_squadleader", "rhsgref_cdf_b_ngd_rifleman"],
+	["police_standard", "rhsgref_cdf_b_ngd_rifleman"]
+]] call _fnc_saveToTemplate;
+
 
 //////////////////////////
 //       Vehicles       //

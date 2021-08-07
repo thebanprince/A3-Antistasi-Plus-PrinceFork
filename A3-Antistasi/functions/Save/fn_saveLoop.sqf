@@ -6,7 +6,7 @@ if (!isServer) exitWith {
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 [2, "Starting persistent save", _filename] call A3A_fnc_log;
-["Persistent Save Starting","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
@@ -128,13 +128,14 @@ if (!isNil "isRallyPointPlaced" && {isRallyPointPlaced}) then {
 ["resourcesFIA", _resourcesBackground] call A3A_fnc_setStatVariable;
 ["hr", _hrBackground] call A3A_fnc_setStatVariable;
 ["vehInGarage", _vehInGarage] call A3A_fnc_setStatVariable;
+["HR_Garage", [] call HR_GRG_fnc_getSaveData] call A3A_fnc_setStatVariable;
 
 _arrayEst = [];
 {
 	_veh = _x;
 	_typeVehX = typeOf _veh;
 	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F", "Land_DeskChair_01_black_F", "Land_PortableDesk_01_black_F","Land_Laptop_02_unfolded_F","Land_Ammobox_rounds_F","Land_Cargo20_military_green_F"])) then {
-		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not (_veh isKindOf "FlagCarrier")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
+		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
 			_posVeh = getPosWorld _veh;
 			_xVectorUp = vectorUp _veh;
 			_xVectorDir = vectorDir _veh;
@@ -251,7 +252,7 @@ private _arrayAAPostsFIA = [];
 	_arrayAAPostsFIA pushBack [
 		_positionOutpost,
 		garrison getVariable [_x,[]],
-		staticPositions getVariable [_x,[]] 
+		staticPositions getVariable [_x,[]]
 	];
 } forEach aapostsFIA;
 
@@ -262,9 +263,9 @@ private _arrayATPostsFIA = [];
 {
 	_positionOutpost = getMarkerPos _x;
 	_arrayATPostsFIA pushBack [
-		_positionOutpost, 
-		garrison getVariable [_x,[]], 
-		staticPositions getVariable [_x,[]] 
+		_positionOutpost,
+		garrison getVariable [_x,[]],
+		staticPositions getVariable [_x,[]]
 	];
 } forEach atpostsFIA;
 
@@ -277,7 +278,7 @@ private _arrayMortarPostsFIA = [];
 	_arrayMortarPostsFIA pushBack [
 		_positionOutpost,
 		garrison getVariable [_x,[]],
-		staticPositions getVariable [_x,[]] 
+		staticPositions getVariable [_x,[]]
 	];
 } forEach mortarpostsFIA;
 
@@ -290,7 +291,7 @@ private _arrayHMGPostsFIA = [];
 	_arrayHMGPostsFIA pushBack [
 		_positionOutpost,
 		garrison getVariable [_x,[]],
-		staticPositions getVariable [_x,[]] 
+		staticPositions getVariable [_x,[]]
 	];
 } forEach hmgpostsFIA;
 
@@ -338,5 +339,5 @@ _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlaye
 saveProfileNamespace;
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",nameTeamPlayer," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>"] joinString "";
-["Persistent Save Completed",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 [2, "Persistent Save Completed", _filename] call A3A_fnc_log;

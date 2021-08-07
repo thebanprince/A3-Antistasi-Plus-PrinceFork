@@ -11,7 +11,7 @@ _positionX = getMarkerPos (_markerX);
 
 _num = [_markerX] call A3A_fnc_sizeMarker;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
-if ({if ((getMarkerPos _x inArea _markerX) and (sidesX getVariable [_x,sideUnknown] != _sideX)) exitWith {1}} count markersX > 0) exitWith {};
+if ((markersX - controlsX) findIf {(getMarkerPos _x inArea _markerX) and (sidesX getVariable [_x,sideUnknown] != _sideX)} != -1) exitWith {};
 _num = round (_num / 100);
 
 diag_log format ["[Antistasi] Spawning City Patrol in %1 (createAICities.sqf)", _markerX];
@@ -39,7 +39,7 @@ else
 			}
 		else
 			{
-			_params = [_positionX, Occupants, groupsNATOGen];
+			_params = [_positionX, Occupants, [policeOfficer, policeGrunt]];
 			};
 		}
 	else

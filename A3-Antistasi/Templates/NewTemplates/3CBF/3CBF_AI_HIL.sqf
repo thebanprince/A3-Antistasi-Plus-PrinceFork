@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhsgref_hidf_rifleman"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "rhsgref_hidf_rifleman"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "rhsgref_hidf_squadleader"],
+	["militia_rifleman", "rhsgref_hidf_rifleman"],
+	["militia_radioman", "rhsgref_hidf_rifleman"],
+	["militia_medic", "rhsgref_hidf_medic"],
+	["militia_engineer", "rhsgref_hidf_rifleman"],
+	["militia_explosivesexpert", "rhsgref_hidf_rifleman"],
+	["militia_grenadier", "rhsgref_hidf_grenadier"],
+	["militia_lat", "rhsgref_hidf_rifleman"],
+	["militia_at", "rhsgref_hidf_rifleman"],
+	["militia_aa", "rhsgref_hidf_rifleman"],
+	["militia_machinegunner", "rhsgref_hidf_machinegunner"],
+	["militia_marksman", "rhsgref_hidf_marksman"],
+	["militia_sniper", "rhsgref_hidf_sniper"],
+
+	["militiary_squadleader", "rhsgref_hidf_squadleader"],
+	["militiary_rifleman", "rhsgref_hidf_rifleman"],
+	["militiary_radioman", "rhsgref_hidf_rifleman"],
+	["militiary_medic", "rhsgref_hidf_medic"],
+	["militiary_engineer", "rhsgref_hidf_rifleman"],
+	["militiary_explosivesexpert", "rhsgref_hidf_rifleman"],
+	["militiary_grenadier", "rhsgref_hidf_grenadier"],
+	["militiary_lat", "rhsgref_hidf_rifleman"],
+	["militiary_at", "rhsgref_hidf_rifleman"],
+	["militiary_aa", "rhsgref_hidf_rifleman"],
+	["militiary_machinegunner", "rhsgref_hidf_machinegunner"],
+	["militiary_marksman", "rhsgref_hidf_marksman"],
+	["militiary_sniper", "rhsgref_hidf_sniper"],
+
+	["elite_squadleader", "rhsgref_hidf_squadleader"],
+	["elite_rifleman", "rhsgref_hidf_rifleman"],
+	["elite_radioman", "rhsgref_hidf_rifleman"],
+	["elite_medic", "rhsgref_hidf_medic"],
+	["elite_engineer", "rhsgref_hidf_rifleman"],
+	["elite_explosivesexpert", "rhsgref_hidf_rifleman"],
+	["elite_grenadier", "rhsgref_hidf_grenadier"],
+	["elite_lat", "rhsgref_hidf_rifleman"],
+	["elite_at", "rhsgref_hidf_rifleman"],
+	["elite_aa", "rhsgref_hidf_rifleman"],
+	["elite_machinegunner", "rhsgref_hidf_machinegunner"],
+	["elite_marksman", "rhsgref_hidf_marksman"],
+	["elite_sniper", "rhsgref_hidf_sniper"],
+
+	["sf_squadleader", "rhsgref_hidf_squadleader"],
+	["sf_rifleman", "rhsgref_hidf_rifleman"],
+	["sf_radioman", "rhsgref_hidf_rifleman"],
+	["sf_medic", "rhsgref_hidf_medic"],
+	["sf_engineer", "rhsgref_hidf_rifleman"],
+	["sf_explosivesexpert", "rhsgref_hidf_rifleman"],
+	["sf_grenadier", "rhsgref_hidf_grenadier"],
+	["sf_lat", "rhsgref_hidf_rifleman"],
+	["sf_at", "rhsgref_hidf_rifleman"],
+	["sf_aa", "rhsgref_hidf_rifleman"],
+	["sf_machinegunner", "rhsgref_hidf_machinegunner"],
+	["sf_marksman", "rhsgref_hidf_marksman"],
+	["sf_sniper", "rhsgref_hidf_sniper"],
+
+	["other_crew", "rhsgref_hidf_crewman"],
+	["other_unarmed", "B_Survivor_F"],
+	["other_official", "rhsgref_hidf_squadleader"],
+	["other_traitor", "rhsgref_hidf_squadleader"],
+	["other_pilot", "rhsgref_hidf_helipilot"],
+	["police_squadleader", "B_GEN_Commander_F"],
+	["police_standard", "B_GEN_Soldier_F"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -128,7 +191,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["rhs_mag_m67", "rhs_grenade_mkii_mag"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc", "rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]]; 			
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc"]]; 			
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]];	
 
 _loadoutData setVariable ["maps", ["ItemMap"]];				
 _loadoutData setVariable ["watches", ["ItemWatch"]];		
@@ -512,7 +576,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "rhsusf_army_ucp_rifleman"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "rhsusf_usmc_marpat_wd_rifleman"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "rhsusf_usmc_marpat_wd_squadleader"],
+	["militia_rifleman", "rhsusf_usmc_marpat_wd_rifleman"],
+	["militia_radioman", "rhsusf_usmc_marpat_wd_rifleman"],
+	["militia_medic", "rhsusf_army_ucp_medic"],
+	["militia_engineer", "rhsusf_usmc_marpat_wd_engineer"],
+	["militia_explosivesexpert", "rhsusf_army_ucp_explosives"],
+	["militia_grenadier", "rhsusf_usmc_marpat_wd_grenadier"],
+	["militia_lat", "rhsusf_army_ucp_maaws"],
+	["militia_at", "rhsusf_army_ucp_maaws"],
+	["militia_aa", "rhsusf_usmc_marpat_wd_stinger"],
+	["militia_machinegunner", "rhsusf_usmc_marpat_wd_machinegunner"],
+	["militia_marksman", "rhsusf_usmc_marpat_wd_marksman"],
+	["militia_sniper", "rhsusf_usmc_marpat_wd_sniper_M107"],
+
+	["military_squadleader", "rhsusf_army_ocp_squadleader"],
+	["military_rifleman", "rhsusf_army_ocp_rifleman"],
+	["military_radioman", "rhsusf_army_ocp_rifleman"],
+	["military_medic", "rhsusf_army_ocp_medic"],
+	["military_engineer", "rhsusf_army_ocp_engineer"],
+	["military_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["military_grenadier", "rhsusf_army_ocp_grenadier"],
+	["military_lat", "rhsusf_army_ocp_riflemanat"],
+	["military_at", "rhsusf_army_ocp_maaws"],
+	["military_aa", "rhsusf_army_ocp_aa"],
+	["military_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["military_marksman", "rhsusf_army_ocp_marksman"],
+	["military_sniper", "rhsusf_army_ucp_sniper"],
+
+	["elite_squadleader", "rhsusf_army_ocp_squadleader"],
+	["elite_rifleman", "rhsusf_army_ocp_rifleman"],
+	["elite_radioman", "rhsusf_army_ocp_rifleman"],
+	["elite_medic", "rhsusf_army_ocp_medic"],
+	["elite_engineer", "rhsusf_army_ocp_engineer"],
+	["elite_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["elite_grenadier", "rhsusf_army_ocp_grenadier"],
+	["elite_lat", "rhsusf_army_ocp_riflemanat"],
+	["elite_at", "rhsusf_army_ocp_maaws"],
+	["elite_aa", "rhsusf_army_ocp_aa"],
+	["elite_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["elite_marksman", "rhsusf_army_ocp_marksman"],
+	["elite_sniper", "rhsusf_army_ucp_sniper"],
+
+	["sf_squadleader", "rhsusf_socom_marsoc_teamleader"],
+	["sf_rifleman", "rhsusf_socom_marsoc_cso"],
+	["sf_radioman", "rhsusf_socom_marsoc_cso"],
+	["sf_medic", "rhsusf_socom_marsoc_sarc"],
+	["sf_engineer", "rhsusf_socom_marsoc_cso_mechanic"],
+	["sf_explosivesexpert", "rhsusf_army_ocp_explosives"],
+	["sf_grenadier", "rhsusf_socom_marsoc_cso_grenadier"],
+	["sf_lat", "rhsusf_army_ocp_maaws"],
+	["sf_at", "rhsusf_army_ocp_maaws"],
+	["sf_aa", "rhsusf_army_ocp_aa"],
+	["sf_machinegunner", "rhsusf_army_ocp_machinegunner"],
+	["sf_marksman", "rhsusf_army_ocp_marksman"],
+	["sf_sniper", "rhsusf_army_ucp_sniper"],
+
+	["other_crew", "rhsusf_army_ucp_crewman"],
+	["other_unarmed", "B_Survivor_F"],
+	["other_official", "rhsusf_army_ucp_officer"],
+	["other_traitor", "B_G_Soldier_F"],
+	["other_pilot", "rhsusf_army_ucp_helipilot"],
+	["police_squadleader", "B_G_Soldier_F"],
+	["police_standard", "B_G_Soldier_F"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -133,8 +196,8 @@ _loadoutData setVariable ["heavyExplosives", ["rhsusf_m112x4_mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", []]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc", "rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]]; 			
-
+_loadoutData setVariable ["smokeGrenades", ["rhs_mag_an_m8hc"]]; 			
+_loadoutData setVariable ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]];	
 
 
 
@@ -631,7 +694,7 @@ private _squadLeaderTemplate = {
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["antiTankGrenades", 1] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;

@@ -3,7 +3,7 @@ disableSerialization;
 menuComplete = false;
 
 menuSliderArray = [
-	["HQ MANAGEMENT", 3000],
+	[format ["%1 MANAGEMENT", (toUpper nameTeamPlayer)], 3000],
 	["MANAGE GARRISONS", 2000]
 ];
 

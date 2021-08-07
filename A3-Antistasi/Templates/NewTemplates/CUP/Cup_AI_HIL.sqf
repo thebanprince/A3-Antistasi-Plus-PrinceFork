@@ -12,8 +12,71 @@
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
-["baseSoldier", "CUP_B_HIL_Soldier"] call _fnc_saveToTemplate;
-["baseSoldierMilitia", "CUP_B_HIL_Soldier_Res"] call _fnc_saveToTemplate;
+["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
+	["militia_squadleader", "CUP_B_HIL_SL_Res"],
+	["militia_rifleman", "CUP_B_HIL_Soldier_Res"],
+	["militia_radioman", "CUP_B_HIL_Soldier_Res"],
+	["militia_medic", "CUP_B_HIL_Medic_Res"],
+	["militia_engineer", "CUP_B_HIL_Engineer_Res"],
+	["militia_explosivesexpert", "CUP_B_HIL_Soldier_Res"],
+	["militia_grenadier", "CUP_B_HIL_GL_Res"],
+	["militia_lat", "CUP_B_HIL_Soldier_MAT_Res"],
+	["militia_at", "CUP_B_HIL_Soldier_MAT_Res"],
+	["militia_aa", "CUP_B_HIL_Soldier_AA"],
+	["militia_machinegunner", "CUP_B_HIL_MMG_Res"],
+	["militia_marksman", "CUP_B_HIL_M_Res"],
+	["militia_sniper", "CUP_B_HIL_M_Res"],
+
+	["military_squadleader", "CUP_B_HIL_SL"],
+	["military_rifleman", "CUP_B_HIL_Soldier"],
+	["military_radioman", "CUP_B_HIL_Soldier"],
+	["military_medic", "CUP_B_HIL_Medic"],
+	["military_engineer", "CUP_B_HIL_Engineer"],
+	["military_explosivesexpert", "CUP_B_HIL_Soldier"],
+	["military_grenadier", "CUP_B_HIL_GL"],
+	["military_lat", "CUP_B_HIL_Soldier_LAT"],
+	["military_at", "CUP_B_HIL_Soldier_HAT"],
+	["military_aa", "CUP_B_HIL_Soldier_AA"],
+	["military_machinegunner", "CUP_B_HIL_MMG"],
+	["military_marksman", "CUP_B_HIL_M"],
+	["military_sniper", "CUP_B_HIL_M"],
+
+	["elite_squadleader", "CUP_B_HIL_SL"],
+	["elite_rifleman", "CUP_B_HIL_Soldier"],
+	["elite_radioman", "CUP_B_HIL_Soldier"],
+	["elite_medic", "CUP_B_HIL_Medic"],
+	["elite_engineer", "CUP_B_HIL_Engineer"],
+	["elite_explosivesexpert", "CUP_B_HIL_Soldier"],
+	["elite_grenadier", "CUP_B_HIL_GL"],
+	["elite_lat", "CUP_B_HIL_Soldier_LAT"],
+	["elite_at", "CUP_B_HIL_Soldier_HAT"],
+	["elite_aa", "CUP_B_HIL_Soldier_AA"],
+	["elite_machinegunner", "CUP_B_HIL_MMG"],
+	["elite_marksman", "CUP_B_HIL_M"],
+	["elite_sniper", "CUP_B_HIL_M"],
+
+	["sf_squadleader", "CUP_B_HIL_SL_SF"],
+	["sf_rifleman", "CUP_B_HIL_Scout_SF"],
+	["sf_radioman", "CUP_B_HIL_Scout_SF"],
+	["sf_medic", "CUP_B_HIL_Medic_SF"],
+	["sf_engineer", "CUP_B_HIL_Engineer_SF"],
+	["sf_explosivesexpert", "CUP_B_HIL_Scout_SF"],
+	["sf_grenadier", "CUP_B_HIL_GL_SF"],
+	["sf_lat", "CUP_B_HIL_Soldier_MAT_SF"],
+	["sf_at", "CUP_B_HIL_Soldier_HAT_SF"],
+	["sf_aa", "CUP_B_HIL_Scout_SF"],
+	["sf_machinegunner", "CUP_B_HIL_MMG_SF"],
+	["sf_marksman", "CUP_B_HIL_M_SF"],
+	["sf_sniper", "CUP_B_HIL_M_SF"],
+
+	["other_crew", "CUP_B_HIL_Crew"],
+	["other_unarmed", "CUP_B_HIL_Soldier_Unarmed"],
+	["other_official", "CUP_B_HIL_Officer"],
+	["other_traitor", "B_GEN_Commander_F"],
+	["other_pilot", "CUP_B_HIL_Pilot"],
+	["police_squadleader", "B_GEN_Commander_F"],
+	["police_standard", "B_GEN_Soldier_F"]
+]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -136,7 +199,8 @@ _loadoutData setVariable ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
 _loadoutData setVariable ["antiInfantryGrenades", ["CUP_HandGrenade_M67", "MiniGrenade"]]; 		
 _loadoutData setVariable ["antiTankGrenades", []]; 			
-_loadoutData setVariable ["smokeGrenades", ["SmokeShell", "SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
+_loadoutData setVariable ["smokeGrenades", ["SmokeShell"]];
+_loadoutData setVariable ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
 
 _loadoutData setVariable ["maps", ["ItemMap"]];
 _loadoutData setVariable ["watches", ["ItemWatch"]];
@@ -509,7 +573,7 @@ private _squadLeaderTemplate = {
 	["items_miscEssentials"] call _fnc_addItemSet;
 	["antiInfantryGrenades", 2] call _fnc_addItem;
 	["smokeGrenades", 2] call _fnc_addItem;
-	["smokeGrenades", 2] call _fnc_addItem;
+	["signalsmokeGrenades", 2] call _fnc_addItem;
 
 	["maps"] call _fnc_addMap;
 	["watches"] call _fnc_addWatch;
