@@ -231,4 +231,11 @@ class SCRT
         class civilian_createCivilianPresence {};
         class civilian_removeCivilianPresence {};
     };
+    
+    class Ironman
+    {
+        file = "SCRT\Ironman";
+        class ironman_endClient;
+        class ironman_endServer;
+    };
 };

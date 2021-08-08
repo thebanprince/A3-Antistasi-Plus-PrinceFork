@@ -341,6 +341,13 @@ class Params
           texts[] =  {"Load From Save (Default - 30%)", "15%", "30%", "50%", "75%", "100%"};
           default = 9999;
      };
+     class ironManMode
+     {
+          title = "Iron Man Mode (One life for Commander and Petros)";
+          values[] = {9999, 1, 0};
+          texts[] =  {"Load From Save (Default - No)", "Yes (IRREVERSIBLE ON CURRENT SAVE)", "No"};
+          default = 9999;
+     };
 
     class Spacer0
     {

@@ -164,13 +164,10 @@ while {true} do
 	[] call A3A_fnc_economicsAI;
     [] call A3A_fnc_cleanConvoyMarker;
 
-	if (isMultiplayer) then
-	{
-		[] spawn A3A_fnc_promotePlayer;
-		[] call A3A_fnc_assignBossIfNone;
-		difficultyCoef = floor ((({side group _x == teamPlayer} count (call A3A_fnc_playableUnits)) - ({side group _x != teamPlayer} count (call A3A_fnc_playableUnits))) / 5);
-		publicVariable "difficultyCoef";
-	};
+	[] spawn A3A_fnc_promotePlayer;
+	[] call A3A_fnc_assignBossIfNone;
+	difficultyCoef = floor ((({side group _x == teamPlayer} count (call A3A_fnc_playableUnits)) - ({side group _x != teamPlayer} count (call A3A_fnc_playableUnits))) / 5);
+	publicVariable "difficultyCoef";
 
 	private _missionChance = 5 * count (allPlayers - (entities "HeadlessClient_F"));
 	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};

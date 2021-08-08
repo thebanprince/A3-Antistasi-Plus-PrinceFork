@@ -48,8 +48,23 @@ class hcDown
 };
 class noSinglplayer
 {
-	title = "No Singleplayer support.";
+	title = "No Singleplayer support";
 	subtitle = "Start LAN server to play as single player.";
 	picture = "b_unknown";
 	pictureColor[] = {1,0.5,0.0,1};
 };
+class ironManPetros
+{
+	title = "Petros died";
+	subtitle = "Without a leader resistance can't survive.";
+	picture = "b_hq";
+	pictureColor[] = {1,0.5,0.0,1};
+};
+class ironManCommander
+{
+	title = "Commander died";
+	subtitle = "Without a field commander resistance can't survive.";
+	picture = "b_hq";
+	pictureColor[] = {1,0.5,0.0,1};
+};
+

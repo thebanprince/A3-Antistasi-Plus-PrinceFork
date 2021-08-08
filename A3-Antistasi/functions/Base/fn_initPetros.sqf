@@ -54,14 +54,25 @@ petros addEventHandler
     }
 ];
 
+if (ironManMode) then {
+    petros addEventHandler [
+        "Killed",
+        {
+            [format ["<t size='0.6'><t size='0.6' color='#e60000'>%1 has failed - Petros has been killed</t>. Mission will end shortly.</t>", nameTeamPlayer]] remoteExec ["SCRT_fnc_ironman_endClient", [teamPlayer, civilian], true];
+            ["PETROS"] remoteExec ["SCRT_fnc_ironman_endServer", 2];
+        }
+    ];
+};
+
 petros addMPEventHandler ["mpkilled",
 {
     removeAllActions petros;
     _killer = _this select 1;
     if (isServer) then
 	{
-        if ((side _killer == Invaders) or (side _killer == Occupants) and !(isPlayer _killer) and !(isNull _killer)) then
-		{
+        if (ironManMode) exitWith {};
+
+        if ((side _killer == Invaders) or (side _killer == Occupants) and !(isPlayer _killer) and !(isNull _killer)) then {
 			_nul = [] spawn {
 				garrison setVariable ["Synd_HQ",[],true];
 				_hrT = server getVariable "hr";
@@ -77,20 +88,19 @@ petros addMPEventHandler ["mpkilled",
 						apply {[([_x] call A3A_fnc_numericRank) select 0, _x]};
 					_playersWithRank sort false;
 
-					 [] remoteExec ["A3A_fnc_placementSelection", _playersWithRank select 0 select 1];
+					[] remoteExec ["A3A_fnc_placementSelection", _playersWithRank select 0 select 1];
 				};
 			};
 			{
 				if (side _x == Occupants) then {_x setPos (getMarkerPos respawnOccupants)};
 			} forEach (call A3A_fnc_playableUnits);
 		}
-        else
-		{
+        else {
             [] call A3A_fnc_createPetros;
 		};
 	};
 }];
-[] spawn {sleep 120; petros allowDamage true;};
+// [] spawn {sleep 120; petros allowDamage true;};
 
 private _removeProblematicAceInteractions = {
     _this spawn {

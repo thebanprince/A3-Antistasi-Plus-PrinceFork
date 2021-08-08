@@ -25,7 +25,14 @@ if (isPlayer _unit) then {
 		if (_this select 1 == KEY_R) then {
 			if (player getVariable ["incapacitated",false]) then {
 				(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
-				[player] spawn A3A_fnc_respawn;
+				if (ironManMode && {player == theBoss}) then {
+					[1, "WHITE", 30, 1] spawn BIS_fnc_fadeEffect;
+					[format ["<t size='0.6'><t size='0.6' color='#e60000'>%1 has failed - Commander %2 has been killed</t>. Mission will end shortly.</t>", nameTeamPlayer, name theBoss]] remoteExec ["SCRT_fnc_ironman_endClient", [teamPlayer, civilian], true];
+					["COMMANDER"] remoteExec ["SCRT_fnc_ironman_endServer", 2];
+					player setPos [0,0,0];
+				} else {
+					[player] spawn A3A_fnc_respawn;
+				};
 			};
 		};
 
@@ -142,12 +149,19 @@ if (captive _unit) then {[_unit,false] remoteExec ["setCaptive",0,_unit]; _unit 
 _unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
-if (time > _bleedOut) exitWith {
-	if (_isPlayer) then {
-		[_unit] call A3A_fnc_respawn
-	}
-	else {
-		_unit setDamage 1;
+if (time > _bleedOut) exitWith {	
+	switch (true) do {
+		case (ironManMode && {_isPlayer && {player == theBoss}}): {
+			[] call _ironManEnd;
+		};
+
+		case (_isPlayer): {
+			[_unit] call A3A_fnc_respawn
+		};
+
+		default {
+			_unit setDamage 1;
+		};
 	};
 };
 

@@ -25,8 +25,7 @@ private _specialVarLoads = [
 	"idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
 	"bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "attackCountdownInvaders", "testingTimerIsActive",
 	"traderDiscount", "supportPoints", "isTraderQuestCompleted", "traderPosition", "areOccupantsDefeated", "areInvadersDefeated",
-	"rebelLoadouts",
-	"version", "HR_Garage"
+	"rebelLoadouts", "version", "HR_Garage", "ironManMode"
 ];
 
 private _varName = _this select 0;
@@ -474,6 +473,12 @@ if (_varName in _specialVarLoads) then {
         diag_log format ["Rebel Loadouts: %1", str _varvalue];
         rebelLoadouts = _varvalue;  publicVariable "rebelLoadouts";
     };
+
+	if(_varname == 'ironManMode') then {
+        diag_log format ["Iron Man Mode: %1", str _varvalue];
+        ironManMode = _varvalue;  publicVariable "ironManMode";
+    };
+
 
 } else {
 	call compile format ["%1 = %2",_varName,_varValue];
