@@ -29,6 +29,9 @@ Trace("Closing Garage");
 HR_GRG_SelectedVehicles = [-1, -1, ''];
 removeMissionEventHandler ["EachFrame", HR_GRG_EachFrame];
 
+//show Antistasi's top information string
+[] call A3A_fnc_toggleInfoStringVisibility;
+
 //destroy light source
 lightDetachObject HR_GRG_previewLight;
 deleteVehicle HR_GRG_previewLight;

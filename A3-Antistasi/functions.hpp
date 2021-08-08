@@ -678,6 +678,7 @@ class A3A
         class customHintInit {};
         class customHintRender {};
         class shader_ratioToHex {};
+        class toggleInfoStringVisibility {};
     };
 
     class Undercover

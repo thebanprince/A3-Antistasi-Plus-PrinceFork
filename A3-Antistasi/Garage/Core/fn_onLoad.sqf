@@ -30,6 +30,9 @@ Trace("Opening Garage");
 if (isNil "HR_GRG_Init") then {remoteExecCall ["HR_GRG_fnc_initServer",2]};
 waitUntil {!isNil "HR_GRG_Init"};
 
+//hide Antistasi's top information string as it has no use in the Garage
+[] call A3A_fnc_toggleInfoStringVisibility;
+
 //dont allow opening when placing a vehicle
 if (isNil "HR_GRG_Placing") then { HR_GRG_Placing = false };
 if (HR_GRG_Placing) exitWith { closeDialog 2 };
