@@ -10,7 +10,7 @@ Return Value:
 
 Scope: Client
 Environment: Unscheduled
-Public: Yes
+Public: No
 Dependencies:
     <DISPLAY> H8erHUD
 
