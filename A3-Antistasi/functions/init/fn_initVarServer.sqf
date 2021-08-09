@@ -120,6 +120,8 @@ DECLARE_SERVER_VAR(rebelLoadouts, createHashMap);
 DECLARE_SERVER_VAR(areOccupantsDefeated, false);
 DECLARE_SERVER_VAR(areInvadersDefeated, false);
 
+DECLARE_SERVER_VAR(A3A_coldWarMode, false);
+
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
@@ -803,6 +805,14 @@ DECLARE_SERVER_VAR(vehCargoTrucks, _vehCargoTrucks);
 
 private _vehClassToCrew = call A3A_fnc_initVehClassToCrew;
 DECLARE_SERVER_VAR(A3A_vehClassToCrew,_vehClassToCrew);
+
+if (A3A_has3CBFactions && {(threecbfOccupantFaction == 4 || A3A_hasGlobMob)}) then {
+  A3A_coldWarMode = true;
+  publicVariable "A3A_coldWarMode";
+
+  [2,"3CB Factions and US Cold War template or 3CBF+GM detected, Cold War Mode to be initiated.",_fileName] call A3A_fnc_log;
+};
+
 
 ///////////////////////////
 //     MOD TEMPLATES    ///

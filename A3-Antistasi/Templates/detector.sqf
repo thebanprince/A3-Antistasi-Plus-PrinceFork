@@ -12,8 +12,6 @@ Public: No
 //Var initialisation
 private _filename = "detector.sqf";
 
-A3A_coldWarMode = false;
-
 A3A_hasRHS = false;
 A3A_has3CBFactions = false;
 A3A_hasVN = false;
@@ -75,13 +73,6 @@ if (A3A_hasGlobMob && {isClass (configfile >> "CfgVehicles" >> "gmx_aaf_leopard1
   A3A_hasGlobMobAaf = true;
   [2,"GM AAF Detected.",_fileName] call A3A_fnc_log;
 };
-
-if (A3A_has3CBFactions && {(threecbfOccupantFaction == 4 || A3A_hasGlobMob)}) then {
-  A3A_coldWarMode = true;
-  [2,"3CB Factions and US Cold War template detected, Cold War Mode to be initiated.",_fileName] call A3A_fnc_log;
-};
-
-
 
 //FFAA Detection
 if (isClass (configfile >> "CfgPatches" >> "ffaa_armas")) then {
