@@ -47,7 +47,7 @@
 - One long barricade on road instead of two on sidewalks to prevent roablock vehicle collision issue
 - Military bases have been included into win condition check (previously only airports were counted, rebels required to have majority of country population and all airbases and milbases to win)
 - Arms Dealer will sell UAV terminals
-- Additional "Number of the same item required to unlock" parameter values - 20, 100, 200, 500
+- Additional "Number of the same item required to unlock" parameter values - 15, 20, 100, 200, 500
 - Multiple vehicles for same category support for militia, militia tanks support
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
 - Moderate reduction of money rewards from task completion
@@ -60,7 +60,7 @@
 - Various military buildings static weapon emplacement support
 - Invaders cargo trucks unit roster support
 - Synchronized prices of emplacements and statics in Buy Vehicle menu
-- Added one medic to initial static Emplacement crews to increase their Survivability 
+- Added one medic to initial static Emplacement crews to increase their survivability 
 - Multiple AA vehicles template support
 - Lowered paradrop plane height to spawnable distance to give defenders chance to shot down the plane
 - More militia AT troopers for both Occupants and Invaders
