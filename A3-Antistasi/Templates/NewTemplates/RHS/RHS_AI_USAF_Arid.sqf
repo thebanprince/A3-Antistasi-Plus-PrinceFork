@@ -875,7 +875,7 @@ private _latTemplate = {
 	["carbines"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
-	["lightATLaunchers"] call _fnc_setLauncher;
+	[selectRandom ["ATLaunchers", "lightATLaunchers"]] call _fnc_setLauncher;
 	//TODO - Add a check if it's disposable.
 	["launcher", 3] call _fnc_addMagazines;
 	["launcher", 2] call _fnc_addAdditionalMuzzleMagazines;
