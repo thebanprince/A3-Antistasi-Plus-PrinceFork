@@ -3,8 +3,7 @@ Author: Håkon
     Shows/hides general information bar at the top of the screen depending on the registered system.
 
 Arguments:
-    0. <STRING> Name of system that requested information bar visibility change
-    1. <BOOLEAN> Desired visibility state of information bar
+    -
 
 Return Value:
     <NIL>
@@ -17,7 +16,7 @@ Dependencies:
     <HASHMAP> A3A_InfoBarRegistre
 
 Example:
-[] call A3A_fnc_updateInfoBarShown;
+    [] call A3A_fnc_updateInfoBarShown;
 */
 
 if (isNil "A3A_InfoBarRegistre") exitWith {};

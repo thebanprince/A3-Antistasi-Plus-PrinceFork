@@ -4,7 +4,7 @@ Author: Håkon
 
 Arguments:
     0. <STRING> Name of system that requested information bar visibility change
-    1. <BOOLEAN> Desired visibility state of information bar
+    1. <BOOLEAN> Include/Exclude system from visibility change participation
 
 Return Value:
     <NIL>
@@ -16,12 +16,12 @@ Dependencies:
     <FUNCTION> A3A_fnc_updateInfoBarShown
 
 Example:
-["GARAGE", true] call A3A_fnc_toggleInfoStringVisibility;
+    ["GARAGE", true] call A3A_fnc_disableInfoBar;
 */
 
 params [["_systemName",""], ["_state",false,[false]]];
 
-if (_isNil "A3A_InfoBarRegistre") then {A3A_InfoBarRegistre = createHashMap};
+if (isNil "A3A_InfoBarRegistre") then {A3A_InfoBarRegistre = createHashMap};
 if (_state) then {
     A3A_InfoBarRegistre set [_systemName, _state];
 } else {

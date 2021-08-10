@@ -63,12 +63,12 @@ HR_GRG_fnc_vehInit = {
 }; //is passed vehicle as _this
 HR_GRG_onOpenEvent = { 
     //hide Antistasi's top information string as it has no use in the Garage
-    [] call A3A_fnc_toggleInfoStringVisibility; 
+    ["GARAGE", true] call A3A_fnc_disableInfoBar; 
     player setCaptive false; 
 };
 HR_GRG_onCloseEvent = { 
     //show Antistasi's top information string
-    [] call A3A_fnc_toggleInfoStringVisibility;
+    ["GARAGE", false] call A3A_fnc_disableInfoBar; 
 };
 
 //CBA settings
