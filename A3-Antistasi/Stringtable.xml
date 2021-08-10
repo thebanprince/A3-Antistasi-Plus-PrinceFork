@@ -1879,6 +1879,14 @@
         <Korean>END키로 이어플러그 탈부착이 가능합니다. ACE모드에선 불가능.</Korean>
         <Russian>Нажмите END, чтобы включить/отключить беруши. Отключено при использовании ACE.</Russian>
       </Key>
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_6">
+        <Original>Toggle Info Bar Visibility</Original>
+        <Russian>Переключить видимость информ. строки</Russian>
+      </Key>
+      <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
+        <Original>Press ALT+HOME to show / hide information bar at the top of the screen.</Original>
+        <Russian>Нажмите ALT+HOME, чтобы отобразить/скрыть информационную строку в верхней части экрана.</Russian>
+      </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
         <French>Chef de faction</French>
