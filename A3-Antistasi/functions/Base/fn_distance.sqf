@@ -225,14 +225,7 @@ private _processFIAMarker = {
             spawner setVariable [_marker, ENABLED, true];
 
             // run spawn procedures
-            switch (true)
-            do
-            {
-                case !(_marker in controlsX):
-                {
-                    [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
-                };
-
+            switch (true) do {
                 case (_marker in watchpostsFIA): {
                     [[_marker],"SCRT_fnc_outpost_createWatchpostDistance"] call A3A_fnc_scheduler;
                 };
@@ -250,6 +243,10 @@ private _processFIAMarker = {
                 };
                 case (_marker in hmgpostsFIA): {
                     [[_marker],"SCRT_fnc_outpost_createHmgDistance"] call A3A_fnc_scheduler;
+                };
+
+                case !(_marker in controlsX): {
+                    [[_marker], "A3A_fnc_createSDKGarrisons"] call A3A_fnc_scheduler;
                 };
             };
         };
