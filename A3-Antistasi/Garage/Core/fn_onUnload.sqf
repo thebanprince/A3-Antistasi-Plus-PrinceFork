@@ -23,14 +23,14 @@
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 Trace("Closing Garage");
+
+[] call HR_GRG_onCloseEvent;
+
 [clientOwner] remoteExecCall ["HR_GRG_fnc_removeUser",2];
 "HR_GRG_Event" addPublicVariableEventHandler {};
 "HR_GRG_Vehicles" addPublicVariableEventHandler {};
 HR_GRG_SelectedVehicles = [-1, -1, ''];
 removeMissionEventHandler ["EachFrame", HR_GRG_EachFrame];
-
-//show Antistasi's top information string
-[] call A3A_fnc_toggleInfoStringVisibility;
 
 //destroy light source
 lightDetachObject HR_GRG_previewLight;
