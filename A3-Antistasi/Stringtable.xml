@@ -3442,11 +3442,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off top information bar. To enable it, press ALT+INSERT.</Original>
-        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите ALT+INSERT.</Russian>
+        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите ALT+HOME.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on top information bar. To disable it, press ALT+INSERT.</Original>
-        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите ALT+INSERT.</Russian>
+        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите ALT+HOME.</Russian>
       </Key>
     </Container>
     <Container name="garage_sell">
