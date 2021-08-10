@@ -3436,6 +3436,18 @@
         <Chinesesimp>这将会提升你在我方阵营中的威望</Chinesesimp>
         <Russian>Это повысит ваш престиж среди вашей фракции</Russian>
       </Key>
+      <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
+        <Original>Information Bar</Original>
+        <Russian>Информационная строка</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
+        <Original>You've turned off top information bar. To enable it, press INSERT.</Original>
+        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите INSERT.</Russian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
+        <Original>You've turned on top information bar. To disable it, press INSERT.</Original>
+        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите INSERT.</Russian>
+      </Key>
     </Container>
     <Container name="garage_sell">
       <Key ID="STR_antistasi_dialogs_garage_sell">
