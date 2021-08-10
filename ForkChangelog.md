@@ -102,6 +102,7 @@
 - Removed ability to recruit mortar units at garrison (mortar still can be bought in vehicle menu at flag and then occupied by AI rebel)
 - Removed hidden Minimum Players for PVP parameter
 - Removed Loot Truck
+- Removed radio item requirement for player markers
 - Removed all DLC parameters since they seem to confuse people since they're affecting loot boxes loot pool and civilians only and does not work in modded environment at all, all DLCs will be enabled for vanilla except Karts, Art of War and Laws of War since they have no real gameplay value
 - Towns will no longer flip on it's faction defeat (never worked properly)
 - (Vanilla) Removed possibility of spawning OPFOR GMG on some outpost buildings
