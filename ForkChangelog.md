@@ -52,7 +52,7 @@
 - Immediate mission ending due to unsupported modset configuration will show log message in the bottom left corner of screen
 - Moderate reduction of money rewards from task completion
 - Top string will no longer show Inv aggr when Reb vs Gov gamemode is running and vice versa
-- Changed keybinding for Commander Menu and Player Menu to HOME button due to conflicts with some mods that uses O key
+- Changed keybinding for Commander Menu and Player Menu to CTRL+T keyboard shortcut due to conflicts with some mods that uses O key
 - Find the Arms Dealer task persistence (if players got the task, but it wasn't completed, players will retain the task after server restart)
 - All non-primary faction militia has been replaced with Rear Echelon troops from same faction (except Aegis modset)
 - Added bunch of new intel spawn locations - Radar Complex HQ, Guard House, Barracks

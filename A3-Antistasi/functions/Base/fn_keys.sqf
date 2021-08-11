@@ -35,7 +35,7 @@ switch (_key) do {
         };
     };
 
-    case DIK_U: {
+    case DIK_T: {
         if (!(_this select 3)) exitWith {};
         [] call SCRT_fnc_ui_toggleCommanderMenu;
     };

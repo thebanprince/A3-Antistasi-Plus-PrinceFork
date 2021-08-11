@@ -675,12 +675,12 @@
         <Czech>Otevřete nabídku Commander</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_open_comm_menu_tooltip">
-        <Original>Opens commander menu. Also can be accessed via HOME key.</Original>
-        <English>Opens commander menu. Also can be accessed via HOME key.</English>
-        <French>Ouvre le menu du commandant. Peut également être consulté via la touche HOME.</French>
-        <Russian>Открывает командирское меню. Также доступно через клавишу HOME.</Russian>
-        <German>Öffnet das Commander-Menü. Kann auch über die HOME-Taste aufgerufen werden.</German>
-        <Czech>Otevře nabídku velitele. Lze k nim přistupovat také pomocí klávesy HOME.</Czech>
+        <Original>Opens commander menu. Also can be accessed via CTRL+T shortcut.</Original>
+        <English>Opens commander menu. Also can be accessed via  CTRL+T shortcut.</English>
+        <French>Ouvre le menu du commandant. Peut également être consulté via la touche CTRL+T.</French>
+        <Russian>Открывает командирское меню. Также доступно через сочетание клавиш CTRL+T.</Russian>
+        <German>Öffnet das Commander-Menü. Kann auch über die CTRL+T aufgerufen werden.</German>
+        <Czech>Otevře nabídku velitele. Lze k nim přistupovat také pomocí klávesy CTRL+T.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_open_add_to_air_title">
         <Original>Add to Air Support</Original>
@@ -2721,11 +2721,11 @@
         <Russian>Меню командира</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
-        <Original>Press HOME to enter Commander Menu.</Original>
-        <French>Appuyez sur HOME pour accéder au menu Commandant.</French>
-        <German>Drücken Sie HOME, um das Commander-Menü aufzurufen.</German>
-        <Czech>Stisknutím tlačítka HOME otevřete nabídku Commander.</Czech>
-        <Russian>Нажмите HOME, чтобы попасть в меню командира стороны.</Russian>
+        <Original>Press CTRL+T to enter Commander Menu.</Original>
+        <French>Appuyez sur CTRL+T pour accéder au menu Commandant.</French>
+        <German>Drücken Sie CTRL+T, um das Commander-Menü aufzurufen.</German>
+        <Czech>Stisknutím tlačítka CTRL+T otevřete nabídku Commander.</Czech>
+        <Russian>Нажмите CTRL+T, чтобы попасть в меню командира стороны.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
         <Original>Toggle Information String Visibility</Original>

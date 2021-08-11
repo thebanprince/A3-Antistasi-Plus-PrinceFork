@@ -98,7 +98,7 @@ These modsets are supported ([b]PICK ONE, DO NOT MIX VARIANTS, MODSETS SHOULD BE
 [/list]
 
 [b]Where is the HQ tent?[/b]
-HQ tent was removed, it's functionality was moved into Commander Menu, Environment tab (O or HOME hotkey).
+HQ tent was removed, it's functionality was moved into Commander Menu, Environment tab (O or CTRL+T hotkey).
 
 [b]I can't find the mission in Scenarios tab in single player menu, is there any way to play as single player?[/b]
 Antistasi Plus will not appear in Scenarios menu, but you can still play as singe player by creating LAN server in Arma 3's multiplayer menu, it is pretty easy.
