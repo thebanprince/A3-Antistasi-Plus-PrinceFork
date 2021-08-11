@@ -131,7 +131,6 @@ private _posDest = navGrid select ([_mrkDest] call A3A_fnc_getMarkerNavPoint) se
 
 private _taskId = "CONVOY" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 [2, format ["%1 convoy mission created from %2 to %3", _convoyType, _mrkOrigin, _mrkDest], _filename, true] call A3A_fnc_log;
