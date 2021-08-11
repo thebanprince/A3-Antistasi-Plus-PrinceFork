@@ -136,7 +136,7 @@ if ((count _reinfPlaces == 0) and (AAFpatrols <= 3)) then {[] spawn A3A_fnc_AAFr
 } forEach outposts;
 
 {
-    //Setting the number of recruitable units per ticks per outpost
+    //Setting the number of recruitable units per ticks per milbase
 	garrison setVariable [format ["%1_recruit", _x], 6, true];
 } forEach milbases;
 
