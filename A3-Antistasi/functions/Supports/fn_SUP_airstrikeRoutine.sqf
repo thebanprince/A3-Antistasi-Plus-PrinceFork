@@ -8,7 +8,7 @@ while {_sleepTime > 0} do
     if((spawner getVariable _airport) != 2) exitWith {};
 };
 
-private _plane = if (_side == Occupants) then {vehNATOPlane} else {vehCSATPlane};
+private _plane = if (_side == Occupants) then {selectRandom vehNATOPlanes} else {selectRandom vehCSATPlanes};
 private _crewUnits = if(_side == Occupants) then {NATOPilot} else {CSATPilot};
 private _isHelicopter = _plane isKindOf "Helicopter";
 

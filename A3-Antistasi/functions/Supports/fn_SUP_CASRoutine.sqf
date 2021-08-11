@@ -2,7 +2,7 @@ params ["_side", "_sleepTime", "_timerIndex", "_airport", "_supportName", "_setu
 
 private _fileName = "SUP_CASRoutine";
 
-private _plane = if (_side == Occupants) then {vehNATOPlane} else {vehCSATPlane};
+private _plane = if (_side == Occupants) then {selectRandom vehNATOPlanes} else {selectRandom vehCSATPlanes};
 private _crewUnits = if(_side == Occupants) then {NATOPilot} else {CSATPilot};
 
 //Sleep to simulate preparetion time

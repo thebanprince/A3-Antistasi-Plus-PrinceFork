@@ -112,8 +112,8 @@ call {
 
 	// Separate air support from transports because air support can't conquer
 
-	private _typePlane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
-	private _typePlaneAA = if (_sideX == Occupants) then {vehNATOPlaneAA} else {vehCSATPlaneAA};
+	private _typePlane = if (_sideX == Occupants) then {selectRandom vehNATOPlanes} else {selectRandom vehCSATPlanes};
+	private _typePlaneAA = if (_sideX == Occupants) then {selectRandom vehNATOPlanesAA} else {selectRandom vehCSATPlanesAA};
 	private _typesAttackHelis = if (_sideX == Occupants) then {vehNATOAttackHelis} else {vehCSATAttackHelis};
 	private _typesTransportPlanes = if (_sideX == Occupants) then {vehNATOTransportPlanes} else {vehCSATTransportPlanes};
 	private _typesTransportHelis = if (_sideX == Occupants) then {vehNATOTransportHelis} else {vehCSATTransportHelis};
@@ -639,14 +639,15 @@ while {(_waves > 0)} do
 
 	[2, format ["Spawn performed: %1 air vehicles inc. %2 supports, %3 land vehicles, %4 soldiers", _nVehAir, _countNewSupport, _nVehLand, count _soldiers], _filename] call A3A_fnc_log;
 
-	_plane = if (_sideX == Occupants) then {vehNATOPlane} else {vehCSATPlane};
+	private _planePool = if (_sideX == Occupants) then {vehNATOPlanes} else {vehCSATPlanes};
+	private _isCasPlaneAvailable = (_planePool findIf {[_x] call A3A_fnc_vehAvailable} != -1);
 	if (_sideX == Occupants) then
 		{
 		if ((not(_mrkDestination in outposts)) and (not(_mrkDestination in seaports)) and (_mrkOrigin != "NATO_carrier")) then
 			{
             private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
             [getMarkerPos _mrkDestination, 4, ["MORTAR"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-			if (([_plane] call A3A_fnc_vehAvailable) and (not(_mrkDestination in citiesX)) and _firstWave) then
+			if (_isCasPlaneAvailable && {(!(_mrkDestination in citiesX)) && {_firstWave}}) then
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {round random 4} else {round random 2};
@@ -665,13 +666,13 @@ while {(_waves > 0)} do
 			{
                 private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
                     [getMarkerPos _mrkDestination, 4, ["MORTAR"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
-			if (([_plane] call A3A_fnc_vehAvailable) and (_firstWave)) then
+			if (_isCasPlaneAvailable && {_firstWave}) then
 				{
 				sleep 60;
 				_rnd = if (_mrkDestination in airportsX) then {if ({sidesX getVariable [_x,sideUnknown] == Invaders} count airportsX == 1) then {8} else {round random 4}} else {round random 2};
 				for "_i" from 0 to _rnd do
 					{
-					if ([_plane] call A3A_fnc_vehAvailable) then
+					if (_isCasPlaneAvailable) then
 						{
                             private _reveal = [getMarkerPos _mrkDestination, _sideX] call A3A_fnc_calculateSupportCallReveal;
                             [getMarkerPos _mrkDestination, 4, ["AIRSTRIKE"], _sideX, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];

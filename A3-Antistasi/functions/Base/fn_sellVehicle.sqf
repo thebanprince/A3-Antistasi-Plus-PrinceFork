@@ -64,7 +64,7 @@ private _costs = call {
     if (_typeX in [vehCSATPatrolHeli, vehNATOPatrolHeli, civHeli]) exitWith {3000};
     if (_typeX in (vehAPCs + vehTransportAir + vehUAVs)) exitWith {2500};
     if (_typeX in (vehAttackHelis + vehTanks + vehAA + vehMRLS)) exitWith {6500};
-    if (_typeX in [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA]) exitWith {7500};
+    if (_typeX in (vehNATOPlanes + vehNATOPlanesAA + vehCSATPlanes + vehCSATPlanesAA)) exitWith {7500};
     0;
 };
 

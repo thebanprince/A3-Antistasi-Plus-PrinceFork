@@ -62,6 +62,7 @@
 - Synchronized prices of emplacements and statics in Buy Vehicle menu
 - Added one medic to initial static Emplacement crews to increase their survivability 
 - Multiple AA vehicles template support
+- Multiple Occupant/Invader CAS/AA aircrafts support
 - Lowered paradrop plane height to spawnable distance to give defenders chance to shot down the plane
 - More militia AT troopers for both Occupants and Invaders
 - Deliver Supplies mission will have a couple of enemy squads to make mission less boring

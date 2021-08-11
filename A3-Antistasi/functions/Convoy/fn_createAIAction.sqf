@@ -281,9 +281,10 @@ if(_type == "airstrike") then
     //NATO accepts 2 casulties, CSAT does not really care
     if((_side == Occupants && {count _friendlies < 3}) || {_side == Invaders && {count _friendlies < 8}}) then
     {
-      _plane = if (_side == Occupants) then {vehNATOPlane} else {vehCSATPlane};
+      private _planePool = if (_side == Occupants) then {vehNATOPlanes} else {vehCSATPlanes};
+      private _casPlaneIndex = _planePool findIf {[_x] call A3A_fnc_vehAvailable};
       _crewUnits = if(_side == Occupants) then {NATOCrew} else {CSATCrew};
-    	if ([_plane] call A3A_fnc_vehAvailable) then
+    	if (_casPlaneIndex != -1) then
     	{
         _bombType = "";
         if(count _arguments != 0) then
@@ -325,7 +326,7 @@ if(_type == "airstrike") then
         diag_log format ["CreateAIAction[%1]: Selected airstrike of bombType %2 from %3",_convoyID, _bombType, _airport];
         _origin = _airport;
         _originPos = getMarkerPos _airport;
-        _units pushBack [_plane, [_crewUnits],[]];
+        _units pushBack [(_planePool select _casPlaneIndex), [_crewUnits],[]];
         _vehicleCount = 1;
         _cargoCount = 1;
       }

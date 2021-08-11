@@ -311,14 +311,17 @@ if (!_busy) then
 		if(_spawnParameter isEqualType []) then
 		{
 			private _vehPool = [];
-			if (_sideX == Occupants) then
-			{
-				_vehPool = ([vehNATOPlane, vehNATOPlaneAA] select {[_x] call A3A_fnc_vehAvailable})
+			if (_sideX == Occupants) then {
+				private _casPlanes = vehNATOPlanes select {[_x] call A3A_fnc_vehAvailable};
+				private _aaPlanes = vehNATOPlanesAA select {[_x] call A3A_fnc_vehAvailable};
+				_vehPool = _casPlanes + _aaPlanes;
 			}
-			else
-			{
-				_vehPool = ([vehCSATPlane, vehCSATPlaneAA] select {[_x] call A3A_fnc_vehAvailable})
+			else {
+				private _casPlanes = vehCSATPlanes select {[_x] call A3A_fnc_vehAvailable};
+				private _aaPlanes = vehCSATPlanesAA select {[_x] call A3A_fnc_vehAvailable};
+				_vehPool = _casPlanes + _aaPlanes;
 			};
+			
 			if(count _vehPool > 0) then
 			{
 				_typeVehX = selectRandom _vehPool;

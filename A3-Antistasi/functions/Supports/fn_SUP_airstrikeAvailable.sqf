@@ -6,7 +6,7 @@ private _lastSupport = server getVariable ["lastSupport", ["", 0]];
 if((_lastSupport select 0) == "AIRSTRIKE" && {(_lastSupport select 1) > time}) exitWith {-1};
 
 //Vehicles not available, block support
-private _planeType = if (_side isEqualTo Occupants) then {vehNATOPlane} else {vehCSATPlane};
+private _planeType = if (_side isEqualTo Occupants) then {selectRandom vehNATOPlanes} else {selectRandom vehCSATPlanes};
 if !(_planeType isKindOf "Air") exitWith {-1}; //allow helicopters to also drop bombs as airstrikes
 
 //Select a timer index and the max number of timers available

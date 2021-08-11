@@ -108,11 +108,11 @@ if(_preference in ["AIR_GENERIC", "AIR_DEFAULT"]) then
 {
   if(_side == Occupants) then
   {
-    _possibleVehicles append [vehNATOPlane, vehNATOPlaneAA];
+    _possibleVehicles append (vehNATOPlanes + vehNATOPlanesAA);
   }
   else
   {
-    _possibleVehicles append [vehCSATPlane, vehCSATPlaneAA];
+    _possibleVehicles append (vehCSATPlanes + vehCSATPlanesAA);
   };
 };
 

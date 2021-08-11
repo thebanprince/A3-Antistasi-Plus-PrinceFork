@@ -216,8 +216,8 @@ if (_side isEqualTo east) then {
 	vehCSATRBoat = _faction getVariable "vehiclesTransportBoats" select 0;
 	vehCSATBoats = [vehCSATBoat, vehCSATRBoat] + (_faction getVariable "vehiclesAmphibious");
 
-	vehCSATPlane = _faction getVariable "vehiclesPlanesCAS" select 0;
-	vehCSATPlaneAA = _faction getVariable "vehiclesPlanesAA" select 0;
+	vehCSATPlanes = _faction getVariable "vehiclesPlanesCAS";
+	vehCSATPlanesAA = _faction getVariable "vehiclesPlanesAA";
 	vehCSATTransportPlanes = _faction getVariable "vehiclesPlanesTransport";
 
 	vehCSATPatrolHeli = _faction getVariable "vehiclesHelisLight" select 0;
@@ -243,7 +243,8 @@ if (_side isEqualTo east) then {
 	vehCSATAir =
 		  vehCSATTransportHelis
 		+ vehCSATAttackHelis
-		+ [vehCSATPlane, vehCSATPlaneAA]
+		+ vehCSATPlanes
+		+ vehCSATPlanesAA
 		+ vehCSATTransportPlanes;
 
 	if (gameMode == 4) then {
@@ -452,8 +453,8 @@ if (_side isEqualTo west) then {
 	vehNATORBoat = _faction getVariable "vehiclesTransportBoats" select 0;
 	vehNATOBoats = [vehNATOBoat, vehNATORBoat] + (_faction getVariable "vehiclesAmphibious");
 
-	vehNATOPlane = _faction getVariable "vehiclesPlanesCAS" select 0;
-	vehNATOPlaneAA = _faction getVariable "vehiclesPlanesAA" select 0;
+	vehNATOPlanes = _faction getVariable "vehiclesPlanesCAS";
+	vehNATOPlanesAA = _faction getVariable "vehiclesPlanesAA";
 	vehNATOTransportPlanes = _faction getVariable "vehiclesPlanesTransport";
 
 	vehNATOPatrolHeli = _faction getVariable "vehiclesHelisLight" select 0;
@@ -476,11 +477,7 @@ if (_side isEqualTo west) then {
 
 	vehNATOUtilityTrucks = (_faction getVariable "vehiclesAmmoTrucks") + (_faction getVariable "vehiclesRepairTrucks") + (_faction getVariable "vehiclesFuelTrucks") + (_faction getVariable "vehiclesMedical");
 
-	vehNATOAir =
-		  vehNATOTransportHelis
-		+ vehNATOAttackHelis
-		+ [vehNATOPlane, vehNATOPlaneAA]
-		+ vehNATOTransportPlanes;
+	vehNATOAir = vehNATOTransportHelis + vehNATOAttackHelis + vehNATOPlanes + vehNATOPlanesAA + vehNATOTransportPlanes;
 
 	vehFIAArmedCars = _faction getVariable "vehiclesMilitiaLightArmed";
 	vehFIATrucks = _faction getVariable "vehiclesMilitiaTrucks";

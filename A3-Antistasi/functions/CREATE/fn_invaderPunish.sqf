@@ -145,8 +145,9 @@ _soldiersSpawned = count _soldiers;
 
 if (tierWar >= 5) then {
 	for "_i" from 0 to round random 1 do {
-		if ([vehCSATPlane] call A3A_fnc_vehAvailable) then {
-            private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
+		private _isCasPlanesAvailable = vehCSATPlanes findIf {[_x] call A3A_fnc_vehAvailable} != -1;
+		if (_isCasPlanesAvailable) then {
+			private _reveal = [_posDestination, Invaders] call A3A_fnc_calculateSupportCallReveal;
             [_posDestination, 4, ["AIRSTRIKE"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
 			sleep 30;
 		};

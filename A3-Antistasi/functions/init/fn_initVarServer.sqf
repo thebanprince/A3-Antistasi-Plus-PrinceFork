@@ -391,8 +391,8 @@ private _templateVariables = [
 	"vehNATOBoat",
 	"vehNATORBoat",
 	"vehNATOBoats",
-	"vehNATOPlane",
-	"vehNATOPlaneAA",
+	"vehNATOPlanes",
+	"vehNATOPlanesAA",
 	"vehNATOTransportPlanes",
 	"vehNATOPatrolHeli",
 	"vehNATOTransportHelis",
@@ -478,8 +478,8 @@ private _templateVariables = [
 	"vehCSATBoat",
 	"vehCSATRBoat",
 	"vehCSATBoats",
-	"vehCSATPlane",
-	"vehCSATPlaneAA",
+	"vehCSATPlanes",
+	"vehCSATPlanesAA",
 	"vehCSATTransportPlanes",
 	"vehCSATPatrolHeli",
 	"vehCSATTransportHelis",
@@ -758,7 +758,7 @@ DECLARE_SERVER_VAR(vehAttackHelis, _vehAttackHelis);
 private _vehHelis = vehNATOTransportHelis + vehCSATTransportHelis + vehAttackHelis + [vehNATOPatrolHeli,vehCSATPatrolHeli];
 DECLARE_SERVER_VAR(vehHelis, _vehHelis);
 
-private _vehFixedWing = [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA,vehSDKPlane,vehSDKPayloadPlane] + vehNATOTransportPlanes + vehCSATTransportPlanes;
+private _vehFixedWing = vehNATOPlanes + vehNATOPlanesAA + vehCSATPlanes + vehCSATPlanesAA + vehNATOTransportPlanes + vehCSATTransportPlanes + [vehSDKPlane,vehSDKPayloadPlane];
 DECLARE_SERVER_VAR(vehFixedWing, _vehFixedWing);
 
 private _vehUAVs = [vehNATOUAV,vehCSATUAV,vehNATOUAVSmall,vehCSATUAVSmall];
@@ -847,7 +847,6 @@ if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append [
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
-//{timer setVariable [_x,0,true]} forEach (vehAttack + vehNATOAttackHelis + [vehNATOPlane,vehNATOPlaneAA,vehCSATPlane,vehCSATPlaneAA] + vehCSATAttackHelis + vehAA + vehMRLS);
 {timer setVariable [_x,3,true]} forEach [staticATOccupants] + staticAAOccupants;
 {timer setVariable [_x,6,true]} forEach  [staticATInvaders] + staticAAInvaders;
 {timer setVariable [_x,0,true]} forEach vehNATOAPC;
@@ -858,10 +857,10 @@ if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append [
 {timer setVariable [_x,3,true]} forEach vehCSATAA;
 timer setVariable [vehNATOBoat,3,true];
 timer setVariable [vehCSATBoat,3,true];
-timer setVariable [vehNATOPlane,0,true];
-timer setVariable [vehCSATPlane,10,true];
-timer setVariable [vehNATOPlaneAA,0,true];
-timer setVariable [vehCSATPlaneAA,10,true];
+{timer setVariable [_x,0,true]} forEach vehNATOPlanes;
+{timer setVariable [_x,10,true]} forEach vehCSATPlanes;
+{timer setVariable [_x,0,true]} forEach vehNATOPlanesAA;
+{timer setVariable [_x,10,true]} forEach vehCSATPlanesAA;
 {timer setVariable [_x,1,true]} forEach vehNATOTransportPlanes;
 {timer setVariable [_x,1,true]} forEach vehNATOTransportHelis - [vehNATOPatrolHeli];
 {timer setVariable [_x,1,true]} forEach vehCSATTransportPlanes;

@@ -74,11 +74,11 @@ switch (_preference) do
     };
     case ("AIR_GENERIC"):
     {
-      _result = (_vehicle in [vehNATOUAV, vehNATOUAVSmall] || {_vehicle in [vehCSATUAV, vehCSATUAVSmall] || {_vehicle in [vehNATOPlane, vehNATOPlaneAA] || {_vehicle in [vehCSATPlane, vehCSATPlaneAA]}}});
+      _result = (_vehicle in [vehNATOUAV, vehNATOUAVSmall] || {_vehicle in [vehCSATUAV, vehCSATUAVSmall] || {_vehicle in (vehNATOPlanes + vehNATOPlanesAA) || {_vehicle in (vehCSATPlanes + vehCSATPlanesAA)}}});
     };
     case ("AIR_DEFAULT"):
     {
-      _result = (_vehicle in [vehNATOPlane, vehNATOPlaneAA] || {_vehicle in [vehCSATPlane, vehCSATPlaneAA]});
+      _result = (_vehicle in (vehNATOPlanes + vehNATOPlanesAA) || {_vehicle in (vehCSATPlanes + vehCSATPlanesAA)});
     };
 };
 
