@@ -90,7 +90,6 @@ class A3A
 		class placementSelection {};
 		class playableUnits {};
 		class getSideRadioTowerInfluence {};
-		class powerReorg {};
 		class radioCheck {};
 		class rebuildAssets {};
 		class rebuildRadioTower {};
