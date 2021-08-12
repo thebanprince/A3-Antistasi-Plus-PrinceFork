@@ -562,7 +562,7 @@ class commanderMenu
 					y = "10 * pixelGridNoUIScale * pixelH";	
 					w = "21.5 * pixelGridNoUIScale * pixelW";	
 					h = "1.5 * pixelGridNoUIScale * pixelH";					
-					onSliderPosChanged = "_value = ((_this select 1)/100); _rounded = [_value, 2] call BIS_fnc_cutDecimals; ((findDisplay 60000) displayCtrl 4040) ctrlSetText format ['Fog: %1', _rounded]; fogValue = _rounded;";
+					onSliderPosChanged = "_value = ((_this select 1)/100); _rounded = [_value, 2] call BIS_fnc_cutDecimals; ((findDisplay 60000) displayCtrl 4040) ctrlSetText format ['Fog: %1', _rounded]; fogValue = [_rounded,0,0];";
 				};
 
 				class fogFooter: RscControlsGroupNoScrollbarsMain 

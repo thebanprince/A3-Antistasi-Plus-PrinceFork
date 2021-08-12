@@ -58,6 +58,7 @@ private _sim = getText(configFile >> "CfgVehicles" >> _type >> "simulation");
 private _velocity = 0;
 private _veh = objNull;
 switch (toLower _sim) do {
+    case "airplane";
     case "airplanex";
     case "helicopterrtd";
     case "helicopterx": {

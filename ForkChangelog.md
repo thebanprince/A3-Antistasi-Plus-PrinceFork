@@ -26,7 +26,7 @@
 - (Global Mobilization) Altis Armed Forces faction, automatically detected when Global Mobilization CDLC and Global Mobilization Extra - Altis Armed Forces mod is turned on
 
 ### Changes
-- 2.5.0 Community Version integration (Hakon's new garage and multiple fixes and improvements of core systems of Antistasi)
+- 2.5.1 Community Version integration (Hakon's new garage and multiple fixes and improvements of core systems of Antistasi)
 - Fixed AI Control Time for HC squads
 - Fixed AI Rebel Strike wrong localization string at title
 - Fixed singleAttack undefined variable error
