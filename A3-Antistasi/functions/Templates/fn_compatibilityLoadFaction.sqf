@@ -156,6 +156,7 @@ if (_side isEqualTo east) then {
 		"loadouts_inv_SF_Radioman",
 		"loadouts_inv_SF_MachineGunner",
 		"loadouts_inv_SF_ExplosivesExpert",
+		"loadouts_inv_SF_AT",
 		"loadouts_inv_SF_LAT",
 		"loadouts_inv_SF_Medic"
 	];
@@ -393,6 +394,7 @@ if (_side isEqualTo west) then {
 		"loadouts_occ_SF_Radioman",
 		"loadouts_occ_SF_MachineGunner",
 		"loadouts_occ_SF_ExplosivesExpert",
+		"loadouts_occ_SF_AT",
 		"loadouts_occ_SF_LAT",
 		"loadouts_occ_SF_Medic"
 	];
