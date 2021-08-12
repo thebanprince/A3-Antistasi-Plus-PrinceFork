@@ -702,10 +702,4 @@ class A3A
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };
-
-    class UtilityItems {
-        class spawnLight {};
-        class initUtilityItems {};
-        class rotateItem {};
-    };
 };
