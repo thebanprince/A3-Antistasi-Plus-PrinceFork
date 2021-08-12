@@ -612,7 +612,7 @@ _crewLoadoutData setVariable ["uniforms", ["rhsgref_uniform_ttsko_mountain"]];
 _crewLoadoutData setVariable ["vests", ["rhsgref_6b23_ttsko_mountain"]];				
 _crewLoadoutData setVariable ["helmets", ["rhs_tsh4"]];			
 _crewLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;

@@ -394,7 +394,7 @@ _militiaLoadoutData setVariable ["rifles", [
 ["UK3CB_M16A2", "", "", "", ["rhs_mag_20Rnd_556x45_M193_Stanag", "rhs_mag_20Rnd_556x45_M193_Stanag", "rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], [], ""]
 ]];
 _militiaLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
 ["rhs_weap_m92", "", "", "", ["rhssaf_30Rnd_762x39mm_M67", "rhssaf_30Rnd_762x39mm_M67", "rhssaf_30Rnd_762x39mm_M78_tracer"], [], ""]
 ]]; 					
 _militiaLoadoutData setVariable ["grenadeLaunchers", [
@@ -490,7 +490,7 @@ _crewLoadoutData setVariable ["uniforms", ["UK3CB_TKA_B_U_CrewUniform_WDL"]];
 _crewLoadoutData setVariable ["vests", ["V_TacVest_khk"]];				
 _crewLoadoutData setVariable ["helmets", ["UK3CB_H_Crew_Cap"]];			
 _crewLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
 ["UK3CB_M16_Carbine", "", "", "", ["rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red"], [], ""]
 ]];
 
@@ -499,7 +499,7 @@ _pilotLoadoutData setVariable ["uniforms", ["UK3CB_TKA_B_U_J_Pilot_NATO"]];
 _pilotLoadoutData setVariable ["vests", ["V_TacVest_khk"]];			
 _pilotLoadoutData setVariable ["helmets", ["rhsusf_hgu56p_green", "rhsusf_hgu56p_mask_green"]];			
 _pilotLoadoutData setVariable ["SMGs", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
 ["UK3CB_M16_Carbine", "", "", "", ["rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red"], [], ""]
 ]];
 // ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################

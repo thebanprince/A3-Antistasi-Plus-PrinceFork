@@ -217,7 +217,7 @@ _loadoutData setVariable ["GLvests", []];
 _loadoutData setVariable ["ATvests", []];	
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["Medbackpacks", ["rhs_medic_bag"]];
-_loadoutData setVariable ["Atbackpacks", []];
+_loadoutData setVariable ["Atbackpacks", ["rhs_rpg_empty"]];
 _loadoutData setVariable ["AAbackpacks", ["rhs_rpg_empty"]];
 _loadoutData setVariable ["longRangeRadios", []];
 _loadoutData setVariable ["helmets", []];
@@ -257,12 +257,13 @@ _sfLoadoutData setVariable ["vests", ["rhs_lifchik", "rhs_lifchik_light", "rhs_6
 _sfLoadoutData setVariable ["SLvests", ["rhs_lifchik_NCO", "rhs_6b5_officer_spetsodezhda"]];
 _sfLoadoutData setVariable ["backpacks", ["B_Carryall_oli", "rhs_sidor"]];
 _sfLoadoutData setVariable ["helmets", ["rhs_beanie_green", "rhs_altyn_novisor", "rhs_altyn_visordown", "rhs_gssh18"]];	
-_sfLoadoutData setVariable ["longRangeRadios", ["rhs_r148"]];			
+_sfLoadoutData setVariable ["longRangeRadios", ["rhs_r148"]];	
 _sfLoadoutData setVariable ["lightATLaunchers", [
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VR_mag", "rhs_rpg7_PG7VR_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag", "rhs_rpg7_TBG7V_mag"], [], ""]
-]];
+["rhs_weap_rpg26", "", "", "",[], [], ""],
+["rhs_weap_rshg2", "", "", "",[], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7VL_mag"], [], ""]
+]];		
 _sfLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VL_mag", "rhs_rpg7_TBG7V_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v2",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_PG7VR_mag", "rhs_rpg7_PG7VR_mag"], [], ""],
@@ -321,7 +322,10 @@ _militaryLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VS_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VS_mag", "rhs_rpg7_PG7VS_mag", "rhs_rpg7_PG7VL_mag"], [], ""]
 ]];
-_militaryLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
+_militaryLoadoutData setVariable ["lightATLaunchers", [
+["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7V_mag"], [], ""]
+]];
 _militaryLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_6b3"]];
 
 _militaryLoadoutData setVariable ["rifles", [
@@ -357,7 +361,7 @@ _policeLoadoutData setVariable ["uniforms", ["UK3CB_CPD_B_U_CombatUniform_01_Urb
 _policeLoadoutData setVariable ["vests", ["UK3CB_ANP_B_V_TacVest_BLU"]];
 _policeLoadoutData setVariable ["helmets", ["rhs_omon_cap", "rhs_beret_omon"]];
 _policeLoadoutData setVariable ["rifles", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
 ["rhs_weap_aks74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
 ["rhs_weap_aks74n_2", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""]
 ]];
@@ -379,7 +383,7 @@ _militiaLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7V_mag"], [], ""]
 ]];
-_militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg18"]];
+_militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2", "rhs_weap_rpg18"]];
 _militiaLoadoutData setVariable ["Medbackpacks", []];
 
 _militiaLoadoutData setVariable ["rifles", [
@@ -480,7 +484,7 @@ _crewLoadoutData setVariable ["uniforms", ["UK3CB_CW_SOV_O_LATE_U_Crew_Uniform_0
 _crewLoadoutData setVariable ["vests", ["rhs_6b2"]];				
 _crewLoadoutData setVariable ["helmets", ["rhs_tsh4"]];			
 _crewLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
@@ -488,7 +492,7 @@ _pilotLoadoutData setVariable ["uniforms", ["UK3CB_CW_SOV_O_LATE_U_H_Pilot_Unifo
 _pilotLoadoutData setVariable ["vests", ["rhs_6b2"]];
 _pilotLoadoutData setVariable ["helmets", ["rhs_zsh7a_mike_alt", "rhs_zsh7a_mike", "rhs_zsh7a_mike_green", "rhs_zsh7a_mike_green_alt"]];
 _pilotLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
 
 // ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################

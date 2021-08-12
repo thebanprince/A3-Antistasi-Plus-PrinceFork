@@ -220,6 +220,7 @@ _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["SLvests", []];
 _loadoutData setVariable ["Medvests", []];
 _loadoutData setVariable ["GLvests", []];
+_loadoutData setVariable ["ATvests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["Medbackpacks", ["rhs_medic_bag"]];
 _loadoutData setVariable ["Atbackpacks", ["rhs_rpg_empty"]];
@@ -266,6 +267,8 @@ _sfLoadoutData setVariable ["backpacks", ["rhs_assault_umbts", "B_Kitbag_sgg", "
 _sfLoadoutData setVariable ["helmets", ["rhs_Booniehat_digi", "rhs_altyn", "rhs_altyn_novisor", "rhs_altyn_novisor_ess", "rhs_gssh18"]];
 _sfLoadoutData setVariable ["binoculars", ["Laserdesignator"]];
 _sfLoadoutData setVariable ["lightATLaunchers", [
+["rhs_weap_rpg26", "", "", "",[], [], ""],
+["rhs_weap_rshg2", "", "", "",[], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3",["rhs_rpg7_PG7VL_mag", "rhs_rpg7_type69_airburst_mag", "rhs_rpg7_OG7V_mag"], [], ""]
@@ -413,49 +416,59 @@ _militaryLoadoutData setVariable ["sniperRifles", [
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_policeLoadoutData setVariable ["uniforms", ["rhs_uniform_cossack"]];
-_policeLoadoutData setVariable ["vests", ["rhs_6b2_lifchik", "rhs_6b2_chicom"]];
-_policeLoadoutData setVariable ["helmets", ["rhs_cossack_visor_cap", "rhs_cossack_papakha"]];
+_policeLoadoutData setVariable ["uniforms", ["rhs_uniform_mvd_izlom"]];
+_policeLoadoutData setVariable ["vests", ["rhs_lifchik_light", "rhs_6b2_lifchik"]];
+_policeLoadoutData setVariable ["helmets", ["rhs_beret_mvd", "rhs_fieldcap_izlom"]];
 _policeLoadoutData setVariable ["rifles", [
-["rhs_weap_akmn", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""]
+["rhs_weap_ak103_1", "rhs_acc_dtk", "", "", ["rhs_10Rnd_762x39mm"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK"], [], ""],
+["rhs_weap_pp2000", "", "", "", ["rhs_mag_9x19mm_7n21_20"], [], ""]
 ]];
-_policeLoadoutData setVariable ["shotguns", [
-["rhs_weap_Izh18", "", "", "", ["rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug"], [], ""]
-]];
-_policeLoadoutData setVariable ["smgs", ["rhs_weap_pp2000"]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_afghanka_para"]];
-_militiaLoadoutData setVariable ["vests", ["rhs_6b3_AK"]];
-_militiaLoadoutData setVariable ["SLvests", ["rhs_6b3_off", "rhs_6b3_R148"]];
-_militiaLoadoutData setVariable ["GLvests", ["rhs_6b3_VOG", "rhs_6b3_VOG_2"]];
+_militiaLoadoutData setVariable ["uniforms", ["rhs_uniform_mflora_patchless"]];
+_militiaLoadoutData setVariable ["vests", ["rhs_6b3_AK", "rhs_belt_AK"]];
+_militiaLoadoutData setVariable ["ATvests", ["rhs_6b3_AK"]];
+_militiaLoadoutData setVariable ["SLvests", ["rhs_6b3_off", "rhs_lifchik_NCO"]];
+_militiaLoadoutData setVariable ["GLvests", ["rhs_6b3_VOG", "rhs_lifchik_vog"]];
 _militiaLoadoutData setVariable ["backpacks", ["rhs_rd54_vest"]];
-_militiaLoadoutData setVariable ["helmets", ["rhs_fieldcap_m88", "rhs_fieldcap_m88_back"]];
-_militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2"]];
+_militiaLoadoutData setVariable ["helmets", ["rhs_fieldcap_ml", "rhs_ssh68_2"]];
+_militiaLoadoutData setVariable ["lightATLaunchers", ["rhs_weap_rpg26", "rhs_weap_rshg2", "rhs_weap_rpg18"]];
 _militiaLoadoutData setVariable ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_OG7V_mag"], [], ""]
+["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7V_mag"], [], ""]
 ]];
+_militiaLoadoutData setVariable ["Atbackpacks", ["rhs_rpg_6b3"]];
+
 _militiaLoadoutData setVariable ["rifles", [
-["rhs_weap_ak74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
-["rhs_weap_akmn", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["rhs_weap_aks74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_ak74n_2", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_akm", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""]
 ]];
+
 _militiaLoadoutData setVariable ["carbines", [
-["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_aks74n", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74n_2", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
+
 _militiaLoadoutData setVariable ["grenadeLaunchers", [
-["rhs_weap_ak74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_aks74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""],
+["rhs_weap_ak74n_2_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""],
+["rhs_weap_aks74n_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""],
+["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""],
+["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25", "rhs_VG40OP_white", "rhs_GRD40_White"], ""]
 ]];
-_militiaLoadoutData setVariable ["SMGs", ["rhs_weap_pp2000"]];
+
+_militiaLoadoutData setVariable ["SMGs", [
+	["rhs_weap_aks74u", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+]];
+
 _militiaLoadoutData setVariable ["machineGuns", [
 ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "", "",["rhs_45Rnd_545X39_7N6M_AK", "rhs_45Rnd_545X39_7N6M_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""],
 ["rhs_weap_pkm", "", "", "",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""]
@@ -748,7 +761,7 @@ private _engineerTemplate = {
 
 private _latTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	["vests"] call _fnc_setVest;
+	[["ATvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 	[["Atbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
@@ -778,7 +791,7 @@ private _latTemplate = {
 
 private _atTemplate = {
 	["helmets"] call _fnc_setHelmet;
-	["vests"] call _fnc_setVest;
+	[["ATvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 	[["Atbackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
@@ -918,7 +931,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["smgs", "rifles", "shotguns"]] call _fnc_setPrimary;
+	["rifles"] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;
