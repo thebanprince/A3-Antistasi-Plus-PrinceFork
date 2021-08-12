@@ -167,7 +167,7 @@ switch (toLower worldName) do {
 		!(getText (_x >> ""Name"") isEqualTo """") &&
 		!((configName _x) in ['DefaultKeyPoint40','DefaultKeyPoint35', 'DefaultKeyPoint88', 'DefaultKeyPoint100'])"
 		configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
-		private _rv133 = ("configName _x == 'DefaultKeyPoint31'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names")) select 0;
+		private _rv133 = ("configName _x == 'DefaultKeyPoint32'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names")) select 0;
 		_cityConfigs pushBack _rv133; //RV-133, big city without city marker
 	};
 
