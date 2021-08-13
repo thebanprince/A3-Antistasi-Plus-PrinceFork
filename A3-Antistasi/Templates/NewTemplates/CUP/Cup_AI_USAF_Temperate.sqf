@@ -524,7 +524,7 @@ _militiaLoadoutData setVariable ["uniforms", [
 ]];		
 _militiaLoadoutData setVariable ["vests", ["CUP_V_B_PASGT_OD", "CUP_V_B_PASGT_no_bags_OD"]];			
 _militiaLoadoutData setVariable ["backpacks", ["B_AssaultPack_rgr", "B_TacticalPack_oli"]];		
-_militiaLoadoutData setVariable ["helmets", ["CUP_H_LWHv2_MARPAT", "CUP_H_LWHv2_MARPAT_NVG_gog_cov2", "CUP_H_PASGTv2_NVG_OD", "H_Bandanna_cbr", "CUP_H_USMC_BOONIE_2_DES"]];		
+_militiaLoadoutData setVariable ["helmets", ["CUP_H_LWHv2_MARPAT", "CUP_H_LWHv2_MARPAT_NVG_gog_cov2", "CUP_H_PASGTv2_NVG_OD", "H_Bandanna_cbr", "CUP_H_USMC_BOONIE_WDL"]];		
 _militiaLoadoutData setVariable ["lightATLaunchers", [
 	["CUP_launch_MAAWS", "", "", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""]
 ]];

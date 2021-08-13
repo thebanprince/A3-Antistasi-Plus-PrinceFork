@@ -2746,8 +2746,8 @@
         <Russian>Переключить видимость информ. строки</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_7">
-        <Original>Press ALT+HOME to show / hide information bar at the top of the screen.</Original>
-        <Russian>Нажмите ALT+HOME, чтобы отобразить/скрыть информационную строку в верхней части экрана.</Russian>
+        <Original>Press CTRL+HOME to show / hide information bar at the top of the screen.</Original>
+        <Russian>Нажмите CTRL+HOME, чтобы отобразить/скрыть информационную строку в верхней части экрана.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
@@ -4288,12 +4288,12 @@
         <Russian>Информационная строка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
-        <Original>You've turned off top information bar. To enable it, press ALT+HOME.</Original>
-        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите ALT+HOME.</Russian>
+        <Original>You've turned off top information bar. To enable it, press CTRL+HOME.</Original>
+        <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите CTRL+HOME.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
-        <Original>You've turned on top information bar. To disable it, press ALT+HOME.</Original>
-        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите ALT+HOME.</Russian>
+        <Original>You've turned on top information bar. To disable it, press CTRL+HOME.</Original>
+        <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите CTRL+HOME.</Russian>
       </Key>
     </Container>
     <Container name="mortar_type">

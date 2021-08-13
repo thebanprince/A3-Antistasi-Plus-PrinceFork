@@ -12,6 +12,10 @@ if (toLower _itemMod in disabledMods) exitWith { false };
 //This is a pretty hard filter that removes anything that shouldn't be in there - I'm hoping it isn't prone to false negatives!
 if (getText (_configClass >> "picture") == "") exitWith { false };
 
+if (A3A_coldWarMode && {(_configName in forbiddenAssets || {_itemIsVanilla})}) exitWith {
+	false;
+};
+
 //Remove vanilla items if no vanilla sides
 if (_itemIsVanilla && ({A3A_hasRHS || {A3A_hasCup}})) exitWith {
 	switch (_categories select 0) do {
@@ -21,11 +25,11 @@ if (_itemIsVanilla && ({A3A_hasRHS || {A3A_hasCup}})) exitWith {
 				case "AccessoryPointer";
 				case "AccessorySights";
 				case "AccessoryBipod";
-				case "NVGoggles": { true };
+				case "NVGoggles": { false };
 				default { true };
 			};
 		};
-		case "Weapon": { true };
+		case "Weapon": { false };
 		case "Equipment": {
 			switch (_categories select 1) do {
 				case "Headgear": {
@@ -39,10 +43,6 @@ if (_itemIsVanilla && ({A3A_hasRHS || {A3A_hasCup}})) exitWith {
 		};
 		default { true };
 	};
-};
-
-if (A3A_coldWarMode && {_configName in forbiddenAssets}) exitWith {
-	true;
 };
 
 //we should find a Solution that is not bound to Foldernames

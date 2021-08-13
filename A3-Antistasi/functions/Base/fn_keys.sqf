@@ -17,7 +17,7 @@ switch (_key) do {
     };
 
     case DIK_HOME: {
-        if (!(_this select 4)) exitWith {};
+        if (!(_this select 3)) exitWith {};
         if (isNull (uiNameSpace getVariable "H8erHUD")) exitWith {};
 
         private _display = uiNameSpace getVariable "H8erHUD";

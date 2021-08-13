@@ -19,7 +19,7 @@
 - New enemy support type - Vehicle Airdrop (lightweight aeromobile APC with squad paradrop)
 - Player Death Penalty mission parameter - how many money player will lose on death
 - Maximum Civilian Pedestrians parameter - how many pedestrians might be simultaneously in the city (allows to tune performance of Civilian Presence modules on weak PCs)
-- Show/hide top information string (INSERT hotkey) 
+- Show/hide top information string (CTRL+HOME shortcut) 
 - (3CB Factions) USSR, US factions for Cold War Mode (playing against USSR only is possible too, you need to choose Rebels vs Invaders while choosing US Cold War faction in 3CB Factions faction selector)
 - (3CB Factions + Global Mobilization) Warsaw Pact (USSR + East Germany), NATO factions (US + West Germany) for Cold War Mode (playing against Warsaw Pact only is possible too, you need to choose Rebels vs Invaders while loading GM+3CB Factions modset)
 - (3CB Factions) Takistan Army (TKA) faction
@@ -69,6 +69,7 @@
 - Paradrop attendance will be turned on by default
 - Chance to spawn non-cargo truck on enemy resources and factories (fuel/medical/repair trucks)
 - Additional convoy type - fuel convoys
+- Commander's ability to buy loot crates with faction money
 - Changed max distance from HQ for tasks to 3000 by default
 - Returned assassinate mission types to forced mission request function
 - Reduced number of waypoints, coverpoints and escape points for Civilian Presence Modules (might lead to better performance on some PCs)
