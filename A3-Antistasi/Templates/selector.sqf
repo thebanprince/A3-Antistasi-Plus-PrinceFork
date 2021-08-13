@@ -26,7 +26,7 @@ A3A_Reb_template = switch(true) do {
     case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
         ["Templates\NewTemplates\3CBF\3CBF_Reb_CHDZZ_CW.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
         [2, "Using 3CBF CW Template", _filename] call A3A_fnc_log;
-        "3CBFactions_GM"
+        "GM_3CBFactions"
     };
     case (A3A_has3CBFactions): {
         switch(threecbfOccupantFaction) do {
