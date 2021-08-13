@@ -9,12 +9,9 @@ switch (_key) do {
     case DIK_Y: {
         if (isNil"garageVeh") then {
             if (_this select 2) then {
-                if (player == theBoss) then {
-                    [] spawn A3A_fnc_artySupport;
-                };
             } else {
                 closedialog 0;
-                createDialog "radio_comm";
+                createDialog "radioComm";
             };
         };
     };
