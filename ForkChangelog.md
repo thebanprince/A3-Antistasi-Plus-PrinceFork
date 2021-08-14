@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0.1
+- Reduced frequency of AIRDROP supports
+- Fixed Cold War mode crate filtering function
+- Ability to buy black market vehicles with faction money
+- Unlimited fast travel by default
+
 ## 1.7
 ### Additions 
 - Weferlingen support

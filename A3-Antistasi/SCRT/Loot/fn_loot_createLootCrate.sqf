@@ -1,7 +1,7 @@
 
 private _fileName = "loot_createLootCrate";
 
-vehiclePurchase_cost = [lootCrate] call A3A_fnc_vehiclePrice;
+vehiclePurchase_cost = round ([lootCrate] call A3A_fnc_vehiclePrice);
 
 private _resourcesFIA = 0;
 

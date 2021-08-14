@@ -32,7 +32,7 @@ A3A_paramTable = [
     ["skillMult", "AISkill", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["civPedestrians", "civPedestrians", [], 10],
-    ["limitedFT", "allowFT", [], true],									// backwards naming...
+    ["limitedFT", "allowFT", [], false],									// backwards naming...
     ["napalmEnabled", "napalmEnabled", [], false],
     ["playerMarkersEnabled", "pMarkers", [], true],
     ["allowUnfairSupports", "allowUnfairSupports", [], false],
