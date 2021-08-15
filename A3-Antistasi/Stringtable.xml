@@ -100,6 +100,13 @@
         <German>Besatzungsmitglied</German>
         <Czech>Člen posádky</Czech>
       </Key>
+      <Key ID="STR_antistasi_dialogs_squad_leader_title">
+        <Original>Squad Leader</Original>
+        <French>Meneur d'escouade</French>
+        <Russian>Лидер отряда</Russian>
+        <German>Gruppenleiter</German>
+        <Czech>Velitel družstva</Czech>
+      </Key>
     </Container>
     <Container name="simple_menu_dialogs">
       <Key ID="STR_antistasi_dialogs_rounds_quantity_title">
@@ -1688,7 +1695,7 @@
         <Original>2.5.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.7</Original>
+        <Original>1.7.1</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
