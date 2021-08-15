@@ -1,7 +1,9 @@
 # Changelog
 
-## 1.7.0.1
+## 1.7.1
+### Changes
 - Reduced frequency of AIRDROP supports
+- Ability to customize squad leader loadout
 - Fixed Cold War mode crate filtering function
 - Ability to buy black market vehicles with faction money
 - Unlimited fast travel by default
