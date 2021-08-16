@@ -12,8 +12,29 @@ if (toLower _itemMod in disabledMods) exitWith { false };
 //This is a pretty hard filter that removes anything that shouldn't be in there - I'm hoping it isn't prone to false negatives!
 if (getText (_configClass >> "picture") == "") exitWith { false };
 
-if (A3A_coldWarMode && {(_configName in forbiddenAssets || {_itemIsVanilla})}) exitWith {
+if (A3A_coldWarMode && {_configName in forbiddenAssets}) exitWith {
 	false;
+};
+
+if (A3A_coldWarMode && {_itemIsVanilla}) exitWith {
+	switch (_categories select 0) do {
+		case "Item": {
+			switch (_categories select 1) do {
+				case "AccessoryMuzzle";
+				case "AccessoryPointer";
+				case "AccessorySights";
+				case "AccessoryBipod";
+				case "NVGoggles";
+				case "Unknown": { false };
+				default { true };
+			};
+		};
+		case "Weapon";
+		case "Equipment";
+		case "Magazine";
+		case "Mine": { false };
+		default { true };
+	};
 };
 
 //Remove vanilla items if no vanilla sides

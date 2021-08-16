@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.2
+### Changes
+- Fixed no basic items in Cold War mode
+- Fixed no undercover break on milbases
+
 ## 1.7.1
 ### Changes
 - Reduced frequency of AIRDROP supports
