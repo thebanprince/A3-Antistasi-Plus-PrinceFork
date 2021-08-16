@@ -71,13 +71,11 @@
 "U_IG_Guerilla3_1",
 "U_IG_leader",
 "U_IG_Guerrilla_6_1",
-"CUP_U_I_GUE_Anorak_01",
 "CUP_U_I_GUE_Anorak_03",
 "CUP_U_I_GUE_Anorak_02",
 "CUP_U_I_GUE_WorkU_01",
 "CUP_U_I_GUE_WorkU_02",
 "CUP_U_I_GUE_Flecktarn2",
-"CUP_U_I_GUE_Flecktarn3",
 "CUP_U_I_GUE_Flecktarn",
 "CUP_U_I_GUE_Flecktarn4",
 "CUP_U_I_GUE_Woodland1"
@@ -225,7 +223,7 @@ _loadoutData setVariable ["gpses", []];
 _loadoutData setVariable ["NVGs", []]; 
 _loadoutData setVariable ["binoculars", ["Binocular"]];
 
-_loadoutData setVariable ["uniforms", ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1", "CUP_U_I_GUE_Anorak_01","CUP_U_I_GUE_Anorak_03","CUP_U_I_GUE_Anorak_02","CUP_U_I_GUE_WorkU_01","CUP_U_I_GUE_WorkU_02","CUP_U_I_GUE_Flecktarn2","CUP_U_I_GUE_Flecktarn3","CUP_U_I_GUE_Flecktarn","CUP_U_I_GUE_Flecktarn4","CUP_U_I_GUE_Woodland1"]];
+_loadoutData setVariable ["uniforms", ["U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_leader","U_IG_Guerrilla_6_1","CUP_U_I_GUE_Anorak_03","CUP_U_I_GUE_Anorak_02","CUP_U_I_GUE_WorkU_01","CUP_U_I_GUE_WorkU_02","CUP_U_I_GUE_Flecktarn2","CUP_U_I_GUE_Flecktarn","CUP_U_I_GUE_Flecktarn4","CUP_U_I_GUE_Woodland1"]];
 _loadoutData setVariable ["vests", []];
 _loadoutData setVariable ["backpacks", []];
 _loadoutData setVariable ["longRangeRadios", []];

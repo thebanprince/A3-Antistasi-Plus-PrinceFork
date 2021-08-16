@@ -3,6 +3,7 @@
 ## 1.7.3
 ### Changes
 - (RHS) Missing helicopters in Vehicle Black Market fix
+- (CUP) Removed hooded anorak uniforms as they clip with headgear
 
 ## 1.7.2
 ### Changes
