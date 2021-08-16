@@ -1,4 +1,4 @@
-params ["_position"];
+params ["_position", "_direction"];
 
 private _moneyCost = outpostCost select 0;
 private _hrCost = outpostCost select 1;
@@ -42,6 +42,7 @@ ctrlSetFocus ((findDisplay 60000) displayCtrl 2700);
 sleep 0.01;
 closeDialog 0;
 closeDialog 0;
+[] call SCRT_fnc_ui_clearOutpost;
 
 waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
 
@@ -71,6 +72,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
     	_garrison pushBack (_x select 0);
     } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMedic];
     garrison setVariable [_marker,_garrison,true];
+	staticPositions setVariable [_marker, [_position, _direction], true];
 } else {
    	[_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;
     sleep 3;

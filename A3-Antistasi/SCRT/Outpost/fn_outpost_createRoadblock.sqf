@@ -44,6 +44,7 @@ ctrlSetFocus ((findDisplay 60000) displayCtrl 2700);
 sleep 0.01;
 closeDialog 0;
 closeDialog 0;
+[] call SCRT_fnc_ui_clearOutpost;
 
 waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
 

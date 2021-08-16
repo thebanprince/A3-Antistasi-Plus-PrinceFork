@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.7.4
+### Additions 
+- Ability to set emplacement direction on map (first click on map sets up position, second - direction)
+
+### Changes
+- Loot crates are recognized by Arms Dealer container detector (items can be sold from/bought into crates)
+- Arms Dealer will no longer spawn too close to enemy outposts
+- Undercovered players will no longer unvoluntarily drop loot crates and statics while carrying them
+- Find The Arms Dealer task can be completed by undercovered rebels too
+
 ## 1.7.3
 ### Changes
 - (RHS) Missing helicopters in Vehicle Black Market fix
