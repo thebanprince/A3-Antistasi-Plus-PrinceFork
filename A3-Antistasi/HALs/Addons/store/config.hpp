@@ -23,7 +23,7 @@ __________________________________________________________________*/
 
 class cfgHALsStore 
 {
-	containerTypes[] = {"LandVehicle", "Air", "Ship"};
+	containerTypes[] = {"LandVehicle", "Air", "Ship", "ReammoBox_F"};
 	containerRadius = 30;
 	currencySymbol = "€";
 	sellFactor = 0.5;
