@@ -20,16 +20,20 @@ if(_mode == "ADD") then {
                 [_pos] spawn SCRT_fnc_outpost_createWatchpost;
             };
 
-            if (isNil "outpostOrigin") then {
-                if (outpostType == "ROADBLOCK" && {!isOnRoad _pos}) exitWith {
-                    [
-                        "FAIL",
-                        "Establish Outpost",  
-                        parseText "Roadblock should be on road.", 
-                        30
-                    ] spawn SCRT_fnc_ui_showMessage;
-                };
+            if (outpostType == "ROADBLOCK" && {!isOnRoad _pos}) exitWith {
+                [
+                    "FAIL",
+                    "Establish Outpost",  
+                    parseText "Roadblock should be on road.", 
+                    30
+                ] spawn SCRT_fnc_ui_showMessage;
+            };
 
+            if (outpostType == "ROADBLOCK") exitWith {
+                [_pos] spawn SCRT_fnc_outpost_createRoadblock;
+            };
+
+            if (isNil "outpostOrigin") then {
                 outpostOrigin = createMarkerLocal ["BRStart", _pos];
                 outpostOrigin setMarkerShapeLocal "ICON";
                 outpostOrigin setMarkerTypeLocal "hd_end";
@@ -50,9 +54,6 @@ if(_mode == "ADD") then {
                 private _direction = [(getMarkerPos outpostOrigin), (getMarkerPos outpostDirection)] call BIS_fnc_dirTo;
 
                 switch (outpostType) do {
-                    case ("ROADBLOCK"): {
-                        [(getMarkerPos outpostOrigin), _direction] spawn SCRT_fnc_outpost_createRoadblock;
-                    };
                     case ("AA"): {
                         [(getMarkerPos outpostOrigin), _direction] spawn SCRT_fnc_outpost_createAa;
                     };
