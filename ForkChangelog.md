@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.3
+### Changes
+- (RHS) Missing helicopters in Vehicle Black Market fix
+
 ## 1.7.2
 ### Changes
 - Fixed no basic items in Cold War mode
