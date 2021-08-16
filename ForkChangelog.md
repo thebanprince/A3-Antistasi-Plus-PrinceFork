@@ -9,6 +9,8 @@
 - Arms Dealer will no longer spawn too close to enemy outposts
 - Undercovered players will no longer unvoluntarily drop loot crates and statics while carrying them
 - Find The Arms Dealer task can be completed by undercovered rebels too
+- Petros will use Squad Leader template
+- (CUP) Fixed AFRF Arid wrong HMG classname
 
 ## 1.7.3
 ### Changes
