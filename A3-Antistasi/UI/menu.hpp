@@ -968,7 +968,7 @@ class squadOptions: SimpleMenuSmall
 			text = $STR_antistasi_dialogs_mg_squad_title;
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.262 * safezoneH + safezoneY;
-			action = "closeDialog 0;[groupsSDKSquadSupp,""MG""] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;[groupsSDKSquadSupp,'MG'] spawn A3A_fnc_addFIAsquadHC";
 		};
 
 		class r2Button: SimpleButton
@@ -977,7 +977,7 @@ class squadOptions: SimpleMenuSmall
 			text = $STR_antistasi_dialogs_mortar_squad_title;
 			x = 0.477 * safezoneW + safezoneX;
 			y = 0.346 * safezoneH + safezoneY;
-			action = "closeDialog 0; [groupsSDKSquadSupp,""Mortar""] spawn A3A_fnc_addFIAsquadHC;";
+			action = "closeDialog 0; [groupsSDKSquadSupp,'Mortar'] spawn A3A_fnc_addFIAsquadHC;";
 		};
 	};
 };
