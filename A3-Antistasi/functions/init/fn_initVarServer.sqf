@@ -666,6 +666,7 @@ DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 [2,"Identifying unit types",_fileName] call A3A_fnc_log;
 //Identify Squad Leader Units
 private _squadLeaders = [
+	"loadouts_reb_militia_SquadLeader",
 	"loadouts_occ_militia_SquadLeader",
 	"loadouts_occ_military_SquadLeader",
 	"loadouts_occ_elite_SquadLeader",
@@ -690,7 +691,7 @@ private _radioMen = [
 DECLARE_SERVER_VAR(radioMen, _radioMen);
 //Identify Medic Units
 private _medics = [
-	SDKMedic,
+	"loadouts_reb_militia_medic",
 	"loadouts_occ_militia_Medic",
 	"loadouts_occ_military_Medic",
 	"loadouts_occ_elite_Medic",
@@ -844,7 +845,7 @@ if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append [
 //    UNIT AND VEHICLE PRICES    ///
 ////////////////////////////////////
 [2,"Creating pricelist",_fileName] call A3A_fnc_log;
-{server setVariable [_x,50,true]} forEach SDKMil;
+server setVariable [SDKMil,50,true];
 {server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
