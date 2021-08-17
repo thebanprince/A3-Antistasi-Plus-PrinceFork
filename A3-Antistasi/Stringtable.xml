@@ -5129,16 +5129,13 @@
       <German>Geschäft</German>
       <Russian>Магазин</Russian>
       <Spanish>Comprar</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_OPEN_ACTION">
       <Original>Open the %1</Original>      <!--e.g. open the Weapons Store-->
       <English>Open the %1</English>
-      <French></French>
-      <German></German>
-      <Russian></Russian>
-      <Spanish></Spanish>
-      <Italian></Italian>
+      <French>Ouvrir de %1</French>
+      <German>Offener %1</German>
+      <Russian>Открыть %1</Russian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
       <Original>Item unavaliable.</Original>
@@ -5147,7 +5144,6 @@
       <German>Gegenstand nicht verfügbar.</German>
       <Russian>Предмет недоступен</Russian>
       <Spanish>Objeto no disponible.</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_OUTOFSTOCK">
       <Original>Insufficient stock.</Original>
@@ -5156,7 +5152,6 @@
       <German>Ausverkauft.</German>
       <Russian>Товар закончился</Russian>
       <Spanish>Sin stock.</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_TOOEXPENSIVE">
       <Original>Insufficient funds.</Original>
@@ -5165,7 +5160,6 @@
       <German>Zu wenig Geld.</German>
       <Russian>Недостаточно средств</Russian>
       <Spanish>Dinero insuficiente.</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_NOEQUIP">
       <Original>Unable to equip.</Original>
@@ -5174,7 +5168,6 @@
       <German>Ausrüsten fehlgeschlagen.</German>
       <Russian>Невозможно экипировать</Russian>
       <Spanish>Imposible equipar.</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_NOCARGOSPACE">
       <Original>Insufficient cargo space.</Original>
@@ -5183,7 +5176,6 @@
       <German>Nicht genug Platz.</German>
       <Russian>Не хватает места в инвентаре</Russian>
       <Spanish>Espacio insuficiente.</Spanish>
-      <Italian></Italian>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_PURCHASED">
       <Original>purchased</Original>
@@ -5192,7 +5184,6 @@
       <German>gekauft</German>
       <Russian>куплен</Russian>
       <Spanish>comprad</Spanish>
-      <Italian></Italian>
     </Key>
     <!-- Thanks to JakeHekesFists -->
     <Key ID="STR_HALS_STORE_ITEM_SELL_NOTEMPTY">
