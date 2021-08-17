@@ -73,6 +73,8 @@ if ({alive _x} count units _groupX == 0) then {
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (!(_markerX in roadblocksFIA))};
 
+deleteVehicle _barricade;
+
 if (!isNull _veh) then { 
     deleteVehicle _veh;
 };

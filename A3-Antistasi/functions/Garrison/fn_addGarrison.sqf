@@ -12,7 +12,7 @@ params ["_marker", "_units"];
 if (isNil "_marker") exitWith {diag_log "AddGarrison: No marker given!"};
 if (isNil "_units") exitWith {diag_log "AddGarrison: No units given!"};
 
-private [];
+[2, format ["Replenishing garrison on marker %1, units: %2.", "fn_addGarrison", true] call A3A_fnc_log;
 
 private _garrison = [_marker] call A3A_fnc_getGarrison;
 private _requested = [_marker] call A3A_fnc_getRequested;

@@ -9,6 +9,8 @@
 - Arms Dealer will no longer spawn too close to enemy outposts
 - Undercovered players will no longer unvoluntarily drop loot crates and statics while carrying them
 - Find The Arms Dealer task can be completed by undercovered rebels too
+- Fixed _cured undefined variable error
+- Fixed roablock barricade duplication issue
 - (CUP) Fixed AFRF Arid wrong HMG classname
 
 ## 1.7.3
