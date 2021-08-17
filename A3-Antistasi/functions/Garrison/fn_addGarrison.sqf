@@ -9,8 +9,12 @@ params ["_marker", "_units"];
 *     Nothing
 */
 
-if (isNil "_marker") exitWith {Error("No marker given!")};
-if (isNil "_units") exitWith {Error("No units given!")};
+if (isNil "_marker") exitWith {
+  [1, "No marker given!", "fn_addGarrison", true] call A3A_fnc_log;
+};
+if (isNil "_units") exitWith {
+  [1, "No units given!", "fn_addGarrison", true] call A3A_fnc_log;
+};
 
 [2, format ["Replenishing garrison on marker %1, units: %2.", _marker, str _units], "fn_addGarrison", true] call A3A_fnc_log;
 

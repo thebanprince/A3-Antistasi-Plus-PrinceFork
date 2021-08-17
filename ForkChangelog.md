@@ -11,6 +11,9 @@
 - Find The Arms Dealer task can be completed by undercovered rebels too
 - Fixed _cured undefined variable error
 - Fixed roablock barricade duplication issue
+- Fixed missing rebel squad leader unit type in squad leaders pool (rebel squad leaders will recieve rifles on autoequip)
+- Fixed missing Arms Dealer store action text for non-English languages
+- Fixed enemies inability to use flares in some cases
 - (CUP) Fixed AFRF Arid wrong HMG classname
 
 ## 1.7.3
