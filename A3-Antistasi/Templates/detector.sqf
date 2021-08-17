@@ -51,11 +51,9 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
-if (isClass (configFile >> "CfgPatches" >> "vn_weapons")) then {
-    private _text = "SOG PF detected, but it is not yet supported, please remove this mod";
-    systemChat _text;
-    [1, _text, _fileName] call A3A_fnc_log;
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
+if (allowDLCVN && {isClass (configFile >> "CfgPatches" >> "vn_weapons")}) then {
+  A3A_hasVN = true;
+  [2,"SOG PF Detected.",_fileName] call A3A_fnc_log;
 };
 
 //3CB Factions Detection

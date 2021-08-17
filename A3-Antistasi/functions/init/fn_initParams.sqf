@@ -93,7 +93,9 @@ A3A_paramTable = [
     ["threecbfOccupantFaction", "threecbfOccupantFaction", ["server"], 0],
     ["cupOccupantFaction", "cupOccupantFaction", ["server"], 0],
     ["aiControlTime", "aiControlTime", [], 60],
-    ["deathPenalty", "deathPenalty", [], 0.3]
+    ["deathPenalty", "deathPenalty", [], 0.3],
+    ["allowDLCGlobMob", "GlobMob", ["server"], false],
+    ["allowDLCVN", "VN", [], false]
     // beware of the comma
 ];
 

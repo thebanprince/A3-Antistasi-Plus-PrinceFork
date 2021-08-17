@@ -149,7 +149,7 @@
 
 
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["APERSMine", "APERSBoundingMine_Range_Mag"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 
 ["playerDefaultLoadout", []] call _fnc_saveToTemplate;

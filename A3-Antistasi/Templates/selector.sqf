@@ -90,6 +90,11 @@ A3A_Reb_template = switch(true) do {
             [2, "Using Temperate CHDKZ Template", _filename] call A3A_fnc_log;
         };
     };
+    case (A3A_hasVN): {
+        ["Templates\NewTemplates\VN\VN_Reb_KPNLF.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+        [2, "Using KPNLF Template", _filename] call A3A_fnc_log;
+        "VN"
+    };
     default {
         switch(true) do {
             case (_terrainName in tropicalMaps): {
@@ -232,6 +237,11 @@ A3A_Occ_template = switch(true) do {
         [2, "Using Aegis EUROFOR Template", _filename] call A3A_fnc_log;
         "Vanilla" //intentionally, as aegis expands vanilla
     };
+    case (A3A_hasVN): {
+        ["Templates\NewTemplates\VN\VN_MACV.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using VN MACV Template");
+        "VN"
+    };
     default {
         switch(true) do {
             case (_terrainName in _temperateMaps);
@@ -310,6 +320,11 @@ A3A_Inv_template = switch(true) do{
         [2, "Using Aegis Russia Template", _filename] call A3A_fnc_log;
         "Vanilla" //intentionally, as aegis expands vanilla
     };
+    case (A3A_hasVN): {
+        ["Templates\NewTemplates\VN\VN_PAVN.sqf", east] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using VN PAVN Template");
+        "VN"
+    };
     default {
         switch(true) do {//This one (vanilla) works differently so that we don't get DLC kit on modded maps.
             case (_terrainName in _temperateMaps);
@@ -385,6 +400,11 @@ A3A_Civ_template = switch(true) do {
         [2, "Using RHS Civ Template", _filename] call A3A_fnc_log;
         "RHS"
     };
+    case (A3A_hasVN): {
+        ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
+        Info("Using VN CIV Template");
+        "VN"
+    };
     default {
         ["Templates\NewTemplates\Vanilla\Vanilla_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
         [2, "Using Vanilla Civ Template", _filename] call A3A_fnc_log;
@@ -426,3 +446,4 @@ if (A3A_has3CBFactions) then {call compileScript ["Templates\NewTemplates\3CBF\3
 if (A3A_hasCup) then {call compileScript ["Templates\NewTemplates\CUP\Cup_Logistics_Nodes.sqf"];};
 if (A3A_hasAegis) then {call compileScript ["Templates\NewTemplates\Aegis\Aegis_Logistics_Nodes.sqf"];};
 if (A3A_hasGlobMob) then {call compileScript ["Templates\NewTemplates\GM\GM_Logistics_Nodes.sqf"];};
+if (A3A_hasVN) then {call compile preProcessFileLineNumbers "Templates\NewTemplates\VN\VN_Logistics_Nodes.sqf"};
