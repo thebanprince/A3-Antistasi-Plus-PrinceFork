@@ -41,7 +41,7 @@ if (!isNil "_customLoadout") exitWith {
 	_unit linkItem "ItemWatch";
 	if (haveRadio) then {_unit linkItem selectrandom (unlockedRadios)};
 
-	if (_unitClass in SDKExp) then {
+	if (_unitClass == SDKExp) then {
 		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 	};
 
@@ -87,7 +87,7 @@ private _unlockedSmokes = allSmokeGrenades arrayIntersect unlockedMagazines;
 if !(_unlockedSmokes isEqualTo []) then { _unit addMagazines [selectRandom _unlockedSmokes, 2] };
 
 switch (true) do {
-	case (_unitClass in SDKSniper): {
+	case (_unitClass == SDKSniper): {
 		if (count unlockedSniperRifles > 0) then {
 			[_unit, selectRandom unlockedSniperRifles, 8] call _addWeaponAndMags;
 			if (count unlockedOptics > 0) then {
@@ -99,20 +99,20 @@ switch (true) do {
 			[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		};
 	};
-	case (_unitClass in SDKMil): {
+	case (_unitClass == SDKMil): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		// Adding AA launchers to garrison riflemen because explosives guys can't currently be purchased there
 		if (_recruitType == 2 && {count unlockedAA > 0}) then {
 			[_unit, selectRandom unlockedAA, 1] call _addWeaponAndMags;
 		};
 	};
-	case (_unitClass in SDKMG): {
+	case (_unitClass == SDKMG): {
 		[_unit,unlockedMachineGuns] call A3A_fnc_randomRifle;
 	};
-	case (_unitClass in SDKGL): {
+	case (_unitClass == SDKGL): {
 		[_unit,unlockedGrenadeLaunchers] call A3A_fnc_randomRifle;
 	};
-	case (_unitClass in SDKExp): {
+	case (_unitClass == SDKExp): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit enableAIFeature ["MINEDETECTION", true]; //This should prevent them from Stepping on the Mines as an "Expert" (It helps, they still step on them)
 		if (count unlockedAA > 0) then {
@@ -122,11 +122,11 @@ switch (true) do {
 			_unit addItemToBackpack (selectRandom unlockedMineDetectors);
 		// TODO: explosives. Not that they know what to do with them.
 	};
-	case (_unitClass in SDKEng): {
+	case (_unitClass == SDKEng): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		_unit addItemToBackpack (selectRandom unlockedToolkits);
 	};
-	case (_unitClass in SDKMedic): {
+	case (_unitClass == SDKMedic): {
 		[_unit,unlockedSMGs] call A3A_fnc_randomRifle;
 		// temporary hack
 		private _medItems = [];
@@ -140,13 +140,12 @@ switch (true) do {
 			_unit addItemToBackpack _x;
 		} forEach _medItems;
 	};
-	case (_unitClass in SDKATman): {
+	case (_unitClass == SDKATman): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if !(unlockedAT isEqualTo []) then {
 			[_unit, selectRandom unlockedAT, 4] call _addWeaponAndMags;
 		};
 	};
-	// squad leaders and
 	case (_unitClass in squadLeaders): {
 		[_unit,unlockedRifles] call A3A_fnc_randomRifle;
 		if (_recruitType == 1) then {_unit linkItem selectrandom (unlockedRadios)};

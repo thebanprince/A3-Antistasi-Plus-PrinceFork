@@ -9,10 +9,10 @@ params ["_marker", "_units"];
 *     Nothing
 */
 
-if (isNil "_marker") exitWith {diag_log "AddGarrison: No marker given!"};
-if (isNil "_units") exitWith {diag_log "AddGarrison: No units given!"};
+if (isNil "_marker") exitWith {Error("No marker given!")};
+if (isNil "_units") exitWith {Error("No units given!")};
 
-[2, format ["Replenishing garrison on marker %1, units: %2.", "fn_addGarrison", true] call A3A_fnc_log;
+[2, format ["Replenishing garrison on marker %1, units: %2.", _marker, str _units], "fn_addGarrison", true] call A3A_fnc_log;
 
 private _garrison = [_marker] call A3A_fnc_getGarrison;
 private _requested = [_marker] call A3A_fnc_getRequested;
@@ -174,7 +174,5 @@ private _nonReinfUnits = [["", [], []]];
 garrison setVariable [format ["%1_garrison", _marker], _garrison];
 garrison setVariable [format ["%1_requested", _marker], _requested];
 
-//diag_log format ["AddGarrison %1: After alive is %2", _random, _garrison];
-//diag_log format ["AddGarrison %1: After dead is %2", _random, _requested];
 
 [_marker] call A3A_fnc_updateReinfState;

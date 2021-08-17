@@ -11,14 +11,8 @@ _resourcesFIA = server getVariable "resourcesFIA";
 _typeX = _this select 0;
 
 private _costs = 0;
-
-if (_typeX isEqualType "") then {
-	_costs = server getVariable _typeX;
-	_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
-} else{
-	_typeX = if (random 20 <= skillFIA) then {_typeX select 1} else {_typeX select 0};
-	_costs = server getVariable _typeX;
-};
+_costs = server getVariable _typeX;
+_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
 
 if (_costs > _resourcesFIA) exitWith {
 	["Garrison",  format ["You do not have enough money for this kind of unit (%1 € needed).", _costs], "FAIL"] call SCRT_fnc_ui_showDynamicTextMessage;
@@ -42,9 +36,7 @@ if ([_positionX, 500] call A3A_fnc_enemyNearCheck) exitWith {
 
 private _exit = false;
 {
-	private _unitArray = _x;
-	private _index = _unitArray findIf { _typeX == _x };
-	if (_index != -1) exitWith {
+	if (_x == _typeX) then {
 		_exit = true;
 	};
 } forEach [SDKMG, SDKGL, SDKSniper];
@@ -53,7 +45,7 @@ if (_exit && {tierWar < 2}) exitWith {
 	["Garrison", "You can not recruit this type of unit at war level 1.", "FAIL"] call SCRT_fnc_ui_showDynamicTextMessage;
 };
 
-if (_typeX in SDKATman && {tierWar < 4}) exitWith {
+if (_typeX == SDKATman && {tierWar < 4}) exitWith {
 	["Garrison", "You can not recruit this type of unit at war level 3 or less.", "FAIL"] call SCRT_fnc_ui_showDynamicTextMessage;
 };
 

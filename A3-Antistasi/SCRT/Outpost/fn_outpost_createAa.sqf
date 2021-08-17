@@ -18,10 +18,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,["We are sending a team to establish a AA emplacement. Use HC to send the team to their destination","AA Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-_formatX = [];
-{
-    _formatX pushBack (_x select 0);
-} forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
+_formatX = [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
 _groupX setGroupId ["Emplacement Crew"];
@@ -67,10 +64,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	_marker setMarkerType "n_antiair";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [];
-    {
-    	_garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
+    _garrison = [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKMedic];
     garrison setVariable [_marker,_garrison,true];
 	staticPositions setVariable [_marker, [_position, _direction], true];
 } else {

@@ -7,10 +7,7 @@ private _garrison = garrison getVariable [_markerX, []];
 private _props = [];
 
 if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
-    _garrison = [];
-    {
-        _garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
+    _garrison = [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
     garrison setVariable [_markerX,_garrison,true];
 };
 
@@ -45,7 +42,7 @@ sleep 1;
 
 [_veh,"Move_Outpost_Static"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian], _veh];
 
-private _groupX = [_positionX, teamPlayer, _garrison,true,false] call A3A_fnc_spawnGroup;
+private _groupX = [_positionX, teamPlayer, _garrison, true, false] call A3A_fnc_spawnGroup;
 private _groupXUnits = units _groupX;
 _groupXUnits apply { [_x,_markerX] spawn A3A_fnc_FIAinitBases; };
 

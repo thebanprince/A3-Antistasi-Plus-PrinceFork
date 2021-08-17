@@ -19,16 +19,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,["We are sending a team to establish a watchpost. Use HC to send the team to their destination","Watchpost Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-_formatX = [];
-{
-    if (random 20 <= skillFIA) then {
-        _formatX pushBack (_x select 1)
-    } else {
-        _formatX pushBack (_x select 0)
-    };
-} forEach groupsSDKSniper;
-
-_groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
+_groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, groupsSDKSniper] call A3A_fnc_spawnGroup;
 _groupX setGroupId ["Watchpost"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];

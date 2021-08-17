@@ -526,29 +526,29 @@ if (_side isEqualTo independent) then {
 
 	staticCrewTeamPlayer = "loadouts_reb_militia_staticCrew";
 	SDKUnarmed = "loadouts_reb_militia_Unarmed";
-	SDKSniper = ["loadouts_reb_militia_sniper", "loadouts_reb_militia_sniper"];
-	SDKATman = ["loadouts_reb_militia_lat", "loadouts_reb_militia_lat"];
-	SDKMedic = ["loadouts_reb_militia_medic", "loadouts_reb_militia_medic"];
-	SDKMG = ["loadouts_reb_militia_MachineGunner", "loadouts_reb_militia_MachineGunner"];
-	SDKExp = ["loadouts_reb_militia_ExplosivesExpert", "loadouts_reb_militia_ExplosivesExpert"];
-	SDKGL = ["loadouts_reb_militia_Grenadier", "loadouts_reb_militia_Grenadier"];
-	SDKMil = ["loadouts_reb_militia_Rifleman", "loadouts_reb_militia_Rifleman"];
-	SDKSL = ["loadouts_reb_militia_SquadLeader", "loadouts_reb_militia_SquadLeader"];
-	SDKEng = ["loadouts_reb_militia_Engineer", "loadouts_reb_militia_Engineer"];
+	SDKSniper = "loadouts_reb_militia_sniper";
+	SDKATman = "loadouts_reb_militia_lat";
+	SDKMedic = "loadouts_reb_militia_medic";
+	SDKMG = "loadouts_reb_militia_MachineGunner";
+	SDKExp = "loadouts_reb_militia_ExplosivesExpert";
+	SDKGL = "loadouts_reb_militia_Grenadier";
+	SDKMil = "loadouts_reb_militia_Rifleman";
+	SDKSL = "loadouts_reb_militia_SquadLeader";
+	SDKEng = "loadouts_reb_militia_Engineer";
 
 	groupsSDKmid = [SDKSL,SDKGL,SDKMG,SDKMil];
 	groupsSDKAT = [SDKSL,SDKMG,SDKATman,SDKATman,SDKATman];
 	groupsSDKSquad = [SDKSL,SDKGL,SDKMil,SDKMG,SDKMil,SDKATman,SDKMil,SDKMedic];
 	groupsSDKSquadEng = [SDKSL,SDKGL,SDKMil,SDKMG,SDKExp,SDKATman,SDKEng,SDKMedic];
-	groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic,[staticCrewTeamPlayer,staticCrewTeamPlayer],[staticCrewTeamPlayer,staticCrewTeamPlayer]];
+	groupsSDKSquadSupp = [SDKSL,SDKGL,SDKMil,SDKMG,SDKATman,SDKMedic, staticCrewTeamPlayer, staticCrewTeamPlayer];
 	groupsSDKSniper = [SDKSniper,SDKSniper];
 	groupsSDKSentry = [SDKGL,SDKMil];
-	groupsSDKCrew = [[staticCrewTeamPlayer,staticCrewTeamPlayer], [staticCrewTeamPlayer,staticCrewTeamPlayer], SDKEng];
+	groupsSDKCrew = [staticCrewTeamPlayer, staticCrewTeamPlayer, SDKEng];
 
 	//Rebel Unit Tiers (for costs)
-	sdkTier1 = SDKMil + [staticCrewTeamPlayer] + SDKMG + SDKGL + SDKATman;
-	sdkTier2 = SDKMedic + SDKExp + SDKEng;
-	sdkTier3 = SDKSL + SDKSniper;
+	sdkTier1 = [SDKMil, staticCrewTeamPlayer, SDKMG, SDKGL, SDKATman];
+	sdkTier2 = [SDKMedic, SDKExp, SDKEng];
+	sdkTier3 = [SDKSL, SDKSniper];
 	soldiersSDK = sdkTier1 + sdkTier2 + sdkTier3;
 
 	vehSDKBike = _faction getVariable "vehicleBasic";

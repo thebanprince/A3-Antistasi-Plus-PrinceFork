@@ -10,10 +10,7 @@ private _road = objNull;
 
 
 if (isNil "_garrison") then {//this is for backward compatibility, remove after v12
-    _garrison = [(SDKMil select 0)];
-    {
-        _garrison pushBack (_x select 0)
-    } forEach groupsSDKSquad;
+    _garrison = [SDKMil] + groupsSDKSquad;
     garrison setVariable [_markerX,_garrison,true];
 };
 
@@ -32,7 +29,7 @@ private _barricade = "Land_Barricade_01_10m_F" createVehicle _barricadePosition;
 _barricade setDir _dirveh;
 _barricade setVectorUp surfaceNormal position _barricade;
 
-if ((SDKMil select 0) in _garrison) then {
+if (SDKMil in _garrison) then {
     _veh = vehSDKLightArmed createVehicle getPos (_road select 0);
     _veh setDir _dirveh + 90;
     _veh lock 3;
