@@ -846,7 +846,7 @@ if (A3A_hasACRE && startWithLongRangeRadio) then {initialRebelEquipment append [
 ////////////////////////////////////
 [2,"Creating pricelist",_fileName] call A3A_fnc_log;
 server setVariable [SDKMil,50,true];
-{server setVariable [_x,75,true]} forEach (sdkTier1 - SDKMil);
+{server setVariable [_x,75,true]} forEach (sdkTier1 - [SDKMil]);
 {server setVariable [_x,100,true]} forEach  sdkTier2;
 {server setVariable [_x,150,true]} forEach sdkTier3;
 {timer setVariable [_x,3,true]} forEach [staticATOccupants] + staticAAOccupants;

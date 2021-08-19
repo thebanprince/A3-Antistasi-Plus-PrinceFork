@@ -54,7 +54,7 @@ switch (outpostType) do {
         _costs = [SDKMortar] call A3A_fnc_vehiclePrice; //Mortar
         _hr = 1; //static gunner
         {
-            _costs = _costs + (server getVariable [_x,0]; 
+            _costs = _costs + (server getVariable [_x,0]); 
             _hr = _hr +1;
         } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKMedic];
        _costTextBox ctrlSetText format ["Costs %1 HR and %2€", _hr, _costs];
