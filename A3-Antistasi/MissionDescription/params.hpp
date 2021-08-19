@@ -126,8 +126,8 @@ class Params
     class civPedestrians
     {
         title = "Maximum Civilian Pedestrians";
-        values[] = {9999,3,5,10,15,20,25,30};
-        texts[] = {"Load From Save (Default - 10)","3","5","10","15","20","25","30"};
+        values[] = {9999,0,3,5,10,15,20,25,30};
+        texts[] = {"Load From Save (Default - 10)","0","3","5","10","15","20","25","30"};
         default = 9999;
     };
     class allowFT

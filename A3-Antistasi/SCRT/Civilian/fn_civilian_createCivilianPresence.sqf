@@ -1,5 +1,7 @@
 private _fileName = "fn_civilian_createCivilianPresence";
 
+if (civPedestrians == 0) exitWith {};
+
 private _marker = _this;
 private _position = getMarkerPos _marker;
 
