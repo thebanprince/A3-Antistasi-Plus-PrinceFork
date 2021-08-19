@@ -133,8 +133,8 @@ if (_typePatrol != "AIR") then {
 		_indexX = airportsX find _base;
 		if (_indexX != -1) then {
 			_spawnPoint = server getVariable (format ["spawn_%1", _base]);
+			[2, format ["Spawnpoint: %1, base: %2", str _spawnPoint, str _base], "fn_AAFRoadPatrol", true] call A3A_fnc_log;
 			if (_spawnPoint isEqualType 0) then {
-				[1, format ["Bad spawnpoint type: %1, base: %2.", str _spawnPoint, str _base], "fn_AAFRoadPatrol", true] call A3A_fnc_log;
 				_posbase = position ([_posbase] call A3A_fnc_findNearestGoodRoad);
 			} else {
 				_posBase = getMarkerPos _spawnPoint;

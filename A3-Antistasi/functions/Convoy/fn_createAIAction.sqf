@@ -238,11 +238,6 @@ if(_type == "reinforce") then
 
       _vehicleCount = _vehicleCount + (_countUnits select 0);
       _cargoCount = _cargoCount + (_countUnits select 1) + (_countUnits select 2);
-
-      //For debug is direct placement
-      //diag_log format ["Reinforce %1 from %2", _target, _selectedBase];
-      //[_units, "Reinf units"] call A3A_fnc_logArray;
-      //[_target, _units] call A3A_fnc_addGarrison;
     };
   }
   else

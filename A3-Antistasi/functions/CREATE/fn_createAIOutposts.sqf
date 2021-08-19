@@ -304,22 +304,24 @@ if (_spawnParameter isEqualType []) then {
 	_typeVehX = if !(_isFIA) then {
 		if (_sideX == Occupants) then {
 			private _types = vehNATOTrucks + vehNATOCargoTrucks;
-			_types = _types select { _x in vehCargoTrucks };
-			if (count _types == 0) then { vehNATOCargoTrucks } else { _types };
+			if (_frontierX) then {_types = _types + vehNATOArmed};
+			_types;
 		} else {
 			private _types = vehCSATTrucks + vehCSATCargoTrucks;
-			_types = _types select { _x in vehCargoTrucks };
-			if (count _types == 0) then { vehCSATCargoTrucks } else { _types };
+			if (_frontierX) then {_types = _types + vehCSATLightArmed};
+			_types;
 		};
 	} else {
 		if (_sideX == Occupants) then {
 			private _types = vehFIATrucks;
 			_types = _types select { _x in vehCargoTrucks };
-			if (count _types == 0) then { vehNATOCargoTrucks } else { _types };
+			if (_frontierX) then {_types = _types + vehFIAArmedCars};
+			_types;
 		} else {
 			private _types = vehWAMTrucks;
 			_types = _types select { _x in vehCargoTrucks };
-			if (count _types == 0) then { vehCSATCargoTrucks } else { _types };
+			if (_frontierX) then {_types = _types + vehWAMArmedCars};
+			_types;
 		};
 	};
 

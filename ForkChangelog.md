@@ -13,8 +13,19 @@
 - Fixed roablock barricade duplication issue
 - Fixed missing rebel squad leader unit type in squad leaders pool (rebel squad leaders will recieve rifles on autoequip)
 - Fixed missing Arms Dealer store action text for non-English languages
-- Fixed enemies inability to use flares in some cases
+- Fixed enemy inability to use flares in some cases
+- Increased number of sources of heavy militia vehicles (affects QRFs, large attacks)
+- Added light armed vehicles to frontline outposts spawn pool
+- Added marksman to SF squads
+- Fixed wrong variable type in garrison replenish function that prevented some garrisons from being replenished
+- Precision mode (SHIFT key) for building position selection mode switched to raw position (allows to put buildings more precisely)
+- New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
 - (CUP) Fixed AFRF Arid wrong HMG classname
+  
+### Removals
+- Removed mission ending on SOGPF detection
+- Removed Rescue Refugees mission
+- Removed Invader Punishment mission
 
 ## 1.7.3
 ### Changes

@@ -238,7 +238,6 @@ class A3A
         class garrisonSize {};
         class garrisonUpdate {};
         class groupDespawner {};
-        class invaderPunish {};
         class milBuildings {};
         class minefieldAAF {};
         class mortarPos {};
