@@ -114,7 +114,7 @@ if (_side isEqualTo east) then {
 			selectRandomWeighted ["loadouts_inv_militia_LAT", 2, "loadouts_inv_militia_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Grenadier", 1],
 			selectRandomWeighted ["loadouts_inv_militia_MachineGunner", 2, "loadouts_inv_militia_Marksman", 1],
-			"loadouts_inv_militia_AT",
+			selectRandomWeighted ["loadouts_inv_militia_AT", 2, "loadouts_inv_militia_LAT", 1],
 			selectRandomWeighted ["loadouts_inv_militia_AA", 1, "loadouts_inv_militia_Engineer", 3],
 			"loadouts_inv_militia_Radioman",
 			"loadouts_inv_militia_Medic"
@@ -128,7 +128,7 @@ if (_side isEqualTo east) then {
 			selectRandomWeighted ["loadouts_inv_military_LAT", 2, "loadouts_inv_military_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_inv_military_Rifleman", 2, "loadouts_inv_military_Grenadier", 1],
 			selectRandomWeighted ["loadouts_inv_military_MachineGunner", 2, "loadouts_inv_military_Marksman", 1],
-			"loadouts_inv_elite_AT",
+			selectRandomWeighted ["loadouts_inv_military_AT", 2, "loadouts_inv_military_LAT", 1],
 			selectRandomWeighted ["loadouts_inv_military_AA", 1, "loadouts_inv_military_Engineer", 3],
 			"loadouts_inv_military_Radioman",
 			"loadouts_inv_military_Medic"
@@ -154,6 +154,7 @@ if (_side isEqualTo east) then {
 		"loadouts_inv_SF_SquadLeader",
 		"loadouts_inv_SF_Rifleman",
 		"loadouts_inv_SF_Radioman",
+		"loadouts_inv_SF_Marksman",
 		"loadouts_inv_SF_MachineGunner",
 		"loadouts_inv_SF_ExplosivesExpert",
 		"loadouts_inv_SF_AT",
@@ -176,7 +177,7 @@ if (_side isEqualTo east) then {
 				"loadouts_inv_militia_LAT", 1,
 				"loadouts_inv_militia_Marksman", 1,
 				"loadouts_inv_militia_Engineer", 1,
-				"loadouts_inv_militia_AT", 1
+				"loadouts_inv_militia_Medic", 1
 			]
 		];
 	};
@@ -191,7 +192,7 @@ if (_side isEqualTo east) then {
 			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_Marksman", 1],
 			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 2, "loadouts_inv_militia_Marksman", 1],
 			selectRandomWeighted ["loadouts_inv_militia_Rifleman", 1, "loadouts_inv_militia_LAT", 1],
-			"loadouts_inv_militia_AT",
+			selectRandomWeighted ["loadouts_inv_militia_AT", 1, "loadouts_inv_militia_LAT", 2],
 			"loadouts_inv_militia_Medic"
 		];
 	};
@@ -352,7 +353,7 @@ if (_side isEqualTo west) then {
 			selectRandomWeighted ["loadouts_occ_militia_LAT", 2, "loadouts_occ_militia_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_occ_militia_Rifleman", 2, "loadouts_occ_militia_Grenadier", 1],
 			selectRandomWeighted ["loadouts_occ_militia_MachineGunner", 2, "loadouts_occ_militia_Marksman", 1],
-			"loadouts_occ_militia_AT",
+			selectRandomWeighted ["loadouts_occ_militia_AT", 2, "loadouts_occ_militia_LAT", 1],
 			selectRandomWeighted ["loadouts_occ_militia_AA", 1, "loadouts_occ_militia_Engineer", 3],
 			"loadouts_occ_militia_Radioman",
 			"loadouts_occ_militia_Medic"
@@ -366,7 +367,7 @@ if (_side isEqualTo west) then {
 			selectRandomWeighted ["loadouts_occ_military_LAT", 2, "loadouts_occ_military_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_occ_military_Rifleman", 2, "loadouts_occ_military_Grenadier", 1],
 			selectRandomWeighted ["loadouts_occ_military_MachineGunner", 2, "loadouts_occ_military_Marksman", 1],
-			"loadouts_occ_military_AT",
+			selectRandomWeighted ["loadouts_occ_military_AT", 2, "loadouts_occ_military_LAT", 1],
 			selectRandomWeighted ["loadouts_occ_military_AA", 1, "loadouts_occ_military_Engineer", 3],
 			"loadouts_occ_military_Radioman",
 			"loadouts_occ_military_Medic"
@@ -380,7 +381,7 @@ if (_side isEqualTo west) then {
 			selectRandomWeighted ["loadouts_occ_elite_LAT", 2, "loadouts_occ_elite_MachineGunner", 1],
 			selectRandomWeighted ["loadouts_occ_elite_Rifleman", 2, "loadouts_occ_elite_Grenadier", 1],
 			selectRandomWeighted ["loadouts_occ_elite_MachineGunner", 2, "loadouts_occ_elite_Marksman", 1],
-			"loadouts_occ_elite_AT",
+			selectRandomWeighted ["loadouts_occ_elite_AT", 2, "loadouts_occ_elite_LAT", 1],
 			selectRandomWeighted ["loadouts_occ_elite_AA", 1, "loadouts_occ_elite_Engineer", 3],
 			"loadouts_occ_elite_Radioman",
 			"loadouts_occ_elite_Medic"
@@ -392,6 +393,7 @@ if (_side isEqualTo west) then {
 		"loadouts_occ_SF_SquadLeader",
 		"loadouts_occ_SF_Rifleman",
 		"loadouts_occ_SF_Radioman",
+		"loadouts_occ_SF_Marksman",
 		"loadouts_occ_SF_MachineGunner",
 		"loadouts_occ_SF_ExplosivesExpert",
 		"loadouts_occ_SF_AT",
@@ -413,7 +415,8 @@ if (_side isEqualTo west) then {
 			selectRandomWeighted [
 				"loadouts_occ_militia_LAT", 1,
 				"loadouts_occ_militia_Marksman", 1,
-				"loadouts_occ_militia_AT", 1
+				"loadouts_occ_militia_Medic", 1,
+				"loadouts_occ_militia_Engineer", 1
 			]
 		];
 	};
