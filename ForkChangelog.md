@@ -20,7 +20,9 @@
 - Fixed wrong variable type in garrison replenish function that prevented some garrisons from being replenished, replenished garrisons will be no longer replenished by wrong faction troops, requires new game start as old garrisons already filled with bad variable (hopefully, i think lost some sanity debugging this)
 - Fixed wrong reward for Catch Airdrop function
 - Fixed SQF error message when there is not enough money to buy loot crate
+- Reduced number of vehicles participating in single attack
 - Precision mode (SHIFT key) for building position selection mode switched to raw position (allows to put buildings more precisely)
+- (Vidda) Added missing Spawn Points for airports
 - New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
 - (Vidda) new outpost and resource
 - (CUP) Fixed AFRF Arid wrong HMG classname
