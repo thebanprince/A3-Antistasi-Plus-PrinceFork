@@ -10,9 +10,7 @@ _resourcesFIA = server getVariable "resourcesFIA";
 
 _typeX = _this select 0;
 
-private _costs = 0;
-_costs = server getVariable _typeX;
-_costs = _costs + ([SDKMortar] call A3A_fnc_vehiclePrice);
+private _costs = server getVariable _typeX;
 
 if (_costs > _resourcesFIA) exitWith {
 	["Garrison",  format ["You do not have enough money for this kind of unit (%1 € needed).", _costs], "FAIL"] call SCRT_fnc_ui_showDynamicTextMessage;
