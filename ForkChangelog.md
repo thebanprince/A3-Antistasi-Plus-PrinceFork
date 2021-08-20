@@ -24,7 +24,7 @@
 - (CUP) Fixed AFRF Arid wrong HMG classname
   
 ### Removals
-- Removed mission ending on SOGPF detection
+- Removed mission ending on SOGPF detection (it's still not supported yet, but it will prevent from abrupt mission ending when SOGPF is occasionally turned on)
 - Removed Rescue Refugees mission
 - Removed Invader Punishment mission
 
