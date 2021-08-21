@@ -20,7 +20,14 @@ _strikePlane setDir _targDir;
 _strikePlane setPosATL _spawnPos;                                           // setPosATL kills velocity
 _strikePlane setVelocityModelSpace [0, 100, 0];
 
-Info_1("Executing AIRSTRIKE routine, plane: %1, target: %2, bomb type: %3, airport: %4, support name: %5", _plane, str _targetPos, _bombType, _airport, _supportName);
+[
+    2, 
+    format [
+        "Executing AIRSTRIKE routine, plane: %1, target: %2, bomb type: %3, airport: %4, support name: %5", 
+        _plane, str _targetPos, _bombType, _airport, _supportName
+    ],
+    "fn_SUP_airstrikeRoutine"
+] call A3A_fnc_log;
 
 private _strikeGroup = createGroup _side;
 private _pilot = [_strikeGroup, _crewUnits, getPos _strikePlane] call A3A_fnc_createUnit;
