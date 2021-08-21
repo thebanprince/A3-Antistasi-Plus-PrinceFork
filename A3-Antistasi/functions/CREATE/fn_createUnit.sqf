@@ -18,23 +18,7 @@
 
 params ["_group", "_type", "_position", ["_markers", []], ["_placement", 0], ["_special", "NONE"]];
 
-private _unitDefinition = [];
-
-//it's there is only to find problematic case, remove when it was found
-try {
-	_unitDefinition = A3A_customUnitTypes getVariable [_type, []];
-} 
-catch {
-	[	
-		1, 
-		format [
-			"Problematic createUnit call - group %1, type %2, position %3, markers: %4, placement: %5, special: %6", 
-			str _group, _type, str _position, str _markers, str _placement, _special
-		], 
-		"fn_createUnit",
-		true
-	] call A3A_fnc_log;
-};
+private _unitDefinition = A3A_customUnitTypes getVariable [_type, []];
 
 if !(_unitDefinition isEqualTo []) exitWith {
 	_unitDefinition params ["_loadouts", "_traits", "_unitClass"];
