@@ -1,5 +1,6 @@
 params ["_side", "_timerIndex", "_sleepTime", "_bombType", "_airport", "_targetPos", "_supportName"];
-private _fileName = "SUP_airstrikeRoutine";
+#include "..\..\Includes\common.inc"
+FIX_LINE_NUMBERS()
 //Sleep to simulate preparetion time
 while {_sleepTime > 0} do
 {
@@ -18,6 +19,8 @@ private _targDir = _spawnPos getDir _targetPos;
 _strikePlane setDir _targDir;
 _strikePlane setPosATL _spawnPos;                                           // setPosATL kills velocity
 _strikePlane setVelocityModelSpace [0, 100, 0];
+
+Info_1("Executing AIRSTRIKE routine, plane: %1, target: %2, bomb type: %3, airport: %4, support name: %5", _plane, str _targetPos, _bombType, _airport, _supportName);
 
 private _strikeGroup = createGroup _side;
 private _pilot = [_strikeGroup, _crewUnits, getPos _strikePlane] call A3A_fnc_createUnit;
@@ -78,7 +81,7 @@ _textMarker setMarkerAlphaLocal 0;
 _strikePlane flyInHeight 150;
 private _minAltASL = (ATLToASL [_targetPos select 0, _targetPos select 1, 0])#2 +150;
 _strikePlane flyInHeightASL [_minAltASL, _minAltASL, _minAltASL];
-[2, "Fly height ASL: %1 | Target hight: %2", _minAltASL, _targetPos, _filename] call A3A_fnc_log;
+Debug_2("Fly height ASL: %1 | Target hight: %2", _minAltASL, _targetPos);
 
 private _startBombPosition = _targetPos getPos [100, _targDir + 180];
 _startBombPosition set [2, 150];
@@ -93,7 +96,7 @@ if (_bombType == "HE") then {_bombCount = _bombCount * 2};
 private _bombParams = [_strikePlane, _bombType, _bombCount, 200];
 
 if (_isHelicopter) then {_flightSpeed = "FULL"};
-[2, format["Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed], _fileName] call A3A_fnc_log;
+Info_3("Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed);
 
 private _wp2 = _strikeGroup addWaypoint [_startBombPosition, 0];
 _wp2 setWaypointType "MOVE";
@@ -125,7 +128,7 @@ waitUntil { sleep 2; (currentWaypoint _strikeGroup == 4) or (time > _timeOut) };
 //sleep ((time - _timeout) min (_targetPos distance _strikePlane / (speed _strikePlane / 3.6)))
 
 if (time >_timeOut) then {
-    [2, format ["Plane for %1 did not return before timeout", _supportName], _filename] call A3A_fnc_log;
+    Info_1("Plane for %1 did not return before timeout", _supportName);
     // should this be done anyway? Depends how reliable the waypoints are...
     if !(canMove _strikePlane) then { _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600] };
     [_strikeGroup] spawn A3A_fnc_groupDespawner;
