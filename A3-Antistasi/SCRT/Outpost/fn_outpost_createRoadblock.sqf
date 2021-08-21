@@ -23,7 +23,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 _formatX = [SDKMil] + groupsSDKSquad;
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
-_groupX setGroupId ["Roadblock"];
+_groupX setGroupId ["Road"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = vehSDKTruck createVehicle _pos;

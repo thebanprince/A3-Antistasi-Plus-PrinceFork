@@ -20,7 +20,7 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, groupsSDKSniper] call A3A_fnc_spawnGroup;
-_groupX setGroupId ["Watchpost"];
+_groupX setGroupId ["Watch"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = vehSDKBike createVehicle _pos;
