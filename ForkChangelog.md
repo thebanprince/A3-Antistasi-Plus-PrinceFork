@@ -26,6 +26,7 @@
 - Fixed wrong cargo position of barrel palette from Catch Airdrop mission 
 - Black Market Vehicle Tier 2 will unlock on 5 war level instead of 4
 - New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
+- Not every 8-man squad will have soldiers with long range radios (this will reduce quantity of soldiers that able to call for support)
 - (Cold War Mode) Takistan will use middle east civilian template
 - (Vidda, Weferlingen, Isla Abramia, Napf) Fixed missing Spawn Points for airports that may lead to neverending big attacks, missing road patrols etc 
 - (Vidda) new outpost and resource
