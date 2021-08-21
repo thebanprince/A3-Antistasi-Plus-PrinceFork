@@ -22,8 +22,11 @@
 - Fixed SQF error message when there is not enough money to buy loot crate
 - Reduced number of vehicles participating in single attack
 - Precision mode (SHIFT key) for building position selection mode switched to raw position (allows to put buildings more precisely)
-- (Vidda) Added missing Spawn Points for airports
+- Fixed inability to put ammocrate from Catch Airdrop mission into vehicles
+- Fixed wrong cargo position of barrel palette from Catch Airdrop mission 
 - New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
+- (Cold War Mode) Takistan will use middle east civilian template
+- (Vidda, Weferlingen, Isla Abramia, Napf) Fixed missing Spawn Points for airports that may lead to neverending big attacks, missing road patrols etc 
 - (Vidda) new outpost and resource
 - (CUP) Fixed AFRF Arid wrong HMG classname
   

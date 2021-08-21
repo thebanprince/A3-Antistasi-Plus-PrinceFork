@@ -179,7 +179,7 @@ A3A_logistics_attachmentOffset = [
     ["Box_NATO_Equip_F" call A3A_fnc_classNameToModel,                          [0,0,0.44],                 [1,0,0],                    1],                         //Equipment box
     ["Box_NATO_Wps_F" call A3A_fnc_classNameToModel,                            [0,0,0.22],                 [0,0,0],                    1],
     ["Box_Syndicate_Ammo_F" call A3A_fnc_classNameToModel,                      [0,0,0.22],                 [0,0,0],                    1],                     //loot crate
-    ["CargoNet_01_barrels_F" call A3A_fnc_classNameToModel,                     [0,0,-0.5],	                [1,0,0],				    1] //barrels from aidrop mission
+    ["CargoNet_01_barrels_F" call A3A_fnc_classNameToModel,                     [0,-0.8,0.53],	            [1,0,0],				    1] //barrels from aidrop mission
 ];
 //all vehicles with jnl loading nodes where the nodes are not located in the open, this can be because its inside the vehicle or it has a cover over the loading plane.
 A3A_logistics_coveredVehicles = [

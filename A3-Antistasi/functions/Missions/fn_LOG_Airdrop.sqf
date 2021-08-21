@@ -292,6 +292,7 @@ if(alive _planeVeh) then {
             position _planeVeh
         ] call SCRT_fnc_common_airdropCargo;
         [_ammoBox] spawn A3A_fnc_fillLootCrate;
+        [_ammoBox] call A3A_fnc_logistics_addLoadAction;
     };
 
     sleep 10;

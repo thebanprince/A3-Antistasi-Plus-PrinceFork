@@ -26,7 +26,7 @@ while {killZoneRemove >= 1} do
 // Handle the old reinforcements
 
 private ["_reinfPlaces","_numberX","_numGarr","_numReal","_sideX","_potentials","_countX","_siteX","_positionX"];
-private _bigBases = (airportsX + milbases) select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x == 2)};
+private _bigBases = airportsX select {(sidesX getVariable [_x,sideUnknown] != teamPlayer) and (spawner getVariable _x == 2)};
 if (count _bigBases == 0) exitWith {};
 _reinfPlaces = [];
 {
