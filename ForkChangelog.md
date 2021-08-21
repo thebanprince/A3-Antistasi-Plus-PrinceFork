@@ -24,6 +24,7 @@
 - Precision mode (SHIFT key) for building position selection mode switched to raw position (allows to put buildings more precisely)
 - Fixed inability to put ammocrate from Catch Airdrop mission into vehicles
 - Fixed wrong cargo position of barrel palette from Catch Airdrop mission 
+- Black Market Vehicle Tier 2 will unlock on 5 war level instead of 4
 - New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
 - (Cold War Mode) Takistan will use middle east civilian template
 - (Vidda, Weferlingen, Isla Abramia, Napf) Fixed missing Spawn Points for airports that may lead to neverending big attacks, missing road patrols etc 
