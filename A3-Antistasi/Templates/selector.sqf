@@ -239,7 +239,7 @@ A3A_Occ_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_MACV.sqf", west] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN MACV Template");
+        [2, "Using VN MACV Template", _filename] call A3A_fnc_log;
         "VN"
     };
     default {
@@ -322,7 +322,7 @@ A3A_Inv_template = switch(true) do{
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_PAVN.sqf", east] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN PAVN Template");
+        [2, "Using VN PAVN Template", _filename] call A3A_fnc_log;
         "VN"
     };
     default {
@@ -407,7 +407,7 @@ A3A_Civ_template = switch(true) do {
     };
     case (A3A_hasVN): {
         ["Templates\NewTemplates\VN\VN_CIV.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        Info("Using VN CIV Template");
+        [2, "Using VN CIV Template", _filename] call A3A_fnc_log;
         "VN"
     };
     default {

@@ -2110,9 +2110,9 @@
         <Original>Border crossing never has been so easy.</Original>
         <English>Border crossing never has been so easy.</English>
         <German>Grenzübertritt war noch nie so einfach.</German>
-        <French>Le passage des frontières n'a jamais été aussi facile..</French>
-        <Russian>Пересечение границы еще никогда не было таким простым..</Russian>
-        <Czech>Hraniční přechod nikdy nebyl tak snadný..</Czech>
+        <French>Le passage des frontières n'a jamais été aussi facile.</French>
+        <Russian>Пересечение границы еще никогда не было таким простым.</Russian>
+        <Czech>Hraniční přechod nikdy nebyl tak snadný.</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
         <Original>Antistasi Plus - The Red Dawn</Original>
@@ -2271,6 +2271,29 @@
         <French>Antistasi Plus - Nordvakt</French>
         <Czech>Antistasi Plus - Nordvakt</Czech>
         <Russian>Antistasi Plus - Северный Дозор</Russian>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_camlaonam_mapname_text">
+        <Original>Antistasi Plus - Agent Orange</Original>
+        <English>Antistasi Plus - Agent Orange</English>
+        <French>Antistasi Plus - Agent Orange</French>
+        <German>Antistasi Plus - Agent Orange</German>
+        <Russian>Antistasi Plus - Agent Orange</Russian>
+        <Czech>Antistasi Plus - Agent Orange</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_camlaonam_mapname_short_text">
+        <Original>Antistasi Plus - Agent Orange</Original>
+        <English>Antistasi Plus - Agent Orange</English>
+        <French>Antistasi Plus - Agent Orange</French>
+        <German>Antistasi Plus - Agent Orange</German>
+        <Russian>Antistasi Plus - Agent Orange</Russian>
+        <Czech>Antistasi Plus - Agent Orange</Czech>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_camlaonam_blurb_text">
+        <Original>Why we're still here, just to suffer?</Original>
+        <German>Warum sind wir immer noch hier, nur um zu leiden?</German>
+        <French>Pourquoi sommes-nous toujours là, juste pour souffrir?</French>
+        <Russian>Почему мы все еще здесь, просто чтобы страдать?</Russian>
+        <Czech>Proč jsme pořád tady, jen trpět?</Czech>
       </Key>
     </Container>
     <Container name="journal_entries">

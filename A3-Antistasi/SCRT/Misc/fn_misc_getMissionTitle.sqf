@@ -49,6 +49,10 @@ switch (toLower worldName) do {
 	{
 	    _title = localize "STR_antistasi_mission_info_weferlingen_mapname_text";
 	};
+	case "cam_lao_nam":
+	{
+	    _title = localize "STR_antistasi_mission_info_camlaonam_mapname_text";
+	};
 	default
 	{
 	    _title = "Antistasi Plus";
