@@ -107,8 +107,8 @@ if(_spawnPos isEqualTo []) exitWith
     ["", 0, 0];
 };
 
-if (_isMortar && {_base in (airportsX + milbases)}) then {
-    if (_side == Occupants && NATOHowitzer == "" || {_side == Invaders && CSATHowitzer == ""}) exitWith {};
+if (_isMortar && {(airportsX + milbases) findIf {_spawnPos inArea _x} != -1 }) then {
+    if ((_side == Occupants && NATOHowitzer == "") || {(_side == Invaders && CSATHowitzer == "")}) exitWith {};
 
     if (_side == Occupants) then {
         _mortarType = NATOHowitzer;

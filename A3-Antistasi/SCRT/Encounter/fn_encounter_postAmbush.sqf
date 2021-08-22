@@ -31,13 +31,22 @@ private _side = selectRandom [Occupants, Invaders];
 
 private _vehicleClass = nil;
 private _crewClass = nil;
+private _isFia = if (random 10 > (tierWar + difficultyCoef)) then {true} else {false};
 
 if (_side == Occupants) then {
     _crewClass = NATOCrew;
-    _vehicleClass = selectRandom vehNATOAttack;
+    if (_isFia) then {
+       _vehicleClass = selectRandom (vehFIAAPC + vehFIATanks);
+    } else {
+        _vehicleClass = selectRandom vehNATOAttack;
+    };
 } else {
     _crewClass = CSATCrew;
-    _vehicleClass = selectRandom vehCSATAttack;
+    if (_isFia) then {
+        _vehicleClass = selectRandom (vehWAMAPC + vehWAMTanks);
+    } else {
+        _vehicleClass = selectRandom vehCSATAttack;
+    };
 };
 
 if (_vehicleClass == "" || {_vehicleClass == "not_supported"}) exitWith {

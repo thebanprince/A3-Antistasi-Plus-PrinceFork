@@ -304,7 +304,7 @@ if (!isDedicated) then {
 		private _index = A3A_tasksData findIf { (_x#1) isEqualTo _type and (_x#2) isEqualTo "CREATED" };
 		if (_index != -1) then { _typesX pushBackUnique _type };
 
-	} forEach ["AS","CON","DES","LOG","RES","ENC","CONVOY","DEF_HQ","rebelAttack","invaderPunish"];
+	} forEach ["AS","CON","DES","LOG","RES","ENC","CONVOY","DEF_HQ","rebelAttack"];
 
 	["tasks",_typesX] call A3A_fnc_setStatVariable;
 };

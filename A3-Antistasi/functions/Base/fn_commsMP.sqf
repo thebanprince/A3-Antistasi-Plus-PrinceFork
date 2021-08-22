@@ -89,14 +89,14 @@ switch (_typeX) do {
 			};
 
 			case (4): {
-				_textX = format ["<br/><br/><t size='0.6'>Black Vehicle Market stock has been updated with Tier 2 vehicles.</t>"];
-				_textX = _textX + format ["<br/><t size='0.6'>Rebel vehicles stock has been updated with new vehicles.</t>"];
+				_textX = format ["<br/><t size='0.6'>Rebel vehicles stock has been updated with new vehicles.</t>"];
 				if (player == theBoss) then {
 					_textX = _textX + format ["<br/><t size='0.6'>AA, AT Emplacements are available for building, AA/AT squads and teams are available for recruitment.</t>"];
 				};
 			};
 
 			case (5): {
+				_textX = format ["<br/><br/><t size='0.6'>Black Vehicle Market stock has been updated with Tier 2 vehicles.</t>"];
 				_textX = _textX + format ["<br/><t size='0.6'>Rebel vehicles stock has been updated with new vehicles.</t>"];
 				if (player == theBoss) then {
 					_textX = _textX + format ["<br/><t size='0.6'>Mortar teams are available for recruitment.</t>"];

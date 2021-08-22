@@ -53,7 +53,11 @@ if (_expectedCargo > 0) then
         }
         else
         {
-            if (_side == Occupants) then {groupsNATOAT} else {groupsCSATAT}
+            if (_side == Occupants) then {
+                groupsNATOAT call SCRT_fnc_unit_selectInfantryTier
+            } else {
+                groupsCSATAT call SCRT_fnc_unit_selectInfantryTier
+            }
         };
     };
 

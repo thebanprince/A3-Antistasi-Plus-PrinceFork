@@ -17,14 +17,19 @@ if (vehicle _unit != _unit) exitWith {
 private _flares = _unit getVariable ["remainingFlares", 2];
 if (_flares <= 0) exitWith {};
 
-if (!isNil "_enemy" && _enemy distance _unit > 450) exitWith {
+if (!isNil "_enemy" && {_enemy distance _unit > 450}) exitWith {
 	[2, "Enemy's distance is higher than 450m, exiting function.", _funcName] call A3A_fnc_log;
 };
 
 _unit setVariable ["smokeUsed", time + 60];
 _unit setVariable ["remainingFlares", _flares - 1];
 
-_initialFlarePosition = if !(isNil "_enemy") then { _enemy getPos [random 20,random 360] } else { _unit getPos [100,random 360] };
+_initialFlarePosition = if !(isNil "_enemy") then { 
+	_enemy getPos [random 20,random 360] 
+} else { 
+	_unit getPos [100,random 360] 
+};
+
 _initialFlarePosition set [2,150];
 
 _flareModel = selectRandom flaresPool;

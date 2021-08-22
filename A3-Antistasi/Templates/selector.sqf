@@ -349,8 +349,13 @@ A3A_Civ_template = switch(true) do {
         "Vanilla" //intentionally, as gm aaf expands vanilla
     };
     case (A3A_has3CBFactions && {A3A_hasGlobMob}): {
-        ["Templates\NewTemplates\GM_3CBF\GM_3CBF_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
-        [2, "Using 3CBF CW Civ template", _filename] call A3A_fnc_log;
+        if(_terrainName == "takistan") then {
+            ["Templates\NewTemplates\3CBF\3CBF_Civ_Arid.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
+            [2, "Using 3CB Civ Temperate template", _filename] call A3A_fnc_log;
+        } else {
+            ["Templates\NewTemplates\GM_3CBF\GM_3CBF_Civ.sqf", civilian] call A3A_fnc_compatibilityLoadFaction;
+            [2, "Using 3CBF CW Civ template", _filename] call A3A_fnc_log;
+        };
         "3CBFactions_GM"
     };
     case (A3A_has3CBFactions): {

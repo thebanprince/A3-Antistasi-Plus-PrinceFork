@@ -238,7 +238,6 @@ class A3A
         class garrisonSize {};
         class garrisonUpdate {};
         class groupDespawner {};
-        class invaderPunish {};
         class milBuildings {};
         class minefieldAAF {};
         class mortarPos {};
@@ -419,7 +418,6 @@ class A3A
         class missionRequest {};
         class REP_Antenna {};
         class RES_Prisoners {};
-        class RES_Refugees {};
         class RES_Informer {};
         class RES_Shipwreck {};
         class ENC_Trader {};

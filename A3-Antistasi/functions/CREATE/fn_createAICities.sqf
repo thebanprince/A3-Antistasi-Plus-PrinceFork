@@ -50,10 +50,7 @@ if (_markerX in destroyedSites) then {
 		case teamPlayer: {
 			_esAAF = false;
 			_num = round (_num * (_prestigeBLUFOR/100));
-			_array = [];
-			{
-				_array pushBack (_x select 0);
-			} forEach groupsSDKSentry;
+			_array = groupsSDKSentry;
 			_params = [_positionX, teamPlayer, _array];
 		};
 	};

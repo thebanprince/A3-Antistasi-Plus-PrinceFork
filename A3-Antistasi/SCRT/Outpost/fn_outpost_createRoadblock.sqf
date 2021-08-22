@@ -20,13 +20,10 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,["We are sending a team to establish a roadblock. Use HC to send the team to their destination","Roadblock Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-_formatX = [];
-{
-    _formatX pushBack (_x select 0);
-} forEach groupsSDKSquad;
+_formatX = [SDKMil] + groupsSDKSquad;
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
-_groupX setGroupId ["Roadblock"];
+_groupX setGroupId ["Road"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = vehSDKTruck createVehicle _pos;
@@ -69,10 +66,7 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	_marker setMarkerType "n_support";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [(SDKMil select 0)];
-    {
-        _garrison pushBack (_x select 0);
-    } forEach groupsSDKSquad;
+    _garrison = [SDKMil] + groupsSDKSquad;
     garrison setVariable [_marker,_garrison,true];
 } else {
     [_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;
