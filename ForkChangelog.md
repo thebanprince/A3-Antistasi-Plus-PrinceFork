@@ -23,6 +23,7 @@
 - Black Market Vehicle Tier 2 will unlock on 5 war level instead of 4
 - New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
 - Not every 8-man squad will have soldiers with long range radios (this will reduce quantity of soldiers that able to call for support)
+- Arms Dealer store operations will be rounded (no more decimal values)
 - Loot crates are recognized by Arms Dealer container detector (items can be sold from/bought into crates)
 - Arms Dealer will no longer spawn too close to enemy outposts
 - Undercovered players will no longer unvoluntarily drop loot crates and statics while carrying them
