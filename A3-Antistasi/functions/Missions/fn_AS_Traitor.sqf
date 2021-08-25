@@ -58,7 +58,7 @@ _nameDest = [_markerX] call A3A_fnc_localizar;
 
 _groupTraitor = createGroup _side;
 
-_arrayAirports = airportsX select {sidesX getVariable [_x,sideUnknown] == _side};
+_arrayAirports = (airportsX + milbases) select {sidesX getVariable [_x,sideUnknown] == _side};
 _base = [_arrayAirports, _positionX] call BIS_Fnc_nearestPosition;
 _posBase = getMarkerPos _base;
 
