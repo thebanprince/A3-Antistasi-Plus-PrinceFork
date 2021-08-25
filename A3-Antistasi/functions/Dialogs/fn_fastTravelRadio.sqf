@@ -108,9 +108,10 @@ if (_checkX) exitWith {
 
 if (count _positionTel > 0) then {
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
-
-	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {
-		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases"] call SCRT_fnc_misc_showDeniedActionHint;
+	private _rebelMarkers = if (!isNil "traderMarker") then {["SYND_HQ", traderMarker]} else {["SYND_HQ"]}; 
+	
+	if (_checkForPlayer && {!(_base in (_rebelMarkers + airportsX + milbases))}) exitWith {
+		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases and Arms Dealer Store"] call SCRT_fnc_misc_showDeniedActionHint;
 	};
 
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {
@@ -145,7 +146,10 @@ if (count _positionTel > 0) then {
 			{if (vehicle _x != _x) then {_vehicles pushBackUnique (vehicle _x)}} forEach units _groupX;
 			{if ((vehicle _x) in _vehicles) exitWith {_checkForPlayer = true}} forEach (call A3A_fnc_playableUnits);
 			};
-		if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX) and !(_base in milbases))) exitWith {["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ, Airbase or Military Base",groupID _groupX]] call SCRT_fnc_misc_showDeniedActionHint;};
+		if (_checkForPlayer && {!(_base in (_rebelMarkers + airportsX + milbases))}) exitWith {
+			["Fast Travel", format ["%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ, Airbase, Military Base or Arms Dealer store",groupID _groupX]] call SCRT_fnc_misc_showDeniedActionHint;
+		};
+		
 		{
 		_unit = _x;
 		if ((!isPlayer _unit) or (_unit == player)) then
