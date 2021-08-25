@@ -74,16 +74,32 @@ A3A_Reb_template = switch(true) do {
         switch(true) do {
             case (_terrainName in _temperateMaps);
             case (_terrainName in tropicalMaps): {
-                ["Templates\NewTemplates\Cup\Cup_Reb_NAPA_Temperate.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+                ["Templates\NewTemplates\GM_CUP\GM_CUP_Reb_FIA_CW.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
                 [2, "Using Temperate NAPA Template", _filename] call A3A_fnc_log;
             };
             default {
-                ["Templates\NewTemplates\CUP\CUP_Reb_FIA_Arid.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+                ["Templates\NewTemplates\GM_CUP\GM_CUP_Reb_FIA_CW.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
                 [2, "Using arid FIA Templates", _filename] call A3A_fnc_log;
             };
         };
         "CUP"
     };
+	
+	    case (A3A_hasCup && {A3A_hasGlobMob}): {
+        switch(true) do {
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in tropicalMaps): {
+                ["Templates\NewTemplates\GM_CUP\GM_CUP_Reb_FIA_CW.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+                [2, "Using Temperate NAPA Template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\GM_CUP\GM_CUP_Reb_FIA_CW.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
+                [2, "Using arid FIA Templates", _filename] call A3A_fnc_log;
+            };
+        };
+        "GM_CUP"
+    };
+	
     case (A3A_hasAegis): {
         switch(true) do {
             ["Templates\NewTemplates\Aegis\Aegis_Reb_CHDKZ.sqf", independent] call A3A_fnc_compatibilityLoadFaction;
@@ -189,11 +205,11 @@ A3A_Occ_template = switch(true) do {
                         [2, "Using tropical USAF Template", _filename] call A3A_fnc_log;
                     };
                     case (_terrainName in _temperateMaps): {
-                        ["Templates\NewTemplates\CUP\CUP_AI_USAF_Temperate.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+                        ["Templates\NewTemplates\GM_CUP\GM_CUP_AI_AAF_CW.sqf", west] call A3A_fnc_compatibilityLoadFaction;
                         [2, "Using arctic USAF Template", _filename] call A3A_fnc_log;
                     };
                     default {
-                        ["Templates\NewTemplates\CUP\Cup_AI_USAF_Arid.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+                        ["Templates\NewTemplates\GM_CUP\GM_CUP_AI_AAF_CW.sqf", west] call A3A_fnc_compatibilityLoadFaction;
                         [2, "Using arid USAF Templates", _filename] call A3A_fnc_log;
                     };
                 };
@@ -227,6 +243,13 @@ A3A_Occ_template = switch(true) do {
         };
         "CUP"
     };
+	
+	case (A3A_hasCup && {A3A_hasGlobMob}): {
+        ["Templates\NewTemplates\GM_CUP\GM_CUP_AI_AAF_CW.sqf", west] call A3A_fnc_compatibilityLoadFaction;
+        [2, "Using CUP AAF 90s Cold War Template", _filename] call A3A_fnc_log;
+        "CUP_GM"
+	};
+	
     case (A3A_hasAegis): {
         ["Templates\NewTemplates\Aegis\Aegis_AI_EUROFOR.sqf", west] call A3A_fnc_compatibilityLoadFaction;
         [2, "Using Aegis EUROFOR Template", _filename] call A3A_fnc_log;
@@ -305,6 +328,22 @@ A3A_Inv_template = switch(true) do{
         };
         "CUP"
     };
+	
+	    case (A3A_hasCup && {A3A_hasGlobMob}): {
+        switch(true) do {
+            case (_terrainName in _temperateMaps);
+            case (_terrainName in tropicalMaps): {
+                ["Templates\NewTemplates\Cup\Cup_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
+                [2, "Using temperate AFRF Template", _filename] call A3A_fnc_log;
+            };
+            default {
+                ["Templates\NewTemplates\Cup\Cup_AI_BAF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
+                [2, "Using arid AFRF Template", _filename] call A3A_fnc_log;
+            };
+        };
+        "CUP"
+    };
+	
     case (A3A_hasAegis): {
         ["Templates\NewTemplates\Aegis\Aegis_AI_AFRF.sqf", east] call A3A_fnc_compatibilityLoadFaction;
         [2, "Using Aegis Russia Template", _filename] call A3A_fnc_log;
