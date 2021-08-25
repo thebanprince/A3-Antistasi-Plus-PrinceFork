@@ -142,6 +142,10 @@ while {true} do
 
 	bombRuns = bombRuns + 0.25 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX);
 
+	if (bombRuns > 10) then {
+		bombRuns = 10;
+	};
+
 	publicVariable "bombRuns";
 
 	if(tierWar > 2) then {
