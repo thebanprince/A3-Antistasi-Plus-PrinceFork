@@ -96,7 +96,7 @@ switch (_callbackTarget) do {
 			};
 
 			case CALLBACK_SHOULD_CANCEL_PLACEMENT: {
-				if (!(player inArea traderVehicleMarker)) exitWith {
+				if (player distance2d traderX > 50) exitWith {
 					[true, "You need to be close to the trader to be able to purchase a vehicle"];
 				};
 				[false];
@@ -105,7 +105,7 @@ switch (_callbackTarget) do {
 			case CALLBACK_VEH_IS_VALID_LOCATION: {
 				private _pos = _callbackParams select 0;
 				private _maxDist = [50,150] select ((_callbackParams select 2) isKindOf "Ship");
-				if (_pos distance2d (getMarkerPos traderVehicleMarker) > _maxDist) exitWith
+				if (_pos distance2d traderX > _maxDist) exitWith
 				{
 					[false, format ["This vehicle must be placed within %1m of the flag", _maxDist]];
 				};
@@ -113,8 +113,8 @@ switch (_callbackTarget) do {
 			};
 
 			case CALLBACK_CAN_PLACE_VEH: {
-				if (!(player inArea traderVehicleMarker)) exitWith  {
-					[false, "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage"];
+				if ((player distance2d traderX > 50)) exitWith  {
+					[false, "You need to be close to Arms Dealer to be able to buy vehicle."];
 				};
 				if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {
 					[false, "You cannotbuy vehicles with enemies nearby"];
