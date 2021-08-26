@@ -2,7 +2,7 @@
 
 ## 1.7.5
 ### Changes
-- 2.5.2 Community Version merge (garrison corruption fix, multiple small fixes to core systems of Antistasi)
+- 2.5.2 Community Version merge (garrison corruption fix, multiple small fixes of core systems of Antistasi)
 - Introduced cap on Airstrikes - 10
 - Changed condition on Arms Dealer store distance check (should eliminate "you're not near Arms Dealer" error when buying vehicle from him) ]
 - Ability to fast travel to Arms Dealer store when Fast Travel mission parameter has Limited value
