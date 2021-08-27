@@ -5,7 +5,7 @@
 ["name", "ACF"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "ACF Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_UK_F"] call _fnc_saveToTemplate;
+["flag", "Flag_AltisColonial_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\A3\Data_F\Flags\Flag_AltisColonial_F.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_AltisColonial"] call _fnc_saveToTemplate;
 
@@ -124,13 +124,13 @@
 ["uavsPortable", ["not_supported"]] call _fnc_saveToTemplate;
 
 
-["vehiclesMilitiaLightArmed", ["CUP_B_LR_MG_GB_D", "CUP_B_Jackal2_L2A1_GB_D"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["ACM_AAFGM_Iltis_Milan", "ACM_AAFGM_Fuchs_Command"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["CUP_B_MTVR_BAF_DES"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["CUP_B_LR_Transport_GB_D"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaApcs", ["CUP_B_BAF_Coyote_L2A1_D"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTanks", ["CUP_B_FV432_Bulldog_GB_D"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["ACM_AAFGM_Iltis"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaApcs", ["ACM_AAFGM_Fuchs_Command"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTanks", ["ACM_AAFGM_M113a2DK"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["ACM_APD_Iltis", "ACM_APD_Unimog"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["CUP_B_L111A1_BAF_MPT"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_B_TOW2_TriPod_US"]] call _fnc_saveToTemplate;
