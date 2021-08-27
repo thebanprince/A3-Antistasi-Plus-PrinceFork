@@ -308,9 +308,9 @@ _sfLoadoutData setVariable ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData setVariable ["uniforms", ["ACM_AAFGM_Clothes_AFU", "ACM_AAFGM_Clothes_AFU_Snakeskin", "ACM_AAFGM_Clothes_AFU_Snakeskin_rolled"]];
-_militaryLoadoutData setVariable ["vests", ["CUP_V_B_BAF_MTP_Osprey_Mk4_AutomaticRifleman", "CUP_V_B_BAF_MTP_Osprey_Mk4_Engineer", "CUP_V_B_BAF_MTP_Osprey_Mk4_Medic", "CUP_V_B_BAF_MTP_Osprey_Mk4_Rifleman"]];
-_militaryLoadoutData setVariable ["Hvests", ["CUP_V_B_BAF_MTP_Osprey_Mk4_Scout"]];
-_militaryLoadoutData setVariable ["GLvests", ["CUP_V_B_BAF_MTP_Osprey_Mk4_Grenadier", "CUP_V_B_BAF_MTP_Osprey_Mk4_Officer"]];
+_militaryLoadoutData setVariable ["vests", []];
+_militaryLoadoutData setVariable ["Hvests", []];
+_militaryLoadoutData setVariable ["GLvests", []];
 _militaryLoadoutData setVariable ["backpacks", ["B_TacticalPack_mcamo","B_Kitbag_cbr", "CUP_B_Predator_Radio_MTP", "CUP_B_Predator_MTP"]];
 _militaryLoadoutData setVariable ["helmets", ["CUP_H_BAF_MTP_Mk7", "CUP_H_BAF_MTP_Mk6_EMPTY", "CUP_H_BAF_MTP_Mk7_PRR_SCRIM_A", "CUP_H_BAF_MTP_Mk7_PRR_SCRIM_B", "CUP_H_BAF_MTP_Mk6_NETTING_PRR", "CUP_H_BAF_MTP_Mk6_GOGGLES_PRR", "CUP_H_BAF_MTP_Mk6_GLASS_PRR"]];
 _militaryLoadoutData setVariable ["ATLaunchers", ["CUP_launch_M136"]];
