@@ -1,4 +1,4 @@
-params ["_position"];
+params ["_position", "_direction"];
 
 private _moneyCost = outpostCost select 0;
 private _hrCost = outpostCost select 1;
@@ -19,13 +19,10 @@ private _taskId = "outpostTask" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,["We are sending a team to establish a AT emplacement. Use HC to send the team to their destination","AT Emplacement Deploy",_marker],_position,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostTask", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-_formatX = [];
-{
-    _formatX pushBack (_x select 0)
-} forEach [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
+_formatX = [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _formatX] call A3A_fnc_spawnGroup;
-_groupX setGroupId ["Emplacement Crew"];
+_groupX setGroupId ["Post"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = vehSDKLightUnarmed createVehicle _pos;
@@ -43,6 +40,7 @@ ctrlSetFocus ((findDisplay 60000) displayCtrl 2700);
 sleep 0.01;
 closeDialog 0;
 closeDialog 0;
+[] call SCRT_fnc_ui_clearOutpost;
 
 waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
 
@@ -67,11 +65,9 @@ if ({(alive _x) and (_x distance _position < 10)} count units _groupX > 0) then 
 	_marker setMarkerType "n_armor";
 	_marker setMarkerColor colorTeamPlayer;
 	_marker setMarkerText _textX;
-    _garrison = [];
-    {
-        _garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
+    _garrison = [SDKSL,SDKMil,SDKATman,SDKATman,SDKATman,SDKMedic];
     garrison setVariable [_marker,_garrison,true];
+	staticPositions setVariable [_marker, [_position, _direction], true];
 } else {
     [_taskId, "outpostTask", "FAILED"] call A3A_fnc_taskSetState;
     sleep 3;

@@ -42,7 +42,7 @@ if (count _freeStatics == 0) exitWith {};
 private _possibleCrew = allUnits inAreaArray _marker;
 _possibleCrew = _possibleCrew select {
     _x getVariable ["markerX", ""] isEqualTo _marker
-    and _x getVariable ["UnitType", ""] in SDKMil
+    and (_x getVariable ["UnitType", ""]) == SDKMil
     and isNull objectParent _x
     and [_x] call A3A_fnc_canFight
 };

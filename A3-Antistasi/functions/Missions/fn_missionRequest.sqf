@@ -274,10 +274,6 @@ switch (_type) do {
 						[[_site],"A3A_fnc_RES_Informer"] remoteExec ["A3A_fnc_scheduler",2];
 					};
 
-					case (_site in citiesX): {
-						[[_site],"A3A_fnc_RES_Refugees"] remoteExec ["A3A_fnc_scheduler",2];
-					};
-
 					default {
 						[[_site],"A3A_fnc_RES_Prisoners"] remoteExec ["A3A_fnc_scheduler",2]
 					};

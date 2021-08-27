@@ -441,7 +441,11 @@ if(_cargoVehicle distance _box < 50 && {alive _cargoVehicle} && {!isNull (driver
 
     if(({alive _x} count units _cargoVehicleGroup) > 3 && {alive _cargoVehicle}) then {
         [3, "Putting ammobox inside truck", _filename] call A3A_fnc_log;
-        [_cargoVehicle, _box, true, true] remoteexec ["jn_fnc_logistics_load", 2];
+
+        private _return = [_vehicle, _cargo] call A3A_fnc_logistics_canLoad;
+        if !(_return isEqualType 0) exitWith {
+            _return remoteExec ["A3A_fnc_logistics_load", 2];
+        };
     } else {
         [3, "Players disrupt cargo operation.", _filename] call A3A_fnc_log;
     };

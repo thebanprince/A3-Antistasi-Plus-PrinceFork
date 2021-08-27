@@ -478,7 +478,7 @@ if (A3A_hasACE) then
 		[_x] call ace_interact_menu_fnc_compileMenuSelfAction;
 		[_x, 1,["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 		[_x, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-	} forEach (_playerUnits + [typePetros, staticCrewTeamPlayer, SDKUnarmed] + SDKSniper + SDKATman + SDKMedic + SDKMG + SDKExp + SDKGL + SDKMil + SDKSL + SDKEng);
+	} forEach (_playerUnits + [typePetros, staticCrewTeamPlayer, SDKUnarmed, SDKSniper, SDKATman, SDKMedic, SDKMG, SDKExp, SDKGL, SDKMil, SDKSL, SDKEng]);
 };
 
 boxX allowDamage false;

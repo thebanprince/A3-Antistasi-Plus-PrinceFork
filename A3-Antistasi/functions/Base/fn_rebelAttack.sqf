@@ -447,8 +447,18 @@ else
         }
         else
         {
-            [2, format ["Starting punishment mission from %1 to %2", _attackOrigin, _attackTarget], _fileName] call A3A_fnc_log;
-            [_attackTarget, _attackOrigin] spawn A3A_fnc_invaderPunish;
+            private _nearPlayers = allPlayers findIf {(getMarkerPos (_attackTarget) distance2D _x) < 1500};
+            if((_nearPlayers != -1) || ((spawner getVariable _attackTarget) != 2) || (sidesX getVariable _attackTarget == teamPlayer)) then
+            {
+                //Sending real attack, execute the fight
+                [2, format ["Starting waved attack with %1 waves from %2 to %3", _waves, _attackOrigin, _attackTarget], _fileName] call A3A_fnc_log;
+                [_attackTarget, _attackOrigin, _waves] spawn A3A_fnc_wavedCA;
+            }
+            else
+            {
+                [_side, _attackTarget, 4, 3] spawn _fnc_flipMarker;
+                [5400, _side] call A3A_fnc_timingCA;
+            };
         };
     };
 };

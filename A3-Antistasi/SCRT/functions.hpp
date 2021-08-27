@@ -71,6 +71,7 @@ class SCRT
         class ui_hqTabEventHandler {};
         class ui_dispose {};
         class ui_clearSupport {};
+        class ui_clearOutpost {};
         class ui_launchSupport {};
         class ui_setSupportCostText {};
         class ui_setOutpostCost {};

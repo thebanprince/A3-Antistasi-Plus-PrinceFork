@@ -7,7 +7,7 @@ private _positionTel = _this select 1;
 private _quantity = _this select 2;
 private _mine = _this select 3;
 
-private _costs = (2*(server getVariable (SDKExp select 0))) + ([vehSDKTruck] call A3A_fnc_vehiclePrice);
+private _costs = (2*(server getVariable SDKExp)) + ([vehSDKTruck] call A3A_fnc_vehiclePrice);
 [-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 
@@ -32,9 +32,9 @@ private _taskId = "Mines" + str A3A_taskCount;
 
 _groupX = createGroup teamPlayer;
 
-_unit = [_groupX, (SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
+_unit = [_groupX, SDKExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 sleep 1;
-_unit = [_groupX, (SDKExp select 0), (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
+_unit = [_groupX, SDKExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineF"];
 
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;

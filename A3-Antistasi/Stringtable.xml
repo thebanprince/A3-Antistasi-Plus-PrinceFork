@@ -1648,15 +1648,14 @@
         <Chinesesimp>招募选项</Chinesesimp>
         <Korean>모집 설정</Korean>
       </Key>
-      <Key ID="STR_antistasi_dialogs_unit_recruit_militiaman_text">
-        <Original>Recruit Militiaman</Original>
-        <English>Recruit Militiaman</English>
-        <French>Recruter un Milicien</French>
-        <Russian>Новобранец</Russian>
-        <German>Miliz rekrutieren</German>
-        <Czech>Milicionář</Czech>
-        <Chinesesimp>招募民兵</Chinesesimp>
-        <Korean>민병대원 모집</Korean>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_rifleman_text">
+        <Original>Recruit Rifleman</Original>
+        <French>Tireur</French>
+        <Russian>Стрелок</Russian>
+        <German>Schütze</German>
+        <Czech>Střelec</Czech>
+        <Chinesesimp>招募步枪手</Chinesesimp>
+        <Korean>사수</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
         <Original>Recruit Autorifleman</Original>
@@ -1835,7 +1834,7 @@
         <Original>2.5.1</Original>
       </Key>
       <Key ID="STR_antistasi_plus_credits_generic_version_text">
-        <Original>1.7.3</Original>
+        <Original>1.7.4</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">
@@ -5348,17 +5347,14 @@
       <German>Geschäft</German>
       <Russian>Магазин</Russian>
       <Spanish>Comprar</Spanish>
-      <Italian></Italian>
       <Chinesesimp>商店</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_OPEN_ACTION">
       <Original>Open the %1</Original>      <!--e.g. open the Weapons Store-->
       <English>Open the %1</English>
-      <French></French>
-      <German></German>
-      <Russian></Russian>
-      <Spanish></Spanish>
-      <Italian></Italian>
+      <French>Ouvrir de %1</French>
+      <German>Offener %1</German>
+      <Russian>Открыть %1</Russian>
       <Chinesesimp>打开 %1</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_UNAVALIABLE">
@@ -5368,7 +5364,6 @@
       <German>Gegenstand nicht verfügbar.</German>
       <Russian>Предмет недоступен</Russian>
       <Spanish>Objeto no disponible.</Spanish>
-      <Italian></Italian>
       <Chinesesimp>物品不可用。</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_OUTOFSTOCK">
@@ -5378,7 +5373,6 @@
       <German>Ausverkauft.</German>
       <Russian>Товар закончился</Russian>
       <Spanish>Sin stock.</Spanish>
-      <Italian></Italian>
       <Chinesesimp>已售罄。</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_TOOEXPENSIVE">
@@ -5388,7 +5382,6 @@
       <German>Zu wenig Geld.</German>
       <Russian>Недостаточно средств</Russian>
       <Spanish>Dinero insuficiente.</Spanish>
-      <Italian></Italian>
       <Chinesesimp>资金不足。</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_NOEQUIP">
@@ -5398,7 +5391,6 @@
       <German>Ausrüsten fehlgeschlagen.</German>
       <Russian>Невозможно экипировать</Russian>
       <Spanish>Imposible equipar.</Spanish>
-      <Italian></Italian>
       <Chinesesimp>无法装备。</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_NOCARGOSPACE">
@@ -5408,7 +5400,6 @@
       <German>Nicht genug Platz.</German>
       <Russian>Не хватает места в инвентаре</Russian>
       <Spanish>Espacio insuficiente.</Spanish>
-      <Italian></Italian>
       <Chinesesimp>货物空间不足。</Chinesesimp>
     </Key>
     <Key ID="STR_HALS_STORE_ITEM_PURCHASED">
@@ -5418,7 +5409,6 @@
       <German>gekauft</German>
       <Russian>куплен</Russian>
       <Spanish>comprad</Spanish>
-      <Italian></Italian>
       <Chinesesimp>成交</Chinesesimp>
     </Key>
     <!-- Thanks to JakeHekesFists -->

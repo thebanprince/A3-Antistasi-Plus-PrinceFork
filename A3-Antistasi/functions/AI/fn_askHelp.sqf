@@ -28,7 +28,7 @@ private _fnc_canHelp = {
 // Use available medics as priority
 private _index = _medics findIf { _x call _fnc_canHelp };
 if (_index != -1) exitWith {
-    [1, format ["Sending medic %1 to assist target %2", _medics select _index, _target], _fileName, true] call A3A_fnc_log;
+    [2, format ["Sending medic %1 to assist target %2", _medics select _index, _target], _fileName, true] call A3A_fnc_log;
     [_target, _medics select _index] spawn A3A_fnc_help;
     _medics select _index;
 };
@@ -39,7 +39,7 @@ if (_needsMedic) exitWith { objNull };
 
 private _index = _units findIf { _x call _fnc_canHelp };
 if (_index != -1) exitWith {
-    [1, format ["Sending non-medic %1 to assist target %2", _units select _index, _target], _fileName, true] call A3A_fnc_log;
+    [2, format ["Sending non-medic %1 to assist target %2", _units select _index, _target], _fileName, true] call A3A_fnc_log;
     [_target, _units select _index] spawn A3A_fnc_help;
     _units select _index;
 };

@@ -33,7 +33,6 @@ switch (tierWar) do
                 [vehFIACars, 30],
                 [vehFIATrucks, 20],
                 [vehFIAArmedCars, 10],
-                [vehFIAAPC, 5],
 
                 [vehNATOPatrolHeli, 100]
             ];
@@ -47,16 +46,15 @@ switch (tierWar) do
                     [vehWAMCars, 30],
                     [vehWAMTrucks, 20],
                     [vehWAMArmedCars, 10],
-                    [vehWAMAPC, 5],
 
                     [vehCSATPatrolHeli, 100]
                 ];
             } else {
                 _vehicleSelection =
                 [
-                    [vehCSATLightUnarmed, 40],
-                    [vehCSATTrucks, 40],
-                    [vehCSATLightArmed, 20],
+                    [vehWAMCars, 40],
+                    [vehWAMTrucks, 40],
+                    [vehWAMArmedCars, 20],
 
                     [vehCSATPatrolHeli, 100]
                 ];
@@ -73,12 +71,8 @@ switch (tierWar) do
                 [vehPoliceCars, 15],
                 [vehFIACars, 15],
                 [vehFIAArmedCars, 10],
-                [vehFIATrucks, 10],
+                [vehFIATrucks, 25],
                 [vehFIAAPC, 5],
-                [vehFIATanks, 2],
-                [vehNATOLightUnarmed, 15],
-                [vehNATOTrucks, 25],
-                [vehNATOLightArmed, 10],
 
                 [vehNATOPatrolHeli, 100]
             ];
@@ -89,15 +83,10 @@ switch (tierWar) do
                 _vehicleSelection =
                 [
                     [vehPoliceCars, 15],
-                    [vehWAMCars, 15],
-                    [vehWAMArmedCars, 10],
-                    [vehWAMTrucks, 10],
-                    [vehWAMAPC, 5],
-                    [vehWAMTanks, 2],
-                    [vehCSATLightUnarmed, 20],
-                    [vehCSATTrucks, 40],
-                    [vehCSATLightArmed, 30],
-                    [vehCSATAPC, 10],
+                    [vehWAMCars, 20],
+                    [vehWAMArmedCars, 30],
+                    [vehWAMTrucks, 40],
+                    [vehWAMAPC, 10],
 
                     [vehCSATPatrolHeli, 80],
                     [vehCSATTransportHelis, 20]
@@ -105,10 +94,10 @@ switch (tierWar) do
             } else {
                 _vehicleSelection =
                 [
-                    [vehCSATLightUnarmed, 20],
-                    [vehCSATTrucks, 40],
-                    [vehCSATLightArmed, 30],
-                    [vehCSATAPC, 10],
+                    [vehWAMCars, 20],
+                    [vehWAMTrucks, 40],
+                    [vehWAMArmedCars, 30],
+                    [vehWAMAPC, 10],
 
                     [vehCSATPatrolHeli, 80],
                     [vehCSATTransportHelis, 20]
@@ -123,14 +112,11 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehFIAArmedCars, 10],
-                [vehFIATrucks, 5],
+                [vehFIACars, 10],
+                [vehFIAArmedCars, 20],
+                [vehFIATrucks, 40],
                 [vehFIAAPC, 10],
-                [vehFIATanks, 4],
-                [vehNATOLightUnarmed, 10],
-                [vehNATOLightArmed, 20],
-                [vehNATOTrucks, 40],
-                [vehNATOAPC, 10],
+                [vehFIATanks, 5],
 
                 [vehNATOPatrolHeli, 80],
                 [vehNATOTransportHelis, 20]
@@ -141,14 +127,11 @@ switch (tierWar) do
             if (gameMode == 4) then {
                 _vehicleSelection =
                 [
-                    [vehWAMArmedCars, 10],
-                    [vehWAMTrucks, 5],
-                    [vehWAMAPC, 10],
+                    [vehWAMCars, 5],
+                    [vehWAMArmedCars, 45],
+                    [vehWAMTrucks, 30],
+                    [vehWAMAPC, 20],
                     [vehWAMTanks, 5],
-                    [vehCSATLightUnarmed, 5],
-                    [vehCSATTrucks, 30],
-                    [vehCSATLightArmed, 45],
-                    [vehCSATAPC, 20],
 
                     [vehCSATPatrolHeli, 60],
                     [vehCSATTransportHelis, 40]
@@ -156,10 +139,11 @@ switch (tierWar) do
             } else {
                  _vehicleSelection =
                 [
-                    [vehCSATLightUnarmed, 5],
-                    [vehCSATTrucks, 30],
-                    [vehCSATLightArmed, 45],
-                    [vehCSATAPC, 20],
+                    [vehWAMCars, 5],
+                    [vehWAMTrucks, 30],
+                    [vehWAMArmedCars, 45],
+                    [vehWAMAPC, 20],
+                    [vehWAMTanks, 5],
 
                     [vehCSATPatrolHeli, 60],
                     [vehCSATTransportHelis, 40]
@@ -174,11 +158,10 @@ switch (tierWar) do
         {
             _vehicleSelection =
             [
-                [vehNATOLightArmed, 35],
-                [vehNATOTrucks, 40],
-                [vehNATOAPC, 25],
-                [vehFIAAPC, 15],
-                [vehFIATanks, 8],
+                [vehFIAArmedCars, 35],
+                [vehFIATrucks, 40],
+                [vehFIAAPC, 25],
+                [vehFIATanks, 15],
 
                 [vehNATOPatrolHeli, 50],
                 [vehNATOTransportHelis, 50]
@@ -189,12 +172,10 @@ switch (tierWar) do
             if (gameMode == 4) then {
                 _vehicleSelection =
                 [
-                    [vehCSATTrucks, 10],
-                    [vehCSATLightArmed, 40],
-                    [vehCSATAPC, 40],
-                    [vehCSATTanks, 10],
-                    [vehWAMAPC, 15],
-                    [vehWAMTanks, 8],
+                    [vehWAMTrucks, 10],
+                    [vehWAMArmedCars, 40],
+                    [vehWAMAPC, 40],
+                    [vehWAMTanks, 15],
 
                     [vehCSATPatrolHeli, 40],
                     [vehCSATTransportHelis, 50],
@@ -203,10 +184,10 @@ switch (tierWar) do
             } else {
                 _vehicleSelection =
                 [
-                    [vehCSATTrucks, 10],
-                    [vehCSATLightArmed, 40],
-                    [vehCSATAPC, 40],
-                    [vehCSATTanks, 10],
+                    [vehWAMTrucks, 10],
+                    [vehWAMArmedCars, 40],
+                    [vehWAMAPC, 40],
+                    [vehWAMTanks, 15],
 
                     [vehCSATPatrolHeli, 40],
                     [vehCSATTransportHelis, 50],

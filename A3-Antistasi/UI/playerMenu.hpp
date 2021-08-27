@@ -84,7 +84,7 @@ class playerMenu
 			w = "2.5 * pixelGridNoUIScale * pixelW";	
 			h = "3 * pixelGridNoUIScale * pixelH";
 			sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 2) * 0.5";
-			action = "[70000,'LEFT'] spawn SCRT_fnc_ui_changeTab; [] spawn SCRT_fnc_ui_clearSupport;";
+			action = "[70000,'LEFT'] spawn SCRT_fnc_ui_changeTab; [] spawn SCRT_fnc_ui_clearSupport; [] call SCRT_fnc_ui_clearOutpost;";
 		};
 
 		class tabSelectorRightButton: ButtonBase
@@ -96,7 +96,7 @@ class playerMenu
 			w = "2.5 * pixelGridNoUIScale * pixelW";	
 			h = "3 * pixelGridNoUIScale * pixelH";
 			sizeEx = "((pixelH * (pixelGridNoUIScale) * 2) * 2) * 0.5";	
-			action = "[70000,'RIGHT'] spawn SCRT_fnc_ui_changeTab; [] spawn SCRT_fnc_ui_clearSupport;";
+			action = "[70000,'RIGHT'] spawn SCRT_fnc_ui_changeTab; [] spawn SCRT_fnc_ui_clearSupport; [] call SCRT_fnc_ui_clearOutpost;";
 		};					
 		
 		// Game Options (Client)

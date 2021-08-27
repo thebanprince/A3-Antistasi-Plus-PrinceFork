@@ -19,12 +19,14 @@ _traderPosition = [
 ] call BIS_fnc_findSafePos;
 
 _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
-private _iterations = 0;
 
 private _outOfBounds = _traderPosition findIf { (_x < 0) || {_x > worldSize}} != -1;
 
+private _enemyBases = (airportsX + milbases + outposts + seaports + factories + resourcesX) select {sidesX getVariable [_x, sideUnknown] != teamPlayer};
+private _isTooCloseToOutposts = _enemyBases findIf { _traderPosition distance2d (getMarkerPos _x) < 300 || _traderPosition inArea _x } != -1;
+
 //mitigation of negative terrain gradient
-if(!(_radGrad > -0.4 && _radGrad < 0.4) || isOnRoad _traderPosition || surfaceIsWater _traderPosition || _outOfBounds) then {
+if(!(_radGrad > -0.25 && _radGrad < 0.25) || {isOnRoad _traderPosition || {surfaceIsWater _traderPosition || {_outOfBounds || {_isTooCloseToOutposts}}}}) then {
     private _radiusX = 100;
     while {true} do {
         _traderPosition = [
@@ -40,8 +42,9 @@ if(!(_radGrad > -0.4 && _radGrad < 0.4) || isOnRoad _traderPosition || surfaceIs
         ] call BIS_fnc_findSafePos;
         _radGrad = [_traderPosition, 0] call BIS_fnc_terrainGradAngle;
         _outOfBounds = _traderPosition findIf { (_x < 0) || {_x > worldSize}} != -1;
-        if ((_radGrad > -0.4 && _radGrad < 0.4) && !(isOnRoad _traderPosition) && !(surfaceIsWater _traderPosition) && !(_outOfBounds)) exitWith {};
-        _radiusX = _radiusX + 50;
+        _isTooCloseToOutposts = _enemyBases findIf { _traderPosition distance2d (getMarkerPos _x) < 300 || _traderPosition inArea _x } != -1;
+        if ((_radGrad > -0.25 && _radGrad < 0.25) && {!(isOnRoad _traderPosition) && {!(surfaceIsWater _traderPosition) && {!_outOfBounds && {!_isTooCloseToOutposts}}}}) exitWith {};
+        _radiusX = _radiusX + 5;
     };
 };
 
@@ -81,11 +84,7 @@ waitUntil {
     sleep 1;
     private _conditionMet = false;
 
-    { 
-        if(side _x == teamPlayer && {_x inArea _trigger}) exitWith { _conditionMet = true };
-    } forEach (call BIS_fnc_listPlayers);
-
-    _conditionMet
+    (call BIS_fnc_listPlayers) findIf {(side _x) in [teamPlayer, civilian] && {_x inArea _trigger}} != -1
 };
 
 [_taskId, "ENC", "SUCCEEDED"] call A3A_fnc_taskSetState;
@@ -98,5 +97,7 @@ publicVariable "traderPosition";
 
 isTraderQuestCompleted = true; 
 publicVariable "isTraderQuestCompleted";
+
+deleteVehicle _trigger;
 
 [_taskId, "ENC", 5] spawn A3A_fnc_taskDelete;

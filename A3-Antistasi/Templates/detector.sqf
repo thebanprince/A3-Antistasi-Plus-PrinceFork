@@ -52,10 +52,9 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
 };
 
 if (isClass (configFile >> "CfgPatches" >> "vn_weapons")) then {
-    private _text = "SOG PF detected, but it is not yet supported, please remove this mod";
+    private _text = "SOG PF has been detected, but it is not yet supported.";
     systemChat _text;
     [1, _text, _fileName] call A3A_fnc_log;
-    ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
 //3CB Factions Detection

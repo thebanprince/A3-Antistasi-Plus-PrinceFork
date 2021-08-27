@@ -73,7 +73,7 @@ if (!isNil "_shopLookupArrayIndex" && {_shopLookupArrayIndex != -1}) then {
         case(_shopLookupArrayIndex == 0 && {tierWar > 6}): {
             _price = _price * 0.7;
         };
-        case(_shopLookupArrayIndex == 0 && {tierWar > 3}): {
+        case(_shopLookupArrayIndex == 0 && {tierWar > 4}): {
            _price = _price * 0.85;
         };
         case(_shopLookupArrayIndex == 1 && {tierWar > 6}): {

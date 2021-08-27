@@ -7,10 +7,7 @@ private _garrison = garrison getVariable [_markerX, []];
 private _props = [];
 
 if (isNil "_garrison") then {
-    _garrison = [(SDKMil select 0)];
-    {
-        _garrison pushBack (_x select 0);
-    } forEach [SDKSL,SDKMG,SDKMil,SDKMil,SDKATman,SDKMedic];
+    _garrison = [SDKSL,SDKMG,SDKMil,SDKMil,SDKMil,SDKATman,SDKMedic];
     garrison setVariable [_markerX,_garrison,true];
 };
 

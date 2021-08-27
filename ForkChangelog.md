@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.7.4
+### Additions 
+- Ability to set emplacement direction on map (first click on map sets up position, second - direction)
+
+### Changes
+- Fixed _cured undefined variable error
+- Fixed roablock barricade duplication issue
+- Fixed missing rebel squad leader unit type in squad leaders pool (rebel squad leaders will recieve rifles on autoequip)
+- Fixed missing Arms Dealer store action text for non-English languages
+- Fixed enemy inability to use flares in some cases
+- Increased number of sources of heavy militia vehicles (affects QRFs, large attacks)
+- Fixed wrong variable type in garrison replenish function that prevented some garrisons from being replenished, replenished garrisons will be no longer replenished by wrong faction troops, requires new game start as old garrisons already filled with bad variable (hopefully, i think lost some sanity debugging this)
+- Fixed wrong reward for Catch Airdrop function
+- Fixed SQF error message when there is not enough money to buy loot crate
+- Reduced number of vehicles participating in single attack across all difficulty levels
+- Precision mode (SHIFT key) for building position selection mode switched to raw position (allows to put buildings more precisely)
+- Fixed inability to put ammocrate from Catch Airdrop mission into vehicles
+- Fixed wrong cargo position of barrel palette from Catch Airdrop mission 
+- Added light armed vehicles to frontline outposts spawn pool
+- Added marksman to SF squads
+- Black Market Vehicle Tier 2 will unlock on 5 war level instead of 4
+- New Maximum Civilian Pedestrians parameter value - 0 (completely disables footmobile civilians in cities)
+- Not every 8-man squad will have soldiers with long range radios (this will reduce quantity of soldiers that able to call for support)
+- Arms Dealer store operations will be rounded (no more decimal values)
+- Loot crates are recognized by Arms Dealer container detector (items can be sold from/bought into crates)
+- Arms Dealer will no longer spawn too close to enemy outposts
+- Undercovered players will no longer unvoluntarily drop loot crates and statics while carrying them
+- Find The Arms Dealer task can be completed by undercovered rebels too
+- (CUP,RHS) Fixed wrong condition that led to no usage of howitzer on enemy Mortar Support actions
+- (Cold War Mode) Takistan will use middle east civilian template
+- (Vidda, Weferlingen, Isla Abramia, Napf) Fixed missing Spawn Points for airports that may lead to neverending big attacks, missing road patrols etc 
+- (Vidda) new outpost and resource
+- (CUP) Fixed AFRF Arid wrong HMG classname
+  
+### Removals
+- Removed mission ending on SOGPF detection (it's still not supported yet, but it will prevent from abrupt mission ending when SOGPF is occasionally turned on)
+- Removed Rescue Refugees mission
+- Removed Invader Punishment mission
+
 ## 1.7.3
 ### Changes
 - (RHS) Missing helicopters in Vehicle Black Market fix
