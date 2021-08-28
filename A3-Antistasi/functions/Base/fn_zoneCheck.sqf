@@ -47,18 +47,22 @@ switch (_side) do
 
 [0,0,0] params ["_defenderUnitCount", "_enemy1UnitCount", "_enemy2UnitCount"];
 
+// Use average marker size to force reasonable behaviour with highly rectangular targets
+private _capRadius = ((markerSize _marker select 0) + (markerSize _marker select 1)) / 2;
+_capRadius = _capRadius max 50;
+
 private _markerPos = getMarkerPos _marker;
+private _units = allUnits inAreaArray [_markerPos, _capRadius, _capRadius];
 {
-    if((_markerPos distance2D _x < 300) && {[_x] call A3A_fnc_canFight}) then
+    if !(_x call A3A_fnc_canFight) then { continue };
+    private _value = linearConversion [_capRadius/2, _capRadius, _markerPos distance2d _x, 1, 0, true];
+    switch (side _x) do				// Not side group because we don't count undercover
     {
-        switch (side (group _x)) do
-        {
-            case (_side): {_defenderUnitCount = _defenderUnitCount + 1};
-            case (_enemy1): {_enemy1UnitCount = _enemy1UnitCount + 1};
-            case (_enemy2): {_enemy2UnitCount = _enemy2UnitCount + 1};
-        };
-    }
-} forEach allUnits;
+        case (_side): {_defenderUnitCount = _defenderUnitCount + _value};
+        case (_enemy1): {_enemy1UnitCount = _enemy1UnitCount + _value};
+        case (_enemy2): {_enemy2UnitCount = _enemy2UnitCount + _value};
+    };
+} forEach _units;
 
 [
     3,

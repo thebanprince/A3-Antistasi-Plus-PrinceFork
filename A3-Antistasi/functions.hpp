@@ -700,4 +700,14 @@ class A3A
         class vehicleWillCollideAtPosition {};
         class getRoadDirection {};
     };
+
+    class UtilityItems
+    {
+        class carryItem {};
+        class initMovableObject {};
+        class rotateItem {};
+        class spawnLight {};
+        class attachedObjects {};
+        class dropObject {};
+    };
 };
