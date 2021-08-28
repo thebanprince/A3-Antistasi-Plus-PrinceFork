@@ -96,7 +96,7 @@
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_BAF_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["ACM_AAFGM_m113_medic"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["ACM_AAFGM_M113_mila", " ACM_AAFGM_m113_Command", "ACM_AAFGM_M113a2DK", "ACM_AAFGM_m113a1dk"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["ACM_AAFGM_Leopard1a5", "CUP_B_Challenger2_2CD_BAF"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["ACM_AAFGM_Leopard1a5", "cwr3_b_uk_fv4030"]] call _fnc_saveToTemplate;
 ["vehiclesAA", [" ACM_AAFGM_Gepard"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["ACM_AAFGM_Luchsa1"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
@@ -253,12 +253,12 @@ _loadoutData setVariable ["items_unarmed_extras", []];
 
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData setVariable ["uniforms", ["ACM_AAFGM_Clothes_AFU", "ACM_AAFGM_Clothes_AFU", "ACM_AAFGM_Clothes_AFU_Snakeskin", "ACM_AAFGM_Clothes_AFU_Snakeskin_rolled", "ACM_AAFGM_Clothes_AFU_Snakeskin_rolled"]];
-_sfLoadoutData setVariable ["vests", ["cwr3_b_uk_vest_58webbing" ]];
-_sfLoadoutData setVariable ["Hvests", ["ACM_AAFGM_Vest_Lizard_rifleman"]];
-_sfLoadoutData setVariable ["GLvests", ["gm_dk_army_vest_54_rifleman"]];
+_sfLoadoutData setVariable ["uniforms", ["cwr3_b_uk_uniform_dpm_weathered"]];
+_sfLoadoutData setVariable ["vests", ["cwr3_b_vest_pasgt_alice_woodland" ]];
+_sfLoadoutData setVariable ["Hvests", ["cwr3_b_vest_pasgt_alice_woodland"]];
+_sfLoadoutData setVariable ["GLvests", ["cwr3_b_vest_pasgt_alice_woodland"]];
 _sfLoadoutData setVariable ["backpacks", ["cwr3_b_uk_backpack_ammo","cwr3_b_uk_backpack_l4a3"]];
-_sfLoadoutData setVariable ["helmets", ["cwr3_b_uk_headgear_mk5_helmet", "cwr3_b_uk_headgear_mk5_helmet_net", "cwr3_b_uk_headgear_mk5_helmet_dpm_net"]];
+_sfLoadoutData setVariable ["helmets", ["cwr3_b_uk_headgear_m76_dpm_net","cwr3_b_uk_headgear_m76_dpm_camo", "cwr3_b_uk_headgear_m76_camo", "cwr3_b_uk_headgear_m76_olive_net_camo"]];
 _sfLoadoutData setVariable ["ATLaunchers", ["CUP_launch_NLAW"]];
 _sfLoadoutData setVariable ["binoculars", [""]];
 _sfLoadoutData setVariable ["lightATLaunchers", [
