@@ -311,7 +311,7 @@ _militaryLoadoutData setVariable ["vests", [
 _militaryLoadoutData setVariable ["longRangeRadios", ["rhs_r148"]];
 _militaryLoadoutData setVariable ["MGvests", ["rhs_6b3_RPK"]];	
 _militaryLoadoutData setVariable ["ATvests", ["rhs_6b3_AK"]];
-_militaryLoadoutData setVariable ["SLvests", ["rhs_6b3_off", "rhs_6b23_digi_6sh92_headset"]];
+_militaryLoadoutData setVariable ["SLvests", ["rhs_6b3_off"]];
 _militaryLoadoutData setVariable ["GLvests", ["rhs_6b3_VOG", "rhs_6b3_VOG_2"]];
 _militaryLoadoutData setVariable ["backpacks", ["rhs_rd54_vest", "rhs_sidor"]];
 _militaryLoadoutData setVariable ["helmets", [
