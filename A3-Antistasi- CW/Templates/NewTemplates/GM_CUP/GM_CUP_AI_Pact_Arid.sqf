@@ -5,9 +5,9 @@
 ["name", "Warsaw Pact"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Warsaw Pact Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_Red_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F\Flags\Flag_red_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Russia"] call _fnc_saveToTemplate;
+["flag", "USSR"] call _fnc_saveToTemplate;
+["flagTexture", "\cwr3_flags\data\ussr.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "gm_marker_flag_UR"] call _fnc_saveToTemplate;
 //
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
