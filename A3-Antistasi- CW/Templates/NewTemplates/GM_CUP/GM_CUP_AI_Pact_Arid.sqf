@@ -7,7 +7,7 @@
 
 ["flag", "Flag_Red_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\A3\Data_F\Flags\Flag_red_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_red"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_Russia"] call _fnc_saveToTemplate;
 //
 //////////////////////////////////////
 //       Antistasi Plus Stuff       //
