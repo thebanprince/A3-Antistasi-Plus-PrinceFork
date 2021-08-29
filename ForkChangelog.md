@@ -1,6 +1,9 @@
 # Changelog
 
 ## 1.7.5
+### Additions
+- Simplified Chinese translation (provided by GoldJohnKing)
+
 ### Changes
 - 2.5.2 Community Version merge (garrison corruption fix, some small fixes of core systems of Antistasi)
 - Introduced cap on Airstrikes - 5
