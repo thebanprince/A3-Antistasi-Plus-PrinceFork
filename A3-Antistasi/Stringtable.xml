@@ -9,7 +9,7 @@
         <Russian>Удаление постройки</Russian>
         <German>Bauabbau</German>
         <Czech>Stěhování</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>建筑拆除</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_removal_no_trait">
         <Original>Only engineers and commander can remove constructions.</Original>
@@ -18,7 +18,7 @@
         <Russian>Удалять постройки могут только инженеры и командир.</Russian>
         <German>Nur Ingenieure und Kommandanten können Konstruktionen entfernen.</German>
         <Czech>Konstrukce mohou odstraňovat pouze inženýři a velitel.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>只有工程师和指挥官才能拆除建筑物。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_removal_no_valid_construction">
         <Original>You're not looking at removable construction.</Original>
@@ -27,7 +27,7 @@
         <Russian>Вы смотрите на невалидный объект для удаления.</Russian>
         <German>Sie betrachten keine abnehmbare Konstruktion.</German>
         <Czech>Nedíváte se na odnímatelnou konstrukci.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>你面前的不是可拆卸结构。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_removal_success">
         <Original>Construction has been successfully removed.</Original>
@@ -36,7 +36,7 @@
         <Russian>Постройка успешно удалена.</Russian>
         <German>Die Konstruktion wurde erfolgreich entfernt.</German>
         <Czech>Stavba byla úspěšně odstraněna.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>建筑已成功拆除。</Chinesesimp>
       </Key>
     </Container>
     <Container name="rebel_classes">
@@ -47,7 +47,7 @@
         <Russian>Стрелок</Russian>
         <German>Schütze</German>
         <Czech>Střelec</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>步枪兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_autorifleman_title">
         <Original>Autorifleman</Original>
@@ -56,7 +56,7 @@
         <Russian>Пулеметчик</Russian>
         <German>Maschinengewehrschütze</German>
         <Czech>Kulometčík</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>机枪手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_medic_title">
         <Original>Medic</Original>
@@ -65,7 +65,7 @@
         <Russian>Медик</Russian>
         <German>Medizin</German>
         <Czech>Zdravotník</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>医疗兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_engineer_title">
         <Original>Engineer</Original>
@@ -74,7 +74,7 @@
         <Russian>Инженер</Russian>
         <German>Ingenieur</German>
         <Czech>Inženýr</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>工程师</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_grenadier_title">
         <Original>Grenadier</Original>
@@ -83,7 +83,7 @@
         <Russian>Гренадёр</Russian>
         <German>Grenadier</German>
         <Czech>Granátník</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>榴弹兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_marksman_title">
         <Original>Marksman</Original>
@@ -92,7 +92,7 @@
         <Russian>Снайпер</Russian>
         <German>Scharfschütze</German>
         <Czech>Snajpr</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>精确射手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_at_title">
         <Original>AT</Original>
@@ -101,7 +101,7 @@
         <Russian>Гранатомётчик</Russian>
         <German>Panzerabwehrschütze</German>
         <Czech>Protitankový střelec</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>反坦克手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_crewman_title">
         <Original>Crewman</Original>
@@ -110,7 +110,7 @@
         <Russian>Член экипажа</Russian>
         <German>Besatzungsmitglied</German>
         <Czech>Člen posádky</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>机组乘员</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_leader_title">
         <Original>Squad Leader</Original>
@@ -118,7 +118,7 @@
         <Russian>Лидер отряда</Russian>
         <German>Gruppenleiter</German>
         <Czech>Velitel družstva</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>班长</Chinesesimp>
       </Key>
     </Container>
     <Container name="simple_menu_dialogs">
@@ -129,7 +129,7 @@
         <Russian>Выберите количество выстрелов</Russian>
         <German>Wählen Sie die Anzahl der abzufeuernden Runden</German>
         <Czech>Vyberte počet výstřelů</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>选择要发射的弹数</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_tooltip">
         <Original>Enters building construction mode where you can select construction type, it's position and then build it. Use arrow keys to switch construction type. Commander or Engineer only.</Original>
@@ -138,7 +138,7 @@
         <Russian>Переходит в режим постройки, где вы можете выбрать тип конструкции, её позицию и затем построить её. Используйте клавиши стрелок для смены типа конструкции. Доступно только для инженера или командира.</Russian>
         <German>Ruft den Gebäudebaumodus auf, in dem Sie den Bautyp und seine Position auswählen und dann bauen können. Verwenden Sie die Pfeiltasten, um den Bautyp zu wechseln. Nur Kommandant oder Ingenieur.</German>
         <Czech>Vstupuje do režimu konstrukce budovy, kde můžete vybrat typ konstrukce, její polohu a poté ji postavit. K přepnutí typu konstrukce použijte klávesy se šipkami. Pouze velitel nebo inženýr.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>进入建筑构造模式, 在该模式中可以选择构造类型、位置, 然后进行构建。使用箭头键切换构造类型。仅限指挥官或工程师。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_remove_construction_tooltip">
         <Original>Removes construction you're looking at. Commander or Engineer only.</Original>
@@ -147,7 +147,7 @@
         <Russian>Убирает строение, на которое вы смотрите. Доступно только для командира или инженера.</Russian>
         <German>Entfernt die angezeigte Konstruktion. Nur Kommandant oder Ingenieur.</German>
         <Czech>Odstraní konstrukci, na kterou se díváte. Pouze velitel nebo inženýr.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>移除您正在查看的建筑。仅限指挥官或工程师。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_select_strike_type">
         <Original>Select type of strike</Original>
@@ -183,7 +183,7 @@
         <Russian>Гараж</Russian>
         <German>Garage</German>
         <Czech>Garáž</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>车库</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_personal_garage">
         <Original>Personal Garage</Original>
@@ -291,7 +291,7 @@
         <Russian>Командир</Russian>
         <German>Kommandant</German>
         <Czech>Velitel</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>指挥官</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_tooltip">
         <Original>Accesses various commander options.</Original>
@@ -846,7 +846,7 @@
         <Russian>Построить строение</Russian>
         <German>Build Konstruktion</German>
         <Czech>Stavět stavby</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>建筑施工</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_remove_construction">
         <Original>Remove Construction</Original>
@@ -855,7 +855,7 @@
         <Russian>Убрать строение</Russian>
         <German>Gebäude entfernen</German>
         <Czech>Odstraňte budovu</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>拆除建筑物</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_remove_construction_confirmation">
         <Original>Remove Construction?</Original>
@@ -864,7 +864,7 @@
         <Russian>Убрать строение?</Russian>
         <German>Konstruktion entfernen?</German>
         <Czech>Odstranit konstrukci?</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>拆除建筑?</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy">
         <Original>Buy</Original>
@@ -893,7 +893,7 @@
         <Russian>Опции лечения</Russian>
         <German>Heilungsoptionen</German>
         <Czech>Možnosti uzdravení</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>医疗选项</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_auto_heal_title">
         <Original>Auto Heal</Original>
@@ -920,7 +920,7 @@
         <Russian>Укрытие перед лечением</Russian>
         <German>Vor dem Wiederbeleben abdecken</German>
         <Czech>Obálka před oživením</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>AI将伤员移动到掩体后再进行复苏</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_cover_before_revive_tooltip">
         <Original>Toggles AI squad mates ability to take your body to cover before starting attempts to healing. If option is turned off, AI will try to heal you in place.</Original>
@@ -929,7 +929,7 @@
         <Russian>Переключает способность ИИ-солдат укрывать ваше тело перед попыткой исцеления. Если опция выключена, ИИ попытается вылечить вас сразу на месте.</Russian>
         <German>Schaltet die Fähigkeit der KI-Truppkameraden um, Ihren Körper in Deckung zu bringen, bevor Sie Heilungsversuche starten. Wenn die Option deaktiviert ist, versucht die KI, Sie an Ort und Stelle zu heilen.</German>
         <Czech>Přepíná schopnost spoluhráčů AI, aby se vaše tělo přikrylo před zahájením pokusů o uzdravení. Pokud je možnost vypnutá, AI se vás pokusí uzdravit na místě.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>切换AI队友在开始治疗前会否将你拖到掩体后。若选项被关闭, AI将就地尝试治疗你们。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_units_title">
         <Original>Garrison Units / Squads</Original>
@@ -992,7 +992,7 @@
         <Russian>Передача в HC-командование</Russian>
         <German>Oberkommandoübertragung</German>
         <Czech>Přenos vrchního velení</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>移交指挥权</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_arty_high_command_transfer_tooltip">
         <Original>Transfers your current AI squadmates to High Command, allows them to be used by commander as separate squad.</Original>
@@ -1001,7 +1001,7 @@
         <Russian>Передаёт ИИ-солдат из вашего отряда в High Command-меню, позволяя их использовать как отдельный отряд.</Russian>
         <German>Überträgt Ihre aktuellen KI-Truppkameraden an das Oberkommando, sodass sie vom Kommandanten als separater Trupp verwendet werden können</German>
         <Czech>Přenese vaše současné členy AI do vrchního velení a umožní jim, aby je velitel použil jako samostatnou jednotku.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>将您当前的AI队友移交给指挥部, 允许指挥官将其作为单独的小队使用。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_auto_rearm_title">
         <Original>Auto Rearm / Loot</Original>
@@ -1210,7 +1210,7 @@
         <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
         <German>Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Petros auswählen.</German>
         <Czech>Petros se připojí k vaší skupině. Chcete-li vytvořit velitelství, vyberte možnost u Petrose „Zřídit velitelství“. Arzenál musí být prázdný.</Czech>
-        <Chinesesimp>Maru将会加入您的小队。弹药箱必须为空。在Maru附近选择"建造"选项来重建总部。</Chinesesimp>
+        <Chinesesimp>Petros 将会加入您的小队。弹药箱必须为空。在 Petros 附近选择"建造"选项来重建总部。</Chinesesimp>
         <Korean>페트로스가 당신의 그룹에 참가할 것입니다. 탄약상자는 비워져 있어야합니다. 재건축하려면 페트로스 근처에서 건축하기를 선택하시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
@@ -1259,7 +1259,7 @@
         <Russian>Тренировать повстанцев</Russian>
         <German>Rebellentruppen ausbilden</German>
         <Czech>Trénujte povstalecké jednotky</Czech>
-        <Chinesesimp>训练叛军部队</Chinesesimp>
+        <Chinesesimp>训练反抗军</Chinesesimp>
         <Korean>FIA 부대 훈련</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
@@ -1279,7 +1279,7 @@
         <Russian>Настроить снаряжение повстанцев</Russian>
         <German>Rebellen-Loadouts einstellen</German>
         <Czech>Nastavit rebel zatížení</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>设置叛军装备</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_no_custom_loadouts">
         <Original>No custom loadout has been found.</Original>
@@ -1288,7 +1288,7 @@
         <Russian>Пользовательский вариант снаряжения не был найден.</Russian>
         <German>Es wurde kein benutzerdefiniertes Loadout gefunden.</German>
         <Czech>Nebylo nalezeno žádné vlastní načítání.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>未找到自定义装备。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_custom_loadout_clear">
         <Original>Custom loadout has been cleared, units of this class will use randomized loadout.</Original>
@@ -1297,7 +1297,7 @@
         <Russian>Пользовательский вариант снаряжения был очищен, юниты этого класса будут использовать рандомизированное снаряжение.</Russian>
         <German>Benutzerdefiniertes Loadout wurde gelöscht, Einheiten dieser Klasse verwenden zufälliges Loadout.</German>
         <Czech>Vlastní načítání bylo vymazáno, jednotky této třídy budou používat randomizované načítání.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>自定义装船已清除, 此类单位将使用随机配装。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_button">
         <Original>Save</Original>
@@ -1306,7 +1306,7 @@
         <Russian>Сохранить</Russian>
         <German>speichern</German>
         <Czech>Uložit</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>保存</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_unlocked_items">
         <Original>Only unlocked items can be used.</Original>
@@ -1315,7 +1315,7 @@
         <Russian>Только бесконечные предметы могут быть выбраны.</Russian>
         <German>Es können nur freigeschaltete Gegenstände verwendet werden.</German>
         <Czech>Lze použít pouze odemčené položky.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>只能使用已解锁的物品。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_saved">
         <Original>loadout has been saved.</Original>
@@ -1324,7 +1324,7 @@
         <Russian>снаряжение было сохранено. </Russian>
         <German>ladevorgang wurde gespeichert.</German>
         <Czech>náklad byl uložen.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>配装已保存。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_loadout_title">
         <Original>Loadout Arsenal. Note that custom uniforms will be not applied and still be randomized on actual rebels. Also, if headgear has no armor, it will be randomized too.</Original>
@@ -1333,7 +1333,7 @@
         <Russian>Арсенал для снаряжения. Имейте ввиду, что униформа не будет применена и все равно будет рандомизирована. Кроме того, если на головном уборе нет брони, он также будет рандомизирован.</Russian>
         <German>Ausrüstung Arsenal. Beachten Sie, dass benutzerdefinierte Uniformen nicht angewendet werden und dennoch auf tatsächliche Rebellen zufällig verteilt werden.</German>
         <Czech>Arzenál. Uvědomte si, že vlastní uniformy nebudou použity, a přesto budou na skutečné rebely randomizovány. Pokud také pokrývka hlavy nemá brnění, bude také randomizována.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>装备军火库。请注意, 自定义制服不会生效, 叛军的制服将根据实际情况随机变化。此外, 如果头部装备没有防护值, 它也将随机化。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_tooltip">
         <Original>Sets loadout for future use by this infantry class.</Original>
@@ -1342,7 +1342,7 @@
         <Russian>Сохраняет снаряжение для будущего использования этим классом пехоты.</Russian>
         <German>Legt die Ausrüstung für die zukünftige Verwendung durch diese Infanterieklasse fest.</German>
         <Czech>Nastavuje náklad pro budoucí použití v této pěchotní třídě.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>设置该兵种今后使用的配装。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_reset_button_tooltip">
         <Original>Resets class loadout to default, randomized state.</Original>
@@ -1351,7 +1351,7 @@
         <Russian>Сбрасывает снаряжение класса до стандартного, рандомизированного состояния.</Russian>
         <German>Setzt das Klassen-Loadout auf den zufälligen Standardzustand zurück.</German>
         <Czech>Obnoví načítání třídy na výchozí, randomizovaný stav.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>清除配装, 重置为默认的随机状态。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_set_loadout_button_tooltip">
         <Original>Opens Arsenal with the current class loadout. To save custom loadout, press SAVE in Arsenal.</Original>
@@ -1360,7 +1360,7 @@
         <Russian>Открывает арсенал для этого класса повстанцев. Для сохранения снаряжения, нажмите в арсенале СОХРАНИТЬ.</Russian>
         <German>Öffnet Arsenal mit der aktuellen Klassenausstattung. Um benutzerdefiniertes Loadout zu speichern, drücken speichern einstellen in Arsenal.</German>
         <Czech>Otevírá Arsenal s aktuálním načtením třídy. Chcete-li uložit vlastní načítání, stiskněte tlačítko Uložit v Arsenalu.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>打开此类兵种配装的武器库。要保存自定义配装, 请在武器库中按保存。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_tooltip">
         <Original>Allows commander to override rebel troops choices in weapons and equipment. Only for EXPERIENCED commanders that knows what they're doing.</Original>
@@ -1369,7 +1369,7 @@
         <Russian>Позволяет командиру переопределить выбор оружия и снаряжения у повстанческих войск. Только для ОПЫТНЫХ командиров, которые действительно знают что делают.</Russian>
         <German>Ermöglicht dem Kommandanten, die Wahl der Rebellentruppen bei Waffen und Ausrüstung zu überschreiben. Nur für ERFAHRENE Kommandanten, die wissen, was sie tun.</German>
         <Czech>Umožňuje veliteli přepsat volby povstaleckých jednotek ve zbraních a vybavení. Pouze pro ZKUŠENÉ velitele, kteří vědí, co dělají.</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>允许指挥官为反抗军挑选武器和装备。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebel_loadouts_menu_title_text">
         <Original>Rebel Loadouts</Original>
@@ -1378,7 +1378,7 @@
         <Russian>Снаряжение повстанцев</Russian>
         <German>Rebellen-Ausrüstungen</German>
         <Czech>Výzvy Rebelů</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>反抗军配装</Chinesesimp>
       </Key>
     </Container>
     <Container name="dialog_build_menu">
@@ -1429,7 +1429,7 @@
         <Russian>Основать точку</Russian>
         <German>Außenposten einrichten</German>
         <Czech>Zřídit základnu</Czech>
-	<Chinesesimp>建立岗哨</Chinesesimp>
+        <Chinesesimp>建立岗哨</Chinesesimp>
         <Korean>전초 기지 구축</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_outpost_button_tooltip">
@@ -1654,7 +1654,7 @@
         <Russian>Стрелок</Russian>
         <German>Schütze</German>
         <Czech>Střelec</Czech>
-        <Chinesesimp>招募步枪手</Chinesesimp>
+        <Chinesesimp>招募步兵</Chinesesimp>
         <Korean>사수</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
@@ -1818,7 +1818,7 @@
         <German>Antistasi Plus - Altis Requiem</German>
         <Czech>Antistasi Plus - Altis Requiem</Czech>
         <Korean>Antistasi Plus - Altis Requiem</Korean>
-	<Chinesesimp>Antistasi Plus - 阿尔蒂斯安魂曲</Chinesesimp>
+        <Chinesesimp>Antistasi Plus - 阿尔蒂斯安魂曲</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
@@ -2253,7 +2253,7 @@
         <German>Antistasi Plus - Alarmstufe Rot</German>
         <Russian>Antistasi Plus - Код Красный</Russian>
         <Czech>Antistasi Plus - Červený kód</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>阿尔提斯Plus - 红色代码</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_weferlingen_mapname_short_text">
         <Original>Antistasi Plus - Code Red</Original>
@@ -2262,7 +2262,7 @@
         <German>Antistasi Plus - Alarmstufe Rot</German>
         <Russian>Antistasi Plus - Код Красный</Russian>
         <Czech>Antistasi Plus - Červený kód</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>阿尔提斯Plus - 红色代码</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_weferlingen_blurb_text">
         <Original>Border crossing never has been so easy.</Original>
@@ -2271,7 +2271,7 @@
         <French>Le passage des frontières n'a jamais été aussi facile..</French>
         <Russian>Пересечение границы еще никогда не было таким простым..</Russian>
         <Czech>Hraniční přechod nikdy nebyl tak snadný..</Czech>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>越境从未如此容易。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_taviana_mapname_text">
         <Original>Antistasi Plus - The Red Dawn</Original>
@@ -2405,7 +2405,7 @@
         <French>Antistasi Plus - Takistan</French>
         <Czech>Antistasi Plus - Takistan</Czech>
         <Russian>Antistasi Plus - Такистан</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>Antistasi Plus - 塔吉克斯坦</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
         <Original>Antistasi Plus - Takistan</Original>
@@ -2414,7 +2414,7 @@
         <French>Antistasi Plus - Takistan</French>
         <Czech>Antistasi Plus - Takistan</Czech>
         <Russian>Antistasi Plus - Такистан</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>Antistasi Plus - 塔吉克斯坦</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_blurb_text">
         <Original>Not your kind of people.</Original>
@@ -2423,7 +2423,7 @@
         <French>Pas votre genre de personnes.</French>
         <Czech>Ne tvůj typ lidí.</Czech>
         <Russian>Не твой тип людей.</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>不是你这种人。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_vidda_blurb_text">
         <Original>The night is bright and full of guerillas.</Original>
@@ -2441,7 +2441,7 @@
         <French>Antistasi Plus - Nordvakt</French>
         <Czech>Antistasi Plus - Nordvakt</Czech>
         <Russian>Antistasi Plus - Северный Дозор</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>Antistasi Plus - 诺德瓦克特</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_vidda_mapname_short_text">
         <Original>Antistasi Plus - Nordvakt</Original>
@@ -2450,7 +2450,7 @@
         <French>Antistasi Plus - Nordvakt</French>
         <Czech>Antistasi Plus - Nordvakt</Czech>
         <Russian>Antistasi Plus - Северный Дозор</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>Antistasi Plus - 诺德瓦克特</Chinesesimp>
       </Key>
     </Container>
     <Container name="journal_entries">
@@ -2661,7 +2661,7 @@
         <French>Demandez à Petros tout type de mission que vous souhaitez. La disponibilité de la mission dépend du positionnement du QG, des tâches actuellement attribuées et de la propriété des zones environnantes.</French>
         <German>Befrage Maru/Petros nach einer gewünschten Mission. Die Verfügbarkeit der Missionen ist abhängig von der Position des HQs, der momentan zugewiesenen Aufgaben und der Zugehörigkeit der umgebenen Bereiche.</German>
         <Czech>Zeptejte se Petrose na jakýkoli typ mise, kterou chcete. Dostupnost mise závisí na umístění velitelství, aktuálně přidělených úkolech a vlastnictví okolních oblastí.</Czech>
-        <Chinesesimp>向Petros申请任何你想要的任务。任务的可用性取决于总部的位置、当前已分配的任务和周围地区的所有权。</Chinesesimp>
+        <Chinesesimp>向Petros将军申请任何你想要的任务。任务的可用性取决于总部的位置、当前已分配的任务和周围地区的所有权。</Chinesesimp>
         <Korean>원하는 타입의 사이드 미션을 페트로에게 문의하십시오. HQ의 위치, 현재 할당된 임무, 주변지역의 소유에 따라 결정됩니다.</Korean>
         <Russian>Спрашивайте у Петроса любую миссию, какую захотите. Доступность миссии зависит от расположения штаб-квартиры, текущих назначенных задач и владения прилегающими территориями.</Russian>
       </Key>
@@ -2905,6 +2905,7 @@
         <German>Commander-Menü</German>
         <Czech>Nabídka Commander</Czech>
         <Russian>Меню командира</Russian>
+        <Chinesesimp>指挥官菜单</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
         <Original>Press CTRL+T to enter Commander Menu.</Original>
@@ -2912,6 +2913,7 @@
         <German>Drücken Sie CTRL+T, um das Commander-Menü aufzurufen.</German>
         <Czech>Stisknutím tlačítka CTRL+T otevřete nabídku Commander.</Czech>
         <Russian>Нажмите CTRL+T, чтобы попасть в меню командира стороны.</Russian>
+        <Chinesesimp>按CTRL+T键进入指挥官菜单。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
         <Original>Toggle Information String Visibility</Original>
@@ -2919,21 +2921,25 @@
         <German>Toggle Sichtbarkeit von Informationszeichenfolgen</German>
         <Czech>Přepnout viditelnost řetězce informací</Czech>
         <Russian>Переключить видимость информационной строки</Russian>
+        <Chinesesimp>切换信息字符串可见性</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
         <Original>Press INSERT to show/hide information string at top of the screen.</Original>
         <French>Appuyez sur INSERT pour afficher/masquer la chaîne d'informations en haut de l'écran.</French>
         <German>Drücken Sie EINFÜGEN, um die Informationszeichenfolge oben auf dem Bildschirm anzuzeigen/auszublenden.</German>
         <Czech>Stisknutím INSERT zobrazíte/skryjete informační řetězec v horní části obrazovky.</Czech>
-        <Russian>Нажмите INSERT, чтобы показать / скрыть информационную строку вверху экрана.</Russian>
+        <Chinesesimp>按INSERT可在屏幕顶部显示/隐藏信息字符串。</Chinesesimp>
+	<Russian>Нажмите INSERT, чтобы показать / скрыть информационную строку вверху экрана.</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_7">
         <Original>Toggle Info Bar Visibility</Original>
         <Russian>Переключить видимость информ. строки</Russian>
+        <Chinesesimp>切换信息栏可见性</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_7">
         <Original>Press CTRL+HOME to show / hide information bar at the top of the screen.</Original>
         <Russian>Нажмите CTRL+HOME, чтобы отобразить/скрыть информационную строку в верхней части экрана.</Russian>
+        <Chinesesimp>按CTRL+HOME可在屏幕顶部显示/隐藏信息栏。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
@@ -3003,7 +3009,7 @@
         <French>Récupérez des objets, des armes et des magazines et mettez-les dans votre Arsenal au QG. Une fois que vous en avez un nombre spécifique, ils seront déverrouillés et ajoutés à l'arsenal pour un usage personnel (et pour vos escouades de faction).&lt;br/&gt;Le montant requis pour déverrouiller dépend du nombre d'actifs débloqués par la faction et du nombre d'usines possédées. Les armes déverrouillées, les viseurs et les lunettes de vision nocturne peuvent également modifier les équipements de vos IA. Les miliciens de base sont particulièrement touchés par cela: leur équipement commencera par de petites SMG et passera à un lanceur AA / AT supplémentaire. Veuillez noter que cela n'affectera pas leur tenue, qui dépendra du niveau de compétence de faction actuel (casques et uniformes). Arsenal est l'arsenal BIS standard, consultez leur documentation pour l'interaction et l'utilisation.&lt;br/&gt;&lt;br/&gt;Pour voir les montants nécessaires pour déverrouiller chaque groupe d'articles, ouvrez l'Arsenal au QG et vous recevrez un rapport détaillé sur la droite.</French>
         <German>Sammle Gegenstände, Waffen und Magazine, um sie in das Munitionslager deines HQs abzulegen. Sobald du eine bestimmte Anzahl eines Gegenstands vorrätig hast, wird er im Arsenal für den persönlichen Gebrauch durch dich und den Gruppen deiner Fraktion freigeschaltet.&lt;br/&gt;Die benötigte Anzahl zur Freischaltung hängt davon ab, wie viele Gegenstände die Fraktion bereits freigeschaltet hat und wie viele Fabriken im Besitz der Fraktion sind. Freigeschaltete Waffen, Visiere und Nachtsichtgeräte können auch die Ausrüstung deiner KI Einheiten verändern. Einfache Milizen sind davon im speziellen betroffen: Ihre Ausrüstung ist zu Beginn ein einfaches SMG und erweitert sich auf zusätzliche Luft- und Panzerabwehrwaffen. Beachte, dass dies nicht ihre Kleidung (Uniform und Helm) beeinflusst, da dies von dem Fertigkeitslevel der Fraktion abhängt. Das Arsenal ist das standard BI Arsenal, also nutze die darüber verfügbare Dokumentation für Bedienungshinweise.&lt;br/&gt;&lt;br/&gt;Um die notwendige Anzahl zum Freischalten von Gegenständen einzusehen, öffne das Munitionslager im HQ und du erhälst eine Auflistung am rechten Bildschirmrand.</German>
         <Czech>Hledejte předměty, zbraně a zásobníky a vložte je do svého arzenálu. Jakmile budete mít určité množství z nich, budou odemčeny a přidány do Arzenálu pro osobní potřebu (a pro vaše frakce družstva).&lt;br/&gt;Částka potřebná k odemčení závisí na tom, kolik aktiv frakce odemkla a počet vlastněných továren. Odemčené zbraně, optika a noční vidění může také změnit vybavení AI. Základní milicionáři jsou tímto obzvláště postiženi: jejich vybavení začne od malých SMG až po odpalovací zařízení AA / AT. Vezměte prosím na vědomí, že to nebude mít vliv na jejich oblečení, které bude záviset na aktuální úrovni dovedností frakce (přilby a uniformy). Arzenal je standardní BIS Arsenal, zkontrolujte jejich dokumentaci pro interakci a použití.&lt;br/&gt;&lt;br/&gt; Chcete-li zobrazit částky potřebné k odemknutí každé skupiny položek, otevřete okno hq a obdržíte podrobnou zprávu vpravo.</Czech>
-        <Chinesesimp>搜寻物品、武器和弹夹, 并将其放进总部的弹药箱中。当你拥有超过一定数量的物品之后, 它们将会解锁并添加到军火库以供个人(以及阵营班组)使用。&lt;br/&gt;解锁物品所需的数量取决于我方阵营已解锁的资产和拥有的工厂数量。解锁的武器、瞄具和夜视仪也会改变AI的装备。最基础的民兵将尤其受此影响: 他们的装备将从小型冲锋枪开始, 发展到拥有一个额外的防空/反坦克发射器。请注意, 这不会影响到AI小队的着装, 而着装(头盔和制服)取决于我方阵营当前的技能等级。军火库是标准的BIS军火库, 查看它们的文档来了解如何交互和使用。&lt;br/&gt;&lt;br/&gt;要查看解锁每组物品所需的数量, 打开总部的弹药箱, 你将在右侧看到详细报告。</Chinesesimp>
+        <Chinesesimp>搜寻物品、武器和弹匣, 并将其放进总部的弹药箱中。当你拥有超过一定数量的物品之后, 它们将会解锁并添加到军火库以供个人(以及阵营班组)使用。&lt;br/&gt;解锁物品所需的数量取决于我方阵营已解锁的资产和拥有的工厂数量。解锁的武器、瞄具和夜视仪也会改变AI的装备。最基础的民兵将尤其受此影响: 他们的装备将从小型冲锋枪开始, 发展到拥有一个额外的防空/反坦克发射器。请注意, 这不会影响到AI小队的着装, 而着装(头盔和制服)取决于我方阵营当前的技能等级。军火库是标准的BIS军火库, 查看它们的文档来了解如何交互和使用。&lt;br/&gt;&lt;br/&gt;要查看解锁每组物品所需的数量, 打开总部的弹药箱, 你将在右侧看到详细报告。</Chinesesimp>
         <Korean>아이템, 무기 탄약을 모아 HQ 탄약박스에 넣으십시오. 아이템이 특정 갯수가 넘으면 아스널에서 언락되고 개인적으로 사용할수 있습니다(AI 분대도 포함).&lt;br/&gt;언락하기 위한 조건은 팩션 자금과 점령한 공장 수에 따라 다릅니다. 언락된 무기, 광학장비, 야시경은 AI병사 장비도 바꿀 수 있습니다. 기본적인 민병대원는 언락된 무기에 영향받아 SMG에서 시작해서 중방비(AA/AT)까지 무장합니다. 팩션 스킬 레벨(헬멧과 유니폼)에 따라 달라지는 그들의 복장에는 영향을 주지 않습니다. 아스널은 표준 BIS 아스널입니다. 자세한건 BIS 문서를 확인하십시오.&lt;br/&gt;&lt;br/&gt;각 항목의 언락 조건을 보려면 HQ 탄약상자를 열면 오른쪽에 자세한 정보가 제공됩니다.</Korean>
         <Russian>Найдите предметы, оружие и журналы и положите их в ящик для боеприпасов в штаб-квартире. Как только у вас будет определенное количество их, они будут разблокированы и добавлены в Арсенал для личного использования (и для ваших отрядов фракции). &lt;br/&gt; Количество, необходимое для разблокировки, зависит от того, сколько активов разблокировала фракция. и количество принадлежащих фабрик. Разблокированное оружие, оптика и очки ночного видения также могут изменить загрузку ИИ. Это особенно касается обычных ополченцев: их снаряжение начнется с небольших пистолетов-пулеметов и перейдет к дополнительным зенитным / противотанковым гранатометам. Обратите внимание, это не повлияет на их одежду, которая будет зависеть от текущего уровня навыков фракции (шлемы и униформа). Арсенал - это стандартный арсенал BIS, проверьте его документацию для взаимодействия и использования. &lt;br/&gt;&lt;br/&gt; Чтобы увидеть суммы, необходимые для разблокировки каждой группы предметов, откройте HQ Ammobox, и вы получите подробный отчет справа</Russian>
       </Key>
@@ -3515,7 +3521,7 @@
         <French>Il y a une guerre tous contre tous dans %4. %1 et %2 s'attaquent constamment, mais cela ne signifie pas qu'ils ne tirent pas sur %3 à première vue.&lt;br/&gt;&lt;br/&gt; Les points %1 et %2 Aggro représentent la menace qu'ils voient dans la faction  %3.&lt;br/&gt;&lt;br/&gt;De manière générale, cette valeur augmentera et baissera en fonction de vos actions contre eux et les civils.</French>
         <German>Es ist ein Jeder gegen Jeden Krieg in %4. %1 und %2 greifen sind ununterbrochen gegenseitig an. Dies bedeutet aber nicht, dass sie nicht bei Kontakt direkt %3 angreifen.&lt;br/&gt;&lt;br/&gt;%1 und %2 Aggressivitätspunkte zeigen an, wie hoch diese die Bedrohung der %3 Fraktion einschätzen.&lt;br/&gt;&lt;br/&gt;Grundsätzlich erhöhen und verringern sich diese Werte gemäß deinen Unternehmungen gegen die jeweilige Fraktion oder die Zivilbevölkerung.</German>
         <Czech>V %4 je válka Všichni proti Všem. %1 a %2 neustále útočí na sebe, ale to neznamená, že na první pohled nestřílejí na %3.&lt;br/&gt;&lt;br/&gt;%1 a %2 Aggro body představují to, jak velkou hrozbu představují vidět ve frakci %3.&lt;br/&gt;&lt;br/&gt;Obecně řečeno, tyto body se budou snižovat nebo zvyšovat v závislosti na vašem jednání proti nim a civilistům.</Czech>
-        <Chinesesimp>%4 发生了全面战争。%1 和 %2 在持续地互相攻击, 但这并不意味着他们在见到 %3 时不会开火。&lt;br/&gt;&lt;br/&gt;%1 和 %2 点侵略性表示他们认为 %3 的威胁程度有多大。&lt;br/&gt;&lt;br/&gt;通常而言, 基于你对他们和平民的行动, 这一点数将会提升或降低。</Chinesesimp>
+        <Chinesesimp>%4 发生了全面战争。%1 和 %2 在持续地互相攻击, 但这并不意味着他们在见到 %3 时不会开火。&lt;br/&gt;&lt;br/&gt;%1 和 %2 点侵略性表示他们认为 %3 的威胁程度有多大。&lt;br/&gt;&lt;br/&gt;通常而言, 取决于你对他们和平民的行动, 这一点数将会提升或降低。</Chinesesimp>
         <Korean>%4는 프리 포 올 모드입니다. %1 과 %2는 주기적으로 서로를 공격하고, %3 또한 공격할것입니다.&lt;br/&gt;&lt;br/&gt;%1 and %2 위협 수치는 %3 에 대해 얼마나 공격하는지 보여주는 수치입니다.&lt;br/&gt;&lt;br/&gt; 시민과 해당 팩션에 하는 강도에 따라, 해당 수치는 조정됩니다.</Korean>
         <Russian>В %4 идет война Все против Всех. %1 и %2 постоянно атакуют друг друга, но это не значит, что они не стреляют по %3 с первого взгляда. &lt;br/&gt;&lt;br/&gt; %1 и %2 Агр-очков показывают, сколько угроза, которую они видят во фракции %3. &lt;br/&gt;&lt;br/&gt; В общем, эти очки будут уменьшаться или увеличиваться в зависимости от ваших действий против них и мирных жителей</Russian>
       </Key>
@@ -4134,7 +4140,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison">
         <Original>Garrison Units / Squads</Original>
-        <Chinesesimp>驻扎单位/班组</Chinesesimp>
+        <Chinesesimp>驻军单位/班组</Chinesesimp>
         <Russian>Добавить в гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison_tooltip">
@@ -4472,17 +4478,17 @@
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
         <Original>Information Bar</Original>
         <Russian>Информационная строка</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>信息栏</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off top information bar. To enable it, press CTRL+HOME.</Original>
         <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите CTRL+HOME.</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>您已关闭顶部信息栏。要启用它, 请按CTRL+HOME。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on top information bar. To disable it, press CTRL+HOME.</Original>
         <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите CTRL+HOME.</Russian>
-        <Chinesesimp></Chinesesimp>
+        <Chinesesimp>您已打开顶部信息栏。要禁用它, 请按CTRL+HOME。</Chinesesimp>
       </Key>
     </Container>
     <Container name="mortar_type">
@@ -4619,308 +4625,382 @@
         <Key ID="STR_HR_GRG_Generic_Cancel">
             <Original>Cancel</Original>
             <English>Cancel</English>
+            <Chinesesimp>取消</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Lock">
             <Original>(Un)Lock</Original>
             <English>(Un)Lock</English>
+            <Chinesesimp>(解除)锁定</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Confirm">
             <Original>Confirm</Original>
             <English>Confirm</English>
+            <Chinesesimp>确认</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Cars">
             <Original>Cars</Original>
             <English>Cars</English>
+            <Chinesesimp>车辆</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Armored">
             <Original>Armor</Original>
             <English>Armor</English>
+            <Chinesesimp>军火库</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Air">
             <Original>Aircraft</Original>
             <English>Aircraft</English>
+            <Chinesesimp>飞机</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_AirDisabled">
             <Original>You can only acces aircrafts from a friendly airbase</Original>
             <English>You can only acces aircrafts from a friendly airbase</English>
+            <Chinesesimp>你只能从友军空军基地取出飞机</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Boat">
             <Original>Ships</Original>
             <English>Ships</English>
+            <Chinesesimp>船只</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Static">
             <Original>Statics</Original>
             <English>Statics</English>
+            <Chinesesimp>固定武器</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Mounts">
             <Original>Mounts</Original>
             <English>Mounts</English>
+            <Chinesesimp>装载</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Texture">
             <Original>Texture</Original>
             <English>Texture</English>
+            <Chinesesimp>贴图</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Anim">
             <Original>Customize</Original>
             <English>Customize</English>
+            <Chinesesimp>定制</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Pylons">
             <Original>Pylons</Original>
             <English>Pylons</English>
+            <Chinesesimp>挂架</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Generic_PylonDisabled">
             <Original>Pylons require an ammo source to edit</Original>
             <English>Pylons require an ammo source to edit</English>
+            <Chinesesimp>挂架需要一个弹药源(弹药车）来编辑</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_Header">
             <Original>Sources:</Original>
             <English>Sources:</English>
+            <Chinesesimp>资料来源: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Available">
             <Original>Vehicles will be rearmed when ungaraged</Original>
             <English>Vehicles will be rearmed when ungaraged</English>
+            <Chinesesimp>车辆脱钩后将重新武装</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
             <Original>Vehicles won't be rearmed when ungaraged as the garage lacks a ammo source</Original>
             <English>Vehicles won't be rearmed when ungaraged as the garage lacks a ammo source</English>
+            <Chinesesimp>由于车库缺乏弹药来源, 车辆在解除武装时无法重新武装</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled">
             <Original>Rearm disabled by server</Original>
             <English>Rearm disabled by server</English>
+            <Chinesesimp>服务器已禁用重新武装</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
             <Original>Vehicles will be refueled when ungaraged</Original>
             <English>Vehicles will be refueled when ungaraged</English>
+            <Chinesesimp>车辆将在出库时加油</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable">
             <Original>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</Original>
             <English>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</English>
+            <Chinesesimp>由于车库缺乏燃料来源, 车辆在出库时不会加油</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
             <Original>Refuel disabled by server settings</Original>
             <English>Refuel disabled by server settings</English>
+            <Chinesesimp>服务器设定禁用加油</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
             <Original>Vehicles will be repaired when ungaraged</Original>
             <English>Vehicles will be repaired when ungaraged</English>
+            <Chinesesimp>车辆将在出库时进行维修</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable">
             <Original>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</Original>
             <English>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</English>
+            <Chinesesimp>由于车库缺少维修来源, 车辆在出库时将无法维修</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
             <Original>Repair disabled by server settings</Original>
             <English>Repair disabled by server settings</English>
+            <Chinesesimp>服务器已禁用维修</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>
             <English>Vehicle is an ammo source</English>
+            <Chinesesimp>该车辆是一种弹药源</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isFuelSource">
             <Original>Vehicle is an fuel source</Original>
             <English>Vehicle is an fuel source</English>
+            <Chinesesimp>该车辆是一种油料源</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isRepairSource">
             <Original>Vehicle is an repair source</Original>
             <English>Vehicle is an repair source</English>
+            <Chinesesimp>该车辆是一种维修源</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isNotSource">
             <Original>Vehicle is not a source</Original>
             <English>Vehicle is not a source</English>
+            <Chinesesimp>车辆不能提供任何来源</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Seats">
             <Original>Seats:</Original>
             <English>Seats:</English>
+            <Chinesesimp>座位: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Cargo">
             <Original>Cargo:</Original>
             <English>Cargo:</English>
+            <Chinesesimp>货物: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
             <Original>Ace Cargo:</Original>
             <English>Ace Cargo:</English>
+            <Chinesesimp>ACE货物</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Capacity">
             <Original>Capacity:</Original>
             <English>Capacity:</English>
+            <Chinesesimp>容量: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Available">
             <Original>Available:</Original>
             <English>Available:</English>
+            <Chinesesimp>提供: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Speed">
             <Original>Top speed:</Original>
             <English>Top speed:</English>
+            <Chinesesimp>最高速度: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_HP">
             <Original>Horse power:</Original>
             <English>Horse power:</English>
+            <Chinesesimp>马力: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Mass">
             <Original>Mass:</Original>
             <English>Mass:</English>
+            <Chinesesimp>质量: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_openGarage_Action">
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</English>
+            <Chinesesimp>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; 打开车库</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_addVehicle_Action">
             <!--%1 is display name of vehicle-->
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
             <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</English>
+            <Chinesesimp>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; 车库 %1</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Null">
             <Original>You are not looking at a vehicle</Original>
             <English>You are not looking at a vehicle</English>
+            <Chinesesimp>你眼前的不是载具</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_confirm_NullSelection">
             <Original>No vehicle selected</Original>
             <English>No vehicle selected</English>
+            <Chinesesimp>未选择任何车辆</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_SATow">
             <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
             <English>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</English>
+            <Chinesesimp>您不能在牵引绳伸出或车辆连接的情况下将车辆停放在车库中</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_LTC">
             <Original>Loot crate stored</Original>
             <English>Loot crate stored</English>
+            <Chinesesimp>存放战利品的箱子</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_LightSource_Stored">
             <Original>Light stored</Original>
             <English>Light stored</English>
+            <Chinesesimp>轻型储存</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>
             <English>You can't garage vehicles that are more than 25m away from you</English>
+            <Chinesesimp>你不能储存距离你25米以上的车辆</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Destroyed">
             <Original>You can't garage a destroyed vehicle</Original>
             <English>You can't garage a destroyed vehicle</English>
+            <Chinesesimp>你不能把一辆被毁的车停在车库里</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Locked">
             <Original>You can't garage a locked vehicle</Original>
             <English>You can't garage a locked vehicle</English>
+            <Chinesesimp>你不能把锁着的车停在车库里</Chinesesimp>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
             <Original>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</Original>
             <English>You and the vehicle need to be in a %1 garrison surrounding in order to garage a it</English>
+            <Chinesesimp>您和车辆需要在%1守备区周围才能存车</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesEngaging">
             <Original>You can't garage vehicles while enemies are engaging you</Original>
             <English>You can't garage vehicles while enemies are engaging you</English>
+            <Chinesesimp>当敌人与你交战时, 你不能存储汽车</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesNear">
             <Original>You can't garage vehicles while enemies are near you</Original>
             <English>You can't garage vehicles while enemies are near you</English>
+            <Chinesesimp>当敌人在你附近时, 你不能存储汽车</Chinesesimp>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_airBlocked">
             <Original>You can't garage a aircraft while you are not near an Aiport which belongs to %1. Please move your aircraft to an Airport to garage it</Original>
             <English>You can't garage a aircraft while you are not near an Aiport which belongs to %1. Please move your aircraft to an Airport to garage it</English>
+            <Chinesesimp>当您不在属于%1的机场附近时, 您不能停放飞机。请将您的飞机移至机场停放</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_GenericFail">
             <Original>You can't garage this</Original>
             <English>You can't garage this</English>
+            <Chinesesimp>你不能停放这个</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_inVehicle">
             <Original>You can't garage a vehicle while in another vehicle</Original>
             <English>You can't garage a vehicle while in another vehicle</English>
+            <Chinesesimp>你不能在另一辆车上存车</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
             <Original>You can't garage a vehicle with crew inside</Original>
             <English>You can't garage a vehicle with crew inside</English>
+            <Chinesesimp>你不能在车内有乘员的情况下停车</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Capacity">
             <Original>Theres not enough room to garage this vehicle</Original>
             <English>Theres not enough room to garage this vehicle</English>
+            <Chinesesimp>没有足够的空间停放这辆车</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Success">
             <!--%1 is display name of vehicle-->
             <Original>%1 Garaged</Original>
             <English>%1 Garaged</English>
+            <Chinesesimp>%1 停放</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_requestMount_Denied">
             <Original>Cant mount static</Original>
             <English>Cant mount static</English>
+            <Chinesesimp>不能安装静固定武器</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_checkedOutToolTip">
             <!-- name is appended on at the start with a spcae in between-->
             <Original>is looking at this vehicle.</Original>
             <English>is looking at this vehicle.</English>
+            <Chinesesimp>正在看这辆车。</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_LockedToolTip">
             <!-- name is appended on at the end with a spcae in between-->
             <Original>Vehicle is locked by</Original>
             <English>Vehicle is locked by</English>
+            <Chinesesimp>锁定载具的是</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
             <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
             <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</English>
+            <Chinesesimp>&lt;t size='0.6'&gt;向左旋转: Q &lt;br/&gt;向右旋转: E &lt;br/&gt;取消: 回车/退出 &lt;br/&gt;放置: 空格&lt;/t&gt;</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_TooFar">
             <Original>&lt;t size='0.6'&gt;Cant place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Cant place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <Chinesesimp>&lt;t size='0.6'&gt;不能把车放那么远 &lt;br/&gt;取消: 回车/退出 &lt;/t&gt;</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Blocked">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <Chinesesimp>&lt;t size='0.6'&gt;有东西挡住了位置 &lt;br/&gt; 向左旋转: Q &lt;br/&gt;向右旋转: E &lt;br/&gt;取消: 回车/ESC &lt;/t&gt;</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CallbackFailed">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
             <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <Chinesesimp>&lt;t size='0.6'&gt;有东西挡住了位置 &lt;br/&gt; 向左旋转: Q &lt;br/&gt;向右旋转: E &lt;br/&gt;取消: 回车/ESC &lt;/t&gt;</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Controls">
             <Original>Camera controls</Original>
             <English>Camera controls</English>
+            <Chinesesimp>摄像机控制</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Rotate">
             <Original>Rotate: Right Mouse Button + Move mouse</Original>
             <English>Rotate: Right Mouse Button + Move mouse</English>
+            <Chinesesimp>旋转: 鼠标右键+移动鼠标</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Zoom">
             <Original>Zoom: Right Mouse Button + Mouse wheel</Original>
             <English>Zoom: Right Mouse Button + Mouse wheel</English>
+            <Chinesesimp>缩放: 鼠标右键+鼠标滚轮</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Mirror">
             <Original>Mirror</Original>
             <English>Mirror</English>
+            <Chinesesimp>镜子</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_CustomPreset">
             <Original>[Custom preset]</Original>
             <English>[Custom preset]</English>
+            <Chinesesimp>[自定义预设]</Chinesesimp>
         </Key>
         <!--%1 is pylon number-->
         <Key ID="STR_HR_GRG_Pylons_PylonText">
             <Original>Pylon %1</Original>
             <English>Pylon %1</English>
+            <Chinesesimp>挂架 %1</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Empty">
             <Original>[Empty]</Original>
             <English>[Empty]</English>
+            <Chinesesimp>[空]</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_noPylons">
             <Original>No pylon customizations for:</Original>
             <English>No pylon customizations for:</English>
+            <Chinesesimp>没有针对以下对象的自定义挂架: </Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Gunner">
             <Original>Gunner</Original>
             <English>Gunner</English>
+            <Chinesesimp>炮手</Chinesesimp>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Driver">
             <Original>Driver</Original>
             <English>Driver</English>
+            <Chinesesimp>驾驶员</Chinesesimp>
         </Key>
         </Container>
     <Container name="Utility_Items">
         <Key ID="STR_A3A_Utility_Items_Feedback_Normal">
             <Original>Q/E to rotate - Space/Enter to stop.</Original>
             <English>Q/E to rotate - Space/Enter to stop.</English>
+            <Chinesesimp>Q/E旋转-空格/回车停止。</Chinesesimp>
         </Key>
         <Key ID="STR_A3A_Utility_Items_Feedback_Far">
             <Original>You're too far</Original>
             <English>You're too far</English>
+            <Chinesesimp>你太远了</Chinesesimp>
         </Key>
     </Container>
     <Container name="time_units">
@@ -5023,14 +5103,17 @@
     <Container name ="Base">
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_Healed">
         <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt; Nearby vehicles are no longer reported.</Original>
+        <Chinesesimp>附近的单位已被治疗, 恢复体力, 可以再次进行卧底。&lt;br/&gt;&lt;br/&gt;附近的车辆不再被报告。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
         <Original>The box has been used in the last 30 seconds! Please wait for a bit.</Original>
+        <Chinesesimp>这个箱子30秒内已经被使用了! 请稍等。</Chinesesimp>
       </Key>
     </Container>
     <Container name ="singleWord">
       <Key ID="STR_antistasi_singleWord_Heal">
         <Original>Heal</Original>
+        <Chinesesimp>医疗</Chinesesimp>
       </Key>
     </Container>
     <Container name="loot_actions">
