@@ -108,7 +108,7 @@ if (_checkX) exitWith {
 
 if (count _positionTel > 0) then {
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
-	private _rebelMarkers = if (!isNil "traderMarker") then {["SYND_HQ", traderMarker]} else {["SYND_HQ"]}; 
+	private _rebelMarkers = if (!isNil "traderMarker") then {["Synd_HQ", traderMarker]} else {["Synd_HQ"]}; 
 	
 	if (_checkForPlayer && {!(_base in (_rebelMarkers + airportsX + milbases))}) exitWith {
 		["Fast Travel", "Player groups are only allowed to Fast Travel to HQ, Airbases, Military Bases and Arms Dealer Store"] call SCRT_fnc_misc_showDeniedActionHint;

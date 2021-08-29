@@ -19,8 +19,8 @@ if ({isPlayer _x} count crew _veh > 0) exitWith {
 	["Airstrike", "In order to convert, Vehicle must be empty."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
-if (bombRuns > 9) exitWith {
-	["Airstrike", "There can be no more than 10 available airstrikes."] call SCRT_fnc_misc_showDeniedActionHint;
+if (bombRuns > 4) exitWith {
+	["Airstrike", "There can be no more than 5 available airstrikes."] call SCRT_fnc_misc_showDeniedActionHint;
 };
 
 _owner = _veh getVariable "ownerX";
@@ -59,8 +59,8 @@ if ((_typeX in vehCSATPlanes) or (_typeX in vehNATOPlanes)) then {_pointsX = 10}
 deleteVehicle _veh;
 
 private _newBombRuns = bombRuns + _pointsX;
-if (_newBombRuns > 10) then {
-	_newBombRuns = 10;
+if (_newBombRuns > 5) then {
+	_newBombRuns = 5;
 };
 
 ["Airstrike", "Air Support points has been increased."] call A3A_fnc_customHint;

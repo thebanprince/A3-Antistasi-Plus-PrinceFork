@@ -37,6 +37,12 @@ switch (_key) do {
         [] call SCRT_fnc_ui_toggleCommanderMenu;
     };
 
+    case DIK_TAB: {
+		if (!(isNil "isProjectileLaunched") && {isProjectileLaunched}) then {
+			isProjectileInterrupted = true;
+		};
+	};
+
     case DIK_END: {
         if (!A3A_hasACEHearing) then {
             if (soundVolume <= 0.5) then {
