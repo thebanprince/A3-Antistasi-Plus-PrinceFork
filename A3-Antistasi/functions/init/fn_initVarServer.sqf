@@ -140,8 +140,8 @@ DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
 prestigeBLUFOR = 0;																	//Initial % FIA support on each city
 // Indicates time in seconds before next counter attack.
-attackCountdownOccupants = 600;
-attackCountdownInvaders = 600;
+attackCountdownOccupants = 1200;
+attackCountdownInvaders = 1200;
 
 cityIsSupportChanging = false;
 resourcesIsChanging = false;

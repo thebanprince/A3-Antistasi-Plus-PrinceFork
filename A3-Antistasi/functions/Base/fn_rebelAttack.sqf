@@ -407,9 +407,9 @@ else
 		+ (count allPlayers / 20)
 		+ (tierWar / 5);
 
-    //four waves max
-    if(_waves > 4) then {
-        _waves = 4;
+    //three waves max
+    if(_waves > 3) then {
+        _waves = 3;
     };
 
 	_waves = round _waves;

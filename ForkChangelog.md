@@ -7,6 +7,9 @@
 ### Changes
 - 2.5.2 Community Version merge (garrison corruption fix, some small fixes of core systems of Antistasi)
 - Introduced cap on Airstrikes - 5
+- Increased MORTAR support distance up to 4 kilometers
+- If distance is too short for howitzer, howitzer will be swapped with ordinary mortar
+- Reduced big attacks max waves to 3
 - Changed condition on Arms Dealer store distance check (should eliminate "you're not near Arms Dealer" error when buying vehicle from him)
 - Ability to fast travel to Arms Dealer store when Fast Travel mission parameter has Limited value
 - Fixed missing Tab key functionality (skip projectile camera following)
