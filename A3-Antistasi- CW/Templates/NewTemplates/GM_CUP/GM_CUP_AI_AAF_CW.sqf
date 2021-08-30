@@ -107,8 +107,8 @@
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC", "CUP_B_RHIB_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["cwr3_b_frs1_cas"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["cwr3_b_frs1_cas"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["CUP_B_GR9_DYN_GB"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["CUP_B_GR9_DYN_GB"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_C130J_GB"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["ACM_AAFGM_PAH1", "ACM_AAFGM_Heli_Light_01"]] call _fnc_saveToTemplate;
@@ -397,8 +397,7 @@ _eliteLoadoutData setVariable ["sniperRifles", [
 ["CUP_srifle_M107_Base", "", "", "CUP_optic_LeupoldMk4_25x50_LRT", [], [], ""]
 ]];
 _eliteLoadoutData setVariable ["sidearms", [
-["CUP_hgun_Glock17_blk", "", "CUP_acc_Glock17_Flashlight", "", [], [], ""],
-["CUP_hgun_M17_Black", "", "CUP_acc_Glock17_Flashlight", "", [], [], ""]
+[""CUP_hgun_Colt1911"", "", "", "", [], [], ""],
 ]];
 
 ///////////////////////////////
@@ -413,7 +412,7 @@ _policeLoadoutData setVariable ["smgs", [
 ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5"], [], ""],
 ["CUP_smg_MP5A5_flashlight", "", "", "", ["CUP_30Rnd_9x19_MP5"], [], ""]
 ]];
-_policeLoadoutData setVariable ["sidearms", ["hgun_Rook40_F"]];
+_policeLoadoutData setVariable ["sidearms", ["CUP_hgun_Colt1911"]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
