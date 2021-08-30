@@ -8,29 +8,29 @@
 ["flagTexture", "ACM_90AAF\Vehicles\Tpz\FLA.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "CUP_I_TT650_NAPA"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "CUP_I_Hilux_unarmed_IND_G_F"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "CUP_I_Hilux_DSHKM_IND_G_F"] call _fnc_saveToTemplate;
-["vehicleTruck", "I_G_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleAT", "CUP_I_Hilux_SPG9_IND_G_F"] call _fnc_saveToTemplate;
-["vehicleAA", "CUP_I_Hilux_zu23_IND_G_F"] call _fnc_saveToTemplate;
+["vehicleBasic", "cwr3_c_jawa"] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", "cwr3_c_landrover_blue"] call _fnc_saveToTemplate;
+["vehicleLightArmed", "cwr3_i_uaz_dshkm"] call _fnc_saveToTemplate;
+["vehicleTruck", "cwr3_i_v3s"] call _fnc_saveToTemplate;
+["vehicleAT", "cwr3_i_uaz_spg9"] call _fnc_saveToTemplate;
+["vehicleAA", "cwr3_i_ural_zu23"] call _fnc_saveToTemplate;
 
-["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
-["vehicleFuel", "I_G_Van_01_fuel_F"] call _fnc_saveToTemplate;
+["vehicleBoat", "cwr3_i_zodiac"] call _fnc_saveToTemplate;
+["vehicleRepair", "cwr3_i_v3s_repair"] call _fnc_saveToTemplate;
+["vehicleFuel", "cwr3_i_v3s_refuel"] call _fnc_saveToTemplate;
 
-["vehiclePlane", "CUP_C_AN2_AIRTAK_TK_CIV"] call _fnc_saveToTemplate;
+["vehiclePlane", "cwr3_c_cessna"] call _fnc_saveToTemplate;
 ["vehiclePayloadPlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
 ["vehicleHeli", "not_supported"] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "CUP_O_Hilux_unarmed_CR_CIV"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "C_Heli_Light_01_civil_F"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivCar", "cwr3_c_landrover_blue"] call _fnc_saveToTemplate;
+["vehicleCivTruck", "cwr3_c_uaz452"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "not_supported"] call _fnc_saveToTemplate;
+["vehicleCivBoat", "cwr3_i_zodiac"] call _fnc_saveToTemplate;
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
-["staticAT", "CUP_I_SPG9_NAPA"] call _fnc_saveToTemplate;
-["staticAA", "CUP_I_ZU23_NAPA"] call _fnc_saveToTemplate;
+["staticAT", "cwr3_i_spg9"] call _fnc_saveToTemplate;
+["staticAA", "cwr3_i_zu23"] call _fnc_saveToTemplate;
 ["staticMortar", "CUP_I_M252_RACS"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -83,8 +83,7 @@
 ]] call _fnc_saveToTemplate;
 
 ["headgear", [
-    "CUP_H_Ger_Boonie2_Flecktarn",
-	"CUP_H_NAPA_Fedora",
+  "CUP_H_Ger_Boonie2_Flecktarn",
 	"CUP_H_C_Ushanka_01",
 	"CUP_H_C_Ushanka_02",
 	"CUP_H_C_Ushanka_03",
@@ -94,7 +93,6 @@
 	"CUP_H_C_Beret_03",
 	"CUP_H_C_Beret_04",
 	"CUP_H_US_BOONIE_Alpenflage",
-	"CUP_H_US_patrol_cap_alpenflage",
 	"H_Booniehat_khk_hs",
 	"H_Booniehat_tan",
 	"H_Cap_tan",
@@ -110,14 +108,12 @@
 
 
 private _initialRebelEquipment = [
-	"CUP_hgun_Mac10","CUP_hgun_TaurusTracker455", "CUP_hgun_Colt1911", "CUP_srifle_Remington700", "CUP_smg_Mac10",
+	,"CUP_hgun_Colt1911", "CUP_srifle_Remington700",
 	"CUP_6Rnd_762x51_R700", "CUP_30Rnd_45ACP_MAC10_M", "CUP_30Rnd_45ACP_Yellow_Tracer_MAC10_M", "CUP_30Rnd_45ACP_Green_Tracer_MAC10_M",
-	"CUP_7Rnd_45ACP_1911", "CUP_6Rnd_45ACP_M", "MiniGrenade", "SmokeShell",
-	"B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_AssaultPack_sgg",
+	"CUP_7Rnd_45ACP_1911", "CUP_6Rnd_45ACP_M", "SmokeShell",
 	"B_LegStrapBag_black_F", "B_LegStrapBag_coyote_F", "B_LegStrapBag_olive_F",
 	"B_Messenger_Black_F", "B_Messenger_Coyote_F", "B_Messenger_Gray_F", "B_Messenger_Olive_F", "CUP_B_ACRScout_m95",
-	"CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Light", "CUP_V_I_Guerilla_Jacket",
-	"Binocular","acc_flashlight", "Laserbatteries","acc_flashlight_smg_01","acc_flashlight_pistol"
+	"Binocular","acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -131,39 +127,39 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pus
 //       Antistasi Plus Stuff       //
 //////////////////////////////////////
 ["baseSoldiers", [ // Cases matter. Lower case here because allVariables on namespace returns lowercase
-	["militia_unarmed", "I_G_Survivor_F"],
-	["militia_rifleman", "I_G_Soldier_F"],
-	["militia_staticcrew", "I_G_Soldier_F"],
-	["militia_medic", "I_G_medic_F"],
-	["militia_sniper", "I_G_Sharpshooter_F"],
-	["militia_marksman", "I_G_Soldier_M_F"],
-	["militia_lat", "I_G_Soldier_LAT_F"],
-	["militia_machinegunner", "I_G_Soldier_AR_F"],
-	["militia_explosivesexpert", "I_G_Soldier_exp_F"],
-	["militia_grenadier", "I_G_Soldier_GL_F"],
-	["militia_squadleader", "I_G_Soldier_SL_F"],
-	["militia_engineer", "I_G_engineer_F"],
-	["militia_at", "I_Soldier_AT_F"],
+	["militia_unarmed", "cwr3_i_soldier_light"],
+	["militia_rifleman", "cwr3_i_soldier"],
+	["militia_staticcrew", "cwr3_i_soldier"],
+	["militia_medic", "cwr3_i_soldier_medic"],
+	["militia_sniper", "cwr3_i_soldier_sniper"],
+	["militia_marksman", "cwr3_i_soldier_marksman"],
+	["militia_lat", "cwr3_i_soldier_at_at4"],
+	["militia_machinegunner", "cwr3_i_soldier_mg"],
+	["militia_explosivesexpert", "cwr3_i_soldier_sapper"],
+	["militia_grenadier", "cwr3_i_soldier_gl"],
+	["militia_squadleader", "cwr3_i_soldier_sl"],
+	["militia_engineer", "cwr3_i_soldier_engineer"],
+	["militia_at", "cwr3_i_soldier_at_rpg75"],
 	["militia_aa", "I_Soldier_AA_F"],
-	["militia_petros", "I_G_officer_F"]
+	["militia_petros", "cwr3_i_officer"]
 ]] call _fnc_saveToTemplate;
 
 lootCrate = "Box_Syndicate_Ammo_F";
 rallyPoint = "B_RadioBag_01_wdl_F";
 
 //black market stuff
-shop_UAV = ["I_UAV_01_F"];
+shop_UAV = ["not_supported"];
 shop_AA = ["CUP_B_ZSU23_Afghan_CDF", "CUP_B_M163_USA", "CUP_O_2S6_RU"];
 shop_MRAP = ["CUP_I_BRDM2_HQ_NAPA", "CUP_I_BRDM2_NAPA", "CUP_B_RG31_M2_OD_USA"];
 shop_wheel_apc = ["CUP_B_BTR60_FIA", "CUP_B_BTR80_FIA", "CUP_I_LAV25M240_RACS"];
 shop_track_apc = ["CUP_B_MTLB_pk_FIA", "CUP_I_BMP1_TK_GUE", "CUP_I_BMP2_NAPA"];
 shop_heli = ["CUP_I_Ka60_GL_Blk_ION", "CUP_B_AW159_HIL", "I_Heli_light_03_dynamicLoadout_F"];
-shop_tank = ["CUP_I_T34_NAPA", "CUP_I_T55_NAPA", "CUP_B_M60A3_USMC"];
-shop_plane = ["CUP_I_L39_AAF", "I_Plane_Fighter_03_dynamicLoadout_F", "CUP_B_Su25_Dyn_CDF"];
+shop_tank = ["cwr3_i_t34", "cwr3_i_t55", "CUP_B_M60A3_USMC"];
+shop_plane = ["cwr3_i_l39_cap", "cwr3_i_l39_s5", "cwr3_i_l39_bombs"];
 
-additionalShopLight = ["CUP_B_HMMWV_M1114_USMC", "CUP_B_Jackal2_L2A1_FIA", "CUP_B_M1165_GMV_USMC"];
-additionalShopAtgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "CUP_I_BRDM2_ATGM_NAPA"];
-additionalShopManpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_O_LR_AA_TKM",  "CUP_B_HMMWV_Avenger_USMC"];
+additionalShopLight = ["CUP_B_HMMWV_M1114_USMC", "BTR-40 (DShKM)", "CUP_B_M1165_GMV_USMC"];
+additionalShopAtgmVehicles = ["CUP_B_UAZ_METIS_ACR", "CUP_B_M1167_USMC", "cwr3_i_brdm2um"];
+additionalShopManpadsVehicles = ["CUP_B_UAZ_AA_CDF", "CUP_O_LR_AA_TKM",  "cwr3_i_bmp2_zu23"];
 additionalShopArtillery = ["CUP_I_Hilux_podnos_IND_G_F", "CUP_I_Hilux_UB32_IND_G_F", "CUP_I_Hilux_MLRS_IND_G_F"];
 
 //technical menu content
