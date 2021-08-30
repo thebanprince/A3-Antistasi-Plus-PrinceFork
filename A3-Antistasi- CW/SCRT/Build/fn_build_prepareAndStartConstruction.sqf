@@ -97,17 +97,17 @@ construction_type = _constructionType;
 
 switch(_constructionType) do {
     case("TRENCH"): {
-        construction_buildingsAvailable = ["Land_SandbagBarricade_01_half_F", "Land_SandbagBarricade_01_F", "Land_BasaltKerb_01_pile_F", "Land_SandbagBarricade_01_hole_F", "Land_BagFence_01_long_green_F", "Land_BagFence_Round_F", "Land_BagFence_Long_F", "Land_BagFence_01_round_green_F"];
+        construction_buildingsAvailable = ["Land_SandbagBarricade_01_half_F", "Land_SandbagBarricade_01_F", "Land_BasaltKerb_01_pile_F", "Land_SandbagBarricade_01_hole_F", "Land_BagFence_01_long_green_F", "Land_BagFence_Round_F", "Land_BagFence_Long_F", "Land_BagFence_01_round_green_F", "CUP_kmen_1_buk"];
         construction_cost = 50;
         construction_buildTime = 30;
     };
     case("OBSTACLE"): {
-        construction_buildingsAvailable = ["Land_DragonsTeeth_01_1x1_old_F", "Land_Barricade_01_10m_F", "Land_Barricade_01_4m_F", "Land_GarbageWashingMachine_F", "Land_Fortress_01_bricks_v1_F", "Land_Fortress_01_bricks_v2_F","Land_WoodPile_large_F", "Land_JunkPile_F", "Land_WoodPile_F", "Land_Razorwire_F"];
+        construction_buildingsAvailable = ["Land_DragonsTeeth_01_1x1_old_F", "Land_Barricade_01_10m_F", "cwr3_logs", "Land_Barricade_01_4m_F", "Land_GarbageWashingMachine_F", "Land_Fortress_01_bricks_v1_F", "Land_Fortress_01_bricks_v2_F","Land_WoodPile_large_F", "Land_JunkPile_F", "Land_WoodPile_F", "Land_Razorwire_F"];
         construction_cost = 50;
         construction_buildTime = 25;
     };
     case("SANDBAG_BUNKER"): {
-        construction_buildingsAvailable = ["Land_BagBunker_01_small_green_F", "Fort_Nest", "Land_BagBunker_Large_F"];
+        construction_buildingsAvailable = ["Land_BagBunker_01_small_green_F", "Fort_Nest", "Land_BagBunker_Large_F", "land_gm_sandbags_02_bunker_high", "land_cwr3_fortress_big", "land_cwr3_tent2_medium"];
         construction_cost = 250;
         construction_buildTime = 60;
     };
@@ -117,11 +117,11 @@ switch(_constructionType) do {
         construction_buildTime = 90;
     };
     case("MISC"): {
-        construction_buildingsAvailable = ["CamoNet_BLUFOR_F", "CamoNet_BLUFOR_open_F", "CamoNet_BLUFOR_big_F", "Land_CanvasCover_02_F", "Land_CanvasCover_01_F", "Land_LampShabby_F"];
+        construction_buildingsAvailable = ["CamoNet_BLUFOR_F", "CamoNet_BLUFOR_open_F", "CamoNet_BLUFOR_big_F", "Land_CanvasCover_02_F", "Land_CanvasCover_01_F", "Land_LampShabby_F", "Land_Camping_Light_F", "land_cwr3_tent1a", "Land_Campfire" ];
         construction_cost = 10;
         construction_buildTime = 20;
     };
-    default { 
+    default {
         [1, format ["Bad Construction Type - %1 ", _constructionType], _fileName] call A3A_fnc_log;
     };
 };
@@ -130,7 +130,7 @@ if (count construction_buildingsAvailable < 1) exitWith {
     [3, "Unable to select buildings pool, exiting function.", _fileName] call A3A_fnc_log;
     construction_buildingsAvailable = nil;
     construction_buildingIndex = nil;
-    construction_cost = nil; 
+    construction_cost = nil;
     construction_selectedEngineer = nil;
     construction_buildTime = nil;
     construction_type = nil;
@@ -143,7 +143,7 @@ if (_constructionType in ["SANDBAG_BUNKER", "CONCRETE_BUNKER"] && {!(_playerPosi
     ["Construction", "You cannot build a bunker outside a controlled zone."] call SCRT_fnc_misc_showDeniedActionHint;
 	construction_buildingsAvailable = nil;
     construction_buildingIndex = nil;
-    construction_cost = nil; 
+    construction_cost = nil;
     construction_selectedEngineer = nil;
     construction_buildTime = nil;
     construction_type = nil;
@@ -180,7 +180,7 @@ if (isNil "construction_keyDownHandler") then {
             } else {
                 construction_buildingIndex = construction_buildingIndex - 1;
             };
-            
+
 		    private _type = construction_buildingsAvailable select construction_buildingIndex;
 			[_type] call A3A_fnc_vehPlacementChangeVehicle;
 		};
@@ -194,7 +194,7 @@ if (_money < construction_cost) exitWith {
     ["Construction", format ["You do not have enough money for this vehicle: %1 € required", construction_cost]] call SCRT_fnc_misc_showDeniedActionHint;
     construction_buildingsAvailable = nil;
     construction_buildingIndex = nil;
-    construction_cost = nil; 
+    construction_cost = nil;
     construction_selectedEngineer = nil;
     construction_buildTime = nil;
     construction_type = nil;
